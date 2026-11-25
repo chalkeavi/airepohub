@@ -1,0 +1,262 @@
+{
+  "fullName": "google-gemini/gemini-cli",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/google-gemini/gemini-cli/blob/08e9a20f749aefcbda38622ac757899c3d6216e0/README.md"
+    ],
+    "sourceCommitSha": "08e9a20f749aefcbda38622ac757899c3d6216e0",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Run without installing",
+        "command": "npx @google/gemini-cli"
+      },
+      {
+        "comment": "Install globally with npm",
+        "command": "npm install -g @google/gemini-cli"
+      },
+      {
+        "comment": "Or with Homebrew",
+        "command": "brew install gemini-cli"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Gemini CLI is Google's open-source terminal agent for working with code using Gemini models. It is now maintained mainly for organisations using Gemini Code Assist Standard or Enterprise on Google Cloud.",
+      "problem": "Developers want an AI agent in the terminal that can read a large codebase, edit it, debug problems and automate tasks. Gemini CLI does that with Gemini models, MCP servers and a non-interactive mode for scripts.",
+      "whoFor": [
+        "Organisations with Gemini Code Assist Standard or Enterprise",
+        "Teams using Code Assist for GitHub on Google Cloud",
+        "Developers with paid Gemini API or Vertex AI keys",
+        "People scripting codebase questions in CI"
+      ],
+      "whyChoose": "Choose it if your organisation has a Gemini Code Assist license. The README says free individual access and Google AI Pro / Ultra moved to Antigravity CLI on June 18, 2026, and Gemini CLI isn't tuned for Gemini 4 models.",
+      "requirements": [
+        "Node.js (or Homebrew, MacPorts or conda)",
+        "A Gemini Code Assist license, a paid Gemini API key, or Vertex AI access"
+      ]
+    },
+    "overview": [
+      "Gemini CLI is a terminal agent that can query and edit large codebases, build apps from PDFs, images or sketches, debug with natural language, and automate tasks like querying pull requests or handling rebases. MCP servers add capabilities, such as media generation with Imagen, Veo or Lyria.",
+      "It can run interactively in your project directory or non-interactively with -p for scripts, with JSON or streaming JSON output. You can include extra directories and choose a model.",
+      "The README now points most individuals elsewhere: Antigravity CLI for free and Google AI Pro / Ultra accounts and Gemini 4, and the Gemini API CLI for stateless API commands. Gemini CLI remains for enterprise Code Assist workflows and legacy paid API or Vertex keys. Preview, stable and nightly release channels are published."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Codebase understanding",
+        "body": "Query and edit large codebases from the terminal."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Multimodal input",
+        "body": "Generate apps from PDFs, images or sketches."
+      },
+      {
+        "icon": "puzzle",
+        "title": "MCP servers",
+        "body": "Connect tools such as media generation."
+      },
+      {
+        "icon": "file-code",
+        "title": "Scripting mode",
+        "body": "Non-interactive -p with JSON output for automation."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Several auth options",
+        "body": "Google sign-in, Gemini API key or Vertex AI."
+      },
+      {
+        "icon": "shield",
+        "title": "Release channels",
+        "body": "Preview, stable and nightly builds."
+      }
+    ],
+    "strengths": [
+      "Open source from Google",
+      "Good fit for Google Cloud enterprises",
+      "Scriptable for CI",
+      "Apache-2.0 license"
+    ],
+    "limitations": [
+      "No free tier or Google AI Pro / Ultra plans any more",
+      "Not optimised for Gemini 4 and later",
+      "Not meant for benchmarking Gemini models"
+    ],
+    "useCases": [
+      {
+        "title": "Explain a codebase",
+        "body": "Run gemini -p \"Explain the architecture of this codebase\"."
+      },
+      {
+        "title": "Automate PR chores",
+        "body": "Query pull requests or handle complex rebases."
+      },
+      {
+        "title": "Enterprise coding agent",
+        "body": "Use your organisation's Code Assist license in the terminal."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Gemini CLI's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/google-gemini/gemini-cli/blob/08e9a20f749aefcbda38622ac757899c3d6216e0/README.md",
+      "prerequisites": [
+        "Node.js"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npm",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install globally",
+              "code": "npm install -g @google/gemini-cli",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "macos",
+          "label": "Homebrew (macOS / Linux)",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install gemini-cli",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "npx (no install)",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Run instantly",
+              "code": "npx @google/gemini-cli",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "GOOGLE_CLOUD_PROJECT",
+          "required": false,
+          "description": "Your Google Cloud project when signing in with an organisation's Code Assist license."
+        },
+        {
+          "name": "GEMINI_API_KEY",
+          "required": false,
+          "description": "A Gemini API key from Google AI Studio."
+        },
+        {
+          "name": "GOOGLE_API_KEY",
+          "required": false,
+          "description": "API key for Vertex AI, used with GOOGLE_GENAI_USE_VERTEXAI=true."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Set your Google Cloud project and start",
+          "code": "export GOOGLE_CLOUD_PROJECT=\"YOUR_PROJECT_ID\"\ngemini",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Ask Gemini CLI to explain a codebase",
+      "useCase": "Use Gemini CLI interactively and in a script to understand a project.",
+      "setup": [
+        "Gemini CLI installed",
+        "A Code Assist license, Gemini API key or Vertex AI access"
+      ],
+      "steps": [
+        {
+          "title": "Sign in (Code Assist license)",
+          "code": "export GOOGLE_CLOUD_PROJECT=\"YOUR_PROJECT_ID\"\ngemini",
+          "lang": "bash"
+        },
+        {
+          "title": "Or use an API key",
+          "code": "export GEMINI_API_KEY=\"YOUR_API_KEY\"\ngemini",
+          "lang": "bash"
+        },
+        {
+          "title": "Ask from a script",
+          "code": "gemini -p \"Explain the architecture of this codebase\" --output-format json",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A structured explanation of the codebase, printed as JSON in script mode.",
+      "nextSteps": [
+        "Add more folders with --include-directories",
+        "Connect an MCP server",
+        "Read the docs at geminicli.com"
+      ],
+      "sourceUrl": "https://github.com/google-gemini/gemini-cli/blob/08e9a20f749aefcbda38622ac757899c3d6216e0/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Model access",
+        "value": "Needs a paid Code Assist license, paid Gemini API key or Vertex AI billing.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Free Google account or AI Pro / Ultra doesn't work",
+        "solution": "Those moved to Antigravity CLI on June 18, 2026.",
+        "sourceUrl": "https://github.com/google-gemini/gemini-cli/blob/08e9a20f749aefcbda38622ac757899c3d6216e0/README.md"
+      },
+      {
+        "problem": "Results with Gemini 4 models seem off",
+        "solution": "Gemini CLI isn't tuned for Gemini 4+; Google recommends Antigravity CLI.",
+        "sourceUrl": "https://github.com/google-gemini/gemini-cli/blob/08e9a20f749aefcbda38622ac757899c3d6216e0/README.md"
+      },
+      {
+        "problem": "Restricted environment without global npm",
+        "solution": "Install inside a conda environment with nodejs from conda-forge.",
+        "sourceUrl": "https://github.com/google-gemini/gemini-cli/blob/08e9a20f749aefcbda38622ac757899c3d6216e0/README.md"
+      }
+    ],
+    "bestFor": [
+      "Enterprise Gemini Code Assist users",
+      "Scripted codebase questions",
+      "Google Cloud teams"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Terminal coding agent"
+      },
+      {
+        "label": "Maker",
+        "value": "Google"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      }
+    ]
+  }
+}

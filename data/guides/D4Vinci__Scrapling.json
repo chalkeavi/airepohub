@@ -1,0 +1,246 @@
+{
+  "fullName": "D4Vinci/Scrapling",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/D4Vinci/Scrapling/blob/8864137216e652d9e859223181ef141d34ff1386/README.md"
+    ],
+    "sourceCommitSha": "8864137216e652d9e859223181ef141d34ff1386",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install with fetchers",
+        "command": "pip install \"scrapling[fetchers]\""
+      },
+      {
+        "comment": "Download the browsers it needs",
+        "command": "scrapling install"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Scrapling is a Python web scraping framework. It combines fast HTTP requests, stealth browsers for JavaScript pages, powerful parsing and concurrent crawling in one library, and can also be used from the terminal or by AI agents through an MCP server.",
+      "problem": "Scraping modern sites usually means stitching together a request library, a headless browser, a parser and a crawler. Scrapling provides all of these with one API, plus retries, proxy rotation, pause and resume, and exports.",
+      "whoFor": [
+        "Python developers collecting web data",
+        "Data teams building crawlers",
+        "AI agent builders who need web extraction through MCP",
+        "Researchers turning websites into clean Markdown"
+      ],
+      "whyChoose": "Choose it if you want one Python library that goes from a single page to a full crawl. Only scrape sites you are allowed to, and respect their terms and robots rules.",
+      "requirements": [
+        "Python 3.10 or newer",
+        "Browser dependencies (installed by scrapling install) only if you need browser fetchers"
+      ]
+    },
+    "overview": [
+      "Scrapling can fetch pages with fast HTTP requests or stealth browsers that render JavaScript, keep persistent sessions and capture background API calls. Parsing supports CSS, XPath, text and regex search, adaptive element tracking that survives page changes, similar-element matching and clean Markdown output.",
+      "Spiders crawl concurrently with proxy rotation, retries, AutoThrottle, pause and resume, streaming and exports to JSON, JSONL, CSV and XML. You can use it from Python, from the terminal with an interactive shell, or from AI agents through its MCP server and Agent Skill.",
+      "The base pip install includes only the parser. Install the fetchers extra and run scrapling install to download browsers, or add ai, rag or shell extras for the MCP server, RAG helpers and the shell. Docker images are also published."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Fetch and interact",
+        "body": "HTTP requests, stealth browsers and JavaScript rendering."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Parse and extract",
+        "body": "CSS, XPath, regex and adaptive element tracking."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Crawl and export",
+        "body": "Concurrent spiders with retries and JSON/CSV/XML export."
+      },
+      {
+        "icon": "file-code",
+        "title": "MCP server",
+        "body": "Let AI agents browse and extract data."
+      },
+      {
+        "icon": "git-compare",
+        "title": "CLI and shell",
+        "body": "Scrape from the terminal or an interactive shell."
+      },
+      {
+        "icon": "shield",
+        "title": "Markdown output",
+        "body": "Turn pages into clean Markdown."
+      }
+    ],
+    "strengths": [
+      "One library for the whole scraping workflow",
+      "Adaptive selectors that survive site changes",
+      "Works from Python, CLI or AI agents",
+      "BSD-3-Clause license"
+    ],
+    "limitations": [
+      "Base install has no fetchers; extras are needed",
+      "Browser fetchers download large browser dependencies",
+      "You are responsible for following each site's terms"
+    ],
+    "useCases": [
+      {
+        "title": "Extract a few fields",
+        "body": "Fetch a page and pull values with CSS selectors."
+      },
+      {
+        "title": "Crawl a site",
+        "body": "Write a spider and export results to JSON."
+      },
+      {
+        "title": "Feed an AI agent",
+        "body": "Run the MCP server so an agent can extract web data."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Scrapling's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/D4Vinci/Scrapling/blob/8864137216e652d9e859223181ef141d34ff1386/README.md",
+      "prerequisites": [
+        "Python 3.10+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip (with fetchers)",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install Scrapling with fetchers",
+              "body": "pip install scrapling alone installs only the parser.",
+              "code": "pip install \"scrapling[fetchers]\"",
+              "lang": "bash"
+            },
+            {
+              "title": "Download browsers and their dependencies",
+              "body": "Only needed for browser fetchers; plain HTTP requests don't need it.",
+              "code": "scrapling install",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Everything",
+          "method": "pip-all",
+          "steps": [
+            {
+              "title": "Install all extras (MCP, RAG, shell)",
+              "code": "pip install \"scrapling[all]\"",
+              "lang": "bash"
+            },
+            {
+              "title": "Download browsers",
+              "code": "scrapling install",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Pull the image",
+              "code": "docker pull pyd4vinci/scrapling",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Fetch a page and print quotes",
+          "code": "from scrapling.fetchers import Fetcher\npage = Fetcher.get('https://quotes.toscrape.com/')\nquotes = page.css('.quote .text::text').getall()\nprint(quotes)",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Scrape quotes with a Scrapling spider",
+      "useCase": "Crawl a practice site and save the results to JSON.",
+      "setup": [
+        "Scrapling installed with pip install \"scrapling[fetchers]\""
+      ],
+      "steps": [
+        {
+          "title": "Write a spider",
+          "code": "from scrapling.spiders import Spider, Response\n\nclass QuotesSpider(Spider):\n    name = \"quotes\"\n    start_urls = [\"https://quotes.toscrape.com/\"]\n\n    async def parse(self, response: Response):\n        for quote in response.css('.quote'):\n            yield {\n                \"text\": quote.css('.text::text').get(),\n                \"author\": quote.css('.author::text').get(),\n            }\n\nresult = QuotesSpider().start()\nprint(len(result.items))\nresult.items.to_json(\"quotes.json\")",
+          "lang": "text"
+        },
+        {
+          "title": "Run it with Python"
+        }
+      ],
+      "expected": "It prints 10 and saves the quotes and authors to quotes.json.",
+      "nextSteps": [
+        "Add proxy rotation and retries",
+        "Try the interactive shell with pip install \"scrapling[shell]\"",
+        "Run the MCP server with pip install \"scrapling[ai]\""
+      ],
+      "sourceUrl": "https://github.com/D4Vinci/Scrapling/blob/8864137216e652d9e859223181ef141d34ff1386/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "BSD-3-Clause. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Library",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Proxies",
+        "value": "Optional third-party proxies or anti-bot services cost money.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "ImportError for scrapling.fetchers or spiders",
+        "solution": "The base install has only the parser. Install pip install \"scrapling[fetchers]\" and run scrapling install.",
+        "sourceUrl": "https://github.com/D4Vinci/Scrapling/blob/8864137216e652d9e859223181ef141d34ff1386/README.md"
+      },
+      {
+        "problem": "Browsers need reinstalling",
+        "solution": "Run scrapling install --force.",
+        "sourceUrl": "https://github.com/D4Vinci/Scrapling/blob/8864137216e652d9e859223181ef141d34ff1386/README.md"
+      },
+      {
+        "problem": "Need the MCP server or shell",
+        "solution": "Install the ai or shell extras.",
+        "sourceUrl": "https://github.com/D4Vinci/Scrapling/blob/8864137216e652d9e859223181ef141d34ff1386/README.md"
+      }
+    ],
+    "bestFor": [
+      "Python web scraping",
+      "Crawlers with exports",
+      "Web data for AI agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Web scraping framework"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "BSD-3-Clause"
+      }
+    ]
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "fullName": "rasbt/LLMs-from-scratch",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/rasbt/LLMs-from-scratch/blob/22c637fdf9aa2f5fdd39c2cc80c1d36b4ab7d8d8/README.md"
+    ],
+    "sourceCommitSha": "22c637fdf9aa2f5fdd39c2cc80c1d36b4ab7d8d8",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Download the code",
+        "command": "git clone --depth 1 https://github.com/rasbt/LLMs-from-scratch.git"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "LLMs-from-scratch is the official code for Sebastian Raschka's book Build a Large Language Model (From Scratch). It walks you through coding, pretraining and fine-tuning a small GPT-like model in PyTorch, step by step.",
+      "problem": "It's hard to understand how models like ChatGPT work by only using them. This repository builds one from the ground up, from text processing and attention to training and instruction fine-tuning, without external LLM libraries.",
+      "whoFor": [
+        "Python developers who want to understand LLMs deeply",
+        "Students studying deep learning",
+        "Engineers moving into AI who want hands-on practice",
+        "Readers of the book"
+      ],
+      "whyChoose": "Choose it if you want to learn by building, with notebooks per chapter. The code runs on ordinary laptops. The book itself is sold separately; the code is free.",
+      "requirements": [
+        "Strong Python skills",
+        "Basic PyTorch helps (Appendix A introduces it)",
+        "A regular laptop is enough; a GPU is used automatically if available"
+      ]
+    },
+    "overview": [
+      "The repository follows the book chapter by chapter: working with text data, coding attention mechanisms, implementing a GPT model, pretraining on unlabeled data, fine-tuning for text classification and fine-tuning to follow instructions. Each chapter has Jupyter notebooks and summary scripts plus exercise solutions.",
+      "Appendices cover an introduction to PyTorch, extras for the training loop, and parameter-efficient fine-tuning with LoRA. The method mirrors how large foundation models are built, scaled down for learning.",
+      "The main chapters are designed to run on conventional laptops in reasonable time. A setup folder explains how to install Python and packages, and there's a troubleshooting guide. A 17-hour companion video course and a sequel book on reasoning models are available separately."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Build a GPT from scratch",
+        "body": "Tokenisation, attention and the full model in PyTorch."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Pretraining",
+        "body": "Train on unlabeled text."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Fine-tuning",
+        "body": "Text classification and instruction following."
+      },
+      {
+        "icon": "file-code",
+        "title": "LoRA appendix",
+        "body": "Parameter-efficient fine-tuning."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Runs on a laptop",
+        "body": "No special hardware needed for main chapters."
+      },
+      {
+        "icon": "shield",
+        "title": "Exercise solutions",
+        "body": "Notebooks with solutions per chapter."
+      }
+    ],
+    "strengths": [
+      "Clear, step-by-step learning path",
+      "Code tested on Linux, Windows and macOS",
+      "Popular, well-maintained companion code",
+      "Apache-2.0 license"
+    ],
+    "limitations": [
+      "Best used alongside the paid book",
+      "Models are small and educational, not production-ready",
+      "Needs solid Python knowledge"
+    ],
+    "useCases": [
+      {
+        "title": "Learn how attention works",
+        "body": "Work through chapter 3's notebooks."
+      },
+      {
+        "title": "Train a tiny GPT",
+        "body": "Run the pretraining chapter on your laptop."
+      },
+      {
+        "title": "Practice fine-tuning",
+        "body": "Fine-tune a model to follow instructions."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from LLMs-from-scratch's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/rasbt/LLMs-from-scratch/blob/22c637fdf9aa2f5fdd39c2cc80c1d36b4ab7d8d8/README.md",
+      "prerequisites": [
+        "Python",
+        "Git"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "git clone",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone the repository",
+              "code": "git clone --depth 1 https://github.com/rasbt/LLMs-from-scratch.git",
+              "lang": "bash"
+            },
+            {
+              "title": "Set up Python and packages",
+              "body": "Follow setup/README.md in the repository for Python and package installation."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open the chapter 2 notebook",
+          "body": "ch02/01_main-chapter-code/ch02.ipynb covers working with text data."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build your first GPT model piece by piece",
+      "useCase": "Go from text data to a working GPT model by following the chapters.",
+      "setup": [
+        "Repository cloned",
+        "Python environment set up per setup/README.md"
+      ],
+      "steps": [
+        {
+          "title": "Chapter 2: work with text data",
+          "body": "Open ch02/01_main-chapter-code/ch02.ipynb."
+        },
+        {
+          "title": "Chapter 3: code attention mechanisms",
+          "body": "Open ch03/01_main-chapter-code/ch03.ipynb."
+        },
+        {
+          "title": "Chapter 4: implement the GPT model",
+          "body": "Open ch04/01_main-chapter-code/ch04.ipynb or run gpt.py."
+        },
+        {
+          "title": "Chapter 5: pretrain it",
+          "body": "Use ch05.ipynb or gpt_train.py."
+        }
+      ],
+      "expected": "A small GPT-style model you built and trained yourself, generating text.",
+      "nextSteps": [
+        "Fine-tune for classification in chapter 6",
+        "Fine-tune to follow instructions in chapter 7",
+        "Try LoRA in Appendix E"
+      ],
+      "sourceUrl": "https://github.com/rasbt/LLMs-from-scratch/blob/22c637fdf9aa2f5fdd39c2cc80c1d36b4ab7d8d8/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0 for the code.",
+        "tone": "free"
+      },
+      {
+        "label": "Code",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Book",
+        "value": "The book and video course are sold separately.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Environment setup problems",
+        "solution": "Read setup/README.md for Python and package installation.",
+        "sourceUrl": "https://github.com/rasbt/LLMs-from-scratch/blob/22c637fdf9aa2f5fdd39c2cc80c1d36b4ab7d8d8/README.md"
+      },
+      {
+        "problem": "Other errors",
+        "solution": "See troubleshooting.md in the repository.",
+        "sourceUrl": "https://github.com/rasbt/LLMs-from-scratch/blob/22c637fdf9aa2f5fdd39c2cc80c1d36b4ab7d8d8/README.md"
+      },
+      {
+        "problem": "Viewing the README offline",
+        "solution": "Use a Markdown previewer or view it on GitHub.",
+        "sourceUrl": "https://github.com/rasbt/LLMs-from-scratch/blob/22c637fdf9aa2f5fdd39c2cc80c1d36b4ab7d8d8/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning LLMs from first principles",
+      "Self-study with notebooks",
+      "Book readers"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Book code / learning resource"
+      },
+      {
+        "label": "Author",
+        "value": "Sebastian Raschka"
+      },
+      {
+        "label": "Language",
+        "value": "Python (PyTorch)"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "fullName": "Panniantong/Agent-Reach",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Panniantong/Agent-Reach/blob/8d9ecc1f5521fe7d223cde782aaa4005695e2671/README.md"
+    ],
+    "sourceCommitSha": "8d9ecc1f5521fe7d223cde782aaa4005695e2671",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "List channels and what each can do",
+        "command": "agent-reach channels"
+      },
+      {
+        "comment": "Read a page, picking the right channel automatically",
+        "command": "agent-reach read https://www.v2ex.com/t/123"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Agent Reach gives AI agents access to parts of the internet they normally can't reach, such as Bilibili, YouTube subtitles, V2EX, GitHub issues, Reddit, X and Xiaohongshu. It installs and tests the tools behind each platform so the agent can use them with one command.",
+      "problem": "Agents like Claude Code, Codex, Hermes and OpenClaw can search the web and read pages, but struggle with logged-in features, video content, Chinese platforms and clean structured data. Agent Reach sets up a channel for each platform.",
+      "whoFor": [
+        "Users of Claude Code, Codex, Hermes Agent or OpenClaw",
+        "People who research on Chinese platforms like Bilibili, Xiaohongshu or V2EX",
+        "Anyone who wants video subtitles or podcast transcripts in their agent",
+        "Developers building research agents"
+      ],
+      "whyChoose": "Choose it if your agent needs specific platforms that normal web search covers poorly. Experimental channels like X, Facebook and Instagram may stop working as platforms tighten anti-scraping, and you should follow each platform's terms.",
+      "requirements": [
+        "An AI agent that can run commands",
+        "uv (the agent installs it if missing)",
+        "Logins for platforms that need them",
+        "A Groq or OpenAI key for speech-to-text"
+      ]
+    },
+    "overview": [
+      "Agent Reach adds channels to your agent. Default channels work right after install: Bilibili (search, video info, trending, subtitles), V2EX, GitHub (repos, READMEs, issues and PRs), YouTube (info, search, subtitles, transcription) and general web search and reading.",
+      "Optional channels are added by asking your agent, for example 'add Xiaohongshu': Xiaohongshu, Xueqiu stock data, Boss job listings, Xiaoyuzhou podcasts, LinkedIn jobs and Reddit. Experimental channels for X, Facebook and Instagram work but may break at any time.",
+      "For sites that need login, Agent Reach uses its own dedicated browser running in the background. The first time you use a site it copies that site's login from your Chrome; your original browser is unchanged and it doesn't read passwords. The README warns that the agent-reach package on PyPI is not this project."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Default channels",
+        "body": "Bilibili, V2EX, GitHub, YouTube and web, ready after install."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Optional channels",
+        "body": "Xiaohongshu, Reddit, LinkedIn, Xueqiu and more on request."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Subtitles and transcripts",
+        "body": "YouTube and Bilibili subtitles, speech-to-text for videos and podcasts."
+      },
+      {
+        "icon": "file-code",
+        "title": "Structured data",
+        "body": "Clean posts, replies, issues and stock quotes."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Auto channel picking",
+        "body": "agent-reach read chooses the channel from a link."
+      },
+      {
+        "icon": "shield",
+        "title": "Works with any agent",
+        "body": "Installs through a single instruction to your agent."
+      }
+    ],
+    "strengths": [
+      "One install for many hard-to-reach platforms",
+      "Strong coverage of Chinese platforms",
+      "Agent installs and tests everything itself",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Experimental channels can break at any time",
+      "Logged-in channels reuse your browser logins",
+      "Transcription needs a Groq or OpenAI key",
+      "README is mainly in Chinese (English version available)"
+    ],
+    "useCases": [
+      {
+        "title": "Research a topic on Bilibili",
+        "body": "Search videos and read their subtitles."
+      },
+      {
+        "title": "Summarise a YouTube video",
+        "body": "Pull the transcript into your agent."
+      },
+      {
+        "title": "Track a GitHub issue thread",
+        "body": "Read issues and PR comments as clean text."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Agent Reach's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Panniantong/Agent-Reach/blob/8d9ecc1f5521fe7d223cde782aaa4005695e2671/README.md",
+      "prerequisites": [
+        "An agent that can run commands"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Ask your agent",
+          "method": "agent",
+          "steps": [
+            {
+              "title": "Send your agent this message",
+              "body": "It installs or upgrades Agent Reach by following the official install doc. Don't install the agent-reach package from PyPI; it is not this project.",
+              "code": "帮我安装 Agent Reach：https://raw.githubusercontent.com/Panniantong/Agent-Reach/main/docs/install.md",
+              "lang": "text"
+            },
+            {
+              "title": "Allow it to run commands",
+              "body": "If the agent says it can't run commands, enable command execution in its settings."
+            },
+            {
+              "title": "Choose optional channels",
+              "body": "The agent lists what works already and what you can add."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "See the channels",
+          "code": "agent-reach channels",
+          "lang": "bash"
+        },
+        {
+          "title": "Search Bilibili",
+          "code": "agent-reach bilibili search \"大模型\"",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Give your agent access to Bilibili, GitHub and YouTube",
+      "useCase": "Install Agent Reach through your agent and try a search.",
+      "setup": [
+        "An AI agent that can run commands, such as Claude Code or Codex"
+      ],
+      "steps": [
+        {
+          "title": "Ask your agent to install it",
+          "code": "帮我安装 Agent Reach：https://raw.githubusercontent.com/Panniantong/Agent-Reach/main/docs/install.md",
+          "lang": "text"
+        },
+        {
+          "title": "List available channels",
+          "code": "agent-reach channels",
+          "lang": "bash"
+        },
+        {
+          "title": "Read a link",
+          "code": "agent-reach read https://www.v2ex.com/t/123",
+          "lang": "bash"
+        }
+      ],
+      "expected": "The agent can search and read the default platforms and tells you which optional channels you can add.",
+      "nextSteps": [
+        "Ask the agent to add Reddit or Xiaohongshu",
+        "Add a Groq key for podcast transcription",
+        "Read the English README for details"
+      ],
+      "sourceUrl": "https://github.com/Panniantong/Agent-Reach/blob/8d9ecc1f5521fe7d223cde782aaa4005695e2671/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Tool",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Transcription",
+        "value": "Groq or OpenAI usage for speech-to-text may cost money.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Agent says it can't run commands",
+        "solution": "Enable command execution in the agent's settings.",
+        "sourceUrl": "https://github.com/Panniantong/Agent-Reach/blob/8d9ecc1f5521fe7d223cde782aaa4005695e2671/README.md"
+      },
+      {
+        "problem": "Installed the wrong package",
+        "solution": "The agent-reach package on PyPI is not this project. Use the GitHub install doc only.",
+        "sourceUrl": "https://github.com/Panniantong/Agent-Reach/blob/8d9ecc1f5521fe7d223cde782aaa4005695e2671/README.md"
+      },
+      {
+        "problem": "An experimental channel stopped working",
+        "solution": "X, Facebook and Instagram have strict anti-scraping and may break at any time.",
+        "sourceUrl": "https://github.com/Panniantong/Agent-Reach/blob/8d9ecc1f5521fe7d223cde782aaa4005695e2671/README.md"
+      }
+    ],
+    "bestFor": [
+      "Agents that research Chinese platforms",
+      "Video and podcast transcripts",
+      "Logged-in platform data"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent internet access toolkit"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      }
+    ]
+  }
+}

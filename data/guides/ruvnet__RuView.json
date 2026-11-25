@@ -1,0 +1,241 @@
+{
+  "fullName": "ruvnet/RuView",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ruvnet/RuView/blob/8139c7e6258a19da9c9861fa035705dd3f031b56/README.md"
+    ],
+    "sourceCommitSha": "8139c7e6258a19da9c9861fa035705dd3f031b56",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Check your local setup",
+        "command": "npx @ruvnet/ruview@0.9.1 doctor"
+      },
+      {
+        "comment": "See connected sensing devices",
+        "command": "npx @ruvnet/ruview@0.9.1 devices"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "RuView is a beta platform that uses WiFi signals as a sensor. Low-cost ESP32 boards read how people disturb radio waves, and models turn that into presence detection, breathing and heart-rate estimates and activity signals, without cameras.",
+      "problem": "Cameras and wearables are intrusive for monitoring rooms. RuView explores camera-free sensing from WiFi Channel State Information (CSI), with smart-home integrations, though the README is clear that several capabilities are still experimental.",
+      "whoFor": [
+        "Makers and researchers experimenting with WiFi sensing",
+        "Home Assistant and smart-home tinkerers",
+        "Developers working with ESP32 hardware",
+        "AI agent users who want to operate sensors through MCP"
+      ],
+      "whyChoose": "Choose it if you want to experiment with WiFi sensing on cheap hardware and are comfortable with beta software. Read the README's labels: some results are strong, some are explicitly weak, and pose accuracy is still limited.",
+      "requirements": [
+        "ESP32-S3 boards (ESP32-C3 and original ESP32 are not supported)",
+        "Two or more nodes recommended for better spatial resolution",
+        "Node.js for the npx harness",
+        "Optional: Home Assistant or another smart-home hub"
+      ]
+    },
+    "overview": [
+      "RuView captures Channel State Information from ESP32 sensors and runs signal processing and small models to estimate presence, occupancy, breathing rate, heart rate and activity. A pretrained model is published on Hugging Face. Edge modules can run directly on the ESP32 with no internet.",
+      "It integrates with Home Assistant over MQTT and can act as a Matter bridge for Apple Home, Google Home, Alexa and SmartThings. The @ruvnet/ruview package provides a command-line operator with device access, firmware flashing, an MCP server for AI agents and a Claude Code mod.",
+      "The project labels its own results. It calls itself beta, says single-node setups have limited spatial resolution, and reports camera-free pose accuracy as limited (around 2.5% PCK@20 with proxy labels). A unified RF world model is described as synthetic until real-data validation."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Presence and occupancy",
+        "body": "Detect and count people from WiFi signals."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Breathing and heart rate",
+        "body": "Contactless estimates in set frequency ranges."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Smart-home integration",
+        "body": "Home Assistant MQTT and Matter bridge support."
+      },
+      {
+        "icon": "file-code",
+        "title": "Edge modules",
+        "body": "Small programs that run on the ESP32 itself."
+      },
+      {
+        "icon": "git-compare",
+        "title": "MCP and Claude Code mod",
+        "body": "Operate sensors through AI agents."
+      },
+      {
+        "icon": "shield",
+        "title": "Honest labeling",
+        "body": "Results are marked by evidence level in the README."
+      }
+    ],
+    "strengths": [
+      "Uses cheap ESP32 hardware",
+      "No cameras needed",
+      "Clear labeling of what is and isn't validated",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Beta software; APIs and firmware may change",
+      "Pose accuracy is limited",
+      "Single-node setups have low spatial resolution",
+      "Health-related readings are not medical devices"
+    ],
+    "useCases": [
+      {
+        "title": "Room presence for automations",
+        "body": "Trigger Home Assistant automations when someone enters."
+      },
+      {
+        "title": "Sensing research",
+        "body": "Record CSI, train models and compare results."
+      },
+      {
+        "title": "Agent-operated sensors",
+        "body": "Let an AI agent check devices over MCP."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from RuView's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ruvnet/RuView/blob/8139c7e6258a19da9c9861fa035705dd3f031b56/README.md",
+      "prerequisites": [
+        "ESP32-S3 hardware",
+        "Node.js"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npx harness",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Check your setup",
+              "code": "npx @ruvnet/ruview@0.9.1 doctor",
+              "lang": "bash"
+            },
+            {
+              "title": "List connected devices",
+              "code": "npx @ruvnet/ruview@0.9.1 devices",
+              "lang": "bash"
+            },
+            {
+              "title": "Watch live data from ESP32 nodes",
+              "code": "npx @ruvnet/ruview@0.9.1 esp32 --watch",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Analyse 45 seconds of live CSI",
+          "code": "npx @ruvnet/ruview@0.9.1 esp32 --seconds 45 --analyze",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Check your hardware and stream live WiFi sensing data",
+      "useCase": "Confirm your ESP32 nodes work and see live signals.",
+      "setup": [
+        "One or more flashed ESP32-S3 CSI nodes",
+        "Node.js"
+      ],
+      "steps": [
+        {
+          "title": "Run the doctor",
+          "code": "npx @ruvnet/ruview@0.9.1 doctor",
+          "lang": "bash"
+        },
+        {
+          "title": "See what's plugged in",
+          "code": "npx @ruvnet/ruview@0.9.1 devices",
+          "lang": "bash"
+        },
+        {
+          "title": "Analyse live CSI through the vitals kernel",
+          "code": "npx @ruvnet/ruview@0.9.1 esp32 --seconds 45 --analyze",
+          "lang": "bash"
+        },
+        {
+          "title": "Optional: start the MCP server for agents",
+          "code": "npx @ruvnet/ruview@0.9.1 mcp start",
+          "lang": "bash"
+        }
+      ],
+      "expected": "Live readings from your nodes, with presence and vital-sign estimates labeled by confidence.",
+      "nextSteps": [
+        "Connect Home Assistant with the --mqtt option",
+        "Read the user guide in docs/user-guide.md",
+        "Read the benchmark docs before relying on any result"
+      ],
+      "sourceUrl": "https://github.com/ruvnet/RuView/blob/8139c7e6258a19da9c9861fa035705dd3f031b56/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Hardware",
+        "value": "ESP32-S3 boards cost a few dollars each; the README mentions a $9 board.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Using an ESP32-C3 or original ESP32",
+        "solution": "Not supported; they are single-core and can't handle CSI processing. Use ESP32-S3.",
+        "sourceUrl": "https://github.com/ruvnet/RuView/blob/8139c7e6258a19da9c9861fa035705dd3f031b56/README.md"
+      },
+      {
+        "problem": "Poor location accuracy",
+        "solution": "Single-node setups have limited resolution. Use two or more nodes.",
+        "sourceUrl": "https://github.com/ruvnet/RuView/blob/8139c7e6258a19da9c9861fa035705dd3f031b56/README.md"
+      },
+      {
+        "problem": "Pose estimates look wrong",
+        "solution": "Camera-free pose accuracy is still limited, as the README states.",
+        "sourceUrl": "https://github.com/ruvnet/RuView/blob/8139c7e6258a19da9c9861fa035705dd3f031b56/README.md"
+      }
+    ],
+    "bestFor": [
+      "WiFi sensing experiments",
+      "Smart-home presence detection",
+      "ESP32 projects"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "WiFi sensing platform"
+      },
+      {
+        "label": "Status",
+        "value": "Beta"
+      },
+      {
+        "label": "Hardware",
+        "value": "ESP32-S3"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      }
+    ]
+  }
+}
