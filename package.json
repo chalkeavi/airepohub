@@ -9,7 +9,8 @@
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
-    "seed:generate": "node --experimental-strip-types --no-warnings scripts/generate-seed.ts"
+    "seed:generate": "node --experimental-strip-types --no-warnings scripts/generate-seed.ts",
+    "jobs": "node --experimental-strip-types --no-warnings scripts/run-jobs.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.119.2",

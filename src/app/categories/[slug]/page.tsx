@@ -10,7 +10,7 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { JsonLd } from "@/components/site/json-ld";
 import { breadcrumbJsonLd, categoryBreadcrumbs, itemListJsonLd, truncate } from "@/lib/seo";
-import { DATA_AS_OF, getCategories, getCategoryBySlug, getLeaderboards, getRepositoriesByCategory } from "@/lib/data";
+import { getCategories, getCategoryBySlug, getDataAsOf, getLeaderboards, getRepositoriesByCategory } from "@/lib/data";
 
 export async function generateStaticParams() {
   return (await getCategories()).map((c) => ({ slug: c.slug }));
@@ -31,11 +31,12 @@ export async function generateMetadata({ params }: PageProps<"/categories/[slug]
 
 export default async function CategoryPage({ params }: PageProps<"/categories/[slug]">) {
   const { slug } = await params;
-  const [category, categories, repos, boards] = await Promise.all([
+  const [category, categories, repos, boards, asOf] = await Promise.all([
     getCategoryBySlug(slug),
     getCategories(),
     getRepositoriesByCategory(slug),
     getLeaderboards(slug),
+    getDataAsOf(),
   ]);
   if (!category) notFound();
 
@@ -73,7 +74,7 @@ export default async function CategoryPage({ params }: PageProps<"/categories/[s
           <section aria-labelledby="rankings">
             <SectionHeading id="rankings" title={`Top ${category.name} repositories`} />
             <Leaderboard
-              boards={toLeaderboardData(boards, categories, DATA_AS_OF)}
+              boards={toLeaderboardData(boards, categories, asOf)}
               categories={categories}
               currentCategory={category.slug}
             />

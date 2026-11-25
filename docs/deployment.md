@@ -30,8 +30,8 @@ measure this in Milestone 6 before launch rather than assume the free tier is en
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | Workers | yes |
 | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Workers | yes (RLS protects data) |
-| `SUPABASE_SERVICE_ROLE_KEY` | GitHub Actions secrets only | **no** |
-| `GITHUB_TOKEN` (discovery) | GitHub Actions | **no** |
+| `SUPABASE_SERVICE_ROLE_KEY` | GitHub Actions secret, set by the owner at Settings → Secrets and variables → Actions | **no** |
+| `GITHUB_TOKEN` (jobs) | GitHub Actions, provided automatically (1,000 requests/hour per repo) | **no** |
 | `AI_PROVIDER` (`gemini`/`claude`), `AI_MODEL`, `AI_API_KEY` | GitHub Actions | **no** |
 | `NEXT_PUBLIC_ADS_ENABLED`, `NEXT_PUBLIC_ADSENSE_CLIENT` | Workers | yes, off until approved |
 

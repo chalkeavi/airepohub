@@ -12,7 +12,7 @@ import { sampleCategories } from "./sample/categories";
 import { sampleRepositories } from "./sample/repositories";
 import { openseoContent } from "./sample/content/openseo";
 import {
-  fetchAllTimeRanking,
+  fetchRanking,
   fetchCatalog,
   fetchContent,
   fetchSearchMatches,
@@ -26,7 +26,7 @@ import {
 // (RLS limits reads to published rows); otherwise by the sample data in ./sample (tests, local
 // preview without a database). Both backends return the same shapes.
 
-/** Time the current stats were captured from GitHub; used as "now" for derived values. */
+/** Capture time of the sample data (fallback when no stats timestamp exists). Use getDataAsOf() in pages. */
 export const DATA_AS_OF = "2026-11-24T23:43:00Z";
 
 const SAMPLE_CONTENT: Record<string, RepositoryContent> = { openseo: openseoContent };
@@ -80,33 +80,33 @@ export async function getRepositoriesByCategory(slug: string): Promise<Repositor
 }
 
 /**
- * Leaderboards for each period. Weekly/monthly need star snapshots (Milestone 4),
- * so they are returned empty with a reason instead of inventing growth.
+ * Leaderboards for each period, from precomputed ranking_snapshots (written daily by the rank job).
+ * Weekly/monthly exist only once there is enough star history; until then they are empty with a
+ * reason instead of inventing growth. The sample backend has no history, so it only has all-time.
  */
 export async function getLeaderboards(categorySlug: string | null = null): Promise<Leaderboard[]> {
   "use cache";
   cacheLife("hours");
   cacheTag("rankings");
   const repos = await published();
-  const noHistory =
-    "We started recording daily star counts on Nov 24, 2026. This ranking appears once there is enough history to measure real growth.";
-  const empty = (period: RankingPeriod): Leaderboard => ({
-    period,
-    categorySlug,
-    calculatedAt: null,
-    signalsUsed: [],
-    entries: [],
-    emptyReason: noHistory,
-  });
-  return [empty("weekly"), empty("monthly"), await allTimeBoard(repos, categorySlug)];
+  return Promise.all((["weekly", "monthly", "all_time"] as RankingPeriod[]).map((p) => board(p, repos, categorySlug)));
 }
 
-/** All-time board: the precomputed snapshot from Supabase, or computed from sample data. */
-async function allTimeBoard(repos: Repository[], categorySlug: string | null): Promise<Leaderboard> {
+const NO_HISTORY: Record<RankingPeriod, string> = {
+  weekly:
+    "We started recording daily star counts on Nov 24, 2026. The weekly ranking appears once we have 7 days of history to measure real growth.",
+  monthly:
+    "We started recording daily star counts on Nov 24, 2026. The monthly ranking appears once we have 30 days of history to measure real growth.",
+  all_time: "The first ranking hasn't been calculated yet.",
+};
+
+async function board(period: RankingPeriod, repos: Repository[], categorySlug: string | null): Promise<Leaderboard> {
   const noneYet = "No published repositories in this category yet.";
+  const empty = (reason: string): Leaderboard => ({ period, categorySlug, calculatedAt: null, signalsUsed: [], entries: [], emptyReason: reason });
+
   if (supabaseConfigured()) {
     const bySlug = new Map(repos.map((r) => [r.slug, r]));
-    const snap = await fetchAllTimeRanking(categorySlug, 10);
+    const snap = await fetchRanking(period, categorySlug, 10);
     const entries = snap.rows
       .filter((row) => bySlug.has(row.slug))
       .map((row) => ({
@@ -116,42 +116,51 @@ async function allTimeBoard(repos: Repository[], categorySlug: string | null): P
         starGrowth: row.starGrowth,
         movement: row.previousRank == null ? null : row.previousRank - row.rank,
       }));
-    return {
-      period: "all_time",
-      categorySlug,
-      calculatedAt: snap.calculatedAt,
-      signalsUsed: snap.signalsUsed,
-      entries,
-      emptyReason: entries.length ? null : snap.calculatedAt ? noneYet : "The first ranking hasn't been calculated yet.",
-    };
+    if (!entries.length) return empty(period === "all_time" && snap.calculatedAt ? noneYet : NO_HISTORY[period]);
+    return { period, categorySlug, calculatedAt: snap.calculatedAt, signalsUsed: snap.signalsUsed, entries, emptyReason: null };
   }
+
+  if (period !== "all_time") return empty(NO_HISTORY[period]);
   const pool = repos.filter((r) => !categorySlug || r.categorySlugs.includes(categorySlug));
+  if (!pool.length) return empty(noneYet);
   const { results, signalsUsed } = rankRepositories(
     pool.map((r) => ({ id: r.id, stars: r.stars, forks: r.forks, lastPushedAt: r.lastPushedAt })),
     new Date(DATA_AS_OF),
   );
   const byId = new Map(pool.map((r) => [r.id, r]));
   return {
-    period: "all_time",
+    period,
     categorySlug,
     calculatedAt: DATA_AS_OF,
     signalsUsed,
-    emptyReason: pool.length ? null : noneYet,
-    entries: results.slice(0, 10).map((r) => ({
-      rank: r.rank,
-      score: r.score,
-      repository: byId.get(r.id)!,
-      starGrowth: null,
-      movement: null,
-    })),
+    emptyReason: null,
+    entries: results.slice(0, 10).map((r) => ({ rank: r.rank, score: r.score, repository: byId.get(r.id)!, starGrowth: null, movement: null })),
   };
 }
 
-/** Needs snapshot history (Milestone 4). Empty until then. */
-export async function getTrendingRepositories(): Promise<Repository[]> {
+/** Fastest-growing repos over the last 7 days (latest weekly snapshot). Empty until history exists. */
+export async function getTrendingRepositories(limit = 6): Promise<Repository[]> {
   "use cache";
   cacheLife("hours");
-  return [];
+  cacheTag("rankings");
+  if (!supabaseConfigured()) return [];
+  const repos = await published();
+  const bySlug = new Map(repos.map((r) => [r.slug, r]));
+  const snap = await fetchRanking("weekly", null, 200);
+  return snap.rows
+    .filter((r) => (r.starGrowth ?? 0) > 0 && bySlug.has(r.slug))
+    .sort((a, b) => (b.starGrowth ?? 0) - (a.starGrowth ?? 0))
+    .slice(0, limit)
+    .map((r) => bySlug.get(r.slug)!);
+}
+
+/** When the stats shown were last fetched from GitHub (latest stats_checked_at). */
+export async function getDataAsOf(): Promise<string> {
+  "use cache";
+  cacheLife("hours");
+  cacheTag("catalog");
+  const dates = (await published()).map((r) => r.statsCheckedAt).filter((d): d is string => !!d).sort();
+  return dates.at(-1) ?? DATA_AS_OF;
 }
 
 export async function getRecentlyAdded(limit = 6): Promise<Repository[]> {

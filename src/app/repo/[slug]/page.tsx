@@ -45,8 +45,8 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { GithubIcon } from "@/components/ui/github-icon";
 import { JsonLd } from "@/components/site/json-ld";
 import {
-  DATA_AS_OF,
   getCategories,
+  getDataAsOf,
   getPublishedSlugs,
   getRelatedRepositories,
   getRepositoryBySlug,
@@ -95,11 +95,12 @@ const VERIFICATION: Record<VerificationStatus, { label: string; tone: "success" 
 
 export default async function RepositoryPage({ params }: PageProps<"/repo/[slug]">) {
   const { slug } = await params;
-  const [repo, content, related, categories] = await Promise.all([
+  const [repo, content, related, categories, asOf] = await Promise.all([
     getRepositoryBySlug(slug),
     getRepositoryContent(slug),
     getRelatedRepositories(slug),
     getCategories(),
+    getDataAsOf(),
   ]);
   if (!repo) notFound();
 
@@ -216,13 +217,13 @@ export default async function RepositoryPage({ params }: PageProps<"/repo/[slug]
                 <Clock className="size-4 text-muted-foreground" aria-hidden />
                 <dt className="text-muted-foreground">Last push</dt>
                 <dd className="font-medium" title={formatDate(repo.lastPushedAt)}>
-                  {timeAgo(repo.lastPushedAt, DATA_AS_OF)}
+                  {timeAgo(repo.lastPushedAt, asOf)}
                 </dd>
               </div>
               <div>
                 <dt className="sr-only">Activity</dt>
                 <dd>
-                  <ActivityBadge repo={repo} asOf={DATA_AS_OF} />
+                  <ActivityBadge repo={repo} asOf={asOf} />
                 </dd>
               </div>
             </dl>

@@ -137,7 +137,7 @@ export function Leaderboard({
                   {formatCount(r.stars)}
                 </span>
                 <span className="hidden text-right text-[13px] tabular-nums text-muted-foreground md:block">
-                  {r.starGrowth !== null ? `+${formatCount(r.starGrowth)}` : r.updated}
+                  {r.starGrowth !== null ? `${r.starGrowth < 0 ? "−" : "+"}${formatCount(Math.abs(r.starGrowth))}` : r.updated}
                 </span>
               </Link>
             </li>

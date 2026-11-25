@@ -1,0 +1,45 @@
+# Daily data refresh (decision #22): GitHub metadata + star snapshot → rankings → discovery queue.
+# Needs one repository secret: SUPABASE_SERVICE_ROLE_KEY. GITHUB_TOKEN is provided by Actions.
+name: Daily jobs
+
+on:
+  schedule:
+    - cron: "17 5 * * *" # 05:17 UTC daily (off the hour to avoid GitHub's busiest minute)
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "Which job to run"
+        type: choice
+        options: [daily, snapshot, rank, discover]
+        default: daily
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-jobs
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SUPABASE_URL: https://ugykphnasjjtmzeygwoq.supabase.co
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Check secret
+        run: |
+          if [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
+            echo "::error::Add the SUPABASE_SERVICE_ROLE_KEY repository secret (Settings → Secrets and variables → Actions)."
+            exit 1
+          fi
+      - run: pnpm jobs ${{ github.event.inputs.job || 'daily' }}
