@@ -1,0 +1,260 @@
+{
+  "fullName": "shareAI-lab/learn-claude-code",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/shareAI-lab/learn-claude-code/blob/448c75bb596917ad196cc1fb7558f459c5c50fdd/README.md"
+    ],
+    "sourceCommitSha": "448c75bb596917ad196cc1fb7558f459c5c50fdd",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Get the course",
+        "command": "git clone https://github.com/shareAI-lab/learn-claude-code\ncd learn-claude-code\npip install -r requirements.txt"
+      },
+      {
+        "comment": "Run the first lesson",
+        "command": "python s01_agent_loop/code.py"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Learn Claude Code is a hands-on course in harness engineering: building the code around a language model that turns it into a working coding agent, using Claude Code's design as the model. It has 17 lessons, each adding one mechanism with runnable Python.",
+      "problem": "Many agent tutorials wire LLM calls into rigid workflows. This course argues that the model provides the intelligence and your job is the harness (tools, knowledge, context, permissions), and teaches each part step by step from a single agent loop.",
+      "whoFor": [
+        "Developers building their own coding agents",
+        "Engineers curious how Claude Code works inside",
+        "Python programmers learning tool use and agent loops",
+        "Readers of English, Chinese or Japanese"
+      ],
+      "whyChoose": "Choose it to understand agent harnesses from first principles with small runnable examples. It uses the Anthropic API, so running the code needs an API key.",
+      "requirements": [
+        "Python with pip",
+        "Git",
+        "An Anthropic API key",
+        "Optional: Node.js for the web platform"
+      ]
+    },
+    "overview": [
+      "The course starts from one loop: send messages to the model, run any tools it asks for, append the results and repeat until it stops. Each lesson then adds one mechanism around that loop without rewriting it.",
+      "The 17 lessons cover the agent loop, tool use, permissions, hooks, planning with a todo list, subagents, on-demand skill loading, context compaction, memory, a file-backed task system, background tasks, a cron scheduler, agent teams with task-bound worktrees, MCP plugins, an integrated harness, a workflow runtime and a goal loop with an independent evaluator.",
+      "Each chapter folder has an English README with Chinese and Japanese translations, a standalone code.py and diagrams. A web platform lets you read lessons with source, simulator and architecture views. An older 12-lesson track is kept in docs/ and agents/ for existing links."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "17 progressive lessons",
+        "body": "Each adds one harness mechanism to the same loop."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Runnable code",
+        "body": "A standalone code.py in every chapter."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Claude Code's design",
+        "body": "Subagents, skills, compaction, tasks, teams and MCP explained."
+      },
+      {
+        "icon": "file-code",
+        "title": "Web platform",
+        "body": "Read lessons with source, simulator and architecture views."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Three languages",
+        "body": "English, Chinese and Japanese READMEs."
+      },
+      {
+        "icon": "shield",
+        "title": "Goal loop",
+        "body": "An evaluator decides when the agent may stop."
+      }
+    ],
+    "strengths": [
+      "Clear, minimal examples",
+      "Builds up from a single loop",
+      "Covers advanced topics like teams and compaction",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Educational code, not a production agent",
+      "Needs an Anthropic API key, which costs money per use",
+      "Two tracks exist; don't mix chapter numbers between them",
+      "Strongly opinionated about what counts as an agent"
+    ],
+    "useCases": [
+      {
+        "title": "Learn agent internals",
+        "body": "Work through s01 to s17 in order."
+      },
+      {
+        "title": "Build your own harness",
+        "body": "Reuse the patterns for a domain-specific agent."
+      },
+      {
+        "title": "Teach a team",
+        "body": "Use the web platform's simulator to explain agent loops."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Learn Claude Code's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/shareAI-lab/learn-claude-code/blob/448c75bb596917ad196cc1fb7558f459c5c50fdd/README.md",
+      "prerequisites": [
+        "Python and pip",
+        "An Anthropic API key"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Python",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Clone and install",
+              "code": "git clone https://github.com/shareAI-lab/learn-claude-code\ncd learn-claude-code\npip install -r requirements.txt",
+              "lang": "bash"
+            },
+            {
+              "title": "Add your API key",
+              "body": "Set ANTHROPIC_API_KEY in .env.",
+              "code": "cp .env.example .env",
+              "lang": "bash"
+            },
+            {
+              "title": "Run the first lesson",
+              "code": "python s01_agent_loop/code.py",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Web platform",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Start the web app",
+              "body": "Opens at http://localhost:3000.",
+              "code": "cd web && npm install && npm run dev",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "required": true,
+          "description": "Your Anthropic API key, set in .env."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Run the one-loop-plus-bash agent",
+          "code": "python s01_agent_loop/code.py",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your first agent loop",
+      "useCase": "See a minimal coding agent work with one loop and a bash tool.",
+      "setup": [
+        "The repository cloned and requirements installed",
+        "ANTHROPIC_API_KEY set in .env"
+      ],
+      "steps": [
+        {
+          "title": "Read s01_agent_loop/README.md",
+          "body": "The motto: one loop and bash is all you need."
+        },
+        {
+          "title": "Run the code",
+          "code": "python s01_agent_loop/code.py",
+          "lang": "bash"
+        },
+        {
+          "title": "Move on to context compaction",
+          "code": "python s08_context_compact/code.py",
+          "lang": "bash"
+        },
+        {
+          "title": "Finish with the goal loop",
+          "code": "python s17_goal_loop/code.py",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A small agent that calls the model, runs bash commands it asks for and loops until it is done.",
+      "nextSteps": [
+        "Add tools in s02",
+        "Add permissions and hooks in s03 and s04",
+        "Study the integrated harness in s15"
+      ],
+      "sourceUrl": "https://github.com/shareAI-lab/learn-claude-code/blob/448c75bb596917ad196cc1fb7558f459c5c50fdd/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Course",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Anthropic API",
+        "value": "Running the lessons calls the API, billed per token.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Chapter numbers don't match an old link",
+        "solution": "The legacy 12-lesson track uses different numbers; see the mapping table in the README.",
+        "sourceUrl": "https://github.com/shareAI-lab/learn-claude-code/blob/448c75bb596917ad196cc1fb7558f459c5c50fdd/README.md"
+      },
+      {
+        "problem": "Lessons fail to call the model",
+        "solution": "Copy .env.example to .env and set ANTHROPIC_API_KEY.",
+        "sourceUrl": "https://github.com/shareAI-lab/learn-claude-code/blob/448c75bb596917ad196cc1fb7558f459c5c50fdd/README.md"
+      },
+      {
+        "problem": "Where to start",
+        "solution": "Begin at s01_agent_loop in the root-level track.",
+        "sourceUrl": "https://github.com/shareAI-lab/learn-claude-code/blob/448c75bb596917ad196cc1fb7558f459c5c50fdd/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning how coding agents work",
+      "Building custom agent harnesses",
+      "Studying Claude Code's architecture"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Course"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Lessons",
+        "value": "17"
+      }
+    ]
+  }
+}

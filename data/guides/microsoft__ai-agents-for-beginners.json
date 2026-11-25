@@ -1,0 +1,259 @@
+{
+  "fullName": "microsoft/ai-agents-for-beginners",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/microsoft/ai-agents-for-beginners/blob/3bee2ddf8e7aab27b17ef9e1d4a3f2c541a1913e/README.md",
+      "https://github.com/microsoft/ai-agents-for-beginners/blob/3bee2ddf8e7aab27b17ef9e1d4a3f2c541a1913e/00-course-setup/README.md"
+    ],
+    "sourceCommitSha": "3bee2ddf8e7aab27b17ef9e1d4a3f2c541a1913e",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Clone without the translations",
+        "command": "git clone --filter=blob:none --sparse https://github.com/microsoft/ai-agents-for-beginners.git\ncd ai-agents-for-beginners\ngit sparse-checkout set --no-cone '/*' '!translations' '!translated_images'"
+      },
+      {
+        "comment": "Install the Python packages",
+        "command": "pip install -r requirements.txt"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "AI Agents for Beginners is a free Microsoft course on building AI agents. Its 18 lessons each have a written lesson, a short video and Python code samples, covering design patterns, tool use, agentic RAG, multi-agent systems, memory, protocols and production.",
+      "problem": "Getting started with agents means learning many new patterns and frameworks at once. This course breaks them into standalone lessons you can take in any order, with runnable notebooks for each.",
+      "whoFor": [
+        "Beginners building their first AI agents",
+        "Developers learning Microsoft Agent Framework",
+        "Students and educators wanting a free course",
+        "Learners in 50+ languages via translations"
+      ],
+      "whyChoose": "Choose it for a well-produced, free agent course with videos and code. The samples use Microsoft Foundry, which needs an Azure account; some also support other OpenAI-compatible providers.",
+      "requirements": [
+        "Python 3.12+",
+        "An Azure subscription and Microsoft Foundry project for the code samples",
+        "Azure CLI for authentication",
+        "Optional: .NET 10 SDK for the .NET samples"
+      ]
+    },
+    "overview": [
+      "The course has 18 lessons: intro to agents, agentic frameworks, design patterns, tool use, agentic RAG, trustworthy agents, planning, multi-agent, metacognition, agents in production, agentic protocols (MCP, A2A and NLWeb), context engineering, agent memory, Microsoft Agent Framework, computer use agents, deploying scalable agents, local AI agents and securing agents.",
+      "Each lesson has a README, a short video for most lessons, and Jupyter notebooks named *-python-agent-framework.ipynb. The code uses Microsoft Agent Framework with Microsoft Foundry Agent Service V2, so you need a Foundry project with a deployed model such as gpt-5-mini.",
+      "The repository includes translations into 50+ languages, which makes it large; the README gives a sparse clone that skips them. GitHub Codespaces is recommended to avoid big local downloads, and there is a Discord for help."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "18 lessons",
+        "body": "From agent basics to production and security."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Videos",
+        "body": "Short videos for most lessons."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Python notebooks",
+        "body": "Microsoft Agent Framework code for each lesson."
+      },
+      {
+        "icon": "file-code",
+        "title": "Design patterns",
+        "body": "Tool use, planning, multi-agent and metacognition."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Protocols",
+        "body": "MCP, A2A and NLWeb explained."
+      },
+      {
+        "icon": "shield",
+        "title": "50+ languages",
+        "body": "Translated with Co-op Translator."
+      }
+    ],
+    "strengths": [
+      "Free, polished course from Microsoft",
+      "Lessons are standalone",
+      "Videos and code together",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Code samples are built on Microsoft Foundry and need an Azure account",
+      "Azure model usage can cost money",
+      "Full repository is large (about 3 GB with history)"
+    ],
+    "useCases": [
+      {
+        "title": "Learn agent patterns",
+        "body": "Study tool use, planning and multi-agent lessons."
+      },
+      {
+        "title": "Workshop material",
+        "body": "Use a shallow clone in Codespaces for a class."
+      },
+      {
+        "title": "Try Microsoft Agent Framework",
+        "body": "Run the notebooks against your Foundry project."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from AI Agents for Beginners's README and course setup guide. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/microsoft/ai-agents-for-beginners/blob/3bee2ddf8e7aab27b17ef9e1d4a3f2c541a1913e/README.md",
+      "prerequisites": [
+        "Python 3.12+",
+        "Git",
+        "Azure subscription and Azure CLI"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Sparse clone",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone without translations",
+              "code": "git clone --filter=blob:none --sparse https://github.com/microsoft/ai-agents-for-beginners.git\ncd ai-agents-for-beginners\ngit sparse-checkout set --no-cone '/*' '!translations' '!translated_images'",
+              "lang": "bash"
+            },
+            {
+              "title": "Create a Python 3.12 virtual environment",
+              "code": "python -m venv venv\nsource venv/bin/activate",
+              "lang": "bash"
+            },
+            {
+              "title": "Install requirements",
+              "code": "pip install -r requirements.txt",
+              "lang": "bash"
+            },
+            {
+              "title": "Sign in to Azure",
+              "body": "Install the Azure CLI, then set up a Microsoft Foundry project with a deployed model as described in 00-course-setup."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "GitHub Codespaces",
+          "method": "codespaces",
+          "steps": [
+            {
+              "title": "Create a Codespace",
+              "body": "Recommended to avoid large local downloads; then shallow or sparse clone the lesson folders you need."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Read lesson 01, Intro to AI Agents and Agent Use Cases"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Set up the course and run a lesson notebook",
+      "useCase": "Get the code samples running against Microsoft Foundry.",
+      "setup": [
+        "Python 3.12+",
+        "Azure subscription",
+        "Azure CLI"
+      ],
+      "steps": [
+        {
+          "title": "Clone the course",
+          "code": "git clone --filter=blob:none --sparse https://github.com/microsoft/ai-agents-for-beginners.git\ncd ai-agents-for-beginners\ngit sparse-checkout set --no-cone '/*' '!translations' '!translated_images'",
+          "lang": "bash"
+        },
+        {
+          "title": "Install packages",
+          "code": "pip install -r requirements.txt",
+          "lang": "bash"
+        },
+        {
+          "title": "Create a Foundry project",
+          "body": "Deploy a model such as gpt-5-mini, following 00-course-setup."
+        },
+        {
+          "title": "Open a lesson notebook",
+          "body": "Run a *-python-agent-framework.ipynb notebook in VS Code with the right Python selected."
+        }
+      ],
+      "expected": "A lesson notebook runs an agent through Microsoft Agent Framework against your Foundry model.",
+      "nextSteps": [
+        "Continue with Tool Use and Agentic RAG",
+        "Join the Discord for help",
+        "Try Generative AI for Beginners if you are new to GenAI"
+      ],
+      "sourceUrl": "https://github.com/microsoft/ai-agents-for-beginners/blob/3bee2ddf8e7aab27b17ef9e1d4a3f2c541a1913e/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use and share.",
+        "tone": "free"
+      },
+      {
+        "label": "Course",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Azure",
+        "value": "Microsoft Foundry model usage is billed to your Azure subscription.",
+        "tone": "paid"
+      },
+      {
+        "label": "Codespaces",
+        "value": "Optional; GitHub may bill usage depending on your plan.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Clone is very slow or huge",
+        "solution": "Use the sparse clone that skips translations, or a shallow clone with --depth 1.",
+        "sourceUrl": "https://github.com/microsoft/ai-agents-for-beginners/blob/3bee2ddf8e7aab27b17ef9e1d4a3f2c541a1913e/README.md"
+      },
+      {
+        "problem": "Wrong package versions installed",
+        "solution": "Create the virtual environment with Python 3.12 as the setup guide notes.",
+        "sourceUrl": "https://github.com/microsoft/ai-agents-for-beginners/blob/3bee2ddf8e7aab27b17ef9e1d4a3f2c541a1913e/README.md"
+      },
+      {
+        "problem": "Stuck on setup",
+        "solution": "Ask in the AI Agents for Beginners Discord channel.",
+        "sourceUrl": "https://github.com/microsoft/ai-agents-for-beginners/blob/3bee2ddf8e7aab27b17ef9e1d4a3f2c541a1913e/README.md"
+      }
+    ],
+    "bestFor": [
+      "Beginner-friendly agent learning",
+      "Microsoft Agent Framework practice",
+      "Classroom and workshop use"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Course"
+      },
+      {
+        "label": "Language",
+        "value": "Python (Jupyter)"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Lessons",
+        "value": "18"
+      }
+    ]
+  }
+}
