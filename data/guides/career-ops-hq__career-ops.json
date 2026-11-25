@@ -1,0 +1,287 @@
+{
+  "fullName": "career-ops-hq/career-ops",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/career-ops-hq/career-ops/blob/f8e4beb8093acac96159d8413346ec15151fa7e4/README.md"
+    ],
+    "sourceCommitSha": "f8e4beb8093acac96159d8413346ec15151fa7e4",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Set up a career-ops workspace",
+        "command": "npx @santifer/career-ops init"
+      },
+      {
+        "comment": "Open your AI CLI in it",
+        "command": "cd career-ops\nclaude"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "career-ops is an open-source AI job search agent that runs inside the AI coding CLI you already use, such as Claude Code or Codex. Paste a job and it checks the posting is live, scores it against your CV, tailors your CV and drafts your answers. You press Submit.",
+      "problem": "Job seekers send many applications into silence. career-ops helps you apply to fewer, better-fitting roles by evaluating each posting against your experience and telling you when not to apply.",
+      "whoFor": [
+        "Job seekers comfortable with a terminal",
+        "Users of Claude Code, Codex, OpenCode, Qwen and similar CLIs",
+        "People applying to tech roles at many companies",
+        "Anyone who wants application data kept on their own machine"
+      ],
+      "whyChoose": "Choose it for a local, human-in-the-loop job search assistant that never submits or emails for you. It needs an AI CLI and a model, which may cost money.",
+      "requirements": [
+        "Node.js (for npx)",
+        "An AI coding CLI such as Claude Code, Codex, OpenCode, Qwen, agy or Grok",
+        "Optional: Playwright Chromium for PDF generation"
+      ]
+    },
+    "overview": [
+      "career-ops is a set of modes and scripts that your AI CLI runs. On first launch it asks for your CV, profile and target roles by chat, with nothing to configure by hand. After that you paste a job URL or description and it runs a full pipeline: a liveness check, an A to H evaluation, a report, a tailored ATS-friendly CV PDF and a tracker row.",
+      "Other modes scan 180+ preconfigured company job boards on Ashby, Greenhouse, Lever and Wellfound, draft cover letters and emails, find a contact and draft a note, prepare interviews, analyse rejection patterns and help with offers and negotiation. A terminal dashboard shows your pipeline.",
+      "The README is explicit about what it will not do: it never auto-submits an application, never sends an email, has no telemetry or backend, and advises against applying below a 4.0/5 score. A code check stops CV PDFs with facts not found in your CV, but you should still read every CV before sending it."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Job evaluation",
+        "body": "Scores each role against your CV with a written report."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Tailored CV PDFs",
+        "body": "ATS-readable CVs built from your own experience."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Portal scanner",
+        "body": "180+ companies preconfigured across major job boards."
+      },
+      {
+        "icon": "file-code",
+        "title": "Cover letters and emails",
+        "body": "Drafts only; you review and send."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Interview and offer help",
+        "body": "Prep plans, story bank and negotiation scripts."
+      },
+      {
+        "icon": "shield",
+        "title": "Local-first",
+        "body": "Applications stay on your machine; no telemetry."
+      }
+    ],
+    "strengths": [
+      "Human always decides and submits",
+      "Works in many AI CLIs",
+      "Data stays local",
+      "MIT licensed with a large contributor community"
+    ],
+    "limitations": [
+      "Needs a terminal and an AI CLI",
+      "First runs are rough until it learns your profile",
+      "Model usage may cost money depending on your CLI plan",
+      "Read every generated CV; rewording checks are not perfect"
+    ],
+    "useCases": [
+      {
+        "title": "Should I apply?",
+        "body": "Paste a job and get a go or no-go with reasons."
+      },
+      {
+        "title": "Tailor a CV",
+        "body": "Generate a PDF CV matched to one posting."
+      },
+      {
+        "title": "Weekly scan",
+        "body": "Run scan to collect new postings from target companies."
+      },
+      {
+        "title": "Interview prep",
+        "body": "Build STAR stories and a prep plan."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from career-ops's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/career-ops-hq/career-ops/blob/f8e4beb8093acac96159d8413346ec15151fa7e4/README.md",
+      "prerequisites": [
+        "Node.js",
+        "An AI coding CLI"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npx (fastest)",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Create the workspace",
+              "body": "Clones the latest release into ./career-ops and installs dependencies.",
+              "code": "npx @santifer/career-ops init",
+              "lang": "bash"
+            },
+            {
+              "title": "Open your AI CLI there",
+              "body": "Or codex, qwen, opencode, agy or grok.",
+              "code": "cd career-ops\nclaude",
+              "lang": "bash"
+            },
+            {
+              "title": "Follow the setup chat",
+              "body": "It asks for your CV, profile and target roles."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Manual (git clone)",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone and install",
+              "code": "git clone https://github.com/career-ops-hq/career-ops.git\ncd career-ops && npm install",
+              "lang": "bash"
+            },
+            {
+              "title": "Install Chromium for PDFs",
+              "body": "Only needed for PDF generation.",
+              "code": "npx playwright install chromium",
+              "lang": "bash"
+            },
+            {
+              "title": "Open your AI CLI in the folder",
+              "code": "claude",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Global install",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install the init command",
+              "code": "npm i -g @santifer/career-ops",
+              "lang": "bash"
+            },
+            {
+              "title": "Create a workspace",
+              "code": "career-ops init",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Paste one job URL or description into your AI CLI",
+          "body": "It runs the full evaluation pipeline."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Evaluate your first job with career-ops",
+      "useCase": "Check whether one job is worth applying to and get a tailored CV.",
+      "setup": [
+        "Node.js",
+        "Claude Code or another supported AI CLI",
+        "Your CV text"
+      ],
+      "steps": [
+        {
+          "title": "Set up",
+          "code": "npx @santifer/career-ops init\ncd career-ops\nclaude",
+          "lang": "bash"
+        },
+        {
+          "title": "Complete the setup chat",
+          "body": "Paste your CV and say what roles you want and refuse."
+        },
+        {
+          "title": "Paste a job URL",
+          "body": "It checks the posting is live, scores it and writes a report."
+        },
+        {
+          "title": "Review the tailored CV",
+          "body": "Read it before sending; you submit the application yourself."
+        }
+      ],
+      "expected": "A report with a score and recommendation, a tailored CV PDF and a tracker entry, all on your machine.",
+      "nextSteps": [
+        "Run /career-ops scan to find more roles",
+        "Use cover to draft a cover letter",
+        "Check tracker to see where every application stands"
+      ],
+      "sourceUrl": "https://github.com/career-ops-hq/career-ops/blob/f8e4beb8093acac96159d8413346ec15151fa7e4/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "AI model",
+        "value": "Your AI CLI's plan or API usage; free and local model options exist.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "PDF generation can't launch the browser on Fedora or Arch",
+        "solution": "Install Chromium's system libraries with your distro's package manager; Playwright's docs list them.",
+        "sourceUrl": "https://github.com/career-ops-hq/career-ops/blob/f8e4beb8093acac96159d8413346ec15151fa7e4/README.md"
+      },
+      {
+        "problem": "Slash commands don't work in Codex",
+        "solution": "Ask in plain language, for example Run the career-ops scan mode.",
+        "sourceUrl": "https://github.com/career-ops-hq/career-ops/blob/f8e4beb8093acac96159d8413346ec15151fa7e4/README.md"
+      },
+      {
+        "problem": "Early evaluations feel off",
+        "solution": "Give it more about your CV and preferences; the README says first runs are rough.",
+        "sourceUrl": "https://github.com/career-ops-hq/career-ops/blob/f8e4beb8093acac96159d8413346ec15151fa7e4/README.md"
+      },
+      {
+        "problem": "Scanning behind a proxy",
+        "solution": "See the outbound proxy section of docs/SETUP.md.",
+        "sourceUrl": "https://github.com/career-ops-hq/career-ops/blob/f8e4beb8093acac96159d8413346ec15151fa7e4/README.md"
+      }
+    ],
+    "bestFor": [
+      "Focused, local AI job search",
+      "Tailoring CVs per posting",
+      "Tracking applications in the terminal"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI job search agent"
+      },
+      {
+        "label": "Language",
+        "value": "JavaScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Runs in",
+        "value": "Claude Code, Codex and other AI CLIs"
+      }
+    ]
+  }
+}

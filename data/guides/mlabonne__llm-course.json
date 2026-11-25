@@ -1,0 +1,224 @@
+{
+  "fullName": "mlabonne/llm-course",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/mlabonne/llm-course/blob/7abd96e8284bfae232048fdb77b52397a2114847/README.md"
+    ],
+    "sourceCommitSha": "7abd96e8284bfae232048fdb77b52397a2114847",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Get the course locally",
+        "command": "git clone https://github.com/mlabonne/llm-course.git"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "The LLM Course is a free roadmap for learning large language models, written by Maxime Labonne. It has three tracks: optional fundamentals, the LLM Scientist (building better models) and the LLM Engineer (building and deploying LLM apps), plus Colab notebooks.",
+      "problem": "Learning LLMs means sorting through a flood of papers, videos and blog posts. This course organises the topics in order and points to the best free resources for each one, with hands-on notebooks for fine-tuning, quantization and merging.",
+      "whoFor": [
+        "Developers moving into LLM engineering",
+        "ML practitioners learning fine-tuning and alignment",
+        "Students wanting a structured reading list",
+        "Engineers building RAG and agent apps"
+      ],
+      "whyChoose": "Choose it for a well-organised, free map of the whole LLM field with practical notebooks. It is a curated roadmap, so most depth lives in the linked resources.",
+      "requirements": [
+        "A web browser",
+        "A Google account to run the Colab notebooks",
+        "Python knowledge for the hands-on parts"
+      ]
+    },
+    "overview": [
+      "The course has three parts. LLM Fundamentals is optional and covers mathematics, Python for machine learning, neural networks and NLP. The LLM Scientist covers model architecture, pre-training, post-training datasets, fine-tuning, preference alignment, evaluation, quantization and new trends.",
+      "The LLM Engineer covers running LLMs, vector storage, retrieval-augmented generation, advanced RAG, agents, inference optimisation, deployment and securing LLMs. Each section explains the key ideas briefly and lists recommended videos, articles and courses.",
+      "A notebooks section links Colab notebooks and articles by the author, including fine-tuning Llama 3.1 with Unsloth, ORPO and DPO fine-tuning, GPTQ and GGUF quantization, model merging with MergeKit, and tools such as LLM AutoEval and LazyMergekit. The author also co-wrote the LLM Engineer's Handbook based on the course, and says the course will stay free."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Three learning tracks",
+        "body": "Fundamentals, LLM Scientist and LLM Engineer."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Curated resources",
+        "body": "The best free videos, articles and courses for each topic."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Colab notebooks",
+        "body": "Fine-tuning, quantization and merging you can run in the browser."
+      },
+      {
+        "icon": "file-code",
+        "title": "Fine-tuning guides",
+        "body": "Unsloth, ORPO, DPO and QLoRA walkthroughs."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Quantization",
+        "body": "GPTQ, GGUF, EXL2 and more."
+      },
+      {
+        "icon": "shield",
+        "title": "One-click tools",
+        "body": "LazyMergekit, AutoQuant, LLM AutoEval and others."
+      }
+    ],
+    "strengths": [
+      "Free and well organised",
+      "Covers both research and engineering",
+      "Hands-on notebooks",
+      "Maintained by an active practitioner"
+    ],
+    "limitations": [
+      "A roadmap, not a full textbook; depth lives in linked resources",
+      "Some notebooks need a GPU runtime",
+      "Fast-moving field, so some links age"
+    ],
+    "useCases": [
+      {
+        "title": "Self-study plan",
+        "body": "Follow the Scientist or Engineer track in order."
+      },
+      {
+        "title": "Fine-tune a model",
+        "body": "Run the Unsloth Llama 3.1 notebook in Colab."
+      },
+      {
+        "title": "Quantize a model",
+        "body": "Use the GGUF or GPTQ notebook."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from LLM Course's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/mlabonne/llm-course/blob/7abd96e8284bfae232048fdb77b52397a2114847/README.md",
+      "prerequisites": [
+        "A web browser"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Read on GitHub",
+          "method": "web",
+          "steps": [
+            {
+              "title": "Open the README",
+              "body": "The whole roadmap is on the repository's front page; pick a track."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Clone",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/mlabonne/llm-course.git",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Pick a track",
+          "body": "Start with LLM Fundamentals if you need the basics, otherwise the Scientist or Engineer track."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Fine-tune your first LLM with the course notebook",
+      "useCase": "Run a supervised fine-tune in Google Colab following the course.",
+      "setup": [
+        "A Google account for Colab"
+      ],
+      "steps": [
+        {
+          "title": "Open the Notebooks section",
+          "body": "Find Fine-tune Llama 3.1 with Unsloth."
+        },
+        {
+          "title": "Read the linked article",
+          "body": "It explains the method step by step."
+        },
+        {
+          "title": "Open the notebook in Colab and run the cells"
+        }
+      ],
+      "expected": "A fine-tuned model trained in Colab, following the article.",
+      "nextSteps": [
+        "Try DPO or ORPO fine-tuning",
+        "Quantize the result with GGUF",
+        "Read the LLM Engineer track to deploy it"
+      ],
+      "sourceUrl": "https://github.com/mlabonne/llm-course/blob/7abd96e8284bfae232048fdb77b52397a2114847/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Course",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Colab free tier may be enough for small runs; bigger runs may need paid GPUs.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Not sure where to start",
+        "solution": "Fundamentals is optional; skip to the track that matches your goal.",
+        "sourceUrl": "https://github.com/mlabonne/llm-course/blob/7abd96e8284bfae232048fdb77b52397a2114847/README.md"
+      },
+      {
+        "problem": "Notebook runs out of memory on free Colab",
+        "solution": "The README marks the Mistral-7b QLoRA notebook as working in a free-tier Colab; larger runs need a bigger GPU runtime.",
+        "sourceUrl": "https://github.com/mlabonne/llm-course/blob/7abd96e8284bfae232048fdb77b52397a2114847/README.md"
+      },
+      {
+        "problem": "Want more depth",
+        "solution": "The README points to a DeepWiki version and the LLM Engineer's Handbook.",
+        "sourceUrl": "https://github.com/mlabonne/llm-course/blob/7abd96e8284bfae232048fdb77b52397a2114847/README.md"
+      }
+    ],
+    "bestFor": [
+      "Structured LLM self-study",
+      "Hands-on fine-tuning practice",
+      "LLM engineering roadmap"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Course and roadmap"
+      },
+      {
+        "label": "Format",
+        "value": "README roadmap and Colab notebooks"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Tracks",
+        "value": "3"
+      }
+    ]
+  }
+}
