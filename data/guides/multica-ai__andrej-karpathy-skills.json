@@ -1,0 +1,249 @@
+{
+  "fullName": "multica-ai/andrej-karpathy-skills",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/multica-ai/andrej-karpathy-skills/blob/2c606141936f1eeef17fa3043a72095b4765b9c2/README.md"
+    ],
+    "sourceCommitSha": "2c606141936f1eeef17fa3043a72095b4765b9c2",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Add the plugin marketplace in Claude Code",
+        "command": "/plugin marketplace add forrestchang/andrej-karpathy-skills"
+      },
+      {
+        "comment": "Install the guidelines plugin",
+        "command": "/plugin install andrej-karpathy-skills@karpathy-skills"
+      },
+      {
+        "comment": "Or add the CLAUDE.md to a new project",
+        "command": "curl -o CLAUDE.md https://raw.githubusercontent.com/forrestchang/andrej-karpathy-skills/main/CLAUDE.md"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "This repository is a single CLAUDE.md file of coding guidelines that makes Claude Code behave more carefully. It's based on Andrej Karpathy's observations about common mistakes language models make when writing code, and it works as a Claude Code plugin or a file you drop into your project.",
+      "problem": "AI coding agents often assume things without asking, overcomplicate code, and change code they weren't asked to touch. Four short principles in this file push the agent to state assumptions, keep things simple, make only the requested changes, and work toward checkable goals.",
+      "whoFor": [
+        "Claude Code users who want fewer unwanted changes",
+        "Developers tired of overengineered AI-written code",
+        "Teams standardising how coding agents behave",
+        "Cursor users, through the included project rule"
+      ],
+      "whyChoose": "Choose it for a tiny, readable set of rules you can merge with your own project instructions. The README notes it favours caution over speed, so use judgement on trivial tasks.",
+      "requirements": [
+        "Claude Code (plugin or CLAUDE.md), or Cursor",
+        "curl for the per-project install"
+      ]
+    },
+    "overview": [
+      "The file contains four principles. Think Before Coding asks the agent to state assumptions, present interpretations and ask when unsure. Simplicity First asks for the minimum code that solves the problem with nothing speculative. Surgical Changes limits edits to what the request needs. Goal-Driven Execution turns tasks into verifiable goals, such as writing a failing test first and then making it pass.",
+      "You can install it as a Claude Code plugin from its marketplace, which makes it available across all your projects, or download the CLAUDE.md into a single project or append it to an existing one. The repository also includes a Cursor project rule so the same guidelines apply in Cursor.",
+      "The README lists signs it's working: fewer unnecessary changes in diffs, fewer rewrites caused by overcomplication, clarifying questions before implementation, and clean, minimal pull requests. It's designed to be combined with your own project-specific rules. The README states an MIT license."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Think Before Coding",
+        "body": "Surface assumptions and ask instead of guessing."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Simplicity First",
+        "body": "Minimum code, no speculative features."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Surgical Changes",
+        "body": "Touch only what the request needs."
+      },
+      {
+        "icon": "file-code",
+        "title": "Goal-Driven Execution",
+        "body": "Turn tasks into verifiable success criteria."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Claude Code plugin",
+        "body": "Install once for all projects."
+      },
+      {
+        "icon": "shield",
+        "title": "Cursor rule",
+        "body": "Same guidelines in Cursor."
+      }
+    ],
+    "strengths": [
+      "One short file, easy to read and adapt",
+      "Works per project or across all projects",
+      "Merges with your existing CLAUDE.md",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Guidelines, not enforcement: the model can still drift",
+      "Biased toward caution, which can slow trivial tasks",
+      "Mainly aimed at Claude Code"
+    ],
+    "useCases": [
+      {
+        "title": "Cleaner AI pull requests",
+        "body": "Reduce drive-by refactors in diffs."
+      },
+      {
+        "title": "Team conventions",
+        "body": "Share one set of agent rules across projects."
+      },
+      {
+        "title": "Test-first agent work",
+        "body": "Have the agent loop until tests pass."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Karpathy-Inspired Claude Code Guidelines's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/multica-ai/andrej-karpathy-skills/blob/2c606141936f1eeef17fa3043a72095b4765b9c2/README.md",
+      "prerequisites": [
+        "Claude Code or Cursor"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code plugin (recommended)",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace from within Claude Code",
+              "code": "/plugin marketplace add forrestchang/andrej-karpathy-skills",
+              "lang": "text"
+            },
+            {
+              "title": "Install the plugin",
+              "body": "Makes the guidelines available across all your projects.",
+              "code": "/plugin install andrej-karpathy-skills@karpathy-skills",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "CLAUDE.md (per project)",
+          "method": "curl",
+          "steps": [
+            {
+              "title": "New project: download the file",
+              "code": "curl -o CLAUDE.md https://raw.githubusercontent.com/forrestchang/andrej-karpathy-skills/main/CLAUDE.md",
+              "lang": "bash"
+            },
+            {
+              "title": "Existing project: append to your CLAUDE.md",
+              "code": "echo \"\" >> CLAUDE.md\ncurl https://raw.githubusercontent.com/forrestchang/andrej-karpathy-skills/main/CLAUDE.md >> CLAUDE.md",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Add the guidelines to your current project",
+          "code": "curl -o CLAUDE.md https://raw.githubusercontent.com/forrestchang/andrej-karpathy-skills/main/CLAUDE.md",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Add the guidelines to a project and combine them with your own rules",
+      "useCase": "Make Claude Code follow the four principles alongside your project's conventions.",
+      "setup": [
+        "Claude Code installed",
+        "A project folder"
+      ],
+      "steps": [
+        {
+          "title": "Append the guidelines to your CLAUDE.md",
+          "code": "echo \"\" >> CLAUDE.md\ncurl https://raw.githubusercontent.com/forrestchang/andrej-karpathy-skills/main/CLAUDE.md >> CLAUDE.md",
+          "lang": "bash"
+        },
+        {
+          "title": "Add your project-specific rules",
+          "body": "For example a section listing your language settings, testing rules and error-handling patterns.",
+          "code": "## Project-Specific Guidelines\n\n- Use TypeScript strict mode\n- All API endpoints must have tests\n- Follow the existing error handling patterns in `src/utils/errors.ts`",
+          "lang": "text"
+        },
+        {
+          "title": "Give the agent goals it can verify",
+          "body": "Instead of \"Fix the bug\", ask it to write a test that reproduces the bug, then make it pass."
+        }
+      ],
+      "expected": "Claude Code asks clarifying questions before implementing, keeps changes minimal, and produces smaller, cleaner diffs.",
+      "nextSteps": [
+        "Install the plugin to use it in every project",
+        "Try the Cursor rule in .cursor/rules",
+        "Read Karpathy's original post linked in the README"
+      ],
+      "sourceUrl": "https://github.com/multica-ai/andrej-karpathy-skills/blob/2c606141936f1eeef17fa3043a72095b4765b9c2/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT, according to the README.",
+        "tone": "free"
+      },
+      {
+        "label": "Guidelines",
+        "value": "Free to use and adapt.",
+        "tone": "free"
+      },
+      {
+        "label": "Claude Code",
+        "value": "Uses your existing Claude Code plan.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Agent is slow on tiny fixes",
+        "solution": "The guidelines favour caution; for trivial tasks use judgement, as the README suggests.",
+        "sourceUrl": "https://github.com/multica-ai/andrej-karpathy-skills/blob/2c606141936f1eeef17fa3043a72095b4765b9c2/README.md"
+      },
+      {
+        "problem": "Conflicts with your own instructions",
+        "solution": "Merge the file into your existing CLAUDE.md and add project-specific sections.",
+        "sourceUrl": "https://github.com/multica-ai/andrej-karpathy-skills/blob/2c606141936f1eeef17fa3043a72095b4765b9c2/README.md"
+      },
+      {
+        "problem": "Using Cursor instead",
+        "solution": "See CURSOR.md for the included project rule.",
+        "sourceUrl": "https://github.com/multica-ai/andrej-karpathy-skills/blob/2c606141936f1eeef17fa3043a72095b4765b9c2/README.md"
+      }
+    ],
+    "bestFor": [
+      "Claude Code users",
+      "Cleaner AI-written code",
+      "Shared agent conventions"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "CLAUDE.md guidelines and plugin"
+      },
+      {
+        "label": "For",
+        "value": "Claude Code and Cursor"
+      },
+      {
+        "label": "License",
+        "value": "MIT (per README)"
+      },
+      {
+        "label": "Principles",
+        "value": "4"
+      }
+    ]
+  }
+}

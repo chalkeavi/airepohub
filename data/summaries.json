@@ -101,5 +101,6 @@
   "zylon-ai/private-gpt": "API layer for building private AI apps on local models, with document search, tools and MCP support.",
   "aaif-goose/goose": "Open-source AI agent that can install, run, edit and test code using any language model.",
   "ageitgey/face_recognition": "Simple Python library and command-line tool for detecting and recognizing faces in images.",
-  "alibaba/open-code-review": "Code review tool from Alibaba that combines fixed checks with an AI agent to leave line-by-line comments."
+  "alibaba/open-code-review": "Code review tool from Alibaba that combines fixed checks with an AI agent to leave line-by-line comments.",
+  "multica-ai/andrej-karpathy-skills": "A single CLAUDE.md file of coding rules, based on Andrej Karpathy's notes, that makes Claude Code ask before assuming, keep code simple and change only what you asked."
 }
