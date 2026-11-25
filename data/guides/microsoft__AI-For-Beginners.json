@@ -1,0 +1,247 @@
+{
+  "fullName": "microsoft/AI-For-Beginners",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/microsoft/AI-For-Beginners/blob/1ff3c870707ec312f4c4a3bba4eaf0d9e06456a3/README.md"
+    ],
+    "sourceCommitSha": "1ff3c870707ec312f4c4a3bba4eaf0d9e06456a3",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Clone without the translations",
+        "command": "git clone --filter=blob:none --sparse https://github.com/microsoft/AI-For-Beginners.git\ncd AI-For-Beginners\ngit sparse-checkout set --no-cone '/*' '!translations' '!translated_images'"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "AI for Beginners is a free 12-week, 24-lesson Microsoft curriculum on artificial intelligence. It covers symbolic AI, neural networks, computer vision, natural language processing, genetic algorithms, reinforcement learning, multi-agent systems and AI ethics, with Jupyter notebooks in PyTorch and TensorFlow.",
+      "problem": "AI courses often jump straight to one framework or skip the foundations. This curriculum walks through the main approaches to AI with theory, runnable notebooks, labs and quizzes, at a beginner-friendly pace.",
+      "whoFor": [
+        "Beginners learning AI and deep learning",
+        "Students and teachers wanting a structured curriculum",
+        "Developers comparing PyTorch and TensorFlow",
+        "Learners in 50+ languages via translations"
+      ],
+      "whyChoose": "Choose it for a broad, free foundation in AI with code in two major frameworks. It doesn't cover classic machine learning (see ML for Beginners) or business AI.",
+      "requirements": [
+        "Git",
+        "Python with Jupyter",
+        "PyTorch or TensorFlow, depending on the notebook",
+        "Or VS Code with a Codespace"
+      ]
+    },
+    "overview": [
+      "The curriculum has 24 lessons plus extras across seven parts: introduction and history of AI; symbolic AI with knowledge representation and expert systems; neural networks from perceptrons to building your own framework; computer vision (CNNs, transfer learning, autoencoders, GANs, object detection, segmentation); NLP (embeddings, RNNs, transformers, named entity recognition, large language models); other techniques (genetic algorithms, deep reinforcement learning, multi-agent systems); and AI ethics.",
+      "Each lesson has pre-reading, executable Jupyter notebooks (often in both PyTorch and TensorFlow), labs for some topics, and links to Microsoft Learn modules. Quizzes are in a quiz app that can run locally or online.",
+      "For complete beginners, an examples folder has short programs such as Hello AI World, a simple neural network, an image classifier and text sentiment. A setup lesson and a guide for running in VS Code or a Codespace help you get started. The repository includes 50+ translations, so a sparse clone is recommended."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "24 lessons",
+        "body": "12 weeks from AI history to ethics."
+      },
+      {
+        "icon": "scan-search",
+        "title": "PyTorch and TensorFlow",
+        "body": "Notebooks often in both frameworks."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Labs and quizzes",
+        "body": "Practice problems and a quiz app."
+      },
+      {
+        "icon": "file-code",
+        "title": "Beginner examples",
+        "body": "Hello AI World and other short programs."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Broad coverage",
+        "body": "Symbolic AI, vision, NLP, RL and multi-agent systems."
+      },
+      {
+        "icon": "shield",
+        "title": "50+ languages",
+        "body": "Translated with Co-op Translator."
+      }
+    ],
+    "strengths": [
+      "Free, well-structured Microsoft course",
+      "Covers many AI approaches",
+      "Notebooks in two frameworks",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Doesn't cover classic machine learning or business AI",
+      "Some models are not state of the art, as the README notes",
+      "Full repository is large because of translations"
+    ],
+    "useCases": [
+      {
+        "title": "Self-study",
+        "body": "Follow the 12-week plan."
+      },
+      {
+        "title": "Teach a class",
+        "body": "Use the curricula setup lesson for educators."
+      },
+      {
+        "title": "Framework comparison",
+        "body": "Run the same lesson in PyTorch and TensorFlow."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from AI for Beginners's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/microsoft/AI-For-Beginners/blob/1ff3c870707ec312f4c4a3bba4eaf0d9e06456a3/README.md",
+      "prerequisites": [
+        "Git",
+        "Python and Jupyter"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Sparse clone",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone without translations",
+              "code": "git clone --filter=blob:none --sparse https://github.com/microsoft/AI-For-Beginners.git\ncd AI-For-Beginners\ngit sparse-checkout set --no-cone '/*' '!translations' '!translated_images'",
+              "lang": "bash"
+            },
+            {
+              "title": "Follow the setup lesson",
+              "body": "lessons/0-course-setup/setup.md sets up your environment."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Fork and clone",
+          "method": "git-full",
+          "steps": [
+            {
+              "title": "Fork the repository on GitHub"
+            },
+            {
+              "title": "Clone it",
+              "code": "git clone https://github.com/microsoft/AI-For-Beginners.git",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "VS Code or Codespaces",
+          "method": "codespaces",
+          "steps": [
+            {
+              "title": "Open in a Codespace",
+              "body": "See lessons/0-course-setup/how-to-run.md."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start with the beginner examples",
+          "body": "examples/README.md, beginning with Hello AI World."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build your first neural network lesson",
+      "useCase": "Work through the perceptron lesson with its notebook.",
+      "setup": [
+        "The repository cloned",
+        "Python with Jupyter"
+      ],
+      "steps": [
+        {
+          "title": "Read lesson 03",
+          "body": "lessons/3-NeuralNetworks/03-Perceptron/README.md"
+        },
+        {
+          "title": "Run the notebook",
+          "body": "Open Perceptron.ipynb in the same folder and run each cell."
+        },
+        {
+          "title": "Take the lesson quiz",
+          "body": "Linked from the lesson, or in the online quiz app."
+        }
+      ],
+      "expected": "A trained perceptron you built in the notebook, and an understanding of how it learns.",
+      "nextSteps": [
+        "Build your own framework in lesson 04",
+        "Move to PyTorch or TensorFlow in lesson 05",
+        "Try the computer vision section"
+      ],
+      "sourceUrl": "https://github.com/microsoft/AI-For-Beginners/blob/1ff3c870707ec312f4c4a3bba4eaf0d9e06456a3/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Course",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Runs on your computer; GitHub may bill Codespaces usage depending on your plan.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Clone is slow or huge",
+        "solution": "Use the sparse clone that skips translations.",
+        "sourceUrl": "https://github.com/microsoft/AI-For-Beginners/blob/1ff3c870707ec312f4c4a3bba4eaf0d9e06456a3/README.md"
+      },
+      {
+        "problem": "Environment problems",
+        "solution": "Follow lessons/0-course-setup/setup.md, or run in a Codespace.",
+        "sourceUrl": "https://github.com/microsoft/AI-For-Beginners/blob/1ff3c870707ec312f4c4a3bba4eaf0d9e06456a3/README.md"
+      },
+      {
+        "problem": "Need classic machine learning",
+        "solution": "That's covered by Microsoft's ML for Beginners curriculum.",
+        "sourceUrl": "https://github.com/microsoft/AI-For-Beginners/blob/1ff3c870707ec312f4c4a3bba4eaf0d9e06456a3/README.md"
+      }
+    ],
+    "bestFor": [
+      "Broad AI foundations",
+      "Classroom curricula",
+      "Hands-on deep learning basics"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Course"
+      },
+      {
+        "label": "Length",
+        "value": "12 weeks, 24 lessons"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Frameworks",
+        "value": "PyTorch and TensorFlow"
+      }
+    ]
+  }
+}
