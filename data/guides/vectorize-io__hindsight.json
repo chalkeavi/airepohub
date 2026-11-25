@@ -1,0 +1,279 @@
+{
+  "fullName": "vectorize-io/hindsight",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/vectorize-io/hindsight/blob/550ef5e304623be2a456913acbac1b1a834fb2c3/README.md"
+    ],
+    "sourceCommitSha": "550ef5e304623be2a456913acbac1b1a834fb2c3",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Start the server with Docker",
+        "command": "export OPENAI_API_KEY=sk-xxx\ndocker run -it --pull always --name hindsight --restart unless-stopped -p 8888:8888 -p 9999:9999 -e HINDSIGHT_API_LLM_API_KEY=$OPENAI_API_KEY -v hindsight-data:/home/hindsight/.pg0 ghcr.io/vectorize-io/hindsight:latest"
+      },
+      {
+        "comment": "Install the Python client",
+        "command": "pip install hindsight-client -U"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Hindsight is a memory system for AI agents. It stores what an agent learns, recalls the relevant memories later and can reflect on them, so agents improve over time instead of forgetting everything between conversations.",
+      "problem": "Agents usually lose context between sessions, and plain RAG or knowledge graphs only recall text. Hindsight extracts facts, entities, relationships and time information from what you store, and the README reports state-of-the-art results on the LongMemEval benchmark.",
+      "whoFor": [
+        "Developers building agents that need long-term memory",
+        "Teams adding memory to chatbots and assistants",
+        "Coding agent users who want persistent memory",
+        "Researchers comparing memory systems"
+      ],
+      "whyChoose": "Choose it for a self-hostable memory layer with SDKs, an MCP server and a two-line LLM wrapper. A hosted Hindsight Cloud is also available.",
+      "requirements": [
+        "Docker (recommended) or Python with pip",
+        "An API key for an LLM provider, or a local model through Ollama, LM Studio or llama.cpp",
+        "Linux, macOS or Windows"
+      ]
+    },
+    "overview": [
+      "Hindsight runs as a server with an API on port 8888 and a UI on port 9999. Memories live in banks. You interact through three operations: retain stores information, recall searches memories (including by time), and reflect generates a response that takes the stored memories into account.",
+      "Behind the scenes, retain uses an LLM to extract key facts, temporal data, entities and relationships and normalises them into a searchable form. It works with 25+ LLM providers through HINDSIGHT_API_LLM_PROVIDER, including OpenAI, Anthropic, Gemini, Groq, Bedrock and local models.",
+      "There are clients for Python, Node.js and Go, a CLI, an MCP server exposing retain, recall and reflect as tools, and an LLM wrapper that adds memory to existing OpenAI or Anthropic calls automatically. You can also embed it in Python with no separate server. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Retain, recall, reflect",
+        "body": "Three simple memory operations."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Fact and entity extraction",
+        "body": "Turns text into facts, entities and timelines."
+      },
+      {
+        "icon": "puzzle",
+        "title": "25+ LLM providers",
+        "body": "Hosted or fully local models."
+      },
+      {
+        "icon": "file-code",
+        "title": "LLM wrapper",
+        "body": "Add memory to an existing agent in two lines."
+      },
+      {
+        "icon": "git-compare",
+        "title": "MCP server",
+        "body": "Expose memory as tools to any MCP client."
+      },
+      {
+        "icon": "shield",
+        "title": "Many deployment options",
+        "body": "Docker, pip, Helm, embedded or Cloud."
+      }
+    ],
+    "strengths": [
+      "Strong benchmark results on LongMemEval",
+      "Self-hostable and MIT licensed",
+      "SDKs for Python, Node.js and Go",
+      "Web UI included"
+    ],
+    "limitations": [
+      "Needs an LLM to extract memories, which costs tokens",
+      "Intel Macs need the slim package",
+      "Runs a server plus database"
+    ],
+    "useCases": [
+      {
+        "title": "Personal assistants",
+        "body": "Remember user preferences across sessions."
+      },
+      {
+        "title": "Coding agents",
+        "body": "Keep project knowledge between runs."
+      },
+      {
+        "title": "Customer support bots",
+        "body": "Recall previous conversations with a customer."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Hindsight's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/vectorize-io/hindsight/blob/550ef5e304623be2a456913acbac1b1a834fb2c3/README.md",
+      "prerequisites": [
+        "Docker or Python",
+        "An LLM API key or local model"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Set your LLM key",
+              "code": "export OPENAI_API_KEY=sk-xxx",
+              "lang": "bash"
+            },
+            {
+              "title": "Start Hindsight",
+              "body": "API on http://localhost:8888, UI on http://localhost:9999.",
+              "code": "docker run -it --pull always --name hindsight --restart unless-stopped -p 8888:8888 -p 9999:9999 \\\n  -e HINDSIGHT_API_LLM_API_KEY=$OPENAI_API_KEY \\\n  -v hindsight-data:/home/hindsight/.pg0 \\\n  ghcr.io/vectorize-io/hindsight:latest",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Bare metal",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install and start the API",
+              "code": "pip install hindsight-api\nexport HINDSIGHT_API_LLM_API_KEY=sk-xxx\nhindsight-api",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Kubernetes",
+          "method": "helm",
+          "steps": [
+            {
+              "title": "Install with Helm",
+              "code": "helm install hindsight oci://ghcr.io/vectorize-io/charts/hindsight \\\n  --set api.llm.provider=openai \\\n  --set api.llm.apiKey=sk-xxx \\\n  --set postgresql.enabled=true",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "HINDSIGHT_API_LLM_API_KEY",
+          "required": true,
+          "description": "API key for the LLM provider Hindsight uses to extract memories."
+        },
+        {
+          "name": "HINDSIGHT_API_LLM_PROVIDER",
+          "required": false,
+          "description": "Which LLM provider to use, for example openai, anthropic, gemini or ollama."
+        },
+        {
+          "name": "HINDSIGHT_DB_PASSWORD",
+          "required": false,
+          "description": "Database password when using the external PostgreSQL docker compose setup."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Install the Python client",
+          "code": "pip install hindsight-client -U",
+          "lang": "bash"
+        },
+        {
+          "title": "Open the UI",
+          "body": "Go to http://localhost:9999."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Store and recall your first memories",
+      "useCase": "Use the Python client to retain a fact, recall it and reflect on it.",
+      "setup": [
+        "Hindsight server running on localhost:8888",
+        "pip install hindsight-client -U"
+      ],
+      "steps": [
+        {
+          "title": "Connect and retain a memory",
+          "code": "from hindsight_client import Hindsight\n\nclient = Hindsight(base_url=\"http://localhost:8888\")\nclient.retain(bank_id=\"my-bank\", content=\"Alice works at Google as a software engineer\")",
+          "lang": "text"
+        },
+        {
+          "title": "Recall it",
+          "code": "client.recall(bank_id=\"my-bank\", query=\"What does Alice do?\")",
+          "lang": "text"
+        },
+        {
+          "title": "Reflect",
+          "code": "client.reflect(bank_id=\"my-bank\", query=\"Tell me about Alice\")",
+          "lang": "text"
+        }
+      ],
+      "expected": "Recall returns the stored memory about Alice, and reflect generates a response based on what the bank knows.",
+      "nextSteps": [
+        "Wrap your OpenAI or Anthropic client with hindsight-litellm",
+        "Connect the MCP server to your agent",
+        "Read the core concepts in the docs"
+      ],
+      "sourceUrl": "https://github.com/vectorize-io/hindsight/blob/550ef5e304623be2a456913acbac1b1a834fb2c3/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Self-hosted",
+        "value": "Free software; you pay for your servers.",
+        "tone": "free"
+      },
+      {
+        "label": "LLM usage",
+        "value": "Retain and reflect call your LLM provider, billed by them unless you use a local model.",
+        "tone": "depends"
+      },
+      {
+        "label": "Hindsight Cloud",
+        "value": "Usage-based billing with free credits to start.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Bare-metal install problems on an Intel Mac",
+        "solution": "Use hindsight-all-slim, as the README says.",
+        "sourceUrl": "https://github.com/vectorize-io/hindsight/blob/550ef5e304623be2a456913acbac1b1a834fb2c3/README.md"
+      },
+      {
+        "problem": "Need Windows or air-gapped setup",
+        "solution": "See the installation guide in the docs.",
+        "sourceUrl": "https://github.com/vectorize-io/hindsight/blob/550ef5e304623be2a456913acbac1b1a834fb2c3/README.md"
+      },
+      {
+        "problem": "Want to use a local model",
+        "solution": "Set HINDSIGHT_API_LLM_PROVIDER to ollama, lmstudio or llamacpp.",
+        "sourceUrl": "https://github.com/vectorize-io/hindsight/blob/550ef5e304623be2a456913acbac1b1a834fb2c3/README.md"
+      }
+    ],
+    "bestFor": [
+      "Long-term agent memory",
+      "Self-hosted memory layer",
+      "Adding memory to existing LLM apps"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent memory system"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Ports",
+        "value": "API 8888, UI 9999"
+      }
+    ]
+  }
+}
