@@ -1,0 +1,274 @@
+{
+  "fullName": "usestrix/strix",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/usestrix/strix/blob/935f82350782cdf15d70cbcb3e6d7e48f49071c2/README.md"
+    ],
+    "sourceCommitSha": "935f82350782cdf15d70cbcb3e6d7e48f49071c2",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install Strix",
+        "command": "curl -sSL https://strix.ai/install | bash"
+      },
+      {
+        "comment": "Scan your own app",
+        "command": "strix --target ./app-directory"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Strix is an open-source AI penetration testing tool. Its autonomous agents run your app, look for security vulnerabilities, and confirm them with working proofs of concept, then suggest fixes.",
+      "problem": "Traditional scanners produce many false positives, and manual pentests take weeks. Strix uses AI agents with real security tools to find and validate issues quickly, and can run in CI to block insecure code before release.",
+      "whoFor": [
+        "Developers testing their own applications",
+        "Security teams speeding up penetration tests",
+        "Bug bounty researchers (within program scope)",
+        "Teams adding security checks to CI/CD"
+      ],
+      "whyChoose": "Choose it for validated, developer-friendly security findings from a local CLI with your own LLM key. Only point it at systems you own or have written permission to test.",
+      "requirements": [
+        "Docker, running",
+        "An LLM API key from a supported provider (OpenAI, Anthropic, Google and others)"
+      ]
+    },
+    "overview": [
+      "Strix runs teams of AI agents equipped with an HTTP interception proxy, an automated browser, a shell, a Python exploit sandbox, reconnaissance tools and static and dynamic analysis. They test for the OWASP Top 10 and more: access control, injection, SSRF, XSS, business logic, authentication and API issues.",
+      "Findings include proofs of concept and remediation guidance, and results are saved to strix_runs/ and viewable in a local web dashboard with strix view. Strix can also run in GitHub Actions to scan pull requests, and installs as skills for Claude Code, Cursor and Codex.",
+      "The open-source version runs locally with Docker and your own LLM key. Strix Cloud and Enterprise are paid hosted offerings with autofix pull requests, continuous testing and compliance reports. The README stresses authorized use only: you are responsible for permission and legal compliance."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Autonomous pentesting agents",
+        "body": "Recon, exploitation and validation."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Validated findings",
+        "body": "Working proofs of concept to cut false positives."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Security toolkit",
+        "body": "Proxy, browser, shell and exploit sandbox."
+      },
+      {
+        "icon": "file-code",
+        "title": "OWASP Top 10 coverage",
+        "body": "Injection, XSS, SSRF, access control and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "CI/CD integration",
+        "body": "Scan pull requests in GitHub Actions."
+      },
+      {
+        "icon": "shield",
+        "title": "Local web viewer",
+        "body": "Browse results with strix view."
+      }
+    ],
+    "strengths": [
+      "Validates issues with proofs of concept",
+      "Runs locally with your own LLM key",
+      "Developer-first CLI with fix guidance",
+      "Apache-2.0 licensed"
+    ],
+    "limitations": [
+      "Only for systems you own or are authorized to test",
+      "LLM usage costs money and quality depends on the model",
+      "Needs Docker",
+      "Automated testing doesn't replace a full manual review"
+    ],
+    "useCases": [
+      {
+        "title": "Pre-release security check",
+        "body": "Scan your app's code directory before shipping."
+      },
+      {
+        "title": "CI gate",
+        "body": "Block pull requests that introduce vulnerabilities."
+      },
+      {
+        "title": "Authorized bug bounty work",
+        "body": "Generate proofs of concept within program scope."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Strix's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/usestrix/strix/blob/935f82350782cdf15d70cbcb3e6d7e48f49071c2/README.md",
+      "prerequisites": [
+        "Docker",
+        "An LLM API key"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "curl -sSL https://strix.ai/install | bash",
+              "lang": "bash"
+            },
+            {
+              "title": "Configure your AI provider",
+              "code": "export STRIX_LLM=\"openrouter/z-ai/glm-5.3\"\nexport LLM_API_KEY=\"your-api-key\"",
+              "lang": "bash"
+            },
+            {
+              "title": "Scan a directory you own",
+              "body": "The first run pulls the sandbox Docker image.",
+              "code": "strix --target ./app-directory",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Coding agent skills",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install the Strix skills",
+              "body": "Nine skills for pentests, fixes and CI scanning.",
+              "code": "npx skills add usestrix/strix",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "STRIX_LLM",
+          "required": true,
+          "description": "Provider and model to use, for example an OpenRouter or Vercel AI Gateway model."
+        },
+        {
+          "name": "LLM_API_KEY",
+          "required": true,
+          "description": "API key for that provider."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Run your first assessment",
+          "code": "strix --target ./app-directory",
+          "lang": "bash"
+        },
+        {
+          "title": "Open the results",
+          "code": "strix view",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Security-test your own app with Strix",
+      "useCase": "Find and validate vulnerabilities in code you own.",
+      "setup": [
+        "Docker running",
+        "An LLM API key",
+        "An app directory you own"
+      ],
+      "steps": [
+        {
+          "title": "Install",
+          "code": "curl -sSL https://strix.ai/install | bash",
+          "lang": "bash"
+        },
+        {
+          "title": "Set your model and key",
+          "code": "export STRIX_LLM=\"openrouter/z-ai/glm-5.3\"\nexport LLM_API_KEY=\"your-api-key\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Run the scan",
+          "code": "strix --target ./app-directory",
+          "lang": "bash"
+        },
+        {
+          "title": "Review findings",
+          "code": "strix view",
+          "lang": "bash"
+        }
+      ],
+      "expected": "Strix pulls its sandbox image, tests the app and saves validated findings with remediation guidance to strix_runs/.",
+      "nextSteps": [
+        "Add Strix to GitHub Actions",
+        "Install the skills for your coding agent",
+        "Read docs.strix.ai for providers and options"
+      ],
+      "sourceUrl": "https://github.com/usestrix/strix/blob/935f82350782cdf15d70cbcb3e6d7e48f49071c2/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Open source CLI",
+        "value": "Free; runs locally.",
+        "tone": "free"
+      },
+      {
+        "label": "LLM usage",
+        "value": "Billed by your model provider.",
+        "tone": "paid"
+      },
+      {
+        "label": "Strix Cloud and Enterprise",
+        "value": "Optional paid hosted offerings.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "First run is slow",
+        "solution": "It pulls the sandbox Docker image automatically on first use.",
+        "sourceUrl": "https://github.com/usestrix/strix/blob/935f82350782cdf15d70cbcb3e6d7e48f49071c2/README.md"
+      },
+      {
+        "problem": "Need to update",
+        "solution": "Run strix --update, or the matching pipx, uv or pip upgrade command it prints.",
+        "sourceUrl": "https://github.com/usestrix/strix/blob/935f82350782cdf15d70cbcb3e6d7e48f49071c2/README.md"
+      },
+      {
+        "problem": "Scan doesn't start",
+        "solution": "Make sure Docker is running and STRIX_LLM and LLM_API_KEY are set.",
+        "sourceUrl": "https://github.com/usestrix/strix/blob/935f82350782cdf15d70cbcb3e6d7e48f49071c2/README.md"
+      }
+    ],
+    "bestFor": [
+      "Testing your own apps for vulnerabilities",
+      "Security checks in CI",
+      "Validated findings over noisy scans"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI penetration testing"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Needs",
+        "value": "Docker and an LLM key"
+      }
+    ]
+  }
+}
