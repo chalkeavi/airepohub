@@ -1,0 +1,250 @@
+{
+  "fullName": "heygen-com/hyperframes",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/heygen-com/hyperframes/blob/4864ade2838704b92c69d37ec5ffe554ddca4114/README.md"
+    ],
+    "sourceCommitSha": "4864ade2838704b92c69d37ec5ffe554ddca4114",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Give your coding agent the skills",
+        "command": "npx skills add heygen-com/hyperframes"
+      },
+      {
+        "comment": "Or start a project by hand",
+        "command": "npx hyperframes init my-video"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "HyperFrames is HeyGen's open-source framework and app for making videos from HTML. You or your AI agent write a page with timed clips, text and animations, and it renders a frame-accurate MP4.",
+      "problem": "Editing video usually needs specialised software, and agents can't easily drive it. HyperFrames treats a video as an HTML file with timing attributes, so agents and developers can create and change videos like code.",
+      "whoFor": [
+        "Developers who want to generate videos with code",
+        "Claude Code, Codex and Cursor users making videos with agents",
+        "Creators making explainers, product demos and social clips",
+        "Teams automating video pipelines"
+      ],
+      "whyChoose": "Choose it if you want videos you can build and edit as HTML, with no build step. The Studio app has a free plan and a paid Pro plan for built-in AI models.",
+      "requirements": [
+        "Node.js 22+",
+        "FFmpeg",
+        "A coding agent, if you want agent-made videos"
+      ]
+    },
+    "overview": [
+      "A HyperFrames video is an HTML file. Clips, titles and audio get data attributes for start time, duration and track, and you can animate with GSAP, CSS, Lottie, Three.js, Anime.js or WAAPI. The renderer seeks each frame in headless Chrome and encodes it with FFmpeg, so output is deterministic.",
+      "There are three ways to use it: the HyperFrames Studio desktop app with no code, your coding agent with HyperFrames skills, or chat apps like Claude, ChatGPT and Grok (beta). Skills cover things like style sampling, remaking an existing video, slideshows and porting Remotion projects.",
+      "The CLI creates, previews and renders projects, and a catalog adds blocks like transitions, overlays, charts and maps. You can render locally, in Docker, in the cloud or on your own AWS Lambda. The framework is Apache-2.0; the Studio app has a free plan and a $25 per month Pro plan."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "HTML-native video",
+        "body": "Compositions are HTML files with timing attributes."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Agent skills",
+        "body": "Make videos from Claude Code, Codex, Cursor and more."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Deterministic rendering",
+        "body": "Headless Chrome plus FFmpeg, frame by frame."
+      },
+      {
+        "icon": "file-code",
+        "title": "Catalog blocks",
+        "body": "Transitions, overlays, charts and maps."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Studio app",
+        "body": "No-code editing by typing or pointing."
+      },
+      {
+        "icon": "shield",
+        "title": "Flexible rendering",
+        "body": "Local, Docker, cloud or AWS Lambda."
+      }
+    ],
+    "strengths": [
+      "No build step; index.html plays as-is",
+      "Works with many animation libraries",
+      "Strong agent integration",
+      "Apache-2.0 license"
+    ],
+    "limitations": [
+      "Needs FFmpeg and Node.js 22+",
+      "Top AI models in Studio need the paid Pro plan",
+      "Community skills should be reviewed before use"
+    ],
+    "useCases": [
+      {
+        "title": "Product launch video",
+        "body": "Ask your agent for an intro with titles and music."
+      },
+      {
+        "title": "PR walkthrough video",
+        "body": "Point your agent at a pull request."
+      },
+      {
+        "title": "Data animations",
+        "body": "Use catalog chart and map blocks."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from HyperFrames's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/heygen-com/hyperframes/blob/4864ade2838704b92c69d37ec5ffe554ddca4114/README.md",
+      "prerequisites": [
+        "Node.js 22+",
+        "FFmpeg"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Coding agent skills",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install the skills",
+              "body": "Pick Core Skills in the picker.",
+              "code": "npx skills add heygen-com/hyperframes",
+              "lang": "bash"
+            },
+            {
+              "title": "Or install without the picker (scripts, CI)",
+              "code": "npx hyperframes skills update",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Claude Code plugin",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace and install",
+              "code": "claude plugin marketplace add heygen-com/hyperframes\nclaude plugin install hyperframes@hyperframes",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "CLI by hand",
+          "method": "cli",
+          "steps": [
+            {
+              "title": "Create, preview and render",
+              "code": "npx hyperframes init my-video\ncd my-video\nnpx hyperframes preview      # live preview in the browser\nnpx hyperframes render       # render to MP4",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Create a project",
+          "code": "npx hyperframes init my-video",
+          "lang": "bash"
+        },
+        {
+          "title": "Preview it",
+          "code": "cd my-video\nnpx hyperframes preview",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Make a 10-second product intro with your agent",
+      "useCase": "Use the HyperFrames skill to generate and render a short video.",
+      "setup": [
+        "HyperFrames skills installed",
+        "Node.js 22+ and FFmpeg"
+      ],
+      "steps": [
+        {
+          "title": "Ask your agent",
+          "code": "Using /hyperframes, create a 10-second product intro with a fade-in title, a background video, and subtle background music.",
+          "lang": "text"
+        },
+        {
+          "title": "Preview the result",
+          "code": "npx hyperframes preview",
+          "lang": "bash"
+        },
+        {
+          "title": "Render to MP4",
+          "code": "npx hyperframes render",
+          "lang": "bash"
+        }
+      ],
+      "expected": "An MP4 file of your product intro, rendered frame by frame.",
+      "nextSteps": [
+        "Add a catalog block with npx hyperframes add",
+        "Share for review with npx hyperframes share",
+        "Try the Studio app for no-code edits"
+      ],
+      "sourceUrl": "https://github.com/heygen-com/hyperframes/blob/4864ade2838704b92c69d37ec5ffe554ddca4114/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Framework and CLI",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Studio app",
+        "value": "Free plan; Pro is $25 a month for top AI models.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Render fails",
+        "solution": "Check you have Node.js 22+ and FFmpeg installed.",
+        "sourceUrl": "https://github.com/heygen-com/hyperframes/blob/4864ade2838704b92c69d37ec5ffe554ddca4114/README.md"
+      },
+      {
+        "problem": "Skills are out of date",
+        "solution": "skills add can lag behind main; npx hyperframes skills update installs from the release tag.",
+        "sourceUrl": "https://github.com/heygen-com/hyperframes/blob/4864ade2838704b92c69d37ec5ffe554ddca4114/README.md"
+      }
+    ],
+    "bestFor": [
+      "Video from code",
+      "Agent-made videos",
+      "Automated video pipelines"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "HTML-to-video framework"
+      },
+      {
+        "label": "Maker",
+        "value": "HeyGen"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      }
+    ]
+  }
+}

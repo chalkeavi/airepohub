@@ -1,0 +1,260 @@
+{
+  "fullName": "PaddlePaddle/PaddleOCR",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/PaddlePaddle/PaddleOCR/blob/dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf/README.md",
+      "https://github.com/PaddlePaddle/PaddleOCR/blob/dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf/docs/quick_start.en.md"
+    ],
+    "sourceCommitSha": "dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install the inference engine (CPU)",
+        "command": "python -m pip install paddlepaddle==3.2.0 -i https://www.paddlepaddle.org.cn/packages/stable/cpu/"
+      },
+      {
+        "comment": "Install PaddleOCR",
+        "command": "python -m pip install \"paddleocr[all]\""
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "PaddleOCR is an OCR and document AI toolkit that turns images and PDFs into text and structured data such as JSON and Markdown. It recognises text in 100+ languages and can parse tables, formulas and layouts.",
+      "problem": "Getting usable data out of scanned documents, photos and complex PDFs is hard, and language models need clean text. PaddleOCR detects and recognises text and converts whole documents into structured, LLM-ready output.",
+      "whoFor": [
+        "Developers building document processing or RAG pipelines",
+        "Teams digitising scanned documents",
+        "Apps that read text from photos, IDs or screens",
+        "AI agent platforms needing document parsing"
+      ],
+      "whyChoose": "Choose it for accurate, multilingual OCR and document parsing that runs locally on CPU or GPU, with small models for edge use. It integrates with tools like Dify and RAGFlow.",
+      "requirements": [
+        "Python",
+        "An inference engine: PaddlePaddle 3.0+ or Hugging Face Transformers",
+        "Optional: an NVIDIA GPU with the matching CUDA build"
+      ]
+    },
+    "overview": [
+      "PaddleOCR covers two main jobs. Text recognition (PP-OCR) finds and reads text in images, including natural scenes, IDs, street views and industrial labels, with PP-OCRv6 covering 50 languages in one model in tiny, small and medium sizes. Document parsing (PaddleOCR-VL and PP-StructureV3) converts complex PDFs and images into Markdown or JSON, including tables and formulas.",
+      "You can run it from the command line or Python, with PaddlePaddle or Transformers as the inference engine. It also supports ONNX export, OpenVINO and TensorRT acceleration, multi-GPU inference, serving for other languages, and a browser SDK.",
+      "Recent releases add converting Word, Excel and PowerPoint to Markdown and exporting parsed results to DOCX. An official website offers an online experience centre and APIs if you don't want to install anything."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Multilingual OCR",
+        "body": "100+ languages; PP-OCRv6 covers 50 in one model."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Document parsing",
+        "body": "PDFs and images to Markdown or JSON with tables and formulas."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Small models",
+        "body": "Tiny, small and medium tiers for edge to server."
+      },
+      {
+        "icon": "file-code",
+        "title": "Two engines",
+        "body": "PaddlePaddle or Hugging Face Transformers."
+      },
+      {
+        "icon": "git-compare",
+        "title": "CLI and Python API",
+        "body": "paddleocr command and Python classes."
+      },
+      {
+        "icon": "shield",
+        "title": "Deployment options",
+        "body": "ONNX, OpenVINO, TensorRT, serving and browser SDK."
+      }
+    ],
+    "strengths": [
+      "Strong accuracy across many languages",
+      "Runs locally on CPU or GPU",
+      "Widely integrated in AI tools",
+      "Apache-2.0 license"
+    ],
+    "limitations": [
+      "GPU installs need the right CUDA build",
+      "Some Transformers-engine features are still being added",
+      "Large documentation spread across many pages"
+    ],
+    "useCases": [
+      {
+        "title": "Digitise scanned documents",
+        "body": "Convert scans into searchable text."
+      },
+      {
+        "title": "Prepare PDFs for RAG",
+        "body": "Parse PDFs into Markdown with tables."
+      },
+      {
+        "title": "Read text from photos",
+        "body": "Extract text from receipts, signs or screens."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from PaddleOCR's README and quick start guide. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/PaddlePaddle/PaddleOCR/blob/dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf/README.md",
+      "prerequisites": [
+        "Python",
+        "pip"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "CPU (PaddlePaddle)",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install the inference engine",
+              "code": "python -m pip install paddlepaddle==3.2.0 -i https://www.paddlepaddle.org.cn/packages/stable/cpu/",
+              "lang": "bash"
+            },
+            {
+              "title": "Install PaddleOCR",
+              "code": "python -m pip install \"paddleocr[all]\"",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "NVIDIA GPU (CUDA 11.8)",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install the GPU engine",
+              "body": "Example for Linux with CUDA 11.8; other setups need a matching build.",
+              "code": "python -m pip install paddlepaddle-gpu==3.2.0 -i https://www.paddlepaddle.org.cn/packages/stable/cu118/",
+              "lang": "bash"
+            },
+            {
+              "title": "Install PaddleOCR",
+              "code": "python -m pip install \"paddleocr[all]\"",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Transformers engine",
+          "method": "pip-transformers",
+          "steps": [
+            {
+              "title": "Install Transformers",
+              "code": "python -m pip install \"transformers>=5.8.0\"",
+              "lang": "bash"
+            },
+            {
+              "title": "Install PaddleOCR",
+              "code": "python -m pip install \"paddleocr[all]\"",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run OCR on an image",
+          "code": "paddleocr ocr -i ./general_ocr_002.png \\\n    --use_doc_orientation_classify False \\\n    --use_doc_unwarping False \\\n    --use_textline_orientation False \\\n    --engine paddle",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Read text from an image and parse a document",
+      "useCase": "Run OCR on an image, then convert a document page to structured output.",
+      "setup": [
+        "PaddlePaddle and paddleocr[all] installed",
+        "An image file and a document page image"
+      ],
+      "steps": [
+        {
+          "title": "Run OCR",
+          "code": "paddleocr ocr -i ./general_ocr_002.png \\\n    --use_doc_orientation_classify False \\\n    --use_doc_unwarping False \\\n    --use_textline_orientation False \\\n    --engine paddle",
+          "lang": "bash"
+        },
+        {
+          "title": "Parse a document with PP-StructureV3",
+          "code": "paddleocr pp_structurev3 -i ./pp_structure_v3_demo.png \\\n    --use_doc_orientation_classify False \\\n    --use_doc_unwarping False \\\n    --engine paddle",
+          "lang": "bash"
+        }
+      ],
+      "expected": "Recognised text with positions for the image, and structured output for the document page.",
+      "nextSteps": [
+        "Use the PaddleOCR class from Python",
+        "Try PaddleOCR-VL for full document parsing",
+        "Speed up inference with OpenVINO or TensorRT"
+      ],
+      "sourceUrl": "https://github.com/PaddlePaddle/PaddleOCR/blob/dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf/docs/quick_start.en.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software and models",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Official website APIs",
+        "value": "Online experience centre and APIs are offered by the project; check their terms.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "GPU install fails",
+        "solution": "GPU builds depend on your CUDA version; follow the PaddlePaddle install instructions for your platform.",
+        "sourceUrl": "https://github.com/PaddlePaddle/PaddleOCR/blob/dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf/README.md"
+      },
+      {
+        "problem": "Version errors with PaddlePaddle",
+        "solution": "PaddleOCR 3.x needs PaddlePaddle 3.0 or above.",
+        "sourceUrl": "https://github.com/PaddlePaddle/PaddleOCR/blob/dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf/README.md"
+      },
+      {
+        "problem": "Some features fail with the Transformers engine",
+        "solution": "Some models are still being supported; for PP-StructureV3 disable formula recognition as the quick start shows.",
+        "sourceUrl": "https://github.com/PaddlePaddle/PaddleOCR/blob/dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf/README.md"
+      }
+    ],
+    "bestFor": [
+      "Multilingual OCR",
+      "Document parsing for LLMs",
+      "Local and edge OCR"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "OCR and document AI toolkit"
+      },
+      {
+        "label": "Maker",
+        "value": "PaddlePaddle (Baidu)"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      }
+    ]
+  }
+}

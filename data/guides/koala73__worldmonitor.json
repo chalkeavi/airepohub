@@ -1,0 +1,252 @@
+{
+  "fullName": "koala73/worldmonitor",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/koala73/worldmonitor/blob/5cfd6adfae567305a27e3e19c0c9a1af73feb135/README.md"
+    ],
+    "sourceCommitSha": "5cfd6adfae567305a27e3e19c0c9a1af73feb135",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Open the terminal dashboard (no API key)",
+        "command": "npx worldmonitor"
+      },
+      {
+        "comment": "Self-host the full stack with Docker",
+        "command": "curl -fsSL https://www.worldmonitor.app/install.sh | bash"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "World Monitor is a real-time global intelligence dashboard. It gathers news, geopolitical events, markets, military flights, cyber and climate data into maps and panels, with AI-written briefs.",
+      "problem": "Following world events means jumping between dozens of news sites, maps and market tools. World Monitor brings those streams together and highlights where signals converge, in a web app, desktop app or terminal.",
+      "whoFor": [
+        "Analysts and researchers tracking global events",
+        "Investors watching markets, commodities and risk",
+        "Journalists monitoring breaking news",
+        "Self-hosters who want their own situational dashboard"
+      ],
+      "whyChoose": "Choose it for a free, open-source situation dashboard you can use online, in the terminal or self-host. It supports local AI through Ollama so no API keys are required.",
+      "requirements": [
+        "Node.js 24 for local development",
+        "Docker for the self-hosted stack",
+        "Optional: credentials for some data sources (see .env.example)"
+      ]
+    },
+    "overview": [
+      "World Monitor aggregates curated global and regional news feeds and summarises them into AI briefs. It shows events on a 3D globe or flat WebGL map, correlates military, economic, disaster and escalation signals, and tracks a Country Instability Index for 31 countries.",
+      "A finance radar covers stock exchanges, commodities and crypto. Site variants for tech, finance, commodities, energy and positive news are built from the same codebase. The UI is multilingual with right-to-left support, and AI features can run locally with Ollama.",
+      "You can use the public website, a Tauri desktop app for Windows, macOS and Linux, a terminal dashboard with npx worldmonitor, a CLI, SDKs for Python, Ruby and Go, or an MCP server. The README asks that forks not present themselves as the official site."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Curated news feeds",
+        "body": "Global and regional feeds with AI briefs."
+      },
+      {
+        "icon": "scan-search",
+        "title": "3D globe and flat map",
+        "body": "globe.gl and deck.gl map engines."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Signal correlation",
+        "body": "Military, economic, disaster and escalation convergence."
+      },
+      {
+        "icon": "file-code",
+        "title": "Finance radar",
+        "body": "Markets, commodities and crypto."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Terminal dashboard",
+        "body": "Live map and panels in your shell, no API key."
+      },
+      {
+        "icon": "shield",
+        "title": "Local AI",
+        "body": "Run with Ollama, no API keys required."
+      }
+    ],
+    "strengths": [
+      "Many ways to use it, from web to terminal",
+      "Free and self-hostable",
+      "Local AI option",
+      "Active, stable releases"
+    ],
+    "limitations": [
+      "AGPL-3.0 license has obligations for hosted modified versions",
+      "Some data sources need their own credentials",
+      "Information is only as reliable as its sources"
+    ],
+    "useCases": [
+      {
+        "title": "Morning world briefing",
+        "body": "Open the dashboard for an AI summary of overnight events."
+      },
+      {
+        "title": "Market risk watch",
+        "body": "Track commodities and instability signals together."
+      },
+      {
+        "title": "Agent research",
+        "body": "Connect the MCP server to an AI agent."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from World Monitor's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/koala73/worldmonitor/blob/5cfd6adfae567305a27e3e19c0c9a1af73feb135/README.md",
+      "prerequisites": [
+        "Docker, or Node.js 24"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Terminal dashboard",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Run it",
+              "body": "Live map, news, markets and more in your shell. No API key needed.",
+              "code": "npx worldmonitor",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Self-host with Docker",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Run the one-line installer",
+              "body": "Clones into ./worldmonitor, generates secrets, starts the stack and seeds data.",
+              "code": "curl -fsSL https://www.worldmonitor.app/install.sh | bash",
+              "lang": "bash"
+            },
+            {
+              "title": "Open http://localhost:3000"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Local development",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Clone and run",
+              "body": "Needs Node.js 24.",
+              "code": "git clone https://github.com/koala73/worldmonitor.git\ncd worldmonitor\nnpm install\nnpm run dev",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start the terminal dashboard",
+          "code": "npx worldmonitor",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run World Monitor locally",
+      "useCase": "Start the dashboard on your own machine and try a variant.",
+      "setup": [
+        "Node.js 24",
+        "Git"
+      ],
+      "steps": [
+        {
+          "title": "Clone and install",
+          "code": "git clone https://github.com/koala73/worldmonitor.git\ncd worldmonitor\nnpm install",
+          "lang": "bash"
+        },
+        {
+          "title": "Start the dev server",
+          "code": "npm run dev",
+          "lang": "bash"
+        },
+        {
+          "title": "Open http://localhost:3000"
+        },
+        {
+          "title": "Try the finance variant",
+          "code": "npm run dev:finance",
+          "lang": "bash"
+        }
+      ],
+      "expected": "The dashboard runs at localhost:3000 with no environment variables needed.",
+      "nextSteps": [
+        "Add data-source credentials from .env.example",
+        "Self-host with the Docker installer",
+        "Connect the MCP server to your agent"
+      ],
+      "sourceUrl": "https://github.com/koala73/worldmonitor/blob/5cfd6adfae567305a27e3e19c0c9a1af73feb135/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "AGPL-3.0. Free to use; sharing a modified hosted version requires sharing its source.",
+        "tone": "free"
+      },
+      {
+        "label": "Web app and terminal dashboard",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Some data sources",
+        "value": "May need their own credentials.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "npm install fails with Invalid comparator",
+        "solution": "You're on an old Node.js (for example Debian 12's Node 18). Install Node.js 24 as pinned in .nvmrc.",
+        "sourceUrl": "https://github.com/koala73/worldmonitor/blob/5cfd6adfae567305a27e3e19c0c9a1af73feb135/README.md"
+      },
+      {
+        "problem": "Port 3000 is busy",
+        "solution": "Set DEV_PORT in .env.local.",
+        "sourceUrl": "https://github.com/koala73/worldmonitor/blob/5cfd6adfae567305a27e3e19c0c9a1af73feb135/README.md"
+      },
+      {
+        "problem": "Some panels are empty",
+        "solution": "Those data sources need credentials; see .env.example.",
+        "sourceUrl": "https://github.com/koala73/worldmonitor/blob/5cfd6adfae567305a27e3e19c0c9a1af73feb135/README.md"
+      }
+    ],
+    "bestFor": [
+      "Global situation awareness",
+      "Market and risk monitoring",
+      "Self-hosted dashboards"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Global intelligence dashboard"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      }
+    ]
+  }
+}

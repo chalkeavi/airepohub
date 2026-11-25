@@ -1,0 +1,235 @@
+{
+  "fullName": "microsoft/ML-For-Beginners",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/microsoft/ML-For-Beginners/blob/8e5c0dfffdb56181450363f9ccd880bc69737ae8/README.md"
+    ],
+    "sourceCommitSha": "8e5c0dfffdb56181450363f9ccd880bc69737ae8",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Clone the course without translations",
+        "command": "git clone --filter=blob:none --sparse https://github.com/microsoft/ML-For-Beginners.git"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "ML for Beginners is a free 12-week, 26-lesson course from Microsoft that teaches classic machine learning, mainly with Scikit-learn. Each lesson uses real data from different parts of the world and includes quizzes and assignments.",
+      "problem": "Many machine learning resources jump straight into deep learning or assume a strong maths background. This curriculum builds up classic techniques like regression, classification and clustering step by step through projects.",
+      "whoFor": [
+        "Beginners learning machine learning",
+        "Students and teachers wanting a ready-made curriculum",
+        "Python developers new to Scikit-learn",
+        "R users (some lessons include R)"
+      ],
+      "whyChoose": "Choose it for a structured, project-based introduction to classic ML that's free and well supported. It intentionally avoids deep learning, which Microsoft covers in a separate AI for Beginners course.",
+      "requirements": [
+        "Python (or GitHub Codespaces in the browser)",
+        "Git and a GitHub account to fork the repo"
+      ]
+    },
+    "overview": [
+      "The curriculum spans 12 weeks and 26 lessons on classic machine learning, primarily using Scikit-learn and avoiding deep learning. Lessons travel around the world, applying techniques to data from many regions.",
+      "Each lesson includes a pre-lecture quiz, written instructions, a solution, an assignment and a post-lecture quiz. Students are encouraged to build the projects from understanding rather than running the solution code, which lives in each lesson's solution folder.",
+      "You can fork and clone the repository, or open it in GitHub Codespaces to skip local Python setup. A sparse clone skips the 50+ translations to speed up the download, and a troubleshooting guide covers setup issues."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "26 lessons",
+        "body": "Classic ML over 12 weeks."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Scikit-learn",
+        "body": "Hands-on with the standard Python ML library."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Quizzes and assignments",
+        "body": "Before and after each lesson."
+      },
+      {
+        "icon": "file-code",
+        "title": "Project-based",
+        "body": "Real data from around the world."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Codespaces ready",
+        "body": "Start in the browser without local setup."
+      },
+      {
+        "icon": "shield",
+        "title": "50+ translations",
+        "body": "Course content in many languages."
+      }
+    ],
+    "strengths": [
+      "Free, structured and beginner friendly",
+      "Backed by Microsoft",
+      "Lots of practice material",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "No deep learning content",
+      "Full clone is large because of translations",
+      "Self-paced; no instructor support"
+    ],
+    "useCases": [
+      {
+        "title": "Learn ML basics",
+        "body": "Work through regression, classification and clustering."
+      },
+      {
+        "title": "Teach a class",
+        "body": "Use the lessons and quizzes as a curriculum."
+      },
+      {
+        "title": "Practice Scikit-learn",
+        "body": "Build the lesson projects yourself."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from ML for Beginners's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/microsoft/ML-For-Beginners/blob/8e5c0dfffdb56181450363f9ccd880bc69737ae8/README.md",
+      "prerequisites": [
+        "Git",
+        "Python"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Sparse clone (Bash / macOS / Linux)",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone without translations",
+              "code": "git clone --filter=blob:none --sparse https://github.com/microsoft/ML-For-Beginners.git\ncd ML-For-Beginners\ngit sparse-checkout set --no-cone '/*' '!translations' '!translated_images'",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Fork and clone",
+          "method": "git-full",
+          "steps": [
+            {
+              "title": "Fork the repository on GitHub"
+            },
+            {
+              "title": "Clone your fork",
+              "code": "git clone https://github.com/microsoft/ML-For-Beginners.git",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "GitHub Codespaces",
+          "method": "codespaces",
+          "steps": [
+            {
+              "title": "Open your fork in Codespaces",
+              "body": "Use the green Code menu and choose Codespaces to start without local Python setup."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start with the first lesson's pre-lecture quiz"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Work through your first ML lesson",
+      "useCase": "Set up the course and complete one lesson the recommended way.",
+      "setup": [
+        "The repository cloned or open in Codespaces"
+      ],
+      "steps": [
+        {
+          "title": "Take the pre-lecture quiz"
+        },
+        {
+          "title": "Read the lesson and complete the activities"
+        },
+        {
+          "title": "Build the project yourself",
+          "body": "Check the solution folder only if you get stuck."
+        },
+        {
+          "title": "Take the post-lecture quiz and do the assignment"
+        }
+      ],
+      "expected": "A completed lesson with your own working project and assignment.",
+      "nextSteps": [
+        "Continue through the 26 lessons",
+        "See TROUBLESHOOTING.md if setup fails",
+        "Try Microsoft's AI for Beginners for deep learning"
+      ],
+      "sourceUrl": "https://github.com/microsoft/ML-For-Beginners/blob/8e5c0dfffdb56181450363f9ccd880bc69737ae8/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use and share.",
+        "tone": "free"
+      },
+      {
+        "label": "Course",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Codespaces",
+        "value": "Optional; GitHub may bill Codespaces usage depending on your plan.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install or setup problems",
+        "solution": "See TROUBLESHOOTING.md in the repository.",
+        "sourceUrl": "https://github.com/microsoft/ML-For-Beginners/blob/8e5c0dfffdb56181450363f9ccd880bc69737ae8/README.md"
+      },
+      {
+        "problem": "Clone is slow",
+        "solution": "Use the sparse checkout to skip translations.",
+        "sourceUrl": "https://github.com/microsoft/ML-For-Beginners/blob/8e5c0dfffdb56181450363f9ccd880bc69737ae8/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning classic machine learning",
+      "Classroom curriculum",
+      "Scikit-learn practice"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Course (26 lessons)"
+      },
+      {
+        "label": "Maker",
+        "value": "Microsoft"
+      },
+      {
+        "label": "Library",
+        "value": "Scikit-learn"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      }
+    ]
+  }
+}
