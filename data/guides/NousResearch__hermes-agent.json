@@ -1,0 +1,264 @@
+{
+  "fullName": "NousResearch/hermes-agent",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/NousResearch/hermes-agent/blob/2435384984f89a59b72bb58d7d2b993acc0e29f5/README.md"
+    ],
+    "sourceCommitSha": "2435384984f89a59b72bb58d7d2b993acc0e29f5",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install (Linux, macOS, WSL2)",
+        "command": "curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash"
+      },
+      {
+        "comment": "Start chatting",
+        "command": "hermes"
+      },
+      {
+        "comment": "Pick a model",
+        "command": "hermes model"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Hermes Agent is an AI agent from Nous Research that you run in your terminal or talk to from Telegram, Discord, Slack, WhatsApp and Signal. It learns as it works: it writes reusable skills after complex tasks, keeps memory, and can search its past conversations.",
+      "problem": "Most agents forget everything between sessions and are tied to one model. Hermes keeps memory and skills across sessions, works with almost any model provider, and can run scheduled jobs unattended.",
+      "whoFor": [
+        "Developers who want a terminal AI agent with memory",
+        "People who want an agent in their messaging apps",
+        "Users who want to switch freely between model providers",
+        "Researchers generating tool-calling training data"
+      ],
+      "whyChoose": "Choose it if you want one agent that learns over time, runs on a schedule and reaches you in chat apps, with no model lock-in. If you only need a coding assistant inside an editor, an editor-based tool may be simpler.",
+      "requirements": [
+        "Linux, macOS, WSL2, native Windows or Android (Termux)",
+        "An API key or account for a model provider (Nous Portal, OpenRouter, OpenAI or your own endpoint)",
+        "The installer sets up Python, Node.js and other tools for you"
+      ]
+    },
+    "overview": [
+      "Hermes Agent has a full terminal UI with multiline editing, slash-command autocomplete, history and streaming tool output. A single gateway process also connects it to Telegram, Discord, Slack, WhatsApp, Signal and email, so you can continue a conversation across platforms.",
+      "Its learning loop is the main idea: the agent curates its own memory, creates skills after complex tasks, improves them during use, and can search past sessions. A built-in cron scheduler runs natural-language tasks like daily reports unattended, and it can spawn subagents for parallel work.",
+      "You choose the model with hermes model and can switch without code changes. It can run commands locally, in Docker, over SSH, or in cloud sandboxes like Modal, Daytona and Vercel Sandbox. Nous Portal is an optional paid subscription that bundles models and tools behind one login."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Learning loop",
+        "body": "Creates and improves skills from experience and keeps memory between sessions."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Terminal UI",
+        "body": "Multiline editing, autocomplete, history and streaming tool output."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Messaging gateway",
+        "body": "Talk to it from Telegram, Discord, Slack, WhatsApp, Signal or email."
+      },
+      {
+        "icon": "file-code",
+        "title": "Any model",
+        "body": "Use Nous Portal, OpenRouter, OpenAI or your own endpoint, and switch anytime."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Scheduled automations",
+        "body": "Built-in cron runs tasks like daily reports without you."
+      },
+      {
+        "icon": "shield",
+        "title": "Runs anywhere",
+        "body": "Local, Docker, SSH, Modal, Daytona and Vercel Sandbox backends."
+      }
+    ],
+    "strengths": [
+      "Memory and skills that carry across sessions",
+      "No model lock-in",
+      "Works in terminal and chat apps from one setup",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "You pay for whatever model provider you use",
+      "Many features means more setup to learn",
+      "Some antivirus tools flag its bundled uv.exe as a false positive on Windows"
+    ],
+    "useCases": [
+      {
+        "title": "Daily briefings",
+        "body": "Schedule a natural-language task that sends you a report on Telegram each morning."
+      },
+      {
+        "title": "Personal assistant in chat",
+        "body": "Run the gateway and message the agent from your phone."
+      },
+      {
+        "title": "Parallel research",
+        "body": "Let it spawn subagents to work on several parts of a task at once."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Hermes Agent's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/NousResearch/hermes-agent/blob/2435384984f89a59b72bb58d7d2b993acc0e29f5/README.md",
+      "prerequisites": [
+        "A model provider API key or Nous Portal account"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows",
+        "Android (Termux)"
+      ],
+      "guides": [
+        {
+          "os": "linux",
+          "label": "Linux, macOS, WSL2",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Run the installer",
+              "code": "curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash",
+              "lang": "bash"
+            },
+            {
+              "title": "Reload your shell and start Hermes",
+              "code": "source ~/.bashrc    # reload shell (or: source ~/.zshrc)\nhermes              # start chatting!",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Windows (PowerShell)",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Run the installer in PowerShell",
+              "body": "Runs natively without WSL.",
+              "code": "iex (irm https://hermes-agent.nousresearch.com/install.ps1)",
+              "lang": "powershell"
+            },
+            {
+              "title": "Start Hermes",
+              "code": "hermes",
+              "lang": "powershell"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run the full setup wizard",
+          "code": "hermes setup",
+          "lang": "bash"
+        },
+        {
+          "title": "Choose a provider and model",
+          "code": "hermes model",
+          "lang": "bash"
+        },
+        {
+          "title": "Start a conversation",
+          "code": "hermes",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Install Hermes and talk to it from Telegram",
+      "useCase": "Set up Hermes in the terminal, then connect the messaging gateway.",
+      "setup": [
+        "A model provider API key, or a Nous Portal account",
+        "A Telegram account (or Discord, Slack, WhatsApp, Signal)"
+      ],
+      "steps": [
+        {
+          "title": "Install",
+          "code": "curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash",
+          "lang": "bash"
+        },
+        {
+          "title": "Run setup and pick a model",
+          "code": "hermes setup",
+          "lang": "bash"
+        },
+        {
+          "title": "Set up and start the gateway",
+          "code": "hermes gateway setup\nhermes gateway start",
+          "lang": "bash"
+        },
+        {
+          "title": "Send your bot a message from the app"
+        }
+      ],
+      "expected": "Hermes replies in your chat app, and /new, /model and other slash commands work there like in the terminal.",
+      "nextSteps": [
+        "Use hermes tools to choose enabled tools",
+        "Schedule a daily task in natural language",
+        "Run hermes doctor if anything looks wrong"
+      ],
+      "sourceUrl": "https://github.com/NousResearch/hermes-agent/blob/2435384984f89a59b72bb58d7d2b993acc0e29f5/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Your model provider charges for usage. Nous Portal is an optional paid subscription covering models and tools.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Windows Defender or antivirus flags uv.exe",
+        "solution": "It's a false positive for Astral's uv, which Hermes bundles. Verify it with the README's attestation steps, then whitelist the %LOCALAPPDATA%\\hermes\\bin folder.",
+        "sourceUrl": "https://github.com/NousResearch/hermes-agent/blob/2435384984f89a59b72bb58d7d2b993acc0e29f5/README.md"
+      },
+      {
+        "problem": "hermes command not found after install",
+        "solution": "Reload your shell with source ~/.bashrc (or ~/.zshrc).",
+        "sourceUrl": "https://github.com/NousResearch/hermes-agent/blob/2435384984f89a59b72bb58d7d2b993acc0e29f5/README.md"
+      },
+      {
+        "problem": "Something isn't working",
+        "solution": "Run hermes doctor to diagnose issues.",
+        "sourceUrl": "https://github.com/NousResearch/hermes-agent/blob/2435384984f89a59b72bb58d7d2b993acc0e29f5/README.md"
+      }
+    ],
+    "bestFor": [
+      "A long-running personal agent with memory",
+      "Agents reachable from messaging apps",
+      "Switching between model providers"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI agent (CLI and messaging)"
+      },
+      {
+        "label": "Maker",
+        "value": "Nous Research"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      }
+    ]
+  }
+}

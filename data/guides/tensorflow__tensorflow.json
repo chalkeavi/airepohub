@@ -1,0 +1,245 @@
+{
+  "fullName": "tensorflow/tensorflow",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/tensorflow/tensorflow/blob/bb336a5cd3007fd933dca0729435f9c842c7538b/README.md"
+    ],
+    "sourceCommitSha": "bb336a5cd3007fd933dca0729435f9c842c7538b",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install TensorFlow (GPU support on Ubuntu and Windows)",
+        "command": "pip install tensorflow"
+      },
+      {
+        "comment": "Or the smaller CPU-only package",
+        "command": "pip install tensorflow-cpu"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "TensorFlow is Google's open-source platform for building, training and deploying machine learning models. It provides Python and C++ APIs plus a large ecosystem of tools and libraries.",
+      "problem": "Building machine learning models from scratch means writing the maths for tensors, gradients and hardware acceleration yourself. TensorFlow provides those building blocks and runs them on CPUs and GPUs.",
+      "whoFor": [
+        "Machine learning researchers",
+        "Developers adding ML features to applications",
+        "Students learning deep learning",
+        "Teams deploying models to production, mobile or the web"
+      ],
+      "whyChoose": "Choose it if you want a mature framework with a big ecosystem for training and deploying models, especially if your team already uses it. Many newer research projects use PyTorch, so check what the models you need are written in.",
+      "requirements": [
+        "Python with pip",
+        "Optional: a CUDA-enabled NVIDIA GPU on Ubuntu or Windows",
+        "Other devices (DirectX, macOS Metal) through device plugins"
+      ]
+    },
+    "overview": [
+      "TensorFlow was created by researchers and engineers on the Google Brain team for machine learning and neural network research, and is general enough for many other uses. It offers stable Python and C++ APIs, with other language bindings that are not guaranteed to stay backward compatible.",
+      "The standard pip package includes support for CUDA-enabled GPUs on Ubuntu and Windows, and a smaller CPU-only package is available. DirectX and macOS Metal devices are supported through device plugins, and Docker images and source builds are documented on tensorflow.org.",
+      "Nightly builds are published as tf-nightly for testing. The tensorflow.org tutorials are the main place to learn it, and release and security announcements go out on the announce mailing list."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "End-to-end ML platform",
+        "body": "Build, train and deploy models with one framework."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Python and C++ APIs",
+        "body": "Stable APIs for both languages."
+      },
+      {
+        "icon": "puzzle",
+        "title": "GPU acceleration",
+        "body": "CUDA GPU support included in the standard package."
+      },
+      {
+        "icon": "file-code",
+        "title": "Device plugins",
+        "body": "Run on DirectX and macOS Metal devices."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Large ecosystem",
+        "body": "Tools, libraries and community resources around the core."
+      },
+      {
+        "icon": "shield",
+        "title": "Docker and source builds",
+        "body": "Official containers and build-from-source guides."
+      }
+    ],
+    "strengths": [
+      "Mature and widely used, backed by Google",
+      "Large ecosystem and documentation",
+      "Runs on CPUs, GPUs and other devices",
+      "Apache-2.0 license"
+    ],
+    "limitations": [
+      "Big install compared with lighter libraries",
+      "GPU setup can take some work",
+      "APIs for languages other than Python and C++ may change"
+    ],
+    "useCases": [
+      {
+        "title": "Train an image classifier",
+        "body": "Follow the tensorflow.org tutorials to train a model on your own images."
+      },
+      {
+        "title": "Add ML to an app",
+        "body": "Train a model in Python and deploy it with the TensorFlow ecosystem."
+      },
+      {
+        "title": "Learn deep learning",
+        "body": "Use it with the official tutorials to learn the basics."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from TensorFlow's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/tensorflow/tensorflow/blob/bb336a5cd3007fd933dca0729435f9c842c7538b/README.md",
+      "prerequisites": [
+        "Python and pip"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip (with GPU support)",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install the current release",
+              "body": "Includes CUDA GPU support on Ubuntu and Windows.",
+              "code": "pip install tensorflow",
+              "lang": "bash"
+            },
+            {
+              "title": "Upgrade later",
+              "code": "pip install --upgrade tensorflow",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "pip (CPU only)",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install the smaller CPU-only package",
+              "code": "pip install tensorflow-cpu",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start Python",
+          "code": "python",
+          "lang": "bash"
+        },
+        {
+          "title": "Run a first operation",
+          "code": "import tensorflow as tf\ntf.add(1, 2).numpy()",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your first TensorFlow program",
+      "useCase": "Check that TensorFlow works by running a couple of operations in Python.",
+      "setup": [
+        "TensorFlow installed with pip"
+      ],
+      "steps": [
+        {
+          "title": "Start Python",
+          "code": "python",
+          "lang": "bash"
+        },
+        {
+          "title": "Add two numbers",
+          "code": "import tensorflow as tf\ntf.add(1, 2).numpy()",
+          "lang": "text"
+        },
+        {
+          "title": "Make a string tensor",
+          "code": "hello = tf.constant('Hello, TensorFlow!')\nhello.numpy()",
+          "lang": "text"
+        }
+      ],
+      "expected": "The first call returns 3 and the second returns b'Hello, TensorFlow!'.",
+      "nextSteps": [
+        "Work through the TensorFlow tutorials on tensorflow.org",
+        "Set up GPU support from the install guide",
+        "Try a Docker container for a reproducible setup"
+      ],
+      "sourceUrl": "https://github.com/tensorflow/tensorflow/blob/bb336a5cd3007fd933dca0729435f9c842c7538b/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Hardware",
+        "value": "Training large models may need GPUs, which cost money if rented.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "GPU isn't used",
+        "solution": "GPU support in the pip package covers CUDA-enabled cards on Ubuntu and Windows. See the GPU install guide on tensorflow.org.",
+        "sourceUrl": "https://github.com/tensorflow/tensorflow/blob/bb336a5cd3007fd933dca0729435f9c842c7538b/README.md"
+      },
+      {
+        "problem": "Running on a Mac GPU or DirectX",
+        "solution": "Use the device plugins described in the install guide.",
+        "sourceUrl": "https://github.com/tensorflow/tensorflow/blob/bb336a5cd3007fd933dca0729435f9c842c7538b/README.md"
+      },
+      {
+        "problem": "Want the newest fixes",
+        "solution": "Try the tf-nightly package for testing.",
+        "sourceUrl": "https://github.com/tensorflow/tensorflow/blob/bb336a5cd3007fd933dca0729435f9c842c7538b/README.md"
+      }
+    ],
+    "bestFor": [
+      "Training and deploying ML models",
+      "Teams already in the TensorFlow ecosystem",
+      "Learning deep learning with official tutorials"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Machine learning framework"
+      },
+      {
+        "label": "Maker",
+        "value": "Google"
+      },
+      {
+        "label": "Languages",
+        "value": "Python, C++"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      }
+    ]
+  }
+}

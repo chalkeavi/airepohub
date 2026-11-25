@@ -1,0 +1,259 @@
+{
+  "fullName": "obra/superpowers",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/README.md"
+    ],
+    "sourceCommitSha": "22f0b463e7a5e579904dd6211a520321035526f7",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install in Claude Code",
+        "command": "/plugin install superpowers@claude-plugins-official"
+      },
+      {
+        "comment": "Or in Gemini CLI",
+        "command": "gemini extensions install https://github.com/obra/superpowers"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Superpowers is a set of skills that gives AI coding agents a disciplined software development process. Once installed, your agent brainstorms the design with you, writes a step-by-step plan, builds it with tests first and reviews its own work.",
+      "problem": "Coding agents tend to jump straight into writing code without understanding what you want, skip tests, and drift from the plan. Superpowers makes them ask questions first, plan in small tasks and follow test-driven development.",
+      "whoFor": [
+        "Developers using Claude Code, Codex, Cursor or Gemini CLI",
+        "People who want their agent to plan before coding",
+        "Teams that want agents to follow TDD and code review",
+        "Anyone running long autonomous agent sessions"
+      ],
+      "whyChoose": "Choose it if you want a ready-made, opinionated workflow for your coding agent rather than writing your own prompts and rules. It is strict on purpose, for example it deletes code written before tests.",
+      "requirements": [
+        "A supported coding agent (Claude Code, Codex, Cursor, Gemini CLI, Copilot CLI, OpenCode and others)",
+        "A git repository to work in"
+      ]
+    },
+    "overview": [
+      "Superpowers is built from composable skills that trigger automatically. When you start building something, the agent first asks what you're really trying to do, shows the design back to you in short chunks, and only then writes an implementation plan broken into 2 to 5 minute tasks.",
+      "After you approve, it creates an isolated git worktree and works through the plan, either with a fresh subagent per task plus a review after each, or inline with one final review. Test-driven development is enforced: write a failing test, watch it fail, then write the code.",
+      "It installs separately for each agent you use, through official plugin marketplaces for Claude Code, Codex and Grok, or with each tool's own extension command. It is made by Jesse Vincent and Prime Radiant."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Brainstorming first",
+        "body": "The agent asks questions and confirms the design before writing code."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Bite-sized plans",
+        "body": "Work is split into small tasks with exact file paths and verification steps."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Test-driven development",
+        "body": "Enforces red, green, refactor for every change."
+      },
+      {
+        "icon": "file-code",
+        "title": "Subagent-driven development",
+        "body": "Fresh subagents handle each task, with a review after each one."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Code review and debugging skills",
+        "body": "Includes systematic debugging, review and verification skills."
+      },
+      {
+        "icon": "shield",
+        "title": "Works across agents",
+        "body": "Installs into Claude Code, Codex, Cursor, Gemini CLI, Copilot CLI and more."
+      }
+    ],
+    "strengths": [
+      "Skills trigger automatically, no special commands needed",
+      "Lets agents work for long stretches without drifting",
+      "Available in several official plugin marketplaces",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Opinionated workflow may feel heavy for tiny changes",
+      "Must be installed separately for each agent you use",
+      "Longer sessions can use more tokens"
+    ],
+    "useCases": [
+      {
+        "title": "Build a feature with an agent",
+        "body": "Describe the goal, approve the design and plan, and let the agent implement it with tests."
+      },
+      {
+        "title": "Debug a tricky issue",
+        "body": "The systematic-debugging skill walks the agent through finding the root cause."
+      },
+      {
+        "title": "Write your own skills",
+        "body": "Use the writing-skills skill to create new ones."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Superpowers's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/README.md",
+      "prerequisites": [
+        "A supported coding agent"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Install from the official marketplace",
+              "code": "/plugin install superpowers@claude-plugins-official",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Gemini CLI",
+          "method": "extension",
+          "steps": [
+            {
+              "title": "Install the extension",
+              "code": "gemini extensions install https://github.com/obra/superpowers",
+              "lang": "bash"
+            },
+            {
+              "title": "Update later",
+              "code": "gemini extensions update superpowers",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Copilot CLI",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Register the marketplace",
+              "code": "copilot plugin marketplace add obra/superpowers-marketplace",
+              "lang": "bash"
+            },
+            {
+              "title": "Install the plugin",
+              "code": "copilot plugin install superpowers@superpowers-marketplace",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Cursor",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Install from the marketplace in Cursor Agent chat",
+              "code": "/add-plugin superpowers",
+              "lang": "text"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start your agent in a project",
+          "body": "Ask it to build something. The brainstorming skill activates on its own."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build a feature with the Superpowers workflow",
+      "useCase": "Have your coding agent design, plan and build a small feature with tests.",
+      "setup": [
+        "Superpowers installed in your agent",
+        "A git repository"
+      ],
+      "steps": [
+        {
+          "title": "Describe what you want to build",
+          "body": "The brainstorming skill asks questions and plays its understanding back for you to correct."
+        },
+        {
+          "title": "Approve the design",
+          "body": "The agent creates a git worktree and writes a plan of small tasks."
+        },
+        {
+          "title": "Say go",
+          "body": "It works through the plan with test-driven development and reviews between tasks."
+        },
+        {
+          "title": "Finish the branch",
+          "body": "When tasks are done it verifies tests and offers to merge, open a PR, keep or discard the work."
+        }
+      ],
+      "expected": "A tested feature on its own branch, built from a plan you approved.",
+      "nextSteps": [
+        "Try the systematic-debugging skill on a bug",
+        "Read the skills library in the README",
+        "Ask your agent to figure out what went wrong if a session misbehaves"
+      ],
+      "sourceUrl": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent usage",
+        "value": "Your coding agent's own plan or API usage applies.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "A skill fires when it shouldn't, or the agent ignores its plan",
+        "solution": "Ask your agent to figure out what went wrong with superpowers in this session. The diagnosing skill reads the transcript and reports what happened.",
+        "sourceUrl": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/README.md"
+      },
+      {
+        "problem": "Superpowers isn't active in a second agent",
+        "solution": "Install it separately for each harness you use.",
+        "sourceUrl": "https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/README.md"
+      }
+    ],
+    "bestFor": [
+      "Developers who want agents to plan before coding",
+      "Long autonomous coding sessions",
+      "Teams standardising on TDD"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent skills library"
+      },
+      {
+        "label": "Works with",
+        "value": "Claude Code, Codex, Cursor, Gemini CLI and more"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      }
+    ]
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "fullName": "deepseek-ai/deepseek-harness",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/README.md"
+    ],
+    "sourceCommitSha": "4b399c39a6d1479cd84ca591b4d7c88e24d38a96",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Start the Web UI with npx",
+        "command": "npx @deepseek-ai/dsh web"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "DeepSeek Harness (dsh) is an open-source agent harness from DeepSeek AI. It runs an AI agent you control through a local web interface, and almost everything in it is a plugin.",
+      "problem": "Agent tools often bundle fixed features that are hard to change. DeepSeek Harness is built on an everything-is-a-plugin design using the Cordis framework, so parts can be added or swapped.",
+      "whoFor": [
+        "Developers experimenting with AI agent harnesses",
+        "People who want to run DeepSeek's agent locally in a browser UI",
+        "Plugin authors building on an extensible agent"
+      ],
+      "whyChoose": "Choose it if you want to try DeepSeek's own agent harness and are comfortable with a developer preview that will change. For a stable daily tool, a mature harness is safer for now.",
+      "requirements": [
+        "Node.js",
+        "pnpm and Git if running from source"
+      ]
+    },
+    "overview": [
+      "DeepSeek Harness is an agent harness developed by DeepSeek AI. It uses Cordis, a plugin framework, so features are plugins that can be composed. Community plugins can be tagged with the dsh-plugin GitHub topic.",
+      "It runs a Web UI on your machine, by default at http://127.0.0.1:3080, and opens it in your browser on a local launch. Over SSH it only prints the URL.",
+      "The project is in developer preview and the README warns that there will be compatibility-breaking changes. It also asks you to read its safety notice before running it."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Everything is a plugin",
+        "body": "Built on Cordis so parts of the harness can be added or replaced."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Local Web UI",
+        "body": "Starts a browser interface on 127.0.0.1:3080."
+      },
+      {
+        "icon": "puzzle",
+        "title": "One-command start",
+        "body": "Run it straight from npm with npx."
+      },
+      {
+        "icon": "file-code",
+        "title": "Runs from source",
+        "body": "Build it yourself with pnpm for development."
+      }
+    ],
+    "strengths": [
+      "Official project from DeepSeek AI",
+      "Extensible plugin architecture",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Developer preview with breaking changes expected",
+      "Short documentation in the README itself",
+      "Read the safety notice before running it"
+    ],
+    "useCases": [
+      {
+        "title": "Try DeepSeek's agent locally",
+        "body": "Run the Web UI and work with the agent in your browser."
+      },
+      {
+        "title": "Build a plugin",
+        "body": "Extend the harness and tag your repo with dsh-plugin."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from DeepSeek Harness's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/README.md",
+      "prerequisites": [
+        "Node.js"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npm (npx)",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install Node.js"
+            },
+            {
+              "title": "Start the Web UI",
+              "body": "Opens http://127.0.0.1:3080 in your browser. Add --no-open to only start the server.",
+              "code": "npx @deepseek-ai/dsh web",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "From source",
+          "method": "pnpm",
+          "steps": [
+            {
+              "title": "Clone and build",
+              "code": "git clone https://github.com/deepseek-ai/deepseek-harness.git\ncd deepseek-harness\npnpm install\npnpm run build",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the Web UI",
+              "code": "pnpm dsh web",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start dsh",
+          "code": "npx @deepseek-ai/dsh web",
+          "lang": "bash"
+        },
+        {
+          "title": "Open http://127.0.0.1:3080 if the browser doesn't open by itself"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run DeepSeek Harness locally",
+      "useCase": "Start the harness and open its Web UI.",
+      "setup": [
+        "Node.js installed",
+        "The safety notice (SAFETY.md) read"
+      ],
+      "steps": [
+        {
+          "title": "Start the Web UI",
+          "code": "npx @deepseek-ai/dsh web",
+          "lang": "bash"
+        },
+        {
+          "title": "Use the browser tab that opens",
+          "body": "On SSH launches, open the printed URL through your forwarded port."
+        }
+      ],
+      "expected": "The DeepSeek Harness Web UI opens at http://127.0.0.1:3080.",
+      "nextSteps": [
+        "Read the documentation site",
+        "Look at the architecture docs if you want to write a plugin"
+      ],
+      "sourceUrl": "https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Model usage",
+        "value": "Any model API you connect may charge for usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "The browser doesn't open over SSH",
+        "solution": "That's expected. Over SSH dsh prints the URL; open it through your forwarded port.",
+        "sourceUrl": "https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/README.md"
+      },
+      {
+        "problem": "Something broke after an update",
+        "solution": "The project is a developer preview with breaking changes; check the release notes and docs.",
+        "sourceUrl": "https://github.com/deepseek-ai/deepseek-harness/blob/4b399c39a6d1479cd84ca591b4d7c88e24d38a96/README.md"
+      }
+    ],
+    "bestFor": [
+      "Developers trying new agent harnesses",
+      "Plugin authors"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent harness"
+      },
+      {
+        "label": "Maker",
+        "value": "DeepSeek AI"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Status",
+        "value": "Developer preview"
+      }
+    ]
+  }
+}

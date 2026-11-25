@@ -1,0 +1,256 @@
+{
+  "fullName": "farion1231/cc-switch",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/farion1231/cc-switch/blob/0d7f6e37e80e8437524e2d4a3a2da329d569657a/README.md"
+    ],
+    "sourceCommitSha": "0d7f6e37e80e8437524e2d4a3a2da329d569657a",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install on macOS with Homebrew",
+        "command": "brew install --cask cc-switch"
+      },
+      {
+        "comment": "Install on Arch Linux",
+        "command": "paru -S cc-switch-bin"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "CC Switch is a desktop app for managing AI coding tools such as Claude Code, Codex, Gemini CLI and OpenCode. It lets you switch API providers in one click and manage MCP servers, skills and prompts in one place.",
+      "problem": "Each AI coding tool keeps its own config in JSON, TOML, YAML or .env files, so changing providers or adding an MCP server means editing several files by hand. CC Switch handles that from one app and only replaces the connection details.",
+      "whoFor": [
+        "Developers who use several AI coding CLIs",
+        "People who switch between API providers or accounts",
+        "Users who want MCP servers and skills synced across tools",
+        "Anyone who wants to track token usage and quotas"
+      ],
+      "whyChoose": "Choose it if you juggle several coding agents or providers and want a GUI instead of editing config files. If you use one tool with one account, you probably don't need it.",
+      "requirements": [
+        "Windows 10+, macOS 12+, or Linux x86_64/ARM64 with glibc 2.35+ and WebKitGTK 4.1"
+      ]
+    },
+    "overview": [
+      "CC Switch is a native desktop app built with Tauri 2 that manages twelve tools, including Claude Code, Claude Desktop, Codex, Gemini CLI, Grok Build, OpenCode, OpenClaw and Hermes Agent. It has more than 90 provider presets, including AWS Bedrock and NVIDIA NIM, and switching changes only the endpoint, key and model.",
+      "Besides direct connections, a Routing mode forwards requests through your machine to convert API formats and fail over automatically, and Aggregation mode combines models for Claude Code and Codex. MCP servers and skills are added once and synced to the tools you choose.",
+      "It also reads each tool's session logs into a readable view, shows token usage, spending and remaining quotas, and can install or upgrade the coding tools themselves. On first launch it imports your existing configuration as a provider named default."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "One-click provider switching",
+        "body": "Pick a preset, enter your key and switch."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Twelve tools in one app",
+        "body": "Claude Code, Codex, Gemini CLI, OpenCode, OpenClaw, Hermes and more."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Shared MCP and skills",
+        "body": "Add MCP servers and skills once, then sync them to chosen tools."
+      },
+      {
+        "icon": "file-code",
+        "title": "Routing and failover",
+        "body": "Convert API formats locally and fail over between providers."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Readable sessions",
+        "body": "See what each turn did, which files changed and which step failed."
+      },
+      {
+        "icon": "shield",
+        "title": "Usage and quotas",
+        "body": "Track tokens, spending and remaining quota per provider."
+      }
+    ],
+    "strengths": [
+      "Saves hand-editing many config formats",
+      "Cross-platform desktop app",
+      "Keeps your own plugins, hooks and comments when switching",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Some tools need a restart after switching",
+      "Older enterprise Linux (RHEL/Rocky/Alma 8–9) isn't supported yet",
+      "Third-party relay providers in its presets are separate services; check their terms yourself"
+    ],
+    "useCases": [
+      {
+        "title": "Switch Claude Code providers",
+        "body": "Move between an official login and an API provider in one click."
+      },
+      {
+        "title": "Sync an MCP server",
+        "body": "Add it once and enable it for Claude Code, Codex and Gemini CLI."
+      },
+      {
+        "title": "Review a session",
+        "body": "Open the reading view to see what an agent changed."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from CC Switch's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/farion1231/cc-switch/blob/0d7f6e37e80e8437524e2d4a3a2da329d569657a/README.md",
+      "prerequisites": [
+        "A supported OS (see requirements)"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "macOS (Homebrew)",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install --cask cc-switch",
+              "lang": "bash"
+            },
+            {
+              "title": "Update later",
+              "code": "brew upgrade --cask cc-switch",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Windows",
+          "method": "installer",
+          "steps": [
+            {
+              "title": "Download the installer",
+              "body": "Get CC-Switch-v{version}-Windows.msi (or the portable .zip, or the arm64 .msi on Windows on ARM) from the GitHub Releases page and run it."
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Linux",
+          "method": "package",
+          "steps": [
+            {
+              "title": "Arch Linux",
+              "code": "paru -S cc-switch-bin",
+              "lang": "bash"
+            },
+            {
+              "title": "Other distros",
+              "body": "Download the .deb, .rpm or .AppImage for your architecture from the Releases page."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open CC Switch",
+          "body": "It imports your existing Claude Code, Codex, Gemini CLI and Grok Build config as a provider named default."
+        },
+        {
+          "title": "Add a provider",
+          "body": "Pick a tool in the sidebar, click + and choose a preset."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Switch Claude Code to a different API provider",
+      "useCase": "Add a provider preset and switch Claude Code to it.",
+      "setup": [
+        "CC Switch installed",
+        "An API key for the provider you want"
+      ],
+      "steps": [
+        {
+          "title": "Select Claude Code in the sidebar"
+        },
+        {
+          "title": "Click + (Add Provider)",
+          "body": "Choose a preset or create a custom configuration and enter your key."
+        },
+        {
+          "title": "Click Enable on the provider",
+          "body": "Claude Code needs no restart. Codex, Gemini CLI and Grok Build need a terminal restart."
+        },
+        {
+          "title": "Go back to the official login anytime",
+          "body": "Switch to the built-in Claude Official provider, restart the tool and log in."
+        }
+      ],
+      "expected": "Claude Code uses the new provider, and your own plugins, hooks and MCP settings are unchanged.",
+      "nextSteps": [
+        "Add an MCP server once and sync it to several tools",
+        "Try Routing mode for automatic failover",
+        "Read the user manual in docs/user-manual"
+      ],
+      "sourceUrl": "https://github.com/farion1231/cc-switch/blob/0d7f6e37e80e8437524e2d4a3a2da329d569657a/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "App",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Providers",
+        "value": "API providers and subscriptions you connect bill you directly.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Switch didn't take effect",
+        "solution": "Restart your terminal or the CLI for Codex, Gemini CLI and Grok Build, and restart Claude Desktop itself.",
+        "sourceUrl": "https://github.com/farion1231/cc-switch/blob/0d7f6e37e80e8437524e2d4a3a2da329d569657a/README.md"
+      },
+      {
+        "problem": "Want the official login back",
+        "solution": "Switch to the built-in official provider, restart the tool and follow its login flow.",
+        "sourceUrl": "https://github.com/farion1231/cc-switch/blob/0d7f6e37e80e8437524e2d4a3a2da329d569657a/README.md"
+      },
+      {
+        "problem": "App won't run on Linux",
+        "solution": "It needs glibc 2.35+ and WebKitGTK 4.1, for example Ubuntu 22.04+ or Debian 12+.",
+        "sourceUrl": "https://github.com/farion1231/cc-switch/blob/0d7f6e37e80e8437524e2d4a3a2da329d569657a/README.md"
+      }
+    ],
+    "bestFor": [
+      "People using several AI coding CLIs",
+      "Switching providers without editing config",
+      "Managing MCP servers across tools"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Desktop config manager"
+      },
+      {
+        "label": "Built with",
+        "value": "Tauri 2"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Platforms",
+        "value": "Windows, macOS, Linux"
+      }
+    ]
+  }
+}

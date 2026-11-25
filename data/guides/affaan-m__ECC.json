@@ -1,0 +1,274 @@
+{
+  "fullName": "affaan-m/ECC",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/affaan-m/ECC/blob/4adeee6732a12d1540f49a4d50a38ce8c97f9a53/README.md"
+    ],
+    "sourceCommitSha": "4adeee6732a12d1540f49a4d50a38ce8c97f9a53",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Guided setup for Claude Code, Codex and Kimi Code",
+        "command": "npx ecc-universal@2.2.3 setup"
+      },
+      {
+        "comment": "Or as a Claude Code plugin",
+        "command": "/plugin marketplace add https://github.com/affaan-m/ECC"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "ECC is a large collection of agents, skills, hooks and rules that turns an AI coding agent into a more structured engineering system. It makes the agent plan, test, implement, review, verify and remember what worked.",
+      "problem": "Getting a coding agent to work carefully usually means re-explaining your process in every prompt. ECC installs that process once: 72 agents, 328 skills, hooks, memory and security scanning, per the README.",
+      "whoFor": [
+        "Claude Code users who want a ready-made engineering setup",
+        "Codex, Qoder and Kimi Code users",
+        "Developers who want security scanning of agent config (AgentShield)",
+        "Teams standardising how agents plan and review"
+      ],
+      "whyChoose": "Choose it if you want a big, maintained toolbox you can install in one step and trim by profile. If you prefer a small, focused workflow, a lighter skills pack may suit you better.",
+      "requirements": [
+        "Node.js 18 or newer",
+        "Git",
+        "Claude Code 2.1 or newer on PATH for the Claude plugin path"
+      ]
+    },
+    "overview": [
+      "ECC gives your coding agent a loop of plan, test, implement, review, verify, remember and improve. It ships specialised agents for planning, review, build repair, security and architecture, plus skills for TDD, research, docs, frontend, data, ML and operations.",
+      "It works best with Claude Code, has native plugin paths for Codex and Qoder, and adapters with fewer capabilities for Cursor, OpenCode, Gemini, Zed, GitHub Copilot and others. Hooks add enforcement, session summaries and continuous learning, and AgentShield scans prompts, hooks, MCP config, permissions and secrets.",
+      "The open-source repository is MIT licensed. ECC Pro is a separate paid GitHub App for private repos. The README warns to install only from the official GitHub repository and npm packages."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "72 agents",
+        "body": "Specialised agents for planning, review, build repair, security and architecture."
+      },
+      {
+        "icon": "scan-search",
+        "title": "328 skills",
+        "body": "Skills for TDD, research, security, docs, frontend, data, ML and operations."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Hooks and memory",
+        "body": "Enforcement, session summaries and continuous learning between sessions."
+      },
+      {
+        "icon": "file-code",
+        "title": "AgentShield scanning",
+        "body": "Checks prompts, hooks, MCP config, permissions and secrets in agent files."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Guided setup",
+        "body": "One command installs and configures ECC with hook profiles."
+      },
+      {
+        "icon": "shield",
+        "title": "Many harnesses",
+        "body": "Claude Code, Codex, Qoder, Kimi Code, plus adapters for Cursor, Gemini and more."
+      }
+    ],
+    "strengths": [
+      "Very broad set of ready-made agents and skills",
+      "Guided installer with profiles you can change later",
+      "Built-in security scanning for agent setups",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Large surface area, which can use context if you install everything",
+      "Support outside Claude Code, Codex and Qoder is capability-limited",
+      "Stacking several install methods causes duplicate hooks"
+    ],
+    "useCases": [
+      {
+        "title": "Set up a new machine for agent coding",
+        "body": "Run the guided setup once to get agents, skills and hooks."
+      },
+      {
+        "title": "Audit an agent setup",
+        "body": "Use AgentShield to scan your agent files for risky permissions or secrets."
+      },
+      {
+        "title": "Install only what you need",
+        "body": "Use consult and profiles to pick components for your stack."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from ECC's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/affaan-m/ECC/blob/4adeee6732a12d1540f49a4d50a38ce8c97f9a53/README.md",
+      "prerequisites": [
+        "Node.js 18+",
+        "Git",
+        "Claude Code 2.1+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Guided setup (recommended)",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Check prerequisites",
+              "code": "node --version\ngit --version\nclaude --version",
+              "lang": "bash"
+            },
+            {
+              "title": "Run the guided installer",
+              "body": "For a typical personal setup choose Global user and Standard hooks.",
+              "code": "npx ecc-universal@2.2.3 setup",
+              "lang": "bash"
+            },
+            {
+              "title": "Verify in Claude Code",
+              "body": "Start a new session and check that ecc@ecc is enabled.",
+              "code": "/plugin list",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Claude Code plugin",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace",
+              "code": "/plugin marketplace add https://github.com/affaan-m/ECC",
+              "lang": "text"
+            },
+            {
+              "title": "Install the plugin",
+              "code": "/plugin install ecc@ecc",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Codex",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace",
+              "code": "codex plugin marketplace add affaan-m/ECC",
+              "lang": "bash"
+            },
+            {
+              "title": "Add the plugin",
+              "code": "codex plugin add ecc@ecc",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Confirm the plugin is enabled",
+          "code": "/plugin list",
+          "lang": "text"
+        },
+        {
+          "title": "Reconfigure later from inside Claude Code",
+          "code": "/ecc:configure-ecc",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Install ECC in Claude Code on Windows, macOS or Linux",
+      "useCase": "Get ECC's agents, skills and hooks into Claude Code with the guided installer.",
+      "setup": [
+        "Node.js 18+, Git and Claude Code 2.1+ installed"
+      ],
+      "steps": [
+        {
+          "title": "Open a terminal (PowerShell on Windows) and check the tools",
+          "code": "node --version\ngit --version\nclaude --version",
+          "lang": "bash"
+        },
+        {
+          "title": "Run the installer",
+          "code": "npx ecc-universal@2.2.3 setup",
+          "lang": "bash"
+        },
+        {
+          "title": "Choose Global user and Standard hooks, then confirm"
+        },
+        {
+          "title": "Start a new Claude Code session and check",
+          "code": "/plugin list",
+          "lang": "text"
+        }
+      ],
+      "expected": "ecc@ecc shows as enabled in Claude Code.",
+      "nextSteps": [
+        "Use /ecc:configure-ecc to change scope or hook profile",
+        "Read TROUBLESHOOTING.md if hooks misbehave",
+        "Try AgentShield on your agent config"
+      ],
+      "sourceUrl": "https://github.com/affaan-m/ECC/blob/4adeee6732a12d1540f49a4d50a38ce8c97f9a53/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "ECC open source",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "ECC Pro",
+        "value": "Paid GitHub App for private repos, from $19 per seat per month per the README.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "ECC appears twice or hooks fire twice",
+        "solution": "Usually caused by installing the plugin and then a full manual install on top. Remove the plugin, run node scripts/ecc.js uninstall --dry-run, then reinstall using one path.",
+        "sourceUrl": "https://github.com/affaan-m/ECC/blob/4adeee6732a12d1540f49a4d50a38ce8c97f9a53/README.md"
+      },
+      {
+        "problem": "Duplicate hooks file errors",
+        "solution": "Don't add a hooks field to .claude-plugin/plugin.json; Claude Code 2.1+ loads hooks/hooks.json automatically.",
+        "sourceUrl": "https://github.com/affaan-m/ECC/blob/4adeee6732a12d1540f49a4d50a38ce8c97f9a53/README.md"
+      },
+      {
+        "problem": "npm reports a version or cache error",
+        "solution": "Check the published version with npm view ecc-universal version before retrying.",
+        "sourceUrl": "https://github.com/affaan-m/ECC/blob/4adeee6732a12d1540f49a4d50a38ce8c97f9a53/README.md"
+      }
+    ],
+    "bestFor": [
+      "Claude Code power users",
+      "Developers who want a full agent toolbox in one install",
+      "Security-conscious agent setups"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent harness toolkit"
+      },
+      {
+        "label": "Works with",
+        "value": "Claude Code, Codex, Qoder, Kimi Code and more"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      }
+    ]
+  }
+}
