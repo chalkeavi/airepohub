@@ -3,7 +3,9 @@
 Source of truth: `supabase/migrations/`. This doc explains intent; read the SQL for details.
 Validated 2026-11-24 by loading the migration into PGlite (Postgres 17 in WASM) with an `auth`
 stub; `tests/db/schema.test.ts` repeats that check (tables, full-text search, constraints, anon RLS).
-Not yet applied to a real Supabase project (Milestone 2).
+Applied to Supabase project `airepohub` (ref `ugykphnasjjtmzeygwoq`, us-east-2, free plan) on 2026-11-25:
+`initial_schema` via the Supabase MCP; `20261125000000_harden_rls_and_content_fields.sql` and
+`supabase/seed.sql` run by the owner in the SQL Editor. Security advisor: 0 findings after the second migration.
 
 ## Entities
 | Table | Purpose | Key constraints |
@@ -38,7 +40,22 @@ copies reviewed content into `repository_content` / guides (Milestone 5).
   `audit_logs`, `admin_users`.
 - Admins (`is_admin()` = row in `admin_users` for `auth.uid()`): read everything, write content.
 - Automation uses the service-role key (bypasses RLS) from GitHub Actions secrets only.
-- `is_admin()` and `repo_is_published()` are `security definer` with fixed `search_path`.
+- `private.is_admin()` and `private.repo_is_published()` are `security definer` with an empty `search_path`,
+  in the `private` schema so PostgREST does not expose them as RPC endpoints.
+- One SELECT policy per table (public rows OR admin); admin writes are separate insert/update/delete
+  policies. Helpers are called as `(select private.is_admin())` so Postgres evaluates them once per query.
+- Every foreign key has an index.
+
+## Product-page fields (second migration)
+`repository_content`: `hero_commands`, `overview`, `best_for`, `facts`, `install_meta`
+(`{verificationNote, supportedOs, firstRun, sourceUrl}`). `installation_guides`: `label` (tab name), `sort_order`.
+
+## Seed
+`scripts/generate-seed.ts` (`pnpm seed:generate`) writes `supabase/seed.sql` from the sample data:
+categories, repos, categories links, one `repository_stats` row per repo (capture time 2026-11-24), OpenSEO
+content/guides/tutorial, and the first `all_time` ranking snapshot (global + per category, `star_growth`
+and `previous_rank` null). Idempotent; strings are dollar-quoted so it survives pasting into the SQL Editor.
+`tests/db/seed.test.ts` applies it twice in PGlite.
 
 ## Search
 Weighted `tsvector` (name A; summary/description B; topics C; long description D), queried with

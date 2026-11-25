@@ -1,37 +1,35 @@
 # Progress
 
-**Current milestone:** 1 — Foundation and design (built, awaiting owner review)
+**Current milestone:** 2 — Supabase (done, PR open)
 **Last updated:** 2026-11-25
 
 ## Done (implemented and checked)
-- Project memory: `CLAUDE.md`, `.claude/skills/airepohub-development/SKILL.md`, `docs/*`.
-- Architecture, design system, SEO strategy, deployment notes, milestone plan.
-- Database schema `supabase/migrations/20261124000000_initial_schema.sql`
-  (17 tables, enums, indexes, full-text search, RLS). Tested in PGlite, **not yet applied to Supabase**.
-- Next.js 16.4.6 app: homepage, `/repo/[slug]`, `/categories`, `/categories/[slug]`, `/search`,
-  `/about` (ranking methodology), legal placeholders, 404. Light/dark, responsive.
-- Sample data: 24 real repos with GitHub metadata captured 2026-11-24; full product-page content
-  for OpenSEO only, grounded in its README/HOW_TO_USE at commit 7ea75c7.
-- Checks: `pnpm lint`, `pnpm typecheck`, `pnpm test` (24 tests), `pnpm build` pass; pages
-  screenshot-checked at 1280px and 375px, light and dark, no horizontal overflow or console errors.
+- Milestone 1 (PR #1): docs and memory, schema, homepage, product page, categories, search, about, legal
+  placeholders, light/dark, responsive. Sample data: 24 real repos (GitHub metadata 2026-11-24), full guide for OpenSEO.
+- Milestone 2:
+  - Supabase project `airepohub` (ref `ugykphnasjjtmzeygwoq`). Both migrations and the seed are applied.
+  - Security advisor: 0 findings. Performance advisor: only "unused index" info (expected on a new DB).
+  - Verified as anonymous: drafts are hidden, unpublished rows are hidden, `rpc/is_admin` is not exposed.
+  - Site reads Supabase via `src/lib/data/supabase.ts` (sample fallback when env vars are missing).
+  - Checks: lint, typecheck, 28 tests (incl. seed applied twice in PGlite), production build against the
+    live DB; homepage, OpenSEO page, category page and search checked against live data.
 
 ## Not done / known gaps
-- No Supabase connection yet (Milestone 2). Rankings come from sample data, not snapshots.
-- Weekly/monthly rankings and Trending show empty states until star history exists.
-- Only OpenSEO has a full guide; the other 23 pages show GitHub facts + "guide in review".
-- OpenSEO install guide is "Based on official documentation"; not executed by us.
-- Legal pages are placeholders. No sitemap/robots/JSON-LD/OG images yet (Milestone 3).
-- Cloudflare build not attempted yet (Milestone 6).
-- Homepage and admin wireframes not received; homepage layout is our interpretation.
+- Weekly/monthly rankings and Trending stay empty until daily star history exists (Milestone 4 jobs).
+- `DATA_AS_OF` is still a constant (2026-11-24 capture time). Derive it from `stats_checked_at` once jobs refresh stats (M4).
+- Builds now fetch from Supabase; a build fails if Supabase is unreachable. In the cloud sandbox run builds
+  with `NODE_USE_ENV_PROXY=1` (Node fetch ignores HTTPS_PROXY otherwise).
+- Unknown `/repo/<slug>` renders the 404 page with `noindex` but HTTP status 200 (streamed response); revisit in M3 (SEO).
+- Only OpenSEO has a full guide. Install guide is "Based on official documentation", not executed by us.
+- No admin accounts yet (`admin_users` empty); content edits need the dashboard or service role until M5.
+- Legal pages are placeholders. No sitemap/robots/JSON-LD/OG images yet (Milestone 3). Cloudflare build: M6.
 
 ## Blockers / needs from owner
-- Review the Milestone 1 design.
-- Supabase project (URL + anon key; service-role key as a GitHub secret later) for Milestone 2.
-- Homepage and admin wireframes, if you have them.
+- Homepage and admin wireframes, if you have them (admin needed for M5).
+- Supabase MCP confirmation pop-ups do not reach the owner; DDL with drops is handed over as SQL files for the SQL Editor.
 
 ## Next recommended step
-Milestone 2: create the Supabase project, apply the migration, seed categories and the sample repos,
-and swap `src/lib/data/` to Supabase without changing its function signatures.
+Milestone 3: SEO (sitemap, robots, JSON-LD, OG images, proper 404 status).
 
 ## Later (ideas, not scheduled)
 - `pg_trgm` fuzzy search; Cloudflare Images loader for avatars.
