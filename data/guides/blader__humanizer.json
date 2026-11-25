@@ -1,0 +1,243 @@
+{
+  "fullName": "blader/humanizer",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/blader/humanizer/blob/a32f24407364c74c812b43c15926d638bee1e072/README.md"
+    ],
+    "sourceCommitSha": "a32f24407364c74c812b43c15926d638bee1e072",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install in Claude Code",
+        "command": "/plugin marketplace add blader/humanizer\n/plugin install humanizer@humanizer"
+      },
+      {
+        "comment": "Install for Codex",
+        "command": "npx skills add blader/humanizer --global --agent codex"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Humanizer is a skill for AI agents that rewrites AI-sounding text so it reads like a person wrote it, without changing what it says. It is based on Wikipedia's guide to signs of AI writing and checks for 26 patterns.",
+      "problem": "AI-written text has recognisable tells, like 'it's not just X, it's Y' or dramatic one-line closers, that make readers tune out. Humanizer finds and rewrites those patterns, and can match your own writing voice from a sample.",
+      "whoFor": [
+        "Writers and marketers editing AI drafts",
+        "Developers writing docs and posts with AI",
+        "Claude Code, Codex and pi users",
+        "Anyone who wants clearer, plainer prose"
+      ],
+      "whyChoose": "Choose it to edit AI drafts for human readers. The README is clear that it does not try to beat AI detectors, and detectors still flag most of its output.",
+      "requirements": [
+        "An AI agent that supports skills: Claude Code 2.1.142+, Codex, pi, Claude.ai, Claude Desktop or others"
+      ]
+    },
+    "overview": [
+      "Humanizer is a skill file you install into your agent and run with /humanizer, or by asking in plain language to humanize some text or a file. It reads a file in full before editing and summarises which sections it reviewed.",
+      "It targets 26 patterns, with five strongest tells: 'not X but Y' framing, one-line closers, sayings that sound deep, staged run-ups like 'Here's the thing', and arguing with no one. The README reports that judges preferred its rewrite over the original AI text 16 times out of 16 in a blind test.",
+      "To match your voice, include two or three paragraphs of your own writing; it follows the sample's rhythm, word choice and punctuation. It installs through the Claude Code plugin marketplace, the skills CLI for Codex and other agents, pi, or as a ZIP upload in Claude.ai and Claude Desktop."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "26 AI-writing patterns",
+        "body": "Based on Wikipedia's Signs of AI writing."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Keeps the meaning",
+        "body": "Rewrites style, not content."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Voice matching",
+        "body": "Follows a sample of your own writing."
+      },
+      {
+        "icon": "file-code",
+        "title": "Works on files",
+        "body": "Humanize the prose in a document in place."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Many agents",
+        "body": "Claude Code, Codex, pi, Claude.ai and more."
+      },
+      {
+        "icon": "shield",
+        "title": "Plain-language use",
+        "body": "Just ask it to humanize text."
+      }
+    ],
+    "strengths": [
+      "Simple to install and use",
+      "Grounded in a public style guide",
+      "Voice matching",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Does not evade AI detectors",
+      "Output still needs your review",
+      "Requires an agent that supports skills"
+    ],
+    "useCases": [
+      {
+        "title": "Launch posts",
+        "body": "Rewrite an AI-drafted announcement in plain language."
+      },
+      {
+        "title": "Docs cleanup",
+        "body": "Humanize the prose in a docs file."
+      },
+      {
+        "title": "Personal voice",
+        "body": "Match an email draft to your writing style."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Humanizer's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/blader/humanizer/blob/a32f24407364c74c812b43c15926d638bee1e072/README.md",
+      "prerequisites": [
+        "A skill-capable AI agent"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code plugin",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Needs Claude Code 2.1.142 or newer.",
+              "code": "/plugin marketplace add blader/humanizer\n/plugin install humanizer@humanizer",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Skills CLI",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install for Codex",
+              "code": "npx skills add blader/humanizer --global --agent codex",
+              "lang": "bash"
+            },
+            {
+              "title": "Or for every supported agent",
+              "code": "npx skills add blader/humanizer --global --agent '*'",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Claude.ai and Claude Desktop",
+          "method": "zip",
+          "steps": [
+            {
+              "title": "Download the repository as a ZIP",
+              "body": "Code, then Download ZIP on GitHub, and upload it as a skill in Settings."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Humanize some text",
+          "code": "/humanizer\n[paste your text here]",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Rewrite an AI draft in your own voice",
+      "useCase": "Make a draft sound like you wrote it.",
+      "setup": [
+        "Humanizer installed in your agent",
+        "2 to 3 paragraphs of your own writing"
+      ],
+      "steps": [
+        {
+          "title": "Run the skill with a voice sample",
+          "code": "/humanizer\nHere's a sample of my writing for voice matching:\n[paste 2-3 paragraphs of your own writing]\nNow humanize this text:\n[paste AI text to humanize]",
+          "lang": "text"
+        },
+        {
+          "title": "Review the rewrite",
+          "body": "Check the meaning is unchanged."
+        }
+      ],
+      "expected": "A rewrite without common AI tells that follows your sample's rhythm and word choice.",
+      "nextSteps": [
+        "Run it on a file: Humanize the prose in docs/launch-post.md",
+        "Read the 26 patterns in the README"
+      ],
+      "sourceUrl": "https://github.com/blader/humanizer/blob/a32f24407364c74c812b43c15926d638bee1e072/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Skill",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent",
+        "value": "Runs on your agent's plan.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Plugin install fails in Claude Code",
+        "solution": "The plugin needs Claude Code 2.1.142+; on older versions run npx skills add blader/humanizer --global --agent claude-code.",
+        "sourceUrl": "https://github.com/blader/humanizer/blob/a32f24407364c74c812b43c15926d638bee1e072/README.md"
+      },
+      {
+        "problem": "Want it in one project only",
+        "solution": "Omit --global from the install command.",
+        "sourceUrl": "https://github.com/blader/humanizer/blob/a32f24407364c74c812b43c15926d638bee1e072/README.md"
+      },
+      {
+        "problem": "AI detectors still flag the text",
+        "solution": "Expected; Humanizer edits for human readers, not detectors.",
+        "sourceUrl": "https://github.com/blader/humanizer/blob/a32f24407364c74c812b43c15926d638bee1e072/README.md"
+      }
+    ],
+    "bestFor": [
+      "Editing AI-written prose",
+      "Voice-matched rewrites",
+      "Documentation and marketing copy"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent writing skill"
+      },
+      {
+        "label": "Patterns",
+        "value": "26"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Agents",
+        "value": "Claude Code, Codex, pi and more"
+      }
+    ]
+  }
+}

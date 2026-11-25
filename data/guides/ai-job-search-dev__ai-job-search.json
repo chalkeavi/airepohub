@@ -1,0 +1,253 @@
+{
+  "fullName": "ai-job-search-dev/ai-job-search",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ai-job-search-dev/ai-job-search/blob/4e021e52f7e3d4016e0c22fc416c814a3d44c5c9/README.md"
+    ],
+    "sourceCommitSha": "4e021e52f7e3d4016e0c22fc416c814a3d44c5c9",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Make a private copy (with GitHub CLI)",
+        "command": "gh repo clone ai-job-search-dev/ai-job-search\ncd ai-job-search"
+      },
+      {
+        "comment": "Build your profile in Claude Code",
+        "command": "claude\n/setup"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "AI Job Search is an open-source job application framework built on Claude Code. You fill in your profile once, then commands search job portals, evaluate how well a posting fits you, tailor your CV and cover letter as PDFs, and prepare you for interviews.",
+      "problem": "Writing a tailored CV and cover letter for every application takes hours, and it's hard to judge which jobs are worth applying to. This framework gives Claude Code a structured workflow for evaluating fit and drafting and reviewing applications.",
+      "whoFor": [
+        "Job seekers comfortable with a terminal",
+        "Claude Code subscribers or API users",
+        "Applicants in any country (portal skills are community-provided)",
+        "People who want tailored LaTeX CVs and cover letters"
+      ],
+      "whyChoose": "Choose it for a structured, Claude Code-based job search with a drafter and reviewer pipeline. Claude Code has no free tier, and the project is independent of Anthropic.",
+      "requirements": [
+        "Claude Code (a Claude Pro, Max or Team subscription, or Anthropic API credits)",
+        "Python 3.10+",
+        "Bun for job portal CLIs",
+        "A minimal LaTeX install with lualatex and xelatex (TinyTeX or MiKTeX)",
+        "Optional: pypdf for ATS checks"
+      ]
+    },
+    "overview": [
+      "The core workflow is three commands. /setup builds your profile from your documents folder, a pasted CV or an interview. /scrape searches job portals that match your profile, deduplicates and sorts results by fit. /apply evaluates a posting, then drafts, reviews and compiles a tailored CV and cover letter.",
+      "More commands extend it: /rank scores a scrape into a shortlist, /interview builds a prep pack and runs a mock interview, /outcome records results and drafts follow-ups, and /gmail-sync proposes status updates from Gmail, among others. The workflow is language- and country-agnostic; job board search skills come from a separate community-portals repository, and without one /scrape uses web search.",
+      "The README warns that /setup writes personal data into tracked files, and GitHub forks of public repos are always public. It recommends a private copy for your own search and forking only to contribute. Other agents like Codex and Gemini CLI can start from AGENTS.md."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Profile setup",
+        "body": "Build a profile from your CV, LinkedIn export or an interview."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Job scraping",
+        "body": "Search portals and sort postings by fit."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Tailored applications",
+        "body": "CV and cover letter drafted, reviewed and compiled to PDF."
+      },
+      {
+        "icon": "file-code",
+        "title": "Interview prep",
+        "body": "Stage-specific prep packs and mock interviews."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Outcome tracking",
+        "body": "Record results and draft follow-ups."
+      },
+      {
+        "icon": "shield",
+        "title": "Country-agnostic",
+        "body": "Community portal skills for different job markets."
+      }
+    ],
+    "strengths": [
+      "Structured, repeatable workflow",
+      "Drafter and reviewer pipeline for applications",
+      "Works for any language or country",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Claude Code has no free tier",
+      "LaTeX and Bun setup required",
+      "Personal data lives in your repo, so keep it private",
+      "Not affiliated with Anthropic"
+    ],
+    "useCases": [
+      {
+        "title": "Weekly job search",
+        "body": "Run /scrape, then /apply on the best matches."
+      },
+      {
+        "title": "Tailor one application",
+        "body": "Run /apply with a posting URL."
+      },
+      {
+        "title": "Interview practice",
+        "body": "Run /interview for a mock session."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from AI Job Search's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ai-job-search-dev/ai-job-search/blob/4e021e52f7e3d4016e0c22fc416c814a3d44c5c9/README.md",
+      "prerequisites": [
+        "Claude Code",
+        "Python 3.10+",
+        "Bun",
+        "LaTeX"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Private copy (recommended)",
+          "method": "gh",
+          "steps": [
+            {
+              "title": "Clone and push to your own private repo",
+              "body": "Replace your-user with your GitHub username.",
+              "code": "gh repo clone ai-job-search-dev/ai-job-search\ncd ai-job-search\ngit remote rename origin upstream\ngh repo create ai-job-search --private --source=. --remote=origin --push\ngh repo set-default your-user/ai-job-search",
+              "lang": "bash"
+            },
+            {
+              "title": "Install the requirements",
+              "body": "Python 3.10+, Bun and a LaTeX install with lualatex and xelatex."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Fork (to contribute only)",
+          "method": "fork",
+          "steps": [
+            {
+              "title": "Fork and clone",
+              "body": "Forks of public repos are public, so don't put personal data in one.",
+              "code": "gh repo fork ai-job-search-dev/ai-job-search --clone\ncd ai-job-search",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start Claude Code in the folder and run setup",
+          "code": "/setup",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Tailor your first application",
+      "useCase": "Set up your profile and generate a tailored CV and cover letter for one job.",
+      "setup": [
+        "A private copy of the repository",
+        "Claude Code, Python 3.10+, Bun and LaTeX"
+      ],
+      "steps": [
+        {
+          "title": "Build your profile",
+          "code": "/setup",
+          "lang": "text"
+        },
+        {
+          "title": "Find postings",
+          "body": "Without a portal skill this uses web search.",
+          "code": "/scrape",
+          "lang": "text"
+        },
+        {
+          "title": "Apply to one posting",
+          "code": "/apply https://boards.greenhouse.io/acme/jobs/1234567",
+          "lang": "text"
+        }
+      ],
+      "expected": "A fit evaluation plus a tailored CV and cover letter compiled to PDF for that posting.",
+      "nextSteps": [
+        "Add a job portal from community-portals",
+        "Run /interview when you get a call",
+        "Record results with /outcome"
+      ],
+      "sourceUrl": "https://github.com/ai-job-search-dev/ai-job-search/blob/4e021e52f7e3d4016e0c22fc416c814a3d44c5c9/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Framework",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Claude Code",
+        "value": "No free tier: a Claude subscription or API credits.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "CV fails to compile on MiKTeX",
+        "solution": "Use lualatex; pdflatex often fails with fontawesome5 font-expansion errors.",
+        "sourceUrl": "https://github.com/ai-job-search-dev/ai-job-search/blob/4e021e52f7e3d4016e0c22fc416c814a3d44c5c9/README.md"
+      },
+      {
+        "problem": "/scrape finds few jobs",
+        "solution": "Add job portal skills for your market from the community-portals repository.",
+        "sourceUrl": "https://github.com/ai-job-search-dev/ai-job-search/blob/4e021e52f7e3d4016e0c22fc416c814a3d44c5c9/README.md"
+      },
+      {
+        "problem": "Worried about privacy",
+        "solution": "Use a private copy, not a fork; /setup writes personal data into tracked files.",
+        "sourceUrl": "https://github.com/ai-job-search-dev/ai-job-search/blob/4e021e52f7e3d4016e0c22fc416c814a3d44c5c9/README.md"
+      },
+      {
+        "problem": "Using Codex or Gemini CLI",
+        "solution": "Start from AGENTS.md.",
+        "sourceUrl": "https://github.com/ai-job-search-dev/ai-job-search/blob/4e021e52f7e3d4016e0c22fc416c814a3d44c5c9/README.md"
+      }
+    ],
+    "bestFor": [
+      "Structured AI job search",
+      "Tailored CVs and cover letters",
+      "Interview preparation"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Job application framework"
+      },
+      {
+        "label": "Built on",
+        "value": "Claude Code"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Output",
+        "value": "LaTeX CV and cover letter PDFs"
+      }
+    ]
+  }
+}
