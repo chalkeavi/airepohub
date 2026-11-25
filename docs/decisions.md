@@ -1,0 +1,21 @@
+# Decisions
+
+Concise log of decisions, owner corrections and mistakes to avoid. Newest last.
+Mark replaced entries `SUPERSEDED by #n`. Never store secrets here.
+
+| # | Date | Area | Decision / correction | Reason | Files |
+|---|---|---|---|---|---|
+| 1 | 2026-11-24 | Brand | ~~Product is RepoNivo~~ SUPERSEDED by #14 | | |
+| 2 | 2026-11-24 | Design | Only the product-page wireframe was supplied; homepage design is our interpretation in the same style. Admin wireframe still needed (M5) | Missing inputs | `docs/design-system.md` |
+| 3 | 2026-11-24 | Docs | `docs/product-requirements.md` serves as both `requirements.md` and `product-requirements.md` from the brief | Avoid duplicate specs | `docs/` |
+| 4 | 2026-11-24 | Stack | Next.js 16.4.6 + `@opennextjs/cloudflare` 1.20.18 (peer range includes 16.4.6). Cache Components on | Verified via npm registry; real deploy check in M6 | `package.json`, `docs/architecture.md` |
+| 5 | 2026-11-24 | Data | Milestone 1 uses typed sample data behind `src/lib/data/` with real GitHub metadata captured 2026-11-24; same API will be backed by Supabase in M2 | UI first without faking a DB | `src/lib/data/` |
+| 6 | 2026-11-24 | Content honesty | No growth, rank movement or "trending" shown until star snapshots exist; those views show empty states. All-time ranking uses stars + activity only, re-normalized | Brief forbids fabricated movement | `src/lib/ranking.ts`, home |
+| 7 | 2026-11-24 | Product page | Wireframe's terminal output (score 87/100, issue counts) and `pip install openseo` are not shown: OpenSEO is not on PyPI (checked 2026-11-24, 404), so the guide installs from source per its README | Never fabricate commands/output | `src/lib/data/sample/content/openseo.ts` |
+| 8 | 2026-11-24 | SEO/UI | Product page "tabs" are a sticky anchor nav, not hidden tab panels; OS tabs keep every panel in the HTML | Crawlable content | `src/components/repo/product/*` |
+| 9 | 2026-11-24 | Design | Geist Sans/Mono via `geist` package; violet accent; lavender-tinted neutrals; class-based dark mode with inline no-flash script (no next-themes) | Premium dev-tool look, fewer deps, no font request | `globals.css`, `layout.tsx` |
+| 10 | 2026-11-24 | Code blocks | Small built-in shell tokenizer instead of Shiki | Keeps Workers bundle and CPU small; guides are mostly shell | `src/lib/highlight.ts` |
+| 11 | 2026-11-24 | Activity | Activity status: Active ≤ 90 days since last push, Slowing 91–365, Inactive > 365, Archived if archived | Needs defined criteria | `src/lib/activity.ts` |
+| 12 | 2026-11-24 | Schema | Added `summary`, `kind`, `topics`, `docs_quality`, `repository_content`, `collections` beyond the brief's minimum; `array_to_string` wrapped in an immutable function for the generated search column | Product-page sections and search need them; Postgres rejected the non-immutable expression | `supabase/migrations/` |
+| 13 | 2026-11-24 | Images | `images.unoptimized: true`; GitHub avatars loaded at small sizes | Next image optimizer isn't available on Workers without extra setup | `next.config.ts` |
+| 14 | 2026-11-24 | Brand | Product renamed to **AIRepoHub** (owner confirmed); repo `chalkeavi/airepohub`. "RepoNivo" in the original brief and "RepoShelf" in the wireframe are old names | Owner decision | all UI, docs |

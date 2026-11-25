@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+/* Dark mode is class-based (html.dark), set before paint by the inline script in layout.tsx */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Design tokens (docs/design-system.md) ─────────────────────────────── */
+:root {
+  --background: oklch(0.987 0.004 286);
+  --surface: oklch(1 0 0);
+  --surface-muted: oklch(0.968 0.007 286);
+  --border: oklch(0.915 0.009 286);
+  --border-strong: oklch(0.86 0.012 286);
+  --foreground: oklch(0.205 0.02 286);
+  --muted-foreground: oklch(0.48 0.02 286);
+  --ink: oklch(0.2 0.02 286);
+  --ink-foreground: oklch(0.985 0.003 286);
+  --accent: oklch(0.53 0.22 287);
+  --accent-hover: oklch(0.48 0.22 287);
+  --accent-foreground: oklch(0.99 0 0);
+  --accent-soft: oklch(0.955 0.03 287);
+  --accent-soft-foreground: oklch(0.45 0.2 287);
+  --success: oklch(0.55 0.13 158);
+  --success-soft: oklch(0.955 0.04 158);
+  --warning: oklch(0.58 0.13 70);
+  --warning-soft: oklch(0.965 0.05 85);
+  --danger: oklch(0.56 0.19 25);
+  --danger-soft: oklch(0.96 0.03 25);
+  --terminal: oklch(0.19 0.017 286);
+  --terminal-border: oklch(0.29 0.02 286);
+  --terminal-foreground: oklch(0.93 0.008 286);
+  --terminal-muted: oklch(0.65 0.02 286);
+  --ring: oklch(0.6 0.2 287 / 0.55);
+  --shadow-color: 260 30% 25%;
+  color-scheme: light;
+}
+
+.dark {
+  --background: oklch(0.155 0.012 286);
+  --surface: oklch(0.19 0.013 286);
+  --surface-muted: oklch(0.225 0.015 286);
+  --border: oklch(0.275 0.016 286);
+  --border-strong: oklch(0.34 0.018 286);
+  --foreground: oklch(0.965 0.005 286);
+  --muted-foreground: oklch(0.72 0.016 286);
+  --ink: oklch(0.965 0.005 286);
+  --ink-foreground: oklch(0.17 0.012 286);
+  --accent: oklch(0.7 0.17 287);
+  --accent-hover: oklch(0.76 0.15 287);
+  --accent-foreground: oklch(0.16 0.02 286);
+  --accent-soft: oklch(0.27 0.06 287);
+  --accent-soft-foreground: oklch(0.86 0.09 287);
+  --success: oklch(0.76 0.14 158);
+  --success-soft: oklch(0.27 0.05 158);
+  --warning: oklch(0.82 0.13 80);
+  --warning-soft: oklch(0.29 0.05 80);
+  --danger: oklch(0.74 0.15 25);
+  --danger-soft: oklch(0.29 0.06 25);
+  --terminal: oklch(0.125 0.012 286);
+  --terminal-border: oklch(0.26 0.016 286);
+  --ring: oklch(0.72 0.16 287 / 0.6);
+  --shadow-color: 260 40% 2%;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-soft-foreground: var(--accent-soft-foreground);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-terminal: var(--terminal);
+  --color-terminal-border: var(--terminal-border);
+  --color-terminal-foreground: var(--terminal-foreground);
+  --color-terminal-muted: var(--terminal-muted);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  --shadow-card: 0 1px 2px hsl(var(--shadow-color) / 0.05), 0 1px 1px hsl(var(--shadow-color) / 0.03);
+  --shadow-raised: 0 1px 2px hsl(var(--shadow-color) / 0.06), 0 8px 24px -6px hsl(var(--shadow-color) / 0.12);
+  --shadow-terminal: 0 24px 60px -20px hsl(var(--shadow-color) / 0.45), 0 2px 6px hsl(var(--shadow-color) / 0.12);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 8rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--accent-soft);
+    color: var(--accent-soft-foreground);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+  /* faint dotted grid used behind the hero and product header */
+  .bg-grid {
+    background-image: radial-gradient(color-mix(in oklch, var(--foreground) 9%, transparent) 1px, transparent 1px);
+    background-size: 22px 22px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 30%, transparent 75%);
+  }
+  .tok-comment { color: var(--terminal-muted); font-style: italic; }
+  .tok-command { color: oklch(0.83 0.12 287); }
+  .tok-flag { color: oklch(0.82 0.11 210); }
+  .tok-string { color: oklch(0.84 0.12 150); }
+  .tok-url { color: oklch(0.8 0.13 300); }
+  .tok-var { color: oklch(0.85 0.12 80); }
+}
