@@ -1,0 +1,308 @@
+{
+  "fullName": "bilibili/GPT-SoVITS",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/bilibili/GPT-SoVITS/blob/6d51ffceafbf240145619af4c92408a6e54b7924/README.md"
+    ],
+    "sourceCommitSha": "6d51ffceafbf240145619af4c92408a6e54b7924",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Create an environment",
+        "command": "conda create -n GPTSoVits python=3.10\nconda activate GPTSoVits"
+      },
+      {
+        "comment": "Install (Linux, NVIDIA GPU, Hugging Face models)",
+        "command": "bash install.sh --device CU126 --source HF"
+      },
+      {
+        "comment": "Open the WebUI",
+        "command": "python webui.py"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "GPT-SoVITS is a text-to-speech and voice conversion tool with a web interface. From a 5-second voice sample it can speak new text in that voice, and fine-tuning on about 1 minute of audio makes the voice more similar and realistic.",
+      "problem": "Training a custom text-to-speech voice usually needs hours of recordings. GPT-SoVITS works from seconds to a minute of audio and bundles tools for preparing training data, so beginners can build voice models.",
+      "whoFor": [
+        "Creators making voiceovers",
+        "Developers experimenting with custom TTS voices",
+        "Hobbyists working with Chinese, Japanese, Korean, Cantonese or English speech",
+        "Researchers in few-shot speech synthesis"
+      ],
+      "whyChoose": "Choose it for strong few-shot voice cloning with a WebUI and built-in dataset tools. Windows users can download an integrated package and skip the setup.",
+      "requirements": [
+        "Python 3.9 to 3.12 (tested)",
+        "PyTorch 2.2 to 2.8 depending on device",
+        "NVIDIA CUDA, Apple silicon or CPU",
+        "FFmpeg"
+      ]
+    },
+    "overview": [
+      "GPT-SoVITS supports zero-shot TTS from a 5-second sample and few-shot fine-tuning with 1 minute of data. It can speak in a language different from the training data, currently English, Japanese, Korean, Cantonese and Chinese.",
+      "The WebUI includes tools for separating vocals from accompaniment, slicing audio into training chunks, Chinese speech recognition and text labelling. A fine-tuning tab walks you from audio path to slicing, denoising, ASR, proofreading and training, and a separate inference tab generates speech.",
+      "The README reports an inference real-time factor of 0.028 on an RTX 4060 Ti and 0.014 on an RTX 4090 for the v2 ProPlus model. On Macs, models trained on GPU have significantly lower quality, so the project uses CPU there for now. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Zero-shot TTS",
+        "body": "Speak new text from a 5-second sample."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Few-shot fine-tuning",
+        "body": "Train on about 1 minute of audio."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Cross-lingual",
+        "body": "English, Japanese, Korean, Cantonese and Chinese."
+      },
+      {
+        "icon": "file-code",
+        "title": "Dataset tools",
+        "body": "Vocal separation, slicing, ASR and labelling."
+      },
+      {
+        "icon": "git-compare",
+        "title": "WebUI",
+        "body": "Fine-tune and run inference in the browser."
+      },
+      {
+        "icon": "shield",
+        "title": "Docker images",
+        "body": "Lite and full images for CUDA 12.6 and 12.8."
+      }
+    ],
+    "strengths": [
+      "Very little training audio needed",
+      "Beginner-friendly WebUI",
+      "Windows integrated package",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Mac GPU training gives lower quality",
+      "Several versions (v1 to v4, v2Pro) to choose between",
+      "Install scripts download large models"
+    ],
+    "useCases": [
+      {
+        "title": "Narration in your own voice",
+        "body": "Fine-tune on a minute of your recordings."
+      },
+      {
+        "title": "Game or video voiceovers",
+        "body": "Generate lines in a character voice."
+      },
+      {
+        "title": "Multilingual speech",
+        "body": "Speak another language in the same voice."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from GPT-SoVITS's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/bilibili/GPT-SoVITS/blob/6d51ffceafbf240145619af4c92408a6e54b7924/README.md",
+      "prerequisites": [
+        "conda",
+        "Python 3.10",
+        "FFmpeg"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "windows",
+          "label": "Integrated package",
+          "method": "package",
+          "steps": [
+            {
+              "title": "Download the integrated package",
+              "body": "Download the package linked in the README (Windows 10 or newer), extract it and double-click go-webui.bat."
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/bilibili/GPT-SoVITS.git\ncd GPT-SoVITS",
+              "lang": "bash"
+            },
+            {
+              "title": "Create a conda environment",
+              "code": "conda create -n GPTSoVits python=3.10\nconda activate GPTSoVits",
+              "lang": "bash"
+            },
+            {
+              "title": "Run the installer",
+              "body": "--device is CU126, CU128, ROCM or CPU; --source is HF, HF-Mirror or ModelScope. Add --download-uvr5 for the vocal separation models.",
+              "code": "bash install.sh --device CU126 --source HF",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "macos",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/bilibili/GPT-SoVITS.git\ncd GPT-SoVITS",
+              "lang": "bash"
+            },
+            {
+              "title": "Create a conda environment",
+              "code": "conda create -n GPTSoVits python=3.10\nconda activate GPTSoVits",
+              "lang": "bash"
+            },
+            {
+              "title": "Run the installer",
+              "body": "--device is MPS or CPU.",
+              "code": "bash install.sh --device CPU --source HF",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Create a conda environment",
+              "code": "conda create -n GPTSoVits python=3.10\nconda activate GPTSoVits",
+              "lang": "powershell"
+            },
+            {
+              "title": "Run the installer",
+              "body": "--Device is CU126, CU128 or CPU; --Source is HF, HF-Mirror or ModelScope.",
+              "code": "pwsh -F install.ps1 --Device CU126 --Source HF",
+              "lang": "powershell"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "is_half",
+          "required": false,
+          "description": "Docker: set to true to use half precision (fp16) if your GPU supports it."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Open the WebUI",
+          "code": "python webui.py",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Fine-tune a voice and generate speech",
+      "useCase": "Use the WebUI to turn about a minute of audio into a custom voice.",
+      "setup": [
+        "GPT-SoVITS installed with pretrained models",
+        "About 1 minute of clean recordings of one speaker"
+      ],
+      "steps": [
+        {
+          "title": "Open the WebUI",
+          "code": "python webui.py",
+          "lang": "bash"
+        },
+        {
+          "title": "Prepare the dataset",
+          "body": "Fill in the audio path, slice the audio into chunks, optionally denoise, run ASR and proofread the transcriptions."
+        },
+        {
+          "title": "Fine-tune",
+          "body": "Go to the next tab and fine-tune the model."
+        },
+        {
+          "title": "Generate speech",
+          "body": "Open the inference WebUI at 1-GPT-SoVITS-TTS/1C-inference, or run it directly.",
+          "code": "python GPT_SoVITS/inference_webui.py",
+          "lang": "bash"
+        }
+      ],
+      "expected": "The inference page speaks your text in the fine-tuned voice.",
+      "nextSteps": [
+        "Try zero-shot TTS with a 5-second sample",
+        "Read the English user guide linked in the README",
+        "Compare the v2Pro and v4 models"
+      ],
+      "sourceUrl": "https://github.com/bilibili/GPT-SoVITS/blob/6d51ffceafbf240145619af4c92408a6e54b7924/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Hardware",
+        "value": "An NVIDIA GPU speeds up training and inference.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Low quality after training on a Mac",
+        "solution": "Mac GPU training gives lower quality; use CPU, as the project currently does.",
+        "sourceUrl": "https://github.com/bilibili/GPT-SoVITS/blob/6d51ffceafbf240145619af4c92408a6e54b7924/README.md"
+      },
+      {
+        "problem": "Pretrained models missing",
+        "solution": "If install.sh didn't finish, download the pretrained and G2PW models manually as the README lists.",
+        "sourceUrl": "https://github.com/bilibili/GPT-SoVITS/blob/6d51ffceafbf240145619af4c92408a6e54b7924/README.md"
+      },
+      {
+        "problem": "Out of GPU memory in Docker",
+        "solution": "Set is_half to true if your GPU supports fp16.",
+        "sourceUrl": "https://github.com/bilibili/GPT-SoVITS/blob/6d51ffceafbf240145619af4c92408a6e54b7924/README.md"
+      },
+      {
+        "problem": "FFmpeg errors",
+        "solution": "Install FFmpeg with conda, apt (plus libsox-dev) or brew.",
+        "sourceUrl": "https://github.com/bilibili/GPT-SoVITS/blob/6d51ffceafbf240145619af4c92408a6e54b7924/README.md"
+      }
+    ],
+    "bestFor": [
+      "Few-shot voice cloning",
+      "Custom TTS voices",
+      "Multilingual speech"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Text-to-speech and voice conversion WebUI"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Languages",
+        "value": "en, ja, ko, yue, zh"
+      }
+    ]
+  }
+}
