@@ -47,7 +47,7 @@ import { JsonLd } from "@/components/site/json-ld";
 import {
   getCategories,
   getDataAsOf,
-  getPublishedSlugs,
+  getPrerenderSlugs,
   getRelatedRepositories,
   getRepositoryBySlug,
   getRepositoryContent,
@@ -57,8 +57,9 @@ import { breadcrumbJsonLd, howToJsonLd, repoDescription, repoTitle, softwareSour
 import type { RepositoryContent, VerificationStatus } from "@/lib/types";
 import { DIFFICULTY_LABEL, KIND_LABEL, cn, formatCount, formatDate, licenseLabel, timeAgo } from "@/lib/utils";
 
+// Only the most-starred pages are built at deploy; the rest render on first visit, then cache.
 export async function generateStaticParams() {
-  return (await getPublishedSlugs()).map((slug) => ({ slug }));
+  return (await getPrerenderSlugs()).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/repo/[slug]">): Promise<Metadata> {
@@ -189,7 +190,7 @@ export default async function RepositoryPage({ params }: PageProps<"/repo/[slug]
                 </p>
               </div>
             </div>
-            <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-muted-foreground">{repo.summary}</p>
+            {repo.summary && <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-muted-foreground">{repo.summary}</p>}
             <div className="mt-5 flex flex-wrap gap-2">
               {repo.categorySlugs.map((s) => (
                 <Badge key={s} tone="accent">
@@ -267,13 +268,25 @@ export default async function RepositoryPage({ params }: PageProps<"/repo/[slug]
                   <SectionTitle id="overview-title" kicker="Overview">
                     About {repo.name}
                   </SectionTitle>
-                  <blockquote className="border-l-2 border-accent pl-4 text-[15px] leading-relaxed">
-                    {repo.description}
-                    <footer className="mt-1.5 text-xs text-muted-foreground">Description from GitHub</footer>
-                  </blockquote>
-                  <EmptyState icon={BookOpen} title="Full guide in review" className="mt-6">
-                    We&apos;re writing a plain-English guide for {repo.name} from its official documentation. Until a
-                    person has reviewed it, we only show facts from GitHub.
+                  {repo.description ? (
+                    <blockquote className="border-l-2 border-accent pl-4 text-[15px] leading-relaxed">
+                      {repo.description}
+                      <footer className="mt-1.5 text-xs text-muted-foreground">Description from GitHub</footer>
+                    </blockquote>
+                  ) : (
+                    <p className="text-[15px] text-muted-foreground">This repository has no description on GitHub.</p>
+                  )}
+                  {repo.topics.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-1.5" aria-label="GitHub topics">
+                      {repo.topics.slice(0, 12).map((t) => (
+                        <Badge key={t}>{t}</Badge>
+                      ))}
+                    </div>
+                  )}
+                  <EmptyState icon={BookOpen} title="No guide yet" className="mt-6">
+                    We haven&apos;t written a plain-English install guide for {repo.name} yet. Until a person has
+                    reviewed one, this page only shows facts from GitHub. The project&apos;s README on GitHub has
+                    the official setup steps.
                   </EmptyState>
                 </Card>
               </section>

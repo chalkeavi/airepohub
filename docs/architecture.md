@@ -36,8 +36,9 @@ limit is exceeded, the fallback is Workers Paid ($5/month) — documented in `de
 ## Rendering and caching
 - Public pages are Server Components. Data functions in `src/lib/data/` use `'use cache'` with
   `cacheLife` (rankings/home: hours; repo pages: hours, revalidated by tag on publish).
-- `/repo/[slug]` and `/categories/[slug]` use `generateStaticParams` for published slugs; others
-  render on demand and are cached (ISR-like). Publishing calls `revalidateTag('repo:<slug>')`.
+- `/categories/[slug]` prerenders every category; `/repo/[slug]` (and its share image) prerenders only
+  the 100 most-starred repos (`getPrerenderSlugs`). Every other published repo renders on its first
+  visit and is then cached (ISR-like), so deploys stay fast with thousands of repos (decision #31). Publishing calls `revalidateTag('repo:<slug>')`.
 - Search (`/search`) reads `searchParams` → request-time, streamed behind `<Suspense>`.
 - Client components only for interaction: theme toggle, mobile nav, search suggestions, copy
   buttons, OS tabs, leaderboard period switch.
@@ -47,16 +48,19 @@ limit is exceeded, the fallback is Workers Paid ($5/month) — documented in `de
 `src/lib/data/index.ts` is the only module UI imports for data. Functions:
 `getCategories, getCategoryBySlug, getLeaderboards, getTrendingRepositories,
 getRecentlyAdded, getFeaturedRepository, getBeginnerFriendly, getRepositoryBySlug,
-getRepositoryContent, getRelatedRepositories, getPublishedSlugs, searchRepositories,
-getSearchSuggestions`.
+getRepositoryContent, getRelatedRepositories, getPrerenderSlugs, getPublishedCount,
+getRepositoriesByCategory, searchRepositories, getSearchSuggestions, getLanguages, getSitemapRepositories`.
 - Milestone 1: implemented over typed sample data (`src/lib/data/sample/`), real GitHub metadata
   captured 2026-11-24, only `status: 'published'` rows exposed.
 - Milestone 2 (done): `src/lib/data/supabase.ts` reads Supabase with the publishable key, so RLS limits
   reads to published rows. `index.ts` uses it when `NEXT_PUBLIC_SUPABASE_URL` and
   `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` are set, else the sample data (tests, previews without a DB).
-  Categories + all published repos load as one cached catalog (`cacheTag('catalog')`); the all-time board
-  reads the latest `ranking_snapshots`; search adds Postgres full-text matches (`websearch`) to the
-  name/keyword match. Service-role key only in automation scripts (M4).
+  Each function queries only the rows its page shows (decision #31): one repo by slug, the top N by
+  stars, a head-only `count`, ranking rows then those repos by slug. Search filters in Postgres (each
+  term: name/summary/description `ilike`, topic, or stemmed full-text `wfts`), ranks name hits first and
+  fetches full rows for one page. Full-table reads (sitemap, language list) page through PostgREST's
+  1,000-row cap with light columns. Nothing loads the whole catalog: at thousands of repos that would
+  exceed the Workers CPU limit. Service-role key only in automation scripts (M4).
 
 ## Domain logic (pure, unit tested)
 - `src/lib/activity.ts`: activity status from `last_pushed_at`

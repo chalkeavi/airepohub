@@ -96,25 +96,129 @@ function toRepository(r: RepoRow): Repository {
   };
 }
 
-export async function fetchCatalog(): Promise<{ categories: Category[]; repositories: Repository[] }> {
-  const [cats, repos] = await Promise.all([
-    db().from("categories").select("slug, name, description, icon").order("sort_order"),
-    db().from("repositories").select(REPO_COLUMNS).eq("status", "published"),
-  ]);
-  return {
-    categories: check(cats, "categories").map((c) => ({ ...c, description: c.description ?? "", icon: c.icon ?? "sparkles" })),
-    repositories: (check(repos, "repositories") as unknown as RepoRow[]).map(toRepository),
-  };
+// Every query below fetches only what one page shows. The site never loads the whole catalog:
+// at thousands of repos that would exceed the Workers CPU limit and PostgREST's 1,000-row cap.
+
+export async function fetchCategories(): Promise<Category[]> {
+  const cats = await db().from("categories").select("slug, name, description, icon").order("sort_order");
+  return check(cats, "categories").map((c) => ({ ...c, description: c.description ?? "", icon: c.icon ?? "sparkles" }));
 }
 
-/** Slugs of published repos whose full-text vector matches the query (websearch syntax). */
-export async function fetchSearchMatches(q: string): Promise<Set<string>> {
+export interface RepoQuery {
+  category?: string;
+  language?: string;
+  difficulty?: string;
+  featured?: boolean;
+  slugs?: string[];
+  excludeSlug?: string;
+  order?: "stars" | "recent";
+  limit: number;
+  offset?: number;
+  /** One query term per entry; each must match name, summary, description, topics or the full-text index. */
+  terms?: string[];
+  nameTerms?: string[];
+  count?: boolean;
+  columns?: string;
+}
+
+/** Strip characters that have meaning in PostgREST filter syntax. */
+export function safeTerm(t: string): string {
+  return t.replace(/[^\p{L}\p{N}.+#_-]/gu, "").slice(0, 40);
+}
+
+function repoQuery(q: RepoQuery) {
+  const columns = (q.columns ?? REPO_COLUMNS) + (q.category ? ", cat_filter:repository_categories!inner(categories!inner(slug))" : "");
+  let query = db()
+    .from("repositories")
+    .select(columns, q.count ? { count: "exact" } : undefined)
+    .eq("status", "published");
+  if (q.category) query = query.eq("cat_filter.categories.slug", q.category);
+  if (q.language) query = query.eq("primary_language", q.language);
+  if (q.difficulty) query = query.eq("difficulty", q.difficulty);
+  if (q.featured) query = query.eq("featured", true);
+  if (q.slugs) query = query.in("slug", q.slugs);
+  if (q.excludeSlug) query = query.neq("slug", q.excludeSlug);
+  for (const t of q.nameTerms ?? []) query = query.ilike("name", `%${t}%`);
+  for (const t of q.terms ?? []) {
+    query = query.or(
+      `name.ilike.*${t}*,summary.ilike.*${t}*,description.ilike.*${t}*,topics.cs.{${t}},search_vector.wfts(english).${t}`,
+    );
+  }
+  query =
+    q.order === "recent"
+      ? query.order("published_at", { ascending: false }).order("created_at_github", { ascending: false })
+      : query.order("stars", { ascending: false });
+  return query.order("id").range(q.offset ?? 0, (q.offset ?? 0) + q.limit - 1);
+}
+
+export async function fetchRepos(q: RepoQuery): Promise<{ total: number; repositories: Repository[] }> {
+  const res = await repoQuery(q);
+  const rows = check(res, "repositories") as unknown as RepoRow[];
+  return { total: res.count ?? rows.length, repositories: rows.map(toRepository) };
+}
+
+export async function fetchRepoBySlug(slug: string): Promise<Repository | null> {
+  const res = await db().from("repositories").select(REPO_COLUMNS).eq("slug", slug).eq("status", "published").maybeSingle();
+  const row = check(res, "repository") as unknown as RepoRow | null;
+  return row ? toRepository(row) : null;
+}
+
+/** Published repos, optionally within a category (head-only count, no rows transferred). */
+export async function fetchPublishedCount(categorySlug?: string): Promise<number> {
+  let query = db()
+    .from("repositories")
+    .select(categorySlug ? "id, cat_filter:repository_categories!inner(categories!inner(slug))" : "id", { count: "exact", head: true })
+    .eq("status", "published");
+  if (categorySlug) query = query.eq("cat_filter.categories.slug", categorySlug);
+  const res = await query;
+  if (res.error) throw new Error(`Supabase count: ${res.error.message}`);
+  return res.count ?? 0;
+}
+
+/** Pages through a light projection of every published repo (sitemap, languages). */
+async function allLight<T>(columns: string): Promise<T[]> {
+  const out: T[] = [];
+  for (let from = 0; ; from += 1000) {
+    const rows = check(
+      await db().from("repositories").select(columns).eq("status", "published").order("id").range(from, from + 999),
+      "repositories",
+    ) as unknown as T[];
+    out.push(...rows);
+    if (rows.length < 1000) return out;
+  }
+}
+
+/** Most common languages first (the search filter shows only the top ones). */
+export async function fetchLanguageCounts(): Promise<Map<string, number>> {
+  const counts = new Map<string, number>();
+  for (const r of await allLight<{ primary_language: string | null }>("primary_language")) {
+    if (r.primary_language) counts.set(r.primary_language, (counts.get(r.primary_language) ?? 0) + 1);
+  }
+  return counts;
+}
+
+export async function fetchSitemapRows(): Promise<{ slug: string; lastModified: string | null; noindex: boolean }[]> {
+  const rows = await allLight<{ slug: string; published_at: string | null; stats_checked_at: string | null; seo_metadata: { noindex: boolean } | { noindex: boolean }[] | null }>(
+    "slug, published_at, stats_checked_at, seo_metadata(noindex)",
+  );
+  return rows.map((r) => {
+    const seo = Array.isArray(r.seo_metadata) ? r.seo_metadata[0] : r.seo_metadata;
+    const dates = [r.published_at, r.stats_checked_at].filter((d): d is string => !!d).sort();
+    return { slug: r.slug, lastModified: dates.at(-1) ?? null, noindex: Boolean(seo?.noindex) };
+  });
+}
+
+/** Latest GitHub refresh time across published repos. */
+export async function fetchLatestStatsCheck(): Promise<string | null> {
   const res = await db()
     .from("repositories")
-    .select("slug")
+    .select("stats_checked_at")
     .eq("status", "published")
-    .textSearch("search_vector", q, { type: "websearch", config: "english" });
-  return new Set(check(res, "search").map((r) => r.slug));
+    .not("stats_checked_at", "is", null)
+    .order("stats_checked_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  return (check(res, "stats as of") as { stats_checked_at: string } | null)?.stats_checked_at ?? null;
 }
 
 /** Latest snapshot of a period's board for a category (null = global), top `limit`. */

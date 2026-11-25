@@ -1,0 +1,51 @@
+# One-off bulk import of popular AI repos as basic pages (decision #30). Run by hand from the
+# Actions tab. Uses the same secret as the daily jobs; GITHUB_TOKEN covers GitHub search.
+name: Import repos
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "How many new repos to add at most"
+        default: "5000"
+      min_stars:
+        description: "Minimum GitHub stars"
+        default: "500"
+      index:
+        description: "Let Google index the new basic pages (otherwise noindex until reviewed)"
+        type: boolean
+        default: false
+      dry_run:
+        description: "Search and report only, write nothing"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-jobs # never overlap with the daily jobs
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      SUPABASE_URL: https://ugykphnasjjtmzeygwoq.supabase.co
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Import
+        env:
+          TARGET: ${{ inputs.target }}
+          MIN_STARS: ${{ inputs.min_stars }}
+          EXTRA: ${{ inputs.index && '--index' || '' }} ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: pnpm jobs import "--target=$TARGET" "--min-stars=$MIN_STARS" $EXTRA

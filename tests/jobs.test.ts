@@ -1,10 +1,11 @@
 import { describe, expect, it } from "vitest";
 import type { GithubApi, GithubRepo } from "@/lib/jobs/github";
-import { RateLimitError } from "@/lib/jobs/github";
+import { GithubClient, RateLimitError } from "@/lib/jobs/github";
 import { starGrowth } from "@/lib/jobs/growth";
 import { buildRankings, runDiscover, runRank, runSnapshot } from "@/lib/jobs/jobs";
 import { scoreRelevance } from "@/lib/jobs/relevance";
-import type { JobStore, Period, QueueRow, RankingRow, RunResult, TrackedRepo } from "@/lib/jobs/store";
+import type { JobStore, NewRepoRow, Period, QueueRow, RankingRow, RunResult, TrackedRepo } from "@/lib/jobs/store";
+import { categorize, importEligible, runImport, starBands, uniqueSlug } from "@/lib/jobs/importer";
 import type { StatPoint } from "@/lib/jobs/growth";
 
 const NOW = new Date("2026-12-10T05:17:00Z");
@@ -45,6 +46,19 @@ class MemStore implements JobStore {
   async knownGithubIds() { return { repositories: new Set(this.repos.map((r) => r.githubId)), queue: new Set(this.queue.keys()) }; }
   async insertQueue(rows: QueueRow[]) { for (const r of rows) if (!this.queue.has(r.github_id)) this.queue.set(r.github_id, r); }
   async touchQueue(ids: number[], at: string) { for (const id of ids) this.queue.get(id)!.last_seen_at = at; }
+  inserted: NewRepoRow[] = [];
+  repoCategories: { repository_id: string; category_id: string; is_primary: boolean }[] = [];
+  noindex: string[] = [];
+  approved: number[] = [];
+  async knownSlugs() { return new Set(this.repos.map((r) => r.slug)); }
+  async categoryIds() { return new Map([["ai-agents", "c-agents"], ["developer-tools", "c-dev"], ["coding-assistants", "c-code"]]); }
+  async insertRepositories(rows: NewRepoRow[]) {
+    this.inserted.push(...rows);
+    return rows.map((r) => ({ id: `new${r.github_id}`, github_id: r.github_id }));
+  }
+  async insertRepoCategories(rows: { repository_id: string; category_id: string; is_primary: boolean }[]) { this.repoCategories.push(...rows); }
+  async setNoindex(ids: string[]) { this.noindex.push(...ids); }
+  async markQueueApproved(ids: number[]) { this.approved.push(...ids); }
   async startRun(job: string) { this.runs.push({ job }); return String(this.runs.length); }
   async finishRun(id: string | null, result: RunResult) { this.runs[Number(id) - 1].result = result; }
 }
@@ -173,5 +187,113 @@ describe("relevance scoring is graded", () => {
     expect(big.score).toBeGreaterThan(small.score);
     expect(big.score).toBeLessThan(1);
     expect(scoreRelevance(gh(3, { name: "awesome-llm-apps" }), NOW).eligible).toBe(false);
+  });
+});
+
+describe("import job", () => {
+  const search = (pages: Record<string, GithubRepo[]>): GithubApi => ({
+    calls: 0,
+    async getRepoById() { return null; },
+    async searchRepos() { return []; },
+    async searchPage(q: string) {
+      this.calls++;
+      const items = Object.entries(pages).find(([k]) => q.includes(k))?.[1] ?? [];
+      return { total: items.length, items };
+    },
+  });
+  const opts = { target: 2, minStars: 500, pushedSince: "2025-06-01", noindex: true, topics: ["llm"], sleep: async () => {}, searchDelayMs: 0 };
+
+  it("splits searches into star bands from the most popular down", () => {
+    expect(starBands(500)[0]).toBe("stars:>=50000");
+    expect(starBands(500).at(-1)).toBe("stars:500..699");
+    expect(starBands(100000)).toEqual(["stars:>=100000"]);
+  });
+
+  it("only takes real tools with a GitHub description", () => {
+    expect(importEligible(gh(1), 500)).toBe(true);
+    expect(importEligible(gh(2, { description: null }), 500)).toBe(false);
+    expect(importEligible(gh(3, { name: "awesome-agents" }), 500)).toBe(false);
+    expect(importEligible(gh(4, { description: "A curated list of LLM tools" }), 500)).toBe(false);
+    expect(importEligible(gh(5, { fork: true }), 500)).toBe(false);
+    expect(importEligible(gh(6, { stargazers_count: 499 }), 500)).toBe(false);
+  });
+
+  it("assigns categories from topics, with a catch-all", () => {
+    expect(categorize(gh(1, { topics: ["claude-code", "ai-agents"] }))).toEqual(["coding-assistants", "ai-agents"]);
+    expect(categorize(gh(2, { topics: ["pytorch"], description: "Tensors" }))).toEqual(["developer-tools"]);
+    expect(categorize(gh(3, { topics: [], description: "A tool for unrelated things" }))).toEqual(["developer-tools"]);
+  });
+
+  it("never reuses a slug", () => {
+    const taken = new Set(["r1"]);
+    expect(uniqueSlug(gh(1), taken)).toBe("o-r1");
+    expect(uniqueSlug(gh(2, { name: "My.Repo_X" }), taken)).toBe("my-repo-x");
+  });
+
+  it("publishes the most-starred new repos once, with real GitHub fields, noindex and approved queue rows", async () => {
+    const store = new MemStore();
+    store.repos = [tracked(1)];
+    store.queue.set(3, { github_id: 3, full_name: "o/r3", github_url: "", payload: {}, relevance_score: 0.5, relevance_reasons: [], run_id: null });
+    const results = [gh(1, { stargazers_count: 90000 }), gh(2, { stargazers_count: 800 }), gh(3, { stargazers_count: 60000 }), gh(4, { stargazers_count: 70000 }), gh(5, { fork: true, stargazers_count: 99000 })];
+    const summary = await runImport({ store, github: search({ "stars:": results }), now: NOW }, opts);
+    expect(summary.status).toBe("succeeded");
+    expect(store.inserted.map((r) => r.github_id)).toEqual([4, 3]); // known #1 and the fork skipped; top 2 by stars
+    expect(store.inserted.every((r) => r.status === "published" && r.published_at === NOW.toISOString())).toBe(true);
+    expect(store.inserted[0]).toMatchObject({ stars: 70000, description: gh(4).description, full_name: "o/r4", slug: "r4" });
+    expect(store.repoCategories.filter((c) => c.is_primary)).toHaveLength(2);
+    expect(store.noindex).toEqual(["new4", "new3"]);
+    expect(store.approved).toEqual([3]);
+    expect(store.stats.map((s) => s.stars)).toEqual([70000, 60000]);
+  });
+
+  it("writes nothing in dry-run mode", async () => {
+    const store = new MemStore();
+    const summary = await runImport({ store, github: search({ "stars:": [gh(7)] }), now: NOW, dryRun: true }, opts);
+    expect(summary.processed).toBe(1);
+    expect(store.inserted).toHaveLength(0);
+    expect(store.runs).toHaveLength(0);
+  });
+});
+
+describe("ranking boards are capped", () => {
+  it("stores at most 100 rows per board", () => {
+    const pool = Array.from({ length: 150 }, (_, i) => tracked(i + 1));
+    expect(buildRankings(pool, new Map(), new Map(), "all_time", null, NOW)).toHaveLength(100);
+  });
+});
+
+describe("batched GitHub lookups", () => {
+  const node = (id: number, name: string) => ({
+    databaseId: id, name, nameWithOwner: `o/${name}`, url: `https://github.com/o/${name}`, homepageUrl: "", description: "d",
+    isArchived: false, isFork: false, isDisabled: false, owner: { login: "o", avatarUrl: "https://a" }, primaryLanguage: { name: "Go" },
+    licenseInfo: { spdxId: "MIT" }, repositoryTopics: { nodes: [{ topic: { name: "llm" } }] }, stargazerCount: 10, forkCount: 2,
+    issues: { totalCount: 3 }, pullRequests: { totalCount: 1 }, defaultBranchRef: { name: "main" },
+    createdAt: "2025-01-01T00:00:00Z", updatedAt: "2026-01-01T00:00:00Z", pushedAt: "2026-01-01T00:00:00Z",
+  });
+
+  it("maps GraphQL repos to the REST shape and skips ones GitHub can't resolve", async () => {
+    let sent = "";
+    const fetchImpl = (async (_url: string, init: RequestInit) => {
+      sent = String(init.body);
+      return new Response(JSON.stringify({ data: { r0: node(1, "a"), r1: null }, errors: [{ type: "NOT_FOUND", message: "x" }] }), { status: 200 });
+    }) as unknown as typeof fetch;
+    const map = await new GithubClient("t", fetchImpl).getReposBatch([{ githubId: 1, fullName: "o/a" }, { githubId: 2, fullName: "o/gone" }]);
+    expect(sent).toContain('repository(owner: \\"o\\", name: \\"gone\\")');
+    expect([...map.keys()]).toEqual([1]);
+    expect(map.get(1)).toMatchObject({ full_name: "o/a", open_issues_count: 4, license: { spdx_id: "MIT" }, topics: ["llm"], homepage: null });
+  });
+
+  it("snapshot falls back to REST when the batch call fails", async () => {
+    const store = new MemStore();
+    store.repos = [tracked(1)];
+    const github: GithubApi = {
+      calls: 0,
+      async getReposBatch() { throw new Error("GraphQL unavailable"); },
+      async getRepoById(id) { this.calls++; return gh(id); },
+      async searchRepos() { return []; },
+    };
+    const s = await runSnapshot({ store, github, now: NOW });
+    expect(s.processed).toBe(1);
+    expect(store.updates).toHaveLength(1);
   });
 });
