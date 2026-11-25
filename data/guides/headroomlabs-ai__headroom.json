@@ -1,0 +1,271 @@
+{
+  "fullName": "headroomlabs-ai/headroom",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/headroomlabs-ai/headroom/blob/234c233cc439aedba53b242f02f695de5f90c877/README.md"
+    ],
+    "sourceCommitSha": "234c233cc439aedba53b242f02f695de5f90c877",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install the CLI",
+        "command": "uv tool install --python 3.13 \"headroom-ai[all]\""
+      },
+      {
+        "comment": "Run Claude Code through Headroom",
+        "command": "headroom wrap claude"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Headroom compresses what an AI agent or app sends to a language model (tool outputs, logs, retrieved chunks, files and chat history) before it reaches the model. It runs on your machine as a Python or TypeScript library, a local proxy, or a wrapper around coding agents like Claude Code and Codex.",
+      "problem": "Agents pay for every input token, and much of what they read is repetitive JSON, logs and file contents. Headroom shrinks that content locally and keeps the originals so the model can fetch the full text when it needs it.",
+      "whoFor": [
+        "Developers paying for LLM input tokens in their apps",
+        "Claude Code, Codex, Cursor and Copilot users",
+        "Teams building agents with LangChain, LiteLLM, Agno or Strands",
+        "Anyone wanting local, private prompt compression"
+      ],
+      "whyChoose": "Choose it to cut input tokens with no code changes for coding agents, or one function call in your own app. The README reports 21 to 57% fewer input tokens across four agent scenarios and little gain on plain prose.",
+      "requirements": [
+        "Python 3.13 with uv (recommended) or pip",
+        "Node.js for the TypeScript SDK",
+        "An existing LLM app or coding agent"
+      ]
+    },
+    "overview": [
+      "Headroom works four ways: a compress() function you call in Python or TypeScript, a proxy you run on port 8787 with no code changes, a wrap command that launches a coding agent through the proxy, and an MCP server with compress, retrieve and stats tools.",
+      "Inside, a content router detects whether text is JSON, source code or prose and picks a compressor for each. A cache aligner flags content that would break a provider's prompt cache, and CCR keeps originals locally so the model can call headroom_retrieve for the full text. Compression runs on your machine; the README says no prompt or file content is sent anywhere to be compressed.",
+      "Extras include cross-agent memory shared by Claude, Codex, Gemini and Grok, headroom learn (which mines failed sessions and writes corrections to files like CLAUDE.local.md) and output token reduction. Headroom Enterprise is a separate commercial offering; this repository stays Apache-2.0."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Library",
+        "body": "compress(messages) in Python or TypeScript."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Proxy",
+        "body": "Drop-in local proxy for any OpenAI-compatible client."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Agent wrap",
+        "body": "One command for Claude Code, Codex, Cursor, Copilot, Aider and more."
+      },
+      {
+        "icon": "file-code",
+        "title": "Reversible",
+        "body": "Originals cached locally and retrievable on demand."
+      },
+      {
+        "icon": "git-compare",
+        "title": "MCP server",
+        "body": "Compress, retrieve and stats tools for MCP clients."
+      },
+      {
+        "icon": "shield",
+        "title": "Cross-agent memory",
+        "body": "One shared memory store across agents."
+      }
+    ],
+    "strengths": [
+      "Runs locally; content isn't sent out to be compressed",
+      "No code changes needed for coding agents",
+      "Measured savings published in the README",
+      "Apache-2.0 licensed"
+    ],
+    "limitations": [
+      "Savings are small on plain prose",
+      "headroom wrap's proxy only lives as long as the wrapped session",
+      "Adds another moving part between your app and the provider"
+    ],
+    "useCases": [
+      {
+        "title": "Cheaper coding agent sessions",
+        "body": "Wrap Claude Code so logs and tool output are compressed."
+      },
+      {
+        "title": "Lower API bills in an app",
+        "body": "Call compress() before each chat completion."
+      },
+      {
+        "title": "Team-wide proxy",
+        "body": "Run headroom deploy for a persistent local proxy."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Headroom's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/headroomlabs-ai/headroom/blob/234c233cc439aedba53b242f02f695de5f90c877/README.md",
+      "prerequisites": [
+        "Python 3.13 and uv, or pip"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "CLI with uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "uv tool install --python 3.13 \"headroom-ai[all]\"",
+              "lang": "bash"
+            },
+            {
+              "title": "Wrap a coding agent",
+              "body": "Undo later with headroom unwrap.",
+              "code": "headroom wrap claude",
+              "lang": "bash"
+            },
+            {
+              "title": "Check it works",
+              "code": "headroom doctor",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Python library",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install headroom-ai",
+              "lang": "bash"
+            },
+            {
+              "title": "Compress messages before calling the model",
+              "code": "from headroom import compress\nresult = compress(messages, model=\"gpt-4o\")\nclient.chat.completions.create(model=\"gpt-4o\", messages=result.messages)",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "TypeScript SDK",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install the SDK and the proxy",
+              "body": "The npm SDK sends messages to the proxy.",
+              "code": "npm install headroom-ai\npip install \"headroom-ai[proxy]\"\nheadroom proxy --port 8787",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "HEADROOM_OFFLINE",
+          "required": false,
+          "description": "Set to 1 for a run with no network access."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Run the health check",
+          "code": "headroom doctor",
+          "lang": "bash"
+        },
+        {
+          "title": "Watch savings live (proxy must be running)",
+          "code": "headroom dashboard",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Compress messages in your own Python app",
+      "useCase": "Cut input tokens before calling the OpenAI API.",
+      "setup": [
+        "Python",
+        "pip install headroom-ai openai",
+        "An OpenAI API key"
+      ],
+      "steps": [
+        {
+          "title": "Compress, call and report savings",
+          "code": "from headroom import compress\nfrom openai import OpenAI\n\nmessages = [{\"role\": \"user\", \"content\": \"Analyze these results\"}]\nresult = compress(messages, model=\"gpt-4o\")\nclient = OpenAI()\nresponse = client.chat.completions.create(model=\"gpt-4o\", messages=result.messages)\nprint(f\"Saved {result.tokens_saved} tokens ({result.compression_ratio:.0%})\")",
+          "lang": "text"
+        }
+      ],
+      "expected": "The request goes through with compressed messages and the script prints how many tokens were saved. User messages are left alone unless you pass compress_user_messages=True.",
+      "nextSteps": [
+        "Try headroom wrap claude for a coding agent",
+        "Run headroom proxy for other languages",
+        "Read the API reference at docs.headroomlabs.ai"
+      ],
+      "sourceUrl": "https://github.com/headroomlabs-ai/headroom/blob/234c233cc439aedba53b242f02f695de5f90c877/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free; compression runs on your machine.",
+        "tone": "free"
+      },
+      {
+        "label": "Headroom Enterprise",
+        "value": "Separate commercial offering for teams.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Not sure routing works",
+        "solution": "Run headroom doctor to confirm requests go through Headroom.",
+        "sourceUrl": "https://github.com/headroomlabs-ai/headroom/blob/234c233cc439aedba53b242f02f695de5f90c877/README.md"
+      },
+      {
+        "problem": "The proxy stops when the agent exits",
+        "solution": "headroom wrap is session-scoped; use headroom deploy for a proxy that survives reboots.",
+        "sourceUrl": "https://github.com/headroomlabs-ai/headroom/blob/234c233cc439aedba53b242f02f695de5f90c877/README.md"
+      },
+      {
+        "problem": "Want to remove it from an agent",
+        "solution": "Run headroom unwrap followed by the tool name, for example headroom unwrap claude.",
+        "sourceUrl": "https://github.com/headroomlabs-ai/headroom/blob/234c233cc439aedba53b242f02f695de5f90c877/README.md"
+      },
+      {
+        "problem": "User messages aren't compressed",
+        "solution": "That is the default; pass compress_user_messages=True to include them.",
+        "sourceUrl": "https://github.com/headroomlabs-ai/headroom/blob/234c233cc439aedba53b242f02f695de5f90c877/README.md"
+      }
+    ],
+    "bestFor": [
+      "Reducing LLM input token costs",
+      "Coding agents with heavy tool output",
+      "Local, private compression"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Context compression"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Runs as",
+        "value": "Library, proxy, agent wrapper, MCP"
+      }
+    ]
+  }
+}
