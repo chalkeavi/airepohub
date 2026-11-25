@@ -332,30 +332,6 @@ export class SupabaseJobStore implements JobStore {
 
   async saveGuide(repositoryId: string, c: RepositoryContent, summary?: string) {
     const sha = c.sourceCommitSha;
-    check(
-      await this.db.from("repository_content").upsert(
-        {
-          repository_id: repositoryId,
-          sixty_seconds: c.sixtySeconds,
-          features: c.features,
-          strengths: c.strengths,
-          limitations: c.limitations,
-          use_cases: c.useCases,
-          costs: c.costs,
-          troubleshooting: c.troubleshooting,
-          source_urls: c.sourceUrls,
-          source_commit_sha: sha,
-          last_reviewed_at: c.lastReviewedAt,
-          hero_commands: c.heroCommands,
-          overview: c.overview,
-          best_for: c.bestFor,
-          facts: c.facts,
-          install_meta: { verificationNote: c.install.verificationNote, supportedOs: c.install.supportedOs, firstRun: c.install.firstRun, sourceUrl: c.install.sourceUrl },
-        },
-        { onConflict: "repository_id" },
-      ),
-      "guide content",
-    );
     // Replace the install guides wholesale so removed OS variants don't linger.
     check(await this.db.from("installation_guides").delete().eq("repository_id", repositoryId), "clear install guides");
     check(
@@ -392,6 +368,32 @@ export class SupabaseJobStore implements JobStore {
         source_url: t.sourceUrl,
       }),
       "tutorial",
+    );
+    // The content row goes last: the page shows a guide only once it exists, so a failure above
+    // never leaves a half-written guide live.
+    check(
+      await this.db.from("repository_content").upsert(
+        {
+          repository_id: repositoryId,
+          sixty_seconds: c.sixtySeconds,
+          features: c.features,
+          strengths: c.strengths,
+          limitations: c.limitations,
+          use_cases: c.useCases,
+          costs: c.costs,
+          troubleshooting: c.troubleshooting,
+          source_urls: c.sourceUrls,
+          source_commit_sha: sha,
+          last_reviewed_at: c.lastReviewedAt,
+          hero_commands: c.heroCommands,
+          overview: c.overview,
+          best_for: c.bestFor,
+          facts: c.facts,
+          install_meta: { verificationNote: c.install.verificationNote, supportedOs: c.install.supportedOs, firstRun: c.install.firstRun, sourceUrl: c.install.sourceUrl },
+        },
+        { onConflict: "repository_id" },
+      ),
+      "guide content",
     );
     check(await this.db.from("seo_metadata").upsert({ repository_id: repositoryId, noindex: false }, { onConflict: "repository_id" }), "seo index");
     if (summary) check(await this.db.from("repositories").update({ summary }).eq("id", repositoryId), "guide summary");

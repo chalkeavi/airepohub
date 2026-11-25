@@ -133,7 +133,7 @@
         {
           "os": "all",
           "label": "Other assistants",
-          "method": "uv",
+          "method": "uv-2",
           "steps": [
             {
               "title": "Install the CLI",

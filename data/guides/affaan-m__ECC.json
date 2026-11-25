@@ -153,7 +153,7 @@
         {
           "os": "all",
           "label": "Codex",
-          "method": "plugin",
+          "method": "plugin-2",
           "steps": [
             {
               "title": "Add the marketplace",
