@@ -1,0 +1,275 @@
+{
+  "fullName": "ollama/ollama",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ollama/ollama/blob/924cc286cc592f49c481fa84e15fa60dbc75989e/README.md"
+    ],
+    "sourceCommitSha": "924cc286cc592f49c481fa84e15fa60dbc75989e",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install on macOS or Linux",
+        "command": "curl -fsSL https://ollama.com/install.sh | sh"
+      },
+      {
+        "comment": "Chat with a model",
+        "command": "ollama run gemma4"
+      },
+      {
+        "comment": "Use a local model in Claude Code",
+        "command": "ollama launch claude"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Ollama lets you download and run open AI models like Gemma on your own computer with one command. It gives you a chat in the terminal, a local REST API, and Python and JavaScript libraries, and it can connect local models to tools like Claude Code, Codex and OpenClaw.",
+      "problem": "Running open models usually means dealing with model files, GPU settings and inference servers. Ollama handles downloading and running models for you, so you can chat with or build on a model in minutes, with your data staying on your machine.",
+      "whoFor": [
+        "Beginners who want to try open models locally",
+        "Developers building apps on a local model API",
+        "Privacy-minded users who don't want to send data to the cloud",
+        "Coding agent users who want local models"
+      ],
+      "whyChoose": "Choose it for the easiest way to run open models on macOS, Windows or Linux. For serving many users at high throughput on GPU servers, a serving engine like vLLM may suit better.",
+      "requirements": [
+        "macOS, Windows or Linux",
+        "Enough RAM or GPU memory for the model you choose"
+      ]
+    },
+    "overview": [
+      "After installing, running ollama prompts you to run a model or connect Ollama to agents and apps such as Claude Code, OpenClaw, OpenCode, Codex and Copilot. ollama run gemma4 downloads Gemma 4 and opens a chat; the full list of models is in the library on ollama.com.",
+      "Ollama runs a REST API on localhost port 11434 for running and managing models, and official libraries ollama-python and ollama-js wrap it. ollama launch starts a specific integration, for example ollama launch claude for Claude Code or ollama launch openclaw for a personal assistant across messaging apps.",
+      "Ollama uses llama.cpp as its backend. An official Docker image, ollama/ollama, is on Docker Hub, and a large list of community apps such as Open WebUI, LobeChat, AnythingLLM and Dify integrate with it. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "One-command models",
+        "body": "ollama run downloads and starts a model."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Model library",
+        "body": "Browse open models on ollama.com/library."
+      },
+      {
+        "icon": "puzzle",
+        "title": "REST API",
+        "body": "Local API on port 11434."
+      },
+      {
+        "icon": "file-code",
+        "title": "Python and JS libraries",
+        "body": "pip install ollama or npm i ollama."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Agent integrations",
+        "body": "ollama launch for Claude Code, Codex, OpenClaw and more."
+      },
+      {
+        "icon": "shield",
+        "title": "Huge ecosystem",
+        "body": "Works with Open WebUI, LobeChat, Dify and many others."
+      }
+    ],
+    "strengths": [
+      "Very easy to install and use",
+      "Runs on macOS, Windows and Linux",
+      "Keeps your data local",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Model speed depends on your hardware",
+      "Large models need lots of memory",
+      "Not designed for high-throughput multi-user serving"
+    ],
+    "useCases": [
+      {
+        "title": "Private chat assistant",
+        "body": "Chat with an open model offline."
+      },
+      {
+        "title": "Local backend for apps",
+        "body": "Build on the REST API or SDKs."
+      },
+      {
+        "title": "Local models for coding agents",
+        "body": "Launch Claude Code or Codex against a local model."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Ollama's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ollama/ollama/blob/924cc286cc592f49c481fa84e15fa60dbc75989e/README.md",
+      "prerequisites": [
+        "A computer with enough memory for your model"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Windows",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Or download Ollama.dmg from ollama.com.",
+              "code": "curl -fsSL https://ollama.com/install.sh | sh",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install in PowerShell",
+              "body": "Or download OllamaSetup.exe from ollama.com.",
+              "code": "irm https://ollama.com/install.ps1 | iex",
+              "lang": "powershell"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Manual install instructions are at docs.ollama.com/linux.",
+              "code": "curl -fsSL https://ollama.com/install.sh | sh",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Use the official image",
+              "body": "The ollama/ollama image is available on Docker Hub."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start Ollama",
+          "body": "You'll be prompted to run a model or connect an app.",
+          "code": "ollama",
+          "lang": "bash"
+        },
+        {
+          "title": "Chat with Gemma 4",
+          "code": "ollama run gemma4",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run a model and call it from your code",
+      "useCase": "Chat with Gemma 4 locally, then call it through the REST API and the Python library.",
+      "setup": [
+        "Ollama installed"
+      ],
+      "steps": [
+        {
+          "title": "Run the model",
+          "body": "The first run downloads it.",
+          "code": "ollama run gemma4",
+          "lang": "bash"
+        },
+        {
+          "title": "Call the REST API",
+          "code": "curl http://localhost:11434/api/chat -d '{\n  \"model\": \"gemma4\",\n  \"messages\": [{\n    \"role\": \"user\",\n    \"content\": \"Why is the sky blue?\"\n  }],\n  \"stream\": false\n}'",
+          "lang": "bash"
+        },
+        {
+          "title": "Use the Python library",
+          "code": "pip install ollama",
+          "lang": "bash"
+        },
+        {
+          "title": "Chat from Python",
+          "code": "from ollama import chat\n\nresponse = chat(model='gemma4', messages=[\n  {'role': 'user', 'content': 'Why is the sky blue?'},\n])\nprint(response.message.content)",
+          "lang": "text"
+        }
+      ],
+      "expected": "The model answers in the terminal, the API returns a JSON chat response, and the Python script prints the answer.",
+      "nextSteps": [
+        "Browse other models on ollama.com/library",
+        "Connect a coding agent with ollama launch",
+        "Read the Modelfile reference to customise models"
+      ],
+      "sourceUrl": "https://github.com/ollama/ollama/blob/924cc286cc592f49c481fa84e15fa60dbc75989e/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Local models",
+        "value": "Free to run on your own hardware.",
+        "tone": "free"
+      },
+      {
+        "label": "Cloud models",
+        "value": "The README mentions accessing models in the cloud; see ollama.com for details.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Not sure which model to run",
+        "solution": "Browse ollama.com/library and start with a smaller model if memory is limited.",
+        "sourceUrl": "https://github.com/ollama/ollama/blob/924cc286cc592f49c481fa84e15fa60dbc75989e/README.md"
+      },
+      {
+        "problem": "Linux install needs manual steps",
+        "solution": "Follow the manual install instructions at docs.ollama.com/linux.",
+        "sourceUrl": "https://github.com/ollama/ollama/blob/924cc286cc592f49c481fa84e15fa60dbc75989e/README.md"
+      },
+      {
+        "problem": "App can't reach Ollama",
+        "solution": "Check the API is running at http://localhost:11434.",
+        "sourceUrl": "https://github.com/ollama/ollama/blob/924cc286cc592f49c481fa84e15fa60dbc75989e/README.md"
+      }
+    ],
+    "bestFor": [
+      "Running open models locally",
+      "Local AI app backends",
+      "Beginners trying open models"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Local model runner"
+      },
+      {
+        "label": "Language",
+        "value": "Go"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "API port",
+        "value": "11434"
+      }
+    ]
+  }
+}

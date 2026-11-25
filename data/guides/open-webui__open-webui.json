@@ -1,0 +1,277 @@
+{
+  "fullName": "open-webui/open-webui",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/open-webui/open-webui/blob/0666e59d26a4d056e0bacee41742486badd71cf8/README.md"
+    ],
+    "sourceCommitSha": "0666e59d26a4d056e0bacee41742486badd71cf8",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Run with Docker",
+        "command": "docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main"
+      },
+      {
+        "comment": "Or with pip (Python 3.12)",
+        "command": "pip install open-webui\nopen-webui serve"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Open WebUI is a self-hosted, ChatGPT-style web interface for AI models. It connects to local models through Ollama or to any OpenAI-compatible API, and it is built to run entirely offline if you want.",
+      "problem": "Local models usually come with only a command line, and cloud chat apps keep your conversations on someone else's servers. Open WebUI gives you a polished chat interface you host yourself, for local and cloud models alike.",
+      "whoFor": [
+        "Ollama users who want a web chat interface",
+        "Teams hosting a private AI chat",
+        "Privacy-minded users running offline",
+        "Developers comparing local and cloud models"
+      ],
+      "whyChoose": "Choose it for the most popular self-hosted chat UI for Ollama and OpenAI-compatible models. Its license requires keeping the Open WebUI branding.",
+      "requirements": [
+        "Docker, or Python 3.12 with pip or uv",
+        "Ollama or an OpenAI-compatible API"
+      ]
+    },
+    "overview": [
+      "Open WebUI runs as a web app you open in your browser. Point it at Ollama for local models, or give it an OpenAI API key or any OpenAI-compatible endpoint for cloud and local models.",
+      "Docker images come in several flavours: main with local AI dependencies, slim using external services for embeddings and documents, cuda for NVIDIA acceleration, ollama with Ollama bundled, and dev. Options like OLLAMA_BASE_URL, OPENAI_API_KEY and HF_HUB_OFFLINE configure it.",
+      "There's also a native desktop app for macOS, Windows and Linux, and ecosystem projects for agent terminals and knowledge base sync. Code is under the Open WebUI License, which requires preserving the branding."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Self-hosted chat",
+        "body": "ChatGPT-style interface you run yourself."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Ollama and OpenAI-compatible",
+        "body": "Local and cloud models."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Offline capable",
+        "body": "Built to run entirely offline."
+      },
+      {
+        "icon": "file-code",
+        "title": "Several Docker images",
+        "body": "main, slim, cuda, ollama and dev."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Desktop app",
+        "body": "Native app for macOS, Windows and Linux."
+      },
+      {
+        "icon": "shield",
+        "title": "Knowledge bases",
+        "body": "Sync folders and wikis with oikb."
+      }
+    ],
+    "strengths": [
+      "Very popular, active project",
+      "Easy Docker or pip install",
+      "Works with local and cloud models",
+      "Can run fully offline"
+    ],
+    "limitations": [
+      "License requires keeping Open WebUI branding",
+      "GPU acceleration needs the cuda image and NVIDIA Container Toolkit",
+      "Enterprise features are separate"
+    ],
+    "useCases": [
+      {
+        "title": "Private ChatGPT",
+        "body": "Chat with local models through Ollama."
+      },
+      {
+        "title": "Team AI portal",
+        "body": "Host one interface for several model providers."
+      },
+      {
+        "title": "Offline AI",
+        "body": "Use AI on a machine with no internet."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Open WebUI's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/open-webui/open-webui/blob/0666e59d26a4d056e0bacee41742486badd71cf8/README.md",
+      "prerequisites": [
+        "Docker or Python 3.12"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Start the container",
+              "body": "Add -e OLLAMA_BASE_URL=http://your-ollama-server:11434 to connect to Ollama on another server.",
+              "code": "docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main",
+              "lang": "bash"
+            },
+            {
+              "title": "Open it",
+              "body": "Go to http://localhost:3000."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install and start",
+              "body": "Needs Python 3.12. Then open http://localhost:8080.",
+              "code": "pip install open-webui\nopen-webui serve",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Run with uvx (macOS/Linux)",
+              "code": "DATA_DIR=~/.open-webui uvx --python 3.12 open-webui@latest serve",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Desktop app",
+          "method": "desktop",
+          "steps": [
+            {
+              "title": "Download the desktop app",
+              "body": "From the open-webui/desktop repository, for macOS, Windows and Linux."
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "OLLAMA_BASE_URL",
+          "required": false,
+          "description": "Connect to Ollama on another server."
+        },
+        {
+          "name": "OPENAI_API_KEY",
+          "required": false,
+          "description": "Your OpenAI API key."
+        },
+        {
+          "name": "HF_HUB_OFFLINE",
+          "required": false,
+          "description": "Set to 1 to disable Hugging Face model downloads for offline use."
+        },
+        {
+          "name": "DATA_DIR",
+          "required": false,
+          "description": "Where Open WebUI stores its data when run with uvx."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Open the interface",
+          "body": "http://localhost:3000 for Docker or http://localhost:8080 for pip."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Chat with local models through Ollama",
+      "useCase": "Put a web chat interface in front of Ollama with Docker.",
+      "setup": [
+        "Docker installed",
+        "Ollama installed with a model pulled"
+      ],
+      "steps": [
+        {
+          "title": "Start Open WebUI",
+          "code": "docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main",
+          "lang": "bash"
+        },
+        {
+          "title": "Open http://localhost:3000",
+          "body": "Create your account and pick a model to chat with."
+        }
+      ],
+      "expected": "Open WebUI runs in your browser and lists your models, with conversations stored in the open-webui volume.",
+      "nextSteps": [
+        "Add an OpenAI API key for cloud models",
+        "Try the cuda image for GPU acceleration",
+        "See the docs for Docker Compose and Kubernetes"
+      ],
+      "sourceUrl": "https://github.com/open-webui/open-webui/blob/0666e59d26a4d056e0bacee41742486badd71cf8/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Open WebUI License; requires preserving the branding.",
+        "tone": "depends"
+      },
+      {
+        "label": "Software",
+        "value": "Free to self-host.",
+        "tone": "free"
+      },
+      {
+        "label": "Cloud models",
+        "value": "Billed by the providers you connect.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Can't connect to Ollama",
+        "solution": "See the troubleshooting guide; set OLLAMA_BASE_URL if Ollama runs on another server.",
+        "sourceUrl": "https://github.com/open-webui/open-webui/blob/0666e59d26a4d056e0bacee41742486badd71cf8/README.md"
+      },
+      {
+        "problem": "GPU not used",
+        "solution": "Use the :cuda or :ollama image with --gpus all and the NVIDIA Container Toolkit.",
+        "sourceUrl": "https://github.com/open-webui/open-webui/blob/0666e59d26a4d056e0bacee41742486badd71cf8/README.md"
+      },
+      {
+        "problem": "Updating",
+        "solution": "Follow the updating guide in the docs.",
+        "sourceUrl": "https://github.com/open-webui/open-webui/blob/0666e59d26a4d056e0bacee41742486badd71cf8/README.md"
+      }
+    ],
+    "bestFor": [
+      "Self-hosted AI chat",
+      "Ollama front end",
+      "Offline AI"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Self-hosted AI chat interface"
+      },
+      {
+        "label": "Language",
+        "value": "Python and Svelte"
+      },
+      {
+        "label": "License",
+        "value": "Open WebUI License"
+      },
+      {
+        "label": "Default port",
+        "value": "8080 (3000 in Docker)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "fullName": "Comfy-Org/ComfyUI",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Comfy-Org/ComfyUI/blob/b27006af3d753e4a94cd703d9a2432b68a7e6865/README.md"
+    ],
+    "sourceCommitSha": "b27006af3d753e4a94cd703d9a2432b68a7e6865",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install with comfy-cli",
+        "command": "pip install comfy-cli && comfy install"
+      },
+      {
+        "comment": "Or install manually (after PyTorch)",
+        "command": "git clone https://github.com/Comfy-Org/ComfyUI.git\ncd ComfyUI\npip install -r requirements.txt\npython main.py"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "ComfyUI is a node-based app for generating images, video, audio and 3D with open AI models like Stable Diffusion, Flux and Wan. You build a workflow by connecting nodes on a canvas, giving you control over every model, parameter and output.",
+      "problem": "Simple image generators hide the steps behind one prompt box, which limits control. ComfyUI exposes the whole pipeline as a reusable graph and is optimised to run large models on consumer hardware.",
+      "whoFor": [
+        "Artists and designers generating images and video",
+        "Visual professionals who need fine control",
+        "Developers building generation pipelines with an API",
+        "Hobbyists running open models locally"
+      ],
+      "whyChoose": "Choose it for maximum control and the broadest open model support. Beginners should start with Comfy Desktop, the recommended installer for Windows and macOS.",
+      "requirements": [
+        "Windows, Linux or macOS",
+        "A GPU; the README says big models can run on as little as 4 GB VRAM and 8 GB RAM",
+        "For manual installs: Python 3.13 (3.14 works) and a recent PyTorch"
+      ]
+    },
+    "overview": [
+      "Workflows are visual node graphs for image, video, audio, 3D and text generation. ComfyUI natively supports models such as Stable Diffusion 1.5, SDXL, SD3.5, Flux, Qwen Image, Wan 2.1 and 2.2, LTX-Video and Hunyuan3D, with templates in the workflow library.",
+      "It runs fully offline by default, re-executes only the parts of a graph that changed, manages VRAM and RAM smartly, and supports LoRAs, ControlNets, inpainting, upscaling and more. Any image or video made with ComfyUI can be dragged back onto the canvas to recover the full workflow, seeds included.",
+      "You can install Comfy Desktop, the Windows Portable build, comfy-cli, or install manually after PyTorch. Custom nodes are managed through ComfyUI-Manager. There's also Comfy Cloud, a Developer Platform for API endpoints, and optional paid API nodes for closed models."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Node graph workflows",
+        "body": "Build reusable pipelines without code."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Broad model support",
+        "body": "Image, video, audio, 3D and text models."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Low VRAM",
+        "body": "Weight streaming for big models on small GPUs."
+      },
+      {
+        "icon": "file-code",
+        "title": "Offline by default",
+        "body": "Core downloads nothing unless you ask."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Workflow in every output",
+        "body": "Drop an image back in to recover its workflow."
+      },
+      {
+        "icon": "shield",
+        "title": "Custom nodes and API",
+        "body": "Extend it and call it from apps."
+      }
+    ],
+    "strengths": [
+      "Most flexible open-source generation tool",
+      "Very well optimised for consumer GPUs",
+      "Huge custom node ecosystem",
+      "Runs on Windows, Linux and macOS"
+    ],
+    "limitations": [
+      "Node graphs take time to learn",
+      "Manual installs need the right PyTorch version",
+      "Custom nodes can cause problems"
+    ],
+    "useCases": [
+      {
+        "title": "Image generation",
+        "body": "Text-to-image with SDXL or Flux."
+      },
+      {
+        "title": "Video generation",
+        "body": "Create clips with Wan or LTX-Video."
+      },
+      {
+        "title": "Production pipelines",
+        "body": "Expose workflows through the API."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from ComfyUI's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Comfy-Org/ComfyUI/blob/b27006af3d753e4a94cd703d9a2432b68a7e6865/README.md",
+      "prerequisites": [
+        "A GPU",
+        "Python 3.13 and PyTorch for manual installs"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Comfy Desktop (recommended)",
+          "method": "desktop",
+          "steps": [
+            {
+              "title": "Download Comfy Desktop",
+              "body": "The easiest way to start on Windows and macOS, from comfy.org/download."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "comfy-cli",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install the CLI and ComfyUI",
+              "code": "pip install comfy-cli && comfy install",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Manual install",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Install PyTorch for your GPU",
+              "body": "See docs/installation.md for NVIDIA, AMD, Intel Arc and Apple Silicon commands. NVIDIA 20 series and newer need cu130 or above."
+            },
+            {
+              "title": "Clone and install",
+              "code": "git clone https://github.com/Comfy-Org/ComfyUI.git\ncd ComfyUI\npip install -r requirements.txt",
+              "lang": "bash"
+            },
+            {
+              "title": "Start ComfyUI",
+              "code": "python main.py",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Add a model",
+          "body": "Put checkpoints in models/checkpoints and VAEs in models/vae."
+        },
+        {
+          "title": "Start ComfyUI",
+          "code": "python main.py",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Generate your first image",
+      "useCase": "Run ComfyUI and generate an image from a ready-made workflow template.",
+      "setup": [
+        "ComfyUI installed",
+        "A model checkpoint, such as an SDXL model"
+      ],
+      "steps": [
+        {
+          "title": "Place the model",
+          "body": "Copy the checkpoint into models/checkpoints."
+        },
+        {
+          "title": "Start ComfyUI",
+          "code": "python main.py",
+          "lang": "bash"
+        },
+        {
+          "title": "Load a template",
+          "body": "Open a text-to-image template from the workflow library, choose your checkpoint and run the queue."
+        }
+      ],
+      "expected": "ComfyUI generates the image, which also stores the full workflow so you can drag it back onto the canvas later.",
+      "nextSteps": [
+        "Install custom nodes with ComfyUI-Manager",
+        "Try a video workflow such as Wan",
+        "Use the local API to automate workflows"
+      ],
+      "sourceUrl": "https://github.com/Comfy-Org/ComfyUI/blob/b27006af3d753e4a94cd703d9a2432b68a7e6865/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "GPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Local use",
+        "value": "Free and runs offline.",
+        "tone": "free"
+      },
+      {
+        "label": "Comfy Cloud and API nodes",
+        "value": "Optional paid services for cloud running and closed models.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Slow on NVIDIA",
+        "solution": "Make sure PyTorch is cu130 or higher.",
+        "sourceUrl": "https://github.com/Comfy-Org/ComfyUI/blob/b27006af3d753e4a94cd703d9a2432b68a7e6865/README.md"
+      },
+      {
+        "problem": "Slow with GGUF models",
+        "solution": "The README advises removing GGUF nodes and models and using native formats like convrot int8 or w6a8 instead.",
+        "sourceUrl": "https://github.com/Comfy-Org/ComfyUI/blob/b27006af3d753e4a94cd703d9a2432b68a7e6865/README.md"
+      },
+      {
+        "problem": "Crashes or errors after adding nodes",
+        "solution": "Start with --disable-all-custom-nodes, or temporarily rename the custom_nodes folder.",
+        "sourceUrl": "https://github.com/Comfy-Org/ComfyUI/blob/b27006af3d753e4a94cd703d9a2432b68a7e6865/README.md"
+      },
+      {
+        "problem": "Performance flags made things worse",
+        "solution": "Remove all command line flags; the README says claimed speed-up flags do the opposite.",
+        "sourceUrl": "https://github.com/Comfy-Org/ComfyUI/blob/b27006af3d753e4a94cd703d9a2432b68a7e6865/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI image and video generation",
+      "Advanced generation pipelines",
+      "Local open models"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Node-based generative AI engine"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "GPL-3.0"
+      },
+      {
+        "label": "Media",
+        "value": "Image, video, audio, 3D"
+      }
+    ]
+  }
+}

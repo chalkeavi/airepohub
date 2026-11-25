@@ -1,0 +1,254 @@
+{
+  "fullName": "ggml-org/llama.cpp",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ggml-org/llama.cpp/blob/81ff0cab06cf97b445c647d278594c7f97b39740/README.md"
+    ],
+    "sourceCommitSha": "81ff0cab06cf97b445c647d278594c7f97b39740",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install (macOS or Linux)",
+        "command": "curl -LsSf https://llama.app/install.sh | sh"
+      },
+      {
+        "comment": "Chat with a model from Hugging Face",
+        "command": "llama cli -hf ggml-org/Qwen3.5-0.8B-GGUF"
+      },
+      {
+        "comment": "Start an OpenAI-compatible server",
+        "command": "llama serve -hf ggml-org/Qwen3.5-0.8B-GGUF"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "llama.cpp runs large language models efficiently in C and C++ on a wide range of hardware, from laptops to cloud servers. It can download a model from Hugging Face and chat with it, or serve it through an OpenAI-compatible API with a built-in chat app.",
+      "problem": "Running language models usually needs heavy Python stacks and big GPUs. llama.cpp aims for minimal setup and state-of-the-art performance on many kinds of hardware, and it powers many other local AI tools.",
+      "whoFor": [
+        "Developers running models locally with minimal setup",
+        "People with modest hardware who want local AI",
+        "Engineers embedding LLM inference in apps",
+        "Tool builders who need a fast inference engine"
+      ],
+      "whyChoose": "Choose it for lightweight, fast local inference with GGUF models and an OpenAI-compatible server. For a more beginner-friendly wrapper, Ollama builds on it.",
+      "requirements": [
+        "macOS, Linux or Windows",
+        "Enough RAM or VRAM for the model"
+      ]
+    },
+    "overview": [
+      "llama.cpp is built on the ggml tensor library. Its goal is LLM and multimodal model inference with minimal setup and state-of-the-art performance, locally and in the cloud.",
+      "After installing, llama cli -hf downloads a GGUF model from Hugging Face and opens a chat session, including vision models. llama serve starts an OpenAI-compatible API server, and Llama Chat, a built-in chat app, can run against it.",
+      "You can install with a one-line script, use Docker, download pre-built binaries from the releases page or build from source. Documentation covers multi-GPU use, Android builds, text-to-speech models, grammars and performance tips. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Fast C/C++ inference",
+        "body": "Minimal setup across many hardware types."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Hugging Face downloads",
+        "body": "Run GGUF models directly with -hf."
+      },
+      {
+        "icon": "puzzle",
+        "title": "OpenAI-compatible server",
+        "body": "llama serve exposes an API."
+      },
+      {
+        "icon": "file-code",
+        "title": "Built-in chat app",
+        "body": "Llama Chat runs against the server."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Multimodal",
+        "body": "Vision and text-to-speech models."
+      },
+      {
+        "icon": "shield",
+        "title": "Many install options",
+        "body": "Script, Docker, binaries or source."
+      }
+    ],
+    "strengths": [
+      "Runs on a huge range of hardware",
+      "Very active, widely used project",
+      "Powers many other local AI tools",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Uses GGUF model files",
+      "More technical than desktop apps",
+      "Performance tuning can need the docs"
+    ],
+    "useCases": [
+      {
+        "title": "Local chat",
+        "body": "Chat with a small model on a laptop."
+      },
+      {
+        "title": "Local API backend",
+        "body": "Serve a model to apps via the OpenAI API."
+      },
+      {
+        "title": "Embedded inference",
+        "body": "Build inference into C/C++ apps."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from llama.cpp's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ggml-org/llama.cpp/blob/81ff0cab06cf97b445c647d278594c7f97b39740/README.md",
+      "prerequisites": [
+        "A computer with enough memory for the model"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "curl -LsSf https://llama.app/install.sh | sh",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "curl -LsSf https://llama.app/install.sh | sh",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install in PowerShell",
+              "code": "irm https://llama.app/install.ps1 | iex",
+              "lang": "powershell"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Pre-built binaries",
+          "method": "binary",
+          "steps": [
+            {
+              "title": "Download a release",
+              "body": "Get pre-built binaries from the releases page, or build from source with docs/build.md."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Chat with a small model",
+          "code": "llama cli -hf ggml-org/Qwen3.5-0.8B-GGUF",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Serve a local model with an OpenAI-compatible API",
+      "useCase": "Download a small model from Hugging Face and serve it to your apps.",
+      "setup": [
+        "llama.cpp installed"
+      ],
+      "steps": [
+        {
+          "title": "Try the model in the terminal",
+          "code": "llama cli -hf ggml-org/Qwen3.5-0.8B-GGUF",
+          "lang": "bash"
+        },
+        {
+          "title": "Start the server",
+          "code": "llama serve -hf ggml-org/Qwen3.5-0.8B-GGUF",
+          "lang": "bash"
+        },
+        {
+          "title": "Chat in the browser",
+          "body": "Use Llama Chat, the built-in chat app, against the running server."
+        }
+      ],
+      "expected": "The model downloads from Hugging Face, answers in the terminal, and the server exposes an OpenAI-compatible API.",
+      "nextSteps": [
+        "Read the server README in tools/server",
+        "See the multi-GPU guide",
+        "Check the performance troubleshooting tips"
+      ],
+      "sourceUrl": "https://github.com/ggml-org/llama.cpp/blob/81ff0cab06cf97b445c647d278594c7f97b39740/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Slow token generation",
+        "solution": "See the performance troubleshooting guide in the docs.",
+        "sourceUrl": "https://github.com/ggml-org/llama.cpp/blob/81ff0cab06cf97b445c647d278594c7f97b39740/README.md"
+      },
+      {
+        "problem": "Need GPU or platform-specific builds",
+        "solution": "Follow the build guide in docs/build.md.",
+        "sourceUrl": "https://github.com/ggml-org/llama.cpp/blob/81ff0cab06cf97b445c647d278594c7f97b39740/README.md"
+      },
+      {
+        "problem": "Prefer containers",
+        "solution": "See the Docker documentation in docs/docker.md.",
+        "sourceUrl": "https://github.com/ggml-org/llama.cpp/blob/81ff0cab06cf97b445c647d278594c7f97b39740/README.md"
+      }
+    ],
+    "bestFor": [
+      "Local LLM inference",
+      "Low-resource hardware",
+      "OpenAI-compatible local serving"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "LLM inference engine"
+      },
+      {
+        "label": "Language",
+        "value": "C/C++"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Model format",
+        "value": "GGUF"
+      }
+    ]
+  }
+}

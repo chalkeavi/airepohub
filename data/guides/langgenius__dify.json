@@ -1,0 +1,268 @@
+{
+  "fullName": "langgenius/dify",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/langgenius/dify/blob/409387a1b8d6c9eab3ab788a282b894a67a7fe8e/README.md"
+    ],
+    "sourceCommitSha": "409387a1b8d6c9eab3ab788a282b894a67a7fe8e",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Prepare the Docker config",
+        "command": "cd docker\ncp .env.example .env\nopenssl rand -hex 32"
+      },
+      {
+        "comment": "Start Dify",
+        "command": "docker compose up -d"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Dify is a platform for building AI apps without starting from scratch. On one visual interface you get AI workflows, RAG pipelines for your documents, agents, model management and observability, and every app comes with an API you can call from your own software.",
+      "problem": "Going from an AI prototype to a production app means wiring up models, document search, prompts, monitoring and APIs. Dify brings these together so teams can build, test and ship LLM apps faster.",
+      "whoFor": [
+        "Product teams building AI chat and workflow apps",
+        "Developers who want a backend-as-a-service for LLM apps",
+        "Companies building RAG on internal documents",
+        "Non-developers prototyping AI apps visually"
+      ],
+      "whyChoose": "Choose it for an all-in-one, self-hostable LLM app platform with visual workflows and APIs. Check the Dify Open Source License, which adds conditions to Apache 2.0.",
+      "requirements": [
+        "CPU with 2+ cores and 4 GiB+ RAM",
+        "Docker with a running daemon and Docker Compose v2.35.0+",
+        "OpenSSL"
+      ]
+    },
+    "overview": [
+      "Dify combines a workflow canvas, a prompt IDE, RAG pipelines with text extraction from PDFs, slides and other documents, autonomous agents with their own sandbox, and LLMOps monitoring. It supports hundreds of proprietary and open models from dozens of providers, including any OpenAI API-compatible model.",
+      "Every Dify app exposes APIs, so it works as a backend-as-a-service for your own products. Agents can run commands, install software and handle files in a sandbox, and can use tools from the Dify Marketplace.",
+      "You can use Dify Cloud, self-host the Community Edition with Docker Compose, or ask about Dify Enterprise for SSO, RBAC and support SLAs. Self-hosting needs a generated auth token in the .env file before the first start."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Visual workflows",
+        "body": "Build and test AI workflows on a canvas."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Hundreds of models",
+        "body": "Proprietary, open-source and OpenAI-compatible models."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Prompt IDE",
+        "body": "Craft prompts and compare models."
+      },
+      {
+        "icon": "file-code",
+        "title": "RAG pipeline",
+        "body": "Ingest and retrieve PDFs, slides and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Agents with sandboxes",
+        "body": "Agents that run commands and handle files."
+      },
+      {
+        "icon": "shield",
+        "title": "APIs for everything",
+        "body": "Use Dify as a backend-as-a-service."
+      }
+    ],
+    "strengths": [
+      "All-in-one LLM app platform",
+      "Self-hostable with Docker Compose",
+      "Large model provider support",
+      "Very active project"
+    ],
+    "limitations": [
+      "Dify Open Source License adds conditions to Apache 2.0",
+      "Self-hosting runs several services",
+      "Enterprise features like SSO need Dify Enterprise"
+    ],
+    "useCases": [
+      {
+        "title": "Internal knowledge chatbot",
+        "body": "Answer questions from company documents."
+      },
+      {
+        "title": "AI workflows",
+        "body": "Chain model calls, tools and logic visually."
+      },
+      {
+        "title": "AI backend for products",
+        "body": "Call Dify apps through their APIs."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Dify's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/langgenius/dify/blob/409387a1b8d6c9eab3ab788a282b894a67a7fe8e/README.md",
+      "prerequisites": [
+        "Docker and Docker Compose v2.35.0+",
+        "OpenSSL"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker Compose",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/langgenius/dify.git\ncd dify",
+              "lang": "bash"
+            },
+            {
+              "title": "Create your environment file and a token",
+              "code": "cd docker\ncp .env.example .env\nopenssl rand -hex 32",
+              "lang": "bash"
+            },
+            {
+              "title": "Set the sandbox token",
+              "body": "Open .env and set DIFY_AGENT_LOCAL_SANDBOX_AUTH_TOKEN to the generated value. Keep the default COMPOSE_PROFILES."
+            },
+            {
+              "title": "Start the services",
+              "code": "docker compose up -d\ndocker compose ps --all",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Dify Cloud",
+          "method": "cloud",
+          "steps": [
+            {
+              "title": "Sign up at cloud.dify.ai",
+              "body": "Try Dify without managing a server; see the pricing page for plans."
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "DIFY_AGENT_LOCAL_SANDBOX_AUTH_TOKEN",
+          "required": true,
+          "description": "Set in docker/.env to a value generated with openssl rand -hex 32."
+        },
+        {
+          "name": "COMPOSE_PROFILES",
+          "required": false,
+          "description": "Keep the default to run the bundled services."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Complete the setup",
+          "body": "Open http://localhost/install once the services are running."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Self-host Dify and finish the first-time setup",
+      "useCase": "Run the Community Edition locally with Docker Compose.",
+      "setup": [
+        "Docker with Compose v2.35.0+",
+        "OpenSSL",
+        "At least 2 CPU cores and 4 GiB RAM"
+      ],
+      "steps": [
+        {
+          "title": "Configure",
+          "code": "cd docker\ncp .env.example .env\nopenssl rand -hex 32",
+          "lang": "bash"
+        },
+        {
+          "title": "Add the token to .env",
+          "body": "Set DIFY_AGENT_LOCAL_SANDBOX_AUTH_TOKEN to the generated value."
+        },
+        {
+          "title": "Start and check the services",
+          "code": "docker compose up -d\ndocker compose ps --all",
+          "lang": "bash"
+        },
+        {
+          "title": "Open http://localhost/install",
+          "body": "Create the admin account to finish setup."
+        }
+      ],
+      "expected": "All services run, the one-time init_permissions service exits with code 0, and Dify's setup page opens in your browser.",
+      "nextSteps": [
+        "Add a model provider in settings",
+        "Create a workflow or chatbot app",
+        "See the Docker deployment guide for options"
+      ],
+      "sourceUrl": "https://github.com/langgenius/dify/blob/409387a1b8d6c9eab3ab788a282b894a67a7fe8e/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Dify Open Source License, based on Apache 2.0 with additional conditions.",
+        "tone": "depends"
+      },
+      {
+        "label": "Self-hosted",
+        "value": "Free Community Edition; you pay for your servers.",
+        "tone": "free"
+      },
+      {
+        "label": "Dify Cloud",
+        "value": "Hosted plans; see dify.ai/pricing.",
+        "tone": "depends"
+      },
+      {
+        "label": "Model providers",
+        "value": "Billed by each provider you connect.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "init_permissions shows as exited",
+        "solution": "That's expected; it should exit with code 0.",
+        "sourceUrl": "https://github.com/langgenius/dify/blob/409387a1b8d6c9eab3ab788a282b894a67a7fe8e/README.md"
+      },
+      {
+        "problem": "Upgrading an existing deployment",
+        "solution": "Keep your .env and follow the upgrade guidance in docker/README.md.",
+        "sourceUrl": "https://github.com/langgenius/dify/blob/409387a1b8d6c9eab3ab788a282b894a67a7fe8e/README.md"
+      },
+      {
+        "problem": "Other setup problems",
+        "solution": "Check the self-hosting FAQ at docs.dify.ai.",
+        "sourceUrl": "https://github.com/langgenius/dify/blob/409387a1b8d6c9eab3ab788a282b894a67a7fe8e/README.md"
+      }
+    ],
+    "bestFor": [
+      "Building LLM apps",
+      "RAG chatbots",
+      "Self-hosted AI platform"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "LLM app development platform"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Dify Open Source License"
+      },
+      {
+        "label": "Setup",
+        "value": "Docker Compose"
+      }
+    ]
+  }
+}
