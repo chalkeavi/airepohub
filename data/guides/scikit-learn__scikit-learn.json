@@ -1,0 +1,231 @@
+{
+  "fullName": "scikit-learn/scikit-learn",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/scikit-learn/scikit-learn/blob/46a731ce82bde3f52cdf94dd099c1c0f7c8f2bf8/README.rst",
+      "https://github.com/scikit-learn/scikit-learn/blob/46a731ce82bde3f52cdf94dd099c1c0f7c8f2bf8/doc/getting_started.rst"
+    ],
+    "sourceCommitSha": "46a731ce82bde3f52cdf94dd099c1c0f7c8f2bf8",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install with pip",
+        "command": "pip install -U scikit-learn"
+      },
+      {
+        "comment": "Or with conda",
+        "command": "conda install -c conda-forge scikit-learn"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "scikit-learn is the standard Python library for classic machine learning. It provides dozens of ready-made algorithms for classification, regression and clustering, plus tools for preprocessing data, building pipelines, choosing models and evaluating them, all with one consistent fit and predict API.",
+      "problem": "Implementing and comparing machine learning algorithms from scratch is slow and error-prone. scikit-learn gives you well-tested estimators and utilities that work the same way, so you can try models quickly on tabular data.",
+      "whoFor": [
+        "Data scientists working with tabular data",
+        "Students learning machine learning",
+        "Developers adding predictions to apps",
+        "Researchers needing reliable baselines"
+      ],
+      "whyChoose": "Choose it for classic machine learning on structured data with excellent documentation. For deep learning, use a framework like PyTorch or Keras instead.",
+      "requirements": [
+        "Python 3.12+",
+        "NumPy 1.26.0+, SciPy 1.11.4+, Narwhals 2.0.1+, joblib 1.4.0+, threadpoolctl 3.5.0+",
+        "Matplotlib 3.8.0+ for plotting"
+      ]
+    },
+    "overview": [
+      "scikit-learn is built on SciPy and distributed under the BSD 3-Clause license. It started in 2007 as a Google Summer of Code project by David Cournapeau and is maintained by a community of volunteers with support from several organisations.",
+      "Every model is an estimator with a fit method; after fitting you call predict on new data. Preprocessors and transformers such as StandardScaler share the same API but use transform, and they can be chained with a final predictor in a pipeline. The library also covers model selection and evaluation.",
+      "Install it with pip or conda once NumPy and SciPy are available. Plotting functions need Matplotlib, and some examples need pandas, seaborn, scikit-image or Plotly. Full documentation, a FAQ and a map for choosing the right model are on scikit-learn.org."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Dozens of algorithms",
+        "body": "Classification, regression, clustering and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Consistent API",
+        "body": "fit, predict and transform everywhere."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Preprocessing",
+        "body": "Scaling, imputation and encoding."
+      },
+      {
+        "icon": "file-code",
+        "title": "Pipelines",
+        "body": "Chain preprocessing and models together."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Model selection",
+        "body": "Cross-validation and parameter search."
+      },
+      {
+        "icon": "shield",
+        "title": "Evaluation",
+        "body": "Metrics and plotting displays."
+      }
+    ],
+    "strengths": [
+      "Industry standard for classic ML",
+      "Outstanding documentation",
+      "Stable, well-tested code",
+      "BSD 3-Clause license"
+    ],
+    "limitations": [
+      "Not for deep learning or GPUs",
+      "Requires a recent Python (3.12+)",
+      "Best suited to data that fits in memory"
+    ],
+    "useCases": [
+      {
+        "title": "Predict customer churn",
+        "body": "Train a classifier on tabular data."
+      },
+      {
+        "title": "Baseline models",
+        "body": "Compare simple models before trying deep learning."
+      },
+      {
+        "title": "Data preprocessing",
+        "body": "Scale and encode features in a pipeline."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from scikit-learn's README and getting started guide. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/scikit-learn/scikit-learn/blob/46a731ce82bde3f52cdf94dd099c1c0f7c8f2bf8/README.rst",
+      "prerequisites": [
+        "Python 3.12+",
+        "NumPy and SciPy"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install -U scikit-learn",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "conda",
+          "method": "conda",
+          "steps": [
+            {
+              "title": "Install from conda-forge",
+              "code": "conda install -c conda-forge scikit-learn",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Check the installation",
+          "code": "python -c \"import sklearn; print(sklearn.__version__)\"",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Fit and predict with your first estimator",
+      "useCase": "Train a random forest on tiny example data, following the getting started guide.",
+      "setup": [
+        "scikit-learn installed"
+      ],
+      "steps": [
+        {
+          "title": "Fit a classifier",
+          "code": "from sklearn.ensemble import RandomForestClassifier\nclf = RandomForestClassifier(random_state=0)\nX = [[ 1,  2,  3],\n     [11, 12, 13]]\ny = [0, 1]\nclf.fit(X, y)",
+          "lang": "text"
+        },
+        {
+          "title": "Predict on new data",
+          "code": "clf.predict([[4, 5, 6], [14, 15, 16]])",
+          "lang": "text"
+        },
+        {
+          "title": "Try a preprocessor",
+          "code": "from sklearn.preprocessing import StandardScaler\nX = [[0, 15],\n     [1, -10]]\nStandardScaler().fit(X).transform(X)",
+          "lang": "text"
+        }
+      ],
+      "expected": "The guide shows the prediction returning array([0, 1]) and the scaler returning standardised values.",
+      "nextSteps": [
+        "Combine steps into a pipeline",
+        "Evaluate with cross-validation",
+        "Use the model selection map on scikit-learn.org"
+      ],
+      "sourceUrl": "https://github.com/scikit-learn/scikit-learn/blob/46a731ce82bde3f52cdf94dd099c1c0f7c8f2bf8/doc/getting_started.rst"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "BSD 3-Clause.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install fails",
+        "solution": "Make sure NumPy and SciPy are installed and Python is 3.12 or newer.",
+        "sourceUrl": "https://github.com/scikit-learn/scikit-learn/blob/46a731ce82bde3f52cdf94dd099c1c0f7c8f2bf8/README.rst"
+      },
+      {
+        "problem": "Plotting functions error",
+        "solution": "Install Matplotlib 3.8.0 or newer.",
+        "sourceUrl": "https://github.com/scikit-learn/scikit-learn/blob/46a731ce82bde3f52cdf94dd099c1c0f7c8f2bf8/README.rst"
+      },
+      {
+        "problem": "Want to check your install",
+        "solution": "Run the test suite with pytest sklearn from outside the source directory.",
+        "sourceUrl": "https://github.com/scikit-learn/scikit-learn/blob/46a731ce82bde3f52cdf94dd099c1c0f7c8f2bf8/README.rst"
+      }
+    ],
+    "bestFor": [
+      "Classic machine learning",
+      "Tabular data",
+      "Teaching ML"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Machine learning library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "BSD 3-Clause"
+      },
+      {
+        "label": "Since",
+        "value": "2007"
+      }
+    ]
+  }
+}
