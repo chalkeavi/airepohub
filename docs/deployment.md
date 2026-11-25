@@ -29,7 +29,7 @@ measure this in Milestone 6 before launch rather than assume the free tier is en
 | Name | Where | Public? |
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | Workers | yes |
-| `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Workers | yes (RLS protects data) |
+| `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Workers | yes (RLS protects data) |
 | `SUPABASE_SERVICE_ROLE_KEY` | GitHub Actions secrets only | **no** |
 | `GITHUB_TOKEN` (discovery) | GitHub Actions | **no** |
 | `AI_PROVIDER` (`gemini`/`claude`), `AI_MODEL`, `AI_API_KEY` | GitHub Actions | **no** |
