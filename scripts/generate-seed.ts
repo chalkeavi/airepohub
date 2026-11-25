@@ -13,8 +13,22 @@ import { rankRepositories } from "../src/lib/ranking.ts";
 const DATA_AS_OF = "2026-11-24T23:43:00Z";
 const CONTENT = { openseo: openseoContent };
 
-const q = (v: string | null | undefined) => (v == null ? "null" : `'${v.replace(/'/g, "''")}'`);
-const j = (v: unknown) => `${q(JSON.stringify(v))}::jsonb`;
+// Strings with an apostrophe are dollar-quoted instead of using '' escapes (see j below).
+const STAG = "$" + "t" + "$";
+const q = (v: string | null | undefined) => {
+  if (v == null) return "null";
+  if (!v.includes("'")) return `'${v}'`;
+  if (v.includes(STAG)) throw new Error("string contains the dollar-quote tag");
+  return `${STAG}${v}${STAG}`;
+};
+// JSON goes in dollar quotes, pretty-printed, so the file survives copy-paste into the
+// Supabase SQL Editor (no doubled quotes to mangle, no 30 KB single lines).
+const TAG = "$" + "json" + "$";
+const j = (v: unknown) => {
+  const json = JSON.stringify(v, null, 1);
+  if (json.includes(TAG)) throw new Error("JSON contains the dollar-quote tag");
+  return `${TAG}${json}${TAG}::jsonb`;
+};
 const arr = (v: string[]) => (v.length ? `array[${v.map(q).join(", ")}]::text[]` : "'{}'::text[]");
 const repoId = (slug: string) => `(select id from public.repositories where slug = ${q(slug)})`;
 
