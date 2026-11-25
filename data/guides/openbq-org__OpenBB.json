@@ -1,0 +1,256 @@
+{
+  "fullName": "openbq-org/OpenBB",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/openbq-org/OpenBB/blob/f0f1852b96dd3fc4d5868f8863cbe053ff49c6cd/README.md"
+    ],
+    "sourceCommitSha": "f0f1852b96dd3fc4d5868f8863cbe053ff49c6cd",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install openbb"
+      },
+      {
+        "comment": "Start the local API server",
+        "command": "openbb-api"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "OpenBB's Open Data Platform (ODP) is an open-source Python toolkit for pulling financial and other data from many providers through one interface. You can use it in Python, as a command-line tool, or as a local API that feeds dashboards, Excel, AI copilots and the OpenBB Workspace.",
+      "problem": "Financial data lives in many separate APIs, each with its own format. ODP lets you connect data sources once and use them everywhere, for example getting a stock's price history as a pandas DataFrame in one line.",
+      "whoFor": [
+        "Quants and analysts working in Python",
+        "Data engineers integrating market data",
+        "Developers building AI research copilots",
+        "OpenBB Workspace users adding their own data"
+      ],
+      "whyChoose": "Choose it for a free, Apache-2.0 data layer with many integrations and a ready API server. The README warns that data is not necessarily accurate and trading carries high risk.",
+      "requirements": [
+        "Python 3.11 to 3.14",
+        "pip",
+        "API keys for any paid data providers you connect"
+      ]
+    },
+    "overview": [
+      "ODP is described as connect-once, consume-everywhere infrastructure. In Python, from openbb import obb gives you commands such as obb.equity.price.historical(\"AAPL\"), and results convert to DataFrames.",
+      "Running openbb-api starts a FastAPI server on 127.0.0.1:6900, which you can connect to OpenBB Workspace (the company's enterprise UI for analysts and AI agents) under Apps, then Connect backend. A separate ODP CLI installs with pip install openbb-cli.",
+      "The project includes many data integrations, listed in its documentation. The README's disclaimer says trading involves high risk, the data is not necessarily accurate, and OpenBB accepts no liability for losses from relying on it."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "One API for many sources",
+        "body": "Equity, and other datasets from multiple providers."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Python SDK",
+        "body": "obb commands return data you can turn into DataFrames."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Local API server",
+        "body": "FastAPI backend on port 6900."
+      },
+      {
+        "icon": "file-code",
+        "title": "CLI",
+        "body": "Query the platform from your terminal."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Workspace integration",
+        "body": "Connect your backend to OpenBB Workspace."
+      },
+      {
+        "icon": "shield",
+        "title": "Extensible",
+        "body": "Add proprietary or licensed data sources."
+      }
+    ],
+    "strengths": [
+      "Free and Apache-2.0 licensed",
+      "Simple Python API",
+      "Ready-made API server for apps and AI tools",
+      "Large community"
+    ],
+    "limitations": [
+      "Data accuracy isn't guaranteed",
+      "Some providers need their own (possibly paid) API keys",
+      "OpenBB Workspace is a separate commercial product"
+    ],
+    "useCases": [
+      {
+        "title": "Research notebooks",
+        "body": "Pull price history into pandas for analysis."
+      },
+      {
+        "title": "AI copilot data",
+        "body": "Serve market data to an agent through the API."
+      },
+      {
+        "title": "Custom dashboards",
+        "body": "Feed Excel or a web dashboard from one backend."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from OpenBB Open Data Platform's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/openbq-org/OpenBB/blob/f0f1852b96dd3fc4d5868f8863cbe053ff49c6cd/README.md",
+      "prerequisites": [
+        "Python 3.11–3.14"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Python package",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install openbb",
+              "lang": "bash"
+            },
+            {
+              "title": "Fetch data",
+              "code": "from openbb import obb\noutput = obb.equity.price.historical(\"AAPL\")\ndf = output.to_dataframe()",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "CLI",
+          "method": "pip-cli",
+          "steps": [
+            {
+              "title": "Install the ODP CLI",
+              "code": "pip install openbb-cli",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Local API backend",
+          "method": "api",
+          "steps": [
+            {
+              "title": "Install and start the server",
+              "body": "Runs at http://127.0.0.1:6900.",
+              "code": "pip install openbb\nopenbb-api",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Get Apple's price history in Python",
+          "code": "from openbb import obb\ndf = obb.equity.price.historical(\"AAPL\").to_dataframe()\nprint(df.tail())",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Connect your own data backend to OpenBB Workspace",
+      "useCase": "Serve ODP locally and use it from the Workspace UI.",
+      "setup": [
+        "Python 3.11–3.14",
+        "An OpenBB Workspace account"
+      ],
+      "steps": [
+        {
+          "title": "Install and start the API",
+          "code": "pip install openbb\nopenbb-api",
+          "lang": "bash"
+        },
+        {
+          "title": "Open OpenBB Workspace",
+          "body": "Go to the Apps tab and click Connect backend."
+        },
+        {
+          "title": "Add the backend",
+          "body": "Name it Open Data Platform, use URL http://127.0.0.1:6900, click Test, then Add."
+        }
+      ],
+      "expected": "Workspace reports a successful test with the number of apps found, and your ODP data appears in Workspace.",
+      "nextSteps": [
+        "Add data integrations from the docs",
+        "Install the CLI for terminal access",
+        "Build an AI agent on the data"
+      ],
+      "sourceUrl": "https://github.com/openbq-org/OpenBB/blob/f0f1852b96dd3fc4d5868f8863cbe053ff49c6cd/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Open Data Platform",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Data providers",
+        "value": "Some providers need paid keys.",
+        "tone": "depends"
+      },
+      {
+        "label": "OpenBB Workspace",
+        "value": "Separate product from OpenBB.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install problems",
+        "solution": "Use Python 3.11 to 3.14 and see the installation guide at docs.openbb.co.",
+        "sourceUrl": "https://github.com/openbq-org/OpenBB/blob/f0f1852b96dd3fc4d5868f8863cbe053ff49c6cd/README.md"
+      },
+      {
+        "problem": "Workspace can't reach the backend",
+        "solution": "Make sure openbb-api is running and the URL is http://127.0.0.1:6900.",
+        "sourceUrl": "https://github.com/openbq-org/OpenBB/blob/f0f1852b96dd3fc4d5868f8863cbe053ff49c6cd/README.md"
+      },
+      {
+        "problem": "Data looks wrong",
+        "solution": "The README warns data is not necessarily accurate; verify against the provider.",
+        "sourceUrl": "https://github.com/openbq-org/OpenBB/blob/f0f1852b96dd3fc4d5868f8863cbe053ff49c6cd/README.md"
+      }
+    ],
+    "bestFor": [
+      "Financial data in Python",
+      "Data backend for AI research tools",
+      "Open-source market data integration"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Financial data platform"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Interfaces",
+        "value": "Python, CLI, REST API"
+      }
+    ]
+  }
+}
