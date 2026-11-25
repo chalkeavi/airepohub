@@ -1,0 +1,228 @@
+{
+  "fullName": "dair-ai/Prompt-Engineering-Guide",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/README.md"
+    ],
+    "sourceCommitSha": "57673726396dd94acb23bdb1e67f27c78ee85a8e",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Run the guide locally",
+        "command": "git clone https://github.com/dair-ai/Prompt-Engineering-Guide.git\ncd Prompt-Engineering-Guide\npnpm i next react react-dom nextra nextra-theme-docs\npnpm dev"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "The Prompt Engineering Guide from DAIR.AI is a free collection of guides, papers, lectures and tools on writing prompts for language models. It is published as the website promptingguide.ai and covers basics, techniques, applications, model notes and risks.",
+      "problem": "Prompting techniques are spread across research papers and blog posts. This guide explains them in one place, from zero-shot and few-shot prompting to chain-of-thought, ReAct and retrieval-augmented generation, with examples.",
+      "whoFor": [
+        "Developers building with LLMs",
+        "Students and researchers learning prompting techniques",
+        "Product people who write prompts",
+        "Translators contributing to a 13-language guide"
+      ],
+      "whyChoose": "Choose it as a free, well-known reference for prompting techniques and papers. It is reading material, not a tool; DAIR.AI also sells separate paid courses.",
+      "requirements": [
+        "A web browser to read it online",
+        "Node.js 18+ and pnpm to run it locally"
+      ]
+    },
+    "overview": [
+      "The guide is organised into an introduction (LLM settings, prompt basics, prompt elements, tips and examples), techniques, applications, a prompt hub, model notes, risks and misuses, papers, tools, notebooks, datasets and further reading.",
+      "Techniques covered include zero-shot, few-shot, chain-of-thought, self-consistency, generated knowledge, prompt chaining, tree of thoughts, retrieval-augmented generation, automatic reasoning and tool use, automatic prompt engineer, ReAct, multimodal chain-of-thought and graph prompting. Applications include function calling, generating data and generating code.",
+      "The README links a one-hour lecture with a notebook and slides. The website version at promptingguide.ai is the most up to date, and the site can also be run locally with Nextra, for example to check a translation."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Prompting techniques",
+        "body": "From zero-shot to tree of thoughts and ReAct."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Applications",
+        "body": "Function calling, data generation and coding."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Prompt hub",
+        "body": "Example prompts by task."
+      },
+      {
+        "icon": "file-code",
+        "title": "Model notes",
+        "body": "Guides for models like GPT-4, Gemini, LLaMA and Mixtral."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Risks",
+        "body": "Adversarial prompting, factuality and bias."
+      },
+      {
+        "icon": "shield",
+        "title": "Papers and tools",
+        "body": "Curated research and tool lists."
+      }
+    ],
+    "strengths": [
+      "Free and widely used",
+      "Broad coverage of techniques",
+      "Available in 13 languages",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Reading material rather than software",
+      "Some model pages cover older models",
+      "Hands-on courses are sold separately"
+    ],
+    "useCases": [
+      {
+        "title": "Learn prompting",
+        "body": "Read the introduction and techniques sections."
+      },
+      {
+        "title": "Reference while building",
+        "body": "Look up a technique such as chain-of-thought."
+      },
+      {
+        "title": "Teach a workshop",
+        "body": "Use the lecture video, notebook and slides."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Prompt Engineering Guide's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/README.md",
+      "prerequisites": [
+        "A web browser"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Read online",
+          "method": "web",
+          "steps": [
+            {
+              "title": "Open promptingguide.ai",
+              "body": "The most up-to-date version of the guide."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Run locally",
+          "method": "pnpm",
+          "steps": [
+            {
+              "title": "Install Node.js 18+ and pnpm"
+            },
+            {
+              "title": "Clone and install dependencies",
+              "code": "git clone https://github.com/dair-ai/Prompt-Engineering-Guide.git\ncd Prompt-Engineering-Guide\npnpm i next react react-dom nextra nextra-theme-docs",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the site",
+              "body": "Browse it at http://localhost:3000/.",
+              "code": "pnpm dev",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Read Basics of Prompting, then Chain-of-Thought Prompting"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Learn the core prompting techniques",
+      "useCase": "Work through the key techniques with the guide and lecture.",
+      "setup": [
+        "A web browser",
+        "Optional: a Jupyter environment for the lecture notebook"
+      ],
+      "steps": [
+        {
+          "title": "Read the introduction",
+          "body": "LLM settings, basics, prompt elements and tips."
+        },
+        {
+          "title": "Try few-shot and chain-of-thought prompts",
+          "body": "Use the examples in the techniques section with any chat model."
+        },
+        {
+          "title": "Watch the lecture and run its notebook",
+          "body": "notebooks/pe-lecture.ipynb in the repository."
+        }
+      ],
+      "expected": "A working understanding of the main prompting techniques and when to use each.",
+      "nextSteps": [
+        "Read the RAG and ReAct pages",
+        "Browse the prompt hub by task",
+        "Check the papers section for research"
+      ],
+      "sourceUrl": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Guide",
+        "value": "Free to read online or locally.",
+        "tone": "free"
+      },
+      {
+        "label": "DAIR.AI Academy courses",
+        "value": "Optional paid courses.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Local site won't start",
+        "solution": "Check you have Node.js 18 or newer and pnpm, then install the listed dependencies.",
+        "sourceUrl": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/README.md"
+      },
+      {
+        "problem": "Content seems outdated",
+        "solution": "The website promptingguide.ai has the most recent guides.",
+        "sourceUrl": "https://github.com/dair-ai/Prompt-Engineering-Guide/blob/57673726396dd94acb23bdb1e67f27c78ee85a8e/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning prompt engineering",
+      "A reference of prompting techniques",
+      "Teaching material"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Guide"
+      },
+      {
+        "label": "Format",
+        "value": "Website and repository"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Languages",
+        "value": "13"
+      }
+    ]
+  }
+}
