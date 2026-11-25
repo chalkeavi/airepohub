@@ -1,0 +1,148 @@
+{
+  "fullName": "firecrawl/firecrawl",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/firecrawl/firecrawl/blob/d8f7c69ac9c3576ed70085e2bd841dc5cdfb3df7/README.md"
+    ],
+    "sourceCommitSha": "d8f7c69ac9c3576ed70085e2bd841dc5cdfb3df7",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      { "comment": "Install Firecrawl Local (needs Rust)", "command": "cargo install firecrawl-local" },
+      { "comment": "Turn a web page into markdown", "command": "firecrawl-local scrape https://firecrawl.dev --markdown" },
+      { "comment": "Add it to your AI tools as an MCP server", "command": "firecrawl-local init" }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Firecrawl turns websites into clean markdown and structured data that AI agents and language models can read. It can scrape single pages, crawl whole sites, list a site's URLs and, through its cloud service, search the web.",
+      "problem": "Raw web pages are full of menus, scripts and ads, which waste an AI model's context and tokens. Firecrawl fetches pages (including JavaScript-heavy ones) and returns just the useful content.",
+      "whoFor": [
+        "Developers building AI agents that need to read the web",
+        "Teams feeding website content into RAG or search pipelines",
+        "Claude Code, Cursor or Codex users who want a web-reading tool for their agent",
+        "Anyone who wants to self-host a scraping API"
+      ],
+      "whyChoose": "Choose it if you want one tool that works locally, as a hosted API or self-hosted, with SDKs and an MCP server for AI agents. Some features (search, structured JSON, the Agent) need Firecrawl Cloud.",
+      "requirements": [
+        "For Firecrawl Local: Rust and a C compiler (on macOS, xcode-select --install)",
+        "Node.js 22 or newer for the MCP server",
+        "Optional: Chrome or Chromium for pages that need JavaScript",
+        "For Firecrawl Cloud features: a firecrawl.dev account and API key"
+      ]
+    },
+    "overview": [
+      "Firecrawl can be used three ways, and this repository holds the code for two of them. Firecrawl Local is a single program you install on your own computer that scrapes, crawls and maps websites without needing a database, queue or container. The full self-hosted server lives in apps/api and runs with Docker Compose alongside Redis, PostgreSQL and a browser service.",
+      "The third option, Firecrawl Cloud, is the hosted service at firecrawl.dev. It does everything Local does at scale and adds web search, structured JSON extraction, screenshots, browser actions (Interact), an autonomous Agent and Alexandria, a library of data providers. The README says Firecrawl Keyless gives 1,000 free cloud credits a month with no API key or signup.",
+      "For AI tools, firecrawl-local init detects Claude Code, Claude Desktop, Cursor, Windsurf, Gemini CLI and Codex and adds Firecrawl to each as an MCP server. firecrawl-local serve answers the Firecrawl v2 API on port 3002, so existing Firecrawl code can run against your own machine."
+    ],
+    "features": [
+      { "icon": "scan-search", "title": "Scrape to markdown", "body": "Turn any page into clean markdown, HTML or a list of links that an AI model can use directly." },
+      { "icon": "layers", "title": "Crawl and map sites", "body": "Crawl a whole site into one markdown file per page, or list every URL on a site." },
+      { "icon": "puzzle", "title": "MCP server for agents", "body": "One command adds Firecrawl to Claude Code, Cursor, Windsurf, Gemini CLI and Codex as a tool." },
+      { "icon": "shield", "title": "Runs on your machine", "body": "Firecrawl Local scrapes without a database or container, and parses PDFs and Office files locally." },
+      { "icon": "file-code", "title": "Local API server", "body": "serve answers the Firecrawl v2 API on localhost:3002, so the official SDKs work unchanged." },
+      { "icon": "git-compare", "title": "Cloud when you need more", "body": "Firecrawl Cloud adds search, structured JSON, browser actions and an autonomous Agent." }
+    ],
+    "strengths": [
+      "Same tool works locally, self-hosted or as a hosted API",
+      "Built for AI agents: MCP server, SDKs and LLM-ready output",
+      "Handles JavaScript pages using the Chrome already on your machine",
+      "Official SDKs for Python and Node.js, plus a CLI"
+    ],
+    "limitations": [
+      "Search, structured JSON, Interact and the Agent need Firecrawl Cloud",
+      "Installing Firecrawl Local needs Rust and a C compiler",
+      "The server is AGPL-3.0 licensed, which has obligations if you offer a modified version as a service",
+      "Self-hosting the full server means running Redis, PostgreSQL and a browser service"
+    ],
+    "useCases": [
+      { "title": "Give an agent web access", "body": "Run firecrawl-local init so Claude Code or Cursor can scrape and crawl pages as a tool." },
+      { "title": "Build a RAG knowledge base", "body": "Crawl a documentation site into markdown files and load them into your vector database." },
+      { "title": "Site inventory", "body": "Use map to list every URL on a site before an audit or migration." },
+      { "title": "Drop-in local API", "body": "Run serve and point existing Firecrawl SDK code at localhost to avoid cloud calls during development." }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Firecrawl's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/firecrawl/firecrawl/blob/d8f7c69ac9c3576ed70085e2bd841dc5cdfb3df7/README.md",
+      "prerequisites": ["Rust (cargo)", "A C compiler", "Node.js 22+ for the MCP server"],
+      "supportedOs": ["Windows", "macOS", "Linux"],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Firecrawl Local",
+          "method": "cargo",
+          "steps": [
+            { "title": "Install the build tools", "body": "You need Rust and a C compiler. On macOS the README says to run this for the compiler.", "code": "xcode-select --install", "lang": "bash" },
+            { "title": "Install Firecrawl Local from crates.io", "code": "cargo install firecrawl-local", "lang": "bash" },
+            { "title": "Check it works", "body": "Scrape a page and print its markdown.", "code": "firecrawl-local scrape https://firecrawl.dev --markdown", "lang": "bash" }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "No install (Cloud CLI)",
+          "method": "npx",
+          "steps": [
+            { "title": "Run a scrape with npx", "body": "If you don't have Rust, the README says Firecrawl Cloud runs the same scrape with nothing to build and no signup.", "code": "npx -y firecrawl-cli@latest scrape https://firecrawl.dev", "lang": "bash" }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Python SDK",
+          "method": "pip",
+          "steps": [
+            { "title": "Install the SDK", "code": "pip install firecrawl", "lang": "bash" },
+            { "title": "Scrape a page from Python", "body": "Use your Firecrawl Cloud key, or pass api_url=\"http://localhost:3002\" to use Firecrawl Local's serve command.", "code": "from firecrawl import Firecrawl\n\napp = Firecrawl(api_key=\"fc-YOUR_API_KEY\")\ndoc = app.scrape(\"https://firecrawl.dev\", formats=[\"markdown\"])\nprint(doc.markdown)", "lang": "text" }
+          ]
+        }
+      ],
+      "environment": [
+        { "name": "FIRECRAWL_API_KEY", "required": false, "description": "Your Firecrawl Cloud key, used by the MCP server config and SDKs. Not needed for local routes." }
+      ],
+      "firstRun": [
+        { "title": "Scrape a page", "code": "firecrawl-local scrape https://firecrawl.dev --markdown", "lang": "bash" },
+        { "title": "Crawl a site into markdown files", "code": "firecrawl-local crawl https://docs.firecrawl.dev --limit 50 --out ./pages", "lang": "bash" },
+        { "title": "List every URL on a site", "code": "firecrawl-local map https://firecrawl.dev", "lang": "bash" }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Give your AI coding agent web access with Firecrawl Local",
+      "useCase": "Let Claude Code, Cursor or another AI tool scrape and crawl web pages on your own machine.",
+      "setup": ["Firecrawl Local installed (see Installation)", "Node.js 22 or newer", "An AI tool such as Claude Code, Cursor, Windsurf, Gemini CLI or Codex"],
+      "steps": [
+        { "title": "Add Firecrawl to your AI tools", "body": "init finds supported tools on your machine, backs up each config file and adds Firecrawl as an MCP server.", "code": "firecrawl-local init", "lang": "bash" },
+        { "title": "Restart your AI tool", "body": "The README says to restart it so it picks up the new MCP server." },
+        { "title": "Optional: run the API locally", "body": "Serves the Firecrawl v2 API on port 3002 so SDK code can use your machine.", "code": "firecrawl-local serve", "lang": "bash" }
+      ],
+      "expected": "Your AI tool gains scrape, crawl, map and batch scrape tools that run on your machine. Other Firecrawl tools, like search, go to Firecrawl Cloud.",
+      "nextSteps": [
+        "Crawl a docs site for a knowledge base: firecrawl-local crawl <url> --limit 50 --out ./pages",
+        "Read the Firecrawl Local README in apps/local for every command and option",
+        "Try Firecrawl Cloud for search and structured JSON extraction"
+      ],
+      "sourceUrl": "https://github.com/firecrawl/firecrawl/blob/d8f7c69ac9c3576ed70085e2bd841dc5cdfb3df7/README.md"
+    },
+    "costs": [
+      { "label": "License", "value": "Mainly AGPL-3.0; the SDKs and some UI components are MIT.", "tone": "depends" },
+      { "label": "Firecrawl Local", "value": "Free to install and run on your own machine.", "tone": "free" },
+      { "label": "Firecrawl Cloud", "value": "Paid hosted service. The README mentions 1,000 free credits a month through Firecrawl Keyless.", "tone": "depends" },
+      { "label": "Self-hosting", "value": "Free software, but you pay for the servers that run it, Redis and PostgreSQL.", "tone": "depends" }
+    ],
+    "troubleshooting": [
+      { "problem": "cargo install firecrawl-local fails to build", "solution": "Firecrawl Local needs Rust and a C compiler. On macOS, run xcode-select --install first.", "sourceUrl": "https://github.com/firecrawl/firecrawl/blob/d8f7c69ac9c3576ed70085e2bd841dc5cdfb3df7/README.md" },
+      { "problem": "A page comes back with a warning or missing content", "solution": "Pages that need JavaScript render in the Chrome or Chromium on your machine. Install a browser, or let the page fall back to Firecrawl Cloud.", "sourceUrl": "https://github.com/firecrawl/firecrawl/blob/d8f7c69ac9c3576ed70085e2bd841dc5cdfb3df7/README.md" },
+      { "problem": "Your AI tool doesn't show the Firecrawl tools", "solution": "Restart the AI tool after running firecrawl-local init, and make sure Node.js 22 or newer is installed for the MCP server.", "sourceUrl": "https://github.com/firecrawl/firecrawl/blob/d8f7c69ac9c3576ed70085e2bd841dc5cdfb3df7/README.md" },
+      { "problem": "Search or structured JSON doesn't work locally", "solution": "Those features run on Firecrawl Cloud. Local handles scrape, crawl, map and batch scrape.", "sourceUrl": "https://github.com/firecrawl/firecrawl/blob/d8f7c69ac9c3576ed70085e2bd841dc5cdfb3df7/README.md" }
+    ],
+    "bestFor": [
+      "Developers giving AI agents the ability to read websites",
+      "Teams building RAG pipelines from web content",
+      "People who want a local or self-hosted alternative to a scraping API"
+    ],
+    "facts": [
+      { "label": "Type", "value": "Web scraping API and CLI" },
+      { "label": "Runs", "value": "Local, cloud or self-hosted" },
+      { "label": "License", "value": "AGPL-3.0 (SDKs MIT)" },
+      { "label": "SDKs", "value": "Python, Node.js and more" }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "fullName": "langflow-ai/langflow",
+  "content": {
+    "sourceUrls": ["https://github.com/langflow-ai/langflow/blob/6c9aea6f5d5f47a76a25e8e3e1b4779a4f83d522/README.md"],
+    "sourceCommitSha": "6c9aea6f5d5f47a76a25e8e3e1b4779a4f83d522",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      { "comment": "Install Langflow", "command": "uv pip install langflow -U" },
+      { "comment": "Start it (opens on port 7860)", "command": "uv run langflow run" }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Langflow is a visual builder for AI agents and workflows. You connect blocks for models, prompts, tools and data on a canvas, test them in a playground, and then serve the result as an API or an MCP tool.",
+      "problem": "Wiring together language models, vector databases and tools in code takes time and is hard to iterate on. Langflow lets you build and test those flows visually while still being able to edit any component in Python.",
+      "whoFor": [
+        "Developers prototyping AI agents and RAG apps quickly",
+        "Teams that want a visual way to build and share AI workflows",
+        "Builders who want to expose a workflow as an API or MCP server",
+        "Python developers who want to customize components"
+      ],
+      "whyChoose": "Choose it if you want a visual canvas with real code underneath and built-in API and MCP serving. If you prefer to write everything in code, a plain Python framework may suit you better.",
+      "requirements": [
+        "Python 3.10 to 3.14",
+        "uv, the recommended package manager",
+        "Or: Docker, or Langflow Desktop for Windows and macOS",
+        "API keys for whichever model providers you connect"
+      ]
+    },
+    "overview": [
+      "Langflow gives you a canvas where each block is a component: a language model, a prompt, a vector store, a tool or an agent. You connect them into a flow and run it step by step in the interactive playground to see what each part does.",
+      "Every flow can be deployed as an API, exported as JSON for use in Python apps, or turned into an MCP server so other AI tools can call it. The README says it supports all major LLMs and vector databases, multi-agent orchestration, and observability through LangSmith, LangFuse and other integrations.",
+      "There are three ways to run it: Langflow Desktop for Windows and macOS with everything bundled, the Python package installed with uv, or the official Docker image. Release packages and Docker images require you to set an administrator password before starting."
+    ],
+    "features": [
+      { "icon": "layers", "title": "Visual builder", "body": "Drag, drop and connect components on a canvas to build agents and workflows." },
+      { "icon": "file-code", "title": "Editable in Python", "body": "Open any component's source code and customize it in Python." },
+      { "icon": "scan-search", "title": "Interactive playground", "body": "Test flows immediately and step through them to refine results." },
+      { "icon": "puzzle", "title": "API and MCP server", "body": "Deploy any flow as an API or as an MCP server that other AI tools can use." },
+      { "icon": "git-compare", "title": "Multi-agent flows", "body": "Orchestrate several agents with conversation management and retrieval." },
+      { "icon": "shield", "title": "Observability", "body": "Connect LangSmith, LangFuse and other tools to trace what your flows do." }
+    ],
+    "strengths": [
+      "Fast way to prototype and iterate on AI workflows",
+      "Visual editing without losing access to the code",
+      "Flows become APIs or MCP tools with no extra work",
+      "MIT licensed and can be deployed on major clouds"
+    ],
+    "limitations": [
+      "Complex flows can be harder to version and review than plain code",
+      "You still pay for the model providers your flows call",
+      "Recent releases require setting a superuser password before first run"
+    ],
+    "useCases": [
+      { "title": "RAG chatbot", "body": "Connect a document loader, vector store and model to answer questions about your files." },
+      { "title": "Agent prototypes", "body": "Try different tools and prompts for an agent in the playground before writing production code." },
+      { "title": "Tools for other agents", "body": "Publish a flow as an MCP server so Claude or other MCP clients can call it." },
+      { "title": "Internal APIs", "body": "Deploy a flow as an API endpoint that your app calls." }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Langflow's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/langflow-ai/langflow/blob/6c9aea6f5d5f47a76a25e8e3e1b4779a4f83d522/README.md",
+      "prerequisites": ["Python 3.10–3.14", "uv"],
+      "supportedOs": ["Windows", "macOS", "Linux"],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Python (uv)",
+          "method": "uv",
+          "steps": [
+            { "title": "Install Langflow", "body": "From a fresh directory.", "code": "uv pip install langflow -U", "lang": "bash" },
+            { "title": "Set an administrator password", "body": "Release packages disable automatic login. Set LANGFLOW_SUPERUSER_PASSWORD, then sign in as langflow.", "code": "read -rsp \"Langflow administrator password: \" LANGFLOW_SUPERUSER_PASSWORD; echo\nexport LANGFLOW_SUPERUSER_PASSWORD", "lang": "bash" },
+            { "title": "Start Langflow", "body": "It starts at http://127.0.0.1:7860.", "code": "uv run langflow run", "lang": "bash" }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            { "title": "Set a password and start the container", "body": "Official Docker images require authentication. Sign in as langflow with the password you entered.", "code": "read -rsp \"Langflow administrator password: \" LANGFLOW_SUPERUSER_PASSWORD; echo\nexport LANGFLOW_SUPERUSER_PASSWORD\ndocker run -p 7860:7860 -e LANGFLOW_SUPERUSER_PASSWORD langflowai/langflow:latest", "lang": "bash" }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Desktop app",
+          "method": "desktop",
+          "steps": [
+            { "title": "Download Langflow Desktop", "body": "Available for Windows and macOS with all dependencies included, so there's no Python setup. Download it from langflow.org/desktop." }
+          ]
+        }
+      ],
+      "environment": [
+        { "name": "LANGFLOW_SUPERUSER_PASSWORD", "required": true, "description": "Administrator password for release packages and Docker images, which disable automatic login." },
+        { "name": "LANGFLOW_SUPERUSER", "required": false, "description": "Administrator username. Defaults to langflow." }
+      ],
+      "firstRun": [
+        { "title": "Start Langflow", "code": "uv run langflow run", "lang": "bash" },
+        { "title": "Open the editor", "body": "Go to http://127.0.0.1:7860 and sign in as langflow." }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build and test your first flow",
+      "useCase": "Get Langflow running locally and try a flow in the playground.",
+      "setup": ["Python 3.10–3.14 and uv", "An API key for a model provider you want to use"],
+      "steps": [
+        { "title": "Install", "code": "uv pip install langflow -U", "lang": "bash" },
+        { "title": "Set the admin password and start", "code": "read -rsp \"Langflow administrator password: \" LANGFLOW_SUPERUSER_PASSWORD; echo\nexport LANGFLOW_SUPERUSER_PASSWORD\nuv run langflow run", "lang": "bash" },
+        { "title": "Open http://127.0.0.1:7860", "body": "Sign in as langflow, create a flow, connect a model component and test it in the playground." }
+      ],
+      "expected": "Langflow opens in your browser, and you can build a flow and run it step by step in the playground.",
+      "nextSteps": [
+        "Deploy the flow as an API or export it as JSON",
+        "Turn the flow into an MCP server for other AI tools",
+        "See the deployment guides at docs.langflow.org to host it"
+      ],
+      "sourceUrl": "https://github.com/langflow-ai/langflow/blob/6c9aea6f5d5f47a76a25e8e3e1b4779a4f83d522/README.md"
+    },
+    "costs": [
+      { "label": "License", "value": "MIT. Free to use, modify and use commercially.", "tone": "free" },
+      { "label": "Software", "value": "Free and open source to run locally or on your own servers.", "tone": "free" },
+      { "label": "Model providers", "value": "Hosted LLMs you connect are billed by those providers.", "tone": "paid" },
+      { "label": "Hosting", "value": "Deploying to a cloud costs whatever that cloud charges.", "tone": "depends" }
+    ],
+    "troubleshooting": [
+      { "problem": "Langflow asks for a login you never set", "solution": "Release packages and Docker images disable automatic login. Set LANGFLOW_SUPERUSER_PASSWORD before starting and sign in as langflow.", "sourceUrl": "https://github.com/langflow-ai/langflow/blob/6c9aea6f5d5f47a76a25e8e3e1b4779a4f83d522/README.md" },
+      { "problem": "Install fails on your Python version", "solution": "Langflow needs Python 3.10 to 3.14. Check your version and use uv, which the README recommends.", "sourceUrl": "https://github.com/langflow-ai/langflow/blob/6c9aea6f5d5f47a76a25e8e3e1b4779a4f83d522/README.md" },
+      { "problem": "Upgrading from an older auto-login install", "solution": "Follow the upgrade instructions in Langflow's authentication docs before switching defaults.", "sourceUrl": "https://github.com/langflow-ai/langflow/blob/6c9aea6f5d5f47a76a25e8e3e1b4779a4f83d522/README.md" }
+    ],
+    "bestFor": [
+      "Prototyping AI agents and RAG apps visually",
+      "Turning workflows into APIs or MCP tools",
+      "Teams mixing visual building with Python code"
+    ],
+    "facts": [
+      { "label": "Type", "value": "Visual AI workflow builder" },
+      { "label": "Language", "value": "Python" },
+      { "label": "License", "value": "MIT" },
+      { "label": "Runs", "value": "Desktop app, Python package or Docker" }
+    ]
+  }
+}

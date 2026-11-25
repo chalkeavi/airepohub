@@ -1,0 +1,141 @@
+{
+  "fullName": "vllm-project/vllm",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/vllm-project/vllm/blob/69d3af837daa895239a930562629251271636a3f/README.md",
+      "https://github.com/vllm-project/vllm/blob/69d3af837daa895239a930562629251271636a3f/docs/getting_started/quickstart.md"
+    ],
+    "sourceCommitSha": "69d3af837daa895239a930562629251271636a3f",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      { "comment": "Install vLLM", "command": "uv pip install vllm --torch-backend=auto" },
+      { "comment": "Serve a model with an OpenAI-compatible API", "command": "vllm serve Qwen/Qwen2.5-1.5B-Instruct" },
+      { "comment": "Check the server", "command": "curl http://localhost:8000/v1/models" }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "vLLM is a Python library and server for running large language models efficiently. It loads open models from Hugging Face and serves them through an OpenAI-compatible API, so existing apps can switch to your own model with a URL change.",
+      "problem": "Serving language models yourself is slow and memory-hungry if done naively. vLLM manages GPU memory carefully (its PagedAttention technique) and batches requests together so one GPU can answer many users at once.",
+      "whoFor": [
+        "Teams self-hosting open models like Llama, Qwen or Gemma",
+        "Developers who want an OpenAI-compatible endpoint for their own model",
+        "ML engineers serving models at high throughput",
+        "Researchers running batched inference over large datasets"
+      ],
+      "whyChoose": "Choose it when you have a GPU server and want fast, production-style serving of open models. For running a model casually on a laptop, a desktop tool like Ollama is simpler.",
+      "requirements": [
+        "Linux (macOS on Apple Silicon via vLLM-Metal)",
+        "Python 3.11 to 3.14",
+        "A supported GPU (NVIDIA, AMD, Intel) or CPU, with enough memory for your model",
+        "uv recommended for installing"
+      ]
+    },
+    "overview": [
+      "vLLM started at UC Berkeley's Sky Computing Lab and is now maintained by a large community of companies and universities. It is a library for LLM inference and serving: you point it at a model on Hugging Face and it runs it, either in a Python script or as a web server.",
+      "The server speaks the OpenAI API (plus the Anthropic Messages API and gRPC), so tools and SDKs built for OpenAI work against it. The README lists support for more than 200 model architectures, including Llama, Qwen, Gemma, Mixtral, DeepSeek-V3, multimodal models and embedding models.",
+      "Its speed comes from PagedAttention memory management, continuous batching of requests, prefix caching, quantization (FP8, INT8, INT4, GPTQ, AWQ, GGUF and more) and optimized GPU kernels. It also supports tool calling, structured output, multi-LoRA and spreading a model across several GPUs."
+    ],
+    "features": [
+      { "icon": "puzzle", "title": "OpenAI-compatible server", "body": "vllm serve exposes chat and completion endpoints that work with the OpenAI SDK and tools." },
+      { "icon": "layers", "title": "Hundreds of models", "body": "Runs 200+ model architectures from Hugging Face, including multimodal and embedding models." },
+      { "icon": "scan-search", "title": "High throughput", "body": "PagedAttention and continuous batching let one GPU serve many requests at once." },
+      { "icon": "file-code", "title": "Quantization", "body": "Run smaller, faster versions of models with FP8, INT8, INT4, GPTQ, AWQ, GGUF and more." },
+      { "icon": "git-compare", "title": "Multi-GPU and distributed", "body": "Tensor, pipeline, data and expert parallelism for models too big for one GPU." },
+      { "icon": "shield", "title": "Broad hardware support", "body": "NVIDIA, AMD and Intel GPUs, x86/ARM/PowerPC CPUs, plus plugins for TPUs and other chips." }
+    ],
+    "strengths": [
+      "Widely used, very active project with a large community",
+      "Drop-in OpenAI API replacement for your own models",
+      "Strong performance for serving many users",
+      "Apache-2.0 license, fine for commercial use"
+    ],
+    "limitations": [
+      "Linux is the main supported OS; macOS needs the separate vLLM-Metal plugin",
+      "The server hosts one model at a time",
+      "You need a GPU with enough memory for the model you choose",
+      "More setup than desktop tools aimed at casual local use"
+    ],
+    "useCases": [
+      { "title": "Private ChatGPT-style API", "body": "Serve an open model behind an OpenAI-compatible endpoint inside your company." },
+      { "title": "Swap out a paid API", "body": "Point an app built on the OpenAI SDK at your vLLM server by changing the base URL." },
+      { "title": "Batch processing", "body": "Use the Python LLM class to run prompts over a large dataset offline." },
+      { "title": "Serve fine-tuned models", "body": "Load several LoRA adapters on one base model and serve them together." }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from vLLM's README and quickstart guide. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/vllm-project/vllm/blob/69d3af837daa895239a930562629251271636a3f/docs/getting_started/quickstart.md",
+      "prerequisites": ["Linux", "Python 3.11–3.14", "uv", "A supported GPU"],
+      "supportedOs": ["Linux", "macOS (Apple Silicon, via vLLM-Metal)"],
+      "guides": [
+        {
+          "os": "linux",
+          "label": "NVIDIA GPU",
+          "method": "uv",
+          "steps": [
+            { "title": "Create a Python environment", "code": "uv venv --python 3.14 --seed\nsource .venv/bin/activate", "lang": "bash" },
+            { "title": "Install vLLM", "body": "--torch-backend=auto picks the right PyTorch build for your CUDA driver.", "code": "uv pip install vllm --torch-backend=auto", "lang": "bash" },
+            { "title": "Download precompiled kernels", "body": "Optional, but avoids several minutes of compiling at startup on newer GPUs.", "code": "vllm download-kernels", "lang": "bash" }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "AMD GPU",
+          "method": "rocm",
+          "steps": [
+            { "title": "Create a Python environment", "code": "uv venv --python 3.14 --seed\nsource .venv/bin/activate", "lang": "bash" },
+            { "title": "Install vLLM for ROCm", "code": "uv pip install vllm --extra-index-url https://wheels.vllm.ai/rocm/", "lang": "bash" }
+          ]
+        }
+      ],
+      "environment": [
+        { "name": "VLLM_API_KEY", "required": false, "description": "Set this (or pass --api-key) to make the server require an API key." },
+        { "name": "UV_TORCH_BACKEND", "required": false, "description": "Choose a specific PyTorch backend, for example cu126, instead of auto-detection." }
+      ],
+      "firstRun": [
+        { "title": "Start the server", "code": "vllm serve Qwen/Qwen2.5-1.5B-Instruct", "lang": "bash" },
+        { "title": "List the served models", "code": "curl http://localhost:8000/v1/models", "lang": "bash" }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Serve an open model with an OpenAI-compatible API",
+      "useCase": "Run Qwen2.5-1.5B-Instruct on your own GPU and call it like the OpenAI API.",
+      "setup": ["vLLM installed (see Installation)", "A Linux machine with a supported GPU"],
+      "steps": [
+        { "title": "Start the server", "body": "It listens on http://localhost:8000 by default.", "code": "vllm serve Qwen/Qwen2.5-1.5B-Instruct", "lang": "bash" },
+        { "title": "Check which model is loaded", "code": "curl http://localhost:8000/v1/models", "lang": "bash" },
+        { "title": "Send a chat request", "code": "curl http://localhost:8000/v1/chat/completions \\\n    -H \"Content-Type: application/json\" \\\n    -d '{\n        \"model\": \"Qwen/Qwen2.5-1.5B-Instruct\",\n        \"messages\": [\n            {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"},\n            {\"role\": \"user\", \"content\": \"Who won the world series in 2020?\"}\n        ]\n    }'", "lang": "bash" }
+      ],
+      "expected": "The server downloads the model from Hugging Face, starts on port 8000, and answers the chat request in the same JSON format as the OpenAI API.",
+      "nextSteps": [
+        "Point the OpenAI Python SDK at http://localhost:8000/v1 to use it from code",
+        "Add --api-key to require a key",
+        "Use the LLM class in Python for offline batch inference"
+      ],
+      "sourceUrl": "https://github.com/vllm-project/vllm/blob/69d3af837daa895239a930562629251271636a3f/docs/getting_started/quickstart.md"
+    },
+    "costs": [
+      { "label": "License", "value": "Apache-2.0. Free to use, modify and use commercially.", "tone": "free" },
+      { "label": "Software", "value": "Free and open source.", "tone": "free" },
+      { "label": "Hardware", "value": "You need your own GPU machine or a cloud GPU, which can cost money per hour.", "tone": "depends" },
+      { "label": "Models", "value": "Open models on Hugging Face are free to download; check each model's license.", "tone": "depends" }
+    ],
+    "troubleshooting": [
+      { "problem": "Startup takes several minutes", "solution": "Run vllm download-kernels after installing to use precompiled kernels instead of compiling them at startup.", "sourceUrl": "https://github.com/vllm-project/vllm/blob/69d3af837daa895239a930562629251271636a3f/docs/getting_started/quickstart.md" },
+      { "problem": "Wrong PyTorch or CUDA build installed", "solution": "Install with --torch-backend=auto, or set a specific backend such as --torch-backend=cu126.", "sourceUrl": "https://github.com/vllm-project/vllm/blob/69d3af837daa895239a930562629251271636a3f/docs/getting_started/quickstart.md" },
+      { "problem": "Answers differ from what you expect", "solution": "The server applies the model's generation_config.json by default. Pass --generation-config vllm to turn that off.", "sourceUrl": "https://github.com/vllm-project/vllm/blob/69d3af837daa895239a930562629251271636a3f/docs/getting_started/quickstart.md" },
+      { "problem": "Running on a Mac", "solution": "Use vLLM-Metal for Apple Silicon; see the GPU installation guide's Apple Silicon tab.", "sourceUrl": "https://github.com/vllm-project/vllm/blob/69d3af837daa895239a930562629251271636a3f/docs/getting_started/quickstart.md" }
+    ],
+    "bestFor": [
+      "Self-hosting open language models on GPUs",
+      "Replacing a paid LLM API with your own endpoint",
+      "High-throughput or batch inference"
+    ],
+    "facts": [
+      { "label": "Type", "value": "Inference and serving engine" },
+      { "label": "Language", "value": "Python" },
+      { "label": "License", "value": "Apache-2.0" },
+      { "label": "API", "value": "OpenAI-compatible" }
+    ]
+  }
+}
