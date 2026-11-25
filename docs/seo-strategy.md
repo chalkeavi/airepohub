@@ -32,6 +32,13 @@ Aliases (old slugs, renamed repos) 301 to the canonical slug. Unpublished slugs 
 - Performance: server components, no client data fetching for content, system/self-hosted fonts,
   sized images, minimal JS.
 
+## Implemented (Milestone 3)
+- `src/lib/seo.ts`: titles/descriptions, JSON-LD builders (`SoftwareSourceCode`, `BreadcrumbList`,
+  `ItemList`, `WebSite`+`SearchAction`, `HowTo` only when a guide is `verified`).
+- `app/sitemap.ts`, `app/robots.ts`, `app/opengraph-image.tsx`, `app/repo/[slug]/opengraph-image.tsx`.
+- `src/proxy.ts`: real 404 status for unknown slugs, 301 for aliases and wrong-case slugs.
+- Set `NEXT_PUBLIC_SITE_URL` to the production domain before launch; canonicals, sitemap and OG URLs use it.
+
 ## Quality guardrails
 No thin pages: a repo is published only with an approved summary, 60-second section and at least
 one sourced install guide. No auto-publishing of AI drafts. UTM parameters are stripped from

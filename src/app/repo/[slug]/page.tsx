@@ -43,6 +43,7 @@ import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
 import { GithubIcon } from "@/components/ui/github-icon";
+import { JsonLd } from "@/components/site/json-ld";
 import {
   DATA_AS_OF,
   getCategories,
@@ -50,7 +51,9 @@ import {
   getRelatedRepositories,
   getRepositoryBySlug,
   getRepositoryContent,
+  getRepositorySeo,
 } from "@/lib/data";
+import { breadcrumbJsonLd, howToJsonLd, repoDescription, repoTitle, softwareSourceCodeJsonLd } from "@/lib/seo";
 import type { RepositoryContent, VerificationStatus } from "@/lib/types";
 import { DIFFICULTY_LABEL, KIND_LABEL, cn, formatCount, formatDate, licenseLabel, timeAgo } from "@/lib/utils";
 
@@ -60,15 +63,18 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps<"/repo/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const repo = await getRepositoryBySlug(slug);
-  if (!repo) return { title: "Repository not found" };
-  const title = `${repo.name}: what it does and how to install it`;
-  const description = repo.summary ?? repo.description ?? undefined;
+  const [repo, content, seo] = await Promise.all([getRepositoryBySlug(slug), getRepositoryContent(slug), getRepositorySeo(slug)]);
+  if (!repo) return { title: "Repository not found", robots: { index: false } };
+  const title = repoTitle(repo, seo?.title);
+  const description = repoDescription(repo, Boolean(content), seo?.description);
+  const url = `/repo/${repo.slug}`;
   return {
     title,
     description,
-    alternates: { canonical: `/repo/${repo.slug}` },
-    openGraph: { title: `${title} | AIRepoHub`, description, url: `/repo/${repo.slug}`, type: "article" },
+    alternates: { canonical: url },
+    robots: seo?.noindex ? { index: false, follow: true } : undefined,
+    openGraph: { title: `${title} | AIRepoHub`, description, url, type: "article" },
+    twitter: { card: "summary_large_image", title: `${title} | AIRepoHub`, description },
   };
 }
 
@@ -115,8 +121,20 @@ export default async function RepositoryPage({ params }: PageProps<"/repo/[slug]
         { id: "alternatives", label: "Alternatives" },
       ];
 
+  const howTo = howToJsonLd(repo, content);
+  const structuredData = [
+    softwareSourceCodeJsonLd(repo, content),
+    breadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      ...(primaryCategory ? [{ name: primaryCategory.name, path: `/categories/${primaryCategory.slug}` }] : []),
+      { name: repo.name, path: `/repo/${repo.slug}` },
+    ]),
+    ...(howTo ? [howTo] : []),
+  ];
+
   return (
     <div className="relative">
+      <JsonLd data={structuredData} />
       <div className="bg-grid pointer-events-none absolute inset-x-0 top-0 h-[520px]" aria-hidden />
       <div className="container-page relative">
         {/* Breadcrumb */}

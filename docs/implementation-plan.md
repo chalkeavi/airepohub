@@ -21,7 +21,7 @@ Status legend: ✅ done and checked · 🟡 in progress · ⬜ planned
 ## Milestone 3 — Working dynamic pages
 - `/repo/[slug]` from Supabase incl. guides, tutorials, content; alias redirects
 - `generateMetadata`, JSON-LD, OG images, `sitemap.ts`, `robots.ts`
-- Category landing pages, collections, render tests
+- Category landing pages, render tests (collections moved to Milestone 5, decision #21)
 
 ## Milestone 4 — Discovery and rankings
 - GitHub Actions cron: discovery (search API, rate-limit aware, dedupe by `github_id`,
