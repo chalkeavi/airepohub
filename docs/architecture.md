@@ -69,13 +69,32 @@ Each signal normalized to 0–1 across the candidate set, then weighted:
 | Signal | Weight | Normalization |
 |---|---|---|
 | Total stars | 30% | `log10(stars+1) / log10(maxStars+1)` (log damps giants) |
-| Recent star growth | 30% | stars gained in window (7d/30d) from `repository_stats`, as % of base, log-scaled, capped |
+| Recent star growth | 30% | stars gained in window (7d/30d) from `repository_stats`, log-scaled against the pool max (implementation in `src/lib/ranking.ts`) |
 | Activity | 20% | 1.0 if pushed ≤ 7d, linear decay to 0 at 365d |
 | Documentation quality | 10% | editorial 0–1 from approved content (README depth, guide present) |
 | Community | 10% | `log` of forks + contributors (issues response later) |
 Missing signals are **excluded and remaining weights re-normalized**, and the UI says which signals
 were used. All-time = growth signal excluded. Weekly/monthly need ≥ 2 snapshots spanning the window,
 otherwise that leaderboard shows an empty state. Rank movement = previous snapshot rank − current.
+
+## Scheduled jobs (Milestone 4, GitHub Actions, decision #22)
+`.github/workflows/daily-jobs.yml` runs daily at 05:17 UTC (and on demand) → `pnpm jobs daily`
+(`scripts/run-jobs.ts`), using `SUPABASE_SERVICE_ROLE_KEY` (repo secret) and Actions' own `GITHUB_TOKEN`.
+Code in `src/lib/jobs/` (no Next imports; runs under Node type stripping, so no TS parameter properties/enums).
+1. **snapshot**: `GET /repositories/{id}` for every non-rejected repo (rename-safe), updates metadata,
+   upserts today's `repository_stats` row, records renames in `repository_aliases`, flags missing repos.
+2. **rank**: published repos → `ranking_snapshots` for weekly, monthly, all-time (global + each category).
+   Weekly/monthly include only repos with a snapshot ≥ 7/30 days old (±2 days); a board needs ≥ 3 such repos.
+   `previous_rank` comes from the prior snapshot, so movement is real. All-time excludes growth.
+3. **discover**: 10 GitHub search queries (AI topics, recently pushed or newly created), dedupe by `github_id`
+   against `repositories` and `discovery_queue`, explainable relevance score (`src/lib/jobs/relevance.ts`),
+   top 50 new candidates per run inserted as `pending`. Never publishes; admin review is Milestone 5.
+Each job writes one `automation_runs` row (status, counts, API calls, details). A rate limit stops the job
+as `partial` and keeps what was fetched; `failed` fails the workflow so GitHub emails the owner.
+`pnpm jobs <job> --dry-run` reads only and writes nothing.
+
+Site freshness: pages cache data for up to an hour (`cacheLife("hours")`), so new numbers appear within
+about an hour of the job. The "Stats as of" date comes from the latest `stats_checked_at`.
 
 ## Security
 - RLS on every table (see `database-design.md`). Admin role from `admin_users` table checked

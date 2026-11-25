@@ -15,10 +15,10 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { GithubIcon } from "@/components/ui/github-icon";
 import { SectionHeading } from "@/components/ui/section-heading";
 import {
-  DATA_AS_OF,
   getBeginnerFriendly,
   getCategories,
   getCategoryCounts,
+  getDataAsOf,
   getFeaturedRepository,
   getLeaderboards,
   getPublishedSlugs,
@@ -35,7 +35,7 @@ export const metadata: Metadata = { alternates: { canonical: "/" } };
 const POPULAR = ["local-llms", "ai-agents", "coding-assistants", "image-generation", "rag-knowledge"];
 
 export default async function HomePage() {
-  const [categories, counts, boards, featured, trending, beginner, recent, suggestions, slugs] = await Promise.all([
+  const [categories, counts, boards, featured, trending, beginner, recent, suggestions, slugs, asOf] = await Promise.all([
     getCategories(),
     getCategoryCounts(),
     getLeaderboards(),
@@ -45,6 +45,7 @@ export default async function HomePage() {
     getRecentlyAdded(),
     getSearchSuggestions(),
     getPublishedSlugs(),
+    getDataAsOf(),
   ]);
   const catBySlug = new Map(categories.map((c) => [c.slug, c]));
   const allTime = boards.find((b) => b.period === "all_time");
@@ -105,7 +106,7 @@ export default async function HomePage() {
             </div>
             <div>
               <dt className="text-xs text-muted-foreground">Data as of</dt>
-              <dd className="mt-0.5 font-mono text-xl font-semibold tabular-nums">{formatDate(DATA_AS_OF).replace(/, \d{4}$/, "")}</dd>
+              <dd className="mt-0.5 font-mono text-xl font-semibold tabular-nums">{formatDate(asOf).replace(/, \d{4}$/, "")}</dd>
             </div>
           </dl>
         </div>
@@ -119,13 +120,13 @@ export default async function HomePage() {
           title="Top 10 AI repositories"
           description="Ranked by a transparent score, not by hype. Open any project for a plain-English guide."
         />
-        <Leaderboard boards={toLeaderboardData(boards, categories, DATA_AS_OF)} categories={categories} />
+        <Leaderboard boards={toLeaderboardData(boards, categories, asOf)} categories={categories} />
         <p className="mt-3 flex items-start gap-2 text-[13px] leading-relaxed text-muted-foreground">
           <Info className="mt-0.5 size-3.5 shrink-0" aria-hidden />
           <span>
             All-time score uses {allTime?.signalsUsed.join(", ").replace("community", "forks")} (log-scaled so giants
-            don&apos;t drown out newer projects). Star growth joins once we have history. Stats as of{" "}
-            {formatDate(DATA_AS_OF)}.{" "}
+            don&apos;t drown out newer projects). Star growth is used in the weekly and monthly rankings. Stats as of{" "}
+            {formatDate(asOf)}.{" "}
             <Link href="/about#rankings" className="font-medium text-accent hover:underline">
               How rankings work
             </Link>

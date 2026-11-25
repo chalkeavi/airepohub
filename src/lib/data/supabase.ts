@@ -117,8 +117,9 @@ export async function fetchSearchMatches(q: string): Promise<Set<string>> {
   return new Set(check(res, "search").map((r) => r.slug));
 }
 
-/** Latest all-time snapshot for a category (null = global), top `limit`. */
-export async function fetchAllTimeRanking(
+/** Latest snapshot of a period's board for a category (null = global), top `limit`. */
+export async function fetchRanking(
+  period: "weekly" | "monthly" | "all_time",
   categorySlug: string | null,
   limit: number,
 ): Promise<{ calculatedAt: string | null; signalsUsed: string[]; rows: { slug: string; rank: number; score: number; starGrowth: number | null; previousRank: number | null }[] }> {
@@ -129,7 +130,7 @@ export async function fetchAllTimeRanking(
     categoryId = cat.id;
   }
   const snapshots = (columns: string) => {
-    const base = db().from("ranking_snapshots").select(columns).eq("period", "all_time");
+    const base = db().from("ranking_snapshots").select(columns).eq("period", period);
     return categoryId ? base.eq("category_id", categoryId) : base.is("category_id", null);
   };
 
