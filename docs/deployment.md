@@ -1,4 +1,4 @@
-# Deployment (target: Milestone 6, nothing deployed yet)
+# Deployment (Milestone 6: config ready, nothing deployed yet)
 
 ## Target
 - Cloudflare DNS + custom domain → Cloudflare Workers running Next.js via `@opennextjs/cloudflare`.
@@ -36,3 +36,32 @@ measure this in Milestone 6 before launch rather than assume the free tier is en
 | `NEXT_PUBLIC_ADS_ENABLED`, `NEXT_PUBLIC_ADSENSE_CLIENT` | Workers | yes, off until approved |
 
 `.env.example` lists them with empty values. Never commit real values.
+
+## Cloudflare config in this repo (added 2026-11-25, branch `milestone-6-cloudflare`)
+- `wrangler.jsonc`: Worker `airepohub`, `nodejs_compat`, assets binding, self-reference service binding,
+  R2 bucket `airepohub-opennext-cache` (binding `NEXT_INC_CACHE_R2_BUCKET`), public Supabase vars.
+- `open-next.config.ts`: R2 incremental cache.
+- Scripts: `pnpm cf:build` (env check + OpenNext build), `pnpm cf:preview`, `pnpm cf:deploy`.
+- `scripts/check-deploy-env.mjs` stops a build without the Supabase vars (otherwise the site silently
+  falls back to sample data), with a localhost `NEXT_PUBLIC_SITE_URL`, or with a service-role key present.
+
+## Verified locally (2026-11-25, not a real deploy)
+- OpenNext build exit 0; Worker bundle 2,492 KiB gzip (under the 3 MiB free limit).
+- `wrangler dev` + `populateCache local`: `/`, `/repo/openseo`, `/categories/local-llms`, `/sitemap.xml`,
+  `/about`, `/repo/openseo/opengraph-image` return 200 with real content.
+- Not verifiable in the sandbox (workerd has no network): `/search`, the 404/301 proxy, request-time Supabase reads.
+  Check these on the workers.dev URL after the first deploy.
+- Build warnings to watch: Node middleware (`src/proxy.ts`) is experimental on Cloudflare; Cache Components are
+  not fully supported by OpenNext yet.
+
+## Workers Builds settings (Cloudflare dashboard)
+| Setting | Value |
+|---|---|
+| Worker name | `airepohub` (must match `wrangler.jsonc`) |
+| Production branch | `main` |
+| Build command | `pnpm cf:build` |
+| Deploy command | `pnpm exec opennextjs-cloudflare deploy` |
+| Non-production branch builds | off (the default command there skips OpenNext) |
+| Build variables | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `NEXT_PUBLIC_SITE_URL` (all public) |
+
+`NEXT_PUBLIC_*` values are baked in at build time, so changing the site URL needs a rebuild.

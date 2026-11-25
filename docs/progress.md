@@ -1,6 +1,6 @@
 # Progress
 
-**Current milestone:** 4 — automation (built, PR open); 3 — SEO (PR open)
+**Current milestone:** 6 — Cloudflare deploy (config PR open, not deployed). Milestone 5 (admin) not started.
 **Last updated:** 2026-11-25
 
 ## Done (implemented and checked)
@@ -24,6 +24,10 @@
   in-memory store. Dry run against real GitHub search + Supabase: 10 queries, 50 candidates queued (none written).
   Not yet run for real: needs the `SUPABASE_SERVICE_ROLE_KEY` secret and the workflow on `main`.
 
+- Milestones 3 and 4 merged (PRs #3, #4). Daily jobs ran for real: snapshot 24 repos, rank 53 rows, discover 50 queued.
+- Milestone 6 (in progress): OpenNext/wrangler config, deploy env guard. Local Worker build and static pages
+  checked (see docs/deployment.md). Not deployed: needs the owner's Cloudflare setup and go-ahead.
+
 ## Not done / known gaps
 - Weekly board and Trending appear ~7 days after the first real job run; monthly after ~30 days.
 - Rank movement (`previous_rank`) is stored but not shown in the leaderboard UI yet.
@@ -38,12 +42,13 @@
 - Legal pages are placeholders. Cloudflare build: M6.
 
 ## Blockers / needs from owner
-- Add the `SUPABASE_SERVICE_ROLE_KEY` repository secret; approve merging PRs #3 and #4.
-- Homepage and admin wireframes, if you have them (admin needed for M5).
-- Supabase MCP confirmation pop-ups do not reach the owner; DDL with drops is handed over as SQL files for the SQL Editor.
+- Merge the Cloudflare config PR; create the R2 bucket `airepohub-opennext-cache`; connect the repo in Workers Builds
+  with the settings in docs/deployment.md; say "deploy" to authorize.
+- Choose a domain (then update `NEXT_PUBLIC_SITE_URL` and rebuild).
+- Admin login doesn't exist yet (Milestone 5); no one can edit content from the site.
 
 ## Next recommended step
-After the first real run: check `automation_runs` and the queue. Then Milestone 5 (admin: review queue, AI drafts, publish).
+First deploy to workers.dev, then check search, 404/301 and request-time reads live. Then Milestone 5 (admin).
 
 ## Later (ideas, not scheduled)
 - `pg_trgm` fuzzy search; Cloudflare Images loader for avatars.

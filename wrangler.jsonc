@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "airepohub",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    // Self-reference service binding required by OpenNext's cache revalidation
+    { "binding": "WORKER_SELF_REFERENCE", "service": "airepohub" }
+  ],
+  "r2_buckets": [
+    // Incremental cache for 'use cache' / revalidation. Create the bucket before the first deploy.
+    { "binding": "NEXT_INC_CACHE_R2_BUCKET", "bucket_name": "airepohub-opennext-cache" }
+  ],
+  "vars": {
+    // Public values (safe to commit; RLS limits the publishable key to published rows). Secrets never go here.
+    // Keeping them in this file means `wrangler deploy` can't wipe them, unlike dashboard-only vars.
+    "NEXT_PUBLIC_SUPABASE_URL": "https://ugykphnasjjtmzeygwoq.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY": "sb_publishable_79lG_KOGvsGHfbD7k0xMTw_g5H-zlkY"
+  },
+  "observability": { "enabled": true }
+}
