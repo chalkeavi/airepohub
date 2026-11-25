@@ -1,0 +1,265 @@
+{
+  "fullName": "Graphify-Labs/graphify",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Graphify-Labs/graphify/blob/14f35e381cab8d0ae10824a336114a907c288146/README.md"
+    ],
+    "sourceCommitSha": "14f35e381cab8d0ae10824a336114a907c288146",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install the CLI",
+        "command": "uv tool install graphifyy"
+      },
+      {
+        "comment": "Set it up for Claude Code",
+        "command": "graphify install"
+      },
+      {
+        "comment": "Map your project (in your AI assistant)",
+        "command": "/graphify ."
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Graphify turns a codebase, plus its docs, PDFs, images and videos, into a knowledge graph you can query. Your coding agent can then ask how parts connect instead of searching through files.",
+      "problem": "Agents and new team members waste time grepping files to understand how a project fits together. Graphify maps components, calls, imports and design notes into a graph once, so questions like 'what connects auth to the database' get a direct answer.",
+      "whoFor": [
+        "Developers joining an unfamiliar codebase",
+        "Coding agent users who want reusable project context",
+        "Teams tracing dependencies before a refactor",
+        "Anyone mapping docs and papers alongside code"
+      ],
+      "whyChoose": "Choose it if you want a local, explainable map of your code rather than a vector search. Code parsing runs fully on your machine with no LLM; only docs and media use a model.",
+      "requirements": [
+        "Python 3.11.5 to 3.14",
+        "uv (recommended) or pipx",
+        "A supported AI coding assistant"
+      ]
+    },
+    "overview": [
+      "Graphify parses code with tree-sitter across about 40 languages to find calls, imports and inheritance, with no LLM and nothing leaving your machine. Docs, PDFs, images and video get a semantic pass using your assistant's model or an API key you configure.",
+      "Each edge is tagged EXTRACTED (explicit in the source) or INFERRED (resolved by Graphify), so you can tell what was read directly. It is not a vector index: there are no embeddings, just a graph you traverse with query, path and explain commands.",
+      "A run produces three files: graph.html to click through in a browser, GRAPH_REPORT.md with key concepts and suggested questions, and graph.json to query later. It also finds the most-connected components and splits the code into subsystems. Graphify Cloud is a separate paid service for always-on, cross-repo graphs."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Local code mapping",
+        "body": "tree-sitter parsing across about 40 languages, no LLM needed."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Explained edges",
+        "body": "Every connection is tagged EXTRACTED or INFERRED."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Query, path, explain",
+        "body": "Ask questions, trace paths or explain one concept."
+      },
+      {
+        "icon": "file-code",
+        "title": "Beyond code",
+        "body": "Docs, PDFs, images and video join the same graph."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Subsystems and hubs",
+        "body": "Finds the most-connected components and groups the code."
+      },
+      {
+        "icon": "shield",
+        "title": "20+ assistants",
+        "body": "Claude Code, Cursor, Codex, Gemini CLI, Copilot and more."
+      }
+    ],
+    "strengths": [
+      "Code parsing is private and deterministic",
+      "Clear separation of read versus inferred links",
+      "Interactive HTML graph",
+      "Apache-2.0 license"
+    ],
+    "limitations": [
+      "Semantic pass on docs and media uses model credits",
+      "Very large graphs have labeling and rendering limits",
+      "Always-on cross-repo graphs need the paid Cloud service"
+    ],
+    "useCases": [
+      {
+        "title": "Onboard to a new project",
+        "body": "Ask how the main components connect."
+      },
+      {
+        "title": "Plan a change",
+        "body": "Trace callers and dependencies of a shared component."
+      },
+      {
+        "title": "Investigate a bug",
+        "body": "Show the path between an endpoint and storage."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Graphify's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Graphify-Labs/graphify/blob/14f35e381cab8d0ae10824a336114a907c288146/README.md",
+      "prerequisites": [
+        "Python 3.11.5–3.14",
+        "uv or pipx"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "uv (Claude Code)",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install the CLI",
+              "body": "Or: pipx install graphifyy",
+              "code": "uv tool install graphifyy",
+              "lang": "bash"
+            },
+            {
+              "title": "Set it up for Claude Code",
+              "code": "graphify install",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Other assistants",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install the CLI",
+              "code": "uv tool install graphifyy",
+              "lang": "bash"
+            },
+            {
+              "title": "Name your assistant",
+              "body": "In Codex, invoke with $graphify instead of /graphify.",
+              "code": "graphify cursor install              # Cursor\ngraphify install --platform codex    # Codex (invoke with $graphify, not /graphify)",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Build the graph in your assistant",
+          "code": "/graphify .",
+          "lang": "text"
+        },
+        {
+          "title": "Open graphify-out/graph.html in a browser"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Map a codebase and ask how it fits together",
+      "useCase": "Build a knowledge graph of your project and query it from your coding agent.",
+      "setup": [
+        "Graphify installed and set up for your assistant",
+        "A project folder"
+      ],
+      "steps": [
+        {
+          "title": "Build the graph",
+          "code": "/graphify .",
+          "lang": "text"
+        },
+        {
+          "title": "Ask a question",
+          "code": "/graphify query \"what connects auth to the database?\"",
+          "lang": "text"
+        },
+        {
+          "title": "Trace a path between two things",
+          "code": "/graphify path \"UserService\" \"DatabasePool\"",
+          "lang": "text"
+        },
+        {
+          "title": "Keep it fresh on commit",
+          "code": "graphify hook install",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A graphify-out folder with graph.html, GRAPH_REPORT.md and graph.json, and answers that cite the connecting nodes.",
+      "nextSteps": [
+        "Re-extract only changed files with /graphify . --update",
+        "Connect your agent over MCP",
+        "Build a Markdown wiki with /graphify . --wiki"
+      ],
+      "sourceUrl": "https://github.com/Graphify-Labs/graphify/blob/14f35e381cab8d0ae10824a336114a907c288146/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Code mapping",
+        "value": "Free and local, with no model calls.",
+        "tone": "free"
+      },
+      {
+        "label": "Docs and media pass",
+        "value": "Uses your assistant's model or an API key you configure.",
+        "tone": "depends"
+      },
+      {
+        "label": "Graphify Cloud",
+        "value": "Paid hosted service; the README says you can start free.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install or extraction problems",
+        "solution": "See the troubleshooting page at docs.graphify.com/troubleshooting.",
+        "sourceUrl": "https://github.com/Graphify-Labs/graphify/blob/14f35e381cab8d0ae10824a336114a907c288146/README.md"
+      },
+      {
+        "problem": "/graphify does nothing in Codex",
+        "solution": "Codex uses $graphify instead of /graphify.",
+        "sourceUrl": "https://github.com/Graphify-Labs/graphify/blob/14f35e381cab8d0ae10824a336114a907c288146/README.md"
+      },
+      {
+        "problem": "Graph is out of date after git pull",
+        "solution": "Run graphify update . or install the git hook with graphify hook install.",
+        "sourceUrl": "https://github.com/Graphify-Labs/graphify/blob/14f35e381cab8d0ae10824a336114a907c288146/README.md"
+      }
+    ],
+    "bestFor": [
+      "Understanding unfamiliar codebases",
+      "Giving agents reusable project context",
+      "Dependency tracing before refactors"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Code knowledge graph"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Runs",
+        "value": "Locally"
+      }
+    ]
+  }
+}

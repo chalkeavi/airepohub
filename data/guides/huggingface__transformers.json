@@ -1,0 +1,235 @@
+{
+  "fullName": "huggingface/transformers",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/huggingface/transformers/blob/fa9c04ea60c5e1d2ecc38064442973fa1ddccc72/README.md"
+    ],
+    "sourceCommitSha": "fa9c04ea60c5e1d2ecc38064442973fa1ddccc72",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install Transformers with PyTorch",
+        "command": "uv pip install \"transformers[torch]\""
+      },
+      {
+        "comment": "Chat with a model in your terminal",
+        "command": "transformers chat"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Transformers is Hugging Face's Python library that defines hundreds of pretrained AI models for text, images, audio and video. You can load a model from the Hugging Face Hub and use it for inference or training in a few lines.",
+      "problem": "Every new model architecture would otherwise need its own code. Transformers writes each model once, in PyTorch, in a standard structure, and other tools such as vLLM, Unsloth, SGLang and llama.cpp build on those definitions.",
+      "whoFor": [
+        "Python developers using pretrained models",
+        "ML engineers fine-tuning language or vision models",
+        "Researchers comparing model architectures",
+        "Builders of inference and training tools"
+      ],
+      "whyChoose": "Choose it when you want the widest selection of open models with one consistent API. For high-throughput serving in production, the README points to inference engines like vLLM that use Transformers models as a backend.",
+      "requirements": [
+        "Python with PyTorch",
+        "uv or pip",
+        "A GPU helps for larger models"
+      ]
+    },
+    "overview": [
+      "Transformers is the model-definition framework for text, vision, audio, video and multimodal models. Each model is one file that reads top to bottom, and new architectures are added as they are released and matched to their original results.",
+      "The Pipeline class is the quickest way in: it preprocesses input, runs the model and postprocesses output for a task. You can also generate text with LLMs and vision-language models, chat in the terminal with transformers chat, and serve a model over HTTP with transformers serve for experiments and moderate load.",
+      "The library is designed to be easy for people and coding agents to read and change. You can register your own attention function or load optimized kernels from the Hub without editing model code. The README includes a prompt to help coding agents use the current v5 APIs."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Hundreds of models",
+        "body": "Text, vision, audio, video and multimodal architectures."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Pipelines",
+        "body": "Run a task end to end with one class."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Training and inference",
+        "body": "Use the same model definition for both."
+      },
+      {
+        "icon": "file-code",
+        "title": "Hugging Face Hub",
+        "body": "Load pretrained models by name."
+      },
+      {
+        "icon": "git-compare",
+        "title": "transformers chat and serve",
+        "body": "Chat in the terminal or serve a model over HTTP."
+      },
+      {
+        "icon": "shield",
+        "title": "Pluggable kernels",
+        "body": "Swap attention or load optimized kernels without editing models."
+      }
+    ],
+    "strengths": [
+      "Largest catalog of open models",
+      "Standard, readable model code",
+      "Used as the base by many other tools",
+      "Apache-2.0 license"
+    ],
+    "limitations": [
+      "transformers serve is not meant for large production loads",
+      "Big models need a capable GPU",
+      "Check each model card for its own license and required arguments"
+    ],
+    "useCases": [
+      {
+        "title": "Try an open chat model",
+        "body": "Use a text-generation pipeline with a small model like Qwen3-0.6B."
+      },
+      {
+        "title": "Fine-tune a model",
+        "body": "Train a pretrained model on your own data."
+      },
+      {
+        "title": "Prototype an API",
+        "body": "Serve a model with transformers serve for testing."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Transformers's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/huggingface/transformers/blob/fa9c04ea60c5e1d2ecc38064442973fa1ddccc72/README.md",
+      "prerequisites": [
+        "Python",
+        "PyTorch"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "uv (with PyTorch)",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install Transformers and PyTorch",
+              "code": "uv pip install \"transformers[torch]\"",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install with pip",
+              "code": "pip install \"transformers[torch]\"",
+              "lang": "bash"
+            },
+            {
+              "title": "Check the version",
+              "code": "python -c \"import transformers; print(transformers.__version__)\"",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start a chat in your terminal",
+          "code": "transformers chat",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Ask a chat model a question with a pipeline",
+      "useCase": "Load a small chat model from the Hub and get an answer in Python.",
+      "setup": [
+        "Transformers installed with PyTorch"
+      ],
+      "steps": [
+        {
+          "title": "Create a pipeline and send a message",
+          "code": "from transformers import pipeline\n\npipe = pipeline(task=\"text-generation\", model=\"Qwen/Qwen3-0.6B\")\nmessages = [\n    {\"role\": \"user\", \"content\": \"What's the secret to baking a really good cake? Answer in one sentence.\"},\n]\noutput = pipe(messages, tokenizer_encode_kwargs={\"enable_thinking\": False})\nprint(output[0][\"generated_text\"][-1][\"content\"])",
+          "lang": "text"
+        }
+      ],
+      "expected": "The model downloads from the Hub and prints a one-sentence answer.",
+      "nextSteps": [
+        "Read the Quickstart on huggingface.co/docs/transformers",
+        "Try another task, like image classification",
+        "Serve a model with transformers serve"
+      ],
+      "sourceUrl": "https://github.com/huggingface/transformers/blob/fa9c04ea60c5e1d2ecc38064442973fa1ddccc72/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Most Hub models are free to download; each has its own license.",
+        "tone": "depends"
+      },
+      {
+        "label": "Hardware",
+        "value": "Large models may need a paid GPU.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "A model needs extra arguments or a newer version",
+        "solution": "Read the model card on the Hub; many models need a chat template option or a minimum Transformers version.",
+        "sourceUrl": "https://github.com/huggingface/transformers/blob/fa9c04ea60c5e1d2ecc38064442973fa1ddccc72/README.md"
+      },
+      {
+        "problem": "Code from older tutorials fails",
+        "solution": "Version 5 changed APIs. Read MIGRATION_GUIDE_V5.md in the repo.",
+        "sourceUrl": "https://github.com/huggingface/transformers/blob/fa9c04ea60c5e1d2ecc38064442973fa1ddccc72/README.md"
+      },
+      {
+        "problem": "Need production serving",
+        "solution": "Use an inference engine such as vLLM with the Transformers model as backend.",
+        "sourceUrl": "https://github.com/huggingface/transformers/blob/fa9c04ea60c5e1d2ecc38064442973fa1ddccc72/README.md"
+      }
+    ],
+    "bestFor": [
+      "Using open pretrained models in Python",
+      "Fine-tuning",
+      "Research on model architectures"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Model library"
+      },
+      {
+        "label": "Maker",
+        "value": "Hugging Face"
+      },
+      {
+        "label": "Language",
+        "value": "Python (PyTorch)"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      }
+    ]
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "fullName": "DietrichGebert/ponytail",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/DietrichGebert/ponytail/blob/ebd8654c2c627f721eb8f9c0d1bd4090a29f9e10/README.md"
+    ],
+    "sourceCommitSha": "ebd8654c2c627f721eb8f9c0d1bd4090a29f9e10",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Add the marketplace in Claude Code",
+        "command": "/plugin marketplace add DietrichGebert/ponytail"
+      },
+      {
+        "comment": "Install the plugin",
+        "command": "/plugin install ponytail@ponytail"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Ponytail is a single prompt, packaged as a skill and plugin, that makes AI coding agents write less code. The agent first reads the code a change touches, reuses what already exists, and writes only what the task needs.",
+      "problem": "Coding agents often add libraries or hundreds of lines where a few would do, which costs tokens, time and review effort. Ponytail pushes the agent toward the smallest correct change while keeping validation, error handling, security and accessibility.",
+      "whoFor": [
+        "Claude Code and Codex users who find agent output bloated",
+        "Developers who want smaller, easier-to-review diffs",
+        "Teams that want agent reviews focused on real risks",
+        "Anyone trying to cut agent token costs"
+      ],
+      "whyChoose": "Choose it if your agent tends to over-engineer and you want leaner changes with tests kept for risky logic. The author's benchmark reports less code, time, cost and tokens, but results will vary with your codebase.",
+      "requirements": [
+        "Claude Code, Codex, or another agent that can read a rules file or skill"
+      ]
+    },
+    "overview": [
+      "Ponytail is one prompt, skills/ponytail/SKILL.md, with a compact AGENTS.md version for agents that read a rules file. The rest of the repository loads that prompt into different agents. It is active every session once installed, at a lite, full or ultra intensity.",
+      "Before choosing a solution the agent reads the code the change touches and traces the real flow, then prefers the simplest option, such as using an existing component or a browser feature over a new library. Logic with branches, loops, parsing, money or security keeps one small test, and each reply ends with what was skipped or not checked.",
+      "It adds commands: /ponytail-review reviews the current diff for bugs, security, load, missing tests and code to cut; /ponytail-audit runs the same checks on the whole repo; /ponytail-debt collects deliberate shortcut comments into a ledger. In Claude Code a band above the prompt shows cost, tokens and test status for the current task."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Smallest correct change",
+        "body": "Reuses existing code and platform features before writing new code."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Never cuts safety",
+        "body": "Validation, error handling, security and accessibility stay in."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Senior-style review",
+        "body": "/ponytail-review checks bugs, security, load, missing tests and what to cut."
+      },
+      {
+        "icon": "file-code",
+        "title": "Whole-repo audit",
+        "body": "/ponytail-audit maps the code and ranks what to fix first."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Shortcut ledger",
+        "body": "/ponytail-debt gathers deferred shortcut: comments so they get revisited."
+      },
+      {
+        "icon": "shield",
+        "title": "Cost band",
+        "body": "In Claude Code, shows task cost, tokens, agent time and test status."
+      }
+    ],
+    "strengths": [
+      "Simple: a single prompt you can read",
+      "Works with many agents",
+      "Keeps tests for risky logic",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Benchmark numbers come from the author's own tests",
+      "Opinionated style may not suit every team",
+      "The band and board are Claude Code only"
+    ],
+    "useCases": [
+      {
+        "title": "Trim an agent's output",
+        "body": "Keep it active so features land as small diffs."
+      },
+      {
+        "title": "Review a change",
+        "body": "Run /ponytail-review before you merge."
+      },
+      {
+        "title": "Find what to fix first",
+        "body": "Run /ponytail-audit on an inherited codebase."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Ponytail's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/DietrichGebert/ponytail/blob/ebd8654c2c627f721eb8f9c0d1bd4090a29f9e10/README.md",
+      "prerequisites": [
+        "A supported coding agent"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace",
+              "body": "Run as two separate prompts.",
+              "code": "/plugin marketplace add DietrichGebert/ponytail",
+              "lang": "text"
+            },
+            {
+              "title": "Install the plugin",
+              "code": "/plugin install ponytail@ponytail",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Codex",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace and plugin",
+              "code": "codex plugin marketplace add DietrichGebert/ponytail\ncodex plugin add ponytail@ponytail",
+              "lang": "bash"
+            },
+            {
+              "title": "Trust the hooks",
+              "body": "Open /hooks in Codex, trust its two lifecycle hooks and start a new thread."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Any other agent",
+          "method": "rules file",
+          "steps": [
+            {
+              "title": "Copy AGENTS.md into your project",
+              "body": "Or ask your agent to install skills/ponytail/SKILL.md as a skill. INSTALL.md has steps for Copilot, Cursor, OpenCode and Gemini."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Check the current level",
+          "code": "/ponytail",
+          "lang": "text"
+        },
+        {
+          "title": "See all commands",
+          "code": "/ponytail-help",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Review your current change with Ponytail",
+      "useCase": "Get a senior-developer-style review of a diff in Claude Code.",
+      "setup": [
+        "Ponytail installed in Claude Code",
+        "A repo with uncommitted changes"
+      ],
+      "steps": [
+        {
+          "title": "Make sure Ponytail is on",
+          "code": "/ponytail full",
+          "lang": "text"
+        },
+        {
+          "title": "Run the review",
+          "code": "/ponytail-review",
+          "lang": "text"
+        },
+        {
+          "title": "Collect deferred shortcuts",
+          "code": "/ponytail-debt",
+          "lang": "text"
+        }
+      ],
+      "expected": "A list of findings, each saying what the code does, what can go wrong and how to fix it, most important first.",
+      "nextSteps": [
+        "Run /ponytail-audit on the whole repo",
+        "Set a default level with PONYTAIL_DEFAULT_MODE",
+        "Import past sessions into the board with /ponytail band import"
+      ],
+      "sourceUrl": "https://github.com/DietrichGebert/ponytail/blob/ebd8654c2c627f721eb8f9c0d1bd4090a29f9e10/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent usage",
+        "value": "Your agent's own plan or API usage applies.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Commands don't work",
+        "solution": "Commands need a skill-capable host. In Codex they're namespaced, for example $ponytail:ponytail-review.",
+        "sourceUrl": "https://github.com/DietrichGebert/ponytail/blob/ebd8654c2c627f721eb8f9c0d1bd4090a29f9e10/README.md"
+      },
+      {
+        "problem": "Not sure a copy is genuine",
+        "solution": "Install only from DietrichGebert/ponytail on GitHub or @dietrichgebert/ponytail on npm; it never ships .exe or .dll files.",
+        "sourceUrl": "https://github.com/DietrichGebert/ponytail/blob/ebd8654c2c627f721eb8f9c0d1bd4090a29f9e10/README.md"
+      },
+      {
+        "problem": "Ponytail is too aggressive",
+        "solution": "Lower the level with /ponytail lite, or turn it off with /ponytail off.",
+        "sourceUrl": "https://github.com/DietrichGebert/ponytail/blob/ebd8654c2c627f721eb8f9c0d1bd4090a29f9e10/README.md"
+      }
+    ],
+    "bestFor": [
+      "Leaner agent-written code",
+      "Agent code reviews",
+      "Lowering agent token spend"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent skill / prompt"
+      },
+      {
+        "label": "Works with",
+        "value": "Claude Code, Codex and others"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      }
+    ]
+  }
+}

@@ -7,17 +7,18 @@
 // Env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, GITHUB_TOKEN (Actions provides it).
 // --dry-run reads through the public publishable key and GitHub, and writes nothing.
 import { GithubClient } from "../src/lib/jobs/github.ts";
-import { runImport } from "../src/lib/jobs/importer.ts";
+import { runImport, runPublishQueue } from "../src/lib/jobs/importer.ts";
 import { runDiscover, runRank, runSnapshot, type JobSummary } from "../src/lib/jobs/jobs.ts";
 import { ClaudeBatchSummarizer, FileSummarizer, runSummarize, type Summarizer } from "../src/lib/jobs/summarize.ts";
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { runPublishGuides, type GuideFile } from "../src/lib/jobs/guides.ts";
 import { SupabaseJobStore } from "../src/lib/jobs/store.ts";
 
 const [job = "daily", ...flags] = process.argv.slice(2);
 const dryRun = flags.includes("--dry-run");
 const text = (name: string) => flags.find((f) => f.startsWith(`--${name}=`))?.split("=").slice(1).join("=");
-function summarizer(): Summarizer | undefined {
-  const kind = text("summaries") ?? "none";
+function summarizer(fallback = "none"): Summarizer | undefined {
+  const kind = text("summaries") ?? fallback;
   if (kind === "none") return undefined;
   if (kind === "file") return new FileSummarizer(JSON.parse(readFileSync("data/summaries.json", "utf8")) as Record<string, string>);
   if (kind === "claude") {
@@ -67,6 +68,21 @@ const plan: Record<string, (() => Promise<JobSummary>)[]> = {
     ...(dryRun ? [] : [() => runRank(ctx)]),
   ],
   // Snapshot first so rankings use today's stars; discovery last (it only queues for review).
+  // Daily: publish queued repos that have a summary in data/summaries.json, then re-rank.
+  "publish-queue": [
+    () => runPublishQueue(ctx, summarizer("file") ?? new FileSummarizer({}), { noindex: !flags.includes("--index") }),
+    ...(dryRun ? [] : [() => runRank(ctx)]),
+  ],
+  // Full guides from data/guides/*.json (only repos already on the site; others wait).
+  "publish-guides": [
+    () =>
+      runPublishGuides(
+        ctx,
+        readdirSync("data/guides")
+          .filter((f) => f.endsWith(".json"))
+          .map((f) => JSON.parse(readFileSync(`data/guides/${f}`, "utf8")) as GuideFile),
+      ),
+  ],
   summarize: [() => runSummarize(ctx, summarizer() ?? new ClaudeBatchSummarizer(process.env.SUMMARY_MODEL || "claude-opus-5-5"), flag("limit", 5000))],
   daily: [() => runSnapshot(ctx), () => runRank(ctx), () => runDiscover(ctx)],
 };

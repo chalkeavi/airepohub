@@ -1,0 +1,278 @@
+{
+  "fullName": "harry0703/MoneyPrinterTurbo",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/harry0703/MoneyPrinterTurbo/blob/dabfd3f8548d30ed0eea8759decbdead9626e0e6/README-en.md"
+    ],
+    "sourceCommitSha": "dabfd3f8548d30ed0eea8759decbdead9626e0e6",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install the official package",
+        "command": "python -m pip install mpt"
+      },
+      {
+        "comment": "Start the web interface",
+        "command": "mpt webui"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "MoneyPrinterTurbo makes short videos automatically from a topic or keyword. It writes the script with AI, finds stock or AI-generated footage, adds voiceover, subtitles and music, and renders the final video.",
+      "problem": "Making a short video by hand means writing a script, finding clips, recording narration, timing subtitles and editing. MoneyPrinterTurbo automates those steps while letting you change each stage.",
+      "whoFor": [
+        "Creators making short videos for TikTok, Instagram or YouTube Shorts",
+        "Marketers producing many video variants",
+        "Developers automating video generation through an API or CLI",
+        "People who want to try AI video without editing skills"
+      ],
+      "whyChoose": "Choose it if you want an all-in-one, self-hosted pipeline from topic to finished short video. Output quality depends on the models, voices and footage services you connect.",
+      "requirements": [
+        "Windows 10+, macOS 11+ or a mainstream Linux",
+        "Python 3.11 or later (3.11 recommended) for local installs",
+        "4 GB RAM minimum, 8 GB recommended; a GPU is optional",
+        "API keys for the AI, footage and voice services you choose"
+      ]
+    },
+    "overview": [
+      "You give MoneyPrinterTurbo a topic and it goes from script to voiceover, footage, subtitles, music and editing, while letting you review or replace each stage. It runs as a WebUI, an API, a CLI, or through an AI agent that reads its skill file.",
+      "Scripts can come from many LLM providers or your own text. Footage can be your own files, free stock from Pexels and Pixabay, or AI-generated clips from several video model services. Voiceover options include free Edge TTS (no key needed) and many paid voices, and subtitles can be generated from TTS timings or local Whisper.",
+      "It exports 9:16, 16:9 or 1:1 videos and can publish directly to TikTok, Instagram and YouTube Shorts. The official PyPI package is mpt; the README notes that the package named MoneyPrinterTurbo on PyPI is maintained by a third party."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Topic to video",
+        "body": "Script, footage, voiceover, subtitles and music in one run."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Many providers",
+        "body": "Choose LLMs, footage sources and voice services."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Free options",
+        "body": "Pexels and Pixabay stock plus Edge TTS with no API key."
+      },
+      {
+        "icon": "file-code",
+        "title": "WebUI, API and CLI",
+        "body": "Create interactively or automate production."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Batch variants",
+        "body": "Generate several versions and review task history."
+      },
+      {
+        "icon": "shield",
+        "title": "Direct publishing",
+        "body": "Post to TikTok, Instagram and YouTube Shorts."
+      }
+    ],
+    "strengths": [
+      "Complete pipeline in one tool",
+      "Works with free stock and free TTS",
+      "Runs locally or in Docker",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Many paid services are optional add-ons with their own costs",
+      "Results depend on the quality of connected models and footage",
+      "Check the rights of footage and music before publishing"
+    ],
+    "useCases": [
+      {
+        "title": "Explainer shorts",
+        "body": "Turn a topic into a narrated vertical video."
+      },
+      {
+        "title": "Batch marketing clips",
+        "body": "Generate several variants of a product video."
+      },
+      {
+        "title": "Automated channel",
+        "body": "Use the API or CLI to produce videos on a schedule."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from MoneyPrinterTurbo's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/harry0703/MoneyPrinterTurbo/blob/dabfd3f8548d30ed0eea8759decbdead9626e0e6/README-en.md",
+      "prerequisites": [
+        "Python 3.11+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip (official package)",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Create a virtual environment (macOS / Linux)",
+              "code": "python3 -m venv .venv\nsource .venv/bin/activate",
+              "lang": "bash"
+            },
+            {
+              "title": "Install and start",
+              "body": "The WebUI opens in your browser.",
+              "code": "python -m pip install mpt\nmpt webui",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Windows (pip)",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Create a virtual environment",
+              "code": "python -m venv .venv\n.venv\\Scripts\\Activate.ps1",
+              "lang": "powershell"
+            },
+            {
+              "title": "Install and start",
+              "code": "python -m pip install mpt\nmpt webui",
+              "lang": "powershell"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Windows one-click package",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download the .7z from the latest GitHub release Assets",
+              "body": "Not the auto-generated Source code archives."
+            },
+            {
+              "title": "Run update.bat, then start.bat",
+              "body": "The browser opens automatically; use Chrome or Edge if it's blank."
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "MPT_HOME",
+          "required": false,
+          "description": "Choose where configuration and generated videos are stored."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Start the WebUI",
+          "code": "mpt webui",
+          "lang": "bash"
+        },
+        {
+          "title": "Add API keys in the WebUI basic settings",
+          "body": "config.toml is created on first launch."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Make your first short video from a topic",
+      "useCase": "Generate a narrated short video using free stock footage and free voiceover.",
+      "setup": [
+        "mpt installed",
+        "A free Pexels or Pixabay API key",
+        "An API key for an LLM provider (or write your own script)"
+      ],
+      "steps": [
+        {
+          "title": "Start the WebUI",
+          "code": "mpt webui",
+          "lang": "bash"
+        },
+        {
+          "title": "Add your keys in basic settings"
+        },
+        {
+          "title": "Enter a topic and choose Edge TTS for voiceover"
+        },
+        {
+          "title": "Generate and wait for rendering",
+          "body": "Progress shows script, voiceover, footage downloads, clip processing and rendering."
+        }
+      ],
+      "expected": "A finished video saved under storage/tasks in the data directory.",
+      "nextSteps": [
+        "Try mpt cli --help for command-line generation",
+        "Upgrade with python -m pip install --upgrade mpt",
+        "Connect a publishing account for TikTok or YouTube Shorts"
+      ],
+      "sourceUrl": "https://github.com/harry0703/MoneyPrinterTurbo/blob/dabfd3f8548d30ed0eea8759decbdead9626e0e6/README-en.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Free services",
+        "value": "Pexels, Pixabay and Edge TTS are free.",
+        "tone": "free"
+      },
+      {
+        "label": "Paid services",
+        "value": "LLMs, AI video, and premium voices bill you per use.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Windows package has no start.bat",
+        "solution": "You downloaded the Source code archive. Download the .7z from the release Assets instead.",
+        "sourceUrl": "https://github.com/harry0703/MoneyPrinterTurbo/blob/dabfd3f8548d30ed0eea8759decbdead9626e0e6/README-en.md"
+      },
+      {
+        "problem": "WebUI opens blank",
+        "solution": "Use Chrome or Edge.",
+        "sourceUrl": "https://github.com/harry0703/MoneyPrinterTurbo/blob/dabfd3f8548d30ed0eea8759decbdead9626e0e6/README-en.md"
+      },
+      {
+        "problem": "Wrong package installed from PyPI",
+        "solution": "The official package is mpt; MoneyPrinterTurbo on PyPI is a third-party package.",
+        "sourceUrl": "https://github.com/harry0703/MoneyPrinterTurbo/blob/dabfd3f8548d30ed0eea8759decbdead9626e0e6/README-en.md"
+      }
+    ],
+    "bestFor": [
+      "Short-form video creators",
+      "Automated video production",
+      "Trying AI video on a budget"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI short video generator"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Interfaces",
+        "value": "WebUI, API, CLI"
+      }
+    ]
+  }
+}

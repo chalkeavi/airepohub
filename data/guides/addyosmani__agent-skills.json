@@ -1,0 +1,246 @@
+{
+  "fullName": "addyosmani/agent-skills",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/addyosmani/agent-skills/blob/e997ac5b9a74eab332d5e9793bb38a38c8cfdd74/README.md"
+    ],
+    "sourceCommitSha": "e997ac5b9a74eab332d5e9793bb38a38c8cfdd74",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install all skills into your agent",
+        "command": "npx skills add addyosmani/agent-skills"
+      },
+      {
+        "comment": "Or in Claude Code",
+        "command": "/plugin marketplace add addyosmani/agent-skills"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Agent Skills is a collection of engineering skills by Addy Osmani that teaches AI coding agents to work like senior engineers. It covers the whole cycle from writing a spec to planning, building, testing, reviewing and shipping.",
+      "problem": "Coding agents skip steps senior engineers take for granted, like writing a spec, building in small slices, testing and reviewing before merge. These skills package those workflows and quality gates so agents follow them every time.",
+      "whoFor": [
+        "Developers using Claude Code, Cursor, Codex or Copilot",
+        "Teams that want consistent agent quality gates",
+        "Frontend developers who want performance and accessibility audits",
+        "People new to structured engineering workflows"
+      ],
+      "whyChoose": "Choose it for a well-organised set of lifecycle skills from a respected engineer, with simple commands like /spec and /ship. If you only want one workflow, you can install single skills.",
+      "requirements": [
+        "A supported coding agent (70+ via the skills CLI)",
+        "Node.js for npx"
+      ]
+    },
+    "overview": [
+      "The collection maps to six phases: define, plan, build, verify, review and ship. Ten slash commands drive them: /spec, /plan, /build, /test, /constraints, /review, /webperf, /a11y, /code-simplify and /ship. Each command activates the right skills automatically.",
+      "Skills also trigger on their own based on what you're doing, for example API design or UI work. /build auto generates the plan and implements every task in one approved pass, removing the manual steps between tasks but not the verification.",
+      "You can install all 26 skills with the open skills CLI into more than 70 agents, or pick individual ones such as code review, interview-me or test-driven development. In Claude Code they install as a plugin; where a built-in command shares a name, such as /review, use /agent-skills:review."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Full lifecycle",
+        "body": "Spec, plan, build, test, review and ship."
+      },
+      {
+        "icon": "scan-search",
+        "title": "10 slash commands",
+        "body": "Simple entry points for each phase."
+      },
+      {
+        "icon": "puzzle",
+        "title": "26 skills",
+        "body": "Including TDD, code review, API design and frontend engineering."
+      },
+      {
+        "icon": "file-code",
+        "title": "Web performance and accessibility",
+        "body": "Audits with /webperf and /a11y."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Install anywhere",
+        "body": "The skills CLI supports 70+ agents."
+      },
+      {
+        "icon": "shield",
+        "title": "Pick what you need",
+        "body": "Install all skills or individual ones."
+      }
+    ],
+    "strengths": [
+      "Clear, practical engineering workflows",
+      "Easy to install in many agents",
+      "Single skills can be installed on their own",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Installing one skill alone skips shared reference checklists",
+      "Claude Code marketplace install uses SSH by default",
+      "Some commands clash with built-ins and need the namespaced form"
+    ],
+    "useCases": [
+      {
+        "title": "Start a feature properly",
+        "body": "Run /spec then /plan before any code."
+      },
+      {
+        "title": "Pre-merge review",
+        "body": "Run /review (or /agent-skills:review) on your change."
+      },
+      {
+        "title": "Audit a website",
+        "body": "Use /webperf and /a11y to check performance and accessibility."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Agent Skills's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills/blob/e997ac5b9a74eab332d5e9793bb38a38c8cfdd74/README.md",
+      "prerequisites": [
+        "Node.js (for npx)",
+        "A coding agent"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "skills CLI (any agent)",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Browse the skills",
+              "code": "npx skills add addyosmani/agent-skills --list",
+              "lang": "bash"
+            },
+            {
+              "title": "Install all 26 skills",
+              "code": "npx skills add addyosmani/agent-skills",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Claude Code",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace and install",
+              "code": "/plugin marketplace add addyosmani/agent-skills\n/plugin install agent-skills@addy-agent-skills",
+              "lang": "text"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Write a spec for your next feature",
+          "code": "/spec",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Take a feature from spec to ship",
+      "useCase": "Use the lifecycle commands to build a small feature with your agent.",
+      "setup": [
+        "Agent Skills installed",
+        "A project in your coding agent"
+      ],
+      "steps": [
+        {
+          "title": "Define what to build",
+          "code": "/spec",
+          "lang": "text"
+        },
+        {
+          "title": "Plan small, atomic tasks",
+          "code": "/plan",
+          "lang": "text"
+        },
+        {
+          "title": "Build one slice at a time and prove it works",
+          "code": "/build\n/test",
+          "lang": "text"
+        },
+        {
+          "title": "Review and ship",
+          "body": "In Claude Code, use /agent-skills:review because /review is a built-in command.",
+          "code": "/agent-skills:review\n/ship",
+          "lang": "text"
+        }
+      ],
+      "expected": "A feature with a written spec, a task plan, tests and a review before it ships.",
+      "nextSteps": [
+        "Try /build auto once you trust the spec",
+        "Run /a11y on a UI change",
+        "Set project rules once with /constraints"
+      ],
+      "sourceUrl": "https://github.com/addyosmani/agent-skills/blob/e997ac5b9a74eab332d5e9793bb38a38c8cfdd74/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Skills",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent usage",
+        "value": "Your agent's plan or API usage applies.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Claude Code marketplace install fails with SSH errors",
+        "solution": "Use the HTTPS URL: /plugin marketplace add https://github.com/addyosmani/agent-skills.git, or run git config --global url.\"https://github.com/\".insteadOf git@github.com:",
+        "sourceUrl": "https://github.com/addyosmani/agent-skills/blob/e997ac5b9a74eab332d5e9793bb38a38c8cfdd74/README.md"
+      },
+      {
+        "problem": "A single installed skill can't find its checklist",
+        "solution": "Per-skill installs skip the shared references folder. Install the whole repo or copy the checklist into the skill's references directory.",
+        "sourceUrl": "https://github.com/addyosmani/agent-skills/blob/e997ac5b9a74eab332d5e9793bb38a38c8cfdd74/README.md"
+      },
+      {
+        "problem": "/review runs the wrong command",
+        "solution": "Use the namespaced /agent-skills:review in Claude Code.",
+        "sourceUrl": "https://github.com/addyosmani/agent-skills/blob/e997ac5b9a74eab332d5e9793bb38a38c8cfdd74/README.md"
+      }
+    ],
+    "bestFor": [
+      "Consistent agent engineering workflow",
+      "Pre-merge quality gates",
+      "Frontend audits"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent skills collection"
+      },
+      {
+        "label": "Author",
+        "value": "Addy Osmani"
+      },
+      {
+        "label": "Skills",
+        "value": "26"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      }
+    ]
+  }
+}

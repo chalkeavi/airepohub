@@ -1,0 +1,227 @@
+{
+  "fullName": "microsoft/generative-ai-for-beginners",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/microsoft/generative-ai-for-beginners/blob/e45c369a8c76bdae831cb5a172d36a6a0fc3a6a2/README.md"
+    ],
+    "sourceCommitSha": "e45c369a8c76bdae831cb5a172d36a6a0fc3a6a2",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Clone the course without the 50+ translations",
+        "command": "git clone --filter=blob:none --sparse https://github.com/microsoft/generative-ai-for-beginners.git"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Generative AI for Beginners is a free 21-lesson course from Microsoft Cloud Advocates on building generative AI applications. Lessons explain concepts and include code in Python and TypeScript.",
+      "problem": "Getting started with generative AI is confusing because of the many models, APIs and techniques. This course walks through the fundamentals one topic at a time, with hands-on build lessons.",
+      "whoFor": [
+        "Developers new to generative AI",
+        "Students learning to build AI apps",
+        "Python or TypeScript programmers",
+        "Teams onboarding people to LLM development"
+      ],
+      "whyChoose": "Choose it for a structured, free course backed by Microsoft that you can start at any lesson. Some lessons use Azure or OpenAI services, though Foundry Local lets you run models offline.",
+      "requirements": [
+        "Basic Python or TypeScript knowledge helps",
+        "A GitHub account to fork the repo",
+        "Access to Azure OpenAI, Microsoft Foundry Models, the OpenAI API, or Foundry Local"
+      ]
+    },
+    "overview": [
+      "The course has 21 standalone lessons, so you can start wherever you like. Learn lessons explain a generative AI concept, and Build lessons add code examples in Python and TypeScript where possible. Each lesson includes a short video introduction and a Keep Learning section.",
+      "To run the code you can use Azure OpenAI Service, Microsoft Foundry Models, the OpenAI API, or Foundry Local to run models fully offline. The README notes GitHub Models was retired at the end of July 2026 and Microsoft Foundry Models replaces it.",
+      "A Course Setup lesson helps you set up your development environment. The repository includes translations into 50+ languages, so the README suggests a sparse clone to skip them. There is also a separate .NET edition."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "21 lessons",
+        "body": "From fundamentals to building generative AI apps."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Learn and Build lessons",
+        "body": "Concepts plus runnable code."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Python and TypeScript",
+        "body": "Code examples in both languages where possible."
+      },
+      {
+        "icon": "file-code",
+        "title": "Several model options",
+        "body": "Azure OpenAI, Foundry Models, OpenAI API or offline Foundry Local."
+      },
+      {
+        "icon": "git-compare",
+        "title": "50+ translations",
+        "body": "Course content in many languages."
+      },
+      {
+        "icon": "shield",
+        "title": "Free",
+        "body": "Open course material under the MIT license."
+      }
+    ],
+    "strengths": [
+      "Free and well structured",
+      "Backed by Microsoft",
+      "Start at any lesson",
+      "Offline option with Foundry Local"
+    ],
+    "limitations": [
+      "Some lessons assume Azure or OpenAI accounts",
+      "Full clone is large because of translations",
+      "It's a course, not a library you install"
+    ],
+    "useCases": [
+      {
+        "title": "Learn the basics",
+        "body": "Work through the Learn lessons to understand prompts, models and RAG."
+      },
+      {
+        "title": "Build a first app",
+        "body": "Follow a Build lesson to create a working generative AI app."
+      },
+      {
+        "title": "Team training",
+        "body": "Use the lessons as an onboarding curriculum."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Generative AI for Beginners's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/microsoft/generative-ai-for-beginners/blob/e45c369a8c76bdae831cb5a172d36a6a0fc3a6a2/README.md",
+      "prerequisites": [
+        "Git",
+        "Python or Node.js"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Sparse clone (Bash / macOS / Linux)",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone without translations",
+              "code": "git clone --filter=blob:none --sparse https://github.com/microsoft/generative-ai-for-beginners.git\ncd generative-ai-for-beginners\ngit sparse-checkout set --no-cone '/*' '!translations' '!translated_images'",
+              "lang": "bash"
+            },
+            {
+              "title": "Open the Course Setup lesson",
+              "body": "See 00-course-setup/README.md to set up your environment and model access."
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Sparse clone (Windows CMD)",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone without translations",
+              "code": "git clone --filter=blob:none --sparse https://github.com/microsoft/generative-ai-for-beginners.git\ncd generative-ai-for-beginners\ngit sparse-checkout set --no-cone \"/*\" \"!translations\" \"!translated_images\"",
+              "lang": "text"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Read the Course Setup lesson",
+          "body": "00-course-setup/README.md explains how to configure your environment."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Set up the course and start your first lesson",
+      "useCase": "Get the course on your machine and run a Build lesson.",
+      "setup": [
+        "Git installed",
+        "An account for one of the supported model services, or Foundry Local"
+      ],
+      "steps": [
+        {
+          "title": "Sparse-clone the repository",
+          "code": "git clone --filter=blob:none --sparse https://github.com/microsoft/generative-ai-for-beginners.git\ncd generative-ai-for-beginners\ngit sparse-checkout set --no-cone '/*' '!translations' '!translated_images'",
+          "lang": "bash"
+        },
+        {
+          "title": "Follow 00-course-setup to configure your environment"
+        },
+        {
+          "title": "Pick a lesson and run its code",
+          "body": "Use the assignment folder that matches your model service: aoai-assignment, githubmodels or oai-assignment."
+        }
+      ],
+      "expected": "The course is on your machine and a lesson's example runs against your chosen model service.",
+      "nextSteps": [
+        "Continue through the 21 lessons in any order",
+        "Try the advanced Generative AI code samples",
+        "Join the Microsoft Foundry Discord for help"
+      ],
+      "sourceUrl": "https://github.com/microsoft/generative-ai-for-beginners/blob/e45c369a8c76bdae831cb5a172d36a6a0fc3a6a2/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use and share.",
+        "tone": "free"
+      },
+      {
+        "label": "Course",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Model services",
+        "value": "Azure OpenAI and the OpenAI API are paid; Foundry Local runs offline for free.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Clone is slow or huge",
+        "solution": "Use the sparse checkout commands to skip the 50+ language translations.",
+        "sourceUrl": "https://github.com/microsoft/generative-ai-for-beginners/blob/e45c369a8c76bdae831cb5a172d36a6a0fc3a6a2/README.md"
+      },
+      {
+        "problem": "GitHub Models lessons don't work",
+        "solution": "GitHub Models was retired at the end of July 2026; use Microsoft Foundry Models instead.",
+        "sourceUrl": "https://github.com/microsoft/generative-ai-for-beginners/blob/e45c369a8c76bdae831cb5a172d36a6a0fc3a6a2/README.md"
+      }
+    ],
+    "bestFor": [
+      "Beginners learning generative AI",
+      "Structured self-study",
+      "Team onboarding"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Course (21 lessons)"
+      },
+      {
+        "label": "Maker",
+        "value": "Microsoft"
+      },
+      {
+        "label": "Languages",
+        "value": "Python, TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      }
+    ]
+  }
+}

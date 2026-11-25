@@ -1,0 +1,277 @@
+{
+  "fullName": "openclaw/openclaw",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/openclaw/openclaw/blob/9b5cd15f26f13d59ec1aee6f2bab022ee0c0e91e/README.md"
+    ],
+    "sourceCommitSha": "9b5cd15f26f13d59ec1aee6f2bab022ee0c0e91e",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install (macOS / Linux / WSL2)",
+        "command": "curl -fsSL https://openclaw.ai/install.sh | bash"
+      },
+      {
+        "comment": "Check the Gateway",
+        "command": "openclaw gateway status"
+      },
+      {
+        "comment": "Open the Control UI",
+        "command": "openclaw dashboard"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "OpenClaw is a personal AI assistant that runs on your own computer and talks to you in the chat apps you already use, such as WhatsApp, Telegram, Slack, Discord and iMessage. It also has native apps for macOS, iOS, Android, Windows and Linux.",
+      "problem": "Most AI assistants live in someone else's cloud and their own app. OpenClaw keeps state, memory and credentials on your hardware and brings the assistant into your existing chats, with the model (Claude, Codex or a local model) as a swappable plugin.",
+      "whoFor": [
+        "People who want a private AI assistant on their own machine",
+        "Users who want to chat with an assistant over WhatsApp, Telegram or Slack",
+        "Teams that want a shared assistant on one Gateway",
+        "Developers who want to extend an assistant with skills and plugins"
+      ],
+      "whyChoose": "Choose it if you want an assistant you host yourself that reaches you in many chat apps and lets you swap models. If you just want a chat window in the browser, a hosted assistant is simpler.",
+      "requirements": [
+        "macOS, Linux or Windows",
+        "Node.js (the installer provides it if needed; npm installs need Node 24.16.0+ or 26.1.0+)",
+        "Access to a model provider (hosted or local)",
+        "Accounts for the chat apps you connect"
+      ]
+    },
+    "overview": [
+      "OpenClaw runs a local Gateway, the control plane for sessions, tools, events and chat connections. You talk to it through its Control UI, CLI or terminal UI, or through channels like WhatsApp, Telegram, Slack, Discord, Google Chat, Signal and iMessage. Companion apps add voice, camera, screen and device actions on supported platforms.",
+      "Models and agent harnesses are plugins, so you can switch between hosted providers and local models without changing anything else. The README says OpenClaw itself only phones home for a daily version check by default; your prompts go to the model provider and chat platforms you set up.",
+      "It is developed in the open by the OpenClaw Foundation, an independent non-profit. Tools, skills and plugins extend what the assistant can do, and ClawHub is where plugins are shared."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Lives in your chat apps",
+        "body": "Connect WhatsApp, Telegram, Slack, Discord, Signal, iMessage and 20+ more channels."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Runs on your hardware",
+        "body": "State, memory and credentials stay on your machine."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Swappable models",
+        "body": "Use Claude, Codex or local models as plugins."
+      },
+      {
+        "icon": "file-code",
+        "title": "Control UI, CLI and TUI",
+        "body": "Manage and talk to the assistant from a dashboard or terminal."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Skills and plugins",
+        "body": "Extend the assistant with tools, skills and plugins from ClawHub."
+      },
+      {
+        "icon": "shield",
+        "title": "Pairing for unknown senders",
+        "body": "Direct-message channels require you to approve new senders by default."
+      }
+    ],
+    "strengths": [
+      "Self-hosted with your data on your own machine",
+      "Works in the chat apps people already use",
+      "Model-agnostic through plugins",
+      "MIT licensed with an independent foundation behind it"
+    ],
+    "limitations": [
+      "Tools run on the host by default unless you configure sandboxing",
+      "Exposing the Gateway to others needs careful security setup",
+      "You still pay for hosted model providers you connect"
+    ],
+    "useCases": [
+      {
+        "title": "Personal assistant in WhatsApp",
+        "body": "Message your own assistant from your phone while it runs at home."
+      },
+      {
+        "title": "Team assistant",
+        "body": "Run a shared multiplayer Gateway for a group."
+      },
+      {
+        "title": "Local-model assistant",
+        "body": "Pair it with a local model so prompts stay on your hardware."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from OpenClaw's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/openclaw/openclaw/blob/9b5cd15f26f13d59ec1aee6f2bab022ee0c0e91e/README.md",
+      "prerequisites": [
+        "Node.js (installed for you by the script)",
+        "A model provider account or local model"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "macOS / Linux / WSL2",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Run the installer",
+              "body": "It installs a supported Node.js if needed and starts onboarding.",
+              "code": "curl -fsSL https://openclaw.ai/install.sh | bash",
+              "lang": "bash"
+            },
+            {
+              "title": "Complete the onboarding wizard it opens"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Windows PowerShell",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Run the installer",
+              "code": "iwr -useb https://openclaw.ai/install.ps1 | iex",
+              "lang": "powershell"
+            },
+            {
+              "title": "Complete the onboarding wizard it opens"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "npm",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install the package",
+              "body": "For npm 11.16+ or 12. On npm 11.15 and earlier, leave out --allow-scripts=openclaw.",
+              "code": "npm install -g openclaw@latest --allow-scripts=openclaw",
+              "lang": "bash"
+            },
+            {
+              "title": "Run onboarding",
+              "code": "openclaw onboard --install-daemon",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Check the Gateway is running",
+          "code": "openclaw gateway status",
+          "lang": "bash"
+        },
+        {
+          "title": "Open the Control UI and send a message",
+          "code": "openclaw dashboard",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Set up OpenClaw and send your first message",
+      "useCase": "Install OpenClaw, connect a model and confirm the assistant answers.",
+      "setup": [
+        "A computer running macOS, Linux or Windows",
+        "Access to a model provider"
+      ],
+      "steps": [
+        {
+          "title": "Install",
+          "code": "curl -fsSL https://openclaw.ai/install.sh | bash",
+          "lang": "bash"
+        },
+        {
+          "title": "Finish onboarding",
+          "body": "Onboarding checks model access, creates the workspace and configures the Gateway. If you installed with npm, start it yourself.",
+          "code": "openclaw onboard --install-daemon",
+          "lang": "bash"
+        },
+        {
+          "title": "Check the Gateway",
+          "code": "openclaw gateway status",
+          "lang": "bash"
+        },
+        {
+          "title": "Open the Control UI",
+          "code": "openclaw dashboard",
+          "lang": "bash"
+        }
+      ],
+      "expected": "The Control UI opens, and a message you send there gets a reply from the assistant.",
+      "nextSteps": [
+        "Connect a chat app from the channels docs",
+        "Add skills or plugins",
+        "Read the security guide before connecting other users"
+      ],
+      "sourceUrl": "https://github.com/openclaw/openclaw/blob/9b5cd15f26f13d59ec1aee6f2bab022ee0c0e91e/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Hosted model providers bill you for usage; local models are free to run.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Unknown people can't message the assistant",
+        "solution": "Direct-message channels pair unknown senders by default. Approve them with openclaw pairing approve <channel> <code>.",
+        "sourceUrl": "https://github.com/openclaw/openclaw/blob/9b5cd15f26f13d59ec1aee6f2bab022ee0c0e91e/README.md"
+      },
+      {
+        "problem": "npm install fails on --allow-scripts",
+        "solution": "That flag needs npm 11.16+ or 12. On older npm, leave it out.",
+        "sourceUrl": "https://github.com/openclaw/openclaw/blob/9b5cd15f26f13d59ec1aee6f2bab022ee0c0e91e/README.md"
+      },
+      {
+        "problem": "Plain npm install fails when building from source",
+        "solution": "The repository is a pnpm workspace; use pnpm install, not npm install.",
+        "sourceUrl": "https://github.com/openclaw/openclaw/blob/9b5cd15f26f13d59ec1aee6f2bab022ee0c0e91e/README.md"
+      }
+    ],
+    "bestFor": [
+      "A private assistant in your chat apps",
+      "Self-hosters who want control of their data",
+      "Tinkerers extending an assistant with plugins"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Personal AI assistant"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Runs",
+        "value": "On your own machine"
+      }
+    ]
+  }
+}

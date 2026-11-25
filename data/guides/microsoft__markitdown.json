@@ -1,0 +1,239 @@
+{
+  "fullName": "microsoft/markitdown",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/microsoft/markitdown/blob/ed178952a6672abdfd35b5f9e76a80b6cefc086e/README.md"
+    ],
+    "sourceCommitSha": "ed178952a6672abdfd35b5f9e76a80b6cefc086e",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install with all file formats",
+        "command": "pip install 'markitdown[all]'"
+      },
+      {
+        "comment": "Convert a PDF to Markdown",
+        "command": "markitdown path-to-file.pdf -o document.md"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "MarkItDown is a small Python tool from Microsoft that converts files such as PDF, Word, PowerPoint, Excel, HTML, images and audio into Markdown. It is made for feeding documents into language models and text pipelines.",
+      "problem": "Language models work best with plain text that keeps headings, lists, tables and links. MarkItDown turns office documents and other files into that kind of Markdown, which is also token-efficient.",
+      "whoFor": [
+        "Developers building RAG or document pipelines",
+        "Anyone feeding PDFs or Office files to an LLM",
+        "Data teams extracting text from mixed file types",
+        "Python developers who need a simple converter"
+      ],
+      "whyChoose": "Choose it for a lightweight, well-known converter that covers many formats from one command or Python call. Its output is meant for machines; for high-fidelity documents meant for people, a dedicated converter may be better.",
+      "requirements": [
+        "Python 3.10 to 3.14",
+        "A virtual environment is recommended"
+      ]
+    },
+    "overview": [
+      "MarkItDown converts PDF, PowerPoint, Word, Excel, images (metadata and captions), audio (metadata and transcription), HTML, CSV, JSON, XML, ZIP files, YouTube URLs and EPubs into Markdown. It focuses on keeping structure such as headings, lists, tables and links.",
+      "You can use it as a command-line tool or as a Python library. Optional dependencies let you install only the formats you need, for example markitdown[pdf, docx, pptx]. Third-party plugins are supported but disabled by default.",
+      "The README notes that image captioning and speech transcription rely on web-hosted services, and that MarkItDown reads files with the permissions of the running process, so inputs should be sanitized in untrusted environments."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Many formats",
+        "body": "PDF, Word, PowerPoint, Excel, HTML, images, audio, EPub, ZIP and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "LLM-friendly output",
+        "body": "Keeps document structure in compact Markdown."
+      },
+      {
+        "icon": "puzzle",
+        "title": "CLI and Python API",
+        "body": "Convert from the terminal or in your own code."
+      },
+      {
+        "icon": "file-code",
+        "title": "Pick your formats",
+        "body": "Optional extras install only the converters you need."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Plugins",
+        "body": "Supports third-party plugins, off by default."
+      },
+      {
+        "icon": "shield",
+        "title": "Azure Document Intelligence",
+        "body": "Optional integration for higher-quality extraction."
+      }
+    ],
+    "strengths": [
+      "Simple to install and use",
+      "Covers a wide range of file types",
+      "Backed by Microsoft",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Output is for text analysis, not pixel-perfect conversions",
+      "Image captioning and transcription need web services",
+      "Reads anything the running process can access, so sanitize untrusted inputs"
+    ],
+    "useCases": [
+      {
+        "title": "Prepare documents for RAG",
+        "body": "Convert a folder of PDFs and Word files to Markdown before indexing."
+      },
+      {
+        "title": "Give an LLM a spreadsheet",
+        "body": "Turn an Excel file into a Markdown table for a prompt."
+      },
+      {
+        "title": "Transcribe audio to text",
+        "body": "Use the audio extra to get speech transcripts in Markdown."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from MarkItDown's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/microsoft/markitdown/blob/ed178952a6672abdfd35b5f9e76a80b6cefc086e/README.md",
+      "prerequisites": [
+        "Python 3.10–3.14"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Create a virtual environment",
+              "code": "python -m venv .venv\nsource .venv/bin/activate",
+              "lang": "bash"
+            },
+            {
+              "title": "Install MarkItDown with all formats",
+              "code": "pip install 'markitdown[all]'",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "From source",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone and install",
+              "code": "git clone git@github.com:microsoft/markitdown.git\ncd markitdown\npip install -e 'packages/markitdown[all]'",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Convert a file",
+          "code": "markitdown path-to-file.pdf > document.md",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Convert a PDF into Markdown for an LLM",
+      "useCase": "Turn a PDF into clean Markdown you can paste into a prompt or index for search.",
+      "setup": [
+        "Python 3.10–3.14",
+        "MarkItDown installed with pip install 'markitdown[all]'"
+      ],
+      "steps": [
+        {
+          "title": "Convert the file",
+          "code": "markitdown path-to-file.pdf -o document.md",
+          "lang": "bash"
+        },
+        {
+          "title": "Or pipe content in",
+          "code": "cat path-to-file.pdf | markitdown",
+          "lang": "bash"
+        },
+        {
+          "title": "Install only what you need next time",
+          "code": "pip install 'markitdown[pdf, docx, pptx]'",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A document.md file with the PDF's text and structure as Markdown.",
+      "nextSteps": [
+        "Use it from Python in your own pipeline",
+        "List plugins with markitdown --list-plugins",
+        "Try the Azure Document Intelligence extra for harder documents"
+      ],
+      "sourceUrl": "https://github.com/microsoft/markitdown/blob/ed178952a6672abdfd35b5f9e76a80b6cefc086e/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Optional services",
+        "value": "Image captioning, transcription and Azure integrations may use paid web services.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "A file format isn't converted",
+        "solution": "Install the matching optional dependency, such as markitdown[pdf] or markitdown[all].",
+        "sourceUrl": "https://github.com/microsoft/markitdown/blob/ed178952a6672abdfd35b5f9e76a80b6cefc086e/README.md"
+      },
+      {
+        "problem": "Dependency conflicts during install",
+        "solution": "Use a virtual environment (venv, uv or conda) as the README recommends.",
+        "sourceUrl": "https://github.com/microsoft/markitdown/blob/ed178952a6672abdfd35b5f9e76a80b6cefc086e/README.md"
+      },
+      {
+        "problem": "Plugins don't run",
+        "solution": "Plugins are disabled by default. Use --use-plugins.",
+        "sourceUrl": "https://github.com/microsoft/markitdown/blob/ed178952a6672abdfd35b5f9e76a80b6cefc086e/README.md"
+      }
+    ],
+    "bestFor": [
+      "Feeding documents to LLMs",
+      "RAG preprocessing",
+      "Quick file-to-text conversion"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "File-to-Markdown converter"
+      },
+      {
+        "label": "Maker",
+        "value": "Microsoft"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      }
+    ]
+  }
+}

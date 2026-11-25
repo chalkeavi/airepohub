@@ -2,6 +2,7 @@
 // (bypasses RLS) and only runs inside GitHub Actions. Tests use an in-memory implementation.
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import type { StatPoint } from "./growth.ts";
+import type { RepositoryContent } from "../types.ts";
 
 export type Period = "weekly" | "monthly" | "all_time";
 
@@ -103,6 +104,12 @@ export interface JobStore {
   /** Hide pages from search engines (seo_metadata.noindex) until they get reviewed content. */
   setNoindex(repositoryIds: string[]): Promise<void>;
   markQueueApproved(githubIds: number[]): Promise<void>;
+  /** Published repo ids keyed by lower-case owner/name. */
+  repoIdsByFullName(fullNames: string[]): Promise<Map<string, string>>;
+  /** Write a full product-page guide, publish it, and make the page indexable. */
+  saveGuide(repositoryId: string, content: RepositoryContent, summary?: string): Promise<void>;
+  /** Discovery-queue rows still waiting (status pending), most relevant first. */
+  listPendingQueue(limit: number): Promise<{ github_id: number; full_name: string; payload: Record<string, unknown> }[]>;
   /** Set summaries; with publishAt, also publish those rows (drafts waiting for a summary). */
   saveSummaries(rows: { id: string; summary: string }[], publishAt?: string): Promise<void>;
   /** Published repos that still have no summary, most-starred first. */
@@ -309,6 +316,97 @@ export class SupabaseJobStore implements JobStore {
     for (let i = 0; i < githubIds.length; i += 500) {
       check(await this.db.from("discovery_queue").update({ status: "approved" }).in("github_id", githubIds.slice(i, i + 500)), "queue approve");
     }
+  }
+
+  async repoIdsByFullName(fullNames: string[]) {
+    const out = new Map<string, string>();
+    for (let i = 0; i < fullNames.length; i += 200) {
+      const rows = check(
+        await this.db.from("repositories").select("id, full_name").eq("status", "published").in("full_name", fullNames.slice(i, i + 200)),
+        "repo ids by name",
+      ) as { id: string; full_name: string }[];
+      for (const r of rows) out.set(r.full_name.toLowerCase(), r.id);
+    }
+    return out;
+  }
+
+  async saveGuide(repositoryId: string, c: RepositoryContent, summary?: string) {
+    const sha = c.sourceCommitSha;
+    check(
+      await this.db.from("repository_content").upsert(
+        {
+          repository_id: repositoryId,
+          sixty_seconds: c.sixtySeconds,
+          features: c.features,
+          strengths: c.strengths,
+          limitations: c.limitations,
+          use_cases: c.useCases,
+          costs: c.costs,
+          troubleshooting: c.troubleshooting,
+          source_urls: c.sourceUrls,
+          source_commit_sha: sha,
+          last_reviewed_at: c.lastReviewedAt,
+          hero_commands: c.heroCommands,
+          overview: c.overview,
+          best_for: c.bestFor,
+          facts: c.facts,
+          install_meta: { verificationNote: c.install.verificationNote, supportedOs: c.install.supportedOs, firstRun: c.install.firstRun, sourceUrl: c.install.sourceUrl },
+        },
+        { onConflict: "repository_id" },
+      ),
+      "guide content",
+    );
+    // Replace the install guides wholesale so removed OS variants don't linger.
+    check(await this.db.from("installation_guides").delete().eq("repository_id", repositoryId), "clear install guides");
+    check(
+      await this.db.from("installation_guides").insert(
+        c.install.guides.map((g, i) => ({
+          repository_id: repositoryId,
+          operating_system: g.os,
+          method: g.method,
+          label: g.label,
+          sort_order: i,
+          prerequisites: c.install.prerequisites,
+          instructions: g.steps,
+          environment: c.install.environment,
+          expected_output: c.install.expectedOutput,
+          verification_status: c.install.verification,
+          source_url: c.install.sourceUrl,
+          source_commit_sha: sha,
+          last_reviewed_at: c.lastReviewedAt,
+          status: "published",
+        })),
+      ),
+      "install guides",
+    );
+    const t = c.tutorial;
+    const tSlug = t.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    check(await this.db.from("tutorials").delete().eq("repository_id", repositoryId), "clear tutorials");
+    check(
+      await this.db.from("tutorials").insert({
+        repository_id: repositoryId,
+        title: t.title,
+        slug: tSlug,
+        content: { useCase: t.useCase, setup: t.setup, steps: t.steps, expected: t.expected, nextSteps: t.nextSteps },
+        status: "published",
+        source_url: t.sourceUrl,
+      }),
+      "tutorial",
+    );
+    check(await this.db.from("seo_metadata").upsert({ repository_id: repositoryId, noindex: false }, { onConflict: "repository_id" }), "seo index");
+    if (summary) check(await this.db.from("repositories").update({ summary }).eq("id", repositoryId), "guide summary");
+  }
+
+  async listPendingQueue(limit: number) {
+    return check(
+      await this.db
+        .from("discovery_queue")
+        .select("github_id, full_name, payload")
+        .eq("status", "pending")
+        .order("relevance_score", { ascending: false })
+        .limit(limit),
+      "pending queue",
+    ) as { github_id: number; full_name: string; payload: Record<string, unknown> }[];
   }
 
   async saveSummaries(rows: { id: string; summary: string }[], publishAt?: string) {

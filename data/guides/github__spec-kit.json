@@ -1,0 +1,240 @@
+{
+  "fullName": "github/spec-kit",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/github/spec-kit/blob/f61648db96b5ac5eb65a54577865dafc2c830a7c/README.md"
+    ],
+    "sourceCommitSha": "f61648db96b5ac5eb65a54577865dafc2c830a7c",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install the Specify CLI",
+        "command": "uv tool install specify-cli"
+      },
+      {
+        "comment": "Create a project (GitHub Copilot example)",
+        "command": "specify init my-project --integration copilot"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Spec Kit is GitHub's open-source toolkit that gives AI coding agents structured processes. Its main process, Spec-Driven Development, turns a written specification into a plan, tasks and working code.",
+      "problem": "Asking an agent to 'just build it' often leads to code that misses what you meant. Spec Kit has you write what to build and why first, then has the agent plan, break work into tasks and implement step by step, with reviewable documents along the way.",
+      "whoFor": [
+        "Developers using GitHub Copilot, Claude Code or other coding agents",
+        "Teams that want agent work tied to written specs",
+        "Organisations that need to enforce standards through templates",
+        "People assessing whether an idea is worth building"
+      ],
+      "whyChoose": "Choose it if you want a structured, documented way to work with coding agents that many agents support. For quick one-off edits, the process may be more than you need.",
+      "requirements": [
+        "Python 3.11+",
+        "uv",
+        "A supported AI coding agent",
+        "Linux, macOS or Windows"
+      ]
+    },
+    "overview": [
+      "Spec Kit offers ready-made processes: Spec-Driven Development for building features, a bug-fixing process that records cause, fix and verification, and an idea-assessment process that ends in a go, clarify or stop decision. These are separate entry points, not required phases.",
+      "Spec-Driven Development runs as skills in your agent's chat: create a constitution of project principles once, then for each feature run specify, plan, tasks, implement and converge, reviewing each result before the next.",
+      "It is customisable. Integrations connect different coding agents, extensions add commands and quality gates, presets change templates or enforce standards, workflows automate steps, and catalogs let teams share approved components. The README notes catalog listings are not audits, so review community code before installing."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Spec-Driven Development",
+        "body": "Specification to plan, tasks and working code."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Bug fixing process",
+        "body": "Assessed cause, scoped fix and recorded verification."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Idea assessment",
+        "body": "An evidence-backed go, clarify or stop decision."
+      },
+      {
+        "icon": "file-code",
+        "title": "Works with many agents",
+        "body": "Integrations for Copilot and other coding agents."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Extensions and presets",
+        "body": "Add commands, gates or enforce organisational standards."
+      },
+      {
+        "icon": "shield",
+        "title": "Catalogs",
+        "body": "Discover community components or host a private catalog."
+      }
+    ],
+    "strengths": [
+      "Backed by GitHub",
+      "Leaves a written record of decisions",
+      "Highly customisable",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "More process than quick edits need",
+      "Skills syntax differs between agents",
+      "Community catalog components need your own review"
+    ],
+    "useCases": [
+      {
+        "title": "Build a small app from a spec",
+        "body": "Write what you want, then let the agent plan and implement it."
+      },
+      {
+        "title": "Fix a bug with a record",
+        "body": "Use the bug-fixing extension to document cause and fix."
+      },
+      {
+        "title": "Check an idea",
+        "body": "Run idea assessment before investing time."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Spec Kit's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/github/spec-kit/blob/f61648db96b5ac5eb65a54577865dafc2c830a7c/README.md",
+      "prerequisites": [
+        "Python 3.11+",
+        "uv"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install the Specify CLI",
+              "code": "uv tool install specify-cli",
+              "lang": "bash"
+            },
+            {
+              "title": "Create a project",
+              "body": "This example uses GitHub Copilot; other agents have their own integration key.",
+              "code": "specify init my-project --integration copilot\ncd my-project",
+              "lang": "bash"
+            },
+            {
+              "title": "Launch your coding agent in the project directory"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Set project principles in your agent's chat",
+          "code": "/speckit-constitution Create principles focused on code quality, testing, and maintainability.",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build a feature with Spec-Driven Development",
+      "useCase": "Go from an idea to working code with a spec, plan and tasks.",
+      "setup": [
+        "Spec Kit installed and a project created with specify init",
+        "Your coding agent open in the project"
+      ],
+      "steps": [
+        {
+          "title": "Create a constitution once",
+          "code": "/speckit-constitution Create principles focused on code quality, testing, and maintainability.",
+          "lang": "text"
+        },
+        {
+          "title": "Describe what to build",
+          "code": "/speckit-specify Build a photo organizer with albums grouped by date and a tile preview of each album.",
+          "lang": "text"
+        },
+        {
+          "title": "Choose the tech and plan",
+          "code": "/speckit-plan Use Vite with vanilla JavaScript. Keep images local and store metadata in SQLite.",
+          "lang": "text"
+        },
+        {
+          "title": "Break it into tasks, implement and converge",
+          "body": "Run these one at a time in the agent's chat, reviewing each result.",
+          "code": "/speckit-tasks\n/speckit-implement\n/speckit-converge",
+          "lang": "text"
+        }
+      ],
+      "expected": "A spec, plan and task list in your project, and working code built from them.",
+      "nextSteps": [
+        "Try the bug-fixing or idea-assessment extensions",
+        "Search extensions with specify extension search",
+        "Read the docs for other agents' invocation syntax"
+      ],
+      "sourceUrl": "https://github.com/github/spec-kit/blob/f61648db96b5ac5eb65a54577865dafc2c830a7c/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Coding agent",
+        "value": "Your agent's own subscription or API usage applies.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Skill commands aren't recognised",
+        "solution": "Each agent has its own invocation syntax; see the integrations docs. The README examples use GitHub Copilot.",
+        "sourceUrl": "https://github.com/github/spec-kit/blob/f61648db96b5ac5eb65a54577865dafc2c830a7c/README.md"
+      },
+      {
+        "problem": "Working with an existing codebase",
+        "solution": "Follow the existing projects guide in the docs.",
+        "sourceUrl": "https://github.com/github/spec-kit/blob/f61648db96b5ac5eb65a54577865dafc2c830a7c/README.md"
+      },
+      {
+        "problem": "Offline or behind a firewall",
+        "solution": "Use local sources and self-hosted catalogs as described in the docs.",
+        "sourceUrl": "https://github.com/github/spec-kit/blob/f61648db96b5ac5eb65a54577865dafc2c830a7c/README.md"
+      }
+    ],
+    "bestFor": [
+      "Structured agent development",
+      "Teams that want specs and records",
+      "Customising agent processes"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent process toolkit"
+      },
+      {
+        "label": "Maker",
+        "value": "GitHub"
+      },
+      {
+        "label": "Language",
+        "value": "Python (CLI)"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      }
+    ]
+  }
+}

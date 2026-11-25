@@ -1,0 +1,271 @@
+{
+  "fullName": "thedotmack/claude-mem",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/thedotmack/claude-mem/blob/11fdec893eb4ece18ff946758e75e82c92aff71b/README.md"
+    ],
+    "sourceCommitSha": "11fdec893eb4ece18ff946758e75e82c92aff71b",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install for the agents on your machine",
+        "command": "npx claude-mem install"
+      },
+      {
+        "comment": "Check your setup",
+        "command": "npx claude-mem doctor"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Claude-Mem gives coding agents memory between sessions. A second agent takes notes while you work, and each new session starts with a short index of what matters, pulling in details only when needed.",
+      "problem": "Each new agent session starts from zero, re-reading the same files and repeating mistakes you already fixed. Claude-Mem records observations as you work and brings them back in later sessions.",
+      "whoFor": [
+        "Claude Code, Codex, Cursor and OpenCode users",
+        "Developers working on the same project over many sessions",
+        "Teams that want to share project knowledge",
+        "Anyone tired of re-explaining context to an agent"
+      ],
+      "whyChoose": "Choose it if you want automatic memory across sessions with local storage by default. Note that the hosted observer option is a paid service after a free trial; you can pick another provider instead.",
+      "requirements": [
+        "Node.js for npx",
+        "A supported agent (Claude Code, Codex, Cursor, OpenCode and 11 more)"
+      ]
+    },
+    "overview": [
+      "Claude-Mem runs an observer next to your agent that writes notes while it works. The next session opens with a compact, layered index of past observations, and the agent opens full details only when it needs them, to save tokens. A mem-search skill searches project history in three steps: index, timeline and details.",
+      "The installer finds supported agents on your machine and asks which to set up. Memory is stored in ~/.claude-mem on your computer; cloud sync is opt-in. Anonymous usage analytics are on by default and can be turned off with npx claude-mem telemetry disable. Anything wrapped in private tags is never stored.",
+      "The installer may ask you to sign in; choosing the hosted claude-mem observer starts a 30-day free trial. You can skip sign-in with an explicit --provider flag or CLAUDE_MEM_ONLINE_OPTIN=false. Optional TeamBrain lets team members share selected work."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Memory across sessions",
+        "body": "New sessions start with an index of past work."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Token-aware recall",
+        "body": "Details load only when the agent needs them."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Search your history",
+        "body": "mem-search finds past work by index, timeline and details."
+      },
+      {
+        "icon": "file-code",
+        "title": "Local by default",
+        "body": "Memory lives in ~/.claude-mem; cloud sync is opt-in."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Keep secrets out",
+        "body": "Wrap content in private tags and it's never stored."
+      },
+      {
+        "icon": "shield",
+        "title": "Many agents",
+        "body": "Claude Code, Codex, Cursor, OpenCode and more."
+      }
+    ],
+    "strengths": [
+      "Works automatically after install",
+      "Local storage by default",
+      "Built-in doctor command",
+      "Apache-2.0 license"
+    ],
+    "limitations": [
+      "Hosted observer is a paid service after a 30-day trial",
+      "Anonymous analytics are on until you disable them",
+      "npm install -g only installs the library, not the plugin"
+    ],
+    "useCases": [
+      {
+        "title": "Long-running projects",
+        "body": "Pick up where you left off without re-explaining."
+      },
+      {
+        "title": "Find a past fix",
+        "body": "Search what you and the agent did weeks ago."
+      },
+      {
+        "title": "Team knowledge",
+        "body": "Share selected findings with TeamBrain."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Claude-Mem's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/thedotmack/claude-mem/blob/11fdec893eb4ece18ff946758e75e82c92aff71b/README.md",
+      "prerequisites": [
+        "Node.js"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npx installer",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Run the installer",
+              "body": "It finds your agents and asks which to set up. To skip sign-in, pass --provider or set CLAUDE_MEM_ONLINE_OPTIN=false.",
+              "code": "npx claude-mem install",
+              "lang": "bash"
+            },
+            {
+              "title": "Turn off anonymous analytics (optional)",
+              "code": "npx claude-mem telemetry disable",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Claude Code marketplace",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace and install",
+              "code": "/plugin marketplace add thedotmack/claude-mem\n/plugin install claude-mem",
+              "lang": "text"
+            },
+            {
+              "title": "Restart Claude Code"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "OpenCode",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install for OpenCode 1.3.4+",
+              "code": "npx claude-mem install --ide opencode",
+              "lang": "bash"
+            },
+            {
+              "title": "Restart OpenCode"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "CLAUDE_MEM_ONLINE_OPTIN",
+          "required": false,
+          "description": "Set to false to skip the online sign-in during install."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Check everything is working",
+          "code": "npx claude-mem doctor",
+          "lang": "bash"
+        },
+        {
+          "title": "Start your agent and work as usual",
+          "body": "Your second session in a project opens with memory from the first."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Give Claude Code memory between sessions",
+      "useCase": "Install Claude-Mem and see context carry over to a new session.",
+      "setup": [
+        "Claude Code installed",
+        "Node.js"
+      ],
+      "steps": [
+        {
+          "title": "Install",
+          "code": "npx claude-mem install",
+          "lang": "bash"
+        },
+        {
+          "title": "Work on a project in Claude Code",
+          "body": "Observations stream in from your first prompt."
+        },
+        {
+          "title": "Start a new session in the same project",
+          "body": "It opens with an index of what happened last time."
+        },
+        {
+          "title": "If something looks wrong, run the doctor",
+          "code": "npx claude-mem doctor",
+          "lang": "bash"
+        }
+      ],
+      "expected": "The new session starts with a short summary of past observations, and the agent can search for details.",
+      "nextSteps": [
+        "Wrap secrets in private tags",
+        "Disable telemetry if you prefer",
+        "Read the configuration docs"
+      ],
+      "sourceUrl": "https://github.com/thedotmack/claude-mem/blob/11fdec893eb4ece18ff946758e75e82c92aff71b/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Local memory",
+        "value": "Free with your own provider.",
+        "tone": "free"
+      },
+      {
+        "label": "claude-mem observer",
+        "value": "Hosted service with a 30-day free trial, then paid.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Plugin doesn't work after npm install -g",
+        "solution": "That installs only the library. Use npx claude-mem install.",
+        "sourceUrl": "https://github.com/thedotmack/claude-mem/blob/11fdec893eb4ece18ff946758e75e82c92aff71b/README.md"
+      },
+      {
+        "problem": "Something isn't working",
+        "solution": "Run npx claude-mem doctor; it checks Bun, uv, the hook launcher and the worker.",
+        "sourceUrl": "https://github.com/thedotmack/claude-mem/blob/11fdec893eb4ece18ff946758e75e82c92aff71b/README.md"
+      },
+      {
+        "problem": "Don't want an account",
+        "solution": "Pass --provider or set CLAUDE_MEM_ONLINE_OPTIN=false during install.",
+        "sourceUrl": "https://github.com/thedotmack/claude-mem/blob/11fdec893eb4ece18ff946758e75e82c92aff71b/README.md"
+      }
+    ],
+    "bestFor": [
+      "Persistent agent memory",
+      "Long-running projects",
+      "Sharing project knowledge"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent memory plugin"
+      },
+      {
+        "label": "Works with",
+        "value": "Claude Code, Codex, Cursor, OpenCode and more"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Storage",
+        "value": "Local (~/.claude-mem)"
+      }
+    ]
+  }
+}

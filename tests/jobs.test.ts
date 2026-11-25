@@ -69,6 +69,10 @@ class MemStore implements JobStore {
     }
   }
   async listUnsummarized() { return []; }
+  guides = new Map<string, unknown>();
+  async repoIdsByFullName(names: string[]) { return new Map(names.map((n) => [n.toLowerCase(), `id-${n.toLowerCase()}`])); }
+  async saveGuide(id: string, content: unknown) { this.guides.set(id, content); }
+  listPendingQueue = async (): Promise<{ github_id: number; full_name: string; payload: Record<string, unknown> }[]> => [];
   async startRun(job: string) { this.runs.push({ job }); return String(this.runs.length); }
   async finishRun(id: string | null, result: RunResult) { this.runs[Number(id) - 1].result = result; }
 }
@@ -343,5 +347,50 @@ describe("summaries", () => {
     expect(store.publishedAt.get("new10")).toBe(NOW.toISOString());
     expect(s.processed).toBe(1);
     expect(s.details.left_as_draft).toBe(0);
+  });
+});
+
+describe("daily queue publisher", () => {
+  it("publishes queued repos that have a summary and leaves the rest pending", async () => {
+    const { runPublishQueue } = await import("@/lib/jobs/importer");
+    const { toRepoUpdate } = await import("@/lib/jobs/jobs");
+    const store = new MemStore();
+    const payload = (g: GithubRepo) => ({ ...toRepoUpdate(g, NOW.toISOString()), github_id: g.id, created_at_github: g.created_at });
+    store.listPendingQueue = async () => [
+      { github_id: 20, full_name: "o/r20", payload: payload(gh(20)) },
+      { github_id: 21, full_name: "o/r21", payload: payload(gh(21)) },
+    ];
+    for (const id of [20, 21]) store.queue.set(id, { github_id: id, full_name: `o/r${id}`, github_url: "", payload: {}, relevance_score: 0.5, relevance_reasons: [], run_id: null });
+    const s = await runPublishQueue(
+      { store, github: fakeGithub({}), now: NOW },
+      new FileSummarizer({ "o/r20": "Framework for building AI agent apps with large language models in Python." }),
+      { noindex: true },
+    );
+    expect(s.processed).toBe(1);
+    expect(store.inserted.map((r) => r.full_name)).toEqual(["o/r20"]);
+    expect(store.approved).toEqual([20]);
+    expect((s.details.published_list as { slug: string }[])[0].slug).toBe("r20");
+  });
+});
+
+describe("full guides", () => {
+  it("accepts the OpenSEO guide and publishes it", async () => {
+    const { openseoContent } = await import("@/lib/data/sample/content/openseo");
+    const { checkGuide, runPublishGuides } = await import("@/lib/jobs/guides");
+    const guide = { fullName: "vikasswebdev/OpenSEO", content: openseoContent };
+    expect(checkGuide(guide)).toEqual([]);
+    const store = new MemStore();
+    const s = await runPublishGuides({ store, github: fakeGithub({}), now: NOW }, [guide]);
+    expect(s.processed).toBe(1);
+    expect(store.guides.has("id-vikasswebdev/openseo")).toBe(true);
+  });
+
+  it("rejects 'verified' installs and guides without a pinned source", async () => {
+    const { openseoContent } = await import("@/lib/data/sample/content/openseo");
+    const { checkGuide } = await import("@/lib/jobs/guides");
+    const bad = { ...openseoContent, sourceCommitSha: "main", install: { ...openseoContent.install, verification: "verified" as const } };
+    const problems = checkGuide({ fullName: "vikasswebdev/OpenSEO", content: bad });
+    expect(problems.join(" ")).toMatch(/commit SHA/);
+    expect(problems.join(" ")).toMatch(/verified/);
   });
 });

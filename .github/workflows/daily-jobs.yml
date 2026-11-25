@@ -10,7 +10,7 @@ on:
       job:
         description: "Which job to run"
         type: choice
-        options: [daily, snapshot, rank, discover]
+        options: [daily, snapshot, rank, discover, publish-queue, publish-guides]
         default: daily
 
 permissions:

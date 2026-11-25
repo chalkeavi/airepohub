@@ -1,0 +1,254 @@
+{
+  "fullName": "nextlevelbuilder/ui-ux-pro-max-skill",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/8db36338810d0942567b97ce439affd1619fcf31/README.md"
+    ],
+    "sourceCommitSha": "8db36338810d0942567b97ce439affd1619fcf31",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install the CLI",
+        "command": "npm install -g ui-ux-pro-max-cli"
+      },
+      {
+        "comment": "Add the skill for Claude Code in your project",
+        "command": "uipro init --ai claude"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "UI UX Pro Max is a design skill for AI coding assistants. When you ask your agent to build an interface, it searches a built-in library of styles, colour palettes, font pairings and UX rules and generates a design system for your kind of product.",
+      "problem": "AI agents often produce generic-looking interfaces with weak accessibility. This skill gives the agent design knowledge, such as which style and colours fit a spa versus a fintech app, plus a checklist for contrast, focus states and responsive layouts.",
+      "whoFor": [
+        "Developers who build UIs with Claude Code, Cursor, Copilot or similar",
+        "Founders building landing pages and dashboards with AI",
+        "Designers who want consistent AI-generated UI",
+        "Teams using many different frontend stacks"
+      ],
+      "whyChoose": "Choose it if you want better-looking, more accessible UI from your agent without writing design rules yourself. A paid premium version adds brand, logo and asset work.",
+      "requirements": [
+        "Python 3.x for the search script (standard library only)",
+        "Node.js and npm for the uipro CLI",
+        "A supported AI coding assistant"
+      ]
+    },
+    "overview": [
+      "The skill bundles 80 searchable UI styles, 194 colour palettes matched to 194 product types, 74 font pairings, 25 chart types and 141 UX guidelines, with stack-specific advice for 22 frameworks including React, Next.js, Vue, SwiftUI, Flutter and shadcn/ui.",
+      "Its Design System Generator reads your request, for example a landing page for a beauty spa, and recommends a page pattern, style, colours, typography, effects, anti-patterns to avoid and a pre-delivery checklist. It uses a BM25 search engine over its data; the scripts install nothing and make no network calls.",
+      "In most assistants the skill activates on its own when you ask for UI work. In Kiro, Roo Code and KiloCode you call it with /ui-ux-pro-max. The uipro CLI installs it for more than 20 assistants."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Design system generator",
+        "body": "Recommends pattern, style, colours, fonts and effects for your product type."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Big design library",
+        "body": "80 styles, 194 palettes, 74 font pairings and 25 chart types."
+      },
+      {
+        "icon": "puzzle",
+        "title": "141 UX guidelines",
+        "body": "Accessibility rules, anti-patterns and resilient text layouts."
+      },
+      {
+        "icon": "file-code",
+        "title": "22 tech stacks",
+        "body": "Advice for React, Next.js, Vue, SwiftUI, Flutter, shadcn/ui and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Works in 20+ assistants",
+        "body": "Claude Code, Cursor, Windsurf, Copilot, Codex, Gemini CLI and others."
+      },
+      {
+        "icon": "shield",
+        "title": "Offline search",
+        "body": "Python search scripts with no network calls."
+      }
+    ],
+    "strengths": [
+      "Easy install across many assistants",
+      "Concrete, checkable design rules",
+      "Runs locally without extra services",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Recommendations are starting points; review them for your brand",
+      "Brand, logo and asset creation are only in the paid premium version",
+      "Older uipro-cli releases are stale; use ui-ux-pro-max-cli"
+    ],
+    "useCases": [
+      {
+        "title": "Landing page",
+        "body": "Ask for a landing page and get a matching style and palette."
+      },
+      {
+        "title": "Dashboard",
+        "body": "Get chart and layout guidance for an analytics dashboard."
+      },
+      {
+        "title": "Retheme an app",
+        "body": "Apply a new theme to an existing app with consistent tokens."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from UI UX Pro Max's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/8db36338810d0942567b97ce439affd1619fcf31/README.md",
+      "prerequisites": [
+        "Python 3",
+        "Node.js and npm"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "uipro CLI (recommended)",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install the CLI",
+              "code": "npm install -g ui-ux-pro-max-cli",
+              "lang": "bash"
+            },
+            {
+              "title": "Install the skill in your project",
+              "body": "Replace claude with your assistant, for example cursor, copilot, codex or gemini, or use all.",
+              "code": "cd /path/to/your/project\nuipro init --ai claude",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Claude Code marketplace",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace and install",
+              "code": "/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill\n/plugin install ui-ux-pro-max@ui-ux-pro-max-skill",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "GitHub CLI",
+          "method": "gh",
+          "steps": [
+            {
+              "title": "Install the skill",
+              "code": "gh skill install nextlevelbuilder/ui-ux-pro-max-skill .claude/skills/ui-ux-pro-max",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Check Python is available",
+          "code": "python3 --version",
+          "lang": "bash"
+        },
+        {
+          "title": "Ask your assistant for UI work",
+          "code": "Build a landing page for my SaaS product",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build a landing page with a generated design system",
+      "useCase": "Let your coding agent pick a fitting style and palette for a product and build the page.",
+      "setup": [
+        "The skill installed with uipro init",
+        "Python 3 available"
+      ],
+      "steps": [
+        {
+          "title": "Ask for the page in your assistant's chat",
+          "code": "Build a landing page for my SaaS product",
+          "lang": "text"
+        },
+        {
+          "title": "In Kiro, Roo Code or KiloCode, use the slash command",
+          "code": "/ui-ux-pro-max Build a landing page for my SaaS product",
+          "lang": "text"
+        },
+        {
+          "title": "Review the recommended design system",
+          "body": "Check the pattern, colours, fonts and the pre-delivery checklist before accepting."
+        }
+      ],
+      "expected": "A landing page built with a consistent style, palette and typography, plus a checklist covering contrast, focus states and responsive sizes.",
+      "nextSteps": [
+        "Try other prompts, like a healthcare analytics dashboard",
+        "Persist the design system with the master + overrides pattern",
+        "Read the stack-specific guidelines for your framework"
+      ],
+      "sourceUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/8db36338810d0942567b97ce439affd1619fcf31/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Basic version",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Premium version",
+        "value": "Paid; adds brand identity, logos, slides and asset creation.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "uipro: unknown command 'uninstall' or 'update'",
+        "solution": "Your CLI is outdated. Run npm install -g ui-ux-pro-max-cli@latest and retry.",
+        "sourceUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/8db36338810d0942567b97ce439affd1619fcf31/README.md"
+      },
+      {
+        "problem": "Claude Code says the response exceeded the output token maximum",
+        "solution": "Ask Claude to split the task and write large results to files, or raise CLAUDE_CODE_MAX_OUTPUT_TOKENS before starting a new session.",
+        "sourceUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/8db36338810d0942567b97ce439affd1619fcf31/README.md"
+      },
+      {
+        "problem": "Python not found",
+        "solution": "Install Python 3 from python.org or your OS package manager.",
+        "sourceUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/8db36338810d0942567b97ce439affd1619fcf31/README.md"
+      }
+    ],
+    "bestFor": [
+      "Better-looking AI-built UIs",
+      "Accessible design defaults",
+      "Teams using many frontend stacks"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent design skill"
+      },
+      {
+        "label": "Works with",
+        "value": "20+ coding assistants"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      }
+    ]
+  }
+}
