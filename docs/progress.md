@@ -29,7 +29,7 @@
 - Collections pages moved to Milestone 5.
 - Only OpenSEO has a full guide. Install guide is "Based on official documentation", not executed by us.
 - No admin accounts yet (`admin_users` empty); content edits need the dashboard or service role until M5.
-- Legal pages are placeholders. No sitemap/robots/JSON-LD/OG images yet (Milestone 3). Cloudflare build: M6.
+- Legal pages are placeholders. Cloudflare build: M6.
 
 ## Blockers / needs from owner
 - Homepage and admin wireframes, if you have them (admin needed for M5).
