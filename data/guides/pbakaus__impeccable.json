@@ -1,0 +1,259 @@
+{
+  "fullName": "pbakaus/impeccable",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/pbakaus/impeccable/blob/b49177d32788f2dc585c42831d845dacf1ebed2c/README.md"
+    ],
+    "sourceCommitSha": "b49177d32788f2dc585c42831d845dacf1ebed2c",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install from your project root",
+        "command": "npx impeccable install"
+      },
+      {
+        "comment": "Set up the project in your agent",
+        "command": "/impeccable init"
+      },
+      {
+        "comment": "Scan for design problems from the terminal",
+        "command": "npx impeccable detect src/"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Impeccable gives coding agents a vocabulary for design work. You steer with commands like polish, bolder and quieter, review with critique and audit, and a built-in detector catches the generic look of AI-made interfaces before it ships.",
+      "problem": "Without guidance, agents keep producing the same look: Inter everywhere, purple gradients, nested cards and low-contrast text. Impeccable gives specific commands for design changes and checks pages against 62 rules.",
+      "whoFor": [
+        "Developers building UIs with coding agents",
+        "Designers who want precise control over agent output",
+        "Teams that want design checks in CI",
+        "Anyone fixing a page that looks AI-generated"
+      ],
+      "whyChoose": "Choose it if you want to iterate on existing interfaces with clear design commands and automated checks. It's strongest on pages that already exist.",
+      "requirements": [
+        "Node.js (only for npx)",
+        "A supported agent: Claude Code, Cursor, Codex CLI, GitHub Copilot, Gemini CLI and more"
+      ]
+    },
+    "overview": [
+      "Run /impeccable init once per project: it reads your code, asks what it can't infer and writes PRODUCT.md, which later commands read. Then name a command and a target, such as /impeccable critique the onboarding flow or /impeccable polish settings. Narrow targets give better results.",
+      "There are 24 commands grouped as steer (bolder, quieter, distill, colorize, typeset, layout), review (critique for a scored UX review, audit for a technical report), finish (polish, harden, clarify, adapt, optimize), iterate live, and plan and set up. Live mode overlays your dev server so you can cycle through variants of an element.",
+      "The slop detector has 62 deterministic rules with no LLM or API key. It runs as a hook in your agent, or from the CLI and in CI with JSON, GitHub annotations or SARIF output. On Codex use $impeccable instead of the slash command."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Design commands",
+        "body": "bolder, quieter, polish, typeset, layout and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Critique and audit",
+        "body": "Scored UX review and ranked technical findings."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Slop detector",
+        "body": "62 deterministic rules, no LLM needed."
+      },
+      {
+        "icon": "file-code",
+        "title": "Live mode",
+        "body": "Pick an element in the browser and cycle through variants."
+      },
+      {
+        "icon": "git-compare",
+        "title": "CI integration",
+        "body": "JSON, GitHub annotations and SARIF output."
+      },
+      {
+        "icon": "shield",
+        "title": "Native apps",
+        "body": "Works from Apple HIG or Material 3 when set in PRODUCT.md."
+      }
+    ],
+    "strengths": [
+      "Precise words for design changes",
+      "Deterministic checks that run in CI",
+      "Works with many agents",
+      "Apache-2.0 license"
+    ],
+    "limitations": [
+      "Strongest on existing interfaces; new pages are harder",
+      "Hooks can run outside model approval in Claude Code",
+      "Fetches design directions from impeccable.style when a new design starts"
+    ],
+    "useCases": [
+      {
+        "title": "Fix a bland page",
+        "body": "Run /impeccable bolder on a section."
+      },
+      {
+        "title": "Pre-release check",
+        "body": "Run /impeccable audit and fix P0 issues."
+      },
+      {
+        "title": "Block slop in CI",
+        "body": "Add npx impeccable detect --sarif to your pipeline."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Impeccable's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/pbakaus/impeccable/blob/b49177d32788f2dc585c42831d845dacf1ebed2c/README.md",
+      "prerequisites": [
+        "Node.js for npx"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npx installer",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "It detects your tools, asks project or global, and offers the design hook. Accept the hook and reload your tool.",
+              "code": "npx impeccable install",
+              "lang": "bash"
+            },
+            {
+              "title": "Initialise in your agent",
+              "body": "On Codex use $impeccable init.",
+              "code": "/impeccable init",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Claude Code plugin",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace",
+              "body": "Then open /plugin and install Impeccable.",
+              "code": "/plugin marketplace add pbakaus/impeccable",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Team submodule",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Pin a version for the team",
+              "code": "git submodule add https://github.com/pbakaus/impeccable vendor/impeccable\nnpx impeccable link --source=vendor/impeccable --providers=claude,cursor",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Critique one part of your UI",
+          "code": "/impeccable critique the pricing cards",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Critique and polish a page with your agent",
+      "useCase": "Get a scored review of a UI section, then fix and polish it.",
+      "setup": [
+        "Impeccable installed",
+        "A project with a running UI"
+      ],
+      "steps": [
+        {
+          "title": "Initialise the project",
+          "code": "/impeccable init",
+          "lang": "text"
+        },
+        {
+          "title": "Critique a section",
+          "code": "/impeccable critique the onboarding flow",
+          "lang": "text"
+        },
+        {
+          "title": "Apply a direction",
+          "code": "/impeccable quieter the landing page",
+          "lang": "text"
+        },
+        {
+          "title": "Final pass",
+          "code": "/impeccable polish settings",
+          "lang": "text"
+        }
+      ],
+      "expected": "A ranked list of design issues and updated UI code that addresses them.",
+      "nextSteps": [
+        "Run npx impeccable detect src/ in CI",
+        "Try /impeccable live on your dev server",
+        "Run /impeccable doctor if hooks misbehave"
+      ],
+      "sourceUrl": "https://github.com/pbakaus/impeccable/blob/b49177d32788f2dc585c42831d845dacf1ebed2c/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Tool",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent usage",
+        "value": "Your agent's own plan or API usage applies.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Hooks don't run in Codex, Grok Build or Hermes",
+        "solution": "They need an extra trust step: approve the hook in /hooks (Codex) or run /hooks-trust (Grok Build).",
+        "sourceUrl": "https://github.com/pbakaus/impeccable/blob/b49177d32788f2dc585c42831d845dacf1ebed2c/README.md"
+      },
+      {
+        "problem": "Something seems broken",
+        "solution": "Run /impeccable doctor to find stale context files, unused settings and broken hooks.",
+        "sourceUrl": "https://github.com/pbakaus/impeccable/blob/b49177d32788f2dc585c42831d845dacf1ebed2c/README.md"
+      },
+      {
+        "problem": "Hook ran though I denied a command",
+        "solution": "In Claude Code, installed hooks run outside model approval. Review them before unattended runs.",
+        "sourceUrl": "https://github.com/pbakaus/impeccable/blob/b49177d32788f2dc585c42831d845dacf1ebed2c/README.md"
+      }
+    ],
+    "bestFor": [
+      "Improving AI-built interfaces",
+      "Design checks in CI",
+      "Agent-driven UI polish"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent design skill + detector"
+      },
+      {
+        "label": "Rules",
+        "value": "62 deterministic checks"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      }
+    ]
+  }
+}

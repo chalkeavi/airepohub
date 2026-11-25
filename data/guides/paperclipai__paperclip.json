@@ -1,0 +1,247 @@
+{
+  "fullName": "paperclipai/paperclip",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/paperclipai/paperclip/blob/f1dd9288d134c428784ab76306f56b4860ab3782/README.md"
+    ],
+    "sourceCommitSha": "f1dd9288d134c428784ab76306f56b4860ab3782",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Set up Paperclip (Node.js 24.11+)",
+        "command": "npx paperclipai@latest onboard --yes"
+      },
+      {
+        "comment": "Try an isolated test instance",
+        "command": "ANTHROPIC_API_KEY=... npx paperclipai test-drive"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Paperclip is an open-source app for managing a team of AI agents like a company. You set goals, give agents roles in an org chart, set budgets, and track their work and costs from one dashboard.",
+      "problem": "Running many coding agents at once quickly becomes chaos: you lose track of who is doing what and how much it costs. Paperclip adds a task manager, org chart, budgets and approval gates on top of your existing agents.",
+      "whoFor": [
+        "People running many Claude Code, Codex or OpenClaw agents at once",
+        "Founders experimenting with autonomous AI teams",
+        "Managers who want budgets and approvals for agent work",
+        "Teams mixing human and AI workers"
+      ],
+      "whyChoose": "Choose it if you want to coordinate several agents toward business goals with cost control and review gates. It manages agents you bring; it isn't an agent itself.",
+      "requirements": [
+        "Node.js 24.11 or newer",
+        "One or more agents (Claude Code, Codex, OpenClaw, Cursor, Gemini CLI and others)",
+        "API keys or subscriptions for those agents"
+      ]
+    },
+    "overview": [
+      "Paperclip is a Node.js server and React UI. It looks like a task manager, but underneath it has org charts, budgets, governance, goal alignment and agent coordination. You define a goal, hire a team of agents for roles like CEO, CTO or engineer, approve the strategy and budget, and monitor from the dashboard.",
+      "Any agent that can receive a heartbeat can join, including OpenClaw, Claude Code, Codex, Cursor, Gemini CLI, OpenCode and Hermes. Agents wake for assigned work, follow-ups or schedules, and delegation flows up and down the org chart. Tasks link to company goals so agents get the context behind their work.",
+      "Budgets can be set per company, agent or project, with alerts and automatic pauses at limits. Review and approval stages, multi-organization support, and task threads with plans, files and run history are built in. It is self-hosted and needs no Paperclip account; a cloud version has a waitlist."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Bring your own agent",
+        "body": "Any agent that can receive a heartbeat joins the org chart."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Goal alignment",
+        "body": "Tasks link to company goals so agents know why."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Heartbeats",
+        "body": "Agents wake for assigned work, messages or schedules."
+      },
+      {
+        "icon": "file-code",
+        "title": "Cost control",
+        "body": "Budgets per company, agent and project with alerts and pauses."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Governance",
+        "body": "Approval stages, hiring approvals, pause or stop work."
+      },
+      {
+        "icon": "shield",
+        "title": "Task threads",
+        "body": "Plans, blockers, files and run history attached to each task."
+      }
+    ],
+    "strengths": [
+      "Self-hosted with no account required",
+      "Works across many agent tools",
+      "Budgets and approvals for autonomous work",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Agent usage costs come from your own providers",
+      "A lot of structure for a single agent",
+      "Remote access needs authenticated mode or Docker deployment"
+    ],
+    "useCases": [
+      {
+        "title": "Run an AI side project",
+        "body": "Give agents roles and a budget and review their output."
+      },
+      {
+        "title": "Coordinate many terminals",
+        "body": "Replace a dozen Claude Code windows with one dashboard."
+      },
+      {
+        "title": "Govern agent spend",
+        "body": "Pause work automatically when a budget is hit."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Paperclip's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/paperclipai/paperclip/blob/f1dd9288d134c428784ab76306f56b4860ab3782/README.md",
+      "prerequisites": [
+        "Node.js 24.11+"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npx",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Run onboarding",
+              "body": "Uses trusted local loopback mode by default; data stays on your machine.",
+              "code": "npx paperclipai@latest onboard --yes",
+              "lang": "bash"
+            },
+            {
+              "title": "Edit settings later",
+              "code": "npx paperclipai configure",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Private network mode",
+          "method": "npx-bind",
+          "steps": [
+            {
+              "title": "Start in authenticated mode on your LAN or tailnet",
+              "code": "npx paperclipai@latest onboard --yes --bind lan\n# or:\nnpx paperclipai@latest onboard --yes --bind tailnet",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "required": false,
+          "description": "Used by test-drive with the default Claude harness."
+        },
+        {
+          "name": "OPENAI_API_KEY",
+          "required": false,
+          "description": "Used by test-drive with --harness codex."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Try a ready-made test instance with a CEO agent",
+          "code": "ANTHROPIC_API_KEY=... npx paperclipai test-drive",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Spin up a test company with a CEO agent",
+      "useCase": "Try Paperclip in an isolated instance before setting up your real one.",
+      "setup": [
+        "Node.js 24.11+",
+        "An Anthropic, OpenAI or OpenRouter API key"
+      ],
+      "steps": [
+        {
+          "title": "Start test-drive",
+          "body": "It stays in the foreground, creates a temporary data directory and opens the browser after setup.",
+          "code": "ANTHROPIC_API_KEY=... npx paperclipai test-drive",
+          "lang": "bash"
+        },
+        {
+          "title": "Or use Codex as the harness",
+          "code": "OPENAI_API_KEY=... npx paperclipai test-drive --harness codex",
+          "lang": "bash"
+        },
+        {
+          "title": "Set a goal and budget in the dashboard, then watch the agent work"
+        }
+      ],
+      "expected": "A local Paperclip dashboard with a CEO agent ready to take goals.",
+      "nextSteps": [
+        "Run onboard for a persistent instance",
+        "Add more agents to the org chart",
+        "Read the guided quickstart at docs.paperclip.ing"
+      ],
+      "sourceUrl": "https://github.com/paperclipai/paperclip/blob/f1dd9288d134c428784ab76306f56b4860ab3782/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and self-hosted.",
+        "tone": "free"
+      },
+      {
+        "label": "Agents",
+        "value": "Model and agent usage is billed by your providers.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "npx fails with E404 for paperclipai",
+        "solution": "A private registry in ~/.npmrc may be used. Run npx --registry https://registry.npmjs.org paperclipai@latest onboard --yes.",
+        "sourceUrl": "https://github.com/paperclipai/paperclip/blob/f1dd9288d134c428784ab76306f56b4860ab3782/README.md"
+      },
+      {
+        "problem": "Need remote access",
+        "solution": "Use authenticated mode with a private-network bind such as Tailscale, or deploy the server with Docker.",
+        "sourceUrl": "https://github.com/paperclipai/paperclip/blob/f1dd9288d134c428784ab76306f56b4860ab3782/README.md"
+      },
+      {
+        "problem": "Rerunning onboard didn't change settings",
+        "solution": "It keeps existing config. Use npx paperclipai configure.",
+        "sourceUrl": "https://github.com/paperclipai/paperclip/blob/f1dd9288d134c428784ab76306f56b4860ab3782/README.md"
+      }
+    ],
+    "bestFor": [
+      "Coordinating many AI agents",
+      "Budgeting agent work",
+      "Autonomous AI organizations"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent orchestration app"
+      },
+      {
+        "label": "Stack",
+        "value": "Node.js server, React UI"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      }
+    ]
+  }
+}

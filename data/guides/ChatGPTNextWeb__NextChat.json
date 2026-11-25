@@ -1,0 +1,299 @@
+{
+  "fullName": "ChatGPTNextWeb/NextChat",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ChatGPTNextWeb/NextChat/blob/1d3dc331512929a4b1d3e82354e72acce33b5c7a/README.md"
+    ],
+    "sourceCommitSha": "1d3dc331512929a4b1d3e82354e72acce33b5c7a",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Run it with Docker",
+        "command": "docker run -d -p 3000:3000 -e OPENAI_API_KEY=sk-xxxx -e CODE=your-password yidadaa/chatgpt-next-web"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "NextChat is a light, fast chat app for AI models such as GPT, Claude, Gemini and DeepSeek. You deploy your own copy on Vercel, Docker or a desktop app, add your API key, and get a ChatGPT-style interface.",
+      "problem": "Using several AI models usually means several paid chat apps. NextChat gives you one self-hosted interface that talks to the providers you have keys for, with chats stored locally in your browser.",
+      "whoFor": [
+        "People with API keys who want their own chat interface",
+        "Teams sharing one private chat app behind a password",
+        "Users of self-hosted models via LocalAI or similar",
+        "Anyone wanting a small desktop chat client"
+      ],
+      "whyChoose": "Choose it for a quick, free, self-hosted chat UI with one-click Vercel deploys and many providers. You pay the AI providers for usage through your own keys.",
+      "requirements": [
+        "An API key for at least one provider (OpenAI, Anthropic, Google and others)",
+        "Node.js 18+ for local development",
+        "Or Docker 20+, or a Vercel account"
+      ]
+    },
+    "overview": [
+      "NextChat (formerly ChatGPT Next Web) is a web chat client you host yourself. It supports OpenAI, Azure, Google Gemini, Anthropic, Baidu and other providers through environment variables, and is compatible with self-hosted models such as LocalAI.",
+      "Chats are stored locally in the browser. It renders markdown with LaTeX and mermaid, streams responses, compresses long chat history to save tokens, and lets you create prompt templates called masks. Plugins, artifacts and realtime chat are also supported, and MCP can be enabled at build time.",
+      "You can deploy it in one click on Vercel, run the Docker image, or download the small desktop app for Windows, macOS and Linux. A CODE environment variable adds a simple access password."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "One-click deploy",
+        "body": "Deploy your own copy on Vercel in about a minute."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Many providers",
+        "body": "OpenAI, Azure, Gemini, Anthropic and more through env variables."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Local storage",
+        "body": "Conversations are stored in your browser."
+      },
+      {
+        "icon": "file-code",
+        "title": "Prompt templates",
+        "body": "Create and share masks with predefined prompts."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Desktop app",
+        "body": "A small client for Windows, macOS and Linux."
+      },
+      {
+        "icon": "shield",
+        "title": "Access password",
+        "body": "Protect your deployment with the CODE variable."
+      }
+    ],
+    "strengths": [
+      "Very easy to deploy",
+      "Lightweight and fast",
+      "Works with many AI providers",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "You pay providers for API usage",
+      "The CODE password is basic access control",
+      "Vercel forks need manual steps to stay updated"
+    ],
+    "useCases": [
+      {
+        "title": "Personal AI chat",
+        "body": "Use your own API keys in one interface."
+      },
+      {
+        "title": "Team chat app",
+        "body": "Share one deployment protected by a password."
+      },
+      {
+        "title": "Self-hosted models",
+        "body": "Point BASE_URL at a compatible local server."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from NextChat's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ChatGPTNextWeb/NextChat/blob/1d3dc331512929a4b1d3e82354e72acce33b5c7a/README.md",
+      "prerequisites": [
+        "Docker 20+, or Node.js 18+ and yarn"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Pull and run the image",
+              "body": "Replace the key and password with your own.",
+              "code": "docker pull yidadaa/chatgpt-next-web\ndocker run -d -p 3000:3000 \\\n   -e OPENAI_API_KEY=sk-xxxx \\\n   -e CODE=your-password \\\n   yidadaa/chatgpt-next-web",
+              "lang": "bash"
+            },
+            {
+              "title": "Open http://localhost:3000"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Local development",
+          "method": "yarn",
+          "steps": [
+            {
+              "title": "Create .env.local in the project root",
+              "code": "OPENAI_API_KEY=",
+              "lang": "text"
+            },
+            {
+              "title": "Install and run",
+              "body": "Needs Node.js and yarn.",
+              "code": "yarn install\nyarn dev",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Vercel",
+          "method": "vercel",
+          "steps": [
+            {
+              "title": "Get an API key",
+              "body": "For example from platform.openai.com."
+            },
+            {
+              "title": "Deploy",
+              "body": "Use the Deploy with Vercel button in the README and fill in OPENAI_API_KEY and CODE."
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "OPENAI_API_KEY",
+          "required": true,
+          "description": "Your OpenAI key; join several with commas."
+        },
+        {
+          "name": "CODE",
+          "required": false,
+          "description": "Access passwords, separated by commas."
+        },
+        {
+          "name": "BASE_URL",
+          "required": false,
+          "description": "Override the OpenAI API URL, for example for a proxy."
+        },
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "required": false,
+          "description": "Key for Claude models."
+        },
+        {
+          "name": "GOOGLE_API_KEY",
+          "required": false,
+          "description": "Key for Gemini models."
+        },
+        {
+          "name": "ENABLE_MCP",
+          "required": false,
+          "description": "Set to true before building to enable MCP."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Start the container",
+          "code": "docker run -d -p 3000:3000 -e OPENAI_API_KEY=sk-xxxx -e CODE=your-password yidadaa/chatgpt-next-web",
+          "lang": "bash"
+        },
+        {
+          "title": "Open http://localhost:3000 and enter your access password"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your own NextChat with Docker",
+      "useCase": "Host a private chat app protected by a password.",
+      "setup": [
+        "Docker 20+",
+        "An OpenAI API key"
+      ],
+      "steps": [
+        {
+          "title": "Pull the image",
+          "code": "docker pull yidadaa/chatgpt-next-web",
+          "lang": "bash"
+        },
+        {
+          "title": "Start it with your key and a password",
+          "code": "docker run -d -p 3000:3000 \\\n   -e OPENAI_API_KEY=sk-xxxx \\\n   -e CODE=your-password \\\n   yidadaa/chatgpt-next-web",
+          "lang": "bash"
+        },
+        {
+          "title": "Open http://localhost:3000",
+          "body": "Enter the password in settings and start a chat."
+        }
+      ],
+      "expected": "NextChat runs on port 3000 and answers using your API key.",
+      "nextSteps": [
+        "Add ANTHROPIC_API_KEY or GOOGLE_API_KEY for more models",
+        "Create a mask (prompt template)",
+        "Deploy on Vercel for a public URL"
+      ],
+      "sourceUrl": "https://github.com/ChatGPTNextWeb/NextChat/blob/1d3dc331512929a4b1d3e82354e72acce33b5c7a/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "AI providers",
+        "value": "Usage is billed by the providers whose keys you add.",
+        "tone": "paid"
+      },
+      {
+        "label": "Hosting",
+        "value": "Vercel or your own server, depending on your plan.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Vercel keeps showing Updates Available",
+        "solution": "Delete the repo Vercel created, fork the project instead and redeploy, then enable Upstream Sync in the fork's Actions.",
+        "sourceUrl": "https://github.com/ChatGPTNextWeb/NextChat/blob/1d3dc331512929a4b1d3e82354e72acce33b5c7a/README.md"
+      },
+      {
+        "problem": "Upstream Sync fails",
+        "solution": "Update the fork manually using GitHub's syncing-a-fork steps.",
+        "sourceUrl": "https://github.com/ChatGPTNextWeb/NextChat/blob/1d3dc331512929a4b1d3e82354e72acce33b5c7a/README.md"
+      },
+      {
+        "problem": "Password changes don't apply",
+        "solution": "Redeploy after changing the CODE variable.",
+        "sourceUrl": "https://github.com/ChatGPTNextWeb/NextChat/blob/1d3dc331512929a4b1d3e82354e72acce33b5c7a/README.md"
+      },
+      {
+        "problem": "Can't reach the OpenAI API",
+        "solution": "Set BASE_URL to a proxy you trust.",
+        "sourceUrl": "https://github.com/ChatGPTNextWeb/NextChat/blob/1d3dc331512929a4b1d3e82354e72acce33b5c7a/README.md"
+      }
+    ],
+    "bestFor": [
+      "Self-hosted multi-provider chat",
+      "Quick private ChatGPT-style app",
+      "Lightweight desktop chat client"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI chat app"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Runs",
+        "value": "Vercel, Docker or desktop"
+      }
+    ]
+  }
+}

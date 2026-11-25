@@ -1,0 +1,262 @@
+{
+  "fullName": "lobehub/lobehub",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/lobehub/lobehub/blob/5489db114387bf2f3a2469e8d40c06b7448ad700/README.md"
+    ],
+    "sourceCommitSha": "5489db114387bf2f3a2469e8d40c06b7448ad700",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Download the setup files",
+        "command": "mkdir lobehub && cd lobehub\nbash <(curl -fsSL https://lobe.li/setup.sh) -l en"
+      },
+      {
+        "comment": "Start LobeHub",
+        "command": "docker compose up -d"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "LobeHub (formerly LobeChat) is a workspace for AI agents. You chat with a built-in agent or your own, give them skills, memory and tools, connect 40+ model providers, and add them to team chats like Slack, Discord and Telegram.",
+      "problem": "Most AI chat apps are single-user and forget everything. LobeHub lets agents take on tasks, work in parallel, keep memories and live in the chat tools your team already uses, either in LobeHub Cloud or on your own servers.",
+      "whoFor": [
+        "Teams that want AI agents in Slack, Discord or Telegram",
+        "People who want one interface for many model providers",
+        "Self-hosters who want to keep their data",
+        "Builders publishing agents, MCP servers and skills"
+      ],
+      "whyChoose": "Choose it for a polished, full-featured agent workspace you can self-host with Docker Compose. Its community license limits distributing modified versions commercially.",
+      "requirements": [
+        "Docker and Docker Compose (Linux, macOS, or Windows via WSL 2)",
+        "API keys for the model providers you use",
+        "Or a LobeHub Cloud account"
+      ]
+    },
+    "overview": [
+      "LobeHub is an agent workspace with a built-in agent, Lobe AI, that can chat, code, research and write. You can create your own agents with a system role, model, skills, connectors, web search and memory, and group several into an agent team that works sequentially, in parallel or as a debate.",
+      "Agents can take tasks and run them once or on a schedule, write long documents in Pages, answer from a resource library, and bring in external coding agents such as Claude Code or Codex. Channels connect your agents as bots on Discord, Slack, Telegram and other messengers, and a GitHub integration tracks their pull requests.",
+      "A marketplace on lobehub.com lists community agents, MCP servers and skills in the SKILL.md format. You can use LobeHub Cloud, apps for web, desktop and mobile, or self-host it with Docker Compose, which starts PostgreSQL, Redis, file storage, SearXNG search and the agent gateway."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Agents and agent teams",
+        "body": "Build agents with skills and memory, and group them into teams."
+      },
+      {
+        "icon": "scan-search",
+        "title": "40+ model providers",
+        "body": "Setup guides for providers, inference platforms and local models."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Team chat channels",
+        "body": "Run your agents as bots on Discord, Slack, Telegram and more."
+      },
+      {
+        "icon": "file-code",
+        "title": "Tasks and schedules",
+        "body": "Delegate work, track status and run tasks on a schedule."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Memory",
+        "body": "Structured memories you can review, edit and delete."
+      },
+      {
+        "icon": "shield",
+        "title": "Marketplace",
+        "body": "Community agents, MCP servers and skills."
+      }
+    ],
+    "strengths": [
+      "Feature-rich, polished interface",
+      "Self-hostable with one Docker Compose setup",
+      "Works with many model providers",
+      "Very large community"
+    ],
+    "limitations": [
+      "LobeHub Community License requires a commercial license to distribute modified derivative works",
+      "Self-hosting runs several services (PostgreSQL, Redis, storage)",
+      "Under active development, so features change often",
+      "Vercel deploys need a database, S3 storage and secrets set up first"
+    ],
+    "useCases": [
+      {
+        "title": "Team AI assistant",
+        "body": "Add an agent to your team's Slack or Discord."
+      },
+      {
+        "title": "Private ChatGPT alternative",
+        "body": "Self-host and connect your own API keys."
+      },
+      {
+        "title": "Agent teams",
+        "body": "Have several agents research or debate a topic together."
+      },
+      {
+        "title": "Scheduled reports",
+        "body": "Run an agent task on a schedule."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from LobeHub's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/lobehub/lobehub/blob/5489db114387bf2f3a2469e8d40c06b7448ad700/README.md",
+      "prerequisites": [
+        "Docker with Docker Compose"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows (WSL 2)"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker Compose",
+          "method": "docker-compose",
+          "steps": [
+            {
+              "title": "Create a folder and run the setup script",
+              "body": "The script downloads the Compose configuration.",
+              "code": "mkdir lobehub && cd lobehub\nbash <(curl -fsSL https://lobe.li/setup.sh) -l en",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the stack",
+              "code": "docker compose up -d",
+              "lang": "bash"
+            },
+            {
+              "title": "Open http://localhost:3210"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Local development",
+          "method": "pnpm",
+          "steps": [
+            {
+              "title": "Clone and install",
+              "code": "git clone https://github.com/lobehub/lobehub.git\ncd lobehub\npnpm install",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the full stack",
+              "body": "Needs pnpm and bun.",
+              "code": "bun run dev",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start LobeHub",
+          "code": "docker compose up -d",
+          "lang": "bash"
+        },
+        {
+          "title": "Open http://localhost:3210 and add a model provider key"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Self-host LobeHub with Docker Compose",
+      "useCase": "Run your own LobeHub with database, storage and search included.",
+      "setup": [
+        "Docker and Docker Compose",
+        "A model provider API key"
+      ],
+      "steps": [
+        {
+          "title": "Download the setup",
+          "code": "mkdir lobehub && cd lobehub\nbash <(curl -fsSL https://lobe.li/setup.sh) -l en",
+          "lang": "bash"
+        },
+        {
+          "title": "Start everything",
+          "code": "docker compose up -d",
+          "lang": "bash"
+        },
+        {
+          "title": "Open http://localhost:3210",
+          "body": "Add a model provider and start chatting with Lobe AI."
+        }
+      ],
+      "expected": "LobeHub runs locally with PostgreSQL, Redis, file storage and SearXNG search.",
+      "nextSteps": [
+        "Create your own agent with skills",
+        "Connect a Slack or Discord channel",
+        "Read the Docker Compose guide for domain and LAN setup"
+      ],
+      "sourceUrl": "https://github.com/lobehub/lobehub/blob/5489db114387bf2f3a2469e8d40c06b7448ad700/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "LobeHub Community License (Apache-2.0 based). Commercial use is allowed unmodified; distributing modified derivatives needs a commercial license.",
+        "tone": "depends"
+      },
+      {
+        "label": "Self-hosting",
+        "value": "Free software; you pay for your server.",
+        "tone": "depends"
+      },
+      {
+        "label": "LobeHub Cloud",
+        "value": "Hosted option; see lobehub.com for plans.",
+        "tone": "depends"
+      },
+      {
+        "label": "Model providers",
+        "value": "Billed by the providers you connect.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Running on Windows",
+        "solution": "Docker Compose setup runs on Windows through WSL 2.",
+        "sourceUrl": "https://github.com/lobehub/lobehub/blob/5489db114387bf2f3a2469e8d40c06b7448ad700/README.md"
+      },
+      {
+        "problem": "Vercel deploy fails",
+        "solution": "Vercel needs PostgreSQL, S3-compatible storage and a few secrets first; follow the Vercel guide in the docs.",
+        "sourceUrl": "https://github.com/lobehub/lobehub/blob/5489db114387bf2f3a2469e8d40c06b7448ad700/README.md"
+      },
+      {
+        "problem": "Need a domain or LAN access",
+        "solution": "The Docker Compose guide covers ports, LAN and domain modes.",
+        "sourceUrl": "https://github.com/lobehub/lobehub/blob/5489db114387bf2f3a2469e8d40c06b7448ad700/README.md"
+      }
+    ],
+    "bestFor": [
+      "Self-hosted AI agent workspace",
+      "Agents inside team chat",
+      "Multi-provider AI chat"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI agent workspace"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "LobeHub Community License"
+      },
+      {
+        "label": "Runs",
+        "value": "Cloud, desktop or self-hosted"
+      }
+    ]
+  }
+}

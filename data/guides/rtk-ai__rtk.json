@@ -1,0 +1,284 @@
+{
+  "fullName": "rtk-ai/rtk",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/rtk-ai/rtk/blob/97e68d5358aa5d91d1540ea64df58c9688bcf83d/README.md"
+    ],
+    "sourceCommitSha": "97e68d5358aa5d91d1540ea64df58c9688bcf83d",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install (macOS, or Linux with Homebrew)",
+        "command": "brew install rtk"
+      },
+      {
+        "comment": "Plug it into Claude Code",
+        "command": "rtk init -g"
+      },
+      {
+        "comment": "See what it saved",
+        "command": "rtk gain"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "RTK is a command-line tool that shrinks the output of shell commands before an AI coding agent reads it. Test runs, diffs, logs and builds become short summaries, which cuts the tokens your agent spends.",
+      "problem": "Coding agents read the full output of commands like git status or npm test, which wastes context and money. RTK hooks into the agent and rewrites those commands so the agent reads a compact version instead.",
+      "whoFor": [
+        "Claude Code, Codex, Cursor and Gemini CLI users",
+        "Developers who want lower AI agent bills",
+        "Teams running agents on large codebases",
+        "Anyone curious how many tokens commands waste"
+      ],
+      "whyChoose": "Choose it for a free, install-and-forget way to cut command output for 18 coding agents. Savings apply to command output only, which is one part of your total bill.",
+      "requirements": [
+        "macOS, Linux, or Windows (winget, WSL or Git Bash)",
+        "A supported AI coding agent"
+      ]
+    },
+    "overview": [
+      "After installing, rtk init adds a hook to your agent. When the agent runs git status, RTK runs rtk git status and the agent reads a few lines instead of dozens. It covers 100+ commands across Git, the GitHub CLI, Rust, JavaScript, Python, Go and more, in under 25 ms per command.",
+      "RTK promises never to block (if a filter fails you get the raw output and the original exit code), never to print more than the command did, and to say where the full output is when it cuts something. rtk bypass runs a command unfiltered, and rtk gain shows the savings recorded on your machine.",
+      "Pipelines go further: one file can hand big file reads to a cheaper model, compress more than shell output or make the agent write less. An optional proxy, under a separate BUSL-1.1 license, cleans API traffic. Telemetry is off by default."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Compressed command output",
+        "body": "Tests show failures only; git commands become short summaries."
+      },
+      {
+        "icon": "scan-search",
+        "title": "100+ commands",
+        "body": "Git, GitHub CLI, Cargo, npm, pytest, go test, docker and more."
+      },
+      {
+        "icon": "puzzle",
+        "title": "18 agents",
+        "body": "Hooks for Claude Code, Copilot, Cursor, Gemini CLI, Codex and others."
+      },
+      {
+        "icon": "file-code",
+        "title": "Savings dashboard",
+        "body": "rtk gain shows tokens saved per day and per command."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Safe by design",
+        "body": "Never blocks, never longer than the original, rtk bypass for raw output."
+      },
+      {
+        "icon": "shield",
+        "title": "Pipelines",
+        "body": "Optional rules to compress more or hand reads to a cheaper model."
+      }
+    ],
+    "strengths": [
+      "Install once, then nothing to learn",
+      "Fast, under 25 ms per command",
+      "Works across many agents",
+      "Apache-2.0 CLI, telemetry off by default"
+    ],
+    "limitations": [
+      "Only command output is compressed by default; built-in Read and Grep tools pass through",
+      "Another crate named rtk exists on crates.io, so check you have the right one",
+      "The proxy has a separate BUSL-1.1 license"
+    ],
+    "useCases": [
+      {
+        "title": "Cheaper Claude Code sessions",
+        "body": "Run rtk init -g and let test and git output shrink automatically."
+      },
+      {
+        "title": "Measure waste",
+        "body": "Use rtk discover to find commands that could be compressed."
+      },
+      {
+        "title": "Team cost control",
+        "body": "Roll it out to every developer's agent."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from RTK's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/rtk-ai/rtk/blob/97e68d5358aa5d91d1540ea64df58c9688bcf83d/README.md",
+      "prerequisites": [
+        "Homebrew, winget, or a shell with curl"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "Homebrew",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Also works on Linux with Homebrew.",
+              "code": "brew install rtk",
+              "lang": "bash"
+            },
+            {
+              "title": "Hook it into Claude Code",
+              "code": "rtk init -g",
+              "lang": "bash"
+            },
+            {
+              "title": "Restart your agent"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "winget",
+          "method": "winget",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "winget install rtk-ai.rtk",
+              "lang": "bash"
+            },
+            {
+              "title": "Hook it into your agent",
+              "code": "rtk init -g",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Run the install script",
+              "body": "Works on Linux, macOS, WSL and Git Bash.",
+              "code": "curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh | sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Hook it into Claude Code",
+              "code": "rtk init -g",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Check it is the right rtk",
+          "body": "This should show the savings dashboard, not command not found.",
+          "code": "rtk gain",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Cut your coding agent's command output",
+      "useCase": "Install RTK, connect it to your agent and check the savings.",
+      "setup": [
+        "A supported agent such as Claude Code"
+      ],
+      "steps": [
+        {
+          "title": "Install RTK",
+          "code": "brew install rtk",
+          "lang": "bash"
+        },
+        {
+          "title": "Connect it",
+          "body": "For other agents use the flag from the README table, for example --codex or --gemini.",
+          "code": "rtk init -g",
+          "lang": "bash"
+        },
+        {
+          "title": "Restart your agent and work as usual"
+        },
+        {
+          "title": "Check the savings",
+          "code": "rtk gain\nrtk gain --graph",
+          "lang": "bash"
+        }
+      ],
+      "expected": "Your agent's git and test commands return short summaries, and rtk gain shows the tokens saved.",
+      "nextSteps": [
+        "Run rtk discover to find missed savings",
+        "Use rtk bypass when you need full output",
+        "Try a built-in pipeline"
+      ],
+      "sourceUrl": "https://github.com/rtk-ai/rtk/blob/97e68d5358aa5d91d1540ea64df58c9688bcf83d/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0 for the CLI; the optional proxy is BUSL-1.1.",
+        "tone": "free"
+      },
+      {
+        "label": "RTK CLI",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "RTK Pro",
+        "value": "Optional paid control layer for teams.",
+        "tone": "paid"
+      },
+      {
+        "label": "Pipelines using another model",
+        "value": "That model's provider bills the calls.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "rtk gain says command not found or shows no dashboard",
+        "solution": "You may have a different crate named rtk. Reinstall from this project.",
+        "sourceUrl": "https://github.com/rtk-ai/rtk/blob/97e68d5358aa5d91d1540ea64df58c9688bcf83d/README.md"
+      },
+      {
+        "problem": "The agent still reads full output",
+        "solution": "Restart the agent after rtk init, and check your agent uses a hook rather than a rules file.",
+        "sourceUrl": "https://github.com/rtk-ai/rtk/blob/97e68d5358aa5d91d1540ea64df58c9688bcf83d/README.md"
+      },
+      {
+        "problem": "You need the uncut output",
+        "solution": "Run the command with rtk bypass, for example rtk bypass git log --oneline -20.",
+        "sourceUrl": "https://github.com/rtk-ai/rtk/blob/97e68d5358aa5d91d1540ea64df58c9688bcf83d/README.md"
+      },
+      {
+        "problem": "Does it break the prompt cache?",
+        "solution": "No; output is filtered once, before it enters the conversation.",
+        "sourceUrl": "https://github.com/rtk-ai/rtk/blob/97e68d5358aa5d91d1540ea64df58c9688bcf83d/README.md"
+      }
+    ],
+    "bestFor": [
+      "Lowering AI coding agent costs",
+      "Keeping agent context focused",
+      "Measuring token waste"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "CLI for AI coding agents"
+      },
+      {
+        "label": "Language",
+        "value": "Rust"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Agents",
+        "value": "18 supported"
+      }
+    ]
+  }
+}

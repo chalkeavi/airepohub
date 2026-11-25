@@ -1,0 +1,251 @@
+{
+  "fullName": "OpenHands/OpenHands",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/OpenHands/OpenHands/blob/adf71d626b81a0db00902e0d3edf2b00d2cf917c/README.md"
+    ],
+    "sourceCommitSha": "adf71d626b81a0db00902e0d3edf2b00d2cf917c",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install Agent Canvas (no sandbox)",
+        "command": "npm install -g @openhands/agent-canvas"
+      },
+      {
+        "comment": "Start the local stack",
+        "command": "agent-canvas"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "OpenHands Agent Canvas is a self-hosted control center for AI coding agents. It runs the open-source OpenHands agent and others like Claude Code, Codex and Gemini CLI, and lets you automate tasks that run on a schedule or from events in Slack, GitHub and Linear.",
+      "problem": "Coding agents usually live in one terminal on one laptop and stop when it sleeps. Agent Canvas lets you run agents locally, in Docker, on VMs or in the cloud, switch between those backends, and turn routine work into automations.",
+      "whoFor": [
+        "Developers who want a self-hosted agent workspace",
+        "Teams sharing an agent server for code review and dependency updates",
+        "People automating reports or issue triage",
+        "Users of Claude Code, Codex, Gemini CLI or OpenCode"
+      ],
+      "whyChoose": "Choose it if you want an open-source, self-hosted hub for several agents with automations. Use the Docker option unless you're comfortable giving the agent full access to your filesystem.",
+      "requirements": [
+        "Node.js 24+ and uv (no-sandbox option)",
+        "Or Docker Desktop / Docker Engine (sandboxed option)",
+        "An API key for the LLM you want to use"
+      ]
+    },
+    "overview": [
+      "Agent Canvas is a developer control center for starting agent conversations and automating everyday tasks, like reports that publish to Slack. It runs locally by default and can connect to several agent backends, such as Docker containers, VMs or company infrastructure, with optional OpenHands Cloud or Enterprise.",
+      "It runs the open-source OpenHands agent out of the box and supports third-party agents through the Agent Client Protocol (ACP), including Claude Code, Codex, Gemini CLI, Pi and OpenCode. You can bring any LLM.",
+      "Automations integrate with Slack, GitHub, Linear, Notion and more, and run on a schedule or in response to webhooks. The README recommends running the backend on a cloud server so agents keep working when your laptop is closed, and has a self-hosting guide covering security hardening."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Self-host your way",
+        "body": "Run agents locally, in Docker, on VMs or anywhere."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Switch backends",
+        "body": "Move between local, remote and cloud agents."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Automations",
+        "body": "Scheduled or webhook-triggered workflows."
+      },
+      {
+        "icon": "file-code",
+        "title": "Integrations",
+        "body": "Slack, GitHub, Linear, Notion and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Any model",
+        "body": "Bring your own LLM."
+      },
+      {
+        "icon": "shield",
+        "title": "Any ACP agent",
+        "body": "OpenHands, Claude Code, Codex, Gemini, Pi, OpenCode."
+      }
+    ],
+    "strengths": [
+      "Open source and self-hostable",
+      "Works with many agents and models",
+      "Automations built in",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "No-sandbox mode gives the agent full filesystem access",
+      "Server setups need security hardening",
+      "You pay for the LLMs you use"
+    ],
+    "useCases": [
+      {
+        "title": "Always-on agent server",
+        "body": "Run agents in the cloud and trigger them from Slack."
+      },
+      {
+        "title": "Team code review bot",
+        "body": "Share an agent server for reviews and dependency updates."
+      },
+      {
+        "title": "Daily reports",
+        "body": "Schedule an automation that posts to Slack."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from OpenHands's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/OpenHands/OpenHands/blob/adf71d626b81a0db00902e0d3edf2b00d2cf917c/README.md",
+      "prerequisites": [
+        "Node.js 24+ and uv, or Docker"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Without a sandbox",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Warning: this runs the agent server directly on your machine with full filesystem access.",
+              "code": "npm install -g @openhands/agent-canvas",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the full local stack",
+              "code": "agent-canvas",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker sandbox (macOS / Linux)",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Prepare a workspace",
+              "code": "export PROJECTS_PATH=\"$HOME/projects\"  # directory containing your project folders\nmkdir -p \"$PROJECTS_PATH\"",
+              "lang": "bash"
+            },
+            {
+              "title": "Start Agent Canvas",
+              "code": "docker run -it --rm \\\n  -p 127.0.0.1:8000:8000 \\\n  -e AGENT_CANVAS_ALLOW_LAN_SESSION_KEY=true \\\n  -v openhands-state:/home/openhands/.openhands \\\n  -v \"${PROJECTS_PATH}:/projects\" \\\n  ghcr.io/openhands/agent-canvas:1.45.0",
+              "lang": "bash"
+            },
+            {
+              "title": "Open http://localhost:8000/canvas"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start Agent Canvas",
+          "code": "agent-canvas",
+          "lang": "bash"
+        },
+        {
+          "title": "Add your LLM settings and start a conversation"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run OpenHands in a Docker sandbox",
+      "useCase": "Start Agent Canvas safely in Docker with your projects mounted.",
+      "setup": [
+        "Docker Desktop or Docker Engine",
+        "An LLM API key"
+      ],
+      "steps": [
+        {
+          "title": "Create a projects folder",
+          "code": "export PROJECTS_PATH=\"$HOME/projects\"\nmkdir -p \"$PROJECTS_PATH\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Run the container",
+          "code": "docker run -it --rm \\\n  -p 127.0.0.1:8000:8000 \\\n  -e AGENT_CANVAS_ALLOW_LAN_SESSION_KEY=true \\\n  -v openhands-state:/home/openhands/.openhands \\\n  -v \"${PROJECTS_PATH}:/projects\" \\\n  ghcr.io/openhands/agent-canvas:1.45.0",
+          "lang": "bash"
+        },
+        {
+          "title": "Open http://localhost:8000/canvas and configure your model"
+        }
+      ],
+      "expected": "Agent Canvas opens in your browser, with your projects available under /projects and state kept in the openhands-state volume.",
+      "nextSteps": [
+        "Create a scheduled automation",
+        "Connect Claude Code or Codex as an ACP agent",
+        "Read SELF_HOSTING.md before running on a server"
+      ],
+      "sourceUrl": "https://github.com/OpenHands/OpenHands/blob/adf71d626b81a0db00902e0d3edf2b00d2cf917c/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and self-hosted.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Your LLM provider charges for usage.",
+        "tone": "depends"
+      },
+      {
+        "label": "OpenHands Cloud",
+        "value": "Optional hosted option.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Permission denied on Linux Docker",
+        "solution": "uid 10001 in the container needs read/write access to the workspace. On SELinux hosts, the bind mount may need a :z or :Z label.",
+        "sourceUrl": "https://github.com/OpenHands/OpenHands/blob/adf71d626b81a0db00902e0d3edf2b00d2cf917c/README.md"
+      },
+      {
+        "problem": "State disappeared",
+        "solution": "Reuse the openhands-state volume; a fresh volume has no previous data.",
+        "sourceUrl": "https://github.com/OpenHands/OpenHands/blob/adf71d626b81a0db00902e0d3edf2b00d2cf917c/README.md"
+      },
+      {
+        "problem": "Want to split frontend and backend",
+        "solution": "Use agent-canvas --frontend-only or --backend-only.",
+        "sourceUrl": "https://github.com/OpenHands/OpenHands/blob/adf71d626b81a0db00902e0d3edf2b00d2cf917c/README.md"
+      }
+    ],
+    "bestFor": [
+      "Self-hosted agent workspace",
+      "Agent automations",
+      "Teams sharing agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent control center"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Runs",
+        "value": "Local, Docker, VM or cloud"
+      }
+    ]
+  }
+}

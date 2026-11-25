@@ -1,0 +1,229 @@
+{
+  "fullName": "tt-a1i/archify",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/tt-a1i/archify/blob/62f3a995eb26ee23f784bdea4a7992340078e9be/README.md"
+    ],
+    "sourceCommitSha": "62f3a995eb26ee23f784bdea4a7992340078e9be",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install the skill for Cursor",
+        "command": "npx -y skills@latest add https://archify.si --skill archify --agent cursor --global --copy --yes"
+      },
+      {
+        "comment": "Try it without installing (Codex)",
+        "command": "npx skills use tt-a1i/archify@archify --agent codex"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Archify is an agent skill that turns a description, a question or a code repository into an interactive HTML diagram or one-page explainer. You describe what you want to your coding agent and get a page you can explore, customise and share.",
+      "problem": "Explaining a system, a plan or a diagnosis in chat text is hard to follow. Archify has your agent produce validated diagrams and explainer pages with sources, steps and charts, saved as a single HTML file.",
+      "whoFor": [
+        "Developers documenting architecture",
+        "People explaining incidents or diagnoses",
+        "Learners mapping a topic",
+        "Anyone using Cursor, Claude Code, Codex or OpenCode"
+      ],
+      "whyChoose": "Choose it if you want shareable, interactive diagrams from your agent rather than static images or Mermaid snippets. No repository is required; you can start from a sentence.",
+      "requirements": [
+        "Node.js for npx",
+        "Cursor, Claude Code, Codex CLI, OpenCode or GitHub Copilot"
+      ]
+    },
+    "overview": [
+      "Archify turns ideas, questions and plans into interactive HTML. Ask your agent to diagram a web request or map a repository, then keep refining with follow-ups like adding authentication or highlighting a path. Diagrams from repositories link back to the source.",
+      "Ask for a one-page answer and Archify builds an explainer: conclusion first, one panel per question, with tables, steps, charts, code and diagrams. Claims cite numbered sources, and repository excerpts are pinned to a commit. Pages come in four styles with light and dark themes and can be exported as long images or printed to PDF.",
+      "Install it by asking your agent to read its llms.txt, or with the skills CLI for one or several agents. It may check a fixed stable manifest to show an optional update reminder, but never downloads updates itself."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Interactive diagrams",
+        "body": "Explore, filter and trace paths in HTML."
+      },
+      {
+        "icon": "scan-search",
+        "title": "One-page explainers",
+        "body": "Conclusion first, then panels with sources."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Source-backed repo maps",
+        "body": "Diagram a codebase with links to the code."
+      },
+      {
+        "icon": "file-code",
+        "title": "Share anywhere",
+        "body": "One HTML file; export PNG, WebP, JPG or PDF."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Iterate in chat",
+        "body": "Refine with follow-ups like highlight a path."
+      },
+      {
+        "icon": "shield",
+        "title": "Many agents",
+        "body": "Cursor, Claude Code, Codex, OpenCode, Copilot."
+      }
+    ],
+    "strengths": [
+      "No repository needed to start",
+      "Pages cite their sources",
+      "Single shareable HTML output",
+      "Apache-2.0 license"
+    ],
+    "limitations": [
+      "Quality depends on your agent's model",
+      "Sponsor services listed in the README are third-party",
+      "Complex systems may need several refinement rounds"
+    ],
+    "useCases": [
+      {
+        "title": "Explain a request flow",
+        "body": "Diagram browser, API, cache and database steps."
+      },
+      {
+        "title": "Write an incident explainer",
+        "body": "Turn a latency problem into a one-page diagnosis."
+      },
+      {
+        "title": "Map a repository",
+        "body": "Get a source-backed architecture diagram."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Archify's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/tt-a1i/archify/blob/62f3a995eb26ee23f784bdea4a7992340078e9be/README.md",
+      "prerequisites": [
+        "Node.js",
+        "A supported agent"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Ask your agent",
+          "method": "agent",
+          "steps": [
+            {
+              "title": "Paste this to your agent",
+              "code": "Install Archify for me by reading https://raw.githubusercontent.com/tt-a1i/archify/main/llms.txt",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "skills CLI",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install for Cursor",
+              "code": "npx -y skills@latest add https://archify.si --skill archify --agent cursor --global --copy --yes",
+              "lang": "bash"
+            },
+            {
+              "title": "Or for all five agents",
+              "code": "npx -y skills@latest add https://archify.si --skill archify --agent cursor --agent codex --agent claude-code --agent opencode --agent github-copilot --global --copy --yes",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Ask for a diagram",
+          "code": "Use Archify to diagram a web request: Browser calls the API,\nthe API checks Redis, and a cache miss queries PostgreSQL and fills the cache.",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Diagram a cache-miss flow and refine it",
+      "useCase": "Create an interactive architecture diagram from one sentence.",
+      "setup": [
+        "Archify installed in your agent"
+      ],
+      "steps": [
+        {
+          "title": "Describe the system",
+          "code": "Use Archify to diagram a web request: Browser calls the API,\nthe API checks Redis, and a cache miss queries PostgreSQL and fills the cache.",
+          "lang": "text"
+        },
+        {
+          "title": "Refine it",
+          "body": "Ask for 'Add authentication', 'Highlight the cache-miss path', or 'Switch to the light theme'."
+        },
+        {
+          "title": "Ask a question as a page",
+          "code": "Use Archify to answer as one page: our API's P99 went from 80 ms to 600 ms\nwhile the mean barely moved. What is the likely cause, and how should we investigate?",
+          "lang": "text"
+        }
+      ],
+      "expected": "An HTML diagram you can explore and share, and a one-page explainer with sources.",
+      "nextSteps": [
+        "Map your own repository",
+        "Export a long image or PDF",
+        "Browse the live demos at archify.si"
+      ],
+      "sourceUrl": "https://github.com/tt-a1i/archify/blob/62f3a995eb26ee23f784bdea4a7992340078e9be/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Skill",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent usage",
+        "value": "Your agent's own plan or API usage applies.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Not sure which install command to use",
+        "solution": "Use the agent switcher at archify.si/start.html, or ask your agent to read llms.txt.",
+        "sourceUrl": "https://github.com/tt-a1i/archify/blob/62f3a995eb26ee23f784bdea4a7992340078e9be/README.md"
+      },
+      {
+        "problem": "Want to try before installing",
+        "solution": "Use npx skills use tt-a1i/archify@archify --agent codex.",
+        "sourceUrl": "https://github.com/tt-a1i/archify/blob/62f3a995eb26ee23f784bdea4a7992340078e9be/README.md"
+      }
+    ],
+    "bestFor": [
+      "Architecture diagrams from agents",
+      "Shareable explainers",
+      "Visualising plans and flows"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent diagram skill"
+      },
+      {
+        "label": "Output",
+        "value": "Interactive HTML"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      }
+    ]
+  }
+}

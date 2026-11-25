@@ -1,0 +1,247 @@
+{
+  "fullName": "debpalash/VoiceStudio",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/debpalash/VoiceStudio/blob/202e2139814897a438541c707668e6ae90c159d2/README.md"
+    ],
+    "sourceCommitSha": "202e2139814897a438541c707668e6ae90c159d2",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install on macOS or Linux",
+        "command": "curl -fsSL https://voicestudio.sh/install | sh"
+      },
+      {
+        "comment": "Install on Windows (PowerShell)",
+        "command": "irm https://voicestudio.sh/install.ps1 | iex"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "VoiceStudio is a desktop AI voice app that runs on your own device. It can clone voices, design new voices from a description, dub videos into other languages, transcribe, dictate and narrate audiobooks.",
+      "problem": "Most AI voice tools are cloud services that charge per minute and need your audio uploaded. VoiceStudio runs the models locally, so you choose the engines, download only what you need and keep your recordings on your machine.",
+      "whoFor": [
+        "Creators narrating videos, stories or audiobooks",
+        "People dubbing videos into other languages",
+        "Writers and developers who want local dictation and transcription",
+        "Developers automating voice work through an API or MCP"
+      ],
+      "whyChoose": "Choose it if you want a free, local voice studio with many engines in one app. Check each model's license: the default OmniVoice weights are non-commercial.",
+      "requirements": [
+        "macOS 13.3+ on Apple Silicon, Windows 10/11 x64, or Linux x64",
+        "An NVIDIA GPU helps (AMD ROCm on Windows is opt-in); CPU works too",
+        "Disk space for the voice models you download"
+      ]
+    },
+    "overview": [
+      "VoiceStudio bundles voice cloning from a clean reference recording, video dubbing with speech timed to the original, voice design from a text description, a floating dictation widget, local transcription, and narration with queued batch jobs. The README says it covers 646 languages.",
+      "It starts with the VoiceStudio engine (powered by k2-fsa/OmniVoice) and lets you pick other engines in its Model Manager, downloading only the models you need. A local API, MCP server, reusable recipes and watch folders let you automate it.",
+      "The app is free under AGPL-3.0 and needs no account. VoiceStudio Pro is an optional paid closed-source build with a commercial license for client work across several machines, and VoiceStudio Cloud is a hosted API that isn't available yet. Neither license covers model weights."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Voice cloning",
+        "body": "Speech in a familiar voice from a clean reference recording."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Video dubbing",
+        "body": "Translate and dub videos with matched timing."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Voice design",
+        "body": "Describe a voice in words and generate it."
+      },
+      {
+        "icon": "file-code",
+        "title": "Local models",
+        "body": "Choose engines and download only what you need."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Dictate and transcribe",
+        "body": "Floating dictation widget and local transcription."
+      },
+      {
+        "icon": "shield",
+        "title": "API and MCP",
+        "body": "Automate with a local API, MCP, recipes and watch folders."
+      }
+    ],
+    "strengths": [
+      "Runs locally with no account",
+      "Many voice engines in one app",
+      "Cross-platform installers",
+      "Free AGPL-3.0 app"
+    ],
+    "limitations": [
+      "Default OmniVoice weights are non-commercial (CC-BY-NC)",
+      "Intel Macs need a backend on another computer",
+      "Large models need disk space and a decent GPU for speed"
+    ],
+    "useCases": [
+      {
+        "title": "Narrate an audiobook",
+        "body": "Queue chapters as batch narration jobs."
+      },
+      {
+        "title": "Dub a video",
+        "body": "Translate a video and generate timed speech."
+      },
+      {
+        "title": "Local dictation",
+        "body": "Type by voice without sending audio to the cloud."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from VoiceStudio's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/debpalash/VoiceStudio/blob/202e2139814897a438541c707668e6ae90c159d2/README.md",
+      "prerequisites": [
+        "A supported OS"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Windows",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "macOS (Homebrew)",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install with Homebrew",
+              "code": "brew tap debpalash/tap\nbrew trust --cask debpalash/tap/voicestudio\nbrew install --cask debpalash/tap/voicestudio",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Windows (PowerShell)",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Run the installer",
+              "body": "Or download the Windows installer from the latest GitHub release.",
+              "code": "irm https://voicestudio.sh/install.ps1 | iex",
+              "lang": "powershell"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Linux",
+          "method": "script",
+          "steps": [
+            {
+              "title": "One-command installer",
+              "code": "curl -fsSL https://voicestudio.sh/install | sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Or on Arch / Manjaro (AUR)",
+              "code": "yay -S voicestudio-bin",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open VoiceStudio and pick an engine in the Model Manager",
+          "body": "The default is the VoiceStudio engine; download only the models you need."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Clone a voice and generate speech locally",
+      "useCase": "Turn a short clean recording into speech in the same voice, on your own computer.",
+      "setup": [
+        "VoiceStudio installed",
+        "A clean reference recording you have the right to use"
+      ],
+      "steps": [
+        {
+          "title": "Open VoiceStudio and download the default model"
+        },
+        {
+          "title": "Choose Voice cloning and add your reference recording"
+        },
+        {
+          "title": "Type the text you want spoken and generate"
+        }
+      ],
+      "expected": "An audio file of the text in a voice close to the reference, generated without uploading your audio.",
+      "nextSteps": [
+        "Try voice design from a text description",
+        "Dub a video into another language",
+        "Connect the local API or MCP for automation"
+      ],
+      "sourceUrl": "https://github.com/debpalash/VoiceStudio/blob/202e2139814897a438541c707668e6ae90c159d2/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "AGPL-3.0, free including commercial use under its terms.",
+        "tone": "free"
+      },
+      {
+        "label": "App",
+        "value": "Free, no account needed.",
+        "tone": "free"
+      },
+      {
+        "label": "VoiceStudio Pro",
+        "value": "Paid commercial license and multi-device features.",
+        "tone": "paid"
+      },
+      {
+        "label": "Model weights",
+        "value": "Each model has its own license; the default OmniVoice weights are non-commercial.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "macOS says VoiceStudio is damaged",
+        "solution": "Gatekeeper blocked it; the download isn't broken. Follow the Gatekeeper fix in docs/install/macos.md.",
+        "sourceUrl": "https://github.com/debpalash/VoiceStudio/blob/202e2139814897a438541c707668e6ae90c159d2/README.md"
+      },
+      {
+        "problem": "Running on an Intel Mac",
+        "solution": "The UI runs on Intel, but local engines need a VoiceStudio backend on another computer.",
+        "sourceUrl": "https://github.com/debpalash/VoiceStudio/blob/202e2139814897a438541c707668e6ae90c159d2/README.md"
+      },
+      {
+        "problem": "AMD GPU on Windows",
+        "solution": "ROCm support is experimental and limited to selected RX 6000 GPUs; see docs/install/windows-rocm.md.",
+        "sourceUrl": "https://github.com/debpalash/VoiceStudio/blob/202e2139814897a438541c707668e6ae90c159d2/README.md"
+      }
+    ],
+    "bestFor": [
+      "Local voice cloning and narration",
+      "Video dubbing",
+      "Private dictation"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI voice studio (desktop)"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "Platforms",
+        "value": "macOS, Windows, Linux"
+      }
+    ]
+  }
+}

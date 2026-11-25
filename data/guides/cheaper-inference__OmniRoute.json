@@ -1,0 +1,239 @@
+{
+  "fullName": "cheaper-inference/OmniRoute",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/cheaper-inference/OmniRoute/blob/ae94881fcf543d1ee91d6af11f18b274280e0c53/README.md"
+    ],
+    "sourceCommitSha": "ae94881fcf543d1ee91d6af11f18b274280e0c53",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install globally",
+        "command": "npm install -g omniroute"
+      },
+      {
+        "comment": "Start the server",
+        "command": "omniroute serve"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "OmniRoute is a self-hosted AI gateway that routes requests to many model providers through one OpenAI-compatible endpoint. You connect your own provider accounts, including free tiers, and it picks a route and fails over when one runs out.",
+      "problem": "Using several AI providers means juggling SDKs, keys and rate limits, and free tiers run out at different times. OmniRoute puts them behind one local endpoint with quota-aware routing and fallback.",
+      "whoFor": [
+        "Developers who want one endpoint for many AI providers",
+        "People using Claude Code, Cursor or Cline with cheaper models",
+        "Hobbyists making the most of provider free tiers",
+        "Teams that want local control over AI routing"
+      ],
+      "whyChoose": "Choose it if you want to combine your own provider accounts behind one endpoint with automatic fallback. You still need eligible accounts; the README is clear its token figures are estimates of third-party free tiers, not a grant from OmniRoute.",
+      "requirements": [
+        "Node.js and npm (or Docker)",
+        "Accounts or API keys for the providers you connect"
+      ]
+    },
+    "overview": [
+      "OmniRoute runs on your machine or server and exposes an OpenAI-compatible API at http://localhost:20128/v1. You connect providers in its dashboard with your own accounts or keys, then point any app, IDE or coding agent at that one endpoint.",
+      "Combos and quota-aware scheduling route each request to an eligible provider and fall back when one hits a limit. The README catalogs hundreds of providers, many marked free, and re-audits its free-tier estimates every two weeks. Providers whose terms OmniRoute flags as ones to avoid are excluded from automatic routing.",
+      "It runs from npm, Docker, from source, or even on a phone through Termux. A headless mode runs only the proxy. It can also be exposed over MCP, A2A, a REST API, webhooks or a remote CLI."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "One endpoint",
+        "body": "OpenAI-compatible API for many providers."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Combos and fallback",
+        "body": "Route by availability and fail over automatically."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Quota tracking",
+        "body": "Live quota telemetry and quota-aware scheduling."
+      },
+      {
+        "icon": "file-code",
+        "title": "Free-tier catalog",
+        "body": "Estimates of available free tiers, re-audited regularly."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Works with coding agents",
+        "body": "Point Claude Code, Cursor, Cline and others at it."
+      },
+      {
+        "icon": "shield",
+        "title": "MCP and A2A",
+        "body": "Expose the gateway to agents."
+      }
+    ],
+    "strengths": [
+      "Self-hosted and local-first",
+      "Huge provider catalog",
+      "Automatic failover",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "You must sign up for and follow each provider's terms",
+      "A fresh install may have no eligible keyless routes",
+      "Free tiers change and can disappear"
+    ],
+    "useCases": [
+      {
+        "title": "Cheaper coding agents",
+        "body": "Point your IDE or CLI at OmniRoute to use low-cost models."
+      },
+      {
+        "title": "Resilient app backend",
+        "body": "Fail over between providers when one is down."
+      },
+      {
+        "title": "Compare models",
+        "body": "Route the same request to different providers."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from OmniRoute's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/cheaper-inference/OmniRoute/blob/ae94881fcf543d1ee91d6af11f18b274280e0c53/README.md",
+      "prerequisites": [
+        "Node.js and npm"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npm (global)",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install -g omniroute",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the server",
+              "code": "omniroute serve",
+              "lang": "bash"
+            },
+            {
+              "title": "Connect a provider in the dashboard",
+              "body": "Use your own account or API key, then copy your OmniRoute key from Dashboard → Endpoints."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Run the image",
+              "body": "Use the cheaperinference/omniroute image; see the README for the full docker run options."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Send a test request",
+          "code": "curl http://localhost:20128/v1/chat/completions \\\n  -H \"Authorization: Bearer YOUR_OMNIROUTE_KEY\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"model\":\"auto\",\"messages\":[{\"role\":\"user\",\"content\":\"Hello!\"}]}'",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Route your first request through OmniRoute",
+      "useCase": "Install OmniRoute, connect a provider and send a chat request.",
+      "setup": [
+        "Node.js and npm",
+        "An account or key for at least one provider"
+      ],
+      "steps": [
+        {
+          "title": "Install and start",
+          "code": "npm install -g omniroute\nomniroute serve",
+          "lang": "bash"
+        },
+        {
+          "title": "Connect a provider in the dashboard"
+        },
+        {
+          "title": "Copy your OmniRoute key from Dashboard → Endpoints"
+        },
+        {
+          "title": "Send a request",
+          "code": "curl http://localhost:20128/v1/chat/completions \\\n  -H \"Authorization: Bearer YOUR_OMNIROUTE_KEY\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"model\":\"auto\",\"messages\":[{\"role\":\"user\",\"content\":\"Hello!\"}]}'",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A chat completion response routed to one of your connected providers.",
+      "nextSteps": [
+        "Point your coding agent at http://localhost:20128/v1",
+        "Set up a combo with fallbacks",
+        "Try the quickstart scripts in examples/quickstart"
+      ],
+      "sourceUrl": "https://github.com/cheaper-inference/OmniRoute/blob/ae94881fcf543d1ee91d6af11f18b274280e0c53/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and self-hosted.",
+        "tone": "free"
+      },
+      {
+        "label": "Providers",
+        "value": "Free tiers have limits; paid usage is billed by each provider.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "model auto returns no route",
+        "solution": "auto needs an eligible route. Connect a provider first; a fresh install may have no keyless targets.",
+        "sourceUrl": "https://github.com/cheaper-inference/OmniRoute/blob/ae94881fcf543d1ee91d6af11f18b274280e0c53/README.md"
+      },
+      {
+        "problem": "A keyless provider rejects requests",
+        "solution": "Some providers reject third-party clients. Connect your own account or key.",
+        "sourceUrl": "https://github.com/cheaper-inference/OmniRoute/blob/ae94881fcf543d1ee91d6af11f18b274280e0c53/README.md"
+      },
+      {
+        "problem": "Want only the API, no dashboard",
+        "solution": "Run omniroute serve --headless.",
+        "sourceUrl": "https://github.com/cheaper-inference/OmniRoute/blob/ae94881fcf543d1ee91d6af11f18b274280e0c53/README.md"
+      }
+    ],
+    "bestFor": [
+      "One endpoint for many AI providers",
+      "Cheaper coding agents",
+      "Provider failover"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI gateway / router"
+      },
+      {
+        "label": "Endpoint",
+        "value": "localhost:20128/v1"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      }
+    ]
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "fullName": "OpenMontageInc/OpenMontage",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/OpenMontageInc/OpenMontage/blob/2e003e65fa99a0f329478a2c1cdcf26bc481933a/README.md"
+    ],
+    "sourceCommitSha": "2e003e65fa99a0f329478a2c1cdcf26bc481933a",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Clone and set up",
+        "command": "git clone https://github.com/calesthio/OpenMontage.git\ncd OpenMontage\nmake setup"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "OpenMontage is an open-source, agentic video production system. It turns an AI coding assistant like Claude Code or Cursor into a video studio: you describe a video in plain language and the agent researches, scripts, generates or finds footage, narrates, edits and renders it.",
+      "problem": "Making even a short explainer or trailer takes research, scripting, assets, voiceover, music and editing across many tools. OpenMontage runs that whole pipeline from your coding assistant, and can work from free stock footage and open archives as well as paid AI video models.",
+      "whoFor": [
+        "Creators making explainers, shorts and trailers",
+        "Developers who use Claude Code, Cursor, Copilot, Windsurf or Codex",
+        "Marketers producing product videos",
+        "Anyone wanting AI video without a closed platform"
+      ],
+      "whyChoose": "Choose it for a code-driven, transparent video pipeline that runs in the AI assistant you already use, with cost estimates before generation. Paid video and voice providers cost money per use.",
+      "requirements": [
+        "Python 3.10+",
+        "FFmpeg",
+        "Node.js 22.23.4+, 24.22.1+ or 26.12.1+",
+        "An AI coding assistant",
+        "Optional API keys for image, video, voice and music providers"
+      ]
+    },
+    "overview": [
+      "You open the project in your AI coding assistant and ask for a video, such as a 60-second animated explainer. The agent picks a pipeline, researches the topic with web search, writes and narrates the script, generates or finds images and footage, adds royalty-free music and word-level subtitles, and composes the result with Remotion.",
+      "It can also start from a reference video (a YouTube video, Short, Reel, TikTok or local clip), analyse its pacing and style, and propose two or three concepts with cost estimates and a sample before full production. A local board called Backlot shows the production live and pauses on a scene-by-scene contact sheet so you approve visuals before rendering.",
+      "All provider keys are optional; more keys unlock more tools. Supported providers include fal.ai (FLUX, Veo, Kling), Kling, ElevenLabs, OpenAI, Google, Suno and free stock sources like Pexels, Pixabay and Unsplash."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Prompt to finished video",
+        "body": "Research, script, assets, narration, music and edit in one run."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Start from a reference video",
+        "body": "Analyse a video you like and make something similar."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Real footage path",
+        "body": "Build videos from free stock footage and open archives."
+      },
+      {
+        "icon": "file-code",
+        "title": "Backlot storyboard",
+        "body": "A live board with an approval gate before rendering."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Cost estimates",
+        "body": "See what a video will cost before assets are generated."
+      },
+      {
+        "icon": "shield",
+        "title": "Many providers",
+        "body": "Image, video, voice and music APIs, all optional."
+      }
+    ],
+    "strengths": [
+      "Works inside the AI coding assistant you already use",
+      "Transparent pipeline with approval gates",
+      "Free footage option as well as AI generation",
+      "Cost shown before spending"
+    ],
+    "limitations": [
+      "AGPL-3.0 license has obligations for hosted modified versions",
+      "Paid AI video and voice providers can get expensive",
+      "Several prerequisites (Python, FFmpeg, Node.js)",
+      "Output quality depends on the providers and keys you have"
+    ],
+    "useCases": [
+      {
+        "title": "Explainer videos",
+        "body": "Ask for a 60-second animated explainer on a topic."
+      },
+      {
+        "title": "Documentary montage",
+        "body": "Make a real-footage montage with music and no narration."
+      },
+      {
+        "title": "Product films",
+        "body": "Turn approved product stills into a short film."
+      },
+      {
+        "title": "Remake a format",
+        "body": "Paste a Short you like and adapt it to your topic."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from OpenMontage's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/OpenMontageInc/OpenMontage/blob/2e003e65fa99a0f329478a2c1cdcf26bc481933a/README.md",
+      "prerequisites": [
+        "Python 3.10+",
+        "FFmpeg",
+        "Node.js",
+        "An AI coding assistant"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "make setup",
+          "method": "make",
+          "steps": [
+            {
+              "title": "Install FFmpeg",
+              "body": "For example brew install ffmpeg on macOS or sudo apt install ffmpeg on Linux."
+            },
+            {
+              "title": "Clone and set up",
+              "code": "git clone https://github.com/calesthio/OpenMontage.git\ncd OpenMontage\nmake setup",
+              "lang": "bash"
+            },
+            {
+              "title": "Optional: add API keys to .env",
+              "body": "Every key is optional; more keys mean more tools."
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Windows PowerShell (no make)",
+          "method": "powershell",
+          "steps": [
+            {
+              "title": "Follow the PowerShell setup line in the README",
+              "body": "It creates a virtual environment, installs the Python requirements and installs remotion-composer with npm."
+            },
+            {
+              "title": "If npm install fails with ERR_INVALID_ARG_TYPE",
+              "code": "npx --yes npm install",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "FAL_KEY",
+          "required": false,
+          "description": "fal.ai gateway for FLUX images and Veo, Kling and MiniMax video."
+        },
+        {
+          "name": "PEXELS_API_KEY",
+          "required": false,
+          "description": "Free stock footage and images."
+        },
+        {
+          "name": "ELEVENLABS_API_KEY",
+          "required": false,
+          "description": "Premium text-to-speech, music and sound effects."
+        },
+        {
+          "name": "OPENAI_API_KEY",
+          "required": false,
+          "description": "OpenAI text-to-speech and image generation."
+        },
+        {
+          "name": "GOOGLE_API_KEY",
+          "required": false,
+          "description": "Google Imagen images and Google TTS."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Open the folder in your AI coding assistant and ask",
+          "code": "Make a 60-second animated explainer about how neural networks learn",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Make your first AI explainer video",
+      "useCase": "Produce a short explainer from one prompt in your coding assistant.",
+      "setup": [
+        "OpenMontage set up (see Installation)",
+        "Claude Code, Cursor, Copilot, Windsurf or Codex"
+      ],
+      "steps": [
+        {
+          "title": "Open the OpenMontage folder in your assistant"
+        },
+        {
+          "title": "Ask for a video",
+          "code": "Make a 60-second animated explainer about how neural networks learn",
+          "lang": "text"
+        },
+        {
+          "title": "Watch the Backlot board",
+          "body": "Approve the scenes on the contact sheet before rendering."
+        }
+      ],
+      "expected": "The agent researches, scripts, narrates and renders a short explainer video, with costs shown before asset generation.",
+      "nextSteps": [
+        "Try the real-footage documentary prompt",
+        "Paste a reference video to adapt its style",
+        "Add more provider keys for more tools"
+      ],
+      "sourceUrl": "https://github.com/OpenMontageInc/OpenMontage/blob/2e003e65fa99a0f329478a2c1cdcf26bc481933a/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "AGPL-3.0. Free to use; sharing a modified hosted version requires sharing its source.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "AI providers",
+        "value": "Image, video, voice and music APIs bill per use; all are optional.",
+        "tone": "depends"
+      },
+      {
+        "label": "Stock footage",
+        "value": "Pexels, Pixabay and Unsplash keys are free.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "No make on your system",
+        "solution": "Use the manual venv and npm install commands in the README for macOS, Linux or PowerShell.",
+        "sourceUrl": "https://github.com/OpenMontageInc/OpenMontage/blob/2e003e65fa99a0f329478a2c1cdcf26bc481933a/README.md"
+      },
+      {
+        "problem": "npm install fails on Windows with ERR_INVALID_ARG_TYPE",
+        "solution": "Run npx --yes npm install instead.",
+        "sourceUrl": "https://github.com/OpenMontageInc/OpenMontage/blob/2e003e65fa99a0f329478a2c1cdcf26bc481933a/README.md"
+      },
+      {
+        "problem": "Certificate or pip errors in an existing environment",
+        "solution": "Upgrade with python -m pip install --upgrade 'pip>=26.2.2' 'certifi>=2026.10.19' and restart Python processes.",
+        "sourceUrl": "https://github.com/OpenMontageInc/OpenMontage/blob/2e003e65fa99a0f329478a2c1cdcf26bc481933a/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI video production from a coding assistant",
+      "Explainers and shorts",
+      "Transparent, cost-aware generation"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agentic video production"
+      },
+      {
+        "label": "Language",
+        "value": "Python and TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "Works with",
+        "value": "Claude Code, Cursor, Copilot, Windsurf, Codex"
+      }
+    ]
+  }
+}

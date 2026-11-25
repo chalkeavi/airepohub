@@ -1,0 +1,241 @@
+{
+  "fullName": "datawhalechina/hello-agents",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/datawhalechina/hello-agents/blob/2eb1c7547018b519b85cb57acf5533f12d65bf8e/README_EN.md"
+    ],
+    "sourceCommitSha": "2eb1c7547018b519b85cb57acf5533f12d65bf8e",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Get the course and its code",
+        "command": "git clone https://github.com/datawhalechina/hello-agents.git"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Hello-Agents is a free, open course from the Datawhale community on building AI agents from scratch. Its 16 chapters go from what an agent is, through classic patterns like ReAct, to memory, protocols, training and full projects.",
+      "problem": "Agent tutorials are scattered and often stop at using a low-code tool. Hello-Agents teaches the ideas underneath, has you build your own agent framework on the OpenAI API, and finishes with real case studies.",
+      "whoFor": [
+        "Developers and students with some programming experience",
+        "Engineers moving from low-code agent tools to code",
+        "Learners preparing for agent-related job interviews",
+        "Readers of Chinese or English (both editions exist)"
+      ],
+      "whyChoose": "Choose it for a structured, theory-plus-practice path through agents with runnable code for every chapter. It is a course, not a library you install in production.",
+      "requirements": [
+        "A web browser to read online",
+        "Git and Python to run the chapter code",
+        "An LLM API key for the hands-on chapters"
+      ]
+    },
+    "overview": [
+      "The course has five parts. Part 1 covers agent basics, history and language model fundamentals. Part 2 is hands-on: implementing ReAct, Plan-and-Solve and Reflection, trying low-code platforms like Coze, Dify and n8n, using frameworks such as AutoGen, AgentScope and LangGraph, and building your own framework.",
+      "Part 3 extends that framework with memory and retrieval, context engineering, communication protocols (MCP, A2A, ANP), agentic reinforcement learning from SFT to GRPO, and evaluation. Part 4 builds a travel assistant, a deep research agent and a simulated cyber town, and Part 5 is a capstone project.",
+      "You can read it online, download a free PDF from the releases page, or clone the repository. All supporting code is in the code folder, and the authors strongly recommend running and debugging it yourself. Community extra chapters cover interview questions, Agent Skills, GUI and web agents."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "16 chapters",
+        "body": "From agent fundamentals to a capstone multi-agent app."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Build your own framework",
+        "body": "Write an agent framework from scratch on the OpenAI API."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Classic paradigms",
+        "body": "Hands-on ReAct, Plan-and-Solve and Reflection."
+      },
+      {
+        "icon": "file-code",
+        "title": "Protocols",
+        "body": "MCP, A2A and ANP explained."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Agentic RL",
+        "body": "Train an LLM from SFT to GRPO."
+      },
+      {
+        "icon": "shield",
+        "title": "Real projects",
+        "body": "Travel assistant, deep research agent and cyber town."
+      }
+    ],
+    "strengths": [
+      "Free, complete and structured",
+      "Theory paired with runnable code",
+      "Covers recent topics like MCP and context engineering",
+      "Large community with extra chapters"
+    ],
+    "limitations": [
+      "Written primarily in Chinese; the English edition is a translation",
+      "Licensed CC BY-NC-SA 4.0, so no commercial reuse of the content",
+      "Hands-on chapters need an LLM API key, which may cost money"
+    ],
+    "useCases": [
+      {
+        "title": "Learn agents properly",
+        "body": "Work through the chapters in order with the code."
+      },
+      {
+        "title": "Interview prep",
+        "body": "Use the extra chapter of agent interview questions and answers."
+      },
+      {
+        "title": "Team study group",
+        "body": "Follow the five parts as a syllabus."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Hello-Agents's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/datawhalechina/hello-agents/blob/2eb1c7547018b519b85cb57acf5533f12d65bf8e/README_EN.md",
+      "prerequisites": [
+        "Git",
+        "Python"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Read online",
+          "method": "web",
+          "steps": [
+            {
+              "title": "Open the online book",
+              "body": "datawhalechina.github.io/hello-agents, no download needed."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Clone with code",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/datawhalechina/hello-agents.git\ncd hello-agents",
+              "lang": "bash"
+            },
+            {
+              "title": "Open the code folder",
+              "body": "It holds the supporting code for every chapter."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "PDF",
+          "method": "pdf",
+          "steps": [
+            {
+              "title": "Download the PDF",
+              "body": "From the repository's latest GitHub release."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Read the Preface and Chapter 1: Introduction to Agents"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Start the Hello-Agents course",
+      "useCase": "Set up the course and begin the hands-on part.",
+      "setup": [
+        "The repository cloned",
+        "Python and an LLM API key"
+      ],
+      "steps": [
+        {
+          "title": "Read Chapters 1 to 3",
+          "body": "Agent concepts, history and language model basics."
+        },
+        {
+          "title": "Open Chapter 4",
+          "body": "Implement ReAct, Plan-and-Solve and Reflection."
+        },
+        {
+          "title": "Run the chapter code",
+          "body": "Use the matching folder under code and debug it yourself, as the authors recommend."
+        }
+      ],
+      "expected": "A working ReAct-style agent you wrote and ran yourself.",
+      "nextSteps": [
+        "Build your own framework in Chapter 7",
+        "Add memory and retrieval in Chapter 8",
+        "Try the capstone in Chapter 16"
+      ],
+      "sourceUrl": "https://github.com/datawhalechina/hello-agents/blob/2eb1c7547018b519b85cb57acf5533f12d65bf8e/README_EN.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "CC BY-NC-SA 4.0. Free to read and share non-commercially with attribution.",
+        "tone": "free"
+      },
+      {
+        "label": "Course",
+        "value": "Free, online or as PDF.",
+        "tone": "free"
+      },
+      {
+        "label": "LLM API",
+        "value": "Hands-on chapters call a model API, billed by the provider.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Online site is slow in mainland China",
+        "solution": "Use the domestic mirror at hello-agents.datawhale.cc.",
+        "sourceUrl": "https://github.com/datawhalechina/hello-agents/blob/2eb1c7547018b519b85cb57acf5533f12d65bf8e/README_EN.md"
+      },
+      {
+        "problem": "Not sure where to start",
+        "solution": "Read the How to Learn section; Part 2 is where hands-on work begins.",
+        "sourceUrl": "https://github.com/datawhalechina/hello-agents/blob/2eb1c7547018b519b85cb57acf5533f12d65bf8e/README_EN.md"
+      },
+      {
+        "problem": "Environment setup problems",
+        "solution": "See the Environment Configuration extra chapter (Extra07).",
+        "sourceUrl": "https://github.com/datawhalechina/hello-agents/blob/2eb1c7547018b519b85cb57acf5533f12d65bf8e/README_EN.md"
+      }
+    ],
+    "bestFor": [
+      "Learning AI agents from scratch",
+      "Structured self-study",
+      "Agent interview preparation"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Course"
+      },
+      {
+        "label": "Format",
+        "value": "Online book, PDF and code"
+      },
+      {
+        "label": "License",
+        "value": "CC BY-NC-SA 4.0"
+      },
+      {
+        "label": "Chapters",
+        "value": "16"
+      }
+    ]
+  }
+}
