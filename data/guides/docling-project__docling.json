@@ -1,0 +1,222 @@
+{
+  "fullName": "docling-project/docling",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/docling-project/docling/blob/22b80a43d1baf8f7d51ae9b690e33b917a983ff4/README.md"
+    ],
+    "sourceCommitSha": "22b80a43d1baf8f7d51ae9b690e33b917a983ff4",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install docling"
+      },
+      {
+        "comment": "Convert a PDF to Markdown",
+        "command": "docling https://arxiv.org/pdf/2206.01062"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Docling converts documents such as PDF, Word, PowerPoint, Excel, HTML, e-books, emails and audio into clean, structured output like Markdown, HTML or JSON for AI applications. It understands PDF layout, reading order, tables, code and formulas.",
+      "problem": "Feeding documents to AI models is hard when PDFs scramble reading order, tables and formulas. Docling parses documents properly, can run fully locally for sensitive data, and plugs into LangChain, LlamaIndex, CrewAI and Haystack.",
+      "whoFor": [
+        "Developers building RAG pipelines",
+        "Teams processing sensitive documents locally",
+        "Data engineers converting large document collections",
+        "Agent builders who need document tools (MCP)"
+      ],
+      "whyChoose": "Choose it for high-quality, local document parsing with a simple Python API and CLI. It started at IBM Research and is now hosted by the LF AI & Data Foundation.",
+      "requirements": [
+        "Python 3.10+",
+        "macOS, Linux or Windows (x86_64 or arm64)"
+      ]
+    },
+    "overview": [
+      "Docling parses many formats, including PDF, DOCX, PPTX, XLSX, HTML, EPUB, Apple Pages, Numbers and Keynote, OpenDocument files, emails, calendar files, audio and video (with speech recognition), and XML schemas such as USPTO patents and JATS articles.",
+      "Its PDF understanding covers page layout, reading order, table structure, code, formulas and image classification, with OCR for scanned files and support for visual language models like GraniteDocling. Everything is represented as a unified DoclingDocument and can be exported to Markdown, HTML, DocTags or lossless JSON.",
+      "You can use it from Python with DocumentConverter, from the docling CLI, as an API service (docling-serve) or as an MCP server for agents. It can run fully locally for sensitive or air-gapped environments. Individual models used have their own licenses."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Many formats",
+        "body": "PDF, Office, HTML, EPUB, email, audio, video and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Advanced PDF parsing",
+        "body": "Layout, reading order, tables, code and formulas."
+      },
+      {
+        "icon": "puzzle",
+        "title": "OCR and VLMs",
+        "body": "Scanned documents and GraniteDocling support."
+      },
+      {
+        "icon": "file-code",
+        "title": "Export options",
+        "body": "Markdown, HTML, DocTags and lossless JSON."
+      },
+      {
+        "icon": "git-compare",
+        "title": "AI integrations",
+        "body": "LangChain, LlamaIndex, CrewAI and Haystack."
+      },
+      {
+        "icon": "shield",
+        "title": "MCP and API server",
+        "body": "Use it from agents or as a service."
+      }
+    ],
+    "strengths": [
+      "Excellent PDF structure handling",
+      "Runs locally",
+      "Broad format support",
+      "MIT licensed, backed by LF AI & Data"
+    ],
+    "limitations": [
+      "Heavier dependencies than simple text extractors",
+      "Models have their own licenses",
+      "Large documents with OCR or VLMs can be slow on CPU"
+    ],
+    "useCases": [
+      {
+        "title": "RAG ingestion",
+        "body": "Convert PDFs to Markdown before chunking and embedding."
+      },
+      {
+        "title": "Table extraction",
+        "body": "Pull table structure out of reports."
+      },
+      {
+        "title": "Private document processing",
+        "body": "Run locally on sensitive files."
+      },
+      {
+        "title": "Agent document tool",
+        "body": "Connect the MCP server to your agent."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Docling's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/docling-project/docling/blob/22b80a43d1baf8f7d51ae9b690e33b917a983ff4/README.md",
+      "prerequisites": [
+        "Python 3.10+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install docling",
+              "lang": "bash"
+            },
+            {
+              "title": "Convert a document",
+              "body": "Writes a .md file to the current directory.",
+              "code": "docling https://arxiv.org/pdf/2206.01062",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Convert with a visual language model",
+          "code": "docling --vlm-model granite_docling https://arxiv.org/pdf/2206.01062",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Convert a PDF to Markdown in Python",
+      "useCase": "Parse a research paper and print it as Markdown.",
+      "setup": [
+        "Python 3.10+",
+        "pip install docling"
+      ],
+      "steps": [
+        {
+          "title": "Run this script",
+          "code": "from docling.document_converter import DocumentConverter\n\nsource = \"https://arxiv.org/pdf/2408.09869\"\nconverter = DocumentConverter()\nresult = converter.convert(source)\nprint(result.document.export_to_markdown())",
+          "lang": "text"
+        }
+      ],
+      "expected": "The Docling Technical Report printed as Markdown, starting with its title heading.",
+      "nextSteps": [
+        "Export to JSON for lossless structure",
+        "Try the LangChain or LlamaIndex integration",
+        "Run docling-serve as an API"
+      ],
+      "sourceUrl": "https://github.com/docling-project/docling/blob/22b80a43d1baf8f7d51ae9b690e33b917a983ff4/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT for the codebase; models have their own licenses.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Runs on your machine.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install fails on Python 3.9",
+        "solution": "Docling dropped Python 3.9 in version 2.70.0; use Python 3.10 or higher.",
+        "sourceUrl": "https://github.com/docling-project/docling/blob/22b80a43d1baf8f7d51ae9b690e33b917a983ff4/README.md"
+      },
+      {
+        "problem": "Scanned PDF gives little text",
+        "solution": "Docling has OCR support for scanned PDFs; see the usage docs to enable it.",
+        "sourceUrl": "https://github.com/docling-project/docling/blob/22b80a43d1baf8f7d51ae9b690e33b917a983ff4/README.md"
+      },
+      {
+        "problem": "Need more options",
+        "solution": "See the installation and usage docs at docling-project.github.io/docling.",
+        "sourceUrl": "https://github.com/docling-project/docling/blob/22b80a43d1baf8f7d51ae9b690e33b917a983ff4/README.md"
+      }
+    ],
+    "bestFor": [
+      "Document parsing for RAG",
+      "Local, private conversion",
+      "Tables and complex PDFs"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Document conversion"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Hosted by",
+        "value": "LF AI & Data Foundation"
+      }
+    ]
+  }
+}

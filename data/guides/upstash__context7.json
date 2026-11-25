@@ -1,0 +1,229 @@
+{
+  "fullName": "upstash/context7",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/upstash/context7/blob/d0f2ef972852848904c23ac27a0b8e14254e3360/README.md"
+    ],
+    "sourceCommitSha": "d0f2ef972852848904c23ac27a0b8e14254e3360",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Set up Context7 for your coding agent",
+        "command": "npx ctx7 setup"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Context7 gives AI coding agents up-to-date, version-specific documentation and code examples for the libraries you use. It works as an MCP server or as a CLI plus skill, so agents like Claude Code and Cursor fetch current docs instead of relying on old training data.",
+      "problem": "Coding agents often produce outdated examples or invent APIs that don't exist because their training data is old. Context7 pulls documentation from the source into the agent's context when you ask about a library.",
+      "whoFor": [
+        "Claude Code, Cursor and OpenCode users",
+        "Developers using fast-changing libraries",
+        "Teams tired of hallucinated APIs",
+        "Library authors who want their docs available to agents"
+      ],
+      "whyChoose": "Choose it to cut outdated and invented API suggestions from your coding agent with one setup command. A free API key is recommended for higher rate limits; the backend service is not open source.",
+      "requirements": [
+        "Node.js 22.13+ for the ctx7 CLI",
+        "A coding agent or MCP client",
+        "Recommended: a free Context7 API key"
+      ]
+    },
+    "overview": [
+      "After setup, you add 'use context7' to a prompt, such as asking for a Next.js proxy that checks a JWT, and the agent fetches current docs and examples for that library. You can name a library ID like /supabase/supabase to skip matching, or mention a version to get version-specific docs.",
+      "It works in two modes: CLI plus skills, where a skill guides the agent to run ctx7 commands, or MCP, where the agent calls resolve-library-id and query-docs tools. npx ctx7 setup authenticates with OAuth, creates an API key and installs the right setup for Cursor, Claude Code or OpenCode.",
+      "This repository holds the MCP server source; the API backend, parsing and crawling engines are private. Library docs are community-contributed, and Upstash says it cannot guarantee their accuracy, completeness or security."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Current docs",
+        "body": "Version-specific documentation from the source."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Two modes",
+        "body": "CLI plus skills, or an MCP server."
+      },
+      {
+        "icon": "puzzle",
+        "title": "One-command setup",
+        "body": "npx ctx7 setup configures your agent."
+      },
+      {
+        "icon": "file-code",
+        "title": "Library IDs",
+        "body": "Point straight at a library like /vercel/next.js."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Version matching",
+        "body": "Mention a version to get matching docs."
+      },
+      {
+        "icon": "shield",
+        "title": "SDKs",
+        "body": "TypeScript SDK and Vercel AI SDK tools."
+      }
+    ],
+    "strengths": [
+      "Reduces outdated and invented APIs",
+      "Easy setup",
+      "Works with 30+ MCP clients",
+      "MIT licensed MCP server"
+    ],
+    "limitations": [
+      "Backend is a hosted service and not open source",
+      "Rate limits without an API key",
+      "Community-contributed docs may be inaccurate"
+    ],
+    "useCases": [
+      {
+        "title": "Up-to-date framework code",
+        "body": "Ask for Next.js 16 code with use context7."
+      },
+      {
+        "title": "Auth setup",
+        "body": "Get the current Supabase auth API."
+      },
+      {
+        "title": "Always-on docs",
+        "body": "Add a rule so your agent uses Context7 automatically."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Context7's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/upstash/context7/blob/d0f2ef972852848904c23ac27a0b8e14254e3360/README.md",
+      "prerequisites": [
+        "Node.js 22.13+",
+        "A coding agent"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "ctx7 setup",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Run setup",
+              "body": "Use --cursor, --claude or --opencode to target a specific agent.",
+              "code": "npx ctx7 setup",
+              "lang": "bash"
+            },
+            {
+              "title": "Choose CLI + Skills or MCP mode"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Manual MCP",
+          "method": "mcp",
+          "steps": [
+            {
+              "title": "Add the remote server",
+              "body": "Use https://mcp.context7.com/mcp with an Authorization: Bearer YOUR_API_KEY header in your MCP client."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Ask with Context7",
+          "code": "Create a Next.js proxy that checks for a valid JWT in cookies and redirects unauthenticated users to /login. use context7",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Give your coding agent current library docs",
+      "useCase": "Set up Context7 and use it in a prompt.",
+      "setup": [
+        "Node.js 22.13+",
+        "Claude Code, Cursor or OpenCode"
+      ],
+      "steps": [
+        {
+          "title": "Run setup",
+          "code": "npx ctx7 setup --claude",
+          "lang": "bash"
+        },
+        {
+          "title": "Ask a library question",
+          "code": "Implement basic authentication with Supabase. use library /supabase/supabase for API and docs.",
+          "lang": "text"
+        },
+        {
+          "title": "Optional: add a rule",
+          "body": "In CLAUDE.md: Always use Context7 when I need library/API documentation, code generation, setup or configuration steps."
+        }
+      ],
+      "expected": "The agent fetches current Supabase docs and writes code using today's API.",
+      "nextSteps": [
+        "Look up IDs with ctx7 library",
+        "Fetch docs directly with ctx7 docs",
+        "Submit your own library to Context7"
+      ],
+      "sourceUrl": "https://github.com/upstash/context7/blob/d0f2ef972852848904c23ac27a0b8e14254e3360/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT for the MCP server.",
+        "tone": "free"
+      },
+      {
+        "label": "API key",
+        "value": "Free key available for higher rate limits.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Rate limited",
+        "solution": "Get a free API key at context7.com/dashboard.",
+        "sourceUrl": "https://github.com/upstash/context7/blob/d0f2ef972852848904c23ac27a0b8e14254e3360/README.md"
+      },
+      {
+        "problem": "Want to undo setup",
+        "solution": "Run npx ctx7 remove; uninstall a global CLI with npm uninstall -g ctx7.",
+        "sourceUrl": "https://github.com/upstash/context7/blob/d0f2ef972852848904c23ac27a0b8e14254e3360/README.md"
+      },
+      {
+        "problem": "Docs look wrong",
+        "solution": "Library docs are community-contributed; report issues or check the source.",
+        "sourceUrl": "https://github.com/upstash/context7/blob/d0f2ef972852848904c23ac27a0b8e14254e3360/README.md"
+      }
+    ],
+    "bestFor": [
+      "Accurate code from coding agents",
+      "Fast-moving frameworks",
+      "MCP-based doc lookup"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Docs MCP server and CLI"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "By",
+        "value": "Upstash"
+      }
+    ]
+  }
+}
