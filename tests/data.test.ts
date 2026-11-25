@@ -1,6 +1,10 @@
 import { describe, expect, it } from "vitest";
 import {
   getBeginnerFriendly,
+  getPrerenderSlugs,
+  getPublishedCount,
+  getRepositoriesByCategory,
+  getSearchSuggestions,
   getLeaderboards,
   getRelatedRepositories,
   getRepositoryBySlug,
@@ -70,5 +74,19 @@ describe("data layer (sample backend)", () => {
 
   it("beginner list only has beginner difficulty", async () => {
     expect((await getBeginnerFriendly()).every((r) => r.difficulty === "beginner")).toBe(true);
+  });
+
+  it("counts published repos and pages categories by stars", async () => {
+    expect(await getPublishedCount()).toBe(sampleRepositories.filter((r) => r.status === "published").length);
+    const { total, repositories } = await getRepositoriesByCategory("coding-assistants", 2);
+    expect(repositories).toHaveLength(2);
+    expect(total).toBeGreaterThanOrEqual(2);
+    expect(repositories[0].stars).toBeGreaterThanOrEqual(repositories[1].stars);
+  });
+
+  it("prerenders only the most-starred pages and limits suggestions", async () => {
+    const slugs = await getPrerenderSlugs(3);
+    expect(slugs).toHaveLength(3);
+    expect(await getSearchSuggestions(5)).toHaveLength(5);
   });
 });

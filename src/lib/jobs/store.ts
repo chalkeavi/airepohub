@@ -64,6 +64,16 @@ export interface QueueRow {
   run_id: string | null;
 }
 
+/** A new published repository row written by the import job (real GitHub fields only). */
+export interface NewRepoRow extends RepoUpdate {
+  github_id: number;
+  slug: string;
+  created_at_github: string | null;
+  status: "published" | "draft";
+  published_at: string | null;
+  discovered_at: string;
+}
+
 export interface RunResult {
   status: "succeeded" | "failed" | "partial";
   items_processed: number;
@@ -81,11 +91,33 @@ export interface JobStore {
   statsSince(sinceDay: string): Promise<StatPoint[]>;
   latestRanking(period: Period, categoryId: string | null): Promise<Map<string, number>>;
   insertRankings(rows: RankingRow[]): Promise<void>;
+  /** Batched metadata refresh (one request per chunk instead of one per repo). Optional for tests. */
+  updateRepos?(rows: (RepoUpdate & { id: string; github_id: number; slug: string })[]): Promise<void>;
   knownGithubIds(): Promise<{ repositories: Set<number>; queue: Set<number> }>;
   insertQueue(rows: QueueRow[]): Promise<void>;
   touchQueue(githubIds: number[], seenAt: string): Promise<void>;
+  knownSlugs(): Promise<Set<string>>;
+  categoryIds(): Promise<Map<string, string>>;
+  insertRepositories(rows: NewRepoRow[]): Promise<{ id: string; github_id: number }[]>;
+  insertRepoCategories(rows: { repository_id: string; category_id: string; is_primary: boolean }[]): Promise<void>;
+  /** Hide pages from search engines (seo_metadata.noindex) until they get reviewed content. */
+  setNoindex(repositoryIds: string[]): Promise<void>;
+  markQueueApproved(githubIds: number[]): Promise<void>;
+  /** Set summaries; with publishAt, also publish those rows (drafts waiting for a summary). */
+  saveSummaries(rows: { id: string; summary: string }[], publishAt?: string): Promise<void>;
+  /** Published repos that still have no summary, most-starred first. */
+  listUnsummarized(limit: number): Promise<{ id: string; full_name: string; description: string; topics: string[]; primary_language: string | null }[]>;
   startRun(job: string): Promise<string | null>;
   finishRun(id: string | null, result: RunResult): Promise<void>;
+}
+
+/** The RepoUpdate part of a batched row (drops the keys used only for the upsert). */
+export function withoutKeys(row: RepoUpdate & { id: string; github_id: number; slug: string }): RepoUpdate {
+  const update: Partial<typeof row> = { ...row };
+  delete update.id;
+  delete update.github_id;
+  delete update.slug;
+  return update as RepoUpdate;
 }
 
 function check<T>(res: { data: T | null; error: { message: string } | null }, what: string): T {
@@ -99,14 +131,25 @@ export class SupabaseJobStore implements JobStore {
     this.db = createClient(url, serviceRoleKey, { auth: { persistSession: false, autoRefreshToken: false } });
   }
 
+  /** PostgREST returns at most 1,000 rows per request, so every full-table read pages. */
+  private async all<T>(what: string, page: (from: number, to: number) => PromiseLike<{ data: unknown; error: { message: string } | null }>): Promise<T[]> {
+    const out: T[] = [];
+    for (let from = 0; ; from += 1000) {
+      const rows = check((await page(from, from + 999)) as { data: T[] | null; error: { message: string } | null }, what);
+      out.push(...rows);
+      if (rows.length < 1000) return out;
+    }
+  }
+
   async listTrackedRepos(): Promise<TrackedRepo[]> {
-    const rows = check(
-      await this.db
+    const rows = (await this.all("repositories", (from, to) =>
+      this.db
         .from("repositories")
         .select("id, github_id, owner, name, full_name, slug, status, stars, forks, last_pushed_at, docs_quality, repository_categories(category_id)")
-        .neq("status", "rejected"),
-      "repositories",
-    ) as unknown as {
+        .neq("status", "rejected")
+        .order("id")
+        .range(from, to),
+    )) as unknown as {
       id: string; github_id: number; owner: string; name: string; full_name: string; slug: string; status: string;
       stars: number; forks: number; last_pushed_at: string | null; docs_quality: number | null;
       repository_categories: { category_id: string }[];
@@ -129,6 +172,17 @@ export class SupabaseJobStore implements JobStore {
 
   async updateRepo(id: string, update: RepoUpdate) {
     check(await this.db.from("repositories").update(update).eq("id", id), "update repository");
+  }
+
+  async updateRepos(rows: (RepoUpdate & { id: string; github_id: number; slug: string })[]) {
+    for (let i = 0; i < rows.length; i += 500) {
+      const chunk = rows.slice(i, i + 500);
+      const res = await this.db.from("repositories").upsert(chunk, { onConflict: "id" });
+      if (res.error) {
+        // One bad row (e.g. a name swap hitting a unique key) shouldn't lose the whole chunk.
+        for (const row of chunk) await this.updateRepo(row.id, withoutKeys(row));
+      }
+    }
   }
 
   async addAlias(repositoryId: string, oldFullName: string) {
@@ -186,7 +240,9 @@ export class SupabaseJobStore implements JobStore {
   }
 
   async knownGithubIds() {
-    const repos = check(await this.db.from("repositories").select("github_id"), "repo ids") as { github_id: number }[];
+    const repos = await this.all<{ github_id: number }>("repo ids", (from, to) =>
+      this.db.from("repositories").select("github_id").order("github_id").range(from, to),
+    );
     const queue: { github_id: number }[] = [];
     for (let from = 0; ; from += 1000) {
       const page = check(await this.db.from("discovery_queue").select("github_id").order("github_id").range(from, from + 999), "queue ids") as {
@@ -206,6 +262,76 @@ export class SupabaseJobStore implements JobStore {
   async touchQueue(githubIds: number[], seenAt: string) {
     if (!githubIds.length) return;
     check(await this.db.from("discovery_queue").update({ last_seen_at: seenAt }).in("github_id", githubIds), "queue touch");
+  }
+
+  async knownSlugs() {
+    const repos = await this.all<{ slug: string }>("slugs", (from, to) => this.db.from("repositories").select("slug").order("slug").range(from, to));
+    const aliases = await this.all<{ alias_slug: string | null }>("alias slugs", (from, to) =>
+      this.db.from("repository_aliases").select("alias_slug").order("id").range(from, to),
+    );
+    return new Set([...repos.map((r) => r.slug), ...aliases.map((a) => a.alias_slug).filter((s): s is string => !!s)]);
+  }
+
+  async categoryIds() {
+    const rows = check(await this.db.from("categories").select("id, slug"), "categories") as { id: string; slug: string }[];
+    return new Map(rows.map((r) => [r.slug, r.id]));
+  }
+
+  async insertRepositories(rows: NewRepoRow[]) {
+    const out: { id: string; github_id: number }[] = [];
+    for (let i = 0; i < rows.length; i += 500) {
+      const res = check(await this.db.from("repositories").insert(rows.slice(i, i + 500)).select("id, github_id"), "insert repositories") as {
+        id: string;
+        github_id: number;
+      }[];
+      out.push(...res.map((r) => ({ id: r.id, github_id: Number(r.github_id) })));
+    }
+    return out;
+  }
+
+  async insertRepoCategories(rows: { repository_id: string; category_id: string; is_primary: boolean }[]) {
+    for (let i = 0; i < rows.length; i += 1000) {
+      check(
+        await this.db.from("repository_categories").upsert(rows.slice(i, i + 1000), { onConflict: "repository_id,category_id", ignoreDuplicates: true }),
+        "repository categories",
+      );
+    }
+  }
+
+  async setNoindex(repositoryIds: string[]) {
+    for (let i = 0; i < repositoryIds.length; i += 1000) {
+      const rows = repositoryIds.slice(i, i + 1000).map((repository_id) => ({ repository_id, noindex: true }));
+      check(await this.db.from("seo_metadata").upsert(rows, { onConflict: "repository_id" }), "seo noindex");
+    }
+  }
+
+  async markQueueApproved(githubIds: number[]) {
+    for (let i = 0; i < githubIds.length; i += 500) {
+      check(await this.db.from("discovery_queue").update({ status: "approved" }).in("github_id", githubIds.slice(i, i + 500)), "queue approve");
+    }
+  }
+
+  async saveSummaries(rows: { id: string; summary: string }[], publishAt?: string) {
+    const patch = (summary: string) => (publishAt ? { summary, status: "published", published_at: publishAt } : { summary });
+    for (let i = 0; i < rows.length; i += 10) {
+      await Promise.all(
+        rows.slice(i, i + 10).map(async (r) => check(await this.db.from("repositories").update(patch(r.summary)).eq("id", r.id), "save summary")),
+      );
+    }
+  }
+
+  async listUnsummarized(limit: number) {
+    return check(
+      await this.db
+        .from("repositories")
+        .select("id, full_name, description, topics, primary_language")
+        .eq("status", "published")
+        .is("summary", null)
+        .not("description", "is", null)
+        .order("stars", { ascending: false })
+        .limit(limit),
+      "unsummarized",
+    ) as { id: string; full_name: string; description: string; topics: string[]; primary_language: string | null }[];
   }
 
   async startRun(job: string) {

@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps<"/categories/[slug]
 
 export default async function CategoryPage({ params }: PageProps<"/categories/[slug]">) {
   const { slug } = await params;
-  const [category, categories, repos, boards, asOf] = await Promise.all([
+  const [category, categories, { total, repositories: repos }, boards, asOf] = await Promise.all([
     getCategoryBySlug(slug),
     getCategories(),
     getRepositoriesByCategory(slug),
@@ -80,12 +80,23 @@ export default async function CategoryPage({ params }: PageProps<"/categories/[s
             />
           </section>
           <section aria-labelledby="all" className="pt-16">
-            <SectionHeading id="all" title={`All ${category.name} repositories`} description={`${repos.length} published`} />
+            <SectionHeading
+              id="all"
+              title={total > repos.length ? `Most-starred ${category.name} repositories` : `All ${category.name} repositories`}
+              description={total > repos.length ? `Top ${repos.length} of ${total.toLocaleString("en-US")} published` : `${total} published`}
+            />
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {repos.map((r) => (
                 <RepoCard key={r.slug} repo={r} category={category} />
               ))}
             </div>
+            {total > repos.length && (
+              <p className="mt-8 text-center">
+                <Link href={`/search?category=${category.slug}`} className="text-sm font-medium text-accent hover:underline">
+                  Browse all {total.toLocaleString("en-US")} {category.name} repositories
+                </Link>
+              </p>
+            )}
           </section>
         </>
       )}

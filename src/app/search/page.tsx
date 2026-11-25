@@ -89,7 +89,7 @@ async function Results({ searchParams }: { searchParams: PageProps<"/search">["s
         </div>
       </div>
       <p className="mb-5 mt-8 text-sm text-muted-foreground" aria-live="polite">
-        {res.total} {res.total === 1 ? "result" : "results"}
+        {res.total.toLocaleString("en-US")} {res.total === 1 ? "result" : "results"}
         {q && <> for &ldquo;{q}&rdquo;</>}
       </p>
       {res.results.length ? (
@@ -105,15 +105,34 @@ async function Results({ searchParams }: { searchParams: PageProps<"/search">["s
       )}
       {res.pageCount > 1 && (
         <nav aria-label="Pagination" className="mt-8 flex justify-center gap-2">
-          {Array.from({ length: res.pageCount }, (_, i) => i + 1).map((p) => (
-            <Link key={p} href={href({ page: String(p) })} aria-current={p === res.page ? "page" : undefined} className={chip(p === res.page)}>
-              {p}
-            </Link>
-          ))}
+          {pageWindow(res.page, res.pageCount).map((p, i) =>
+            p === null ? (
+              <span key={`gap${i}`} className="px-1 py-1 text-[13px] text-muted-foreground" aria-hidden>
+                …
+              </span>
+            ) : (
+              <Link key={p} href={href({ page: String(p) })} aria-current={p === res.page ? "page" : undefined} className={chip(p === res.page)}>
+                {p}
+              </Link>
+            ),
+          )}
         </nav>
       )}
     </>
   );
+}
+
+/** First, last and the pages around the current one; null marks a gap. */
+function pageWindow(current: number, count: number): (number | null)[] {
+  const keep = new Set([1, count, current - 1, current, current + 1].filter((p) => p >= 1 && p <= count));
+  const out: (number | null)[] = [];
+  let prev = 0;
+  for (const p of [...keep].sort((a, b) => a - b)) {
+    if (p - prev > 1) out.push(null);
+    out.push(p);
+    prev = p;
+  }
+  return out;
 }
 
 function ResultsSkeleton() {

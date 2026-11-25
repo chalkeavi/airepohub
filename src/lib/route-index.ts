@@ -51,8 +51,17 @@ export async function loadRouteIndex(now = Date.now()): Promise<RouteIndex | nul
     return res.json() as Promise<T>;
   };
   try {
+    // PostgREST returns at most 1,000 rows per request, so repo slugs are paged.
+    const allRepoSlugs = async () => {
+      const out: { slug: string }[] = [];
+      for (let offset = 0; ; offset += 1000) {
+        const page = await get<{ slug: string }[]>(`repositories?select=slug&status=eq.published&order=slug&limit=1000&offset=${offset}`);
+        out.push(...page);
+        if (page.length < 1000) return out;
+      }
+    };
     const [repos, categories, aliases] = await Promise.all([
-      get<{ slug: string }[]>("repositories?select=slug&status=eq.published"),
+      allRepoSlugs(),
       get<{ slug: string }[]>("categories?select=slug"),
       get<{ alias_slug: string | null; repositories: { slug: string } | null }[]>(
         "repository_aliases?select=alias_slug,repositories(slug)&alias_slug=not.is.null",

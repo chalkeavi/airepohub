@@ -21,7 +21,7 @@ import {
   getDataAsOf,
   getFeaturedRepository,
   getLeaderboards,
-  getPublishedSlugs,
+  getPublishedCount,
   getRecentlyAdded,
   getSearchSuggestions,
   getTrendingRepositories,
@@ -35,7 +35,7 @@ export const metadata: Metadata = { alternates: { canonical: "/" } };
 const POPULAR = ["local-llms", "ai-agents", "coding-assistants", "image-generation", "rag-knowledge"];
 
 export default async function HomePage() {
-  const [categories, counts, boards, featured, trending, beginner, recent, suggestions, slugs, asOf] = await Promise.all([
+  const [categories, counts, boards, featured, trending, beginner, recent, suggestions, repoCount, asOf] = await Promise.all([
     getCategories(),
     getCategoryCounts(),
     getLeaderboards(),
@@ -44,7 +44,7 @@ export default async function HomePage() {
     getBeginnerFriendly(),
     getRecentlyAdded(),
     getSearchSuggestions(),
-    getPublishedSlugs(),
+    getPublishedCount(),
     getDataAsOf(),
   ]);
   const catBySlug = new Map(categories.map((c) => [c.slug, c]));
@@ -98,7 +98,7 @@ export default async function HomePage() {
           <dl className="mx-auto mt-12 grid max-w-2xl grid-cols-3 divide-x divide-border rounded-xl border border-border bg-surface/70 py-4 text-center shadow-card backdrop-blur">
             <div>
               <dt className="text-xs text-muted-foreground">Repositories</dt>
-              <dd className="mt-0.5 font-mono text-xl font-semibold tabular-nums">{slugs.length}</dd>
+              <dd className="mt-0.5 font-mono text-xl font-semibold tabular-nums">{repoCount.toLocaleString("en-US")}</dd>
             </div>
             <div>
               <dt className="text-xs text-muted-foreground">Categories</dt>
@@ -154,7 +154,7 @@ export default async function HomePage() {
                   </div>
                 </div>
                 <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
-                  {featured.content?.sixtySeconds.whatItDoes ?? featured.repository.summary}
+                  {featured.content?.sixtySeconds.whatItDoes ?? featured.repository.summary ?? featured.repository.description}
                 </p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {featured.repository.categorySlugs.map((s) => (

@@ -37,7 +37,7 @@ export function RepoCard({
           {formatCount(repo.stars)}
         </span>
       </div>
-      <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-muted-foreground">{repo.summary}</p>
+      <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-muted-foreground">{repo.summary ?? repo.description}</p>
       <div className="mt-auto flex flex-wrap items-center gap-1.5 pt-4">
         {category && <Badge tone="accent">{category.name}</Badge>}
         {repo.primaryLanguage && <Badge tone="muted">{repo.primaryLanguage}</Badge>}

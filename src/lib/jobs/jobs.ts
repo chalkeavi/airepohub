@@ -6,7 +6,7 @@ import { rankRepositories, type RankingInput } from "../ranking.ts";
 import { RateLimitError, type GithubApi, type GithubRepo } from "./github.ts";
 import { isoDay, starGrowth, type StatPoint } from "./growth.ts";
 import { discoveryQueries, scoreRelevance } from "./relevance.ts";
-import type { JobStore, Period, QueueRow, RankingRow, RepoUpdate, TrackedRepo } from "./store.ts";
+import { withoutKeys, type JobStore, type Period, type QueueRow, type RankingRow, type RepoUpdate, type TrackedRepo } from "./store.ts";
 
 export interface JobContext {
   store: JobStore;
@@ -26,7 +26,7 @@ export interface JobSummary {
   error?: string;
 }
 
-async function runLogged(
+export async function runLogged(
   ctx: JobContext,
   job: string,
   body: (details: Record<string, unknown>) => Promise<{ processed: number; failed: number }>,
@@ -98,36 +98,57 @@ export function runSnapshot(ctx: JobContext): Promise<JobSummary> {
     let failed = 0;
     const missing: string[] = [];
     const renamed: string[] = [];
+    const updates: (RepoUpdate & { id: string; github_id: number; slug: string })[] = [];
     try {
-      for (const repo of repos) {
-        try {
-          const g = await ctx.github.getRepoById(repo.githubId);
-          if (!g) {
-            missing.push(repo.fullName); // deleted, private or blocked: keep the row, flag it
+      // GraphQL fetches 100 repos per call (thousands of tracked repos would exhaust REST's
+      // 1,000/hour Actions limit). Anything GraphQL can't resolve falls back to REST by id.
+      for (let i = 0; i < repos.length; i += 100) {
+        const chunk = repos.slice(i, i + 100);
+        let batch = new Map<number, GithubRepo>();
+        if (ctx.github.getReposBatch) {
+          try {
+            batch = await ctx.github.getReposBatch(chunk.map((r) => ({ githubId: r.githubId, fullName: r.fullName })));
+          } catch (e) {
+            if (e instanceof RateLimitError) throw e;
+            ctx.log?.(`snapshot batch ${i}: ${e instanceof Error ? e.message : e}; falling back to REST`);
+          }
+        }
+        for (const repo of chunk) {
+          try {
+            const g = batch.get(repo.githubId) ?? (await ctx.github.getRepoById(repo.githubId));
+            if (!g) {
+              missing.push(repo.fullName); // deleted, private or blocked: keep the row, flag it
+              failed++;
+              continue;
+            }
+            if (g.full_name.toLowerCase() !== repo.fullName.toLowerCase()) {
+              renamed.push(`${repo.fullName} → ${g.full_name}`);
+              if (!ctx.dryRun) await ctx.store.addAlias(repo.id, repo.fullName);
+            }
+            updates.push({ ...toRepoUpdate(g, checkedAt), id: repo.id, github_id: repo.githubId, slug: repo.slug });
+            stats.push({ repository_id: repo.id, recorded_on: today, recorded_at: checkedAt, stars: g.stargazers_count, forks: g.forks_count, open_issues: g.open_issues_count });
+            processed++;
+          } catch (e) {
+            if (e instanceof RateLimitError) throw e;
             failed++;
-            continue;
+            ctx.log?.(`snapshot ${repo.fullName}: ${e instanceof Error ? e.message : e}`);
           }
-          if (g.full_name.toLowerCase() !== repo.fullName.toLowerCase()) {
-            renamed.push(`${repo.fullName} → ${g.full_name}`);
-            if (!ctx.dryRun) await ctx.store.addAlias(repo.id, repo.fullName);
-          }
-          if (!ctx.dryRun) await ctx.store.updateRepo(repo.id, toRepoUpdate(g, checkedAt));
-          stats.push({ repository_id: repo.id, recorded_on: today, recorded_at: checkedAt, stars: g.stargazers_count, forks: g.forks_count, open_issues: g.open_issues_count });
-          processed++;
-        } catch (e) {
-          if (e instanceof RateLimitError) throw e;
-          failed++;
-          ctx.log?.(`snapshot ${repo.fullName}: ${e instanceof Error ? e.message : e}`);
         }
       }
     } finally {
       // Keep what we fetched even if the rate limit stopped us part-way.
-      if (!ctx.dryRun) await ctx.store.upsertStats(stats);
+      if (!ctx.dryRun) {
+        if (ctx.store.updateRepos) await ctx.store.updateRepos(updates);
+        else for (const row of updates) await ctx.store.updateRepo(row.id, withoutKeys(row));
+        await ctx.store.upsertStats(stats);
+      }
       Object.assign(details, { processed, failed, tracked: repos.length, missing, renamed, recorded_on: today });
     }
     return { processed, failed };
   });
 }
+
+export const BOARD_SIZE = 100;
 
 const WINDOW: Record<Exclude<Period, "all_time">, number> = { weekly: 7, monthly: 30 };
 
@@ -158,7 +179,9 @@ export function buildRankings(
       .filter((i) => i.starGrowth !== undefined);
     if (inputs.length < 3) return [];
   }
-  const { results } = rankRepositories(inputs, now);
+  // Only the top of each board is stored: pages show 10 (Trending reads up to 100), and storing
+  // every repo daily on every board would fill the free database within months.
+  const results = rankRepositories(inputs, now).results.slice(0, BOARD_SIZE);
   const growthById = new Map(inputs.map((i) => [i.id, i.starGrowth]));
   return results.map((r) => ({
     repository_id: r.id,
