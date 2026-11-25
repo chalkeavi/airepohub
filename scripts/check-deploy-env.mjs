@@ -1,5 +1,11 @@
 // Run before the Cloudflare build. Without these, the data layer silently falls back to sample data
 // and canonical URLs point at localhost, so a production build must stop here instead.
+import { existsSync } from "node:fs";
+
+// Next.js reads .env.production during the build; load it here too so the check sees the same values.
+// loadEnvFile never overrides variables already set (e.g. in the Cloudflare dashboard).
+if (existsSync(".env.production")) process.loadEnvFile(".env.production");
+
 const required = ["NEXT_PUBLIC_SUPABASE_URL", "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY", "NEXT_PUBLIC_SITE_URL"];
 const missing = required.filter((name) => !process.env[name]);
 if (missing.length) {

@@ -60,8 +60,8 @@ measure this in Milestone 6 before launch rather than assume the free tier is en
 | Worker name | `airepohub` (must match `wrangler.jsonc`) |
 | Production branch | `main` |
 | Build command | `pnpm cf:build` |
-| Deploy command | `pnpm exec opennextjs-cloudflare deploy` |
+| Deploy command | `npx wrangler deploy` (detects OpenNext and runs its deploy) |
 | Non-production branch builds | off (the default command there skips OpenNext) |
-| Build variables | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `NEXT_PUBLIC_SITE_URL` (all public) |
+| Build variables | none needed: public values are committed in `.env.production` (dashboard build variables override them) |
 
 `NEXT_PUBLIC_*` values are baked in at build time, so changing the site URL needs a rebuild.
