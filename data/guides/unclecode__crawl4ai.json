@@ -1,0 +1,287 @@
+{
+  "fullName": "unclecode/crawl4ai",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/unclecode/crawl4ai/blob/4e4bab5d44a7557eb403f137ec589833368a3e38/README.md"
+    ],
+    "sourceCommitSha": "4e4bab5d44a7557eb403f137ec589833368a3e38",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install the library",
+        "command": "pip install -U crawl4ai"
+      },
+      {
+        "comment": "Install the browser it uses (once)",
+        "command": "crawl4ai-setup"
+      },
+      {
+        "comment": "Turn a page into markdown",
+        "command": "crwl https://news.ycombinator.com -o markdown"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Crawl4AI is an open-source Python web crawler that turns web pages into clean markdown and structured JSON for AI models. It runs a real browser, so it handles JavaScript-heavy pages, and you can use it as a library, a command-line tool or a Docker server.",
+      "problem": "Web pages are full of menus, ads and scripts that waste an AI model's context. Crawl4AI fetches pages and returns just the useful content, with filters, citations and extraction schemas built in.",
+      "whoFor": [
+        "Developers building RAG pipelines from web content",
+        "AI agent builders who need web reading",
+        "Data engineers scraping structured data",
+        "Python users who want a free, self-hosted crawler"
+      ],
+      "whyChoose": "Choose it for a free Apache-2.0 crawler you fully control in Python, with LLM-ready markdown. The hosted Crawl4AI Cloud adds web search and handles bot walls for you, for a fee.",
+      "requirements": [
+        "Python 3 with pip",
+        "A Chromium browser, installed by crawl4ai-setup",
+        "Optional: Docker for the server",
+        "Optional: an LLM API key for LLM extraction"
+      ]
+    },
+    "overview": [
+      "This repository is the Apache-2.0 crawler behind Crawl4AI Cloud. You install it with pip, run crawl4ai-setup once to install a browser, and then crawl pages from Python with AsyncWebCrawler or from the terminal with the crwl command.",
+      "Its markdown output keeps headings, tables and code, and filters such as BM25 and pruning remove boilerplate. For structured data it offers CSS and XPath extraction schemas that need no LLM, a schema generator, and LLM-based extraction with any provider.",
+      "You can also run it as a Docker server with a dashboard and playground on port 11235, secured with your own token. Crawl4AI Cloud is the hosted service with search, SERP and answer endpoints; the README says it includes 1,000 free credits a month."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "LLM-ready markdown",
+        "body": "Clean markdown with headings, tables, code and citations."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Content filters",
+        "body": "Pruning, BM25 and LLM filters strip menus and boilerplate."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Extraction without an LLM",
+        "body": "CSS, XPath and regex schemas pull structured JSON fast."
+      },
+      {
+        "icon": "file-code",
+        "title": "LLM extraction",
+        "body": "Use any LLM provider to fill a typed JSON schema."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Deep crawling",
+        "body": "Crawl a site breadth-first with page limits."
+      },
+      {
+        "icon": "shield",
+        "title": "Docker server",
+        "body": "Self-hosted API with a dashboard and playground."
+      }
+    ],
+    "strengths": [
+      "Free and Apache-2.0 licensed",
+      "Full control over sessions, proxies, cookies and hooks",
+      "Library, CLI and server in one package",
+      "Very popular and actively released"
+    ],
+    "limitations": [
+      "You run the browsers yourself, which uses memory",
+      "Bot walls and proxies are your responsibility when self-hosting",
+      "Web search needs the paid Cloud service",
+      "LLM extraction costs whatever your LLM provider charges"
+    ],
+    "useCases": [
+      {
+        "title": "RAG knowledge base",
+        "body": "Crawl documentation pages into markdown for a vector database."
+      },
+      {
+        "title": "Product data extraction",
+        "body": "Use a CSS schema to pull prices and names into JSON."
+      },
+      {
+        "title": "Agent web access",
+        "body": "Give an AI agent a crawler it can call."
+      },
+      {
+        "title": "Site research",
+        "body": "Deep crawl a site with a page limit and read it offline."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Crawl4AI's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/unclecode/crawl4ai/blob/4e4bab5d44a7557eb403f137ec589833368a3e38/README.md",
+      "prerequisites": [
+        "Python 3 and pip"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install the package",
+              "code": "pip install -U crawl4ai",
+              "lang": "bash"
+            },
+            {
+              "title": "Install the browser",
+              "body": "Run once after installing.",
+              "code": "crawl4ai-setup",
+              "lang": "bash"
+            },
+            {
+              "title": "Check the installation",
+              "code": "crawl4ai-doctor",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker server",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Create a token and start the server",
+              "body": "The server needs a token; without one it only answers inside its container.",
+              "code": "export CRAWL4AI_API_TOKEN=\"$(openssl rand -hex 32)\"\ndocker run -d -p 11235:11235 --name crawl4ai --shm-size=1g \\\n  -e CRAWL4AI_API_TOKEN=\"$CRAWL4AI_API_TOKEN\" \\\n  unclecode/crawl4ai:latest",
+              "lang": "bash"
+            },
+            {
+              "title": "Test it",
+              "body": "Allow about 10 seconds for it to start.",
+              "code": "curl -s http://localhost:11235/md \\\n  -H \"Authorization: Bearer $CRAWL4AI_API_TOKEN\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"url\": \"https://news.ycombinator.com\"}' | jq -r .markdown",
+              "lang": "bash"
+            },
+            {
+              "title": "Open the dashboard",
+              "body": "http://localhost:11235/dashboard, with a playground at /playground."
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "CRAWL4AI_API_TOKEN",
+          "required": false,
+          "description": "Token that secures the self-hosted Docker server."
+        },
+        {
+          "name": "CRAWL4AI_KEY",
+          "required": false,
+          "description": "Your Crawl4AI Cloud API key, only for the hosted service."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Crawl a page to markdown",
+          "code": "crwl https://news.ycombinator.com -o markdown",
+          "lang": "bash"
+        },
+        {
+          "title": "Deep crawl up to 10 pages",
+          "code": "crwl https://docs.crawl4ai.com --deep-crawl bfs --max-pages 10",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Crawl your first page from Python",
+      "useCase": "Fetch a web page and print it as clean markdown.",
+      "setup": [
+        "Crawl4AI installed and crawl4ai-setup run (see Installation)"
+      ],
+      "steps": [
+        {
+          "title": "Save this as crawl.py",
+          "code": "import asyncio\nfrom crawl4ai import AsyncWebCrawler\n\nasync def main():\n    async with AsyncWebCrawler() as crawler:\n        result = await crawler.arun(url=\"https://news.ycombinator.com\")\n        print(result.markdown)\n\nasyncio.run(main())",
+          "lang": "text"
+        },
+        {
+          "title": "Run it",
+          "code": "python crawl.py",
+          "lang": "bash"
+        }
+      ],
+      "expected": "The script opens the page in a headless browser and prints the Hacker News front page as markdown.",
+      "nextSteps": [
+        "Add a PruningContentFilterLXML to get fit markdown",
+        "Try JsonCssExtractionStrategy for structured data",
+        "Run the Docker server for an HTTP API"
+      ],
+      "sourceUrl": "https://github.com/unclecode/crawl4ai/blob/4e4bab5d44a7557eb403f137ec589833368a3e38/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Library and server",
+        "value": "Free; you cover your own machine or hosting.",
+        "tone": "free"
+      },
+      {
+        "label": "Crawl4AI Cloud",
+        "value": "Optional hosted service. The README lists 1,000 free credits a month and plans from $10.",
+        "tone": "depends"
+      },
+      {
+        "label": "LLM extraction",
+        "value": "Billed by the LLM provider you choose.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Browser setup fails",
+        "solution": "Install it by hand with: python -m playwright install --with-deps chromium",
+        "sourceUrl": "https://github.com/unclecode/crawl4ai/blob/4e4bab5d44a7557eb403f137ec589833368a3e38/README.md"
+      },
+      {
+        "problem": "Not sure the install worked",
+        "solution": "Run crawl4ai-doctor to check it.",
+        "sourceUrl": "https://github.com/unclecode/crawl4ai/blob/4e4bab5d44a7557eb403f137ec589833368a3e38/README.md"
+      },
+      {
+        "problem": "Docker server refuses requests from outside",
+        "solution": "Set CRAWL4AI_API_TOKEN when starting it and send it as a Bearer token.",
+        "sourceUrl": "https://github.com/unclecode/crawl4ai/blob/4e4bab5d44a7557eb403f137ec589833368a3e38/README.md"
+      },
+      {
+        "problem": "crwl -q asks for a key",
+        "solution": "Questions need an LLM key; set it with crwl config.",
+        "sourceUrl": "https://github.com/unclecode/crawl4ai/blob/4e4bab5d44a7557eb403f137ec589833368a3e38/README.md"
+      }
+    ],
+    "bestFor": [
+      "Web-to-markdown for RAG",
+      "Self-hosted scraping in Python",
+      "Structured extraction without an LLM"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Web crawler and scraper"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Runs",
+        "value": "Library, CLI or Docker server"
+      }
+    ]
+  }
+}
