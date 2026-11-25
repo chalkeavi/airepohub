@@ -28,6 +28,9 @@
 - Milestone 6 (in progress): OpenNext/wrangler config, deploy env guard. Local Worker build and static pages
   checked (see docs/deployment.md). Not deployed: needs the owner's Cloudflare setup and go-ahead.
 
+- 2026-11-25: Bulk import (decision #30) and full guides (decision #35): 100 guides written from READMEs, checked by
+  `checkGuide`, published by the `publish-guides` job; a published guide makes the page indexable.
+
 ## Not done / known gaps
 - Weekly board and Trending appear ~7 days after the first real job run; monthly after ~30 days.
 - Rank movement (`previous_rank`) is stored but not shown in the leaderboard UI yet.
@@ -37,7 +40,9 @@
 - `NEXT_PUBLIC_SITE_URL` must be set to the real domain at deploy (defaults to localhost). Owner hasn't chosen a domain yet.
 - Proxy + `next/og` on Cloudflare Workers not yet tested (Milestone 6).
 - Collections pages moved to Milestone 5.
-- Only OpenSEO has a full guide. Install guide is "Based on official documentation", not executed by us.
+- Full guides exist for the top 100 published repos by stars (data/guides/, PRs #12, #13). All are "Based on official
+  documentation" (commands from each README at a pinned commit), none executed by us. tesseract and openai-cookbook
+  were skipped (README has no install steps). The ~imported basic pages without a guide stay noindex.
 - No admin accounts yet (`admin_users` empty); content edits need the dashboard or service role until M5.
 - Legal pages are placeholders. Cloudflare build: M6.
 
