@@ -152,6 +152,33 @@ export function runImport(ctx: JobContext, opts: ImportOptions): Promise<JobSumm
       .filter((g) => !covers || covers(g.full_name))
       .sort((a, b) => b.stargazers_count - a.stargazers_count)
       .slice(0, opts.target);
+    Object.assign(details, {
+      searches,
+      eligible_found: found.size,
+      min_stars: opts.minStars,
+      pushed_since: opts.pushedSince,
+    });
+    // Dry runs list every pick so summaries can be written for exactly these repos.
+    if (ctx.dryRun) {
+      details.candidates = picked.map((g) => ({ full_name: g.full_name, stars: g.stargazers_count, language: g.language, topics: g.topics ?? [], description: g.description }));
+    }
+    const processed = await publishCandidates(ctx, picked, opts, known.queue, details);
+    return { processed, failed: 0 };
+  });
+}
+
+/**
+ * Insert new repositories (drafts when a summarizer is given), categorise, record today's stats,
+ * mark noindex, then publish the ones with a valid summary. Shared by the bulk import and the
+ * daily queue publisher. Returns how many were published.
+ */
+export async function publishCandidates(
+  ctx: JobContext,
+  picked: GithubRepo[],
+  opts: { noindex: boolean; summarizer?: Summarizer },
+  queueIds: Set<number>,
+  details: Record<string, unknown>,
+): Promise<number> {
     const taken = await ctx.store.knownSlugs();
     const categoryIds = await ctx.store.categoryIds();
     const now = ctx.now.toISOString();
@@ -176,19 +203,11 @@ export function runImport(ctx: JobContext, opts: ImportOptions): Promise<JobSumm
     for (const list of cats.values()) for (const s of list) byCategory[s] = (byCategory[s] ?? 0) + 1;
     Object.assign(details, {
       processed: rows.length,
-      searches,
-      eligible_found: found.size,
-      min_stars: opts.minStars,
-      pushed_since: opts.pushedSince,
       noindex: opts.noindex,
       by_category: byCategory,
       sample: rows.slice(0, 15).map((r) => `${r.full_name} (${r.stars})`),
     });
-    // Dry runs list every pick so summaries can be written for exactly these repos.
-    if (ctx.dryRun) {
-      details.candidates = picked.map((g) => ({ full_name: g.full_name, stars: g.stargazers_count, language: g.language, topics: g.topics ?? [], description: g.description }));
-    }
-    if (ctx.dryRun || !rows.length) return { processed: rows.length, failed: 0 };
+    if (ctx.dryRun || !rows.length) return rows.length;
 
     const inserted = await ctx.store.insertRepositories(rows);
     const idByGithub = new Map(inserted.map((r) => [r.github_id, r.id]));
@@ -221,13 +240,61 @@ export function runImport(ctx: JobContext, opts: ImportOptions): Promise<JobSumm
       Object.assign(details, {
         summarized: good.length,
         left_as_draft: inserted.length - good.length,
-        summary_sample: good.slice(0, 10).map((r) => `${byGithub.get(r.github_id)!.full_name}: ${summaries.get(r.id)}`),
+        // Full list (what went live) when it's a daily-sized batch; a sample for bulk imports.
+        published_list: good.slice(0, 500).map((r) => ({ full_name: byGithub.get(r.github_id)!.full_name, slug: rows.find((x) => x.github_id === r.github_id)!.slug, summary: summaries.get(r.id) })),
       });
     }
     const publishedSet = new Set(published);
-    const fromQueue = inserted.map((r) => r.github_id).filter((id) => known.queue.has(id) && publishedSet.has(id));
+    const fromQueue = inserted.map((r) => r.github_id).filter((id) => queueIds.has(id) && publishedSet.has(id));
     await ctx.store.markQueueApproved(fromQueue);
     Object.assign(details, { inserted: inserted.length, published: published.length, approved_from_queue: fromQueue.length });
-    return { processed: published.length, failed: 0 };
+    return published.length;
+}
+
+
+/** Rebuild the GitHub shape from a discovery_queue payload (toRepoUpdate + github_id + created_at_github). */
+export function fromQueuePayload(githubId: number, p: Record<string, unknown>): GithubRepo {
+  const str = (k: string) => (p[k] == null ? null : String(p[k]));
+  return {
+    id: githubId,
+    full_name: String(p.full_name),
+    name: String(p.name),
+    owner: { login: String(p.owner), avatar_url: str("avatar_url") ?? "" },
+    html_url: String(p.github_url),
+    homepage: str("homepage_url"),
+    description: str("description"),
+    language: str("primary_language"),
+    license: p.license_key ? { spdx_id: String(p.license_key) } : null,
+    topics: Array.isArray(p.topics) ? (p.topics as string[]) : [],
+    stargazers_count: Number(p.stars ?? 0),
+    forks_count: Number(p.forks ?? 0),
+    open_issues_count: Number(p.open_issues ?? 0),
+    archived: Boolean(p.is_archived),
+    fork: false,
+    default_branch: str("default_branch") ?? "main",
+    created_at: str("created_at_github") ?? new Date(0).toISOString(),
+    updated_at: str("updated_at_github") ?? new Date(0).toISOString(),
+    pushed_at: str("last_pushed_at"),
+  };
+}
+
+/**
+ * Daily: publish discovery-queue repos that have a written summary (owner decision #35: no manual
+ * approval step). Queue rows without a summary stay pending for the next run.
+ */
+export function runPublishQueue(ctx: JobContext, summarizer: Summarizer, opts: { noindex: boolean; limit?: number }): Promise<JobSummary> {
+  return runLogged(ctx, "publish-queue", async (details) => {
+    const known = await ctx.store.knownGithubIds();
+    const pending = await ctx.store.listPendingQueue(opts.limit ?? 500);
+    const covers = summarizer.covers?.bind(summarizer);
+    const picked = pending
+      .filter((q) => !known.repositories.has(Number(q.github_id)))
+      .map((q) => fromQueuePayload(Number(q.github_id), q.payload))
+      .filter((g) => importEligible(g, 0))
+      .filter((g) => !covers || covers(g.full_name))
+      .sort((a, b) => b.stargazers_count - a.stargazers_count);
+    details.pending = pending.length;
+    const processed = await publishCandidates(ctx, picked, { noindex: opts.noindex, summarizer }, known.queue, details);
+    return { processed, failed: 0 };
   });
 }
