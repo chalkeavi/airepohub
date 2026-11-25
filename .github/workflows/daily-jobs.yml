@@ -5,9 +5,6 @@ name: Daily jobs
 on:
   schedule:
     - cron: "17 5 * * *" # 05:17 UTC daily (off the hour to avoid GitHub's busiest minute)
-  # TEMPORARY: lets the owner test the jobs from the PR branch before merging. Remove before merge.
-  push:
-    branches: [milestone-4-automation]
   workflow_dispatch:
     inputs:
       job:
