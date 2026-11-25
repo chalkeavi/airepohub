@@ -1,0 +1,267 @@
+{
+  "fullName": "Mintplex-Labs/anything-llm",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Mintplex-Labs/anything-llm/blob/b01447009150507ae0cfd1304e3492fcaf2a92d8/README.md",
+      "https://github.com/Mintplex-Labs/anything-llm/blob/b01447009150507ae0cfd1304e3492fcaf2a92d8/docker/HOW_TO_USE_DOCKER.md"
+    ],
+    "sourceCommitSha": "b01447009150507ae0cfd1304e3492fcaf2a92d8",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Pull the Docker image",
+        "command": "docker pull mintplexlabs/anythingllm"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "AnythingLLM is an all-in-one AI app for chatting with your documents and running AI agents. You connect a local or cloud language model, add your files, and get a private ChatGPT-style workspace, as a desktop app or a self-hosted Docker server.",
+      "problem": "Building a private document chatbot usually means wiring together a model, embeddings, a vector database and a UI. AnythingLLM bundles all of that, runs locally by default, and supports multiple users when self-hosted.",
+      "whoFor": [
+        "People who want a private ChatGPT over their own documents",
+        "Teams self-hosting a multi-user AI workspace",
+        "Local model users (Ollama, LM Studio and others)",
+        "Developers who want an API and embeddable chat widget"
+      ],
+      "whyChoose": "Choose it for an easy, polished, local-first document chat and agent app. Multi-user permissions and the website chat widget need the Docker version.",
+      "requirements": [
+        "Desktop app: Mac, Windows or Linux",
+        "Docker version: Docker, with at least 2 GB RAM and about 10 GB disk recommended on cloud servers",
+        "Access to an LLM, local or remote"
+      ]
+    },
+    "overview": [
+      "AnythingLLM lets you create workspaces, upload documents like PDF, TXT and DOCX by drag and drop, and chat with them with source citations. Agents inside workspaces can browse the web and more. It works with popular closed and open-source LLM providers, embedding models, speech models and vector databases.",
+      "By default it uses a built-in LanceDB vector database and embeds text privately on the instance. The Docker version adds multi-user support with permissions and an embeddable chat widget for websites; there's also white-labelling, a developer API and a browser extension.",
+      "You can install the desktop app, run the Docker image, or deploy to AWS, GCP, DigitalOcean, Render, Railway and others. The app collects anonymous telemetry, which you can turn off with DISABLE_TELEMETRY or in the Privacy settings."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Chat with documents",
+        "body": "Drag-and-drop uploads with source citations."
+      },
+      {
+        "icon": "scan-search",
+        "title": "AI agents",
+        "body": "Agents in workspaces that can browse the web."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Any LLM",
+        "body": "Closed and open-source providers, including local models."
+      },
+      {
+        "icon": "file-code",
+        "title": "Built-in vector DB",
+        "body": "LanceDB by default; others supported."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Multi-user",
+        "body": "Permissions per user (Docker version)."
+      },
+      {
+        "icon": "shield",
+        "title": "Embeddable widget and API",
+        "body": "Add chat to your website or integrate via API."
+      }
+    ],
+    "strengths": [
+      "Very easy to get started",
+      "Local and private by default",
+      "Many model and database options",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Multi-user and the embed widget require the Docker version",
+      "Telemetry is on by default (can be disabled)",
+      "Quality depends on the model you connect"
+    ],
+    "useCases": [
+      {
+        "title": "Company knowledge base",
+        "body": "Self-host and let staff chat with internal docs."
+      },
+      {
+        "title": "Private research assistant",
+        "body": "Use the desktop app with a local model."
+      },
+      {
+        "title": "Website support bot",
+        "body": "Embed a chat widget trained on your docs."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from AnythingLLM's README and Docker guide. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Mintplex-Labs/anything-llm/blob/b01447009150507ae0cfd1304e3492fcaf2a92d8/README.md",
+      "prerequisites": [
+        "Docker, or the desktop app"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker (Linux and macOS)",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Pull the image",
+              "code": "docker pull mintplexlabs/anythingllm",
+              "lang": "bash"
+            },
+            {
+              "title": "Run with local storage",
+              "body": "Mounting storage on the host lets you update without losing data.",
+              "code": "export STORAGE_LOCATION=$HOME/anythingllm && \\\nmkdir -p $STORAGE_LOCATION && \\\ntouch \"$STORAGE_LOCATION/.env\" && \\\ndocker run -d --rm -p 3001:3001 \\\n--cap-add SYS_ADMIN \\\n-v ${STORAGE_LOCATION}:/app/server/storage \\\n-v ${STORAGE_LOCATION}/.env:/app/server/.env \\\n-e STORAGE_DIR=\"/app/server/storage\" \\\nmintplexlabs/anythingllm",
+              "lang": "bash"
+            },
+            {
+              "title": "Open http://localhost:3001"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Docker (Windows PowerShell)",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Run with local storage",
+              "code": "$env:STORAGE_LOCATION=\"$HOME\\Documents\\anythingllm\"; `\nIf(!(Test-Path $env:STORAGE_LOCATION)) {New-Item $env:STORAGE_LOCATION -ItemType Directory}; `\nIf(!(Test-Path \"$env:STORAGE_LOCATION\\.env\")) {New-Item \"$env:STORAGE_LOCATION\\.env\" -ItemType File}; `\ndocker run -d --rm -p 3001:3001 `\n--cap-add SYS_ADMIN `\n-v \"$env:STORAGE_LOCATION`:/app/server/storage\" `\n-v \"$env:STORAGE_LOCATION\\.env:/app/server/.env\" `\n-e STORAGE_DIR=\"/app/server/storage\" `\nmintplexlabs/anythingllm;",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Desktop app",
+          "method": "desktop",
+          "steps": [
+            {
+              "title": "Download AnythingLLM for desktop",
+              "body": "Available for Mac, Windows and Linux from anythingllm.com."
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "STORAGE_DIR",
+          "required": true,
+          "description": "Storage path inside the Docker container, /app/server/storage."
+        },
+        {
+          "name": "DISABLE_TELEMETRY",
+          "required": false,
+          "description": "Set to true to opt out of anonymous telemetry."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Open http://localhost:3001 and connect an LLM"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Chat with your documents in AnythingLLM",
+      "useCase": "Self-host AnythingLLM and ask questions about your files.",
+      "setup": [
+        "Docker",
+        "An LLM (local like Ollama, or a cloud API key)"
+      ],
+      "steps": [
+        {
+          "title": "Start the container",
+          "body": "Use the Docker command from Installation."
+        },
+        {
+          "title": "Open http://localhost:3001",
+          "body": "Choose your LLM provider in setup."
+        },
+        {
+          "title": "Create a workspace and upload documents",
+          "body": "Drag and drop PDFs or DOCX files."
+        },
+        {
+          "title": "Ask a question",
+          "body": "Answers include source citations."
+        }
+      ],
+      "expected": "A private workspace that answers questions about your documents with citations.",
+      "nextSteps": [
+        "Add users and permissions",
+        "Enable an agent in the workspace",
+        "Embed a chat widget on your website"
+      ],
+      "sourceUrl": "https://github.com/Mintplex-Labs/anything-llm/blob/b01447009150507ae0cfd1304e3492fcaf2a92d8/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free desktop app and self-hosting.",
+        "tone": "free"
+      },
+      {
+        "label": "Hosted instance",
+        "value": "Mintplex Labs offers a hosted version.",
+        "tone": "depends"
+      },
+      {
+        "label": "LLM",
+        "value": "Local models are free to run; cloud APIs are billed by the provider.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Can't reach Ollama, LM Studio or Chroma on localhost from Docker",
+        "solution": "Use http://host.docker.internal:PORT; on Linux add --add-host=host.docker.internal:host-gateway to docker run.",
+        "sourceUrl": "https://github.com/Mintplex-Labs/anything-llm/blob/b01447009150507ae0cfd1304e3492fcaf2a92d8/README.md"
+      },
+      {
+        "problem": "Lost data after updating the container",
+        "solution": "Mount the storage folder on the host as in the install command.",
+        "sourceUrl": "https://github.com/Mintplex-Labs/anything-llm/blob/b01447009150507ae0cfd1304e3492fcaf2a92d8/README.md"
+      },
+      {
+        "problem": "Want to stop telemetry",
+        "solution": "Set DISABLE_TELEMETRY to true, or turn it off under Privacy in the sidebar.",
+        "sourceUrl": "https://github.com/Mintplex-Labs/anything-llm/blob/b01447009150507ae0cfd1304e3492fcaf2a92d8/README.md"
+      }
+    ],
+    "bestFor": [
+      "Private document chat",
+      "Self-hosted team AI workspace",
+      "Local LLM front end"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI document chat and agents app"
+      },
+      {
+        "label": "Language",
+        "value": "JavaScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Runs",
+        "value": "Desktop or Docker"
+      }
+    ]
+  }
+}
