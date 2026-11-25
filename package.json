@@ -17,6 +17,7 @@
     "cf:check-env": "node scripts/check-deploy-env.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^1.14.0",
     "@opennextjs/cloudflare": "1.20.18",
     "@supabase/supabase-js": "^2.119.2",
     "class-variance-authority": "^0.7.1",

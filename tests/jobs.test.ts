@@ -6,6 +6,7 @@ import { buildRankings, runDiscover, runRank, runSnapshot } from "@/lib/jobs/job
 import { scoreRelevance } from "@/lib/jobs/relevance";
 import type { JobStore, NewRepoRow, Period, QueueRow, RankingRow, RunResult, TrackedRepo } from "@/lib/jobs/store";
 import { categorize, importEligible, runImport, starBands, uniqueSlug } from "@/lib/jobs/importer";
+import { FileSummarizer, validateSummary } from "@/lib/jobs/summarize";
 import type { StatPoint } from "@/lib/jobs/growth";
 
 const NOW = new Date("2026-12-10T05:17:00Z");
@@ -59,6 +60,15 @@ class MemStore implements JobStore {
   async insertRepoCategories(rows: { repository_id: string; category_id: string; is_primary: boolean }[]) { this.repoCategories.push(...rows); }
   async setNoindex(ids: string[]) { this.noindex.push(...ids); }
   async markQueueApproved(ids: number[]) { this.approved.push(...ids); }
+  summaries = new Map<string, string>();
+  publishedAt = new Map<string, string>();
+  async saveSummaries(rows: { id: string; summary: string }[], at?: string) {
+    for (const r of rows) {
+      this.summaries.set(r.id, r.summary);
+      if (at) this.publishedAt.set(r.id, at);
+    }
+  }
+  async listUnsummarized() { return []; }
   async startRun(job: string) { this.runs.push({ job }); return String(this.runs.length); }
   async finishRun(id: string | null, result: RunResult) { this.runs[Number(id) - 1].result = result; }
 }
@@ -295,5 +305,43 @@ describe("batched GitHub lookups", () => {
     const s = await runSnapshot({ store, github, now: NOW });
     expect(s.processed).toBe(1);
     expect(store.updates).toHaveLength(1);
+  });
+});
+
+describe("summaries", () => {
+  const src = { key: "k", fullName: "o/r", description: "Run Llama 3 and other LLMs locally with one command", topics: ["llm"], language: "Go" };
+
+  it("accepts one plain, sourced sentence", () => {
+    expect(validateSummary("Command-line tool for running Llama 3 and other language models on your own computer.", src)).toBeTruthy();
+  });
+
+  it("rejects invented numbers, hype, links, markdown, SKIP and multiple sentences", () => {
+    expect(validateSummary("Tool that runs 400 models on your own computer quickly.", src)).toBeNull();
+    expect(validateSummary("The most powerful tool for running language models on your computer.", src)).toBeNull();
+    expect(validateSummary("Runs language models locally, see https://x.io for setup details.", src)).toBeNull();
+    expect(validateSummary("**Tool** that runs language models on your own computer.", src)).toBeNull();
+    expect(validateSummary("SKIP", src)).toBeNull();
+    expect(validateSummary("Runs language models locally. Works offline on your own laptop.", src)).toBeNull();
+  });
+
+  it("import publishes only drafts that got a valid summary", async () => {
+    const store = new MemStore();
+    const github: GithubApi = {
+      calls: 0,
+      async getRepoById() { return null; },
+      async searchRepos() { return []; },
+      async searchPage() { return { total: 2, items: [gh(10, { stargazers_count: 9000 }), gh(11, { stargazers_count: 8000 })] }; },
+    };
+    const summarizer = new FileSummarizer({ "O/R10": "Framework for building AI agent apps with large language models in Python." });
+    const s = await runImport(
+      { store, github, now: NOW },
+      { target: 5, minStars: 500, pushedSince: "2025-06-01", noindex: true, topics: ["llm"], sleep: async () => {}, searchDelayMs: 0, summarizer },
+    );
+    expect(store.inserted.every((r) => r.status === "draft" && r.published_at === null)).toBe(true);
+    expect(store.inserted.map((r) => r.github_id)).toEqual([10]); // file mode only takes repos it has a line for
+    expect([...store.summaries.keys()]).toEqual(["new10"]);
+    expect(store.publishedAt.get("new10")).toBe(NOW.toISOString());
+    expect(s.processed).toBe(1);
+    expect(s.details.left_as_draft).toBe(0);
   });
 });

@@ -6,6 +6,7 @@ import { isoDay } from "./growth.ts";
 import type { JobContext, JobSummary } from "./jobs.ts";
 import { runLogged, toRepoUpdate } from "./jobs.ts";
 import type { NewRepoRow } from "./store.ts";
+import type { Summarizer } from "./summarize.ts";
 
 /** GitHub topics that mark a repo as AI / ML. Each is searched in several star bands. */
 export const IMPORT_TOPICS = [
@@ -91,6 +92,11 @@ export interface ImportOptions {
   /** Waits between search calls (GitHub allows 30 searches a minute). Injected so tests don't sleep. */
   sleep?: (ms: number) => Promise<void>;
   searchDelayMs?: number;
+  /**
+   * When set, new rows are inserted as drafts, summarised, and only the ones with a valid summary
+   * are published. Without it rows are published straight away (GitHub description only).
+   */
+  summarizer?: Summarizer;
 }
 
 const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
@@ -141,7 +147,11 @@ export function runImport(ctx: JobContext, opts: ImportOptions): Promise<JobSumm
       if (found.size >= opts.target) break;
     }
 
-    const picked = [...found.values()].sort((a, b) => b.stargazers_count - a.stargazers_count).slice(0, opts.target);
+    const covers = opts.summarizer?.covers?.bind(opts.summarizer);
+    const picked = [...found.values()]
+      .filter((g) => !covers || covers(g.full_name))
+      .sort((a, b) => b.stargazers_count - a.stargazers_count)
+      .slice(0, opts.target);
     const taken = await ctx.store.knownSlugs();
     const categoryIds = await ctx.store.categoryIds();
     const now = ctx.now.toISOString();
@@ -155,8 +165,8 @@ export function runImport(ctx: JobContext, opts: ImportOptions): Promise<JobSumm
         github_id: g.id,
         slug,
         created_at_github: g.created_at,
-        status: "published",
-        published_at: now,
+        status: opts.summarizer ? "draft" : "published",
+        published_at: opts.summarizer ? null : now,
         discovered_at: now,
       });
       cats.set(g.id, categorize(g).filter((s) => categoryIds.has(s)));
@@ -174,6 +184,10 @@ export function runImport(ctx: JobContext, opts: ImportOptions): Promise<JobSumm
       by_category: byCategory,
       sample: rows.slice(0, 15).map((r) => `${r.full_name} (${r.stars})`),
     });
+    // Dry runs list every pick so summaries can be written for exactly these repos.
+    if (ctx.dryRun) {
+      details.candidates = picked.map((g) => ({ full_name: g.full_name, stars: g.stargazers_count, language: g.language, topics: g.topics ?? [], description: g.description }));
+    }
     if (ctx.dryRun || !rows.length) return { processed: rows.length, failed: 0 };
 
     const inserted = await ctx.store.insertRepositories(rows);
@@ -188,9 +202,32 @@ export function runImport(ctx: JobContext, opts: ImportOptions): Promise<JobSumm
         .map((g) => ({ repository_id: idByGithub.get(g.id)!, recorded_on: today, recorded_at: now, stars: g.stargazers_count, forks: g.forks_count, open_issues: g.open_issues_count })),
     );
     if (opts.noindex) await ctx.store.setNoindex(inserted.map((r) => r.id));
-    const fromQueue = inserted.map((r) => r.github_id).filter((id) => known.queue.has(id));
+    let published = inserted.map((r) => r.github_id);
+    if (opts.summarizer) {
+      const byGithub = new Map(picked.map((g) => [g.id, g]));
+      const summaries = await opts.summarizer.summarize(
+        inserted.map((r) => {
+          const g = byGithub.get(r.github_id)!;
+          return { key: r.id, fullName: g.full_name, description: g.description ?? "", topics: g.topics ?? [], language: g.language };
+        }),
+        ctx.log,
+      );
+      const good = inserted.filter((r) => summaries.get(r.id));
+      await ctx.store.saveSummaries(
+        good.map((r) => ({ id: r.id, summary: summaries.get(r.id)! })),
+        now,
+      );
+      published = good.map((r) => r.github_id);
+      Object.assign(details, {
+        summarized: good.length,
+        left_as_draft: inserted.length - good.length,
+        summary_sample: good.slice(0, 10).map((r) => `${byGithub.get(r.github_id)!.full_name}: ${summaries.get(r.id)}`),
+      });
+    }
+    const publishedSet = new Set(published);
+    const fromQueue = inserted.map((r) => r.github_id).filter((id) => known.queue.has(id) && publishedSet.has(id));
     await ctx.store.markQueueApproved(fromQueue);
-    Object.assign(details, { inserted: inserted.length, approved_from_queue: fromQueue.length });
-    return { processed: inserted.length, failed: rows.length - inserted.length };
+    Object.assign(details, { inserted: inserted.length, published: published.length, approved_from_queue: fromQueue.length });
+    return { processed: published.length, failed: 0 };
   });
 }

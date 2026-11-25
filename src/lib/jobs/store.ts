@@ -69,8 +69,8 @@ export interface NewRepoRow extends RepoUpdate {
   github_id: number;
   slug: string;
   created_at_github: string | null;
-  status: "published";
-  published_at: string;
+  status: "published" | "draft";
+  published_at: string | null;
   discovered_at: string;
 }
 
@@ -103,6 +103,10 @@ export interface JobStore {
   /** Hide pages from search engines (seo_metadata.noindex) until they get reviewed content. */
   setNoindex(repositoryIds: string[]): Promise<void>;
   markQueueApproved(githubIds: number[]): Promise<void>;
+  /** Set summaries; with publishAt, also publish those rows (drafts waiting for a summary). */
+  saveSummaries(rows: { id: string; summary: string }[], publishAt?: string): Promise<void>;
+  /** Published repos that still have no summary, most-starred first. */
+  listUnsummarized(limit: number): Promise<{ id: string; full_name: string; description: string; topics: string[]; primary_language: string | null }[]>;
   startRun(job: string): Promise<string | null>;
   finishRun(id: string | null, result: RunResult): Promise<void>;
 }
@@ -305,6 +309,29 @@ export class SupabaseJobStore implements JobStore {
     for (let i = 0; i < githubIds.length; i += 500) {
       check(await this.db.from("discovery_queue").update({ status: "approved" }).in("github_id", githubIds.slice(i, i + 500)), "queue approve");
     }
+  }
+
+  async saveSummaries(rows: { id: string; summary: string }[], publishAt?: string) {
+    const patch = (summary: string) => (publishAt ? { summary, status: "published", published_at: publishAt } : { summary });
+    for (let i = 0; i < rows.length; i += 10) {
+      await Promise.all(
+        rows.slice(i, i + 10).map(async (r) => check(await this.db.from("repositories").update(patch(r.summary)).eq("id", r.id), "save summary")),
+      );
+    }
+  }
+
+  async listUnsummarized(limit: number) {
+    return check(
+      await this.db
+        .from("repositories")
+        .select("id, full_name, description, topics, primary_language")
+        .eq("status", "published")
+        .is("summary", null)
+        .not("description", "is", null)
+        .order("stars", { ascending: false })
+        .limit(limit),
+      "unsummarized",
+    ) as { id: string; full_name: string; description: string; topics: string[]; primary_language: string | null }[];
   }
 
   async startRun(job: string) {
