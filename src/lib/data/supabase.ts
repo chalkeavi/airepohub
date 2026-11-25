@@ -247,3 +247,22 @@ export async function fetchContent(slug: string): Promise<RepositoryContent | nu
   };
 }
 
+
+export interface SeoOverride {
+  title: string | null;
+  description: string | null;
+  noindex: boolean;
+}
+
+/** Editor-set title/description/noindex for a published repo (seo_metadata), if any. */
+export async function fetchSeoOverride(slug: string): Promise<SeoOverride | null> {
+  const res = await db()
+    .from("repositories")
+    .select("seo_metadata(title, description, noindex)")
+    .eq("slug", slug)
+    .eq("status", "published")
+    .maybeSingle();
+  const row = check(res, "seo") as unknown as { seo_metadata: SeoOverride | SeoOverride[] | null } | null;
+  const seo = Array.isArray(row?.seo_metadata) ? row?.seo_metadata[0] : row?.seo_metadata;
+  return seo ?? null;
+}

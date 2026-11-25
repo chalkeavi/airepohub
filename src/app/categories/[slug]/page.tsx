@@ -8,6 +8,8 @@ import { RepoCard } from "@/components/repo/repo-card";
 import { toLeaderboardData } from "@/components/repo/to-leaderboard-data";
 import { EmptyState } from "@/components/ui/empty-state";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { JsonLd } from "@/components/site/json-ld";
+import { breadcrumbJsonLd, categoryBreadcrumbs, itemListJsonLd, truncate } from "@/lib/seo";
 import { DATA_AS_OF, getCategories, getCategoryBySlug, getLeaderboards, getRepositoriesByCategory } from "@/lib/data";
 
 export async function generateStaticParams() {
@@ -17,11 +19,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/categories/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const category = await getCategoryBySlug(slug);
-  if (!category) return { title: "Category not found" };
+  if (!category) return { title: "Category not found", robots: { index: false } };
+  const title = `Best open-source ${category.name} repositories`;
   return {
-    title: `Best open-source ${category.name} repositories`,
-    description: category.description,
+    title,
+    description: truncate(`${category.description} Ranked, with plain-English install guides.`, 160),
     alternates: { canonical: `/categories/${category.slug}` },
+    openGraph: { title: `${title} | AIRepoHub`, url: `/categories/${category.slug}`, type: "website" },
   };
 }
 
@@ -37,6 +41,12 @@ export default async function CategoryPage({ params }: PageProps<"/categories/[s
 
   return (
     <div className="container-page pt-6">
+      <JsonLd
+        data={[
+          breadcrumbJsonLd(categoryBreadcrumbs(category)),
+          ...(repos.length ? [itemListJsonLd(`Open-source ${category.name} repositories`, repos)] : []),
+        ]}
+      />
       <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-[13px] text-muted-foreground">
         <Link href="/" className="hover:text-foreground">Home</Link>
         <ChevronRight className="size-3.5 opacity-60" aria-hidden />

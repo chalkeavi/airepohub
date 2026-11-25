@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { ArrowRight, BookOpenCheck, Clock, Flame, Info, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { AdSlot } from "@/components/ads/ad-slot";
@@ -25,7 +26,11 @@ import {
   getSearchSuggestions,
   getTrendingRepositories,
 } from "@/lib/data";
+import { JsonLd } from "@/components/site/json-ld";
+import { itemListJsonLd, websiteJsonLd } from "@/lib/seo";
 import { formatCount, formatDate, licenseLabel } from "@/lib/utils";
+
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const POPULAR = ["local-llms", "ai-agents", "coding-assistants", "image-generation", "rag-knowledge"];
 
@@ -46,6 +51,14 @@ export default async function HomePage() {
 
   return (
     <>
+      <JsonLd
+        data={[
+          websiteJsonLd(),
+          ...(allTime?.entries.length
+            ? [itemListJsonLd("Top 10 open-source AI repositories", allTime.entries.map((e) => e.repository))]
+            : []),
+        ]}
+      />
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative overflow-hidden border-b border-border">
         <div className="bg-grid pointer-events-none absolute inset-0" aria-hidden />

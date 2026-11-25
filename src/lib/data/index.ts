@@ -11,7 +11,15 @@ import type {
 import { sampleCategories } from "./sample/categories";
 import { sampleRepositories } from "./sample/repositories";
 import { openseoContent } from "./sample/content/openseo";
-import { fetchAllTimeRanking, fetchCatalog, fetchContent, fetchSearchMatches, supabaseConfigured } from "./supabase";
+import {
+  fetchAllTimeRanking,
+  fetchCatalog,
+  fetchContent,
+  fetchSearchMatches,
+  fetchSeoOverride,
+  supabaseConfigured,
+  type SeoOverride,
+} from "./supabase";
 
 // Data access layer. UI imports only from here.
 // Backed by Supabase when NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY are set
@@ -272,3 +280,23 @@ export async function getLanguages(): Promise<string[]> {
   cacheLife("days");
   return [...new Set((await published()).map((r) => r.primaryLanguage).filter((l): l is string => !!l))].sort();
 }
+
+/** Editor overrides for a repo's title/description/noindex (seo_metadata). Null when none. */
+export async function getRepositorySeo(slug: string): Promise<SeoOverride | null> {
+  "use cache";
+  cacheLife("hours");
+  cacheTag(`repo:${slug}`);
+  if (!supabaseConfigured()) return null;
+  return fetchSeoOverride(slug);
+}
+
+/** Published repos for the sitemap, with the last time their page data changed. */
+export async function getSitemapRepositories(): Promise<{ slug: string; lastModified: string | null }[]> {
+  "use cache";
+  cacheLife("hours");
+  return (await published()).map((r) => {
+    const dates = [r.publishedAt, r.statsCheckedAt].filter((d): d is string => !!d).sort();
+    return { slug: r.slug, lastModified: dates.at(-1) ?? null };
+  });
+}
+export type { SeoOverride };
