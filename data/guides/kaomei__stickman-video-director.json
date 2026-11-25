@@ -1,0 +1,277 @@
+{
+  "fullName": "kaomei/stickman-video-director",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/kaomei/stickman-video-director/blob/10287822ba47579321068da1b93801face9160dd/README.md",
+      "https://github.com/kaomei/stickman-video-director/blob/10287822ba47579321068da1b93801face9160dd/skills/directing-stickman-videos/references/installation-troubleshooting.md"
+    ],
+    "sourceCommitSha": "10287822ba47579321068da1b93801face9160dd",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install the skill for your AI agent (needs Node.js and Git)",
+        "command": "npx skills add kaomei/stickman-video-director --skill directing-stickman-videos"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Stickman Video Director is an AI agent skill for Claude Code, Codex and similar agents that turns a topic, article or script into a finished stickman animation video, with voiceover, captions and sound effects. It offers 16 styles and two ways to make the visuals.",
+      "problem": "Making animated explainer videos for faceless YouTube, Shorts or TikTok channels normally needs animation software or paid video tools. This skill lets your coding agent write the script, prepare assets and produce the video for you, with you approving the script and a preview first.",
+      "whoFor": [
+        "Creators running faceless YouTube, Shorts or TikTok channels",
+        "Claude Code or Codex users who want to use spare quota for video",
+        "Educators making explainer videos",
+        "Marketers producing short story videos"
+      ],
+      "whyChoose": "Choose it if you already use a capable coding agent and want stickman explainer videos without After Effects. The README recommends Codex or Claude Code for results close to its samples.",
+      "requirements": [
+        "An AI agent that can read and write files and run commands (Codex or Claude Code recommended)",
+        "Node.js/npm and Git for terminal installation",
+        "Model Engine: access to a video generation platform such as Google Flow",
+        "Code Engine: image generation and text-to-speech tools your agent can use"
+      ]
+    },
+    "overview": [
+      "There are two modes. Model Engine (A) turns your idea into a storyboard and scene prompts for video generation models such as Google Flow, then generates the clips manually or through the agent's browser. Code Engine (B) has the agent create layered character and scene assets, write animation code and render the whole video locally, so it uses no video model credits.",
+      "You can start from an idea, an article, a link or a full script, in 16:9 or 9:16, with captions, voiceover, background music and sound effects. The agent first shows you a script (and, in Code Engine, a 20-second preview with audio) and only continues after you approve it. A Thumbnail and Publishing Kit then creates a thumbnail, title, description and pinned comment.",
+      "The skill is MIT licensed and free, but the services you connect cost money: your agent's plan, video generation credits in Model Engine, and any image or speech APIs. You don't need to write code or own an expensive GPU; your computer's performance mainly affects speed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "16 visual styles",
+        "body": "From classic black and white to pixel theater."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Two engines",
+        "body": "Video-model clips or locally rendered code animation."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Approve before rendering",
+        "body": "Script and preview first, then the full video."
+      },
+      {
+        "icon": "file-code",
+        "title": "Voiceover, captions and SFX",
+        "body": "Complete audio and subtitles."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Thumbnail and publishing kit",
+        "body": "Thumbnail, title, description and pinned comment."
+      },
+      {
+        "icon": "shield",
+        "title": "Works with many agents",
+        "body": "Claude Code, Codex and others that run commands."
+      }
+    ],
+    "strengths": [
+      "Free and MIT licensed",
+      "Code Engine needs no video model credits",
+      "Character consistency through reusable assets",
+      "Short or long videos in landscape or portrait"
+    ],
+    "limitations": [
+      "Results depend on your agent's model and tools",
+      "Model Engine uses paid video generation credits",
+      "Platform monetisation approval is up to YouTube or TikTok"
+    ],
+    "useCases": [
+      {
+        "title": "Faceless explainer channel",
+        "body": "Turn articles into narrated stickman videos."
+      },
+      {
+        "title": "Educational shorts",
+        "body": "Explain a concept with visual metaphors."
+      },
+      {
+        "title": "Story videos",
+        "body": "Create what-if or history stories in a chosen style."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Stickman Video Director's README and installation guide. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/kaomei/stickman-video-director/blob/10287822ba47579321068da1b93801face9160dd/README.md",
+      "prerequisites": [
+        "Node.js and npm",
+        "Git",
+        "A capable AI coding agent"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Ask your agent",
+          "method": "agent",
+          "steps": [
+            {
+              "title": "Send this to your AI agent",
+              "body": "On first use the agent checks the setup and helps install anything missing.",
+              "code": "Help me install this skill:\nhttps://github.com/kaomei/stickman-video-director\nAfter installation, read SKILL.md and tell me you're ready.",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Terminal",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install the skill",
+              "body": "Requires Node.js/npm and Git. The installer asks which agent and installation scope to use.",
+              "code": "npx skills add kaomei/stickman-video-director --skill directing-stickman-videos",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Terminal with a longer clone timeout",
+          "method": "npx-timeout",
+          "steps": [
+            {
+              "title": "Retry with a 20-minute clone window",
+              "body": "Use this if installation reports a clone timeout (same command works on macOS).",
+              "code": "SKILLS_CLONE_TIMEOUT_MS=1200000 npx skills add kaomei/stickman-video-director --skill directing-stickman-videos",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Terminal with a longer clone timeout",
+          "method": "npx-timeout",
+          "steps": [
+            {
+              "title": "Retry with a 20-minute clone window in PowerShell",
+              "code": "$env:SKILLS_CLONE_TIMEOUT_MS = \"1200000\"\nnpx skills add kaomei/stickman-video-director --skill directing-stickman-videos",
+              "lang": "powershell"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "SKILLS_CLONE_TIMEOUT_MS",
+          "required": false,
+          "description": "Longer clone timeout for the installer, for example 1200000 (20 minutes)."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Install the skill",
+          "code": "npx skills add kaomei/stickman-video-director --skill directing-stickman-videos",
+          "lang": "bash"
+        },
+        {
+          "title": "Ask your agent to read SKILL.md",
+          "body": "Then pick a style and send a prompt."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Make your first stickman video with the Code Engine",
+      "useCase": "Turn an article into a narrated stickman video rendered locally by your agent.",
+      "setup": [
+        "The skill installed",
+        "Codex or Claude Code with image generation and text-to-speech tools available"
+      ],
+      "steps": [
+        {
+          "title": "Send the Code Engine prompt to your agent",
+          "body": "Adapt the topic, length and style.",
+          "code": "Use Code Engine (B) to turn the following topic or article into an engaging stickman video:\n[Paste an article, a news story, or a link, or describe your topic]\nRequirements: 16:9 landscape, 8 minutes, style B1 \"Minimal Line Art,\" with voiceover, captions, and sound effects.\nFirst, check that the local tools for image generation and rendering are set up. Then provide a complete script and a preview of the opening 20 seconds with audio.\nAfter I approve both, automatically prepare all assets, write the code, and render the complete video locally.",
+          "lang": "text"
+        },
+        {
+          "title": "Approve the script and 20-second preview",
+          "body": "Ask for changes to any section you don't like before approving."
+        },
+        {
+          "title": "Create the thumbnail and publishing text",
+          "code": "Create a thumbnail, video title, description, and pinned comment for the video we just made, using the approved visual style.",
+          "lang": "text"
+        }
+      ],
+      "expected": "The agent prepares the assets, animation, captions and audio, renders the full video locally and gives you a preview, followed by a matching thumbnail, title, description and pinned comment.",
+      "nextSteps": [
+        "Try a Model Engine (A) style with Google Flow",
+        "Make a 9:16 version for Shorts or TikTok",
+        "Ask for targeted edits to one section"
+      ],
+      "sourceUrl": "https://github.com/kaomei/stickman-video-director/blob/10287822ba47579321068da1b93801face9160dd/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT, for personal and commercial projects.",
+        "tone": "free"
+      },
+      {
+        "label": "Skill",
+        "value": "Free, no subscription.",
+        "tone": "free"
+      },
+      {
+        "label": "AI agent plan",
+        "value": "Your Codex or Claude Code plan.",
+        "tone": "depends"
+      },
+      {
+        "label": "Model Engine",
+        "value": "Video generation credits on the platform you use.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Installation times out cloning the repository",
+        "solution": "Retry with SKILLS_CLONE_TIMEOUT_MS=1200000, or clone locally first and run npx skills add ./stickman-video-director --skill directing-stickman-videos.",
+        "sourceUrl": "https://github.com/kaomei/stickman-video-director/blob/10287822ba47579321068da1b93801face9160dd/README.md"
+      },
+      {
+        "problem": "Characters look different between clips (Model Engine)",
+        "solution": "Add a stick-figure character reference image and reuse it for later clips.",
+        "sourceUrl": "https://github.com/kaomei/stickman-video-director/blob/10287822ba47579321068da1b93801face9160dd/README.md"
+      },
+      {
+        "problem": "Results don't match the samples",
+        "solution": "Use an agent with strong coding ability such as Codex or Claude Code; the samples used Google Flow (A) and Codex (B).",
+        "sourceUrl": "https://github.com/kaomei/stickman-video-director/blob/10287822ba47579321068da1b93801face9160dd/README.md"
+      }
+    ],
+    "bestFor": [
+      "Faceless video channels",
+      "AI-made explainer videos",
+      "Claude Code and Codex users"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI agent skill for video"
+      },
+      {
+        "label": "Language",
+        "value": "JavaScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Styles",
+        "value": "16"
+      }
+    ]
+  }
+}
