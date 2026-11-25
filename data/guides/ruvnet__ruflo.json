@@ -1,0 +1,270 @@
+{
+  "fullName": "ruvnet/ruflo",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ruvnet/ruflo/blob/f8a62a5f0ea4fa83b9fa7f5dc10acfe9ce0e8876/README.md"
+    ],
+    "sourceCommitSha": "f8a62a5f0ea4fa83b9fa7f5dc10acfe9ce0e8876",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Add ruflo to your project",
+        "command": "npx ruflo@latest init"
+      },
+      {
+        "comment": "Or add it as an MCP server in Claude Code",
+        "command": "claude mcp add claude-flow -- npx ruflo@latest mcp start"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Ruflo is an agent meta-harness for Claude Code and Codex. It adds specialised agents, swarm coordination, memory, hooks and an MCP server to your project so your coding assistant can split work across many agents.",
+      "problem": "A single coding agent works one step at a time and forgets between sessions. Ruflo gives it a team of specialised agents, shared vector memory, background workers and a console to monitor and replay runs.",
+      "whoFor": [
+        "Claude Code users who want multi-agent swarms",
+        "Codex and other MCP client users",
+        "Developers automating reviews, tests and refactors",
+        "Teams wanting a console to monitor agent cost and runs"
+      ],
+      "whyChoose": "Choose it to give Claude Code a large, ready-made set of agents, skills and swarm tools. It adds many files to your project, so try the plugin route first if you want something lighter.",
+      "requirements": [
+        "Node.js (for npx)",
+        "Claude Code (2.1.287+ for plugins), Codex or another MCP client"
+      ]
+    },
+    "overview": [
+      "Running npx ruflo@latest init adds ruflo's agents, hooks, memory and MCP server to your project, and Claude Code picks them up on its next start. You then ask Claude Code to use a ruflo swarm for a real task, such as reviewing the repo and writing tests for its riskiest module.",
+      "There are two install paths. The CLI install gives the full loop (the README lists 98 agents, 60+ commands, 30 skills, an MCP server, hooks and a daemon) and writes .claude/, .claude-flow/ and CLAUDE.md into your project. The Claude Code plugin route adds core tools, the console and mods with no files in your workspace.",
+      "Mission Control, opened with /ruflo, tracks workflows, agents, models, token use and cost, lets you inspect and replay runs, and lets you choose what Claude may do in the console. Other capabilities include swarm topologies, vector memory, background workers, multi-provider routing and a plugin marketplace."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Specialised agents",
+        "body": "Agents for coding, testing, security, docs and architecture."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Swarm coordination",
+        "body": "Hierarchical, mesh and adaptive agent teams."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Vector memory",
+        "body": "HNSW-indexed AgentDB shared by agents."
+      },
+      {
+        "icon": "file-code",
+        "title": "MCP server",
+        "body": "Works with Claude Code, Codex and other MCP clients."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Mission Control",
+        "body": "Monitor runs, tokens and cost; replay and inspect."
+      },
+      {
+        "icon": "shield",
+        "title": "Plugin marketplace",
+        "body": "Many Claude Code plugins for different jobs."
+      }
+    ],
+    "strengths": [
+      "Large ready-made set of agents and skills",
+      "Works with Claude Code and Codex",
+      "Console with permission levels for Claude",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "The CLI install adds many files and hooks to your project",
+      "Mods run with your account's permissions, so review them first",
+      "A lot of surface area to learn",
+      "Agents still need checking; review the diff and tests"
+    ],
+    "useCases": [
+      {
+        "title": "Repo review with tests",
+        "body": "Have a swarm find the riskiest module and add tests."
+      },
+      {
+        "title": "Background audits",
+        "body": "Use workers for audits, optimisation and test gaps."
+      },
+      {
+        "title": "Monitor agent cost",
+        "body": "Track tokens and cost per run in Mission Control."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Ruflo's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ruvnet/ruflo/blob/f8a62a5f0ea4fa83b9fa7f5dc10acfe9ce0e8876/README.md",
+      "prerequisites": [
+        "Node.js",
+        "Claude Code or an MCP client"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "CLI install (npx)",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Run in your project folder",
+              "body": "Use init wizard for an interactive setup; it works in PowerShell and cmd too.",
+              "code": "npx ruflo@latest init",
+              "lang": "bash"
+            },
+            {
+              "title": "Restart Claude Code in the same folder"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Install script (macOS, Linux, WSL, Git Bash)",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Run the install script",
+              "body": "Needs a POSIX shell.",
+              "code": "curl -fsSL https://cdn.jsdelivr.net/gh/ruvnet/ruflo@main/scripts/install.sh | bash",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Claude Code plugins only",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Inside Claude Code 2.1.287+",
+              "body": "Adds core tools, the console and mods without files in your project.",
+              "code": "/plugin marketplace add ruvnet/ruflo\n/plugin install ruflo-core@ruflo\n/plugin install ruflo-console@ruflo\n/plugin install ruflo-mods@ruflo\n/reload-plugins\n/ruflo",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "MCP server",
+          "method": "mcp",
+          "steps": [
+            {
+              "title": "Add it to Claude Code",
+              "code": "claude mcp add claude-flow -- npx ruflo@latest mcp start",
+              "lang": "bash"
+            },
+            {
+              "title": "Other MCP clients",
+              "body": "Use the command npx with arguments -y ruflo@latest mcp start."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Give Claude Code a task",
+          "code": "Use a ruflo swarm to review this repo: find the riskiest module, write tests for it, and summarise what you changed.",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your first ruflo swarm",
+      "useCase": "Have a swarm review your repo and add tests for its riskiest module.",
+      "setup": [
+        "Node.js",
+        "Claude Code",
+        "A project folder under git"
+      ],
+      "steps": [
+        {
+          "title": "Initialise ruflo",
+          "code": "npx ruflo@latest init",
+          "lang": "bash"
+        },
+        {
+          "title": "Open Claude Code in the folder and ask",
+          "code": "Use a ruflo swarm to review this repo: find the riskiest module, write tests for it, and summarise what you changed.",
+          "lang": "text"
+        },
+        {
+          "title": "Check the result",
+          "body": "Ask it to name the module, show the new test and report the test command and result. Review the diff."
+        }
+      ],
+      "expected": "Claude Code coordinates ruflo agents, adds tests for one module and reports what changed and whether the tests pass.",
+      "nextSteps": [
+        "Open /ruflo to inspect the run in Mission Control",
+        "Read the first-task walkthrough in docs/ruflo-explained.md",
+        "Try a plugin from the marketplace"
+      ],
+      "sourceUrl": "https://github.com/ruvnet/ruflo/blob/f8a62a5f0ea4fa83b9fa7f5dc10acfe9ce0e8876/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Model usage",
+        "value": "Agent swarms use your Claude Code or model provider plan.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "'bash' is not recognized on Windows",
+        "solution": "Use npx ruflo@latest init wizard, which works in PowerShell and cmd.",
+        "sourceUrl": "https://github.com/ruvnet/ruflo/blob/f8a62a5f0ea4fa83b9fa7f5dc10acfe9ce0e8876/README.md"
+      },
+      {
+        "problem": "Claude Code doesn't show ruflo tools",
+        "solution": "Restart Claude Code after init; plugins need version 2.1.287 or later.",
+        "sourceUrl": "https://github.com/ruvnet/ruflo/blob/f8a62a5f0ea4fa83b9fa7f5dc10acfe9ce0e8876/README.md"
+      },
+      {
+        "problem": "/ruflo console doesn't open after a CLI init",
+        "solution": "Run npx ruflo init and restart Claude Code before opening /ruflo.",
+        "sourceUrl": "https://github.com/ruvnet/ruflo/blob/f8a62a5f0ea4fa83b9fa7f5dc10acfe9ce0e8876/README.md"
+      }
+    ],
+    "bestFor": [
+      "Multi-agent work in Claude Code",
+      "Agent run monitoring",
+      "Extending coding agents with skills and memory"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent meta-harness"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Works with",
+        "value": "Claude Code, Codex, MCP clients"
+      }
+    ]
+  }
+}
