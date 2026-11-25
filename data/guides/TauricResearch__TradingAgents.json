@@ -1,0 +1,260 @@
+{
+  "fullName": "TauricResearch/TradingAgents",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/TauricResearch/TradingAgents/blob/81501e0f108c9960f55f0f45b79cafa7857f2c0a/README.md"
+    ],
+    "sourceCommitSha": "81501e0f108c9960f55f0f45b79cafa7857f2c0a",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "curl -fsSL https://tauric.ai/tradingagents/install.sh | sh"
+      },
+      {
+        "comment": "Or with npm",
+        "command": "npm i -g @tauric/tradingagents"
+      },
+      {
+        "comment": "Run",
+        "command": "tradingagents"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "TradingAgents is a terminal AI agent for finance research. You ask a question about a company or the market, and it reads filings, statements and news, runs the numbers, and answers with every figure linked to its source.",
+      "problem": "Researching a stock or a market question means pulling data from many places and checking the maths. TradingAgents plans the research, uses specialist agents for equity, macro, quant and risk analysis, and cites where each number came from.",
+      "whoFor": [
+        "Investors researching companies",
+        "Analysts who want sourced answers in the terminal",
+        "Developers building finance research agents",
+        "Students learning financial analysis"
+      ],
+      "whyChoose": "Choose it if you want a research assistant that shows its sources and supports many model providers. It researches and answers only; it does not place trades, and its answers are not financial advice.",
+      "requirements": [
+        "A Tauric API key, or an API key for OpenAI, Anthropic, Google, DeepSeek or OpenRouter",
+        "Or a self-hosted model via vLLM or Ollama",
+        "Node.js if installing with npm"
+      ]
+    },
+    "overview": [
+      "TradingAgents runs in your terminal. You type a question and get an answer in which every figure is marked with its source, followed by a numbered source list. Plan mode (Shift+Tab) has the agent propose a research plan first.",
+      "The main agent plans the work, reads the data it needs, and briefs specialist agents for equity research, macro strategy, quant research and risk analysis. For common jobs it follows skills such as earnings previews, DCF and relative valuation, macro outlooks and portfolio risk reviews. You can add your own agents and skills as Markdown files.",
+      "It works with Tauric AI's own models, the major model APIs, self-hosted models, or a ChatGPT subscription. With another provider you can still add a Tauric key for filings, statements and news data. Answers can be exported as PDF reports or Markdown."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Sourced answers",
+        "body": "Every figure is marked with its source."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Specialist agents",
+        "body": "Equity, macro, quant and risk analysis agents."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Research skills",
+        "body": "Earnings previews, DCF, sector reviews, risk assessments and more."
+      },
+      {
+        "icon": "file-code",
+        "title": "Many model options",
+        "body": "Tauric, OpenAI, Anthropic, Google, DeepSeek, OpenRouter or self-hosted."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Plan mode",
+        "body": "Review a research plan before the agent runs it."
+      },
+      {
+        "icon": "shield",
+        "title": "Export",
+        "body": "Save answers as PDF reports or sessions as Markdown."
+      }
+    ],
+    "strengths": [
+      "Citations for every number",
+      "Covers company, macro, quant and risk analysis",
+      "Extensible with Markdown agents and skills",
+      "Apache-2.0 license"
+    ],
+    "limitations": [
+      "Does not place trades",
+      "Data for filings and news comes through a Tauric API key",
+      "Not financial advice; check results before acting"
+    ],
+    "useCases": [
+      {
+        "title": "Earnings preview",
+        "body": "Ask for a preview of a company's upcoming results."
+      },
+      {
+        "title": "Valuation",
+        "body": "Run a DCF or relative valuation with sourced inputs."
+      },
+      {
+        "title": "Portfolio risk check",
+        "body": "Review what could make a position lose money."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from TradingAgents's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/TauricResearch/TradingAgents/blob/81501e0f108c9960f55f0f45b79cafa7857f2c0a/README.md",
+      "prerequisites": [
+        "A model API key or Tauric account"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Get a Tauric API key",
+              "body": "Sign up at tauric.ai and create a key in settings, or use another provider's key."
+            },
+            {
+              "title": "Install",
+              "code": "curl -fsSL https://tauric.ai/tradingagents/install.sh | sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Run",
+              "code": "tradingagents",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "npm",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm i -g @tauric/tradingagents",
+              "lang": "bash"
+            },
+            {
+              "title": "Run",
+              "code": "tradingagents",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start TradingAgents",
+          "code": "tradingagents",
+          "lang": "bash"
+        },
+        {
+          "title": "Choose a model",
+          "code": "/model",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Research a company with sourced answers",
+      "useCase": "Ask TradingAgents a question about a company and export the answer.",
+      "setup": [
+        "TradingAgents installed",
+        "A Tauric API key or another provider's key"
+      ],
+      "steps": [
+        {
+          "title": "Start it",
+          "code": "tradingagents",
+          "lang": "bash"
+        },
+        {
+          "title": "Press Shift+Tab for plan mode, then ask your question",
+          "body": "For example, ask for a company snapshot or an earnings preview."
+        },
+        {
+          "title": "Review the sources listed under the answer"
+        },
+        {
+          "title": "Export the result",
+          "code": "/export",
+          "lang": "text"
+        }
+      ],
+      "expected": "An answer with each figure tied to a numbered source, saved as a PDF report or Markdown.",
+      "nextSteps": [
+        "Resume a session with /resume",
+        "Add your own skill as a Markdown file",
+        "Read docs/models.md to use a self-hosted model"
+      ],
+      "sourceUrl": "https://github.com/TauricResearch/TradingAgents/blob/81501e0f108c9960f55f0f45b79cafa7857f2c0a/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Models and data",
+        "value": "Tauric or other model providers charge for usage; self-hosted models are free to run.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "No filings or news data with another provider",
+        "solution": "Use /login to add a Tauric API key for filings, statements and news.",
+        "sourceUrl": "https://github.com/TauricResearch/TradingAgents/blob/81501e0f108c9960f55f0f45b79cafa7857f2c0a/README.md"
+      },
+      {
+        "problem": "Want to use ChatGPT",
+        "solution": "Run tradingagents login chatgpt.",
+        "sourceUrl": "https://github.com/TauricResearch/TradingAgents/blob/81501e0f108c9960f55f0f45b79cafa7857f2c0a/README.md"
+      },
+      {
+        "problem": "Need every command",
+        "solution": "Type /help.",
+        "sourceUrl": "https://github.com/TauricResearch/TradingAgents/blob/81501e0f108c9960f55f0f45b79cafa7857f2c0a/README.md"
+      }
+    ],
+    "bestFor": [
+      "Sourced stock and market research",
+      "Analysts who work in the terminal",
+      "Building custom finance research skills"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Finance research agent"
+      },
+      {
+        "label": "Maker",
+        "value": "Tauric Research"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Places trades",
+        "value": "No"
+      }
+    ]
+  }
+}

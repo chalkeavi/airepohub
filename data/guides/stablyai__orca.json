@@ -1,0 +1,248 @@
+{
+  "fullName": "stablyai/orca",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/stablyai/orca/blob/46aae50d7748d7d0f9bf6e4df311a2074636b14a/README.md"
+    ],
+    "sourceCommitSha": "46aae50d7748d7d0f9bf6e4df311a2074636b14a",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install on macOS with Homebrew (use the full name)",
+        "command": "brew install --cask stablyai/orca/orca"
+      },
+      {
+        "comment": "Install on Arch Linux",
+        "command": "yay -S stably-orca-bin"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Orca is a desktop workspace for running AI coding agents such as Claude Code and Codex. You can run several agents in parallel worktrees, review their diffs, and ask bots in Slack, Linear or GitHub to fix bugs and open pull requests.",
+      "problem": "Running coding agents in plain terminals gets messy once several tasks run at once, and agents stop when you step away. Orca gives each task its own workspace, lets agents keep running on remote machines, and pings you on your phone when one needs you.",
+      "whoFor": [
+        "Developers running Claude Code, Codex or other CLI agents",
+        "Teams that want bots fixing issues from Slack, Linear or GitHub",
+        "People who run agents on remote servers or cloud VMs",
+        "Reviewers who want to annotate AI-written diffs"
+      ],
+      "whyChoose": "Choose it if you work with several CLI agents at once and want one app to run, review and steer them. It uses your own agent subscriptions and machines rather than its own model.",
+      "requirements": [
+        "macOS, Windows or Linux",
+        "At least one CLI coding agent (Claude Code, Codex, Copilot, Cursor and others)",
+        "Optional: the iOS or Android app for notifications"
+      ]
+    },
+    "overview": [
+      "Orca works with any agent that runs in a terminal, including Claude Code, Codex, GitHub Copilot, Cursor, OpenCode, Goose and many more. You can use an agent in a chat UI or as its raw CLI and move a conversation between the two.",
+      "Tasks can be split into parallel worktrees so agents don't interfere. An orchestrating agent can start worker agents in their own workspaces and bring results back. Orca Bots respond to requests in Slack, Linear or GitHub and return tested pull requests, running on your own Claude Code or Codex.",
+      "Agents can run on a remote Orca server, any SSH host, or a cloud VM, so they keep going when your laptop sleeps. Built-in review tools let you comment on exact changed lines, draft commits and PRs, and send failing checks back to an agent. A mobile app notifies you when an agent needs input."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Any CLI agent",
+        "body": "Claude Code, Codex, Copilot, Cursor, OpenCode, Goose and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Parallel worktrees",
+        "body": "Run multiple agents side by side in isolated environments."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Orca Bots",
+        "body": "Ask in Slack, Linear or GitHub and get back a tested PR."
+      },
+      {
+        "icon": "file-code",
+        "title": "Run anywhere",
+        "body": "Remote server, SSH host or cloud VM per worktree."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Review AI output",
+        "body": "Annotate diffs and send focused feedback to the agent."
+      },
+      {
+        "icon": "shield",
+        "title": "Mobile app",
+        "body": "Get pinged and reply when an agent needs you."
+      }
+    ],
+    "strengths": [
+      "Bring your own agent, machines and tools",
+      "Strong review and Git workflow for AI changes",
+      "Agents keep running while you're away",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "You still need your own agent subscriptions or API keys",
+      "Many features to learn",
+      "The bare Homebrew name orca is an unrelated app; use the full cask name"
+    ],
+    "useCases": [
+      {
+        "title": "Fix a bug from Slack",
+        "body": "Ask an Orca Bot and come back to a tested pull request."
+      },
+      {
+        "title": "Split a big task",
+        "body": "Let one agent orchestrate worker agents in separate worktrees."
+      },
+      {
+        "title": "Nightly maintenance",
+        "body": "Schedule automations like dependency bumps or flaky-test sweeps."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Orca's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/stablyai/orca/blob/46aae50d7748d7d0f9bf6e4df311a2074636b14a/README.md",
+      "prerequisites": [
+        "A CLI coding agent"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Windows",
+        "Linux",
+        "iOS",
+        "Android"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Download",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download the desktop app",
+              "body": "Get it from orca.dev/download, or the macOS (Apple Silicon or Intel) .dmg or Windows .exe from the latest GitHub release."
+            }
+          ]
+        },
+        {
+          "os": "macos",
+          "label": "macOS (Homebrew)",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Always use the full name; bare orca is an unrelated Plotly cask.",
+              "code": "brew install --cask stablyai/orca/orca",
+              "lang": "bash"
+            },
+            {
+              "title": "Upgrade later",
+              "code": "brew upgrade --cask stablyai/orca/orca",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Arch Linux (AUR)",
+          "method": "aur",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Or stably-orca-git to build from source.",
+              "code": "yay -S stably-orca-bin",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open Orca and add a repository"
+        },
+        {
+          "title": "Start an agent in a workspace",
+          "body": "Pick Claude Code, Codex or another installed CLI agent."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run two agents side by side and review their work",
+      "useCase": "Split work into parallel worktrees and review each agent's diff.",
+      "setup": [
+        "Orca installed",
+        "A CLI coding agent installed and signed in",
+        "A Git repository"
+      ],
+      "steps": [
+        {
+          "title": "Open your repository in Orca"
+        },
+        {
+          "title": "Create a worktree per task",
+          "body": "Each agent works in its own isolated environment."
+        },
+        {
+          "title": "Start an agent in each worktree and give it a task"
+        },
+        {
+          "title": "Review the diffs",
+          "body": "Leave notes on exact lines and send feedback back to the agent, then draft the commit and PR."
+        }
+      ],
+      "expected": "Two tasks progress in parallel, and you merge reviewed changes through Orca's Git tools.",
+      "nextSteps": [
+        "Pair the mobile app for notifications",
+        "Set up an Orca Bot in Slack or GitHub",
+        "Run agents on a remote server so they keep going when your laptop sleeps"
+      ],
+      "sourceUrl": "https://github.com/stablyai/orca/blob/46aae50d7748d7d0f9bf6e4df311a2074636b14a/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "App",
+        "value": "Free to download.",
+        "tone": "free"
+      },
+      {
+        "label": "Agents",
+        "value": "Uses your own Claude Code, Codex or other agent plans and API keys.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Homebrew installs the wrong app",
+        "solution": "Use the full cask name stablyai/orca/orca; bare orca is an unrelated Plotly cask.",
+        "sourceUrl": "https://github.com/stablyai/orca/blob/46aae50d7748d7d0f9bf6e4df311a2074636b14a/README.md"
+      },
+      {
+        "problem": "Release candidate won't install",
+        "solution": "The rc cask conflicts with the stable one; uninstall the stable cask first.",
+        "sourceUrl": "https://github.com/stablyai/orca/blob/46aae50d7748d7d0f9bf6e4df311a2074636b14a/README.md"
+      }
+    ],
+    "bestFor": [
+      "Running several coding agents in parallel",
+      "Reviewing AI-written code",
+      "Agents that run while you're away"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent IDE / workspace"
+      },
+      {
+        "label": "Platforms",
+        "value": "macOS, Windows, Linux, iOS, Android"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      }
+    ]
+  }
+}

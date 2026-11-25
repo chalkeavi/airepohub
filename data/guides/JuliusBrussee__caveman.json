@@ -1,0 +1,234 @@
+{
+  "fullName": "JuliusBrussee/caveman",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/JuliusBrussee/caveman/blob/47c61be2d10a354f0c5cbe2b90959d24c06b16c6/README.md"
+    ],
+    "sourceCommitSha": "47c61be2d10a354f0c5cbe2b90959d24c06b16c6",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install (Mac, Linux, Windows)",
+        "command": "npx @caveman-ai/cli@latest"
+      },
+      {
+        "comment": "See what's switched on",
+        "command": "caveman status"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Caveman makes AI coding agents use fewer tokens. It makes the agent answer in short, structured sentences and compresses logs, test output and web pages before the model reads them, while leaving code and commands exact.",
+      "problem": "Agents spend many tokens on wordy replies and on reading long tool output, which costs money and fills the context window. Caveman trims both without changing your prompts or the code the agent writes.",
+      "whoFor": [
+        "Claude Code, Codex, Gemini CLI and OpenCode users",
+        "Developers who want lower agent costs",
+        "People hitting context limits in long sessions",
+        "Anyone who prefers short, direct agent answers"
+      ],
+      "whyChoose": "Choose it if token use and verbose replies bother you and you want one install across many agents. The project's own savings numbers come from its benchmarks; your results will vary.",
+      "requirements": [
+        "Node.js 22.13 or newer",
+        "A supported coding agent (Claude Code, Codex, Gemini CLI, OpenCode and 30+ more)"
+      ]
+    },
+    "overview": [
+      "Caveman version 4 has six parts, all on after install and each with its own switch: Say less (short answers), Read less (shrinks logs, JSON, CSV and test output before the model reads them), Auto (picks model and effort per request), Blocks (keeps scripts the agent writes and reruns them), Waste fixes, and Browse (compressed web pages).",
+      "The caveman voice follows strict rules: answer first, one idea per sentence, never drop meaning words like not or only, and keep code, commands, paths and error messages character for character. Security warnings and irreversible actions still get full sentences.",
+      "Installation is one npx command that finds your agents and logins, shows what it will change and applies it. It runs on your machine with your own keys and subscriptions. Only Auto needs an account, which is free. The README cites outside evaluations by Adobe Research, JetBrains and Elastic."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Say less",
+        "body": "Short, structured answers; code stays exact."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Read less",
+        "body": "Compresses tool output before the model reads it."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Auto",
+        "body": "Chooses the model and effort for each request."
+      },
+      {
+        "icon": "file-code",
+        "title": "Blocks",
+        "body": "Keeps and reruns scripts the agent wrote."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Browse",
+        "body": "Returns web pages in compressed form."
+      },
+      {
+        "icon": "shield",
+        "title": "30+ agents",
+        "body": "One install for Claude Code, Codex, Gemini CLI, OpenCode and more."
+      }
+    ],
+    "strengths": [
+      "One command sets up many agents",
+      "Never changes your prompts or code output",
+      "Each part can be switched off",
+      "Apache-2.0 license"
+    ],
+    "limitations": [
+      "Short style is not for everyone",
+      "Savings figures are the project's own or interim measurements",
+      "Auto's quality gap is marked unresolved in the README"
+    ],
+    "useCases": [
+      {
+        "title": "Cut costs on long sessions",
+        "body": "Let Read less shrink big test logs."
+      },
+      {
+        "title": "Faster answers",
+        "body": "Get the fix in one line instead of a paragraph."
+      },
+      {
+        "title": "Compare models cheaply",
+        "body": "Let Auto pick the model for each ask."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Caveman's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/JuliusBrussee/caveman/blob/47c61be2d10a354f0c5cbe2b90959d24c06b16c6/README.md",
+      "prerequisites": [
+        "Node.js 22.13+"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npx",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Run the installer",
+              "body": "It finds your agents and logins, shows what it will change, and applies it when you press Enter.",
+              "code": "npx @caveman-ai/cli@latest",
+              "lang": "bash"
+            },
+            {
+              "title": "Start your agent as usual",
+              "body": "For example plain claude now runs with caveman.",
+              "code": "claude",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Check what's on",
+          "code": "caveman status",
+          "lang": "bash"
+        },
+        {
+          "title": "Turn one part off",
+          "code": "caveman off browse",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Install Caveman and try the short voice",
+      "useCase": "Set up Caveman for Claude Code and compare an answer's length.",
+      "setup": [
+        "Node.js 22.13+",
+        "Claude Code or another supported agent"
+      ],
+      "steps": [
+        {
+          "title": "Install",
+          "code": "npx @caveman-ai/cli@latest",
+          "lang": "bash"
+        },
+        {
+          "title": "Start Claude Code",
+          "code": "claude",
+          "lang": "bash"
+        },
+        {
+          "title": "Ask a question and compare",
+          "body": "Try the /caveman, /ultracave or /megacave skills for different levels."
+        },
+        {
+          "title": "Reopen settings anytime",
+          "code": "caveman setup",
+          "lang": "bash"
+        }
+      ],
+      "expected": "Answers are shorter, while code and commands in them stay exact.",
+      "nextSteps": [
+        "Check caveman status to see which parts are on",
+        "Read the release notes for 4.0",
+        "Switch off parts you don't want"
+      ],
+      "sourceUrl": "https://github.com/JuliusBrussee/caveman/blob/47c61be2d10a354f0c5cbe2b90959d24c06b16c6/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Caveman",
+        "value": "Free; Auto needs a free account.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent usage",
+        "value": "Your own subscriptions and API keys apply.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Old behaviour after upgrading from before 4.0",
+        "solution": "Use @latest, otherwise the old copy on your machine wins.",
+        "sourceUrl": "https://github.com/JuliusBrussee/caveman/blob/47c61be2d10a354f0c5cbe2b90959d24c06b16c6/README.md"
+      },
+      {
+        "problem": "Want to change settings",
+        "solution": "Run caveman setup to open the setup screen again.",
+        "sourceUrl": "https://github.com/JuliusBrussee/caveman/blob/47c61be2d10a354f0c5cbe2b90959d24c06b16c6/README.md"
+      },
+      {
+        "problem": "Only want shorter answers",
+        "solution": "Install just the skill instead of the full CLI.",
+        "sourceUrl": "https://github.com/JuliusBrussee/caveman/blob/47c61be2d10a354f0c5cbe2b90959d24c06b16c6/README.md"
+      }
+    ],
+    "bestFor": [
+      "Lowering agent token costs",
+      "Long agent sessions",
+      "Developers who like terse answers"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent token saver"
+      },
+      {
+        "label": "Works with",
+        "value": "Claude Code, Codex, Gemini CLI and 30+ more"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      }
+    ]
+  }
+}
