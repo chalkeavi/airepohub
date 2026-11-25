@@ -1,0 +1,245 @@
+{
+  "fullName": "Leonxlnx/taste-skill",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Leonxlnx/taste-skill/blob/d1a2bb41d927083ac7118f60cfc9cdf711810ea0/README.md"
+    ],
+    "sourceCommitSha": "d1a2bb41d927083ac7118f60cfc9cdf711810ea0",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install with the skills CLI",
+        "command": "npx skills add https://github.com/Leonxlnx/taste-skill --skill \"design-taste-frontend\""
+      },
+      {
+        "comment": "Or as a Claude Code plugin",
+        "command": "/plugin marketplace add Leonxlnx/taste-skill"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Taste Skill is an agent skill that helps coding agents build polished company websites instead of generic landing pages. It gives the agent a design system, curated palettes, fonts, layouts and real photographs, and checks the result in a real browser.",
+      "problem": "Websites built by AI agents often look templated and break on different screen sizes. Taste Skill deals tested layouts and tokens for the kind of business, and runs a checker in headless Chrome before the agent hands the page over.",
+      "whoFor": [
+        "People asking coding agents to build or redesign company websites",
+        "Developers who want consistent, professional landing pages",
+        "Designers who use Claude Code or Codex for frontend work",
+        "Agencies building many small business sites"
+      ],
+      "whyChoose": "Choose it if you want an agent to produce a high-quality marketing site with built-in checks. It's focused on company websites, not app interfaces.",
+      "requirements": [
+        "Node.js 22+",
+        "Chrome, Edge or Chromium installed (set CHROME_PATH if it's in a non-standard place)",
+        "Optional: ffmpeg for WebP output and phone crops"
+      ]
+    },
+    "overview": [
+      "When you ask your agent to build or redesign a company site, it loads the skill, copies its assets into your project, starts from a starter HTML page and runs a checker before handing the page over. Each build starts by classifying the business, such as software, gaming, tech, product, service or place.",
+      "Scripts deal a palette made for the trade and a Google Fonts pairing, pick one of eleven tested hero layouts, add vetted photographs with credits, and resolve real brand and interface icons into local SVGs. Shader effects and 3D touches are used only on software, tech and gaming pages.",
+      "The checker renders the page in headless Chrome over HTTP at 1440, 1024, 820, 768 and 390 pixels wide and prints PASS, WARN or FAIL per rule, catching empty visuals, broken shaders and layout problems. All tools are plain Node scripts that install nothing."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "One design system",
+        "body": "Starter page and CSS enforce one section per screen and consistent edges."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Palettes and fonts by trade",
+        "body": "Deals colours and Google Fonts pairings that fit the business."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Tested hero layouts",
+        "body": "Eleven layouts, stress-tested with long headlines."
+      },
+      {
+        "icon": "file-code",
+        "title": "Real photos and icons",
+        "body": "Vetted photographs with credits and real SVG icons."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Browser checker",
+        "body": "Renders at five widths and reports PASS, WARN or FAIL."
+      },
+      {
+        "icon": "shield",
+        "title": "Works in Claude Code and Codex",
+        "body": "Install as a plugin or with the skills CLI."
+      }
+    ],
+    "strengths": [
+      "Checks pages in a real browser before delivery",
+      "Specific guidance per kind of business",
+      "Scripts install nothing extra",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Focused on company websites, not web apps",
+      "Needs Chrome, Edge or Chromium installed",
+      "Older skills from this repo moved to other repositories"
+    ],
+    "useCases": [
+      {
+        "title": "Build a startup homepage",
+        "body": "Ask your agent for a software company site and get a checked page."
+      },
+      {
+        "title": "Redesign an existing page",
+        "body": "The skill audits the page in a browser before changing it."
+      },
+      {
+        "title": "Local business site",
+        "body": "Generate a site for a service or place with fitting photos."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Taste Skill's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Leonxlnx/taste-skill/blob/d1a2bb41d927083ac7118f60cfc9cdf711810ea0/README.md",
+      "prerequisites": [
+        "Node.js 22+",
+        "Chrome, Edge or Chromium"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "skills CLI",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install the skill",
+              "code": "npx skills add https://github.com/Leonxlnx/taste-skill --skill \"design-taste-frontend\"",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Claude Code plugin",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace and install",
+              "body": "The skill is namespaced under taste-skill:. Use /plugin update to upgrade later.",
+              "code": "/plugin marketplace add Leonxlnx/taste-skill\n/plugin install taste-skill@taste-skill",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Codex plugin",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace and plugin",
+              "code": "codex plugin marketplace add Leonxlnx/taste-skill\ncodex plugin add taste-skill@taste-skill",
+              "lang": "bash"
+            },
+            {
+              "title": "Start a new Codex session so the skill loads"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Deal a palette and fonts for a software page",
+          "code": "node scripts/start.mjs deal --page software",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Have your agent build a company website",
+      "useCase": "Build a polished site for a software company and check it before delivery.",
+      "setup": [
+        "Taste Skill installed",
+        "Node 22+ and Chrome, Edge or Chromium"
+      ],
+      "steps": [
+        {
+          "title": "Ask your agent to build the site",
+          "body": "Describe the company and what the page should say. The agent loads the skill and copies its assets into the project."
+        },
+        {
+          "title": "Let it deal tokens and layout",
+          "code": "node scripts/start.mjs deal --page software",
+          "lang": "bash"
+        },
+        {
+          "title": "Check the built page",
+          "body": "The agent runs scripts/consistency.mjs, which renders the page at several widths and prints PASS, WARN or FAIL per rule."
+        }
+      ],
+      "expected": "A finished page that passes the checker at desktop, tablet and phone widths.",
+      "nextSteps": [
+        "Try other page kinds: gaming, tech, product, service, place",
+        "Install older styles from Leonxlnx/taste-skill-classics",
+        "Read the changelog for what changed in 2.5"
+      ],
+      "sourceUrl": "https://github.com/Leonxlnx/taste-skill/blob/d1a2bb41d927083ac7118f60cfc9cdf711810ea0/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Skill",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent usage",
+        "value": "Your coding agent's plan or API usage applies.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Checker can't find a browser",
+        "solution": "Install Chrome, Edge or Chromium, or set CHROME_PATH to its location.",
+        "sourceUrl": "https://github.com/Leonxlnx/taste-skill/blob/d1a2bb41d927083ac7118f60cfc9cdf711810ea0/README.md"
+      },
+      {
+        "problem": "No WebP output or phone crop",
+        "solution": "Install ffmpeg and make sure it's on your PATH.",
+        "sourceUrl": "https://github.com/Leonxlnx/taste-skill/blob/d1a2bb41d927083ac7118f60cfc9cdf711810ea0/README.md"
+      },
+      {
+        "problem": "Looking for an older skill",
+        "solution": "Several skills moved to taste-skill-classics and imagegen-skills under the same install names.",
+        "sourceUrl": "https://github.com/Leonxlnx/taste-skill/blob/d1a2bb41d927083ac7118f60cfc9cdf711810ea0/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI-built company websites",
+      "Responsive pages checked before delivery"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent design skill"
+      },
+      {
+        "label": "Works with",
+        "value": "Claude Code, Codex and skills CLI agents"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      }
+    ]
+  }
+}
