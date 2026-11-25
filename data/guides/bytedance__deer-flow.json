@@ -1,0 +1,283 @@
+{
+  "fullName": "bytedance/deer-flow",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/bytedance/deer-flow/blob/cccadd17293b68b6acf3d614bca22801b04a8268/README.md"
+    ],
+    "sourceCommitSha": "cccadd17293b68b6acf3d614bca22801b04a8268",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Clone and configure",
+        "command": "git clone https://github.com/bytedance/deer-flow.git\ncd deer-flow\nmake setup"
+      },
+      {
+        "comment": "Start with Docker",
+        "command": "make docker-init\nmake docker-start"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "DeerFlow is an open-source super agent harness from ByteDance. It coordinates sub-agents, memory and sandboxes so an AI agent can research, code, build slides or run data pipelines on its own, through a web UI at localhost.",
+      "problem": "Building an agent that does long, multi-step work means wiring up planning, tools, file sandboxes, memory and a UI yourself. DeerFlow ships all of that ready to run, built on LangGraph and LangChain, and works with any OpenAI-compatible model.",
+      "whoFor": [
+        "Developers wanting a ready-made deep research agent",
+        "Teams building autonomous agents on LangGraph",
+        "Self-hosters who want an agent with sandboxes and memory",
+        "Builders connecting agents to Slack, Telegram or GitHub"
+      ],
+      "whyChoose": "Choose it for a batteries-included agent runtime you can run locally and extend. It can execute commands, so run it only in a trusted environment.",
+      "requirements": [
+        "Docker (recommended), or Node.js 22+, pnpm, uv and nginx",
+        "make",
+        "An API key for an OpenAI-compatible model"
+      ]
+    },
+    "overview": [
+      "DeerFlow started as a deep research framework. Version 2.0 is a ground-up rewrite into a general agent harness that shares no code with v1, which is kept on the 1.x branch. It orchestrates sub-agents, memory and sandboxes on top of LangGraph and LangChain.",
+      "It includes workspace file tools and isolated shells, skills and built-in tools, MCP servers, long-term memory, agentic browser control, scheduled tasks, private knowledge retrieval with RAGFlow, IM channels such as Slack, Telegram and Discord, GitHub event-driven agents, a terminal workbench and tracing through LangSmith or Langfuse.",
+      "Setup uses make: a wizard writes config.yaml and .env, then you start it with Docker or locally, and open localhost:2026. The README recommends models with long context, reasoning, multimodal input and strong tool use. It warns that DeerFlow can run commands and read and write files, so it is meant for a local trusted environment."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Sub-agents",
+        "body": "Delegate work to child agents and track their history."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Sandboxes",
+        "body": "Isolated shells and workspace file tools for agent work."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Long-term memory",
+        "body": "Agents remember across sessions."
+      },
+      {
+        "icon": "file-code",
+        "title": "Skills and MCP",
+        "body": "Built-in tools, skills and MCP server support."
+      },
+      {
+        "icon": "git-compare",
+        "title": "IM channels",
+        "body": "Slack, Telegram, Discord, Feishu and more."
+      },
+      {
+        "icon": "shield",
+        "title": "Scheduled tasks",
+        "body": "Run agent work on a schedule."
+      }
+    ],
+    "strengths": [
+      "Batteries included: UI, sandbox, memory and tools",
+      "Model-agnostic via OpenAI-compatible APIs",
+      "MIT licensed",
+      "Detailed guides for every feature"
+    ],
+    "limitations": [
+      "Can execute commands and write files, so it needs a trusted environment",
+      "Runtime tool approval is disabled by default",
+      "Several prerequisites for local runs",
+      "v2 is a rewrite, so v1 tutorials don't apply"
+    ],
+    "useCases": [
+      {
+        "title": "Deep research reports",
+        "body": "Ask it to research a topic and produce a cited report."
+      },
+      {
+        "title": "Slide and document generation",
+        "body": "Have the agent build decks or documents in its sandbox."
+      },
+      {
+        "title": "Team agent bot",
+        "body": "Connect it to Slack or Telegram."
+      },
+      {
+        "title": "GitHub automation",
+        "body": "Trigger agents from GitHub webhooks."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from DeerFlow's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/bytedance/deer-flow/blob/cccadd17293b68b6acf3d614bca22801b04a8268/README.md",
+      "prerequisites": [
+        "Git",
+        "make",
+        "Docker, or Node.js 22+, pnpm, uv and nginx"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker (recommended)",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/bytedance/deer-flow.git\ncd deer-flow",
+              "lang": "bash"
+            },
+            {
+              "title": "Run the setup wizard",
+              "body": "Writes config.yaml and .env in about 2 minutes.",
+              "code": "make setup",
+              "lang": "bash"
+            },
+            {
+              "title": "Pull the sandbox image and start",
+              "code": "make docker-init\nmake docker-start",
+              "lang": "bash"
+            },
+            {
+              "title": "Open http://localhost:2026"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Local development",
+          "method": "make",
+          "steps": [
+            {
+              "title": "Clone and configure",
+              "code": "git clone https://github.com/bytedance/deer-flow.git\ncd deer-flow\nmake setup",
+              "lang": "bash"
+            },
+            {
+              "title": "Check prerequisites",
+              "body": "Verifies Node.js 22+, pnpm, uv and nginx.",
+              "code": "make check",
+              "lang": "bash"
+            },
+            {
+              "title": "Install and run",
+              "code": "make install\nmake dev",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Check your configuration",
+          "body": "Reports placeholder API keys as incomplete.",
+          "code": "make doctor",
+          "lang": "bash"
+        },
+        {
+          "title": "Open http://localhost:2026"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run DeerFlow locally with Docker",
+      "useCase": "Get the agent harness running and give it a first task.",
+      "setup": [
+        "Docker",
+        "An API key for an OpenAI-compatible model"
+      ],
+      "steps": [
+        {
+          "title": "Clone",
+          "code": "git clone https://github.com/bytedance/deer-flow.git\ncd deer-flow",
+          "lang": "bash"
+        },
+        {
+          "title": "Configure models and keys",
+          "code": "make setup",
+          "lang": "bash"
+        },
+        {
+          "title": "Start",
+          "code": "make docker-init\nmake docker-start",
+          "lang": "bash"
+        },
+        {
+          "title": "Check the setup",
+          "code": "make doctor",
+          "lang": "bash"
+        },
+        {
+          "title": "Open http://localhost:2026 and ask for a short research report"
+        }
+      ],
+      "expected": "The DeerFlow UI opens at localhost:2026 and the agent works on your request using its tools and sandbox.",
+      "nextSteps": [
+        "Read the Security Notice before exposing it beyond localhost",
+        "Add MCP servers or skills",
+        "Connect an IM channel"
+      ],
+      "sourceUrl": "https://github.com/bytedance/deer-flow/blob/cccadd17293b68b6acf3d614bca22801b04a8268/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Billed by the model provider you configure.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Model calls fail after setup",
+        "solution": "Run make doctor; it flags placeholder API keys. Replace them with real keys.",
+        "sourceUrl": "https://github.com/bytedance/deer-flow/blob/cccadd17293b68b6acf3d614bca22801b04a8268/README.md"
+      },
+      {
+        "problem": "pnpm version mismatch",
+        "solution": "The local commands use the pnpm version pinned in frontend/package.json, through Corepack when available.",
+        "sourceUrl": "https://github.com/bytedance/deer-flow/blob/cccadd17293b68b6acf3d614bca22801b04a8268/README.md"
+      },
+      {
+        "problem": "Want to run it on a server",
+        "solution": "Read the Security Notice first; an admin account is equivalent to code execution on the host.",
+        "sourceUrl": "https://github.com/bytedance/deer-flow/blob/cccadd17293b68b6acf3d614bca22801b04a8268/README.md"
+      },
+      {
+        "problem": "Looking for the old Deep Research version",
+        "solution": "v1 is maintained on the 1.x branch.",
+        "sourceUrl": "https://github.com/bytedance/deer-flow/blob/cccadd17293b68b6acf3d614bca22801b04a8268/README.md"
+      }
+    ],
+    "bestFor": [
+      "Self-hosted autonomous agents",
+      "Deep research workflows",
+      "Extending a LangGraph agent runtime"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent harness"
+      },
+      {
+        "label": "Language",
+        "value": "Python and TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Built on",
+        "value": "LangGraph and LangChain"
+      }
+    ]
+  }
+}
