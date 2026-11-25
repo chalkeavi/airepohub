@@ -1,0 +1,247 @@
+{
+  "fullName": "Significant-Gravitas/AutoGPT",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Significant-Gravitas/AutoGPT/blob/dd0b5f73266ea5f3dfab37ebccd93049af58e106/README.md"
+    ],
+    "sourceCommitSha": "dd0b5f73266ea5f3dfab37ebccd93049af58e106",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Self-host with Docker",
+        "command": "docker run -d --name autogpt --restart unless-stopped --shm-size 2g --ulimit nofile=65536:65536 -p 127.0.0.1:3000:3000 -e AUTOGPT_PUBLIC_URL=http://localhost:3000 -v autogpt-data:/data significantgravitas/autogpt:latest"
+      },
+      {
+        "comment": "Make your account the admin",
+        "command": "docker exec autogpt autogpt-admin promote you@example.com"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "AutoGPT is a platform for a team of AI agents, called Experts, that handle content, sales, research and recurring work. You brief them in plain English, a coordinator agent called Otto hands out the work, and a visual builder lets you define repeatable workflows.",
+      "problem": "Delegating recurring work to AI usually means stitching together prompts and tools yourself. AutoGPT gives you ready-made specialist agents and workflows that you can shape with instructions, context, skills and connected apps.",
+      "whoFor": [
+        "Small teams delegating content, sales and admin work",
+        "Builders creating AI workflows visually",
+        "People who want to self-host an agent platform",
+        "Developers using its API or MCP server"
+      ],
+      "whyChoose": "Choose it for a team-of-agents approach with a hosted option or self-hosting. Note the platform code is under the Polyform Shield license, not a standard open-source license.",
+      "requirements": [
+        "Docker for self-hosting",
+        "Model credentials or a local model when self-hosting"
+      ]
+    },
+    "overview": [
+      "Each Expert has a role you can shape, such as an SEO content manager, an account executive or an executive assistant, and Otto coordinates work across them. You choose which accounts each Expert can access, set spending controls and follow their activity. Routines handle jobs that keep coming back.",
+      "The hosted AutoGPT Platform is a paid service that includes model access. Self-hosting runs on your own infrastructure with a single Docker container, an installer for Linux, macOS and Windows, or Docker Compose with each service separate; you provide the model credentials.",
+      "Experts can use workflows built in the visual builder, adapted from the marketplace, connected to integrations, or run through the API and MCP server. The platform folder is under Polyform Shield (free for personal and internal business use, not for competing hosted services); AutoGPT Classic and the rest are MIT."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Team of Experts",
+        "body": "Specialist agents for content, sales and admin."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Otto coordinator",
+        "body": "Delegates work across Experts."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Visual workflow builder",
+        "body": "Repeatable steps with branching logic."
+      },
+      {
+        "icon": "file-code",
+        "title": "Marketplace",
+        "body": "Workflows to adapt."
+      },
+      {
+        "icon": "git-compare",
+        "title": "API and MCP server",
+        "body": "Run workflows from code or coding agents."
+      },
+      {
+        "icon": "shield",
+        "title": "Hosted or self-hosted",
+        "body": "Choose who runs the infrastructure."
+      }
+    ],
+    "strengths": [
+      "Ready-made specialist agents",
+      "Self-hosting in one container",
+      "Spending and access controls",
+      "Very well-known project"
+    ],
+    "limitations": [
+      "Hosted platform is paid",
+      "Platform code is Polyform Shield licensed",
+      "Self-hosting needs your own model credentials"
+    ],
+    "useCases": [
+      {
+        "title": "SEO content",
+        "body": "Turn a keyword into a brief and draft."
+      },
+      {
+        "title": "Sales prospecting",
+        "body": "Research prospects and draft outreach."
+      },
+      {
+        "title": "Daily digests",
+        "body": "Prepare meeting context and email drafts."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from AutoGPT's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Significant-Gravitas/AutoGPT/blob/dd0b5f73266ea5f3dfab37ebccd93049af58e106/README.md",
+      "prerequisites": [
+        "Docker"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Single container",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Start AutoGPT",
+              "code": "docker run -d \\\n  --name autogpt \\\n  --restart unless-stopped \\\n  --shm-size 2g \\\n  --ulimit nofile=65536:65536 \\\n  --log-driver json-file \\\n  --log-opt max-size=50m \\\n  --log-opt max-file=5 \\\n  -p 127.0.0.1:3000:3000 \\\n  -e AUTOGPT_PUBLIC_URL=http://localhost:3000 \\\n  -v autogpt-data:/data \\\n  significantgravitas/autogpt:latest",
+              "lang": "bash"
+            },
+            {
+              "title": "Create your account",
+              "body": "Give the first boot a few minutes, then open http://localhost:3000 and sign up."
+            },
+            {
+              "title": "Make yourself the administrator",
+              "code": "docker exec autogpt autogpt-admin promote you@example.com",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Hosted Platform",
+          "method": "cloud",
+          "steps": [
+            {
+              "title": "Sign up for a trial",
+              "body": "At platform.agpt.co. It's a paid service; see agpt.co/pricing."
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "AUTOGPT_PUBLIC_URL",
+          "required": true,
+          "description": "The URL where your self-hosted AutoGPT is reached, for example http://localhost:3000."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Open AutoGPT",
+          "body": "Go to http://localhost:3000 after the first boot finishes."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Self-host AutoGPT and brief your first Expert",
+      "useCase": "Run AutoGPT in one container and give Otto a job.",
+      "setup": [
+        "Docker installed",
+        "Model credentials for a provider, or a local model"
+      ],
+      "steps": [
+        {
+          "title": "Start the container",
+          "code": "docker run -d --name autogpt --restart unless-stopped --shm-size 2g --ulimit nofile=65536:65536 -p 127.0.0.1:3000:3000 -e AUTOGPT_PUBLIC_URL=http://localhost:3000 -v autogpt-data:/data significantgravitas/autogpt:latest",
+          "lang": "bash"
+        },
+        {
+          "title": "Sign up and promote your account",
+          "body": "Use the email you signed up with.",
+          "code": "docker exec autogpt autogpt-admin promote you@example.com",
+          "lang": "bash"
+        },
+        {
+          "title": "Brief Otto",
+          "body": "Tell Otto what you need, pick or create an Expert, connect the apps it needs and agree on the first outcome."
+        }
+      ],
+      "expected": "AutoGPT runs at http://localhost:3000, and the Expert prepares work for you to review and refine.",
+      "nextSteps": [
+        "Read the single-container guide for model providers and backups",
+        "Build a workflow in the visual builder",
+        "Activate a routine for recurring work"
+      ],
+      "sourceUrl": "https://github.com/Significant-Gravitas/AutoGPT/blob/dd0b5f73266ea5f3dfab37ebccd93049af58e106/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Platform: Polyform Shield; Classic and the rest: MIT.",
+        "tone": "depends"
+      },
+      {
+        "label": "Self-hosted",
+        "value": "Your infrastructure and model usage.",
+        "tone": "depends"
+      },
+      {
+        "label": "Hosted Platform",
+        "value": "Paid plans and usage.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Page doesn't load right after starting",
+        "solution": "Give the first boot a few minutes.",
+        "sourceUrl": "https://github.com/Significant-Gravitas/AutoGPT/blob/dd0b5f73266ea5f3dfab37ebccd93049af58e106/README.md"
+      },
+      {
+        "problem": "Need ports, backups or upgrades",
+        "solution": "See the single-container guide at agpt.co/docs.",
+        "sourceUrl": "https://github.com/Significant-Gravitas/AutoGPT/blob/dd0b5f73266ea5f3dfab37ebccd93049af58e106/README.md"
+      },
+      {
+        "problem": "Want each service separately",
+        "solution": "Use the manual self-hosting guide with Docker Compose.",
+        "sourceUrl": "https://github.com/Significant-Gravitas/AutoGPT/blob/dd0b5f73266ea5f3dfab37ebccd93049af58e106/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI agents for business tasks",
+      "Self-hosted agent platform",
+      "Visual AI workflows"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI agent platform"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Polyform Shield (platform), MIT (Classic)"
+      },
+      {
+        "label": "Port",
+        "value": "3000"
+      }
+    ]
+  }
+}

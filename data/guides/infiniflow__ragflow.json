@@ -1,0 +1,270 @@
+{
+  "fullName": "infiniflow/ragflow",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/infiniflow/ragflow/blob/f70c4f891a0ca6d0b9b4683f19adc2100da1fc39/README.md"
+    ],
+    "sourceCommitSha": "f70c4f891a0ca6d0b9b4683f19adc2100da1fc39",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Clone and enter the Docker folder",
+        "command": "git clone https://github.com/infiniflow/ragflow.git\ncd ragflow/docker\ngit checkout v1.0.0"
+      },
+      {
+        "comment": "Start RAGFlow",
+        "command": "docker compose -f docker-compose.yml up -d"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "RAGFlow is an open-source retrieval-augmented generation (RAG) engine with agent capabilities. It reads complex documents like PDFs, Word files, slides, spreadsheets and scans, splits them into searchable chunks, and answers questions about them with traceable citations.",
+      "problem": "Chatbots that answer from your documents often give vague or made-up answers, especially with messy file formats. RAGFlow focuses on deep document understanding and grounded citations, so you can see exactly where each answer came from.",
+      "whoFor": [
+        "Teams building question answering over company documents",
+        "Developers who need RAG with citations through an API",
+        "Organisations with complex files like scanned PDFs and spreadsheets",
+        "Businesses wanting a self-hosted knowledge assistant"
+      ],
+      "whyChoose": "Choose it when document parsing quality and citations matter. It's a full server with several services, so it needs a reasonably sized machine.",
+      "requirements": [
+        "4 CPU cores, 16 GB RAM and 50 GB disk recommended to start",
+        "Docker 24.0.0+ and Docker Compose v2.26.1+",
+        "An LLM, embedding model and reranker (API or local)"
+      ]
+    },
+    "overview": [
+      "RAGFlow extracts knowledge from unstructured data with complicated formats using deep document understanding, and uses template-based chunking that you can inspect and adjust. Answers come with key references and traceable citations.",
+      "Version 1.0.0 was released on 2026-11-06. Recent additions include agentic retrieval with Low, Medium, High and Ultra thinking modes, Knowledge Compilation that turns documents into wikis, graphs, mind maps and timelines, website ingestion through sitemaps, and Google BigQuery ingestion.",
+      "You can use the cloud service at cloud.ragflow.io or deploy it yourself with Docker Compose. After signing in, you add an LLM, an embedding model and a reranker on the model provider page. It also offers APIs for integrating with your business systems."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Deep document understanding",
+        "body": "Handles complex PDFs, scans, Office files and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Template-based chunking",
+        "body": "Explainable chunking you can adjust."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Grounded citations",
+        "body": "See the references behind every answer."
+      },
+      {
+        "icon": "file-code",
+        "title": "Agentic retrieval",
+        "body": "Multi-step retrieval with thinking modes."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Knowledge Compilation",
+        "body": "Generate wikis, graphs and timelines."
+      },
+      {
+        "icon": "shield",
+        "title": "APIs",
+        "body": "Integrate RAG into your own apps."
+      }
+    ],
+    "strengths": [
+      "Strong document parsing",
+      "Traceable citations reduce hallucinations",
+      "Self-hostable with Docker",
+      "Apache-2.0 licensed"
+    ],
+    "limitations": [
+      "Needs a fairly large machine (16 GB RAM recommended)",
+      "Several services to run",
+      "In the 1.0 open-source release, document parsing uses CPU inference"
+    ],
+    "useCases": [
+      {
+        "title": "Internal knowledge base",
+        "body": "Answer staff questions from policies and manuals."
+      },
+      {
+        "title": "Contract and report analysis",
+        "body": "Query long documents with citations."
+      },
+      {
+        "title": "Customer support",
+        "body": "Ground answers in product documentation."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from RAGFlow's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/infiniflow/ragflow/blob/f70c4f891a0ca6d0b9b4683f19adc2100da1fc39/README.md",
+      "prerequisites": [
+        "Docker and Docker Compose",
+        "16 GB RAM"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker Compose",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "If you use Elasticsearch, raise vm.max_map_count",
+              "body": "Usually unnecessary with Infinity.",
+              "code": "sudo sysctl -w vm.max_map_count=262144",
+              "lang": "bash"
+            },
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/infiniflow/ragflow.git",
+              "lang": "bash"
+            },
+            {
+              "title": "Check out the release and start",
+              "code": "cd ragflow/docker\ngit checkout v1.0.0\ndocker compose -f docker-compose.yml up -d",
+              "lang": "bash"
+            },
+            {
+              "title": "Check it's ready",
+              "body": "Wait for an HTTP 200 response.",
+              "code": "curl -f http://localhost/api/v1/system/healthz",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "RAGFlow Cloud",
+          "method": "cloud",
+          "steps": [
+            {
+              "title": "Sign up at cloud.ragflow.io",
+              "body": "Use the hosted service instead of deploying it."
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "SVR_WEB_HTTP_PORT",
+          "required": false,
+          "description": "Web port in docker/.env; change the health-check URL if you change it."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Open RAGFlow",
+          "body": "Go to http://IP_OF_YOUR_MACHINE (port 80 by default) and sign in."
+        },
+        {
+          "title": "Add models",
+          "body": "On the model provider page, add an LLM, an embedding model and a reranker with their API keys."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Deploy RAGFlow and ask questions about your documents",
+      "useCase": "Run RAGFlow with Docker and connect your models.",
+      "setup": [
+        "Docker 24.0.0+ and Compose v2.26.1+",
+        "4 CPU cores, 16 GB RAM, 50 GB disk",
+        "API keys for an LLM, embedding model and reranker"
+      ],
+      "steps": [
+        {
+          "title": "Start the services",
+          "code": "git clone https://github.com/infiniflow/ragflow.git\ncd ragflow/docker\ngit checkout v1.0.0\ndocker compose -f docker-compose.yml up -d",
+          "lang": "bash"
+        },
+        {
+          "title": "Wait until it's healthy",
+          "code": "curl -f http://localhost/api/v1/system/healthz",
+          "lang": "bash"
+        },
+        {
+          "title": "Sign in and add models",
+          "body": "Open http://IP_OF_YOUR_MACHINE, then add an LLM, embedding model and reranker on the model provider page."
+        },
+        {
+          "title": "Upload documents and chat",
+          "body": "Create a dataset, upload files, and ask questions in a chat assistant."
+        }
+      ],
+      "expected": "RAGFlow parses your documents into chunks and answers questions with citations you can trace back to the source.",
+      "nextSteps": [
+        "Try Knowledge Compilation",
+        "Use agentic retrieval for complex questions",
+        "Read the Docker configuration guide"
+      ],
+      "sourceUrl": "https://github.com/infiniflow/ragflow/blob/f70c4f891a0ca6d0b9b4683f19adc2100da1fc39/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Self-hosted",
+        "value": "Free software; you pay for servers.",
+        "tone": "free"
+      },
+      {
+        "label": "RAGFlow Cloud",
+        "value": "Hosted service at cloud.ragflow.io.",
+        "tone": "depends"
+      },
+      {
+        "label": "Models",
+        "value": "LLM, embedding and reranker providers bill separately.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Elasticsearch won't start",
+        "solution": "Set vm.max_map_count to at least 262144, and add it to /etc/sysctl.conf to keep it after reboots.",
+        "sourceUrl": "https://github.com/infiniflow/ragflow/blob/f70c4f891a0ca6d0b9b4683f19adc2100da1fc39/README.md"
+      },
+      {
+        "problem": "Startup fails",
+        "solution": "Inspect the logs with docker logs --tail 50 ragflow-cpu.",
+        "sourceUrl": "https://github.com/infiniflow/ragflow/blob/f70c4f891a0ca6d0b9b4683f19adc2100da1fc39/README.md"
+      },
+      {
+        "problem": "Web UI not ready yet",
+        "solution": "Wait until the health check returns HTTP 200; the container being up doesn't mean it's ready.",
+        "sourceUrl": "https://github.com/infiniflow/ragflow/blob/f70c4f891a0ca6d0b9b4683f19adc2100da1fc39/README.md"
+      }
+    ],
+    "bestFor": [
+      "RAG over complex documents",
+      "Answers with citations",
+      "Self-hosted knowledge assistants"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "RAG engine"
+      },
+      {
+        "label": "Language",
+        "value": "Go"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Version",
+        "value": "1.0.0"
+      }
+    ]
+  }
+}

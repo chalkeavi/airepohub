@@ -1,0 +1,284 @@
+{
+  "fullName": "browser-use/browser-use",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/browser-use/browser-use/blob/94784c1f7ecb6b0a5f565b7f9fba59e395b7e048/README.md"
+    ],
+    "sourceCommitSha": "94784c1f7ecb6b0a5f565b7f9fba59e395b7e048",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Create a project and install",
+        "command": "uv init --python 3.12 my-agent && cd my-agent\nuv add 'browser-use==1.0.8'"
+      },
+      {
+        "comment": "Sign in once to save your key",
+        "command": "uv run browser-use login"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Browser Use is an open-source browser agent. You give it a task in plain English, and an AI model completes it in a real browser by writing Python that controls Chrome, such as finding information, filling forms or booking appointments.",
+      "problem": "Automating websites with scripts breaks whenever pages change, and many tasks need judgement. Browser Use lets a model look at the page and decide what to do, so you can automate web tasks by describing them.",
+      "whoFor": [
+        "Developers automating web tasks with AI",
+        "Coding agent users who want browser control",
+        "Teams running browser automation at scale",
+        "Researchers building web agents"
+      ],
+      "whyChoose": "Choose it for a popular, Python-first browser agent that works with cloud browsers or your local Chrome, and with Browser Use's own model or your own LLM.",
+      "requirements": [
+        "Python 3.11+",
+        "A Browser Use Cloud API key for the default setup, or your own model's API key",
+        "Chrome or Chromium for local browsers"
+      ]
+    },
+    "overview": [
+      "In version 1.0, the agent is a model plus a persistent Python REPL plus the Chrome DevTools Protocol: the model writes code cells that run against the browser and sees the output. It's built on Pydantic AI.",
+      "There are three ways to use it: the fully hosted cloud agent, a CLI you can hand to coding agents like Claude Code or Codex, or the Python library. By default the library uses the bu-4.0 model and a Browser Use Cloud browser with one key; you can instead drive a fresh local Chromium, your open Chrome with your logins, or a copy of a Chrome profile, with models such as ChatOpenAI, ChatAnthropic or ChatGoogle.",
+      "The README stresses pinning an exact version, because the project moves fast. It supports typed structured output and file uploads. Note that anyone with a cloud browser's live-view link can control it."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Natural-language tasks",
+        "body": "Describe the task; the agent does it."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Real browser control",
+        "body": "Python against Chrome DevTools Protocol."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Cloud or local browsers",
+        "body": "Cloud browsers, fresh Chromium or your own Chrome."
+      },
+      {
+        "icon": "file-code",
+        "title": "Any model",
+        "body": "Browser Use models, OpenAI, Anthropic, Google and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "CLI for coding agents",
+        "body": "Register a skill for Claude Code or Codex."
+      },
+      {
+        "icon": "shield",
+        "title": "Structured output",
+        "body": "Return typed results with a schema."
+      }
+    ],
+    "strengths": [
+      "Very popular open-source browser agent",
+      "Works with your logged-in Chrome",
+      "Flexible model choice",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Default setup needs a Browser Use Cloud key",
+      "Fast-moving releases; pin exact versions",
+      "Cloud live-view links grant control to anyone who has them"
+    ],
+    "useCases": [
+      {
+        "title": "Research tasks",
+        "body": "Find and summarise information across sites."
+      },
+      {
+        "title": "Form filling",
+        "body": "Complete repetitive web forms."
+      },
+      {
+        "title": "Booking",
+        "body": "Find slots and book appointments."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Browser Use's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/browser-use/browser-use/blob/94784c1f7ecb6b0a5f565b7f9fba59e395b7e048/README.md",
+      "prerequisites": [
+        "Python 3.11+",
+        "uv or pip"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Create a project and add Browser Use",
+              "body": "Pin the exact version, as the README advises.",
+              "code": "uv init --python 3.12 my-agent && cd my-agent\nuv add 'browser-use==1.0.8'",
+              "lang": "bash"
+            },
+            {
+              "title": "Sign in",
+              "body": "Saves your Browser Use Cloud key. Over SSH use --device-code.",
+              "code": "uv run browser-use login",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "pip in a venv",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "python3 -m venv .venv && source .venv/bin/activate\npip install 'browser-use==1.0.8'\nbrowser-use login",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "CLI for coding agents",
+          "method": "uv-tool",
+          "steps": [
+            {
+              "title": "Give this to your agent",
+              "body": "Paste the README's prompt into Claude Code, Codex or another agent; it installs the CLI and registers the skill.",
+              "code": "uv tool install browser-use==1.0.8\nbrowser-use skill install",
+              "lang": "bash"
+            },
+            {
+              "title": "If setup fails",
+              "code": "browser-use --doctor",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "BROWSER_USE_API_KEY",
+          "required": false,
+          "description": "Your Browser Use Cloud key, instead of running browser-use login."
+        },
+        {
+          "name": "BROWSER_USE_AUTO_LOGIN",
+          "required": false,
+          "description": "Set to false to disable automatic login."
+        },
+        {
+          "name": "OPENAI_API_KEY",
+          "required": false,
+          "description": "Needed when you use ChatOpenAI as the model."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Run your first task",
+          "code": "from browser_use import Agent\n\nresult = Agent('Find the number of stars of the browser-use repo').run_sync()\nprint(result.final_result())",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run an agent on your own Chrome with your own model",
+      "useCase": "Drive a local Chromium with an OpenAI model instead of the cloud defaults.",
+      "setup": [
+        "browser-use installed",
+        "OPENAI_API_KEY set",
+        "Chrome or Chromium installed"
+      ],
+      "steps": [
+        {
+          "title": "Write the script",
+          "code": "from browser_use import Agent, Browser, ChatOpenAI\n\nagent = Agent(\n    'Find the number of stars of the browser-use repo',\n    llm=ChatOpenAI('gpt-6-luna'),\n    browser=Browser('chromium'),\n)\nprint(agent.run_sync().final_result())",
+          "lang": "text"
+        },
+        {
+          "title": "Run it",
+          "body": "Save it as agent.py.",
+          "code": "uv run python agent.py",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A fresh Chromium with a temporary profile opens, the agent browses to the repository and prints the star count.",
+      "nextSteps": [
+        "Use Browser('chrome') to work with your logged-in Chrome",
+        "Return typed results with output_model_schema",
+        "Try the hosted cloud agent to scale up"
+      ],
+      "sourceUrl": "https://github.com/browser-use/browser-use/blob/94784c1f7ecb6b0a5f565b7f9fba59e395b7e048/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Library",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Browser Use Cloud",
+        "value": "Paid model and browser usage; new Google, GitHub or Microsoft signups get $1 credit.",
+        "tone": "depends"
+      },
+      {
+        "label": "Your own model",
+        "value": "Billed by your model provider.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Missing API key error",
+        "solution": "Run browser-use login or set BROWSER_USE_API_KEY.",
+        "sourceUrl": "https://github.com/browser-use/browser-use/blob/94784c1f7ecb6b0a5f565b7f9fba59e395b7e048/README.md"
+      },
+      {
+        "problem": "CLI setup or connection fails",
+        "solution": "Run browser-use --doctor and follow its output.",
+        "sourceUrl": "https://github.com/browser-use/browser-use/blob/94784c1f7ecb6b0a5f565b7f9fba59e395b7e048/README.md"
+      },
+      {
+        "problem": "Code broke after an upgrade",
+        "solution": "Pin the exact version with ==, and read MIGRATING.md when coming from 0.x.",
+        "sourceUrl": "https://github.com/browser-use/browser-use/blob/94784c1f7ecb6b0a5f565b7f9fba59e395b7e048/README.md"
+      },
+      {
+        "problem": "Logging in over SSH",
+        "solution": "Use browser-use login --device-code.",
+        "sourceUrl": "https://github.com/browser-use/browser-use/blob/94784c1f7ecb6b0a5f565b7f9fba59e395b7e048/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI browser automation",
+      "Agents that use websites",
+      "Python web agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI browser agent"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Version",
+        "value": "1.0"
+      }
+    ]
+  }
+}

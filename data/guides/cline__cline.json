@@ -1,0 +1,261 @@
+{
+  "fullName": "cline/cline",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/cline/cline/blob/34c104e6fc49781cda4adcd73ffdccd8f029fef9/README.md"
+    ],
+    "sourceCommitSha": "34c104e6fc49781cda4adcd73ffdccd8f029fef9",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install the Cline CLI",
+        "command": "npm i -g cline"
+      },
+      {
+        "comment": "Run a task headlessly",
+        "command": "cline \"Run tests and fix any failures\""
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Cline is an open-source AI coding agent that works in VS Code, JetBrains IDEs, your terminal and a desktop app. It edits files across your project, runs commands, browses the web and uses tools, asking for your approval along the way, with whichever AI model you choose.",
+      "problem": "Coding assistants that only autocomplete can't carry out multi-step changes, and many agents lock you to one model provider. Cline plans and executes real changes across a codebase and works with Anthropic, OpenAI, Google, local models and more.",
+      "whoFor": [
+        "Developers who want an AI agent inside VS Code or JetBrains",
+        "Teams automating code tasks in CI/CD",
+        "Developers who want to choose their own model, including local ones",
+        "Builders creating custom agents with the SDK"
+      ],
+      "whyChoose": "Choose it for an open-source, model-agnostic coding agent with human-in-the-loop approval and a Plan/Act workflow. You pay for whichever model provider you connect.",
+      "requirements": [
+        "VS Code, a JetBrains IDE, Node.js for the CLI, or macOS/Windows for the desktop app",
+        "An API key for a model provider, or a local model through Ollama or LM Studio"
+      ]
+    },
+    "overview": [
+      "Cline reads your project structure and makes coordinated changes, watching linter and compiler errors as it works. It runs terminal commands and watches their output. In Plan mode it explores and proposes a strategy; in Act mode it carries it out, with each file edit and command shown for approval.",
+      "Project rules in .clinerules files guide how it works in your codebase. It can be extended with plugins through the SDK or with MCP servers, can coordinate multi-agent teams, run scheduled agents on cron schedules, and connect to Slack, Telegram, Discord and other chat platforms.",
+      "The headless CLI fits scripts and CI: pipe in input, get JSON output. The @cline/sdk package exposes the same agent engine for building your own agents. Cline is Apache-2.0 licensed; the JetBrains plugin isn't open source."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Multi-file edits",
+        "body": "Coordinated changes across your codebase."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Runs commands",
+        "body": "Executes and watches terminal output."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Plan and Act modes",
+        "body": "Agree on a plan, then execute it."
+      },
+      {
+        "icon": "file-code",
+        "title": "Any model",
+        "body": "Anthropic, OpenAI, Google, OpenRouter, local models and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "MCP and plugins",
+        "body": "Extend with tools and hooks."
+      },
+      {
+        "icon": "shield",
+        "title": "Headless CLI and schedules",
+        "body": "Automate in CI and on cron."
+      }
+    ],
+    "strengths": [
+      "Open source and model-agnostic",
+      "Available in VS Code, JetBrains, terminal and desktop",
+      "Human-in-the-loop approvals",
+      "Apache-2.0 licensed"
+    ],
+    "limitations": [
+      "Model usage is billed by your provider",
+      "JetBrains plugin isn't open source",
+      "Agents need careful review of changes"
+    ],
+    "useCases": [
+      {
+        "title": "Implement features",
+        "body": "Plan and build a feature across files."
+      },
+      {
+        "title": "Fix failing tests",
+        "body": "Run tests and fix failures headlessly."
+      },
+      {
+        "title": "Code review in CI",
+        "body": "Pipe a diff to Cline for review."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Cline's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/cline/cline/blob/34c104e6fc49781cda4adcd73ffdccd8f029fef9/README.md",
+      "prerequisites": [
+        "Node.js for the CLI",
+        "A model provider key or local model"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "CLI",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install globally",
+              "code": "npm i -g cline",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "VS Code extension",
+          "method": "vscode",
+          "steps": [
+            {
+              "title": "Install from the VS Code Marketplace",
+              "body": "Search for Cline in the Extensions view."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "JetBrains plugin",
+          "method": "jetbrains",
+          "steps": [
+            {
+              "title": "Install from the JetBrains Marketplace",
+              "body": "Works in IntelliJ IDEA, PyCharm, WebStorm, GoLand and other JetBrains IDEs."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Desktop app",
+          "method": "desktop",
+          "steps": [
+            {
+              "title": "Download the desktop app",
+              "body": "Native app for macOS and Windows."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run a headless task",
+          "code": "cline \"Run tests and fix any failures\"",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Use Cline from the terminal and in CI",
+      "useCase": "Install the CLI, run tasks headlessly and review a diff.",
+      "setup": [
+        "Node.js installed",
+        "A model provider configured in Cline"
+      ],
+      "steps": [
+        {
+          "title": "Install",
+          "code": "npm i -g cline",
+          "lang": "bash"
+        },
+        {
+          "title": "Run a task",
+          "code": "cline \"Run tests and fix any failures\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Review your changes",
+          "code": "git diff origin/main | cline \"Review these changes for issues\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Get JSON output for scripts",
+          "code": "cline --json \"List all TODO comments\"",
+          "lang": "bash"
+        }
+      ],
+      "expected": "Cline works through each task in your repository and prints its progress, or JSON events with --json for use in scripts.",
+      "nextSteps": [
+        "Add project rules in .clinerules",
+        "Schedule recurring agents with cline schedule create",
+        "Install the VS Code extension for interactive work"
+      ],
+      "sourceUrl": "https://github.com/cline/cline/blob/34c104e6fc49781cda4adcd73ffdccd8f029fef9/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Cline",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Model providers",
+        "value": "Billed by the provider you connect; local models through Ollama or LM Studio are free to run.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Cline doesn't follow your conventions",
+        "solution": "Add rules in .clinerules files; they're picked up automatically.",
+        "sourceUrl": "https://github.com/cline/cline/blob/34c104e6fc49781cda4adcd73ffdccd8f029fef9/README.md"
+      },
+      {
+        "problem": "Want to review before changes",
+        "solution": "Use Plan mode first, then switch to Act mode.",
+        "sourceUrl": "https://github.com/cline/cline/blob/34c104e6fc49781cda4adcd73ffdccd8f029fef9/README.md"
+      },
+      {
+        "problem": "Need a local model",
+        "solution": "Connect Ollama or LM Studio, or any OpenAI-compatible API.",
+        "sourceUrl": "https://github.com/cline/cline/blob/34c104e6fc49781cda4adcd73ffdccd8f029fef9/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI coding in the IDE",
+      "Headless coding automation",
+      "Model-agnostic agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI coding agent"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Runs in",
+        "value": "VS Code, JetBrains, CLI, desktop"
+      }
+    ]
+  }
+}
