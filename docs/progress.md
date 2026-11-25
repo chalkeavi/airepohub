@@ -1,6 +1,6 @@
 # Progress
 
-**Current milestone:** 6 — Cloudflare deploy (config PR open, not deployed). Milestone 5 (admin) not started.
+**Current milestone:** 6 — deployed to https://airepohub.chalkeavi.workers.dev (2026-11-25). Next: custom domain, then Milestone 5 (admin).
 **Last updated:** 2026-11-25
 
 ## Done (implemented and checked)
@@ -25,7 +25,10 @@
   Not yet run for real: needs the `SUPABASE_SERVICE_ROLE_KEY` secret and the workflow on `main`.
 
 - Milestones 3 and 4 merged (PRs #3, #4). Daily jobs ran for real: snapshot 24 repos, rank 53 rows, discover 50 queued.
-- Milestone 6 (in progress): OpenNext/wrangler config, deploy env guard. Local Worker build and static pages
+- Milestone 6: LIVE at https://airepohub.chalkeavi.workers.dev via Workers Builds (auto-deploys `main`). Checked live 2026-11-25:
+  home, repo, category, about, search, OG image, sitemap (41 URLs), robots → 200; unknown repo/category → 404;
+  `/repo/OpenSEO` → 301; canonicals and sitemap use the workers.dev URL; "Stats as of Nov 25" comes from Supabase.
+- Milestone 6 config: OpenNext/wrangler config, deploy env guard. Local Worker build and static pages
   checked (see docs/deployment.md). Not deployed: needs the owner's Cloudflare setup and go-ahead.
 
 ## Not done / known gaps
@@ -35,20 +38,17 @@
 - Builds now fetch from Supabase; a build fails if Supabase is unreachable. In the cloud sandbox run builds
   with `NODE_USE_ENV_PROXY=1` (Node fetch ignores HTTPS_PROXY otherwise).
 - `NEXT_PUBLIC_SITE_URL` must be set to the real domain at deploy (defaults to localhost). Owner hasn't chosen a domain yet.
-- Proxy + `next/og` on Cloudflare Workers not yet tested (Milestone 6).
 - Collections pages moved to Milestone 5.
 - Only OpenSEO has a full guide. Install guide is "Based on official documentation", not executed by us.
 - No admin accounts yet (`admin_users` empty); content edits need the dashboard or service role until M5.
 - Legal pages are placeholders. Cloudflare build: M6.
 
 ## Blockers / needs from owner
-- Merge the Cloudflare config PR; create the R2 bucket `airepohub-opennext-cache`; connect the repo in Workers Builds
-  with the settings in docs/deployment.md; say "deploy" to authorize.
 - Choose a domain (then update `NEXT_PUBLIC_SITE_URL` and rebuild).
 - Admin login doesn't exist yet (Milestone 5); no one can edit content from the site.
 
 ## Next recommended step
-First deploy to workers.dev, then check search, 404/301 and request-time reads live. Then Milestone 5 (admin).
+Connect a custom domain (update `NEXT_PUBLIC_SITE_URL` in `.env.production`), then Milestone 5 (admin).
 
 ## Later (ideas, not scheduled)
 - `pg_trgm` fuzzy search; Cloudflare Images loader for avatars.

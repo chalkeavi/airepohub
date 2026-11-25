@@ -1,4 +1,4 @@
-# Deployment (Milestone 6: config ready, nothing deployed yet)
+# Deployment (live at https://airepohub.chalkeavi.workers.dev since 2026-11-25)
 
 ## Target
 - Cloudflare DNS + custom domain → Cloudflare Workers running Next.js via `@opennextjs/cloudflare`.
