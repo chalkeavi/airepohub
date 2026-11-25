@@ -1,0 +1,270 @@
+{
+  "fullName": "mvanhorn/last30days-skill",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/mvanhorn/last30days-skill/blob/7c2e1c2b099b13abd4397910168c4f53e638bb21/README.md"
+    ],
+    "sourceCommitSha": "7c2e1c2b099b13abd4397910168c4f53e638bb21",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install in Claude Code",
+        "command": "/plugin marketplace add mvanhorn/last30days-skill\n/plugin install last30days"
+      },
+      {
+        "comment": "Install for Codex, Cursor, Gemini CLI and other skill hosts",
+        "command": "npx skills add mvanhorn/last30days-skill -g"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "last30days is a skill for AI agents such as Claude Code and Codex that researches what people have said about any topic in the last 30 days. It searches Reddit, Hacker News, X, YouTube, Polymarket, GitHub and many other sources, and ranks findings by real engagement like upvotes and likes.",
+      "problem": "Search engines favour editorial content and model training data lags behind current events. last30days pulls recent discussion from many platforms that no single search tool covers and has your agent write a cited brief.",
+      "whoFor": [
+        "People preparing for meetings or sales calls",
+        "Researchers tracking fast-moving topics like AI",
+        "Investors watching companies and markets",
+        "Anyone who wants a quick briefing on recent events"
+      ],
+      "whyChoose": "Choose it for recent, people-ranked research inside the agent you already use. Reddit, Hacker News, Polymarket and GitHub work with no keys; other sources need keys or tools.",
+      "requirements": [
+        "Claude Code, Codex, Cursor, Copilot, Gemini CLI or another Agent Skills host",
+        "Optional API keys or tools for extra sources (X, YouTube via yt-dlp, ScrapeCreators, Brave and more)"
+      ]
+    },
+    "overview": [
+      "You type /last30days followed by a topic, such as a person, company or product. The skill searches many sources, scores results by engagement, and your agent writes a brief with the best quotes on their own lines, Polymarket odds where relevant and, for listed companies, the 30-day share price next to the S&P 500.",
+      "With zero configuration it uses Reddit, Hacker News, Polymarket, GitHub, StockTwits and, for companies, patent filings and careers pages. A first-run setup wizard installs free CLIs for arXiv, Techmeme and Yahoo Finance and helps you unlock X, YouTube, TikTok and others with your own keys.",
+      "It also has a discovery mode for questions like what is exploding in AI agents, JSON output for workflows, optional SQLite storage for tracking topics over time, and a local research library feed. Research files are saved to ~/Documents/Last30Days/ by default."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Many sources",
+        "body": "Reddit, HN, X, YouTube, TikTok, Polymarket, GitHub and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Engagement ranking",
+        "body": "Scored by upvotes, likes and real-money odds."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Company signals",
+        "body": "Patent filings and careers pages reveal what's coming."
+      },
+      {
+        "icon": "file-code",
+        "title": "Discovery mode",
+        "body": "Find trending topics before they peak."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Works in your agent",
+        "body": "Claude Code, Codex, Cursor, Gemini CLI and 50+ hosts."
+      },
+      {
+        "icon": "shield",
+        "title": "Research library",
+        "body": "Save briefs and build a local feed."
+      }
+    ],
+    "strengths": [
+      "Zero-config core sources",
+      "Broad coverage that no single search tool has",
+      "Installs into many agents",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Several sources need your own keys, some paid after free tiers",
+      "Results reflect social engagement, which isn't the same as accuracy",
+      "Your installed version may differ from the README"
+    ],
+    "useCases": [
+      {
+        "title": "Meeting prep",
+        "body": "/last30days a person's name before you meet them."
+      },
+      {
+        "title": "Company watch",
+        "body": "See what a company is hiring for and patenting."
+      },
+      {
+        "title": "Compare tools",
+        "body": "/last30days tool A vs tool B."
+      },
+      {
+        "title": "Catch up on news",
+        "body": "Get a cited brief on a breaking story."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from last30days's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/mvanhorn/last30days-skill/blob/7c2e1c2b099b13abd4397910168c4f53e638bb21/README.md",
+      "prerequisites": [
+        "An AI agent that supports skills or plugins"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code plugin",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace and install",
+              "body": "Updates arrive automatically through the marketplace.",
+              "code": "/plugin marketplace add mvanhorn/last30days-skill\n/plugin install last30days",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Agent Skills hosts",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install globally",
+              "body": "Drop -g to install for one project only.",
+              "code": "npx skills add mvanhorn/last30days-skill -g",
+              "lang": "bash"
+            },
+            {
+              "title": "Update later",
+              "code": "npx skills update last30days -g",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "OpenClaw",
+          "method": "clawhub",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "clawhub install last30days-official",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "X_BEARER_TOKEN",
+          "required": false,
+          "description": "Official X API access for X posts."
+        },
+        {
+          "name": "LAST30DAYS_MEMORY_DIR",
+          "required": false,
+          "description": "Where research files are saved; defaults to ~/Documents/Last30Days/."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Research a topic",
+          "code": "/last30days what's exploding in AI agents?",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Prepare for a meeting with /last30days",
+      "useCase": "Get a briefing on what someone has been doing this month.",
+      "setup": [
+        "last30days installed in your agent"
+      ],
+      "steps": [
+        {
+          "title": "Run it on a person",
+          "code": "/last30days Peter Steinberger",
+          "lang": "text"
+        },
+        {
+          "title": "Follow the setup wizard on first run",
+          "body": "It installs free CLIs and offers to unlock more sources."
+        },
+        {
+          "title": "Read the brief",
+          "body": "Check the quoted posts and sources it cites."
+        }
+      ],
+      "expected": "A cited brief of the past 30 days of discussion, saved to your research folder.",
+      "nextSteps": [
+        "Add an X token or ScrapeCreators key for more sources",
+        "Try a company name to see patent and jobs signals",
+        "Use --store to track a topic over time"
+      ],
+      "sourceUrl": "https://github.com/mvanhorn/last30days-skill/blob/7c2e1c2b099b13abd4397910168c4f53e638bb21/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Core sources",
+        "value": "Reddit, Hacker News, Polymarket and GitHub need no keys.",
+        "tone": "free"
+      },
+      {
+        "label": "Extra sources",
+        "value": "Some keys have free tiers then pay as you go, for example ScrapeCreators or Perplexity.",
+        "tone": "depends"
+      },
+      {
+        "label": "Agent",
+        "value": "Runs on your agent's plan.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "X, TikTok or YouTube results are missing",
+        "solution": "Those need keys or tools: X_BEARER_TOKEN, a ScrapeCreators key, or yt-dlp.",
+        "sourceUrl": "https://github.com/mvanhorn/last30days-skill/blob/7c2e1c2b099b13abd4397910168c4f53e638bb21/README.md"
+      },
+      {
+        "problem": "Can't find saved reports",
+        "solution": "Check LAST30DAYS_MEMORY_DIR, which defaults to ~/Documents/Last30Days/.",
+        "sourceUrl": "https://github.com/mvanhorn/last30days-skill/blob/7c2e1c2b099b13abd4397910168c4f53e638bb21/README.md"
+      },
+      {
+        "problem": "Behaviour differs from the README",
+        "solution": "The README tracks the source tree; check the latest release and SKILL.md.",
+        "sourceUrl": "https://github.com/mvanhorn/last30days-skill/blob/7c2e1c2b099b13abd4397910168c4f53e638bb21/README.md"
+      }
+    ],
+    "bestFor": [
+      "Recent-events research",
+      "Meeting and sales prep",
+      "Trend discovery"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent research skill"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Hosts",
+        "value": "Claude Code, Codex, Cursor and 50+ more"
+      }
+    ]
+  }
+}
