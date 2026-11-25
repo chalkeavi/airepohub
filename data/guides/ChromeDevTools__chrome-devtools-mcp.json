@@ -1,0 +1,253 @@
+{
+  "fullName": "ChromeDevTools/chrome-devtools-mcp",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/7fcebb2b0392bb623ee50383a8e1ef680975b4aa/README.md"
+    ],
+    "sourceCommitSha": "7fcebb2b0392bb623ee50383a8e1ef680975b4aa",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Add to your MCP client config",
+        "command": "npx -y chrome-devtools-mcp@latest"
+      },
+      {
+        "comment": "Or install the CLI",
+        "command": "npm i chrome-devtools-mcp@latest -g"
+      },
+      {
+        "comment": "Take a screenshot from the terminal",
+        "command": "chrome-devtools take_screenshot 1 --filePath screenshot.png"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Chrome DevTools MCP lets an AI coding agent such as Claude, Cursor, Copilot or Antigravity control and inspect a live Chrome browser. It works as an MCP server or a command-line tool and gives the agent DevTools features: performance traces, network requests, screenshots and console messages.",
+      "problem": "Coding agents usually can't see what their web code does in a real browser. This tool lets them open pages, click through them, record performance traces and read console errors, so they can debug and verify front-end work themselves.",
+      "whoFor": [
+        "Web developers using AI coding agents",
+        "Front-end engineers debugging performance",
+        "Teams automating browser checks with agents",
+        "Anyone who wants an agent to test pages in Chrome"
+      ],
+      "whyChoose": "Choose it for official Chrome DevTools features in your agent, from the Chrome DevTools team. It officially supports Google Chrome and Chrome for Testing only.",
+      "requirements": [
+        "Node.js LTS",
+        "npm",
+        "Chrome, current stable or newer",
+        "An MCP client (Claude Code, Cursor, VS Code and others)"
+      ]
+    },
+    "overview": [
+      "You add one entry to your MCP client's config that runs npx -y chrome-devtools-mcp@latest. When the agent uses a tool that needs a browser, the server starts Chrome automatically. It uses Puppeteer to automate actions and wait for their results, and Chrome DevTools to record traces and extract performance insights.",
+      "The same package includes a chrome-devtools CLI for controlling the browser from a terminal without MCP, and a set of skills that teach agents to debug accessibility, cookies, Largest Contentful Paint and memory leaks. Claude Code, Copilot in VS Code and Gemini CLI can install everything as a plugin.",
+      "Be aware of the disclaimers: the server exposes the browser's content to your MCP client, so avoid using it with sensitive data. Google collects usage statistics by default (opt out with --no-usage-statistics), and performance tools may send trace URLs to the CrUX API (disable with --no-performance-crux)."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Performance insights",
+        "body": "Record traces and get actionable findings."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Browser debugging",
+        "body": "Network requests, screenshots and console messages with source maps."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Reliable automation",
+        "body": "Puppeteer-based actions that wait for results."
+      },
+      {
+        "icon": "file-code",
+        "title": "CLI",
+        "body": "Control Chrome from the terminal without MCP."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Agent skills",
+        "body": "Accessibility, cookies, LCP and memory-leak debugging."
+      },
+      {
+        "icon": "shield",
+        "title": "Slim mode",
+        "body": "--slim exposes a smaller tool set for basic tasks."
+      }
+    ],
+    "strengths": [
+      "Built by the Chrome DevTools team",
+      "Works with most MCP clients",
+      "One-line setup with npx",
+      "Apache-2.0 licensed"
+    ],
+    "limitations": [
+      "Officially supports Chrome and Chrome for Testing only",
+      "Exposes browser content to your MCP client",
+      "Usage statistics are collected unless you opt out"
+    ],
+    "useCases": [
+      {
+        "title": "Fix slow pages",
+        "body": "Ask the agent to check performance and suggest fixes."
+      },
+      {
+        "title": "Debug errors",
+        "body": "Let the agent read console and network logs."
+      },
+      {
+        "title": "Verify UI changes",
+        "body": "Have the agent open the page and take a screenshot."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Chrome DevTools MCP's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/7fcebb2b0392bb623ee50383a8e1ef680975b4aa/README.md",
+      "prerequisites": [
+        "Node.js LTS",
+        "Chrome"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "MCP server",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Add the server to your MCP client",
+              "body": "See the Client Configurations Guide for your editor or agent.",
+              "code": "{\n  \"mcpServers\": {\n    \"chrome-devtools\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"chrome-devtools-mcp@latest\"]\n    }\n  }\n}",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "CLI",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install globally",
+              "code": "npm i chrome-devtools-mcp@latest -g",
+              "lang": "bash"
+            },
+            {
+              "title": "Open a page and take a screenshot",
+              "code": "chrome-devtools navigate_page 1 --url \"https://developers.chrome.com\"\nchrome-devtools take_screenshot 1 --filePath screenshot.png\nchrome-devtools stop",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "CHROME_DEVTOOLS_MCP_NO_USAGE_STATISTICS",
+          "required": false,
+          "description": "Set to turn off usage statistics collection."
+        },
+        {
+          "name": "CHROME_DEVTOOLS_MCP_NO_UPDATE_CHECKS",
+          "required": false,
+          "description": "Set to turn off npm update checks."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Try your first prompt in the MCP client",
+          "code": "Check the performance of https://developers.chrome.com",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Let your agent check a page's performance",
+      "useCase": "Connect Chrome DevTools MCP to your agent and record a performance trace.",
+      "setup": [
+        "Node.js LTS and Chrome installed",
+        "An MCP client such as Claude Code or Cursor"
+      ],
+      "steps": [
+        {
+          "title": "Add the MCP server",
+          "code": "{\n  \"mcpServers\": {\n    \"chrome-devtools\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"chrome-devtools-mcp@latest\"]\n    }\n  }\n}",
+          "lang": "text"
+        },
+        {
+          "title": "Send the first prompt",
+          "code": "Check the performance of https://developers.chrome.com",
+          "lang": "text"
+        }
+      ],
+      "expected": "Your MCP client opens the browser and records a performance trace.",
+      "nextSteps": [
+        "Install the skills as a plugin",
+        "Try the --slim or --headless options",
+        "Read the tool reference"
+      ],
+      "sourceUrl": "https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/7fcebb2b0392bb623ee50383a8e1ef680975b4aa/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Browser doesn't open on connect",
+        "solution": "The server starts Chrome only when the client uses a tool that needs a browser.",
+        "sourceUrl": "https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/7fcebb2b0392bb623ee50383a8e1ef680975b4aa/README.md"
+      },
+      {
+        "problem": "Connection problems between MCP and Chrome",
+        "solution": "Follow the troubleshooting guide, or use the troubleshooting skill.",
+        "sourceUrl": "https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/7fcebb2b0392bb623ee50383a8e1ef680975b4aa/README.md"
+      },
+      {
+        "problem": "Agent uses outdated tools",
+        "solution": "Update the skills each time you update the server or CLI.",
+        "sourceUrl": "https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/7fcebb2b0392bb623ee50383a8e1ef680975b4aa/README.md"
+      },
+      {
+        "problem": "Don't want data sent to Google",
+        "solution": "Use --no-usage-statistics and --no-performance-crux.",
+        "sourceUrl": "https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/7fcebb2b0392bb623ee50383a8e1ef680975b4aa/README.md"
+      }
+    ],
+    "bestFor": [
+      "Agent-driven web debugging",
+      "Performance analysis",
+      "Browser automation for coding agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "MCP server and CLI"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Browser",
+        "value": "Chrome"
+      }
+    ]
+  }
+}
