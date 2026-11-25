@@ -136,7 +136,7 @@
         {
           "os": "all",
           "label": "Codex plugin",
-          "method": "plugin",
+          "method": "plugin-2",
           "steps": [
             {
               "title": "Add the marketplace and plugin",

@@ -142,7 +142,7 @@
         {
           "os": "all",
           "label": "OpenCode",
-          "method": "npx",
+          "method": "npx-2",
           "steps": [
             {
               "title": "Install for OpenCode 1.3.4+",

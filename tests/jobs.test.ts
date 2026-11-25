@@ -393,4 +393,41 @@ describe("full guides", () => {
     expect(problems.join(" ")).toMatch(/commit SHA/);
     expect(problems.join(" ")).toMatch(/verified/);
   });
+
+  it("rejects install guides that repeat an os + method pair", async () => {
+    const { openseoContent } = await import("@/lib/data/sample/content/openseo");
+    const { checkGuide } = await import("@/lib/jobs/guides");
+    const g = openseoContent.install.guides[0];
+    const dup = { ...openseoContent, install: { ...openseoContent.install, guides: [g, { ...g, label: "Other" }] } };
+    expect(checkGuide({ fullName: "vikasswebdev/OpenSEO", content: dup }).join(" ")).toMatch(/unique os \+ method/);
+  });
+
+  it("keeps publishing other guides when one save fails", async () => {
+    const { openseoContent } = await import("@/lib/data/sample/content/openseo");
+    const { runPublishGuides } = await import("@/lib/jobs/guides");
+    const store = new MemStore();
+    const real = store.saveGuide.bind(store);
+    store.saveGuide = async (id: string, c: unknown) => {
+      if (id === "id-vikasswebdev/openseo") throw new Error("duplicate key");
+      return real(id, c);
+    };
+    const s = await runPublishGuides({ store, github: fakeGithub({}), now: NOW }, [
+      { fullName: "vikasswebdev/OpenSEO", content: openseoContent },
+      { fullName: "acme/other", content: { ...openseoContent, sourceUrls: [`https://github.com/acme/other/blob/${openseoContent.sourceCommitSha}/README.md`] } },
+    ]);
+    expect(s.processed).toBe(1);
+    expect(s.failed).toBe(1);
+    expect(store.guides.has("id-acme/other")).toBe(true);
+  });
+
+  it("every guide in data/guides passes the checks", async () => {
+    const { readdirSync, readFileSync } = await import("node:fs");
+    const { checkGuide } = await import("@/lib/jobs/guides");
+    const files = readdirSync("data/guides").filter((f) => f.endsWith(".json"));
+    for (const f of files) {
+      const g = JSON.parse(readFileSync(`data/guides/${f}`, "utf8"));
+      expect([f, checkGuide(g)]).toEqual([f, []]);
+      expect(f).toBe(`${g.fullName.replace("/", "__")}.json`);
+    }
+  });
 });

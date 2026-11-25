@@ -29,6 +29,8 @@ export function checkGuide(g: GuideFile): string[] {
   if (c.install?.verification === "verified") p.push("install guides can't be 'verified' without a real test run");
   if (!c.install?.sourceUrl) p.push("install.sourceUrl is required");
   if (!c.install?.guides?.length || c.install.guides.some((x) => !x.steps.length)) p.push("needs at least one install guide with steps");
+  const keys = (c.install?.guides ?? []).map((x) => `${x.os}/${x.method}`);
+  if (new Set(keys).size !== keys.length) p.push("install guides need a unique os + method pair (database constraint)");
   const s = c.sixtySeconds;
   if (!s?.whatItDoes || !s.problem || !s.whyChoose || !s.whoFor?.length) p.push("sixtySeconds is incomplete");
   if (!c.overview?.length) p.push("overview is empty");
@@ -56,8 +58,12 @@ export function runPublishGuides(ctx: JobContext, guides: GuideFile[]): Promise<
         missing.push(g.fullName); // not imported (or not published) yet; picked up on a later run
         continue;
       }
-      if (!ctx.dryRun) await ctx.store.saveGuide(id, g.content, g.summary);
-      published.push(g.fullName);
+      try {
+        if (!ctx.dryRun) await ctx.store.saveGuide(id, g.content, g.summary);
+        published.push(g.fullName);
+      } catch (e) {
+        rejected[g.fullName] = [`save failed: ${e instanceof Error ? e.message : String(e)}`]; // one bad guide never blocks the rest
+      }
     }
     Object.assign(details, { processed: published.length, published, rejected, not_on_site: missing });
     return { processed: published.length, failed: Object.keys(rejected).length };

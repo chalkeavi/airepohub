@@ -128,7 +128,7 @@
         {
           "os": "all",
           "label": "pip (CPU only)",
-          "method": "pip",
+          "method": "pip-2",
           "steps": [
             {
               "title": "Install the smaller CPU-only package",

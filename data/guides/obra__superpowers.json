@@ -138,7 +138,7 @@
         {
           "os": "all",
           "label": "Copilot CLI",
-          "method": "plugin",
+          "method": "plugin-2",
           "steps": [
             {
               "title": "Register the marketplace",
@@ -155,7 +155,7 @@
         {
           "os": "all",
           "label": "Cursor",
-          "method": "plugin",
+          "method": "plugin-3",
           "steps": [
             {
               "title": "Install from the marketplace in Cursor Agent chat",
