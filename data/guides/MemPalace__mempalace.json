@@ -1,0 +1,301 @@
+{
+  "fullName": "MemPalace/mempalace",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/MemPalace/mempalace/blob/dfa318af2d41ad6c64fc3b08c28d16410c9b634b/README.md"
+    ],
+    "sourceCommitSha": "dfa318af2d41ad6c64fc3b08c28d16410c9b634b",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install the CLI with uv",
+        "command": "uv tool install mempalace"
+      },
+      {
+        "comment": "Set up a palace for a project",
+        "command": "mempalace init ~/projects/myapp"
+      },
+      {
+        "comment": "Search your memory",
+        "command": "mempalace search \"why did we switch to GraphQL\""
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "MemPalace is a local-first memory system for AI. It stores your conversation history and project files as verbatim text and finds them again with semantic search, so tools like Claude Code can recall past decisions. Nothing leaves your machine unless you opt in.",
+      "problem": "AI coding sessions lose their context, and memory tools that summarise can distort what was said. MemPalace keeps the original text and organises it into wings (people and projects), rooms (topics) and drawers (content), reporting 96.6% recall at 5 on LongMemEval with no API calls.",
+      "whoFor": [
+        "Claude Code, Gemini CLI and other agent users who want persistent memory",
+        "Developers who want searchable project history",
+        "Privacy-minded users who want memory that stays local",
+        "Teams sharing a memory hub"
+      ],
+      "whyChoose": "Choose it for verbatim, local memory with no LLM required for retrieval. Watch out for impostor sites: the only official sources are the GitHub repository, the PyPI package and mempalaceofficial.com.",
+      "requirements": [
+        "Python, installed with uv, pipx or a virtualenv",
+        "Or Docker (amd64 or arm64)",
+        "An MCP client to use it from an agent"
+      ]
+    },
+    "overview": [
+      "MemPalace mines content into a palace: project files, or Claude Code session transcripts with --mode convos. You can then search it, load context for a new session with wake-up, and audit how well organised it is. It doesn't summarise, extract or paraphrase what it stores.",
+      "Retrieval is pluggable. ChromaDB is the default and needs no configuration; SQLite, a native Rust engine, Milvus, Qdrant and pgvector are opt-in backends. The README's benchmarks are reproducible from the repository, and it explains why it avoids side-by-side comparisons with other memory projects.",
+      "Setup can be agent-guided: install the MemPalace skills and ask your coding agent to install the package, configure MCP and verify the connection. The README warns that Claude Code sessions expire in 30 days unless auto-save hooks are wired up, and links a retention checklist."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Verbatim storage",
+        "body": "Original text, never summarised."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Semantic search",
+        "body": "Scoped by wings, rooms and drawers."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Mines sessions and files",
+        "body": "Index Claude Code transcripts or project folders."
+      },
+      {
+        "icon": "file-code",
+        "title": "MCP server",
+        "body": "Use it from Claude Code and other agents."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Pluggable backends",
+        "body": "ChromaDB default; Qdrant, pgvector, Milvus opt-in."
+      },
+      {
+        "icon": "shield",
+        "title": "Agent skills",
+        "body": "Guided setup and search-before-answer recall."
+      }
+    ],
+    "strengths": [
+      "Runs fully locally with no API calls",
+      "Reproducible benchmark numbers",
+      "Docker image for amd64 and arm64",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Native Android (Termux) isn't supported",
+      "GPU Docker image must be built yourself and is x86_64 only",
+      "First embedding download makes the first run slow"
+    ],
+    "useCases": [
+      {
+        "title": "Recall past coding decisions",
+        "body": "Search why a change was made months ago."
+      },
+      {
+        "title": "Session continuity",
+        "body": "Load context into a new Claude Code session."
+      },
+      {
+        "title": "Team memory hub",
+        "body": "Share a memory server across a team."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from MemPalace's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/MemPalace/mempalace/blob/dfa318af2d41ad6c64fc3b08c28d16410c9b634b/README.md",
+      "prerequisites": [
+        "uv or pipx",
+        "Or Docker"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "uv (recommended)",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install the CLI",
+              "body": "uv tool install keeps MemPalace's dependencies isolated and avoids PEP 668 errors. pipx install mempalace works the same way.",
+              "code": "uv tool install mempalace",
+              "lang": "bash"
+            },
+            {
+              "title": "Initialise a palace",
+              "code": "mempalace init ~/projects/myapp",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Agent-guided setup",
+          "method": "skills",
+          "steps": [
+            {
+              "title": "Install the MemPalace skills",
+              "code": "npx skills add MemPalace/mempalace",
+              "lang": "bash"
+            },
+            {
+              "title": "Ask your coding agent to set up MemPalace",
+              "body": "The setup skill installs the package, configures MCP and verifies the connection."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Pull the image",
+              "code": "docker pull ghcr.io/mempalace/mempalace:latest",
+              "lang": "bash"
+            },
+            {
+              "title": "Mine a project",
+              "body": "Everything persists under /data, so mount a volume there.",
+              "code": "docker run --rm -v mempalace-data:/data -v /path/to/project:/work:ro \\\n  ghcr.io/mempalace/mempalace mine /work",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "MEMPALACE_BACKEND",
+          "required": false,
+          "description": "Select a storage backend instead of the ChromaDB default."
+        },
+        {
+          "name": "MEMPALACE_QDRANT_URL",
+          "required": false,
+          "description": "Qdrant server URL when using the qdrant backend."
+        },
+        {
+          "name": "MEMPALACE_PGVECTOR_DSN",
+          "required": false,
+          "description": "Postgres connection string for the pgvector backend."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Mine a project",
+          "code": "mempalace mine ~/projects/myapp",
+          "lang": "bash"
+        },
+        {
+          "title": "Search it",
+          "code": "mempalace search \"why did we switch to GraphQL\"",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Give Claude Code a searchable memory of past sessions",
+      "useCase": "Mine your Claude Code transcripts and search them.",
+      "setup": [
+        "MemPalace installed with uv",
+        "Claude Code sessions in ~/.claude/projects"
+      ],
+      "steps": [
+        {
+          "title": "Mine your Claude Code sessions",
+          "body": "Scope with --wing per project.",
+          "code": "mempalace mine ~/.claude/projects/ --mode convos",
+          "lang": "bash"
+        },
+        {
+          "title": "Search",
+          "code": "mempalace search \"why did we switch to GraphQL\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Load context for a new session",
+          "code": "mempalace wake-up",
+          "lang": "bash"
+        },
+        {
+          "title": "Check organisation",
+          "body": "Read-only and safe while the MCP server runs.",
+          "code": "mempalace audit",
+          "lang": "bash"
+        }
+      ],
+      "expected": "Searches return the original text of matching past conversations, organised by wing and room.",
+      "nextSteps": [
+        "Connect the MCP server to Claude Code",
+        "Wire auto-save hooks so sessions aren't lost after 30 days",
+        "Try a different storage backend"
+      ],
+      "sourceUrl": "https://github.com/MemPalace/mempalace/blob/dfa318af2d41ad6c64fc3b08c28d16410c9b634b/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source; runs locally with no API calls.",
+        "tone": "free"
+      },
+      {
+        "label": "Optional LLM rerank",
+        "value": "Uses any capable model you choose, billed by its provider.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "PEP 668 errors when installing",
+        "solution": "Install with uv tool install or pipx, or inside a virtualenv.",
+        "sourceUrl": "https://github.com/MemPalace/mempalace/blob/dfa318af2d41ad6c64fc3b08c28d16410c9b634b/README.md"
+      },
+      {
+        "problem": "PermissionError: [Errno 13] in Docker on Linux",
+        "solution": "The image runs as uid 1000; mounted directories must be readable by it. Don't use --user.",
+        "sourceUrl": "https://github.com/MemPalace/mempalace/blob/dfa318af2d41ad6c64fc3b08c28d16410c9b634b/README.md"
+      },
+      {
+        "problem": "First Docker command seems to hang",
+        "solution": "It's downloading the embedding model (about 80 MB by default) into /data.",
+        "sourceUrl": "https://github.com/MemPalace/mempalace/blob/dfa318af2d41ad6c64fc3b08c28d16410c9b634b/README.md"
+      },
+      {
+        "problem": "Claude Code sessions disappearing",
+        "solution": "Sessions expire in 30 days without auto-save hooks; follow the retention checklist.",
+        "sourceUrl": "https://github.com/MemPalace/mempalace/blob/dfa318af2d41ad6c64fc3b08c28d16410c9b634b/README.md"
+      }
+    ],
+    "bestFor": [
+      "Local AI memory",
+      "Claude Code session recall",
+      "Privacy-first search"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Local AI memory system"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Default backend",
+        "value": "ChromaDB"
+      }
+    ]
+  }
+}

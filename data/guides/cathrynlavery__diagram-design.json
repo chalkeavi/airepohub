@@ -1,0 +1,246 @@
+{
+  "fullName": "cathrynlavery/diagram-design",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/cathrynlavery/diagram-design/blob/b228c5d77794a84150fca41b22940bb316b1398d/README.md"
+    ],
+    "sourceCommitSha": "b228c5d77794a84150fca41b22940bb316b1398d",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install for any Agent Skills host",
+        "command": "npx skills add cathrynlavery/diagram-design"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "diagram-design is an agent skill that draws diagrams as a single self-contained HTML and SVG file. You ask your AI agent for an architecture diagram, flowchart, sequence, timeline or one of 52 types, and it writes one file you can open in a browser, styled to match your brand.",
+      "problem": "Diagrams from AI tools often look generic or need a renderer like Mermaid. This skill gives your agent design rules and templates so it produces clean, static diagrams with no build step, and can pull your site's colours and fonts.",
+      "whoFor": [
+        "Developers documenting architecture",
+        "Product people making quadrants and timelines",
+        "Writers adding diagrams to docs and posts",
+        "Users of Claude Code, Cursor, Codex, Copilot and Gemini CLI"
+      ],
+      "whyChoose": "Choose it for polished, dependency-free diagrams from a plain-language request. Output is static HTML and SVG, so it suits docs and slides rather than live editing.",
+      "requirements": [
+        "An Agent Skills host such as Claude Code, Cursor, Codex, Copilot, Gemini CLI, Cline, Windsurf or Amp",
+        "Node.js for npx"
+      ]
+    },
+    "overview": [
+      "Install the skill and ask your agent in plain words, such as 'make me an architecture diagram of my app: frontend, backend, database, Redis cache'. The agent picks the diagram type, states its plan and writes one .html file you can open by double-clicking.",
+      "There are 52 diagram types, each in minimal light, minimal dark and full-editorial variants, including architecture, flowchart, sequence, state machine, ER data model and timeline. Output has no build step, JavaScript or external images.",
+      "An onboarding step reads your website to match its palette and fonts for every later diagram. The repository includes a gallery of every diagram, templates, an importer and a cookbook of recipes. Official builds come only from this repository."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "52 diagram types",
+        "body": "Architecture, flowchart, sequence, ER, timeline and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Single HTML file",
+        "body": "Self-contained SVG with no build step or JavaScript."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Brand matching",
+        "body": "Onboard to your website's palette and fonts."
+      },
+      {
+        "icon": "file-code",
+        "title": "Three variants",
+        "body": "Minimal light, minimal dark and full-editorial."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Many agents",
+        "body": "Works in any Agent Skills host."
+      },
+      {
+        "icon": "shield",
+        "title": "Gallery and templates",
+        "body": "Browse every diagram and start from a template."
+      }
+    ],
+    "strengths": [
+      "Clean, consistent visual style",
+      "No runtime dependencies in output",
+      "Works across many agents",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Output is static, not an editable diagram tool",
+      "Claude Desktop needs a specially built ZIP (200-file limit)",
+      "Standalone skills installs don't auto-update"
+    ],
+    "useCases": [
+      {
+        "title": "Architecture docs",
+        "body": "Diagram your app's services and data stores."
+      },
+      {
+        "title": "Planning",
+        "body": "A quadrant of projects by impact and effort."
+      },
+      {
+        "title": "API explainers",
+        "body": "A sequence diagram of an auth flow with token refresh."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from diagram-design's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/cathrynlavery/diagram-design/blob/b228c5d77794a84150fca41b22940bb316b1398d/README.md",
+      "prerequisites": [
+        "A skill-capable AI agent"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Skills CLI (any host)",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npx skills add cathrynlavery/diagram-design",
+              "lang": "bash"
+            },
+            {
+              "title": "Update later",
+              "code": "npx skills update diagram-design",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Claude Code plugin",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Install with slash commands and updates",
+              "body": "Turn on auto-update under /plugin, Marketplaces.",
+              "code": "/plugin marketplace add cathrynlavery/diagram-design\n/plugin install diagram-design@diagram-design",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Codex plugin",
+          "method": "codex",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "codex plugin marketplace add cathrynlavery/diagram-design\ncodex plugin add diagram-design@diagram-design",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Ask your agent for a diagram",
+          "code": "Make me an architecture diagram of my app: frontend, backend, database, Redis cache.",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Draw your first on-brand diagram",
+      "useCase": "Match your site's style, then generate a diagram.",
+      "setup": [
+        "diagram-design installed in your agent"
+      ],
+      "steps": [
+        {
+          "title": "Onboard to your brand",
+          "code": "Onboard diagram-design to https://yoursite.com",
+          "lang": "text"
+        },
+        {
+          "title": "Ask for a diagram",
+          "code": "I need a quadrant showing Q2 projects by impact vs effort.",
+          "lang": "text"
+        },
+        {
+          "title": "Open the .html file it writes",
+          "body": "Double-click it to view in your browser."
+        }
+      ],
+      "expected": "A single HTML file with an SVG diagram in your site's colours and fonts.",
+      "nextSteps": [
+        "Browse the gallery for other diagram types",
+        "Try a sequence diagram",
+        "Read docs/cookbook.md for export and import"
+      ],
+      "sourceUrl": "https://github.com/cathrynlavery/diagram-design/blob/b228c5d77794a84150fca41b22940bb316b1398d/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Skill",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent",
+        "value": "Runs on your agent's plan.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Claude Desktop rejects the skill upload",
+        "solution": "Its upload limit is 200 files; build a bounded ZIP with python3 scripts/build-claude-skill-zip.py.",
+        "sourceUrl": "https://github.com/cathrynlavery/diagram-design/blob/b228c5d77794a84150fca41b22940bb316b1398d/README.md"
+      },
+      {
+        "problem": "Updates don't arrive",
+        "solution": "Standalone installs don't follow marketplaces; run npx skills update diagram-design, or enable auto-update for the Claude Code marketplace.",
+        "sourceUrl": "https://github.com/cathrynlavery/diagram-design/blob/b228c5d77794a84150fca41b22940bb316b1398d/README.md"
+      },
+      {
+        "problem": "Found it under a different publisher",
+        "solution": "Official builds come only from this repository.",
+        "sourceUrl": "https://github.com/cathrynlavery/diagram-design/blob/b228c5d77794a84150fca41b22940bb316b1398d/README.md"
+      }
+    ],
+    "bestFor": [
+      "Architecture and flow diagrams",
+      "On-brand visuals for docs",
+      "Diagramming from plain language"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent diagram skill"
+      },
+      {
+        "label": "Diagram types",
+        "value": "52"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Output",
+        "value": "Self-contained HTML + SVG"
+      }
+    ]
+  }
+}

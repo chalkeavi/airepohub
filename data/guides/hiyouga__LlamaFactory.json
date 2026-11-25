@@ -1,0 +1,259 @@
+{
+  "fullName": "hiyouga/LlamaFactory",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/hiyouga/LlamaFactory/blob/aef9c06ff4e24839a282e70e1c8cac211a609814/README.md"
+    ],
+    "sourceCommitSha": "aef9c06ff4e24839a282e70e1c8cac211a609814",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install from source",
+        "command": "git clone --depth 1 https://github.com/hiyouga/LlamaFactory.git\ncd LlamaFactory\npip install -e .\npip install -r requirements/metrics.txt"
+      },
+      {
+        "comment": "Open the web UI",
+        "command": "llamafactory-cli webui"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "LlamaFactory is a toolkit for fine-tuning more than 100 large language models with a command line or a web UI and little or no code. It supports LoRA, QLoRA, full fine-tuning, DPO, PPO and more for models like Qwen, LLaMA, Mistral, DeepSeek and Gemma.",
+      "problem": "Fine-tuning usually means writing training scripts and wiring libraries together for each model. LlamaFactory puts many models and methods behind YAML configs, a three-command workflow and a Gradio web interface called LLaMA Board.",
+      "whoFor": [
+        "Developers fine-tuning open models on their data",
+        "Researchers comparing training methods",
+        "Teams without deep ML engineering resources",
+        "Users of NVIDIA, AMD or Ascend NPU hardware"
+      ],
+      "whyChoose": "Choose it for broad model and method coverage with a zero-code UI. You still need a suitable GPU; the README's table estimates 6 GB for 4-bit QLoRA on a 7B model.",
+      "requirements": [
+        "Python 3.11+",
+        "PyTorch 2.0+ (2.6 recommended)",
+        "A GPU with enough memory (CUDA 11.6+, or AMD ROCm, or Ascend NPU)",
+        "Optional: Docker"
+      ]
+    },
+    "overview": [
+      "LlamaFactory supports many model families, including LLaMA, LLaVA, Mistral, Mixtral, Qwen3, Qwen3-VL, DeepSeek, Gemma, GLM and Phi. Methods include continued pre-training, supervised fine-tuning (including multimodal), reward modelling, PPO, DPO, KTO and ORPO.",
+      "Training can be 16-bit full or freeze tuning, LoRA, or QLoRA at 2 to 8 bits through several quantization backends, with advanced optimisers like GaLore, BAdam and APOLLO and speed-ups such as FlashAttention-2, Unsloth and Liger Kernel. A hardware table estimates memory needs, from 6 GB for 4-bit QLoRA on a 7B model.",
+      "You can train from the CLI with YAML configs, use the LLaMA Board web UI, or run in free cloud notebooks such as Colab. Fine-tuned models can be served with an OpenAI-style API backed by vLLM. Model weights keep their own licenses."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "100+ models",
+        "body": "Qwen, LLaMA, Mistral, DeepSeek, Gemma, GLM and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Many methods",
+        "body": "SFT, reward modelling, PPO, DPO, KTO and ORPO."
+      },
+      {
+        "icon": "puzzle",
+        "title": "LoRA and QLoRA",
+        "body": "2 to 8-bit QLoRA to fit smaller GPUs."
+      },
+      {
+        "icon": "file-code",
+        "title": "LLaMA Board web UI",
+        "body": "Fine-tune without writing code."
+      },
+      {
+        "icon": "git-compare",
+        "title": "OpenAI-style API",
+        "body": "Serve models with vLLM."
+      },
+      {
+        "icon": "shield",
+        "title": "Multiple backends",
+        "body": "NVIDIA, AMD ROCm and Ascend NPU."
+      }
+    ],
+    "strengths": [
+      "Huge model and method coverage",
+      "Zero-code CLI and web UI",
+      "Widely used and cited",
+      "Apache-2.0 licensed"
+    ],
+    "limitations": [
+      "Needs a capable GPU for anything beyond small models",
+      "Many optional dependencies to manage",
+      "Model weights have their own licenses"
+    ],
+    "useCases": [
+      {
+        "title": "Domain chatbot",
+        "body": "LoRA fine-tune Qwen on your support conversations."
+      },
+      {
+        "title": "Preference tuning",
+        "body": "Align a model with DPO using paired data."
+      },
+      {
+        "title": "Serve a fine-tune",
+        "body": "Expose the result through an OpenAI-style API."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from LlamaFactory's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/hiyouga/LlamaFactory/blob/aef9c06ff4e24839a282e70e1c8cac211a609814/README.md",
+      "prerequisites": [
+        "Python 3.11+",
+        "PyTorch",
+        "A GPU"
+      ],
+      "supportedOs": [
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "From source",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Clone and install",
+              "code": "git clone --depth 1 https://github.com/hiyouga/LlamaFactory.git\ncd LlamaFactory\npip install -e .\npip install -r requirements/metrics.txt",
+              "lang": "bash"
+            },
+            {
+              "title": "Check the CLI",
+              "code": "llamafactory-cli help",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Run the prebuilt image",
+              "body": "Ubuntu 22.04, CUDA 12.4, Python 3.11, PyTorch 2.6.",
+              "code": "docker run -it --rm --gpus=all --ipc=host hiyouga/llamafactory:latest",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Free cloud notebook",
+          "method": "colab",
+          "steps": [
+            {
+              "title": "Open the Colab notebook linked in the README",
+              "body": "Trains in the cloud with no local GPU."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start the web UI",
+          "code": "llamafactory-cli webui",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "LoRA fine-tune Qwen3 in three commands",
+      "useCase": "Fine-tune, chat with and merge a small model using the bundled examples.",
+      "setup": [
+        "LlamaFactory installed from source",
+        "A GPU"
+      ],
+      "steps": [
+        {
+          "title": "Train a LoRA adapter",
+          "code": "llamafactory-cli train examples/train_lora/qwen3_lora_sft.yaml",
+          "lang": "bash"
+        },
+        {
+          "title": "Chat with the result",
+          "code": "llamafactory-cli chat examples/inference/qwen3_lora_sft.yaml",
+          "lang": "bash"
+        },
+        {
+          "title": "Merge the adapter into the model",
+          "code": "llamafactory-cli export examples/merge_lora/qwen3_lora_sft.yaml",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A Qwen3-4B-Instruct model fine-tuned with LoRA that you can chat with and export as a merged model.",
+      "nextSteps": [
+        "Add your own dataset in data/dataset_info.json",
+        "Try the LLaMA Board web UI",
+        "Serve it with llamafactory-cli api and vLLM"
+      ],
+      "sourceUrl": "https://github.com/hiyouga/LlamaFactory/blob/aef9c06ff4e24839a282e70e1c8cac211a609814/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0. Model weights follow their own licenses.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Your GPU, or free cloud notebooks like Colab for small runs.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Something fails",
+        "solution": "Read the FAQs linked in the README first, and run llamafactory-cli help.",
+        "sourceUrl": "https://github.com/hiyouga/LlamaFactory/blob/aef9c06ff4e24839a282e70e1c8cac211a609814/README.md"
+      },
+      {
+        "problem": "Custom dataset not found",
+        "solution": "Register it in data/dataset_info.json; see data/README.md for formats.",
+        "sourceUrl": "https://github.com/hiyouga/LlamaFactory/blob/aef9c06ff4e24839a282e70e1c8cac211a609814/README.md"
+      },
+      {
+        "problem": "Out of GPU memory",
+        "solution": "Use LoRA or lower-bit QLoRA; check the hardware requirement table.",
+        "sourceUrl": "https://github.com/hiyouga/LlamaFactory/blob/aef9c06ff4e24839a282e70e1c8cac211a609814/README.md"
+      },
+      {
+        "problem": "AMD GPU",
+        "solution": "Install PyTorch from AMD's index as the README describes.",
+        "sourceUrl": "https://github.com/hiyouga/LlamaFactory/blob/aef9c06ff4e24839a282e70e1c8cac211a609814/README.md"
+      }
+    ],
+    "bestFor": [
+      "Fine-tuning open LLMs",
+      "Comparing training methods",
+      "No-code fine-tuning UI"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "LLM fine-tuning toolkit"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Models",
+        "value": "100+"
+      }
+    ]
+  }
+}

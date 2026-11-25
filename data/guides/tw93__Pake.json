@@ -1,0 +1,242 @@
+{
+  "fullName": "tw93/Pake",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/tw93/Pake/blob/afb688ef46a7ec1a5187dfdcfd8b74f3bb3f8c5b/README.md"
+    ],
+    "sourceCommitSha": "afb688ef46a7ec1a5187dfdcfd8b74f3bb3f8c5b",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install the Pake CLI",
+        "command": "pnpm install -g pake-cli"
+      },
+      {
+        "comment": "Turn a website into a desktop app",
+        "command": "pake https://github.com --name GitHub"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Pake turns any website into a lightweight desktop app for macOS, Windows or Linux with one command. It uses Rust and Tauri with the system's own web view, so the apps are small and don't bundle a browser.",
+      "problem": "Web apps you use all day live in browser tabs, and Electron wrappers are large. The README says Pake installers are typically under 10 MB, nearly 20 times smaller than Electron packages.",
+      "whoFor": [
+        "People who want web apps like ChatGPT or Notion as desktop apps",
+        "Developers packaging a web tool for desktop",
+        "Beginners using the ready-made downloads",
+        "AI agents packaging pages via the --json mode"
+      ],
+      "whyChoose": "Choose it for tiny, fast desktop wrappers around websites. Beginners can download ready-made apps or use the Pake desktop app from pake.run instead of the command line.",
+      "requirements": [
+        "Node.js and pnpm for the CLI",
+        "Rust 1.85+ and Node 22.12+ for development",
+        "macOS, Windows or Linux"
+      ]
+    },
+    "overview": [
+      "The Pake CLI packages a URL into a desktop app. It fetches the website's icon automatically, and options let you set a custom icon, window size and a hidden title bar. The first build sets up the environment and takes a while; later builds are fast.",
+      "The repository also offers ready-made apps for sites like ChatGPT, Gemini, DeepSeek, YouTube, Notion and Excalidraw on its Releases page, and online building through GitHub Actions if you'd rather skip the command line. Apps support keyboard shortcuts, immersive windows, drag and drop, style customisation and ad removal.",
+      "For scripts and AI agents, pass --json for machine-readable output or describe apps with --config app.json. Pake is GPL-3.0 with an output exception, and apps you build are yours to use and distribute."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Lightweight",
+        "body": "Installers typically under 10 MB."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Fast",
+        "body": "Rust Tauri on the system WebView."
+      },
+      {
+        "icon": "puzzle",
+        "title": "One command",
+        "body": "pake <url> --name <App>."
+      },
+      {
+        "icon": "file-code",
+        "title": "Ready-made apps",
+        "body": "Downloads for popular sites."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Online building",
+        "body": "Build with GitHub Actions."
+      },
+      {
+        "icon": "shield",
+        "title": "Agent friendly",
+        "body": "--json output and declarative configs."
+      }
+    ],
+    "strengths": [
+      "Much smaller than Electron apps",
+      "Works on macOS, Windows and Linux",
+      "No-code options for beginners",
+      "Apps you build are yours"
+    ],
+    "limitations": [
+      "First build takes a while",
+      "Development needs Rust and Node",
+      "Relies on each system's web view"
+    ],
+    "useCases": [
+      {
+        "title": "Desktop ChatGPT or Gemini",
+        "body": "Download a ready-made app."
+      },
+      {
+        "title": "Wrap an internal tool",
+        "body": "Package your team's web app for desktop."
+      },
+      {
+        "title": "Distraction-free apps",
+        "body": "Give a site its own window and shortcuts."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Pake's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/tw93/Pake/blob/afb688ef46a7ec1a5187dfdcfd8b74f3bb3f8c5b/README.md",
+      "prerequisites": [
+        "Node.js",
+        "pnpm"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Windows",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Pake CLI",
+          "method": "pnpm",
+          "steps": [
+            {
+              "title": "Install the CLI",
+              "code": "pnpm install -g pake-cli",
+              "lang": "bash"
+            },
+            {
+              "title": "Package a website",
+              "code": "pake https://github.com --name GitHub",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Desktop app",
+          "method": "desktop",
+          "steps": [
+            {
+              "title": "Download the Pake desktop app",
+              "body": "From pake.run, its only official site. It makes apps from a gallery or any URL without Node.js or Rust."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "From source",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Install dependencies",
+              "body": "Needs Rust 1.85+ and Node 22.12+.",
+              "code": "pnpm i",
+              "lang": "bash"
+            },
+            {
+              "title": "Start local development",
+              "code": "pnpm run dev",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Package your first app",
+          "code": "pake https://github.com --name GitHub",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Make a custom desktop app from a website",
+      "useCase": "Package a site with your own icon and window size.",
+      "setup": [
+        "pake-cli installed"
+      ],
+      "steps": [
+        {
+          "title": "Build with custom options",
+          "code": "pake https://weekly.tw93.fun --name Weekly --icon https://cdn.tw93.fun/pake/weekly.icns --width 1200 --height 800 --hide-title-bar",
+          "lang": "bash"
+        }
+      ],
+      "expected": "Pake builds an installer for the app. The first build sets up the environment and takes a while.",
+      "nextSteps": [
+        "Read the CLI Usage Guide for every option",
+        "Try online building with GitHub Actions",
+        "Use --json when scripting"
+      ],
+      "sourceUrl": "https://github.com/tw93/Pake/blob/afb688ef46a7ec1a5187dfdcfd8b74f3bb3f8c5b/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "GPL-3.0 with an output exception; apps you build are yours.",
+        "tone": "free"
+      },
+      {
+        "label": "Pake CLI",
+        "value": "Free and open source.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "First build is slow",
+        "solution": "The first build sets up the environment; later builds are fast.",
+        "sourceUrl": "https://github.com/tw93/Pake/blob/afb688ef46a7ec1a5187dfdcfd8b74f3bb3f8c5b/README.md"
+      },
+      {
+        "problem": "Don't want the command line",
+        "solution": "Use the Pake desktop app, ready-made packages or online building.",
+        "sourceUrl": "https://github.com/tw93/Pake/blob/afb688ef46a7ec1a5187dfdcfd8b74f3bb3f8c5b/README.md"
+      },
+      {
+        "problem": "Other problems",
+        "solution": "See the FAQ in docs/faq.md.",
+        "sourceUrl": "https://github.com/tw93/Pake/blob/afb688ef46a7ec1a5187dfdcfd8b74f3bb3f8c5b/README.md"
+      }
+    ],
+    "bestFor": [
+      "Lightweight desktop wrappers",
+      "Packaging web tools",
+      "Small installers"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Website-to-desktop-app packager"
+      },
+      {
+        "label": "Built with",
+        "value": "Rust and Tauri"
+      },
+      {
+        "label": "License",
+        "value": "GPL-3.0"
+      },
+      {
+        "label": "Platforms",
+        "value": "macOS, Windows, Linux"
+      }
+    ]
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "fullName": "pingdotgg/t3code",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/pingdotgg/t3code/blob/ca81b7b97a1c4b91e5ac25768d0f6629f37732fd/README.md"
+    ],
+    "sourceCommitSha": "ca81b7b97a1c4b91e5ac25768d0f6629f37732fd",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install the t3 command",
+        "command": "curl -fsSL https://t3.codes/install.sh | sh"
+      },
+      {
+        "comment": "Or try it once without installing",
+        "command": "npx t3@latest"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "T3 Code is an open-source app for running coding agents like Claude Code and Codex from one interface. It runs the agents on your machine and lets you follow and approve their work from the desktop, the web or your phone.",
+      "problem": "Each coding agent has its own terminal or app, and you have to sit at your computer to approve its next step. T3 Code puts every agent in one fast interface with built-in git, and lets you continue a thread from anywhere.",
+      "whoFor": [
+        "Developers using several coding agents",
+        "People who want to approve agent steps from their phone",
+        "Teams running agents on remote machines",
+        "Anyone wanting an open-source alternative to closed agent apps"
+      ],
+      "whyChoose": "Choose it for a free, MIT-licensed control plane that uses the agent subscriptions you already have. It does not provide models itself.",
+      "requirements": [
+        "macOS, Windows or Linux",
+        "At least one coding agent installed and signed in, such as Claude Code or Codex CLI"
+      ]
+    },
+    "overview": [
+      "T3 Code does not resell tokens; it drives the agents you are already signed in to. It supports Claude Code, Codex, Cursor, OpenCode, Grok Build, Antigravity, Kiro, Pi and any ACP agent, and you can change models in the middle of a thread or have one agent hand a task to another.",
+      "One server backs every client, so desktop, web and the iOS and Android apps show the same threads. You can run agents on any machine and connect over your local network, Tailscale or T3 Connect.",
+      "Each thread can work in its own git worktree; you review the diff and then commit, push and open a pull request with one button. The source is MIT licensed, but the T3 Code name and branding are trademarks, so forks must use their own branding."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Every agent in one place",
+        "body": "Claude Code, Codex, Cursor, OpenCode and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Desktop, web and phone",
+        "body": "Same threads on every client, with iOS and Android apps."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Remote ready",
+        "body": "Run agents anywhere; connect over LAN, Tailscale or T3 Connect."
+      },
+      {
+        "icon": "file-code",
+        "title": "Git built in",
+        "body": "Per-thread worktrees, diff review and one-click pull requests."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Your subscriptions",
+        "body": "Uses the agents you're signed in to; no token resale."
+      },
+      {
+        "icon": "shield",
+        "title": "Fast",
+        "body": "Performance is treated as a feature."
+      }
+    ],
+    "strengths": [
+      "Free and open source (MIT)",
+      "Works with many agents",
+      "Mobile approval of agent steps",
+      "Built-in git workflow"
+    ],
+    "limitations": [
+      "You still need an agent subscription or API access",
+      "Forks must remove T3 Code branding",
+      "Limited maintainer review capacity for contributions"
+    ],
+    "useCases": [
+      {
+        "title": "Approve from your phone",
+        "body": "Start a thread at your desk and approve steps on the go."
+      },
+      {
+        "title": "Mix agents",
+        "body": "Let Claude hand a task to Codex in the same thread."
+      },
+      {
+        "title": "Remote dev box",
+        "body": "Run agents on a powerful machine and connect from a laptop."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from T3 Code's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/pingdotgg/t3code/blob/ca81b7b97a1c4b91e5ac25768d0f6629f37732fd/README.md",
+      "prerequisites": [
+        "A coding agent installed and signed in"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Windows",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "Homebrew",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install the desktop app",
+              "code": "brew install --cask t3-code",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "winget",
+          "method": "winget",
+          "steps": [
+            {
+              "title": "Install the desktop app",
+              "body": "Or scoop install extras/t3code.",
+              "code": "winget install T3Tools.T3Code",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Command line",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install the t3 command",
+              "body": "On Windows use irm https://t3.codes/install.ps1 | iex in PowerShell.",
+              "code": "curl -fsSL https://t3.codes/install.sh | sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the server and web app",
+              "code": "t3",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Sign in to an agent",
+          "body": "For example install Claude Code and run claude auth login."
+        },
+        {
+          "title": "Start T3 Code",
+          "code": "t3",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run Claude Code through T3 Code",
+      "useCase": "Drive a coding agent from T3 Code and review its changes.",
+      "setup": [
+        "Claude Code installed",
+        "A git project"
+      ],
+      "steps": [
+        {
+          "title": "Sign in to Claude Code",
+          "code": "claude auth login",
+          "lang": "bash"
+        },
+        {
+          "title": "Start T3 Code",
+          "code": "npx t3@latest",
+          "lang": "bash"
+        },
+        {
+          "title": "Open your project and start a thread",
+          "body": "Give the agent a task; it can work in its own worktree."
+        },
+        {
+          "title": "Review the diff",
+          "body": "Then commit, push and open a pull request with one button."
+        }
+      ],
+      "expected": "T3 Code shows the agent working in a thread, and you can review and ship its changes from the interface.",
+      "nextSteps": [
+        "Install the phone app and pair it",
+        "Set up remote access over Tailscale or T3 Connect",
+        "Read the permission modes docs"
+      ],
+      "sourceUrl": "https://github.com/pingdotgg/t3code/blob/ca81b7b97a1c4b91e5ac25768d0f6629f37732fd/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT for the source code; trademarks are not included.",
+        "tone": "free"
+      },
+      {
+        "label": "T3 Code",
+        "value": "Free; the README says it sells nothing.",
+        "tone": "free"
+      },
+      {
+        "label": "Agents",
+        "value": "Uses your existing agent subscriptions or API plans.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "T3 Code shows no agents",
+        "solution": "Install at least one agent and sign in, for example claude auth login.",
+        "sourceUrl": "https://github.com/pingdotgg/t3code/blob/ca81b7b97a1c4b91e5ac25768d0f6629f37732fd/README.md"
+      },
+      {
+        "problem": "Need nightly builds, AppImage, WSL or NixOS",
+        "solution": "See the Install T3 Code doc in docs/user/install.md.",
+        "sourceUrl": "https://github.com/pingdotgg/t3code/blob/ca81b7b97a1c4b91e5ac25768d0f6629f37732fd/README.md"
+      },
+      {
+        "problem": "Publishing a fork",
+        "solution": "Replace the T3 Code name and branding, as the trademark policy requires.",
+        "sourceUrl": "https://github.com/pingdotgg/t3code/blob/ca81b7b97a1c4b91e5ac25768d0f6629f37732fd/README.md"
+      }
+    ],
+    "bestFor": [
+      "Managing several coding agents",
+      "Approving agent work remotely",
+      "Git-centric agent workflows"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Coding agent control plane"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Clients",
+        "value": "Desktop, web, iOS, Android"
+      }
+    ]
+  }
+}

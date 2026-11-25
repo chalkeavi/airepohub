@@ -1,0 +1,224 @@
+{
+  "fullName": "aaif-goose/goose",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/aaif-goose/goose/blob/820b4e53d1abe568bff02693ee68a0f6f8a471be/README.md"
+    ],
+    "sourceCommitSha": "820b4e53d1abe568bff02693ee68a0f6f8a471be",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install the goose CLI",
+        "command": "curl -fsSL https://github.com/aaif-goose/goose/releases/download/stable/download_cli.sh | bash"
+      },
+      {
+        "comment": "Run goose as an agent behind your app",
+        "command": "goose acp"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "goose is an open-source, general-purpose AI agent for coding, research, writing, automation and data analysis. You use it as a desktop app or from the terminal, connect tools through MCP, and pick from over 85 model providers or local models.",
+      "problem": "Many AI agents are tied to one vendor or one interface. goose is open, runs on your machine, works with many model providers and can also be embedded in your own application as its agent backend.",
+      "whoFor": [
+        "Developers who want an open-source coding agent",
+        "People automating research, writing or data tasks",
+        "Builders embedding an agent in their own app",
+        "Rust developers building custom agents with oi-kit"
+      ],
+      "whyChoose": "Choose it for a vendor-neutral agent with a desktop app, CLI and MCP support, governed by the Agentic AI Foundation at the Linux Foundation.",
+      "requirements": [
+        "macOS, Linux or Windows",
+        "A model provider account (Anthropic, OpenAI, Gemini and more) or a local model"
+      ]
+    },
+    "overview": [
+      "This repository holds two things: goose, a complete agent with a desktop app and CLI, and oi-kit, the reusable Rust components goose is built from. goose is part of the Agentic AI Foundation (AAIF) at the Linux Foundation.",
+      "goose connects tools and data through the Model Context Protocol and works with over 85 providers, including Anthropic, OpenAI, Gemini, OpenRouter and Amazon Bedrock. It can also load local models directly without a separate model server.",
+      "Running goose acp starts it as a subprocess speaking the Agent Client Protocol, so your own app can send prompts and receive streamed responses, tool activity and permission requests. oi-kit is in alpha; Rust exposes the full runtime, and Python and Kotlin bindings cover providers, streaming and compaction."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Desktop app and CLI",
+        "body": "Native app for macOS, Linux and Windows."
+      },
+      {
+        "icon": "scan-search",
+        "title": "85+ providers",
+        "body": "Anthropic, OpenAI, Gemini, OpenRouter, Bedrock and more."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Local models",
+        "body": "Load models in-process without a model server."
+      },
+      {
+        "icon": "file-code",
+        "title": "MCP extensions",
+        "body": "Connect tools and data."
+      },
+      {
+        "icon": "git-compare",
+        "title": "ACP backend",
+        "body": "Use goose as the agent behind your app."
+      },
+      {
+        "icon": "shield",
+        "title": "oi-kit",
+        "body": "Rust components for building your own agent."
+      }
+    ],
+    "strengths": [
+      "Open source under Apache-2.0",
+      "Vendor-neutral model support",
+      "Linux Foundation governance",
+      "Usable as an app or a library"
+    ],
+    "limitations": [
+      "You pay for whichever hosted model you use",
+      "oi-kit is still alpha",
+      "Setup details live in the external docs"
+    ],
+    "useCases": [
+      {
+        "title": "Coding help",
+        "body": "Let goose edit code and run tasks from the terminal."
+      },
+      {
+        "title": "Research and writing",
+        "body": "Use the desktop app with MCP tools."
+      },
+      {
+        "title": "Custom agent apps",
+        "body": "Embed goose through ACP."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from goose's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/aaif-goose/goose/blob/820b4e53d1abe568bff02693ee68a0f6f8a471be/README.md",
+      "prerequisites": [
+        "A model provider or local model"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "CLI",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install the CLI",
+              "code": "curl -fsSL https://github.com/aaif-goose/goose/releases/download/stable/download_cli.sh | bash",
+              "lang": "bash"
+            },
+            {
+              "title": "Configure a model",
+              "body": "Follow the goose Quickstart at goose-docs.ai to configure a model and start a session."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Desktop app",
+          "method": "desktop",
+          "steps": [
+            {
+              "title": "Download the desktop app",
+              "body": "Available for macOS, Linux and Windows from the installation page at goose-docs.ai."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Configure a model and start a session",
+          "body": "Follow the goose Quickstart at goose-docs.ai."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Use goose as the agent behind your own app",
+      "useCase": "Start goose over the Agent Client Protocol so your application can send it prompts.",
+      "setup": [
+        "goose CLI installed and a model configured"
+      ],
+      "steps": [
+        {
+          "title": "Start goose as a subprocess",
+          "code": "goose acp",
+          "lang": "bash"
+        },
+        {
+          "title": "Connect your app",
+          "body": "Your app sends prompts and receives streamed responses, tool activity and permission requests. Follow the Build an app over ACP guide for a working client example."
+        }
+      ],
+      "expected": "goose supplies the agent, model connections, tools and saved conversations, while your app owns the interface. This is also how goose Desktop talks to its backend.",
+      "nextSteps": [
+        "Read the ACP extensions reference",
+        "Build a small Rust agent with oi-kit's Getting Started",
+        "Make a custom goose distribution"
+      ],
+      "sourceUrl": "https://github.com/aaif-goose/goose/blob/820b4e53d1abe568bff02693ee68a0f6f8a471be/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Model providers",
+        "value": "Hosted models are billed by their providers; local models are free to run.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Something isn't working",
+        "solution": "See Diagnostics & Reporting and Known Issues in the goose docs.",
+        "sourceUrl": "https://github.com/aaif-goose/goose/blob/820b4e53d1abe568bff02693ee68a0f6f8a471be/README.md"
+      },
+      {
+        "problem": "No model configured",
+        "solution": "Follow the goose Quickstart to set up a provider.",
+        "sourceUrl": "https://github.com/aaif-goose/goose/blob/820b4e53d1abe568bff02693ee68a0f6f8a471be/README.md"
+      }
+    ],
+    "bestFor": [
+      "Open-source general-purpose agent",
+      "Embedding an agent in apps",
+      "Multi-provider setups"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI agent (desktop and CLI)"
+      },
+      {
+        "label": "Language",
+        "value": "Rust"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Governance",
+        "value": "Agentic AI Foundation"
+      }
+    ]
+  }
+}

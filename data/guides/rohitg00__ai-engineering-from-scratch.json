@@ -1,0 +1,263 @@
+{
+  "fullName": "rohitg00/ai-engineering-from-scratch",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/rohitg00/ai-engineering-from-scratch/blob/9712e323fde8cb2ec933310ac619e920e8e31017/README.md"
+    ],
+    "sourceCommitSha": "9712e323fde8cb2ec933310ac619e920e8e31017",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Turn your coding agent into a tutor",
+        "command": "npx skills add rohitg00/ai-engineering-from-scratch"
+      },
+      {
+        "comment": "Or run lessons locally",
+        "command": "git clone https://github.com/rohitg00/ai-engineering-from-scratch.git\ncd ai-engineering-from-scratch\npython3 phases/00-setup-and-tooling/01-dev-environment/code/verify.py --route beginner"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "AI Engineering from Scratch is a free, open course where you implement model internals, retrieval pipelines and agent runtimes yourself, then test and inspect them. It has 542 lessons in 20 phases, in Python, TypeScript, Rust, Julia and Go.",
+      "problem": "Framework calls hide the part that breaks. By writing small versions of each piece, such as a ReAct loop in plain Python, you learn where to look when a loss turns into NaN or an agent loops on the same tool call.",
+      "whoFor": [
+        "Developers becoming AI engineers",
+        "Learners who prefer building over reading",
+        "Claude Code and Codex users who want an AI tutor",
+        "People preparing for AI engineering roles"
+      ],
+      "whyChoose": "Choose it for a large, hands-on, from-scratch curriculum you can follow on the website, with a coding agent as tutor, or by running code locally. It is free and MIT licensed.",
+      "requirements": [
+        "A web browser for the website",
+        "Python 3 (3.10+ for projects) to run lessons",
+        "Optional: Node.js and a skill-capable coding agent for the tutor",
+        "Node.js 22.18+ and Rust for some projects"
+      ]
+    },
+    "overview": [
+      "Lessons follow a pattern: the problem, build it from scratch, see where real SDKs do the same thing, then ship a reusable artifact such as a skill file for your agent. Learning routes start from model foundations, LLM systems or agents and delivery.",
+      "You can learn on the website with no setup, install the course as skills so your coding agent becomes a tutor (with a placement quiz and one lesson per session), or clone the repository and run lesson code. A preflight script checks your environment and suggests fixes.",
+      "Three graded projects have staged starters, reference solutions and local graders: a retrieval evaluation lab in Python, an agent trace debugger in TypeScript and a tool call firewall in Rust. The course is translated into many languages."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "542 lessons",
+        "body": "20 phases from math foundations to production."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Build it yourself",
+        "body": "Write small versions of models, RAG and agent loops."
+      },
+      {
+        "icon": "puzzle",
+        "title": "AI tutor",
+        "body": "Install as skills for Claude Code, Codex and others."
+      },
+      {
+        "icon": "file-code",
+        "title": "Graded projects",
+        "body": "Starters, reference solutions and local graders."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Many languages",
+        "body": "Python, TypeScript, Rust, Julia and Go code."
+      },
+      {
+        "icon": "shield",
+        "title": "Interactive labs",
+        "body": "Visualisations such as gradient descent on the website."
+      }
+    ],
+    "strengths": [
+      "Free and MIT licensed",
+      "Deep, hands-on approach",
+      "Flexible ways to learn",
+      "Clear learning routes"
+    ],
+    "limitations": [
+      "Very large; pick a route rather than doing everything",
+      "Some projects need several toolchains",
+      "Self-paced, so it needs discipline"
+    ],
+    "useCases": [
+      {
+        "title": "Learn agent internals",
+        "body": "Start at The agent loop and build a ReAct loop."
+      },
+      {
+        "title": "Interview prep",
+        "body": "Do the graded projects and keep the artifacts."
+      },
+      {
+        "title": "Guided study with an agent",
+        "body": "Use /start-learning in Claude Code."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from AI Engineering from Scratch's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/9712e323fde8cb2ec933310ac619e920e8e31017/README.md",
+      "prerequisites": [
+        "Python 3",
+        "Git"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Website",
+          "method": "web",
+          "steps": [
+            {
+              "title": "Open aiengineeringfromscratch.com",
+              "body": "No setup or cloning needed."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "AI tutor (skills)",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Check requirements",
+              "code": "node --version\nnpx --version\npython3 --version",
+              "lang": "bash"
+            },
+            {
+              "title": "Install the skills",
+              "body": "Choose the host and scope when asked.",
+              "code": "npx skills add rohitg00/ai-engineering-from-scratch",
+              "lang": "bash"
+            },
+            {
+              "title": "Start learning",
+              "body": "/start-learning in Claude Code, or start-learning in Codex."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Run local code",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/rohitg00/ai-engineering-from-scratch.git\ncd ai-engineering-from-scratch",
+              "lang": "bash"
+            },
+            {
+              "title": "Run the environment check",
+              "body": "Every required failure includes a corrective command.",
+              "code": "python3 phases/00-setup-and-tooling/01-dev-environment/code/verify.py --route beginner",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run a dependency-free first lesson",
+          "code": "python3 phases/01-math-foundations/01-linear-algebra-intuition/code/vectors.py",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Start the course with your coding agent as tutor",
+      "useCase": "Get a personalised study plan and your first lesson.",
+      "setup": [
+        "Node.js and npx",
+        "Claude Code or another skill-capable agent",
+        "Python 3"
+      ],
+      "steps": [
+        {
+          "title": "Install the course skills",
+          "code": "npx skills add rohitg00/ai-engineering-from-scratch",
+          "lang": "bash"
+        },
+        {
+          "title": "Start",
+          "body": "Run /start-learning in Claude Code. A ten-question placement quiz saves a plan to LEARNING.md."
+        },
+        {
+          "title": "Take a lesson",
+          "body": "Use /learn for one lesson per session: concept, math, code, quiz."
+        }
+      ],
+      "expected": "A personalised LEARNING.md study plan and your first lesson taught by your agent.",
+      "nextSteps": [
+        "Try /learn-mcp for the MCP path",
+        "Run a graded project locally",
+        "Use /course-guide when stuck"
+      ],
+      "sourceUrl": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/9712e323fde8cb2ec933310ac619e920e8e31017/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Course",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "AI tutor",
+        "value": "Uses your coding agent's plan or API.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Not sure your setup is ready",
+        "solution": "Run the verify.py preflight; it explains each failure and how to fix it.",
+        "sourceUrl": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/9712e323fde8cb2ec933310ac619e920e8e31017/README.md"
+      },
+      {
+        "problem": "Tutor skills don't appear",
+        "solution": "Check that your host discovers the folder you chose during install, such as .claude/skills/.",
+        "sourceUrl": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/9712e323fde8cb2ec933310ac619e920e8e31017/README.md"
+      },
+      {
+        "problem": "Project starter fails immediately",
+        "solution": "That's expected: starters fail until you implement the stages.",
+        "sourceUrl": "https://github.com/rohitg00/ai-engineering-from-scratch/blob/9712e323fde8cb2ec933310ac619e920e8e31017/README.md"
+      }
+    ],
+    "bestFor": [
+      "Hands-on AI engineering education",
+      "Learning agents and RAG from first principles",
+      "Portfolio projects"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Course"
+      },
+      {
+        "label": "Lessons",
+        "value": "542 in 20 phases"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Languages",
+        "value": "Python, TypeScript, Rust, Julia, Go"
+      }
+    ]
+  }
+}

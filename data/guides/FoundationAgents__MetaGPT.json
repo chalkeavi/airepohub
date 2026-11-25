@@ -1,0 +1,253 @@
+{
+  "fullName": "FoundationAgents/MetaGPT",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/FoundationAgents/MetaGPT/blob/11cdf466d042aece04fc6cfd13b28e1a70341b1f/README.md"
+    ],
+    "sourceCommitSha": "11cdf466d042aece04fc6cfd13b28e1a70341b1f",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install --upgrade metagpt"
+      },
+      {
+        "comment": "Create the config file",
+        "command": "metagpt --init-config"
+      },
+      {
+        "comment": "Turn a one-line idea into a repo",
+        "command": "metagpt \"Create a 2048 game\""
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "MetaGPT is a multi-agent framework that simulates a software company. Give it a one-line requirement and AI agents in roles like product manager, architect, project manager and engineer produce user stories, requirements, designs, APIs, documents and code.",
+      "problem": "A single prompt to a language model rarely produces a well-structured project. MetaGPT assigns different roles to separate agents and has them follow standard operating procedures, so the output resembles what a small software team would produce.",
+      "whoFor": [
+        "Developers experimenting with multi-agent systems",
+        "Researchers studying agent collaboration",
+        "Builders prototyping apps from short descriptions",
+        "Data analysts trying the Data Interpreter agent"
+      ],
+      "whyChoose": "Choose it to explore role-based multi-agent workflows with an established, research-backed framework. It needs Python 3.9 to 3.11 and an LLM API key.",
+      "requirements": [
+        "Python 3.9 or later, but below 3.12",
+        "Node.js and pnpm",
+        "An LLM API key (OpenAI, Azure, Ollama, Groq and others)"
+      ]
+    },
+    "overview": [
+      "MetaGPT's core idea is Code = SOP(Team): it turns standard operating procedures into prompts for a team of LLM agents. From one requirement it outputs user stories, competitive analysis, requirements, data structures, APIs and documents, and writes the code into a workspace folder.",
+      "You can use it from the command line, such as metagpt \"Create a 2048 game\", or as a Python library with generate_repo. It also includes the Data Interpreter, an agent that writes and runs code for tasks like analysing a dataset and plotting results.",
+      "Configuration lives in ~/.metagpt/config2.yaml, where you set the LLM API type, model, base URL and key. The team behind it also publishes research such as AFlow (an ICLR 2025 oral paper) and launched a commercial product, MGX."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Software company simulation",
+        "body": "Product manager, architect, project manager and engineer agents."
+      },
+      {
+        "icon": "scan-search",
+        "title": "One-line requirement",
+        "body": "Generates stories, designs, APIs and code."
+      },
+      {
+        "icon": "puzzle",
+        "title": "SOP-driven",
+        "body": "Agents follow standard operating procedures."
+      },
+      {
+        "icon": "file-code",
+        "title": "Data Interpreter",
+        "body": "An agent that writes and runs analysis code."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Python library",
+        "body": "generate_repo and roles you can extend."
+      },
+      {
+        "icon": "shield",
+        "title": "Many LLM backends",
+        "body": "OpenAI, Azure, Ollama, Groq and more."
+      }
+    ],
+    "strengths": [
+      "Pioneering, widely cited multi-agent framework",
+      "Structured outputs beyond just code",
+      "Usable from CLI or Python",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Requires Python below 3.12",
+      "Generated projects still need review and fixes",
+      "LLM costs grow with multiple agents"
+    ],
+    "useCases": [
+      {
+        "title": "Prototype an app",
+        "body": "Generate a small game or tool from one sentence."
+      },
+      {
+        "title": "Requirements drafting",
+        "body": "Get user stories and API designs for an idea."
+      },
+      {
+        "title": "Data analysis",
+        "body": "Use the Data Interpreter on a dataset."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from MetaGPT's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/FoundationAgents/MetaGPT/blob/11cdf466d042aece04fc6cfd13b28e1a70341b1f/README.md",
+      "prerequisites": [
+        "Python 3.9–3.11",
+        "Node.js and pnpm",
+        "An LLM API key"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Create an environment (optional)",
+              "code": "conda create -n metagpt python=3.9 && conda activate metagpt",
+              "lang": "bash"
+            },
+            {
+              "title": "Install MetaGPT",
+              "code": "pip install --upgrade metagpt",
+              "lang": "bash"
+            },
+            {
+              "title": "Create the config",
+              "body": "Then edit ~/.metagpt/config2.yaml with your API type, model, base URL and key.",
+              "code": "metagpt --init-config",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "From source",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone and install",
+              "code": "git clone https://github.com/geekan/MetaGPT && cd MetaGPT && pip install --upgrade -e .",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Generate a project",
+          "body": "Creates a repo in ./workspace.",
+          "code": "metagpt \"Create a 2048 game\"",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Generate a small game with a team of AI agents",
+      "useCase": "Turn a one-line requirement into a project.",
+      "setup": [
+        "MetaGPT installed",
+        "Node.js and pnpm",
+        "An LLM key in ~/.metagpt/config2.yaml"
+      ],
+      "steps": [
+        {
+          "title": "Run MetaGPT",
+          "code": "metagpt \"Create a 2048 game\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Open ./workspace",
+          "body": "Review the requirements, design documents and code the agents produced."
+        },
+        {
+          "title": "Or call it from Python",
+          "code": "from metagpt.software_company import generate_repo\nrepo = generate_repo(\"Create a 2048 game\")\nprint(repo)",
+          "lang": "text"
+        }
+      ],
+      "expected": "A new project folder in ./workspace with documents and code written by the agent team.",
+      "nextSteps": [
+        "Try the Data Interpreter on the Iris dataset",
+        "Read the docs to build your own agents",
+        "Try the Hugging Face Space demo"
+      ],
+      "sourceUrl": "https://github.com/FoundationAgents/MetaGPT/blob/11cdf466d042aece04fc6cfd13b28e1a70341b1f/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "LLM API",
+        "value": "Several agents call your model provider, billed per use.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install fails",
+        "solution": "Check Python is 3.9 or later but below 3.12.",
+        "sourceUrl": "https://github.com/FoundationAgents/MetaGPT/blob/11cdf466d042aece04fc6cfd13b28e1a70341b1f/README.md"
+      },
+      {
+        "problem": "Errors during generation",
+        "solution": "Install Node.js and pnpm before using MetaGPT.",
+        "sourceUrl": "https://github.com/FoundationAgents/MetaGPT/blob/11cdf466d042aece04fc6cfd13b28e1a70341b1f/README.md"
+      },
+      {
+        "problem": "Authentication errors",
+        "solution": "Set api_type, model, base_url and api_key in ~/.metagpt/config2.yaml.",
+        "sourceUrl": "https://github.com/FoundationAgents/MetaGPT/blob/11cdf466d042aece04fc6cfd13b28e1a70341b1f/README.md"
+      }
+    ],
+    "bestFor": [
+      "Multi-agent software generation",
+      "Researching agent collaboration",
+      "Prototyping from requirements"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Multi-agent framework"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Python",
+        "value": "3.9–3.11"
+      }
+    ]
+  }
+}

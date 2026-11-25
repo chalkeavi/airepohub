@@ -1,0 +1,264 @@
+{
+  "fullName": "ageitgey/face_recognition",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ageitgey/face_recognition/blob/9f3061aaeed9a8756d2c970f5dfe066617a8281d/README.md"
+    ],
+    "sourceCommitSha": "9f3061aaeed9a8756d2c970f5dfe066617a8281d",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install cmake (macOS)",
+        "command": "brew install cmake"
+      },
+      {
+        "comment": "Install the library",
+        "command": "pip3 install face_recognition"
+      },
+      {
+        "comment": "Recognise faces in a folder",
+        "command": "face_recognition ./pictures_of_people_i_know/ ./unknown_pictures/"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "face_recognition is a Python library and command-line tool that finds faces in photos, locates facial features like eyes and mouth, and recognises who is in a picture by comparing it with photos of people you know.",
+      "problem": "Building face detection and recognition from scratch needs deep learning expertise. This library wraps dlib's face recognition model, which the README says scores 99.38% on the Labeled Faces in the Wild benchmark, behind a few simple function calls.",
+      "whoFor": [
+        "Python developers adding face detection to an app",
+        "Hobbyists building photo or camera projects",
+        "Students learning computer vision",
+        "People sorting photo collections by person"
+      ],
+      "whyChoose": "Choose it for the simplest possible face recognition API in Python. Be aware of its caveats: it works less well on children and accuracy may vary between ethnic groups.",
+      "requirements": [
+        "Python 3.3+ or 2.7",
+        "macOS or Linux (Windows not officially supported)",
+        "dlib with Python bindings",
+        "cmake"
+      ]
+    },
+    "overview": [
+      "face_recognition is built on dlib's deep learning face recognition model. From Python you can find all faces in an image, get the outline of each person's eyes, nose, mouth and chin, and compare face encodings to decide whether two photos show the same person.",
+      "Installing it also gives you two command-line tools. face_recognition takes a folder with one photo of each known person, named after them, and a folder of unknown photos, and prints who appears in each. face_detection prints the pixel coordinates of every face it finds.",
+      "An optional CNN face detector is more accurate but needs an NVIDIA GPU with CUDA for good performance. Because dlib is written in C++, deploying to cloud hosts can be tricky, so the repository includes a Dockerfile and docker-compose setup."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Find faces",
+        "body": "Locate every face in a picture."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Facial features",
+        "body": "Outline eyes, nose, mouth and chin."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Identify people",
+        "body": "Compare face encodings against known people."
+      },
+      {
+        "icon": "file-code",
+        "title": "Command-line tools",
+        "body": "face_recognition and face_detection on folders of images."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Multi-core",
+        "body": "Use --cpus to process images in parallel."
+      },
+      {
+        "icon": "shield",
+        "title": "Docker support",
+        "body": "Example Dockerfile, including a GPU variant."
+      }
+    ],
+    "strengths": [
+      "Very simple API",
+      "Works from Python or the command line",
+      "Many example scripts, including webcam recognition",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Windows isn't officially supported",
+      "Installing dlib can be difficult",
+      "Works less well on children",
+      "Accuracy may vary between ethnic groups"
+    ],
+    "useCases": [
+      {
+        "title": "Organise photos by person",
+        "body": "Tag who appears in a photo collection."
+      },
+      {
+        "title": "Webcam recognition",
+        "body": "Combine with OpenCV for real-time recognition."
+      },
+      {
+        "title": "Face detection",
+        "body": "Find face coordinates for cropping or blurring."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from face_recognition's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ageitgey/face_recognition/blob/9f3061aaeed9a8756d2c970f5dfe066617a8281d/README.md",
+      "prerequisites": [
+        "Python 3",
+        "dlib with Python bindings",
+        "cmake"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip (macOS or Linux)",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install dlib with Python bindings",
+              "body": "The README links a guide for installing dlib from source on macOS or Ubuntu."
+            },
+            {
+              "title": "Install cmake",
+              "body": "On macOS with Homebrew.",
+              "code": "brew install cmake",
+              "lang": "bash"
+            },
+            {
+              "title": "Install face_recognition",
+              "code": "pip3 install face_recognition",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/ageitgey/face_recognition.git\ncd face_recognition",
+              "lang": "bash"
+            },
+            {
+              "title": "Build and run the example container",
+              "code": "docker-compose up --build",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Find faces in a folder of photos",
+          "code": "face_detection ./folder_with_pictures/",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Recognise people in your photos from the command line",
+      "useCase": "Tell which known people appear in a folder of unknown photos.",
+      "setup": [
+        "face_recognition installed",
+        "A folder with one photo per known person, each file named after the person",
+        "A folder of photos to check"
+      ],
+      "steps": [
+        {
+          "title": "Run the recogniser",
+          "code": "face_recognition ./pictures_of_people_i_know/ ./unknown_pictures/",
+          "lang": "bash"
+        },
+        {
+          "title": "Tighten matching if people get confused",
+          "body": "The default tolerance is 0.6; lower is stricter.",
+          "code": "face_recognition --tolerance 0.54 ./pictures_of_people_i_know/ ./unknown_pictures/",
+          "lang": "bash"
+        },
+        {
+          "title": "Use all CPU cores",
+          "code": "face_recognition --cpus -1 ./pictures_of_people_i_know/ ./unknown_pictures/",
+          "lang": "bash"
+        }
+      ],
+      "expected": "One comma-separated line per face: the file name and the person's name, or unknown_person if nobody matched.",
+      "nextSteps": [
+        "Add --show-distance true to see match distances",
+        "Try the Python API with face_locations and compare_faces",
+        "Run the webcam example from the examples folder"
+      ],
+      "sourceUrl": "https://github.com/ageitgey/face_recognition/blob/9f3061aaeed9a8756d2c970f5dfe066617a8281d/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Installation fails",
+        "solution": "Install dlib with Python bindings and cmake first, or use the Docker image or the pre-configured VM the README links.",
+        "sourceUrl": "https://github.com/ageitgey/face_recognition/blob/9f3061aaeed9a8756d2c970f5dfe066617a8281d/README.md"
+      },
+      {
+        "problem": "The same person matches several names",
+        "solution": "Lower the tolerance, for example --tolerance 0.54.",
+        "sourceUrl": "https://github.com/ageitgey/face_recognition/blob/9f3061aaeed9a8756d2c970f5dfe066617a8281d/README.md"
+      },
+      {
+        "problem": "Children are mixed up",
+        "solution": "The model is trained on adults and doesn't work well on children at the default threshold.",
+        "sourceUrl": "https://github.com/ageitgey/face_recognition/blob/9f3061aaeed9a8756d2c970f5dfe066617a8281d/README.md"
+      },
+      {
+        "problem": "CNN model is slow",
+        "solution": "It needs an NVIDIA GPU with CUDA and dlib compiled with CUDA support.",
+        "sourceUrl": "https://github.com/ageitgey/face_recognition/blob/9f3061aaeed9a8756d2c970f5dfe066617a8281d/README.md"
+      },
+      {
+        "problem": "Other errors",
+        "solution": "Check the Common Errors page in the project wiki.",
+        "sourceUrl": "https://github.com/ageitgey/face_recognition/blob/9f3061aaeed9a8756d2c970f5dfe066617a8281d/README.md"
+      }
+    ],
+    "bestFor": [
+      "Simple face detection",
+      "Photo tagging",
+      "Learning computer vision"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Face recognition library and CLI"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Built on",
+        "value": "dlib"
+      }
+    ]
+  }
+}

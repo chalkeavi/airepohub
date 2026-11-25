@@ -1,0 +1,295 @@
+{
+  "fullName": "AUTOMATIC1111/stable-diffusion-webui",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/README.md"
+    ],
+    "sourceCommitSha": "82a973c04367123ae98bd9abdf80d9eda9b910e2",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Clone the repository",
+        "command": "git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui"
+      },
+      {
+        "comment": "Start it on Linux",
+        "command": "./webui.sh"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Stable Diffusion web UI is a browser interface for generating images with Stable Diffusion on your own computer. It covers text-to-image and image-to-image, inpainting, outpainting, upscaling, LoRAs and embeddings, and a long list of extras, all through a Gradio web page.",
+      "problem": "Running Stable Diffusion from scripts is fiddly. This web UI wraps it in a feature-rich interface with a one-click install and run script, so you can generate and refine images without writing code.",
+      "whoFor": [
+        "Artists and hobbyists generating AI images",
+        "Users who want a classic, feature-rich Stable Diffusion UI",
+        "People with modest GPUs (4 GB, reportedly 2 GB)",
+        "Users training embeddings and hypernetworks"
+      ],
+      "whyChoose": "Choose it for a mature, well-known interface with a huge feature set and extensions. Note it needs Python 3.10.6 on Windows, because newer Python versions don't support its torch version.",
+      "requirements": [
+        "Python 3.10.6 (Windows) or Python 3.10/3.11 (Linux) and git",
+        "An NVIDIA GPU is recommended; AMD, Intel and Apple Silicon have guides",
+        "4 GB of VRAM (reports of 2 GB working)"
+      ]
+    },
+    "overview": [
+      "The web UI offers txt2img and img2img, inpainting and outpainting, prompt attention syntax, negative prompts, styles, variations, X/Y/Z plots, Highres Fix and a checkpoint merger. The Extras tab adds face restoration (GFPGAN, CodeFormer) and upscalers like RealESRGAN and SwinIR.",
+      "It supports textual inversion embeddings, hypernetworks and LoRAs, with a training tab. Generation parameters are saved inside each image, so you can drag an image to the PNG info tab to restore them. Custom scripts and community extensions add more, and there's an API.",
+      "Installation uses a one-click script, but you still need Python and git. On Windows with an NVIDIA GPU you can use the sd.webui.zip release package instead. The project is AGPL-3.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "txt2img and img2img",
+        "body": "The core generation modes."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Inpainting and outpainting",
+        "body": "Edit and extend images."
+      },
+      {
+        "icon": "puzzle",
+        "title": "LoRAs and embeddings",
+        "body": "Add styles and concepts."
+      },
+      {
+        "icon": "file-code",
+        "title": "Upscalers and face fixes",
+        "body": "RealESRGAN, SwinIR, GFPGAN, CodeFormer."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Parameters in images",
+        "body": "Restore settings from a PNG."
+      },
+      {
+        "icon": "shield",
+        "title": "Extensions and API",
+        "body": "Community scripts and programmatic access."
+      }
+    ],
+    "strengths": [
+      "Huge feature set",
+      "Large extension ecosystem",
+      "Works on low-VRAM GPUs",
+      "One-click install and run scripts"
+    ],
+    "limitations": [
+      "Windows requires Python 3.10.6",
+      "Apple Silicon, AMD and Intel setup lives on the wiki",
+      "AGPL-3.0 license"
+    ],
+    "useCases": [
+      {
+        "title": "Generate artwork",
+        "body": "Create images from prompts."
+      },
+      {
+        "title": "Fix and upscale photos",
+        "body": "Use the Extras tab."
+      },
+      {
+        "title": "Train embeddings",
+        "body": "Teach the model a new concept."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Stable Diffusion web UI's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/README.md",
+      "prerequisites": [
+        "Python 3.10",
+        "git"
+      ],
+      "supportedOs": [
+        "Windows",
+        "Linux",
+        "macOS"
+      ],
+      "guides": [
+        {
+          "os": "windows",
+          "label": "Release package (NVIDIA)",
+          "method": "package",
+          "steps": [
+            {
+              "title": "Download sd.webui.zip",
+              "body": "From the v1.0.0-pre release, then extract it."
+            },
+            {
+              "title": "Update",
+              "body": "Run update.bat."
+            },
+            {
+              "title": "Start",
+              "body": "Run run.bat."
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Automatic install",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install Python 3.10.6 and git",
+              "body": "Tick Add Python to PATH. Newer Python versions don't support torch here."
+            },
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git",
+              "lang": "powershell"
+            },
+            {
+              "title": "Start it",
+              "body": "Run webui-user.bat from Windows Explorer as a normal, non-administrator user."
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Automatic install",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install dependencies (Debian-based)",
+              "body": "The README also lists Red Hat, openSUSE and Arch commands.",
+              "code": "sudo apt install wget git python3 python3-venv libgl1 libglib2.0-0",
+              "lang": "bash"
+            },
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui\ncd stable-diffusion-webui",
+              "lang": "bash"
+            },
+            {
+              "title": "Start it",
+              "body": "Check webui-user.sh for options.",
+              "code": "./webui.sh",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "macos",
+          "label": "Apple Silicon",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Follow the Apple Silicon guide",
+              "body": "Instructions are on the project wiki's Installation on Apple Silicon page."
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "python_cmd",
+          "required": false,
+          "description": "Set in webui-user.sh (for example python3.11) on systems where the default Python is too new."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Start the web UI",
+          "code": "./webui.sh",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Generate your first image",
+      "useCase": "Install on Linux and create an image from a prompt.",
+      "setup": [
+        "Python 3.10 or 3.11 and git",
+        "An NVIDIA GPU recommended"
+      ],
+      "steps": [
+        {
+          "title": "Install and start",
+          "code": "git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui\ncd stable-diffusion-webui\n./webui.sh",
+          "lang": "bash"
+        },
+        {
+          "title": "Write a prompt",
+          "body": "In the txt2img tab, enter a prompt and a negative prompt, then click Generate."
+        },
+        {
+          "title": "Refine it",
+          "body": "Use emphasis like (tuxedo:1.21), try Highres Fix, or send the image to img2img."
+        }
+      ],
+      "expected": "The web UI opens in your browser and generates images, saving the generation parameters inside each image.",
+      "nextSteps": [
+        "Add LoRAs or embeddings",
+        "Try inpainting",
+        "Install extensions from the community"
+      ],
+      "sourceUrl": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "AGPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Hardware",
+        "value": "Runs on your own GPU.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install fails on a very new Linux",
+        "solution": "Install Python 3.11 or 3.10 and set python_cmd in webui-user.sh.",
+        "sourceUrl": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/README.md"
+      },
+      {
+        "problem": "Torch won't install on Windows",
+        "solution": "Use Python 3.10.6; newer versions don't support its torch.",
+        "sourceUrl": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/README.md"
+      },
+      {
+        "problem": "Slow generation on supported cards",
+        "solution": "Add --xformers to the command line arguments.",
+        "sourceUrl": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/README.md"
+      },
+      {
+        "problem": "Running on AMD or Intel",
+        "solution": "Follow the AMD or Intel installation guides on the wiki.",
+        "sourceUrl": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/README.md"
+      }
+    ],
+    "bestFor": [
+      "Classic Stable Diffusion UI",
+      "Image editing and upscaling",
+      "Low-VRAM GPUs"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Image generation web UI"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "Built with",
+        "value": "Gradio"
+      }
+    ]
+  }
+}

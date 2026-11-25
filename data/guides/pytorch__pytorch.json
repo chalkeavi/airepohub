@@ -1,0 +1,259 @@
+{
+  "fullName": "pytorch/pytorch",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/pytorch/pytorch/blob/8d5a3010668c665b4f8cc44e07c5a777a0d9abc2/README.md"
+    ],
+    "sourceCommitSha": "8d5a3010668c665b4f8cc44e07c5a777a0d9abc2",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Run PyTorch in Docker with GPUs",
+        "command": "docker run --gpus all --rm -ti --ipc=host pytorch/pytorch:latest"
+      },
+      {
+        "comment": "Check the installation",
+        "command": "python -c \"import torch; print(torch.__version__)\""
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "PyTorch is a Python library for deep learning. It provides tensors like NumPy arrays that run on GPUs, automatic differentiation, and building blocks for neural networks, and it's one of the most widely used frameworks for AI research and production.",
+      "problem": "Training neural networks needs fast GPU maths and automatic gradients. PyTorch provides both with a Python-first, imperative style, so models are ordinary Python code you can debug line by line.",
+      "whoFor": [
+        "Machine learning researchers",
+        "Engineers training and deploying models",
+        "Students learning deep learning",
+        "Developers who need GPU-accelerated tensor maths"
+      ],
+      "whyChoose": "Choose it for flexibility and the huge ecosystem of models, tutorials and libraries built on it. For install commands for your exact OS and GPU, use the selector on pytorch.org.",
+      "requirements": [
+        "Python (3.11+ when building from source)",
+        "An NVIDIA, AMD or Intel GPU for acceleration (optional)",
+        "For source builds: a C++20 compiler, 10 GB free disk and 30 to 60 minutes"
+      ]
+    },
+    "overview": [
+      "PyTorch is made of several components: torch, a tensor library with strong GPU support; torch.autograd, tape-based automatic differentiation; torch.nn, a neural network library built on autograd; torch.multiprocessing, with shared tensor memory across processes; and torch.utils, including DataLoader.",
+      "It is used either as a GPU-powered replacement for NumPy or as a flexible deep learning research platform. Networks are built dynamically, so you can change how a model behaves at runtime, and extensions can be written in Python or C++.",
+      "The README sends you to pytorch.org/get-started/locally for the pip and conda install commands for your system. It also documents pre-built Docker images, Jetson wheels and building from source with CUDA, ROCm or Intel GPU support. PyTorch has a BSD-style license."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "GPU tensors",
+        "body": "NumPy-like arrays that run on GPUs."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Autograd",
+        "body": "Automatic differentiation for any operation."
+      },
+      {
+        "icon": "puzzle",
+        "title": "torch.nn",
+        "body": "Neural network layers and losses."
+      },
+      {
+        "icon": "file-code",
+        "title": "Dynamic graphs",
+        "body": "Change model behaviour at runtime."
+      },
+      {
+        "icon": "git-compare",
+        "title": "DataLoader",
+        "body": "Utilities for loading data in parallel."
+      },
+      {
+        "icon": "shield",
+        "title": "Python and C++ extensions",
+        "body": "Write custom ops easily."
+      }
+    ],
+    "strengths": [
+      "Industry and research standard",
+      "Huge ecosystem and community",
+      "Python-first and easy to debug",
+      "BSD-style license"
+    ],
+    "limitations": [
+      "Install command depends on your OS and GPU",
+      "Building from source takes 30 to 60 minutes and 10 GB of disk",
+      "Docker needs extra shared memory for multi-worker loading"
+    ],
+    "useCases": [
+      {
+        "title": "Train neural networks",
+        "body": "Build and train models for vision, language or audio."
+      },
+      {
+        "title": "Research",
+        "body": "Prototype new architectures quickly."
+      },
+      {
+        "title": "GPU computing",
+        "body": "Use tensors as a GPU-accelerated NumPy."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from PyTorch's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/pytorch/pytorch/blob/8d5a3010668c665b4f8cc44e07c5a777a0d9abc2/README.md",
+      "prerequisites": [
+        "Python",
+        "Optional GPU drivers"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip or conda (binaries)",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Get the command for your system",
+              "body": "The README says install commands for pip wheels and conda are on pytorch.org/get-started/locally. Choose your OS, package manager and compute platform there."
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Run the pre-built image",
+              "body": "Needs Docker 23.0+. --ipc=host gives enough shared memory for multi-worker data loading.",
+              "code": "docker run --gpus all --rm -ti --ipc=host pytorch/pytorch:latest",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "From source",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Get the source",
+              "code": "git clone https://github.com/pytorch/pytorch\ncd pytorch\ngit submodule sync\ngit submodule update --init --recursive",
+              "lang": "bash"
+            },
+            {
+              "title": "Install dependencies",
+              "code": "pip install --group dev\npip install mkl-static mkl-include",
+              "lang": "bash"
+            },
+            {
+              "title": "Build and install",
+              "body": "The first build takes 30 to 60 minutes.",
+              "code": "export CMAKE_PREFIX_PATH=\"${CONDA_PREFIX:-'$(dirname $(which conda))/../'}:${CMAKE_PREFIX_PATH}\"\npython -m pip install --no-build-isolation -v -e .",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Check PyTorch imports",
+          "code": "python -c \"import torch; print(torch.__version__)\"",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Start a GPU-ready PyTorch environment with Docker",
+      "useCase": "Get a working PyTorch setup without installing anything but Docker.",
+      "setup": [
+        "Docker 23.0 or newer",
+        "An NVIDIA GPU with drivers (optional)"
+      ],
+      "steps": [
+        {
+          "title": "Start the container",
+          "code": "docker run --gpus all --rm -ti --ipc=host pytorch/pytorch:latest",
+          "lang": "bash"
+        },
+        {
+          "title": "Check PyTorch inside it",
+          "code": "python -c \"import torch; print(torch.__version__)\"",
+          "lang": "bash"
+        }
+      ],
+      "expected": "You get a shell in a container with PyTorch installed, and the check prints the PyTorch version.",
+      "nextSteps": [
+        "Work through the tutorials at pytorch.org/tutorials",
+        "Browse the pytorch/examples repository",
+        "Read the API reference"
+      ],
+      "sourceUrl": "https://github.com/pytorch/pytorch/blob/8d5a3010668c665b4f8cc44e07c5a777a0d9abc2/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "BSD-style.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Training is much faster on GPUs, local or cloud.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Not sure which install command to use",
+        "solution": "Use the selector at pytorch.org/get-started/locally.",
+        "sourceUrl": "https://github.com/pytorch/pytorch/blob/8d5a3010668c665b4f8cc44e07c5a777a0d9abc2/README.md"
+      },
+      {
+        "problem": "DataLoader workers crash in Docker",
+        "solution": "Increase shared memory with --ipc=host or --shm-size.",
+        "sourceUrl": "https://github.com/pytorch/pytorch/blob/8d5a3010668c665b4f8cc44e07c5a777a0d9abc2/README.md"
+      },
+      {
+        "problem": "Source build fails on Linux",
+        "solution": "Use gcc 11.3.0 or newer with full C++20 support, and make sure you have 10 GB free.",
+        "sourceUrl": "https://github.com/pytorch/pytorch/blob/8d5a3010668c665b4f8cc44e07c5a777a0d9abc2/README.md"
+      },
+      {
+        "problem": "Windows build fails",
+        "solution": "Install Visual Studio or the Visual C++ Build Tools; VS Code doesn't include them.",
+        "sourceUrl": "https://github.com/pytorch/pytorch/blob/8d5a3010668c665b4f8cc44e07c5a777a0d9abc2/README.md"
+      }
+    ],
+    "bestFor": [
+      "Deep learning research",
+      "Training models on GPUs",
+      "Learning AI"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Deep learning framework"
+      },
+      {
+        "label": "Language",
+        "value": "Python and C++"
+      },
+      {
+        "label": "License",
+        "value": "BSD-style"
+      },
+      {
+        "label": "GPUs",
+        "value": "NVIDIA, AMD, Intel"
+      }
+    ]
+  }
+}

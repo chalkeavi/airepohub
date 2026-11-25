@@ -1,0 +1,288 @@
+{
+  "fullName": "unslothai/unsloth",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/unslothai/unsloth/blob/e92096d73264622cb7f1180ecd21a090220bdc5c/README.md"
+    ],
+    "sourceCommitSha": "e92096d73264622cb7f1180ecd21a090220bdc5c",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install Unsloth Studio (macOS, Linux, WSL)",
+        "command": "curl -fsSL https://unsloth.ai/install.sh | sh"
+      },
+      {
+        "comment": "Launch the web UI",
+        "command": "unsloth studio"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Unsloth lets you run and fine-tune AI models on your own computer. It comes as a desktop app, a web UI called Unsloth Studio, and Unsloth Core, a Python library that trains models faster and with less GPU memory.",
+      "problem": "Fine-tuning language models usually needs big GPUs and a lot of setup. Unsloth's optimised training uses less memory, so models can be trained on consumer GPUs or free Colab notebooks, and its apps also run models locally.",
+      "whoFor": [
+        "People fine-tuning open models on their own data",
+        "Developers running local models for Claude Code or Codex",
+        "Researchers doing LoRA, QLoRA or reinforcement learning",
+        "Beginners using free Colab notebooks"
+      ],
+      "whyChoose": "Choose it for fast, memory-efficient fine-tuning plus an easy app to run local models. The README claims 2x faster training with 70% less VRAM; results vary by model and setup.",
+      "requirements": [
+        "Windows, macOS, Linux or WSL",
+        "A GPU helps (NVIDIA, AMD, Intel) but CPUs are supported",
+        "For Unsloth Core: Python 3.13 and uv"
+      ]
+    },
+    "overview": [
+      "Unsloth comes in three forms. Unsloth Desktop is a native app for Windows, macOS and Linux. Unsloth Studio is a web UI you install with a script, Homebrew or Docker and start with unsloth studio. Unsloth Core is the code-based Python package for training in your own scripts.",
+      "For running models, it supports LLM, GGUF, MLX, diffusion, embedding and audio models, serves them through an OpenAI-compatible API, and can connect local models to Claude Code, Codex and other agents with unsloth start. It includes web search, RAG, sandboxing for commands models run, and LAN or remote access.",
+      "For training, it supports LoRA, QLoRA, full fine-tuning, pretraining and reinforcement learning methods such as GRPO and DPO, plus FP8, and exports to formats like GGUF. Free Colab notebooks cover models like Llama, Qwen, Gemma and gpt-oss."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Faster fine-tuning",
+        "body": "Less VRAM and faster training, per the README."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Desktop app and web UI",
+        "body": "Run and train models without writing code."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Run models locally",
+        "body": "GGUF, MLX, diffusion, audio and more."
+      },
+      {
+        "icon": "file-code",
+        "title": "Connect agents",
+        "body": "unsloth start claude or codex with a local model."
+      },
+      {
+        "icon": "git-compare",
+        "title": "RL and alignment",
+        "body": "GRPO, DPO and other methods."
+      },
+      {
+        "icon": "shield",
+        "title": "Free notebooks",
+        "body": "Colab notebooks for popular models."
+      }
+    ],
+    "strengths": [
+      "Very popular, actively developed",
+      "Lowers GPU requirements for training",
+      "Apps for non-coders plus a library for coders",
+      "Works across NVIDIA, AMD, Intel and CPU"
+    ],
+    "limitations": [
+      "Studio UI is AGPL-3.0 (the core package is Apache-2.0)",
+      "Larger models still need capable GPUs",
+      "Windows Core install needs an extra torchao step"
+    ],
+    "useCases": [
+      {
+        "title": "Fine-tune on your data",
+        "body": "Train a small model on your own dataset in a free notebook."
+      },
+      {
+        "title": "Local coding agent",
+        "body": "Run Claude Code against a local model with unsloth start."
+      },
+      {
+        "title": "Local ChatGPT-style app",
+        "body": "Use Desktop or Studio to chat with downloaded models."
+      },
+      {
+        "title": "Export for deployment",
+        "body": "Save a trained model as GGUF."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Unsloth's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/unslothai/unsloth/blob/e92096d73264622cb7f1180ecd21a090220bdc5c/README.md",
+      "prerequisites": [
+        "A supported OS",
+        "A GPU recommended"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Studio install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "macOS, Linux and WSL.",
+              "code": "curl -fsSL https://unsloth.ai/install.sh | sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Launch",
+              "code": "unsloth studio",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Windows",
+          "method": "powershell",
+          "steps": [
+            {
+              "title": "Install with PowerShell",
+              "body": "If endpoint protection blocks this, use winget install --id UnslothAI.Unsloth -e.",
+              "code": "irm https://unsloth.ai/install.ps1 | iex",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "macos",
+          "label": "Homebrew",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install --cask unsloth",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Unsloth Core (Python)",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Create an environment and install",
+              "code": "curl -LsSf https://astral.sh/uv/install.sh | sh\nuv venv unsloth_env --python 3.13\nsource unsloth_env/bin/activate\nuv pip install unsloth --torch-backend=auto",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "UNSLOTH_DESKTOP_PORT",
+          "required": false,
+          "description": "Local HTTP port for Desktop; defaults to 8888."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Start the web UI",
+          "code": "unsloth studio",
+          "lang": "bash"
+        },
+        {
+          "title": "Or connect Claude Code to a local model",
+          "code": "unsloth start claude --model unsloth/Qwen3.8-27B-GGUF:UD-Q4_K_XL",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Fine-tune a model for free in Colab",
+      "useCase": "Train a small model on a sample dataset without your own GPU.",
+      "setup": [
+        "A Google account"
+      ],
+      "steps": [
+        {
+          "title": "Open a free notebook",
+          "body": "For example Llama 3.1 (8B) Alpaca from the README's notebook table."
+        },
+        {
+          "title": "Follow the fine-tuning guide",
+          "body": "Add your dataset, run the cells, then deploy the trained model."
+        },
+        {
+          "title": "Export the model",
+          "body": "Save it, for example as GGUF, to run locally."
+        }
+      ],
+      "expected": "A fine-tuned model trained in Colab that you can export and run.",
+      "nextSteps": [
+        "Try a GRPO notebook for reasoning",
+        "Install Studio to train locally",
+        "Read the docs at unsloth.ai/docs"
+      ],
+      "sourceUrl": "https://github.com/unslothai/unsloth/blob/e92096d73264622cb7f1180ecd21a090220bdc5c/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Core package Apache-2.0; optional components such as Studio UI are AGPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Colab notebooks",
+        "value": "Free tier available; bigger runs may need paid GPUs.",
+        "tone": "depends"
+      },
+      {
+        "label": "Hardware",
+        "value": "Your own GPU or cloud GPU time.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "irm | iex blocked on a managed Windows PC",
+        "solution": "Use winget install --id UnslothAI.Unsloth -e instead.",
+        "sourceUrl": "https://github.com/unslothai/unsloth/blob/e92096d73264622cb7f1180ecd21a090220bdc5c/README.md"
+      },
+      {
+        "problem": "Windows Core install resolves an old Unsloth",
+        "solution": "Install torchao first, then uv pip install unsloth --torch-backend=auto.",
+        "sourceUrl": "https://github.com/unslothai/unsloth/blob/e92096d73264622cb7f1180ecd21a090220bdc5c/README.md"
+      },
+      {
+        "problem": "Desktop port conflict",
+        "solution": "Set UNSLOTH_DESKTOP_PORT (1024 to 65515) and fully restart the app.",
+        "sourceUrl": "https://github.com/unslothai/unsloth/blob/e92096d73264622cb7f1180ecd21a090220bdc5c/README.md"
+      },
+      {
+        "problem": "AMD, Intel or Blackwell GPU",
+        "solution": "Follow the matching guide linked in the README.",
+        "sourceUrl": "https://github.com/unslothai/unsloth/blob/e92096d73264622cb7f1180ecd21a090220bdc5c/README.md"
+      }
+    ],
+    "bestFor": [
+      "Fine-tuning open models cheaply",
+      "Running local models with a UI",
+      "Connecting coding agents to local models"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Fine-tuning and local model app"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0 and AGPL-3.0"
+      },
+      {
+        "label": "Runs",
+        "value": "Desktop, web UI or Python"
+      }
+    ]
+  }
+}

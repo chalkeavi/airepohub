@@ -1,0 +1,245 @@
+{
+  "fullName": "n8n-io/n8n",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/n8n-io/n8n/blob/ad78958a026e65896285498df207054e986b9e59/README.md"
+    ],
+    "sourceCommitSha": "ad78958a026e65896285498df207054e986b9e59",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Try n8n with the install script (needs Docker)",
+        "command": "curl -fsSL https://get.n8n.io | sh"
+      },
+      {
+        "comment": "Or run it with Docker",
+        "command": "docker volume create n8n_data\ndocker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "n8n is a workflow automation platform for building AI agents and automations. You connect steps on a visual canvas, add JavaScript or Python where you need it, and link to 1,500+ apps and services. You can self-host it or use n8n Cloud.",
+      "problem": "Automating work across many apps, or building AI agents that use your data and tools, normally means writing and hosting lots of glue code. n8n gives you a visual builder with ready-made integrations and templates while still letting you write code.",
+      "whoFor": [
+        "Teams automating business processes",
+        "Developers building AI agents and multi-step workflows",
+        "Operations and marketing people connecting their tools",
+        "Companies that need self-hosted automation for sensitive data"
+      ],
+      "whyChoose": "Choose it for self-hostable automation with deep AI support and a huge integration library. Note it's fair-code under the Sustainable Use License, not an OSI open-source license.",
+      "requirements": [
+        "Docker for the quick start",
+        "A browser to use the editor"
+      ]
+    },
+    "overview": [
+      "n8n combines a visual workflow canvas with custom code. Workflows can include AI steps using OpenAI, Anthropic, Google or open-source models, with tool use, human approvals and observability, and you can switch model providers without rebuilding.",
+      "It ships 1,500+ integrations and 9,000+ workflow templates, and supports JavaScript, Python and npm packages for advanced logic. Enterprise features include role-based access and audit trails.",
+      "The quickest start is the install script, which requires Docker, or a docker run command that stores data in a Docker volume. The editor opens at http://localhost:5678. n8n is distributed under the Sustainable Use License and the n8n Enterprise License."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Visual workflows",
+        "body": "Build automations on a canvas."
+      },
+      {
+        "icon": "scan-search",
+        "title": "AI agents",
+        "body": "Multi-step agents with tools and approvals."
+      },
+      {
+        "icon": "puzzle",
+        "title": "1,500+ integrations",
+        "body": "Connect your existing apps."
+      },
+      {
+        "icon": "file-code",
+        "title": "9,000+ templates",
+        "body": "Start from example workflows."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Code when needed",
+        "body": "JavaScript, Python and npm packages."
+      },
+      {
+        "icon": "shield",
+        "title": "Self-host or cloud",
+        "body": "Run anywhere or use n8n Cloud."
+      }
+    ],
+    "strengths": [
+      "Huge integration and template library",
+      "Self-hostable for data control",
+      "Mixes no-code with real code",
+      "Large community"
+    ],
+    "limitations": [
+      "Fair-code license, not OSI open source",
+      "Some features need an Enterprise License",
+      "Self-hosting means running and updating it yourself"
+    ],
+    "useCases": [
+      {
+        "title": "AI support agent",
+        "body": "Answer tickets using your docs and tools."
+      },
+      {
+        "title": "Sync apps",
+        "body": "Move data between CRM, email and spreadsheets."
+      },
+      {
+        "title": "Scheduled reports",
+        "body": "Gather data and send summaries automatically."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from n8n's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/n8n-io/n8n/blob/ad78958a026e65896285498df207054e986b9e59/README.md",
+      "prerequisites": [
+        "Docker"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Run the install script",
+              "body": "Requires Docker.",
+              "code": "curl -fsSL https://get.n8n.io | sh",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Create a volume for your data",
+              "code": "docker volume create n8n_data",
+              "lang": "bash"
+            },
+            {
+              "title": "Start n8n",
+              "code": "docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n",
+              "lang": "bash"
+            },
+            {
+              "title": "Open the editor",
+              "body": "Go to http://localhost:5678."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open the editor",
+          "body": "Go to http://localhost:5678 after starting n8n."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Start n8n and build from a template",
+      "useCase": "Get n8n running locally and try a ready-made workflow.",
+      "setup": [
+        "Docker installed"
+      ],
+      "steps": [
+        {
+          "title": "Start n8n",
+          "code": "docker volume create n8n_data\ndocker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n",
+          "lang": "bash"
+        },
+        {
+          "title": "Open http://localhost:5678",
+          "body": "Set up your account in the editor."
+        },
+        {
+          "title": "Pick a template",
+          "body": "Browse the example workflows at n8n.io/workflows and import one to adapt."
+        }
+      ],
+      "expected": "The n8n editor runs in your browser, and your workflows are stored in the n8n_data volume.",
+      "nextSteps": [
+        "Read the AI and LangChain guide in the docs",
+        "Connect your own apps with credentials",
+        "See the hosting docs to run it permanently"
+      ],
+      "sourceUrl": "https://github.com/n8n-io/n8n/blob/ad78958a026e65896285498df207054e986b9e59/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Sustainable Use License (fair-code) plus an Enterprise License for extra features.",
+        "tone": "depends"
+      },
+      {
+        "label": "Self-hosted",
+        "value": "Free to self-host under the Sustainable Use License.",
+        "tone": "free"
+      },
+      {
+        "label": "n8n Cloud",
+        "value": "Hosted option; see n8n.io for pricing.",
+        "tone": "paid"
+      },
+      {
+        "label": "AI models",
+        "value": "Model providers you connect bill separately.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install script fails",
+        "solution": "It requires Docker; install Docker first.",
+        "sourceUrl": "https://github.com/n8n-io/n8n/blob/ad78958a026e65896285498df207054e986b9e59/README.md"
+      },
+      {
+        "problem": "Workflows lost after restarting",
+        "solution": "Mount the n8n_data volume as in the docker run command.",
+        "sourceUrl": "https://github.com/n8n-io/n8n/blob/ad78958a026e65896285498df207054e986b9e59/README.md"
+      },
+      {
+        "problem": "Need help",
+        "solution": "Ask on the community forum at community.n8n.io.",
+        "sourceUrl": "https://github.com/n8n-io/n8n/blob/ad78958a026e65896285498df207054e986b9e59/README.md"
+      }
+    ],
+    "bestFor": [
+      "Workflow automation",
+      "AI agents with integrations",
+      "Self-hosted automation"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Workflow automation platform"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "Sustainable Use License"
+      },
+      {
+        "label": "Editor",
+        "value": "localhost:5678"
+      }
+    ]
+  }
+}

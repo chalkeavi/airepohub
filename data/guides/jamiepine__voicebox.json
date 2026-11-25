@@ -1,0 +1,266 @@
+{
+  "fullName": "jamiepine/voicebox",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/jamiepine/voicebox/blob/8dc2a5bfe0f783edd53f8a346a22dcad9c1fb793/README.md"
+    ],
+    "sourceCommitSha": "8dc2a5bfe0f783edd53f8a346a22dcad9c1fb793",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Run with Docker",
+        "command": "docker compose up"
+      },
+      {
+        "comment": "Generate speech through the local API",
+        "command": "curl -X POST http://127.0.0.1:17493/generate -H \"Content-Type: application/json\" -d '{\"text\": \"Hello world\", \"profile_id\": \"abc123\", \"language\": \"en\"}'"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Voicebox is a local-first AI voice studio. It clones voices from a few seconds of audio, generates speech in 23 languages with 8 text-to-speech engines, lets you dictate into any app, and gives AI agents a voice through MCP, all running on your own machine.",
+      "problem": "Cloud voice tools send your voice data to someone else's servers and charge per use. Voicebox positions itself as a free, open-source alternative to ElevenLabs (speech output) and WisprFlow (dictation) in one app, with models and recordings staying on your machine.",
+      "whoFor": [
+        "Creators making narration, podcasts or audiobooks",
+        "People who want private dictation",
+        "Developers giving agents like Claude Code a voice",
+        "Anyone wanting a local alternative to cloud voice services"
+      ],
+      "whyChoose": "Choose it for a polished desktop app that covers both voice output and voice input locally. Linux has no pre-built binaries yet.",
+      "requirements": [
+        "macOS (Apple Silicon or Intel) or Windows for the desktop app",
+        "Linux: build from source, or Docker",
+        "A GPU helps but CPU works"
+      ]
+    },
+    "overview": [
+      "Voicebox bundles eight TTS engines, including Qwen3-TTS, Chatterbox Multilingual, Chatterbox Turbo, LuxTTS, HumeAI TADA and Kokoro, switchable per generation. You can clone a voice from a reference sample or use 50+ preset voices, add effects like reverb and pitch shift, and build multi-voice conversations in a Stories timeline editor. Long texts are chunked and crossfaded automatically.",
+      "The other half is voice input: a global dictation hotkey with Whisper-based speech-to-text and optional cleanup by a bundled local LLM. On macOS the transcript pastes straight into the focused text field.",
+      "A REST API on port 17493 and a built-in MCP server let apps and agents generate speech, speak in a cloned voice and transcribe audio. It's built with Tauri (Rust) and supports Apple MLX, CUDA, ROCm, DirectML, Intel Arc and CPU."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Voice cloning",
+        "body": "Zero-shot cloning or 50+ preset voices."
+      },
+      {
+        "icon": "scan-search",
+        "title": "8 TTS engines, 23 languages",
+        "body": "Pick the engine per generation."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Dictation",
+        "body": "Global hotkey with Whisper STT."
+      },
+      {
+        "icon": "file-code",
+        "title": "Agent voice",
+        "body": "voicebox_speak MCP tool for Claude Code, Cursor and others."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Stories editor",
+        "body": "Multi-track timeline for podcasts and dialogues."
+      },
+      {
+        "icon": "shield",
+        "title": "REST API",
+        "body": "Generate, speak and transcribe over HTTP."
+      }
+    ],
+    "strengths": [
+      "Everything runs locally",
+      "Covers speech output and input in one app",
+      "MCP integration for agents",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "No pre-built Linux binaries yet",
+      "Expressive tags only work with Chatterbox Turbo",
+      "Large models need disk and GPU memory"
+    ],
+    "useCases": [
+      {
+        "title": "Narrate articles",
+        "body": "Generate long-form audio in a cloned voice."
+      },
+      {
+        "title": "Private dictation",
+        "body": "Speak into any app without cloud transcription."
+      },
+      {
+        "title": "Agent notifications",
+        "body": "Let Claude Code announce finished tasks in a chosen voice."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Voicebox's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/jamiepine/voicebox/blob/8dc2a5bfe0f783edd53f8a346a22dcad9c1fb793/README.md",
+      "prerequisites": [
+        "macOS or Windows (or Docker)"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Windows",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "Desktop app",
+          "method": "dmg",
+          "steps": [
+            {
+              "title": "Download the DMG",
+              "body": "Apple Silicon and Intel builds are on voicebox.sh and the GitHub releases page."
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Desktop app",
+          "method": "msi",
+          "steps": [
+            {
+              "title": "Download the MSI installer",
+              "body": "From voicebox.sh or the GitHub releases page."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/jamiepine/voicebox.git\ncd voicebox",
+              "lang": "bash"
+            },
+            {
+              "title": "Start it",
+              "code": "docker compose up",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "From source",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Install prerequisites",
+              "body": "Bun, Rust, Python 3.12, the Tauri prerequisites and just (brew install just or cargo install just)."
+            },
+            {
+              "title": "Clone and set up",
+              "code": "git clone https://github.com/jamiepine/voicebox.git\ncd voicebox\njust setup",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the backend and desktop app",
+              "code": "just dev",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "List your voice profiles through the API",
+          "code": "curl http://127.0.0.1:17493/profiles",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Give Claude Code a voice",
+      "useCase": "Connect Voicebox's MCP server so your coding agent can speak to you in a voice you choose.",
+      "setup": [
+        "Voicebox installed and running",
+        "At least one voice profile",
+        "Claude Code installed"
+      ],
+      "steps": [
+        {
+          "title": "Add the MCP server",
+          "code": "claude mcp add voicebox \\\n  --transport http \\\n  --url http://127.0.0.1:17493/mcp \\\n  --header \"X-Voicebox-Client-Id: claude-code\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Pick the agent's voice",
+          "body": "In Voicebox, open Settings, then MCP, and bind Claude Code to a voice profile."
+        },
+        {
+          "title": "Test speech from a script",
+          "code": "curl -X POST http://127.0.0.1:17493/speak \\\n  -H \"Content-Type: application/json\" \\\n  -H \"X-Voicebox-Client-Id: my-script\" \\\n  -d '{\"text\": \"Deploy complete.\", \"profile\": \"Morgan\"}'",
+          "lang": "bash"
+        }
+      ],
+      "expected": "The agent gains voicebox_speak, voicebox_transcribe, voicebox_list_captures and voicebox_list_profiles tools, and a pill shows the voice name whenever it speaks.",
+      "nextSteps": [
+        "Try the Stories editor",
+        "Set up the dictation hotkey",
+        "Read the full API docs at http://127.0.0.1:17493/docs"
+      ],
+      "sourceUrl": "https://github.com/jamiepine/voicebox/blob/8dc2a5bfe0f783edd53f8a346a22dcad9c1fb793/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source; runs locally.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install, model download or GPU problems",
+        "solution": "See the Troubleshooting Guide in the docs folder.",
+        "sourceUrl": "https://github.com/jamiepine/voicebox/blob/8dc2a5bfe0f783edd53f8a346a22dcad9c1fb793/README.md"
+      },
+      {
+        "problem": "Running on Linux",
+        "solution": "Pre-built binaries aren't available yet; follow voicebox.sh/linux-install to build from source.",
+        "sourceUrl": "https://github.com/jamiepine/voicebox/blob/8dc2a5bfe0f783edd53f8a346a22dcad9c1fb793/README.md"
+      },
+      {
+        "problem": "Tags like [laugh] are read aloud",
+        "solution": "Only Chatterbox Turbo interprets paralinguistic tags.",
+        "sourceUrl": "https://github.com/jamiepine/voicebox/blob/8dc2a5bfe0f783edd53f8a346a22dcad9c1fb793/README.md"
+      }
+    ],
+    "bestFor": [
+      "Local voice cloning",
+      "Private dictation",
+      "Voices for AI agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI voice studio (desktop app)"
+      },
+      {
+        "label": "Built with",
+        "value": "Tauri (Rust) and Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "API port",
+        "value": "17493"
+      }
+    ]
+  }
+}

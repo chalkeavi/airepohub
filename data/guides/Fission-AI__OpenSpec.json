@@ -1,0 +1,264 @@
+{
+  "fullName": "Fission-AI/OpenSpec",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Fission-AI/OpenSpec/blob/f1cd852f4edce22b8df9548a4df889172ca8ff25/README.md"
+    ],
+    "sourceCommitSha": "f1cd852f4edce22b8df9548a4df889172ca8ff25",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install (macOS or Linux)",
+        "command": "curl -fsSL https://openspec.dev/cli/install.sh | sh"
+      },
+      {
+        "comment": "Set it up in your project",
+        "command": "cd your-project\nopenspec init"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "OpenSpec is a spec framework for AI coding assistants. Before code is written, your AI drafts a proposal, requirements, a design and a task list as plain Markdown in your repo; you review the plan, then the AI implements it and archives the change.",
+      "problem": "AI coding assistants often start writing code before anyone agrees on what should be built. OpenSpec adds a lightweight planning step with reviewable specs, and keeps those specs up to date as changes are archived.",
+      "whoFor": [
+        "Developers using Claude Code, Cursor, Codex and 30+ other AI tools",
+        "Teams working on existing codebases",
+        "Teams coordinating features across several repos",
+        "Anyone wanting reviewable plans before AI writes code"
+      ],
+      "whyChoose": "Choose it for a fluid, iterative spec workflow built for brownfield code, with plain Markdown specs. Stores for cross-repo planning are still in beta.",
+      "requirements": [
+        "macOS, Linux or Windows",
+        "Optional: Node.js 22.20+ for the npm install",
+        "An AI coding assistant"
+      ]
+    },
+    "overview": [
+      "After openspec init, you use skills in your AI assistant. /openspec-explore is a thinking partner that reads your code and shapes a plan. /openspec-propose creates a change folder with proposal.md, specs, design.md and tasks.md. /openspec-apply-change implements the tasks, and /openspec-archive-change archives the change and updates the specs.",
+      "Specs are plain Markdown with requirements and concrete WHEN and THEN scenarios, so there is no special syntax. OpenSpec is built with OpenSpec, and its own specs and in-flight changes are in the repository as examples.",
+      "For teams, Stores (in beta) put planning in a repository of its own so one change can span several code repos and a platform team can own shared requirements. It supports 30+ tools and installs via a script, npm, Homebrew, pnpm, yarn, bun or Nix."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Explore first",
+        "body": "A no-stakes planning conversation before any code."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Proposals",
+        "body": "proposal.md, specs, design.md and tasks.md per change."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Plain Markdown specs",
+        "body": "Requirements with WHEN and THEN scenarios."
+      },
+      {
+        "icon": "file-code",
+        "title": "Apply and archive",
+        "body": "Implement tasks, then archive and update specs."
+      },
+      {
+        "icon": "git-compare",
+        "title": "30+ tools",
+        "body": "Works with Claude Code, Cursor, Codex and more."
+      },
+      {
+        "icon": "shield",
+        "title": "Stores (beta)",
+        "body": "Cross-repo planning in a shared repository."
+      }
+    ],
+    "strengths": [
+      "Lightweight and iterative",
+      "Designed for existing codebases",
+      "Plain Markdown, easy to review",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Adds a planning step that small changes may not need",
+      "Stores are in beta",
+      "Quality of specs depends on your AI and your review"
+    ],
+    "useCases": [
+      {
+        "title": "Plan a feature",
+        "body": "Explore and propose a change before coding."
+      },
+      {
+        "title": "Cross-repo work",
+        "body": "Plan one change spanning API, web and library repos with Stores."
+      },
+      {
+        "title": "Living requirements",
+        "body": "Keep specs updated as changes are archived."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from OpenSpec's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Fission-AI/OpenSpec/blob/f1cd852f4edce22b8df9548a4df889172ca8ff25/README.md",
+      "prerequisites": [
+        "An AI coding assistant"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "Install script (macOS, Linux)",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install the CLI",
+              "code": "curl -fsSL https://openspec.dev/cli/install.sh | sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Initialise your project",
+              "code": "cd your-project\nopenspec init",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "PowerShell",
+          "method": "powershell",
+          "steps": [
+            {
+              "title": "Install the CLI",
+              "code": "irm https://openspec.dev/cli/install.ps1 | iex",
+              "lang": "bash"
+            },
+            {
+              "title": "Initialise your project",
+              "code": "openspec init",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "npm",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install globally",
+              "body": "Needs Node.js 22.20.0 or higher.",
+              "code": "npm install -g @fission-ai/openspec@latest",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "In your AI assistant, start exploring",
+          "code": "/openspec-explore",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Plan and build a feature with OpenSpec",
+      "useCase": "Add dark mode with a reviewed plan first.",
+      "setup": [
+        "OpenSpec installed and openspec init run",
+        "An AI coding assistant"
+      ],
+      "steps": [
+        {
+          "title": "Propose the change",
+          "body": "Creates openspec/changes/add-dark-mode with a proposal, specs, design and tasks.",
+          "code": "/openspec-propose add-dark-mode",
+          "lang": "text"
+        },
+        {
+          "title": "Review the plan",
+          "body": "Read the specs and tasks before any code is written."
+        },
+        {
+          "title": "Implement",
+          "code": "/openspec-apply-change",
+          "lang": "text"
+        },
+        {
+          "title": "Archive",
+          "body": "Moves the change to the archive and updates the specs.",
+          "code": "/openspec-archive-change",
+          "lang": "text"
+        }
+      ],
+      "expected": "A reviewed plan, an implementation that follows its task list, and updated specs in openspec/specs.",
+      "nextSteps": [
+        "Try /openspec-explore for open questions",
+        "Enable the expanded workflow profile",
+        "Read the Stores guide for team setups"
+      ],
+      "sourceUrl": "https://github.com/Fission-AI/OpenSpec/blob/f1cd852f4edce22b8df9548a4df889172ca8ff25/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT. Free to use, modify and use commercially.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "AI assistant",
+        "value": "Uses your existing assistant's plan.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Not sure your tool is supported",
+        "solution": "Check the supported tools list at openspec.dev/docs; 30+ tools are supported.",
+        "sourceUrl": "https://github.com/Fission-AI/OpenSpec/blob/f1cd852f4edce22b8df9548a4df889172ca8ff25/README.md"
+      },
+      {
+        "problem": "Slash command doesn't work in Codex",
+        "solution": "Codex uses $openspec-propose; openspec init prints the right form for your tools.",
+        "sourceUrl": "https://github.com/Fission-AI/OpenSpec/blob/f1cd852f4edce22b8df9548a4df889172ca8ff25/README.md"
+      },
+      {
+        "problem": "npm install fails",
+        "solution": "The npm package needs Node.js 22.20.0 or higher.",
+        "sourceUrl": "https://github.com/Fission-AI/OpenSpec/blob/f1cd852f4edce22b8df9548a4df889172ca8ff25/README.md"
+      }
+    ],
+    "bestFor": [
+      "Spec-first AI coding",
+      "Brownfield codebases",
+      "Cross-repo planning"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Spec framework for AI coding"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Tools",
+        "value": "30+ supported"
+      }
+    ]
+  }
+}

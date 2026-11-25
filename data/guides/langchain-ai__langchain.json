@@ -1,0 +1,219 @@
+{
+  "fullName": "langchain-ai/langchain",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/langchain-ai/langchain/blob/87ad2d71e1351fc1508483610bb6c965b3bbdffe/README.md"
+    ],
+    "sourceCommitSha": "87ad2d71e1351fc1508483610bb6c965b3bbdffe",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Add LangChain to your project",
+        "command": "uv add langchain"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "LangChain is a Python framework for building AI agents and apps powered by large language models. It gives you a standard interface for models, embeddings, vector stores and tools, plus a large library of integrations, so you can connect models to your data and swap providers easily.",
+      "problem": "Every model provider and data source has its own API, and wiring them into an app gets messy fast. LangChain provides interoperable components and integrations so you can build and change AI apps without rewriting them.",
+      "whoFor": [
+        "Python developers building LLM apps and agents",
+        "Teams connecting models to their own data",
+        "Developers who want to switch model providers easily",
+        "Learners exploring agent development"
+      ],
+      "whyChoose": "Choose it for the largest integration ecosystem and a standard model interface. For lower-level, controllable agent workflows, its sister project LangGraph is the recommended tool; Deep Agents is a higher-level option.",
+      "requirements": [
+        "Python",
+        "An account and API key for the model provider you use"
+      ]
+    },
+    "overview": [
+      "LangChain helps you chain together interoperable components and third-party integrations. Its standard interface covers chat models, embeddings, vector stores, retrievers and tools, so you can swap models in and out as you experiment.",
+      "It sits in a wider ecosystem: Deep Agents for agents that plan and use subagents and file systems, LangGraph for low-level agent orchestration, LangSmith for evals, observability and debugging, and LangSmith Deployment for running long-lived agents. A JavaScript version, LangChain.js, is a separate project.",
+      "The quickstart is two steps: add the package and initialise a chat model by provider and name. Free courses are available at LangChain Academy. LangChain is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Standard model interface",
+        "body": "One API across chat model providers."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Huge integration library",
+        "body": "Models, tools, vector stores and retrievers."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Agents",
+        "body": "Build agents, or use Deep Agents and LangGraph."
+      },
+      {
+        "icon": "file-code",
+        "title": "Flexible abstractions",
+        "body": "High-level chains or low-level components."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Observability",
+        "body": "Monitoring and evaluation through LangSmith."
+      },
+      {
+        "icon": "shield",
+        "title": "Python and JS",
+        "body": "LangChain.js for TypeScript."
+      }
+    ],
+    "strengths": [
+      "Very large ecosystem and community",
+      "Easy to switch model providers",
+      "Free LangChain Academy courses",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Abstractions can add complexity for simple apps",
+      "Advanced orchestration lives in LangGraph",
+      "Model providers bill for usage"
+    ],
+    "useCases": [
+      {
+        "title": "RAG apps",
+        "body": "Connect models to your documents and databases."
+      },
+      {
+        "title": "Agents with tools",
+        "body": "Let a model call APIs and functions."
+      },
+      {
+        "title": "Provider comparison",
+        "body": "Swap models to find the best fit."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from LangChain's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/langchain-ai/langchain/blob/87ad2d71e1351fc1508483610bb6c965b3bbdffe/README.md",
+      "prerequisites": [
+        "Python",
+        "uv or pip"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Add LangChain",
+              "code": "uv add langchain",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Call a chat model",
+          "code": "from langchain.chat_models import init_chat_model\n\nmodel = init_chat_model(\"openai:gpt-5.5\")\nresult = model.invoke(\"Hello, world!\")",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Say hello to a model with LangChain",
+      "useCase": "Initialise a chat model by provider and name and send it a message.",
+      "setup": [
+        "LangChain added to your project",
+        "Credentials for your model provider (see the Integrations docs)"
+      ],
+      "steps": [
+        {
+          "title": "Install",
+          "code": "uv add langchain",
+          "lang": "bash"
+        },
+        {
+          "title": "Initialise a model and invoke it",
+          "code": "from langchain.chat_models import init_chat_model\n\nmodel = init_chat_model(\"openai:gpt-5.5\")\nresult = model.invoke(\"Hello, world!\")",
+          "lang": "text"
+        }
+      ],
+      "expected": "result holds the model's reply. Change the provider and model string to switch models without changing the rest of your code.",
+      "nextSteps": [
+        "Try Deep Agents for a higher-level agent",
+        "Use LangGraph for controllable agent workflows",
+        "Take a free course at LangChain Academy"
+      ],
+      "sourceUrl": "https://github.com/langchain-ai/langchain/blob/87ad2d71e1351fc1508483610bb6c965b3bbdffe/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Framework",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Model providers",
+        "value": "Billed by the providers you use.",
+        "tone": "depends"
+      },
+      {
+        "label": "LangSmith",
+        "value": "Separate product for evals and deployment; see langchain.com.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Need more control over agent steps",
+        "solution": "Use LangGraph, the low-level orchestration framework.",
+        "sourceUrl": "https://github.com/langchain-ai/langchain/blob/87ad2d71e1351fc1508483610bb6c965b3bbdffe/README.md"
+      },
+      {
+        "problem": "Can't find a provider",
+        "solution": "Check the Integrations docs for chat models and embeddings.",
+        "sourceUrl": "https://github.com/langchain-ai/langchain/blob/87ad2d71e1351fc1508483610bb6c965b3bbdffe/README.md"
+      },
+      {
+        "problem": "Questions",
+        "solution": "Ask on the LangChain community forum.",
+        "sourceUrl": "https://github.com/langchain-ai/langchain/blob/87ad2d71e1351fc1508483610bb6c965b3bbdffe/README.md"
+      }
+    ],
+    "bestFor": [
+      "LLM apps in Python",
+      "Agents with integrations",
+      "Swapping model providers"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "LLM application framework"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Ecosystem",
+        "value": "LangGraph, LangSmith, Deep Agents"
+      }
+    ]
+  }
+}

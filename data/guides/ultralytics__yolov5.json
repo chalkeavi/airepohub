@@ -1,0 +1,229 @@
+{
+  "fullName": "ultralytics/yolov5",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ultralytics/yolov5/blob/33ae15ef99bd04ce1d3f12155b8a85f355d73351/README.md"
+    ],
+    "sourceCommitSha": "33ae15ef99bd04ce1d3f12155b8a85f355d73351",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Clone and install",
+        "command": "git clone https://github.com/ultralytics/yolov5\ncd yolov5\npip install -r requirements.txt"
+      },
+      {
+        "comment": "Detect objects in an image",
+        "command": "python detect.py --weights yolov5s.pt --source img.jpg"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "YOLOv5 is a fast, accurate computer vision model from Ultralytics, built on PyTorch. It detects objects in images and video, and also supports instance segmentation and image classification, with pretrained models you can use straight away or train on your own data.",
+      "problem": "Building an object detector from scratch takes research skills and lots of compute. YOLOv5 gives you pretrained models, ready-made scripts for inference and training, and export to deployment formats like ONNX and TensorRT.",
+      "whoFor": [
+        "Developers adding object detection to apps",
+        "Students and hobbyists learning computer vision",
+        "Teams training detectors on custom datasets",
+        "Engineers deploying models to edge devices"
+      ],
+      "whyChoose": "Choose it for a mature, production-proven detector with simple scripts. For the latest models, the README points to the newer ultralytics package (pip install ultralytics).",
+      "requirements": [
+        "Python 3.8.0+",
+        "PyTorch 1.8+",
+        "A GPU is recommended for training"
+      ]
+    },
+    "overview": [
+      "YOLOv5 comes in five sizes, from yolov5n (nano) to yolov5x (extra large), trading speed for accuracy. Pretrained weights download automatically from the latest release the first time you use them.",
+      "You can run it through PyTorch Hub with a few lines of Python, or with the detect.py script, which accepts images, videos, folders, webcams, screen captures, YouTube links and RTSP streams and saves results to runs/detect. train.py trains on datasets such as COCO, and export.py converts models to formats like ONNX, TensorRT, CoreML and TFLite.",
+      "Release v7.0 added instance segmentation models with their own scripts in the segment folder. YOLOv5 is AGPL-3.0 licensed; Ultralytics offers an Enterprise License for commercial use that can't meet AGPL terms."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Object detection",
+        "body": "Pretrained models in five sizes."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Segmentation and classification",
+        "body": "Instance segmentation since v7.0."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Many input sources",
+        "body": "Images, video, webcam, screen and streams."
+      },
+      {
+        "icon": "file-code",
+        "title": "Training scripts",
+        "body": "Train on COCO or your own data."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Export",
+        "body": "ONNX, TensorRT, CoreML, TFLite and more."
+      },
+      {
+        "icon": "shield",
+        "title": "PyTorch Hub",
+        "body": "Load a model in one line of Python."
+      }
+    ],
+    "strengths": [
+      "Mature and widely used",
+      "Simple, well-documented scripts",
+      "Runs from laptop to GPU servers",
+      "Easy export for deployment"
+    ],
+    "limitations": [
+      "AGPL-3.0 unless you buy an Enterprise License",
+      "Training needs a capable GPU",
+      "Newer Ultralytics YOLO models live in a separate package"
+    ],
+    "useCases": [
+      {
+        "title": "Detect objects in video",
+        "body": "Run detect.py on a video file or stream."
+      },
+      {
+        "title": "Custom detector",
+        "body": "Train on your own labelled images."
+      },
+      {
+        "title": "Edge deployment",
+        "body": "Export to TFLite or TensorRT."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from YOLOv5's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ultralytics/yolov5/blob/33ae15ef99bd04ce1d3f12155b8a85f355d73351/README.md",
+      "prerequisites": [
+        "Python 3.8+",
+        "PyTorch 1.8+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "From source",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/ultralytics/yolov5\ncd yolov5",
+              "lang": "bash"
+            },
+            {
+              "title": "Install the requirements",
+              "body": "Make sure PyTorch 1.8 or newer is installed.",
+              "code": "pip install -r requirements.txt",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Detect objects in an image",
+          "code": "python detect.py --weights yolov5s.pt --source img.jpg",
+          "lang": "bash"
+        },
+        {
+          "title": "Or use your webcam",
+          "code": "python detect.py --weights yolov5s.pt --source 0",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Detect objects in a photo with PyTorch Hub",
+      "useCase": "Load a pretrained YOLOv5 model in Python and run it on an image.",
+      "setup": [
+        "YOLOv5 requirements installed"
+      ],
+      "steps": [
+        {
+          "title": "Load the model and run inference",
+          "code": "import torch\n\nmodel = torch.hub.load(\"ultralytics/yolov5\", \"yolov5s\")\nimg = \"https://ultralytics.com/images/zidane.jpg\"\nresults = model(img)",
+          "lang": "text"
+        },
+        {
+          "title": "Look at the results",
+          "code": "results.print()\nresults.show()\nresults.save()",
+          "lang": "text"
+        }
+      ],
+      "expected": "The model downloads automatically, prints the detected objects, shows the annotated image and saves it to runs/detect/exp.",
+      "nextSteps": [
+        "Run detect.py on a video or stream",
+        "Train on your own dataset with train.py",
+        "Export the model with export.py"
+      ],
+      "sourceUrl": "https://github.com/ultralytics/yolov5/blob/33ae15ef99bd04ce1d3f12155b8a85f355d73351/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "AGPL-3.0; an Enterprise License is available from Ultralytics.",
+        "tone": "depends"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source under AGPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Training is much faster on a GPU.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install errors",
+        "solution": "Use Python 3.8 or newer and install PyTorch 1.8 or newer first.",
+        "sourceUrl": "https://github.com/ultralytics/yolov5/blob/33ae15ef99bd04ce1d3f12155b8a85f355d73351/README.md"
+      },
+      {
+        "problem": "Can't use AGPL in your product",
+        "solution": "Request an Enterprise License from Ultralytics.",
+        "sourceUrl": "https://github.com/ultralytics/yolov5/blob/33ae15ef99bd04ce1d3f12155b8a85f355d73351/README.md"
+      },
+      {
+        "problem": "Want the newest models",
+        "solution": "Install the ultralytics package instead.",
+        "sourceUrl": "https://github.com/ultralytics/yolov5/blob/33ae15ef99bd04ce1d3f12155b8a85f355d73351/README.md"
+      }
+    ],
+    "bestFor": [
+      "Object detection",
+      "Learning computer vision",
+      "Custom detectors"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Computer vision model"
+      },
+      {
+        "label": "Language",
+        "value": "Python (PyTorch)"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "Tasks",
+        "value": "Detect, segment, classify"
+      }
+    ]
+  }
+}

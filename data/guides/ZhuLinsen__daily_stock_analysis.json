@@ -1,0 +1,278 @@
+{
+  "fullName": "ZhuLinsen/daily_stock_analysis",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ZhuLinsen/daily_stock_analysis/blob/106f4c66eb0cb71f263a216c5b336d08a08f5d3b/README.md"
+    ],
+    "sourceCommitSha": "106f4c66eb0cb71f263a216c5b336d08a08f5d3b",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Run locally",
+        "command": "git clone https://github.com/ZhuLinsen/daily_stock_analysis.git && cd daily_stock_analysis\npip install -r requirements.txt\ncp .env.example .env\npython main.py"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Daily Stock Analysis is an AI system that analyses a watchlist of stocks every day and pushes a decision dashboard to WeChat Work, Feishu, Telegram, Discord, Slack or email. It covers China A-shares, Hong Kong, US, Japanese, Korean and Taiwanese stocks and ETFs.",
+      "problem": "Tracking many stocks means reading prices, charts, news and filings every day. This project gathers that data, has a language model summarise each stock with a score, trend, levels and risks, and sends the report automatically. It can run free on GitHub Actions.",
+      "whoFor": [
+        "Individual investors with a watchlist",
+        "Developers who want automated daily market reports",
+        "Chinese-speaking users (main README is Chinese; English docs exist)",
+        "People who prefer self-hosted tools to paid services"
+      ],
+      "whyChoose": "Choose it for a free, automated daily stock report you control. The project states it is for learning and research only, not investment advice.",
+      "requirements": [
+        "Python 3.10+ (for local runs)",
+        "At least one LLM API key (Gemini, Anthropic, OpenAI-compatible and others) or Ollama locally",
+        "At least one notification channel",
+        "A GitHub account for the Actions option"
+      ]
+    },
+    "overview": [
+      "Each run produces an AI decision report per stock: a core conclusion, score, trend, buy and sell levels, risk alerts, catalysts and a checklist. Data comes from free sources like AkShare, Baostock and YFinance by default, with optional paid sources for stability, and news from search APIs such as SerpAPI, Tavily or Brave.",
+      "The recommended setup is GitHub Actions: fork the repo, add secrets for your model key, notification channel and STOCK_LIST, then enable Actions. By default it runs on weekdays at 18:00 Beijing time and skips non-trading days. You can also run it locally, in Docker, or as a FastAPI service.",
+      "A local web UI at 127.0.0.1:8000 offers manual analysis, history, backtesting, holdings and settings, and an agent mode answers follow-up questions using 15 built-in strategies. Free data sources can be rate-limited or change without notice."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "AI decision reports",
+        "body": "Score, trend, levels, risks and catalysts per stock."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Six markets",
+        "body": "A-shares, Hong Kong, US, Japan, Korea, Taiwan and ETFs."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Push notifications",
+        "body": "WeChat Work, Feishu, Telegram, Discord, Slack and email."
+      },
+      {
+        "icon": "file-code",
+        "title": "Runs on GitHub Actions",
+        "body": "Free scheduled runs with no server."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Web UI",
+        "body": "History, backtesting and holdings at localhost:8000."
+      },
+      {
+        "icon": "shield",
+        "title": "Agent Q&A",
+        "body": "Follow-up questions with 15 built-in strategies."
+      }
+    ],
+    "strengths": [
+      "Free to run on GitHub Actions",
+      "Works with many LLM providers",
+      "Many notification channels",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Not investment advice; for learning and research only",
+      "Free data sources can be unstable or rate-limited",
+      "LLM and some data or news APIs cost money",
+      "Main README is in Chinese"
+    ],
+    "useCases": [
+      {
+        "title": "Daily watchlist report",
+        "body": "Get a dashboard of your stocks in Telegram every evening."
+      },
+      {
+        "title": "Research assistant",
+        "body": "Ask follow-up questions about a stock in the web UI."
+      },
+      {
+        "title": "Backtesting ideas",
+        "body": "Review past reports and backtests."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Daily Stock Analysis's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ZhuLinsen/daily_stock_analysis/blob/106f4c66eb0cb71f263a216c5b336d08a08f5d3b/README.md",
+      "prerequisites": [
+        "Python 3.10+, or a GitHub account"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "GitHub Actions (recommended)",
+          "method": "actions",
+          "steps": [
+            {
+              "title": "Fork the repository"
+            },
+            {
+              "title": "Add secrets",
+              "body": "Settings, then Secrets and variables, then Actions. Add an LLM key (for example GEMINI_API_KEY), a notification secret (for example TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID) and STOCK_LIST, such as 600519,hk00700,AAPL."
+            },
+            {
+              "title": "Enable Actions and test",
+              "body": "Open the Actions tab, enable workflows, then run the daily stock analysis workflow manually."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Local",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Clone and install",
+              "body": "On Windows use a short path such as C:\\dsa.",
+              "code": "git clone https://github.com/ZhuLinsen/daily_stock_analysis.git && cd daily_stock_analysis\npip install -r requirements.txt",
+              "lang": "bash"
+            },
+            {
+              "title": "Configure",
+              "code": "cp .env.example .env",
+              "lang": "bash"
+            },
+            {
+              "title": "Run",
+              "code": "python main.py",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "STOCK_LIST",
+          "required": true,
+          "description": "Your watchlist, for example 600519,hk00700,AAPL,7203.T."
+        },
+        {
+          "name": "GEMINI_API_KEY",
+          "required": false,
+          "description": "One of several supported LLM keys; at least one is needed."
+        },
+        {
+          "name": "TELEGRAM_BOT_TOKEN",
+          "required": false,
+          "description": "With TELEGRAM_CHAT_ID, sends reports to Telegram; at least one channel is needed."
+        },
+        {
+          "name": "SERPAPI_API_KEYS",
+          "required": false,
+          "description": "Recommended news search source."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Start the web UI",
+          "body": "Then open http://127.0.0.1:8000.",
+          "code": "python main.py --webui",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Get a daily stock report on Telegram with GitHub Actions",
+      "useCase": "Set up free automated analysis of your watchlist.",
+      "setup": [
+        "A GitHub account",
+        "An LLM API key",
+        "A Telegram bot token and chat ID"
+      ],
+      "steps": [
+        {
+          "title": "Fork the repository"
+        },
+        {
+          "title": "Add the secrets",
+          "body": "GEMINI_API_KEY (or another model key), TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID and STOCK_LIST."
+        },
+        {
+          "title": "Enable Actions",
+          "body": "Actions tab, then enable workflows."
+        },
+        {
+          "title": "Run it once manually",
+          "body": "Choose the daily stock analysis workflow and click Run workflow."
+        }
+      ],
+      "expected": "A decision dashboard for each stock arrives in Telegram, and the workflow then runs on weekdays at 18:00 Beijing time.",
+      "nextSteps": [
+        "Add a news search key for better catalysts",
+        "Try the local web UI",
+        "Read docs/full-guide.md for all options"
+      ],
+      "sourceUrl": "https://github.com/ZhuLinsen/daily_stock_analysis/blob/106f4c66eb0cb71f263a216c5b336d08a08f5d3b/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Software and GitHub Actions",
+        "value": "The README describes the GitHub Actions setup as zero cost with no server needed.",
+        "tone": "free"
+      },
+      {
+        "label": "LLM API",
+        "value": "Billed by your model provider.",
+        "tone": "paid"
+      },
+      {
+        "label": "Data and news APIs",
+        "value": "Free defaults; some recommended sources are paid.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Windows install fails with long-path errors",
+        "solution": "Clone into a short path such as C:\\dsa; see docs/FAQ.md.",
+        "sourceUrl": "https://github.com/ZhuLinsen/daily_stock_analysis/blob/106f4c66eb0cb71f263a216c5b336d08a08f5d3b/README.md"
+      },
+      {
+        "problem": "Logs say a data source is not configured",
+        "solution": "That's fine; free sources are used by default.",
+        "sourceUrl": "https://github.com/ZhuLinsen/daily_stock_analysis/blob/106f4c66eb0cb71f263a216c5b336d08a08f5d3b/README.md"
+      },
+      {
+        "problem": "Workflow didn't run on a holiday",
+        "solution": "Non-trading days are skipped by default.",
+        "sourceUrl": "https://github.com/ZhuLinsen/daily_stock_analysis/blob/106f4c66eb0cb71f263a216c5b336d08a08f5d3b/README.md"
+      }
+    ],
+    "bestFor": [
+      "Automated daily stock briefings",
+      "Self-hosted market analysis",
+      "Learning AI-assisted investing research"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI stock analysis"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Markets",
+        "value": "A, HK, US, JP, KR, TW"
+      }
+    ]
+  }
+}

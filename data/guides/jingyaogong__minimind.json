@@ -1,0 +1,248 @@
+{
+  "fullName": "jingyaogong/minimind",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/jingyaogong/minimind/blob/858008eb98da4428f78053a1cc4d3a3bd5973629/README_en.md"
+    ],
+    "sourceCommitSha": "858008eb98da4428f78053a1cc4d3a3bd5973629",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Get the code",
+        "command": "git clone --depth 1 https://github.com/jingyaogong/minimind\ncd minimind && pip install -r requirements.txt"
+      },
+      {
+        "comment": "Chat with the released model",
+        "command": "git clone https://huggingface.co/jingyaogong/minimind-3\npython eval_llm.py --load_from ./minimind-3"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "MiniMind is an open-source project for training a tiny language model (about 64M parameters) completely from scratch on a personal GPU. It includes the full pipeline, from tokenizer and pretraining to fine-tuning, reinforcement learning and tool use, written in plain PyTorch.",
+      "problem": "Libraries like transformers and trl hide how LLMs are actually built behind a few lines of code. MiniMind implements every stage itself so you can read, run and change it, and the README says a basic model can be trained in about 2 hours on one RTX 3090.",
+      "whoFor": [
+        "Learners who want to understand LLM training end to end",
+        "Students with a single consumer GPU",
+        "Researchers prototyping training ideas cheaply",
+        "Readers of Chinese or English"
+      ],
+      "whyChoose": "Choose it as a hands-on, reproducible tutorial for building an LLM. The models are deliberately tiny, so they're for learning, not production use.",
+      "requirements": [
+        "Python 3.10 (the author used 3.10.16)",
+        "PyTorch, ideally with an NVIDIA GPU (CPU and MPS work but are slower)",
+        "Git"
+      ]
+    },
+    "overview": [
+      "MiniMind provides a Dense and MoE model architecture aligned with the Qwen3 ecosystem, plus tokenizer training code. Training stages cover pretraining, supervised fine-tuning, LoRA, DPO, reinforcement learning from AI feedback (PPO, GRPO, CISPO), tool use, agentic RL, adaptive thinking and distillation, all implemented from scratch.",
+      "Datasets for every stage are published, and for a quick start you only need two small files to reproduce the MiniMind Zero chat model. Training supports single or multi-GPU (DDP, DeepSpeed), wandb or swanlab logging and resuming from checkpoints.",
+      "Trained models work with transformers, llama.cpp, vLLM and Ollama, and the project includes an OpenAI-compatible API server and a Streamlit chat web UI. The README's 2-hour and RMB 3 figures refer to one epoch of SFT on a single RTX 3090."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Train from scratch",
+        "body": "About 64M parameters on a personal GPU."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Full pipeline",
+        "body": "Pretraining, SFT, LoRA, DPO, PPO, GRPO and distillation."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Plain PyTorch",
+        "body": "Core algorithms without high-level wrappers."
+      },
+      {
+        "icon": "file-code",
+        "title": "Open datasets",
+        "body": "Data for every training stage."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Works with common tools",
+        "body": "transformers, llama.cpp, vLLM and Ollama."
+      },
+      {
+        "icon": "shield",
+        "title": "Chat UI and API",
+        "body": "Streamlit web demo and OpenAI-compatible server."
+      }
+    ],
+    "strengths": [
+      "Excellent for learning how LLMs are built",
+      "Cheap and fast to reproduce",
+      "Covers modern training methods",
+      "Apache-2.0 licensed"
+    ],
+    "limitations": [
+      "Tiny models; not capable enough for real-world tasks",
+      "Fastest with an NVIDIA GPU",
+      "Main README is Chinese; English README is available"
+    ],
+    "useCases": [
+      {
+        "title": "Learn LLM training",
+        "body": "Train MiniMind Zero yourself and inspect each stage."
+      },
+      {
+        "title": "Experiment with RL",
+        "body": "Try GRPO or DPO on a small model."
+      },
+      {
+        "title": "Classroom demos",
+        "body": "Show a full training run in a few hours."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from MiniMind's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/jingyaogong/minimind/blob/858008eb98da4428f78053a1cc4d3a3bd5973629/README_en.md",
+      "prerequisites": [
+        "Python 3.10",
+        "PyTorch",
+        "A GPU recommended"
+      ],
+      "supportedOs": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Clone and install",
+              "code": "git clone --depth 1 https://github.com/jingyaogong/minimind\ncd minimind && pip install -r requirements.txt",
+              "lang": "bash"
+            },
+            {
+              "title": "Check PyTorch sees your GPU",
+              "code": "python -c \"import torch; print(torch.cuda.is_available())\"",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Ollama (inference only)",
+          "method": "ollama",
+          "steps": [
+            {
+              "title": "Run the released model",
+              "code": "ollama run jingyaogong/minimind-3",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Download the model and chat in the terminal",
+          "code": "git clone https://huggingface.co/jingyaogong/minimind-3\npython eval_llm.py --load_from ./minimind-3",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Train MiniMind Zero from scratch",
+      "useCase": "Pretrain and fine-tune a tiny chat model on your own GPU.",
+      "setup": [
+        "The repository cloned and requirements installed",
+        "A GPU (an RTX 3090 was used for the README's timing)"
+      ],
+      "steps": [
+        {
+          "title": "Download the data",
+          "body": "Put pretrain_t2t_mini.jsonl and sft_t2t_mini.jsonl from the project's ModelScope dataset into ./dataset."
+        },
+        {
+          "title": "Pretrain",
+          "body": "Produces out/pretrain_*.pth.",
+          "code": "cd trainer && python train_pretrain.py",
+          "lang": "bash"
+        },
+        {
+          "title": "Fine-tune for chat",
+          "body": "Produces out/full_sft_*.pth.",
+          "code": "cd trainer && python train_full_sft.py",
+          "lang": "bash"
+        },
+        {
+          "title": "Test it",
+          "code": "python eval_llm.py --weight full_sft",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A small chat model you trained yourself, which you can talk to in the terminal.",
+      "nextSteps": [
+        "Try LoRA or DPO training",
+        "Run the Streamlit web demo",
+        "Serve it with the OpenAI-compatible API"
+      ],
+      "sourceUrl": "https://github.com/jingyaogong/minimind/blob/858008eb98da4428f78053a1cc4d3a3bd5973629/README_en.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Software and data",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Your own GPU or rented GPU time; the README cites about RMB 3 for one SFT epoch on a rented 3090.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Training is very slow",
+        "solution": "Check torch.cuda.is_available(); CPU and MPS work but are much slower.",
+        "sourceUrl": "https://github.com/jingyaogong/minimind/blob/858008eb98da4428f78053a1cc4d3a3bd5973629/README_en.md"
+      },
+      {
+        "problem": "Training was interrupted",
+        "solution": "Add --from_resume 1 to resume from the last checkpoint.",
+        "sourceUrl": "https://github.com/jingyaogong/minimind/blob/858008eb98da4428f78053a1cc4d3a3bd5973629/README_en.md"
+      },
+      {
+        "problem": "Web demo can't find the model",
+        "solution": "Copy the transformers-format model folder into ./scripts/ first, for example cp -r minimind-3 ./scripts/minimind-3.",
+        "sourceUrl": "https://github.com/jingyaogong/minimind/blob/858008eb98da4428f78053a1cc4d3a3bd5973629/README_en.md"
+      }
+    ],
+    "bestFor": [
+      "Learning LLM training",
+      "Cheap experiments",
+      "Teaching"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Tiny LLM training project"
+      },
+      {
+        "label": "Language",
+        "value": "Python (PyTorch)"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Model size",
+        "value": "About 64M parameters"
+      }
+    ]
+  }
+}

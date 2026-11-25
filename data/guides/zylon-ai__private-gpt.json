@@ -1,0 +1,279 @@
+{
+  "fullName": "zylon-ai/private-gpt",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/zylon-ai/private-gpt/blob/18682ede5556dd624d5b4910961adcab8799e3d4/README.md"
+    ],
+    "sourceCommitSha": "18682ede5556dd624d5b4910961adcab8799e3d4",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install on macOS",
+        "command": "brew tap zylon-ai/tap\nbrew install private-gpt"
+      },
+      {
+        "comment": "Point it at your model server and start it",
+        "command": "OPENAI_API_BASE=http://localhost:<llm-port>/v1 OPENAI_EMBEDDING_API_BASE=http://localhost:<embedding-port>/v1 private-gpt serve"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "PrivateGPT is an open-source API layer for building private AI applications on top of models you run yourself. It adds messages, document ingestion, retrieval with citations, tools and MCP connectors on top of any OpenAI-compatible model server, and follows the Claude API design.",
+      "problem": "Running a local model is only the first step; useful apps also need document search, tools and a stable API. PrivateGPT provides those building blocks so you can build private AI products without sending data to a cloud provider.",
+      "whoFor": [
+        "Developers building private, on-premise AI apps",
+        "Teams that need RAG with citations on their own documents",
+        "Organisations with data that can't leave their servers",
+        "Claude Code or Claude Desktop users who want local models behind them"
+      ],
+      "whyChoose": "Choose it when you already run a model server like Ollama, vLLM or llama.cpp and need an application API on top. It doesn't run models itself.",
+      "requirements": [
+        "A running OpenAI-compatible model server (Ollama is the easiest start)",
+        "Python 3.11 via uv on Linux and Windows, or Homebrew on macOS",
+        "Enough memory for your model (the README's Qwen example is about 24 GB)"
+      ]
+    },
+    "overview": [
+      "PrivateGPT sits between your app and an inference server. It connects to any server that implements /v1/chat/completions and /v1/models through the OPENAI_API_BASE setting, and exposes its own API at http://localhost:8080 that follows the Anthropic API spec.",
+      "It provides a standard messages API with streaming and token counting, file ingestion, retrieval with citations and agentic RAG, built-in tools mirroring the Claude API (web search, web fetch, code execution), custom tools, MCP connectors, and structured access to databases and CSVs.",
+      "A built-in workbench UI at /ui lets you send messages, upload documents, test retrieval and configure tools, but the API is the product. Integration guides cover Claude Code, Claude Desktop and Cowork, Claude for Microsoft 365, and OpenCode. PrivateGPT is maintained by Zylon, which sells an enterprise platform built on it."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Messages API",
+        "body": "Streaming, async and token counting."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Document ingestion",
+        "body": "Upload files and artifacts."
+      },
+      {
+        "icon": "puzzle",
+        "title": "RAG with citations",
+        "body": "Retrieval and agentic RAG."
+      },
+      {
+        "icon": "file-code",
+        "title": "Built-in tools",
+        "body": "Web search, web fetch and code execution."
+      },
+      {
+        "icon": "git-compare",
+        "title": "MCP and custom tools",
+        "body": "Connect your own tools."
+      },
+      {
+        "icon": "shield",
+        "title": "Workbench UI",
+        "body": "Test everything at /ui."
+      }
+    ],
+    "strengths": [
+      "Works with any OpenAI-compatible server",
+      "Keeps data on your own infrastructure",
+      "Production-tested as the base of Zylon",
+      "Apache-2.0 licensed"
+    ],
+    "limitations": [
+      "Doesn't run models itself",
+      "You must run and size a model server",
+      "The UI is a demonstrator, not a finished app"
+    ],
+    "useCases": [
+      {
+        "title": "Private document Q&A",
+        "body": "Ingest internal files and get cited answers."
+      },
+      {
+        "title": "Local backend for Claude Code",
+        "body": "Use your own models for agentic coding."
+      },
+      {
+        "title": "On-premise AI products",
+        "body": "Build apps on a stable local API."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from PrivateGPT's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/zylon-ai/private-gpt/blob/18682ede5556dd624d5b4910961adcab8799e3d4/README.md",
+      "prerequisites": [
+        "An OpenAI-compatible model server",
+        "uv or Homebrew"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "Homebrew",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew tap zylon-ai/tap\nbrew install private-gpt",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install uv",
+              "code": "curl -LsSf https://astral.sh/uv/install.sh | sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Install PrivateGPT",
+              "code": "uv tool install --python 3.11 \\\n  --find-links https://wheels.privategpt.dev/packages/ \\\n  \"private-gpt[core]\"",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install uv",
+              "code": "powershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"",
+              "lang": "powershell"
+            },
+            {
+              "title": "Install PrivateGPT",
+              "code": "uv tool install --python 3.11 `\n  --find-links https://wheels.privategpt.dev/packages/ `\n  \"private-gpt[core]\"",
+              "lang": "powershell"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "OPENAI_API_BASE",
+          "required": true,
+          "description": "URL of your OpenAI-compatible model server, ending in /v1."
+        },
+        {
+          "name": "OPENAI_EMBEDDING_API_BASE",
+          "required": false,
+          "description": "URL of the server that provides embeddings, ending in /v1."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Start PrivateGPT",
+          "code": "OPENAI_API_BASE=http://localhost:<llm-port>/v1 \\\n  OPENAI_EMBEDDING_API_BASE=http://localhost:<embedding-port>/v1 \\\n  private-gpt serve",
+          "lang": "bash"
+        },
+        {
+          "title": "Open the workbench",
+          "body": "Go to http://localhost:8080/ui."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Chat with your documents using Ollama and PrivateGPT",
+      "useCase": "Run a local model with Ollama and use PrivateGPT's workbench to upload documents and ask questions.",
+      "setup": [
+        "PrivateGPT installed",
+        "Ollama installed"
+      ],
+      "steps": [
+        {
+          "title": "Pull the models and start Ollama",
+          "body": "The README's example LLM is about 24 GB and the embedding model about 670 MB.",
+          "code": "ollama pull qwen3.5:35b\nollama pull mxbai-embed-large\nollama serve",
+          "lang": "bash"
+        },
+        {
+          "title": "Start PrivateGPT",
+          "body": "Replace the ports with your Ollama server's port.",
+          "code": "OPENAI_API_BASE=http://localhost:<llm-port>/v1 \\\n  OPENAI_EMBEDDING_API_BASE=http://localhost:<embedding-port>/v1 \\\n  private-gpt serve",
+          "lang": "bash"
+        },
+        {
+          "title": "Open http://localhost:8080/ui",
+          "body": "Pick a model, upload a document and ask a question to test retrieval with citations."
+        }
+      ],
+      "expected": "The workbench lists your models, ingests your documents and answers with citations. The API is available at http://localhost:8080.",
+      "nextSteps": [
+        "Connect Claude Code or Claude Desktop with the integration guides",
+        "Add MCP connectors or custom tools",
+        "See the full Quickstart for Docker options"
+      ],
+      "sourceUrl": "https://github.com/zylon-ai/private-gpt/blob/18682ede5556dd624d5b4910961adcab8799e3d4/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Hardware",
+        "value": "You need a machine that can run your chosen model.",
+        "tone": "depends"
+      },
+      {
+        "label": "Zylon",
+        "value": "Optional paid enterprise platform from the maintainers.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "PrivateGPT can't answer",
+        "solution": "It doesn't run models. Start an OpenAI-compatible server and set OPENAI_API_BASE to it.",
+        "sourceUrl": "https://github.com/zylon-ai/private-gpt/blob/18682ede5556dd624d5b4910961adcab8799e3d4/README.md"
+      },
+      {
+        "problem": "Model server not compatible",
+        "solution": "It must implement /v1/chat/completions and /v1/models.",
+        "sourceUrl": "https://github.com/zylon-ai/private-gpt/blob/18682ede5556dd624d5b4910961adcab8799e3d4/README.md"
+      },
+      {
+        "problem": "Need a pinned or offline install",
+        "solution": "See Reproducible install in the docs.",
+        "sourceUrl": "https://github.com/zylon-ai/private-gpt/blob/18682ede5556dd624d5b4910961adcab8799e3d4/README.md"
+      }
+    ],
+    "bestFor": [
+      "Private RAG with citations",
+      "Local backends for AI tools",
+      "On-premise AI apps"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI application API layer"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "API style",
+        "value": "Anthropic API spec"
+      }
+    ]
+  }
+}

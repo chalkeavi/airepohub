@@ -1,0 +1,266 @@
+{
+  "fullName": "CorentinJ/Real-Time-Voice-Cloning",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/CorentinJ/Real-Time-Voice-Cloning/blob/890f3a03187195b9829db2079b75c2ba2ab0405c/README.md"
+    ],
+    "sourceCommitSha": "890f3a03187195b9829db2079b75c2ba2ab0405c",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install uv",
+        "command": "pip install -U uv"
+      },
+      {
+        "comment": "Run the toolbox (NVIDIA GPU)",
+        "command": "uv run --extra cuda demo_toolbox.py"
+      },
+      {
+        "comment": "Or on CPU",
+        "command": "uv run --extra cpu demo_toolbox.py"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Real-Time Voice Cloning is an implementation of the SV2TTS research paper. It captures a voice from a few seconds of audio and then generates speech in that voice from any text, with a vocoder fast enough for real time. It comes with a graphical toolbox and a command-line demo.",
+      "problem": "It shows how voice cloning works end to end: a speaker encoder, a Tacotron synthesizer and a WaveRNN vocoder. The author notes it has aged, and that newer projects such as Chatterbox give better quality.",
+      "whoFor": [
+        "Students learning how voice cloning works",
+        "Researchers studying SV2TTS",
+        "Hobbyists experimenting with speech synthesis"
+      ],
+      "whyChoose": "Choose it to learn and experiment with a classic voice cloning pipeline. For the best quality today, the README itself recommends newer projects.",
+      "requirements": [
+        "Windows or Linux",
+        "FFmpeg",
+        "uv",
+        "An NVIDIA GPU (optional; CPU works)"
+      ]
+    },
+    "overview": [
+      "This repository was the author's master's thesis. SV2TTS works in three stages: an encoder turns a few seconds of audio into a digital representation of a voice, a synthesizer uses it to generate a spectrogram from text, and a vocoder turns that into audio.",
+      "It implements SV2TTS and the GE2E speaker encoder itself, and uses Tacotron and WaveRNN implementations from fatchord/WaveRNN. Pretrained models download automatically, and uv creates the Python environment for you.",
+      "The README's own heads-up says the repo has quickly gotten old, that many paid services give better quality, and points to Chatterbox for an open-source project up to date with the 2025 state of the art."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Voice from seconds of audio",
+        "body": "Speaker encoder trained with GE2E."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Text to speech",
+        "body": "Tacotron synthesizer conditioned on the voice."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Real-time vocoder",
+        "body": "WaveRNN audio generation."
+      },
+      {
+        "icon": "file-code",
+        "title": "Toolbox GUI",
+        "body": "Record or load audio and generate speech."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Command-line demo",
+        "body": "demo_cli.py without the GUI."
+      },
+      {
+        "icon": "shield",
+        "title": "Auto model download",
+        "body": "Pretrained models fetched automatically."
+      }
+    ],
+    "strengths": [
+      "Clear reference implementation of SV2TTS",
+      "Simple setup with uv",
+      "Runs on CPU or GPU",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Audio quality is behind newer projects",
+      "macOS isn't listed as supported",
+      "Mainly useful for learning"
+    ],
+    "useCases": [
+      {
+        "title": "Learn voice cloning",
+        "body": "Explore each stage in the toolbox."
+      },
+      {
+        "title": "Research baseline",
+        "body": "Compare against newer TTS models."
+      },
+      {
+        "title": "Quick experiments",
+        "body": "Clone a voice from a short recording."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Real-Time Voice Cloning's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/CorentinJ/Real-Time-Voice-Cloning/blob/890f3a03187195b9829db2079b75c2ba2ab0405c/README.md",
+      "prerequisites": [
+        "FFmpeg",
+        "uv"
+      ],
+      "supportedOs": [
+        "Windows",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "linux",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install FFmpeg",
+              "body": "Check it's installed by running ffmpeg in a terminal.",
+              "code": "ffmpeg",
+              "lang": "bash"
+            },
+            {
+              "title": "Install uv",
+              "code": "curl -LsSf https://astral.sh/uv/install.sh | sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/CorentinJ/Real-Time-Voice-Cloning.git\ncd Real-Time-Voice-Cloning",
+              "lang": "bash"
+            },
+            {
+              "title": "Run the toolbox",
+              "body": "Use --extra cpu if you don't have an NVIDIA GPU.",
+              "code": "uv run --extra cuda demo_toolbox.py",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install FFmpeg",
+              "body": "Check it's installed by running ffmpeg in a terminal.",
+              "code": "ffmpeg",
+              "lang": "powershell"
+            },
+            {
+              "title": "Install uv",
+              "code": "powershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"",
+              "lang": "powershell"
+            },
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/CorentinJ/Real-Time-Voice-Cloning.git\ncd Real-Time-Voice-Cloning",
+              "lang": "powershell"
+            },
+            {
+              "title": "Run the toolbox",
+              "body": "Use --extra cpu if you don't have an NVIDIA GPU.",
+              "code": "uv run --extra cuda demo_toolbox.py",
+              "lang": "powershell"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run the command-line demo instead of the GUI",
+          "code": "uv run --extra cpu demo_cli.py",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Clone a voice in the toolbox",
+      "useCase": "Open the toolbox and generate speech in a voice from a short recording.",
+      "setup": [
+        "FFmpeg and uv installed",
+        "The repository cloned"
+      ],
+      "steps": [
+        {
+          "title": "Start the toolbox",
+          "code": "uv run --extra cuda demo_toolbox.py",
+          "lang": "bash"
+        },
+        {
+          "title": "Optional: add a dataset",
+          "body": "For playing with the toolbox, the README recommends LibriSpeech train-clean-100, extracted under <datasets_root>/LibriSpeech/train-clean-100."
+        }
+      ],
+      "expected": "uv creates a .venv with the right Python environment, the pretrained models download automatically and the toolbox window opens.",
+      "nextSteps": [
+        "Try demo_cli.py for the command-line version",
+        "Read the SV2TTS paper",
+        "Try Chatterbox for higher quality"
+      ],
+      "sourceUrl": "https://github.com/CorentinJ/Real-Time-Voice-Cloning/blob/890f3a03187195b9829db2079b75c2ba2ab0405c/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Audio files won't load",
+        "solution": "Install FFmpeg and check it runs from the command line.",
+        "sourceUrl": "https://github.com/CorentinJ/Real-Time-Voice-Cloning/blob/890f3a03187195b9829db2079b75c2ba2ab0405c/README.md"
+      },
+      {
+        "problem": "Pretrained models didn't download",
+        "solution": "Download them manually from the CorentinJ/SV2TTS page on Hugging Face.",
+        "sourceUrl": "https://github.com/CorentinJ/Real-Time-Voice-Cloning/blob/890f3a03187195b9829db2079b75c2ba2ab0405c/README.md"
+      },
+      {
+        "problem": "uv setup fails",
+        "solution": "Open an issue on the repository, as the README asks.",
+        "sourceUrl": "https://github.com/CorentinJ/Real-Time-Voice-Cloning/blob/890f3a03187195b9829db2079b75c2ba2ab0405c/README.md"
+      },
+      {
+        "problem": "Quality isn't good enough",
+        "solution": "The README suggests newer projects like Chatterbox.",
+        "sourceUrl": "https://github.com/CorentinJ/Real-Time-Voice-Cloning/blob/890f3a03187195b9829db2079b75c2ba2ab0405c/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning voice cloning",
+      "Research baselines"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Voice cloning research implementation"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Paper",
+        "value": "SV2TTS (1806.04558)"
+      }
+    ]
+  }
+}

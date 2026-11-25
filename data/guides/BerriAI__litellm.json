@@ -1,0 +1,262 @@
+{
+  "fullName": "BerriAI/litellm",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/BerriAI/litellm/blob/c74b785396afc1b672676b05df61e11ec0aa086b/README.md"
+    ],
+    "sourceCommitSha": "c74b785396afc1b672676b05df61e11ec0aa086b",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install the AI gateway",
+        "command": "uv tool install 'litellm[proxy]'"
+      },
+      {
+        "comment": "Start it for a model",
+        "command": "litellm --model gpt-6.1-sol"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "LiteLLM is an open-source AI gateway and Python SDK that lets you call 100+ LLM providers, including OpenAI, Anthropic, Gemini, Bedrock and Azure, using the OpenAI request format. Use it as a library in your code or run it as a central proxy for your team.",
+      "problem": "Every LLM provider has its own SDK, auth, request format and errors. LiteLLM gives you one interface, so you can switch providers without rewriting code, and its gateway adds virtual keys, spend tracking, guardrails and load balancing.",
+      "whoFor": [
+        "Developers calling several LLM providers",
+        "ML platform teams giving staff one LLM endpoint",
+        "Companies tracking LLM spend per team or user",
+        "Apps that need fallbacks between providers"
+      ],
+      "whyChoose": "Choose it for a widely used, self-hosted way to standardise and govern LLM access. Some enterprise features are under a separate commercial license.",
+      "requirements": [
+        "Python with uv or pip",
+        "API keys for the providers you use",
+        "Docker for production deployments (stable images use the -stable tag)"
+      ]
+    },
+    "overview": [
+      "The Python SDK exposes completion() and other functions that accept any supported model name, such as openai/... or anthropic/..., with the same OpenAI-style messages. A Router adds retries, fallbacks and load balancing across deployments, and auto routing can choose a model per prompt.",
+      "The AI Gateway (proxy server) is a central service your apps call with the regular OpenAI SDK pointed at it. It provides authentication, virtual keys, per-project and per-user spend tracking, guardrails, caching, logging and an admin dashboard. The README reports 8 ms P95 latency at 1,000 requests per second in its benchmarks.",
+      "Supported endpoints include chat completions, responses, embeddings, images, audio, batches, rerank, the A2A agent protocol and Anthropic-style messages. It can also act as an MCP gateway. Terraform modules deploy it on AWS or GCP. Code under litellm/enterprise has its own license; the rest is MIT."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "100+ providers",
+        "body": "OpenAI, Anthropic, Gemini, Bedrock, Azure and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "OpenAI format everywhere",
+        "body": "Swap providers without rewriting code."
+      },
+      {
+        "icon": "puzzle",
+        "title": "AI gateway",
+        "body": "Virtual keys, spend tracking, guardrails and dashboard."
+      },
+      {
+        "icon": "file-code",
+        "title": "Router",
+        "body": "Retries, fallbacks and load balancing."
+      },
+      {
+        "icon": "git-compare",
+        "title": "MCP and A2A",
+        "body": "Gateway support for agent protocols."
+      },
+      {
+        "icon": "shield",
+        "title": "Production deploys",
+        "body": "Docker images and Terraform for AWS and GCP."
+      }
+    ],
+    "strengths": [
+      "De facto standard for multi-provider LLM access",
+      "Self-hosted",
+      "Strong cost and access controls",
+      "MIT licensed core"
+    ],
+    "limitations": [
+      "Some features require the commercial enterprise license",
+      "The production Terraform stacks in the README run alongside managed Postgres and Redis",
+      "Another service in the request path"
+    ],
+    "useCases": [
+      {
+        "title": "One endpoint for a company",
+        "body": "Give every team an OpenAI-compatible URL with their own keys."
+      },
+      {
+        "title": "Provider fallback",
+        "body": "Fall back from one provider to another automatically."
+      },
+      {
+        "title": "Cost tracking",
+        "body": "See LLM spend per project and user."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from LiteLLM's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/BerriAI/litellm/blob/c74b785396afc1b672676b05df61e11ec0aa086b/README.md",
+      "prerequisites": [
+        "Python",
+        "Provider API keys"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Python SDK",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Add to your project",
+              "code": "uv add litellm",
+              "lang": "bash"
+            },
+            {
+              "title": "Call any provider",
+              "code": "from litellm import completion\nimport os\n\nos.environ[\"ANTHROPIC_API_KEY\"] = \"your-anthropic-key\"\nresponse = completion(model=\"anthropic/claude-sonnet-4-20250514\", messages=[{\"role\": \"user\", \"content\": \"Hello!\"}])",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "AI Gateway",
+          "method": "proxy",
+          "steps": [
+            {
+              "title": "Install the gateway",
+              "code": "uv tool install 'litellm[proxy]'",
+              "lang": "bash"
+            },
+            {
+              "title": "Start it",
+              "body": "It serves an OpenAI-compatible API on port 4000.",
+              "code": "litellm --model gpt-6.1-sol",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "OPENAI_API_KEY",
+          "required": false,
+          "description": "Key for OpenAI models."
+        },
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "required": false,
+          "description": "Key for Anthropic models."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Call the gateway with the OpenAI SDK",
+          "code": "import openai\nclient = openai.OpenAI(api_key=\"anything\", base_url=\"http://0.0.0.0:4000\")\nresponse = client.chat.completions.create(\n    model=\"gpt-6.1-sol\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello!\"}]\n)",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Put an AI gateway in front of your models",
+      "useCase": "Run LiteLLM locally and call it with the OpenAI SDK.",
+      "setup": [
+        "uv",
+        "An OpenAI API key in OPENAI_API_KEY"
+      ],
+      "steps": [
+        {
+          "title": "Install",
+          "code": "uv tool install 'litellm[proxy]'",
+          "lang": "bash"
+        },
+        {
+          "title": "Start the gateway",
+          "code": "litellm --model gpt-6.1-sol",
+          "lang": "bash"
+        },
+        {
+          "title": "Send a request through it",
+          "body": "Use the Python snippet from First run, pointed at http://0.0.0.0:4000."
+        }
+      ],
+      "expected": "Your request goes through LiteLLM to the provider and returns an OpenAI-format response.",
+      "nextSteps": [
+        "Follow the E2E tutorial to set up virtual keys",
+        "Add more providers in a config file",
+        "Deploy with Docker using a -stable image"
+      ],
+      "sourceUrl": "https://github.com/BerriAI/litellm/blob/c74b785396afc1b672676b05df61e11ec0aa086b/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "MIT, except code under litellm/enterprise, which has its own license.",
+        "tone": "depends"
+      },
+      {
+        "label": "Open source gateway and SDK",
+        "value": "Free to self-host.",
+        "tone": "free"
+      },
+      {
+        "label": "Enterprise",
+        "value": "Paid license for SSO, support and enterprise features.",
+        "tone": "paid"
+      },
+      {
+        "label": "LLM usage",
+        "value": "Billed by each provider.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Unsure which Docker image to run in production",
+        "solution": "Use images with the -stable tag, which go through 12-hour load tests.",
+        "sourceUrl": "https://github.com/BerriAI/litellm/blob/c74b785396afc1b672676b05df61e11ec0aa086b/README.md"
+      },
+      {
+        "problem": "litellm and litellm-core conflict",
+        "solution": "Install only one SDK distribution per environment; use litellm for the proxy and CLI.",
+        "sourceUrl": "https://github.com/BerriAI/litellm/blob/c74b785396afc1b672676b05df61e11ec0aa086b/README.md"
+      },
+      {
+        "problem": "Provider not supported",
+        "solution": "Check the supported providers list or raise a feature request.",
+        "sourceUrl": "https://github.com/BerriAI/litellm/blob/c74b785396afc1b672676b05df61e11ec0aa086b/README.md"
+      }
+    ],
+    "bestFor": [
+      "Multi-provider LLM apps",
+      "Central LLM gateway for teams",
+      "LLM spend tracking"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "LLM gateway and SDK"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT (enterprise folder separate)"
+      },
+      {
+        "label": "Providers",
+        "value": "100+"
+      }
+    ]
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "fullName": "keras-team/keras",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/keras-team/keras/blob/d0aece6d3b9d1b9b0b607d437581280ab462d9f6/README.md",
+      "https://github.com/keras-team/keras/blob/d0aece6d3b9d1b9b0b607d437581280ab462d9f6/examples/demo_mnist_convnet.py"
+    ],
+    "sourceCommitSha": "d0aece6d3b9d1b9b0b607d437581280ab462d9f6",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install Keras 3",
+        "command": "pip install keras --upgrade"
+      },
+      {
+        "comment": "Install a backend, for example JAX",
+        "command": "pip install jax"
+      },
+      {
+        "comment": "Choose the backend",
+        "command": "export KERAS_BACKEND=\"jax\""
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Keras 3 is a high-level deep learning framework that runs on top of JAX, TensorFlow or PyTorch (and OpenVINO for inference). You build and train models for vision, language, audio, time series and recommendations with the same simple API, whichever backend you choose.",
+      "problem": "Deep learning code is usually tied to one framework. Keras lets you write models once and run them on the backend that is fastest or best supported for your project, and the README cites speedups of 20% to 350% depending on the backend.",
+      "whoFor": [
+        "Beginners learning deep learning",
+        "Researchers who want backend flexibility",
+        "Teams moving from tf.keras",
+        "PyTorch or JAX users who want a high-level training API"
+      ],
+      "whyChoose": "Choose it for a friendly, well-documented API that avoids framework lock-in. It's officially supported on Linux and macOS; on Windows the README recommends WSL2.",
+      "requirements": [
+        "Python",
+        "One backend: TensorFlow 2.16.1+, JAX 0.4.20+ or PyTorch 2.6.0+",
+        "Linux or macOS (WSL2 on Windows)"
+      ]
+    },
+    "overview": [
+      "Keras 3 is published on PyPI as keras; Keras 2 remains available as tf-keras. After installing keras you install a backend package and select it with the KERAS_BACKEND environment variable or ~/.keras/keras.json. The backend must be set before importing keras.",
+      "It is intended as a drop-in replacement for tf.keras with the TensorFlow backend; models without custom components can run on JAX or PyTorch immediately. Keras models can train on tf.data pipelines or PyTorch DataLoaders, and can be used inside native PyTorch modules or JAX functions.",
+      "For GPU support, the repository provides requirements files per backend that install CUDA dependencies through pip, and recommends a clean environment per backend. The OpenVINO backend only supports model.predict()."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Multi-backend",
+        "body": "JAX, TensorFlow, PyTorch and OpenVINO (inference)."
+      },
+      {
+        "icon": "scan-search",
+        "title": "High-level API",
+        "body": "Sequential and functional models, layers, fit and evaluate."
+      },
+      {
+        "icon": "puzzle",
+        "title": "tf.keras compatible",
+        "body": "Drop-in replacement with the TensorFlow backend."
+      },
+      {
+        "icon": "file-code",
+        "title": "Mix with native code",
+        "body": "Use Keras models in PyTorch or JAX workflows."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Any data pipeline",
+        "body": "tf.data or PyTorch DataLoaders."
+      },
+      {
+        "icon": "shield",
+        "title": "Scales up",
+        "body": "From laptop to GPU and TPU clusters."
+      }
+    ],
+    "strengths": [
+      "Beginner-friendly API",
+      "Avoids framework lock-in",
+      "Excellent documentation at keras.io",
+      "Apache-2.0 licensed"
+    ],
+    "limitations": [
+      "Windows needs WSL2",
+      "Backend must be chosen before import",
+      "OpenVINO backend is inference-only"
+    ],
+    "useCases": [
+      {
+        "title": "Image classification",
+        "body": "Train a convolutional network on MNIST."
+      },
+      {
+        "title": "Port tf.keras code",
+        "body": "Run existing models on JAX or PyTorch."
+      },
+      {
+        "title": "Research prototypes",
+        "body": "Switch backends to compare speed."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Keras's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/keras-team/keras/blob/d0aece6d3b9d1b9b0b607d437581280ab462d9f6/README.md",
+      "prerequisites": [
+        "Python",
+        "A backend package"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows (WSL2)"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install Keras",
+              "code": "pip install keras --upgrade",
+              "lang": "bash"
+            },
+            {
+              "title": "Install a backend",
+              "body": "tensorflow, jax or torch.",
+              "code": "pip install jax",
+              "lang": "bash"
+            },
+            {
+              "title": "Select the backend",
+              "body": "Or edit ~/.keras/keras.json.",
+              "code": "export KERAS_BACKEND=\"jax\"",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "JAX with GPU (from source)",
+          "method": "conda",
+          "steps": [
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/keras-team/keras.git\ncd keras",
+              "lang": "bash"
+            },
+            {
+              "title": "Create a clean environment and install",
+              "body": "Run inside a clone of the Keras repository. Expects an NVIDIA driver to be installed.",
+              "code": "conda create -y -n keras-jax python=3.10\nconda activate keras-jax\npip install -r requirements-jax-cuda.txt\npython pip_build.py --install",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "KERAS_BACKEND",
+          "required": false,
+          "description": "tensorflow, jax, torch or openvino; set before importing keras."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Check Keras imports with your backend",
+          "code": "python -c \"import keras; print(keras.backend.backend())\"",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Train a digit classifier on MNIST",
+      "useCase": "Build and train a small convolutional network with the repository's example.",
+      "setup": [
+        "Keras and a backend installed",
+        "KERAS_BACKEND set"
+      ],
+      "steps": [
+        {
+          "title": "Get the example",
+          "body": "examples/demo_mnist_convnet.py in the Keras repository."
+        },
+        {
+          "title": "Run it",
+          "body": "It loads MNIST, trains a two-layer convnet for 3 epochs and evaluates it.",
+          "code": "python examples/demo_mnist_convnet.py",
+          "lang": "bash"
+        }
+      ],
+      "expected": "The script prints the model summary, training progress, and the test loss and accuracy.",
+      "nextSteps": [
+        "Switch KERAS_BACKEND and run it again",
+        "Read the guides at keras.io",
+        "Try the functional API example"
+      ],
+      "sourceUrl": "https://github.com/keras-team/keras/blob/d0aece6d3b9d1b9b0b607d437581280ab462d9f6/examples/demo_mnist_convnet.py"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "Apache-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Your CPU or GPU, or cloud accelerators.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Backend didn't change",
+        "solution": "Set KERAS_BACKEND before importing keras; it can't change after import.",
+        "sourceUrl": "https://github.com/keras-team/keras/blob/d0aece6d3b9d1b9b0b607d437581280ab462d9f6/README.md"
+      },
+      {
+        "problem": "CUDA version conflicts",
+        "solution": "Use a separate clean environment per backend with its requirements-{backend}-cuda.txt.",
+        "sourceUrl": "https://github.com/keras-team/keras/blob/d0aece6d3b9d1b9b0b607d437581280ab462d9f6/README.md"
+      },
+      {
+        "problem": "Running on Windows",
+        "solution": "Use WSL2, as the README recommends.",
+        "sourceUrl": "https://github.com/keras-team/keras/blob/d0aece6d3b9d1b9b0b607d437581280ab462d9f6/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning deep learning",
+      "Backend-agnostic model code",
+      "Fast prototyping"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Deep learning framework"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Backends",
+        "value": "JAX, TensorFlow, PyTorch, OpenVINO"
+      }
+    ]
+  }
+}
