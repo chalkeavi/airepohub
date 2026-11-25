@@ -1,0 +1,229 @@
+{
+  "fullName": "ultralytics/ultralytics",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ultralytics/ultralytics/blob/dac49ecd74290367db83b96ed7b971bc9954a011/README.md"
+    ],
+    "sourceCommitSha": "dac49ecd74290367db83b96ed7b971bc9954a011",
+    "lastReviewedAt": "2026-11-25",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install ultralytics"
+      },
+      {
+        "comment": "Detect objects in an image",
+        "command": "yolo predict model=yolo26n.pt source='https://ultralytics.com/images/bus.jpg'"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Ultralytics YOLO is a popular Python library and command-line tool for computer vision with YOLO models. It covers object detection, segmentation, classification, pose and oriented bounding boxes, with pretrained models you can use, train on your own data and export for deployment.",
+      "problem": "Building a vision model normally needs a lot of code for data loading, training, evaluation and export. Ultralytics wraps all of that in a few lines of Python or a single yolo command.",
+      "whoFor": [
+        "Developers adding object detection to apps",
+        "Students and researchers in computer vision",
+        "Teams training custom detectors on their images",
+        "Edge and mobile developers exporting to ONNX and other formats"
+      ],
+      "whyChoose": "Choose it for the easiest path to state-of-the-art YOLO models. It is AGPL-3.0, so commercial products that don't want to open-source their code need an Ultralytics Enterprise License.",
+      "requirements": [
+        "Python 3.8+",
+        "PyTorch 1.8+",
+        "Optional: an NVIDIA GPU for faster training"
+      ]
+    },
+    "overview": [
+      "Ultralytics supports YOLO models from YOLOv3 to the latest YOLO26, with pretrained weights for detection on COCO, segmentation, classification on ImageNet, pose and oriented bounding boxes, plus semantic segmentation and depth models. The README publishes accuracy and speed tables for each.",
+      "You can predict, train, validate and export from the yolo command or the Python YOLO class. For example, model.train(data=\"coco8.yaml\", epochs=100) trains on a sample dataset, model.val() evaluates it and model.export(format=\"onnx\") exports it.",
+      "Installation is one pip command, with Conda and Docker images also available. Licensing is dual: AGPL-3.0 for open-source use, or an Enterprise License for commercial products without the open-source requirements."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "YOLO26 and earlier",
+        "body": "Pretrained YOLO models from v3 to 26."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Many vision tasks",
+        "body": "Detection, segmentation, classification, pose and OBB."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Simple CLI",
+        "body": "yolo predict, train, val and export."
+      },
+      {
+        "icon": "file-code",
+        "title": "Python API",
+        "body": "Train and run models in a few lines."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Export formats",
+        "body": "ONNX and other deployment formats."
+      },
+      {
+        "icon": "shield",
+        "title": "Docs and integrations",
+        "body": "Extensive docs and tool integrations."
+      }
+    ],
+    "strengths": [
+      "Very easy to use",
+      "State-of-the-art accuracy and speed",
+      "Huge community and documentation",
+      "Runs on CPU or GPU"
+    ],
+    "limitations": [
+      "AGPL-3.0: commercial closed-source use needs an Enterprise License",
+      "Training large models needs a GPU",
+      "Upcoming YOLO27 is not available yet"
+    ],
+    "useCases": [
+      {
+        "title": "Object detection in apps",
+        "body": "Find people, cars and objects in images or video."
+      },
+      {
+        "title": "Custom detector",
+        "body": "Train on your own labelled images."
+      },
+      {
+        "title": "Edge deployment",
+        "body": "Export to ONNX for devices."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Ultralytics YOLO's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ultralytics/ultralytics/blob/dac49ecd74290367db83b96ed7b971bc9954a011/README.md",
+      "prerequisites": [
+        "Python 3.8+",
+        "PyTorch 1.8+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install ultralytics",
+              "lang": "bash"
+            },
+            {
+              "title": "Run a prediction",
+              "code": "yolo predict model=yolo26n.pt source='https://ultralytics.com/images/bus.jpg'",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Use the ultralytics/ultralytics image",
+              "body": "See the Quickstart guide in the docs for Docker and Conda options."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Detect objects in a sample image",
+          "code": "yolo predict model=yolo26n.pt source='https://ultralytics.com/images/bus.jpg'",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Train, evaluate and export a YOLO model",
+      "useCase": "Fine-tune YOLO26n on the small COCO8 dataset and export it.",
+      "setup": [
+        "pip install ultralytics"
+      ],
+      "steps": [
+        {
+          "title": "Run this script",
+          "code": "from ultralytics import YOLO\n\nmodel = YOLO(\"yolo26n.pt\")\ntrain_results = model.train(data=\"coco8.yaml\", epochs=100, imgsz=640, device=\"cpu\")\nmetrics = model.val()\nresults = model(\"path/to/image.jpg\")\nresults[0].show()\npath = model.export(format=\"onnx\")",
+          "lang": "text"
+        }
+      ],
+      "expected": "A trained model, validation metrics, a displayed prediction and an exported ONNX file.",
+      "nextSteps": [
+        "Train on your own dataset YAML",
+        "Try segmentation or pose models",
+        "Read the Python and CLI docs"
+      ],
+      "sourceUrl": "https://github.com/ultralytics/ultralytics/blob/dac49ecd74290367db83b96ed7b971bc9954a011/README.md"
+    },
+    "costs": [
+      {
+        "label": "License",
+        "value": "AGPL-3.0, or a paid Ultralytics Enterprise License for commercial products.",
+        "tone": "depends"
+      },
+      {
+        "label": "Software and pretrained models",
+        "value": "Free under AGPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Your own CPU or GPU.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Training is slow",
+        "solution": "Set device=0 to use a GPU instead of device=\"cpu\".",
+        "sourceUrl": "https://github.com/ultralytics/ultralytics/blob/dac49ecd74290367db83b96ed7b971bc9954a011/README.md"
+      },
+      {
+        "problem": "Need to use it in a closed-source product",
+        "solution": "Request an Enterprise License from Ultralytics Licensing.",
+        "sourceUrl": "https://github.com/ultralytics/ultralytics/blob/dac49ecd74290367db83b96ed7b971bc9954a011/README.md"
+      },
+      {
+        "problem": "Installation problems",
+        "solution": "See the Quickstart guide for Conda, Docker and source installs.",
+        "sourceUrl": "https://github.com/ultralytics/ultralytics/blob/dac49ecd74290367db83b96ed7b971bc9954a011/README.md"
+      }
+    ],
+    "bestFor": [
+      "Object detection",
+      "Custom vision models",
+      "Fast prototyping in computer vision"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Computer vision library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0 or Enterprise"
+      },
+      {
+        "label": "Latest model",
+        "value": "YOLO26"
+      }
+    ]
+  }
+}
