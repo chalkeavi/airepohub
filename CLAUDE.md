@@ -56,3 +56,7 @@ pnpm build        # production build
   record lasting decisions or user corrections in `docs/decisions.md` (mark superseded ones);
   tell the owner what changed and what was remembered.
 - Clearly separate what is implemented and tested from what is only planned.
+- Ask the owner for all approvals a stretch of work needs in ONE message up front, then proceed
+  without re-asking (decision #17). Supabase MCP confirmation pop-ups don't reach the owner: hand DDL
+  with drops over as SQL files for the SQL Editor (decision #18).
+- Cloud sandbox: Node's fetch ignores HTTPS_PROXY; run `pnpm build`/`pnpm start` with `NODE_USE_ENV_PROXY=1`.

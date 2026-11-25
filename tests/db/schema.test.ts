@@ -18,6 +18,8 @@ beforeAll(async () => {
     create table auth.users (id uuid primary key);
     create function auth.uid() returns uuid language sql stable
       as $$ select nullif(current_setting('request.jwt.sub', true), '')::uuid $$;
+    create role anon;
+    create role authenticated;
   `);
   for (const f of readdirSync(dir).filter((f) => f.endsWith(".sql")).sort()) {
     await db.exec(readFileSync(join(dir, f), "utf8"));
@@ -28,7 +30,6 @@ beforeAll(async () => {
            (2, 'b', 'Secret', 'b/Secret', 'secret', 'https://github.com/b/Secret', 'unreleased tool', 'draft', null);
     insert into content_drafts (repository_id, content_type, generated_content, model_used)
       select id, 'summary', '{}', 'test-model' from repositories;
-    create role anon;
     grant usage on schema public, auth to anon;
     grant select on all tables in schema public to anon;
   `);

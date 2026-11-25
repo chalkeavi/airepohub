@@ -51,8 +51,12 @@ getRepositoryContent, getRelatedRepositories, getPublishedSlugs, searchRepositor
 getSearchSuggestions`.
 - Milestone 1: implemented over typed sample data (`src/lib/data/sample/`), real GitHub metadata
   captured 2026-11-24, only `status: 'published'` rows exposed.
-- Milestone 2: same signatures over Supabase (`@supabase/supabase-js`, server client with anon key
-  + RLS for public reads; service-role only in automation scripts).
+- Milestone 2 (done): `src/lib/data/supabase.ts` reads Supabase with the publishable key, so RLS limits
+  reads to published rows. `index.ts` uses it when `NEXT_PUBLIC_SUPABASE_URL` and
+  `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` are set, else the sample data (tests, previews without a DB).
+  Categories + all published repos load as one cached catalog (`cacheTag('catalog')`); the all-time board
+  reads the latest `ranking_snapshots`; search adds Postgres full-text matches (`websearch`) to the
+  name/keyword match. Service-role key only in automation scripts (M4).
 
 ## Domain logic (pure, unit tested)
 - `src/lib/activity.ts`: activity status from `last_pushed_at`

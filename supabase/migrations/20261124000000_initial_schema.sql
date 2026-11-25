@@ -2,8 +2,9 @@
 -- Designed in Milestone 1, applied to Supabase in Milestone 2.
 -- Conventions: uuid PKs, timestamptz, snake_case, enums for closed sets, RLS on every table.
 
-create extension if not exists pgcrypto;   -- gen_random_uuid()
-create extension if not exists citext;
+-- gen_random_uuid() is built into Postgres 13+. Extensions live in the `extensions` schema (Supabase convention).
+create schema if not exists extensions;
+create extension if not exists citext with schema extensions;
 
 -- ─────────────────────────────────────────────────────────────── enums
 create type repo_status as enum ('draft', 'in_review', 'published', 'rejected', 'archived');
@@ -24,7 +25,7 @@ create type run_status as enum ('running', 'succeeded', 'failed', 'partial');
 
 -- ─────────────────────────────────────────────────────────────── helpers
 create or replace function set_updated_at() returns trigger
-language plpgsql as $$
+language plpgsql set search_path = '' as $$
 begin
   new.updated_at := now();
   return new;
@@ -32,7 +33,7 @@ end $$;
 
 -- array_to_string() is only STABLE, so generated columns need an IMMUTABLE wrapper
 create or replace function text_array_to_string(arr text[]) returns text
-language sql immutable parallel safe as $$ select array_to_string(arr, ' ') $$;
+language sql immutable parallel safe set search_path = '' as $$ select pg_catalog.array_to_string(arr, ' ') $$;
 
 -- ─────────────────────────────────────────────────────────────── admin
 create table admin_users (
@@ -67,7 +68,7 @@ create table repositories (
   github_id             bigint not null unique,
   owner                 text not null,
   name                  text not null,
-  full_name             citext not null unique,          -- owner/name, case-insensitive
+  full_name             extensions.citext not null unique,  -- owner/name, case-insensitive
   slug                  text not null unique check (slug ~ '^[a-z0-9]+(-[a-z0-9]+)*$'),
   github_url            text not null unique,
   homepage_url          text,
@@ -120,7 +121,7 @@ create table repository_aliases (
   id             uuid primary key default gen_random_uuid(),
   repository_id  uuid not null references repositories (id) on delete cascade,
   alias_slug     text unique,
-  alias_full_name citext unique,
+  alias_full_name extensions.citext unique,
   created_at     timestamptz not null default now(),
   check (alias_slug is not null or alias_full_name is not null)
 );
@@ -271,7 +272,7 @@ create index automation_runs_job_idx on automation_runs (job, started_at desc);
 create table discovery_queue (
   id               uuid primary key default gen_random_uuid(),
   github_id        bigint not null unique,       -- dedupe key
-  full_name        citext not null,
+  full_name        extensions.citext not null,
   github_url       text not null,
   payload          jsonb not null default '{}',  -- normalized GitHub metadata at discovery
   discovered_at    timestamptz not null default now(),
