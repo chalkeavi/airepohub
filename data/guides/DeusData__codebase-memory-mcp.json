@@ -1,0 +1,248 @@
+{
+  "fullName": "DeusData/codebase-memory-mcp",
+  "summary": "Local MCP server that maps your code, docs and infrastructure into a persistent graph so coding agents understand your repository.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/DeusData/codebase-memory-mcp/blob/9a4da7a314833d8d965b74612e1f25fef5371861/README.md"
+    ],
+    "sourceCommitSha": "9a4da7a314833d8d965b74612e1f25fef5371861",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install (macOS, Linux)",
+        "command": "curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.sh | bash"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "codebase-memory-mcp is a local MCP server that builds a persistent knowledge graph of your repository: code, documentation, configuration and infrastructure. Coding agents query it to find the right code, follow call paths and see what a change affects.",
+      "problem": "Coding agents waste tokens and time grepping through files and still miss how pieces connect. This tool indexes the structure once and gives agents compact, targeted answers about symbols, callers, dependencies and related tests.",
+      "whoFor": [
+        "Developers using Claude Code, Codex or OpenCode",
+        "Teams with large or multi-language codebases",
+        "Engineers tracing infrastructure like Docker, Kubernetes and Terraform",
+        "Anyone wanting to explore code visually"
+      ],
+      "whyChoose": "Choose it for fast local code intelligence with 17 MCP tools, a native C backend and an optional visual explorer (CBM Lens), with all analysis staying on your machine.",
+      "requirements": [
+        "macOS, Linux or Windows",
+        "An MCP-capable coding agent"
+      ]
+    },
+    "overview": [
+      "The install script downloads the release binary, sets up MCP configuration for detected coding agents, and adds instructions, skills, agent profiles and context hooks. Restart your agent and say \"Index this project\".",
+      "Queries combine symbol, text and semantic search with callers, dependencies and file outlines. It indexes documentation sections and PDFs, follows relationships through Docker, Kubernetes, Helm, Terraform, Ansible and more, and can compare snapshots and find related tests.",
+      "CBM Lens, in open beta, is a visual explorer started with codebase-memory-mcp daemon start --open --port=9749. Processing is local. Hooks are on by default and can be removed with install --no-hooks. The project is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Code knowledge graph",
+        "body": "Symbols, callers and dependencies."
+      },
+      {
+        "icon": "scan-search",
+        "title": "17 MCP tools",
+        "body": "Targeted queries for agents."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Docs and infra",
+        "body": "Links docs, Docker, Kubernetes, Terraform to code."
+      },
+      {
+        "icon": "file-code",
+        "title": "Change impact",
+        "body": "Affected symbols and related tests."
+      },
+      {
+        "icon": "git-compare",
+        "title": "CBM Lens",
+        "body": "Visual explorer in the browser (beta)."
+      },
+      {
+        "icon": "shield",
+        "title": "Agent setup",
+        "body": "Installs config, skills and hooks."
+      }
+    ],
+    "strengths": [
+      "Runs locally",
+      "Fast native backend",
+      "Works with many coding agents",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Windows Defender may flag the binary (a known false positive per the README)",
+      "CBM Lens is a beta",
+      "Hooks are on by default"
+    ],
+    "useCases": [
+      {
+        "title": "Understand a new codebase",
+        "body": "Ask your agent where things are defined and used."
+      },
+      {
+        "title": "Plan a refactor",
+        "body": "See what depends on a file before changing it."
+      },
+      {
+        "title": "Trace infrastructure",
+        "body": "Follow a service from code to Kubernetes config."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from codebase-memory-mcp's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/DeusData/codebase-memory-mcp/blob/9a4da7a314833d8d965b74612e1f25fef5371861/README.md",
+      "prerequisites": [
+        "An MCP-capable coding agent"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install the latest release",
+              "code": "curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.sh | bash",
+              "lang": "bash"
+            },
+            {
+              "title": "Restart your coding agent",
+              "body": "Then say \"Index this project\"."
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install the latest release",
+              "code": "curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.sh | bash",
+              "lang": "bash"
+            },
+            {
+              "title": "Restart your coding agent",
+              "body": "Then say \"Index this project\"."
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "PowerShell",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Download and inspect the installer",
+              "code": "Invoke-WebRequest -Uri https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.ps1 -OutFile install.ps1\nnotepad install.ps1",
+              "lang": "powershell"
+            },
+            {
+              "title": "Unblock and run it",
+              "body": "If you get an execution policy error, run Set-ExecutionPolicy -Scope Process Bypass first.",
+              "code": "Unblock-File .\\install.ps1\n.\\install.ps1",
+              "lang": "powershell"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Index your project from your agent",
+          "body": "After restarting your coding agent, say: Index this project."
+        },
+        {
+          "title": "Open the visual explorer",
+          "code": "codebase-memory-mcp daemon start --open --port=9749",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Give your coding agent a map of your repo",
+      "useCase": "Install, index a project and ask structural questions.",
+      "setup": [
+        "Claude Code, Codex or another MCP client"
+      ],
+      "steps": [
+        {
+          "title": "Install",
+          "code": "curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.sh | bash",
+          "lang": "bash"
+        },
+        {
+          "title": "Restart your agent and index",
+          "body": "Say: Index this project."
+        },
+        {
+          "title": "Ask a structural question",
+          "body": "For example: what calls this function, and which tests cover it?"
+        }
+      ],
+      "expected": "Your agent answers using the code graph, with callers, dependencies and source snippets.",
+      "nextSteps": [
+        "Explore with CBM Lens",
+        "Try change impact before a refactor",
+        "Turn hooks off with install --no-hooks if you prefer"
+      ],
+      "sourceUrl": "https://github.com/DeusData/codebase-memory-mcp/blob/9a4da7a314833d8d965b74612e1f25fef5371861/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under the MIT license.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Defender flags the binary",
+        "solution": "The README calls this a known false positive and explains how to verify the release artifacts.",
+        "sourceUrl": "https://github.com/DeusData/codebase-memory-mcp/blob/9a4da7a314833d8d965b74612e1f25fef5371861/README.md"
+      },
+      {
+        "problem": "Execution policy error on Windows",
+        "solution": "Run Set-ExecutionPolicy -Scope Process Bypass first.",
+        "sourceUrl": "https://github.com/DeusData/codebase-memory-mcp/blob/9a4da7a314833d8d965b74612e1f25fef5371861/README.md"
+      },
+      {
+        "problem": "Don't want hooks",
+        "solution": "Run codebase-memory-mcp install --no-hooks.",
+        "sourceUrl": "https://github.com/DeusData/codebase-memory-mcp/blob/9a4da7a314833d8d965b74612e1f25fef5371861/README.md"
+      }
+    ],
+    "bestFor": [
+      "Code intelligence for agents",
+      "Large codebases",
+      "MCP tooling"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "MCP server"
+      },
+      {
+        "label": "Language",
+        "value": "C"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "MCP tools",
+        "value": "17"
+      }
+    ]
+  }
+}

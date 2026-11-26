@@ -1,0 +1,202 @@
+{
+  "fullName": "ray-project/ray",
+  "summary": "Framework for scaling Python and AI workloads from a laptop to a cluster, with libraries for data, training, tuning and serving.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ray-project/ray/blob/8fd29587fc7cae6f5b980c9eafee2dbc9541d1f0/README.md"
+    ],
+    "sourceCommitSha": "8fd29587fc7cae6f5b980c9eafee2dbc9541d1f0",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install ray"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Ray is a unified framework for scaling AI and Python applications. It has a core distributed runtime plus AI libraries for data processing, distributed training, hyperparameter tuning, reinforcement learning and model serving.",
+      "problem": "Modern ML workloads outgrow a single laptop. Ray lets you scale the same Python code from a laptop to a cluster without building other infrastructure.",
+      "whoFor": [
+        "ML engineers training and serving models at scale",
+        "Data engineers processing large datasets",
+        "Researchers running many experiments",
+        "Python developers parallelising workloads"
+      ],
+      "whyChoose": "Choose it for one general-purpose framework that runs on any machine, cluster, cloud provider or Kubernetes, with a big ecosystem of integrations.",
+      "requirements": [
+        "Python"
+      ]
+    },
+    "overview": [
+      "Ray AI Libraries: Data (scalable datasets for ML), Train (distributed training), Tune (hyperparameter tuning), RLlib (reinforcement learning) and Serve (scalable serving).",
+      "Ray Core's key abstractions are tasks (stateless functions run in the cluster), actors (stateful worker processes) and objects (immutable values shared across the cluster). The Ray Dashboard and Distributed Debugger help monitor and debug apps.",
+      "Install with pip install ray; nightly wheels are on the installation page. Ray is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Ray Data",
+        "body": "Scalable datasets for ML."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Ray Train",
+        "body": "Distributed training."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Ray Tune",
+        "body": "Hyperparameter tuning."
+      },
+      {
+        "icon": "file-code",
+        "title": "RLlib",
+        "body": "Reinforcement learning."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Ray Serve",
+        "body": "Model serving."
+      },
+      {
+        "icon": "shield",
+        "title": "Ray Core",
+        "body": "Tasks, actors and objects."
+      }
+    ],
+    "strengths": [
+      "Scales laptop to cluster",
+      "Broad AI library set",
+      "Runs on any cloud or Kubernetes"
+    ],
+    "limitations": [
+      "Distributed systems add operational complexity",
+      "Best value shows on multi-node workloads"
+    ],
+    "useCases": [
+      {
+        "title": "Distributed training",
+        "body": "Train across many GPUs."
+      },
+      {
+        "title": "Batch inference",
+        "body": "Process large datasets with Ray Data."
+      },
+      {
+        "title": "Model serving",
+        "body": "Deploy models with Ray Serve."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Ray's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ray-project/ray/blob/8fd29587fc7cae6f5b980c9eafee2dbc9541d1f0/README.md",
+      "prerequisites": [
+        "Python"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install Ray",
+              "code": "pip install ray",
+              "lang": "bash"
+            },
+            {
+              "title": "Nightly builds",
+              "body": "For nightly wheels, see the installation page in the Ray docs."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Install and follow the Ray Core walkthrough",
+          "code": "pip install ray",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Get started with Ray",
+      "useCase": "Install Ray and pick the library that fits your workload.",
+      "setup": [
+        "Python"
+      ],
+      "steps": [
+        {
+          "title": "Install",
+          "code": "pip install ray",
+          "lang": "bash"
+        },
+        {
+          "title": "Choose a library",
+          "body": "Data for datasets, Train for training, Tune for tuning, RLlib for RL, Serve for serving; or Ray Core for general Python."
+        },
+        {
+          "title": "Follow the docs walkthrough",
+          "body": "The Ray Core walkthrough introduces tasks, actors and objects."
+        }
+      ],
+      "expected": "Ray is installed and you know which library to start with.",
+      "nextSteps": [
+        "Open the Ray Dashboard",
+        "Scale to a cluster",
+        "Try Ray Serve"
+      ],
+      "sourceUrl": "https://github.com/ray-project/ray/blob/8fd29587fc7cae6f5b980c9eafee2dbc9541d1f0/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Your machines or cloud bill for cluster resources.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Need a nightly or special build",
+        "solution": "See the installation page in the Ray docs.",
+        "sourceUrl": "https://github.com/ray-project/ray/blob/8fd29587fc7cae6f5b980c9eafee2dbc9541d1f0/README.md"
+      }
+    ],
+    "bestFor": [
+      "Distributed Python",
+      "Scaling ML workloads",
+      "Model serving"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Distributed computing framework"
+      },
+      {
+        "label": "Language",
+        "value": "Python, C++"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "pip install ray"
+      }
+    ]
+  }
+}

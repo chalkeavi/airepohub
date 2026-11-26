@@ -1,0 +1,206 @@
+{
+  "fullName": "OpenBMB/VoxCPM",
+  "summary": "Open text-to-speech model for natural multilingual speech in 30 languages, with voice design from a text description.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/OpenBMB/VoxCPM/blob/300e4260b509066151d623dc9c0aa922cf82232b/README.md"
+    ],
+    "sourceCommitSha": "300e4260b509066151d623dc9c0aa922cf82232b",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install voxcpm"
+      },
+      {
+        "comment": "Make speech",
+        "command": "voxcpm design --text \"Hello from VoxCPM.\" --output out.wav"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "VoxCPM is a tokenizer-free text-to-speech system that generates continuous speech directly with a diffusion autoregressive architecture. VoxCPM2, the latest release, is a 2B parameter model trained on over 2 million hours of speech and supports 30 languages.",
+      "problem": "Many TTS systems sound robotic or need a sample voice. VoxCPM produces natural speech and can design a new voice from a text description, with style control.",
+      "whoFor": [
+        "Developers adding speech to apps",
+        "Content creators making narration",
+        "Researchers working on TTS"
+      ],
+      "whyChoose": "Choose it for an open, multilingual TTS model with a simple CLI, voice design, style control and optional word timestamps.",
+      "requirements": [
+        "Python 3.10 to 3.12",
+        "PyTorch 2.5+",
+        "CUDA 12.0+ (an NVIDIA GPU)"
+      ]
+    },
+    "overview": [
+      "Install with pip. The voxcpm CLI can design a voice from text, control style with a description like 'young female voice, warm and gentle', clone a voice from reference audio, and batch-process a text file.",
+      "Optional timestamps (pip install \"voxcpm[timestamps]\") add word or best-effort character timing after generation.",
+      "Voice cloning should only be used with the speaker's consent. The project is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "30 languages",
+        "body": "Multilingual speech."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Voice design",
+        "body": "Create a voice from a text description."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Style control",
+        "body": "Describe tone and delivery."
+      },
+      {
+        "icon": "file-code",
+        "title": "Batch mode",
+        "body": "Process many lines at once."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Timestamps",
+        "body": "Optional word timing."
+      }
+    ],
+    "strengths": [
+      "Natural sounding",
+      "Simple CLI",
+      "Apache 2.0 licensed"
+    ],
+    "limitations": [
+      "Needs an NVIDIA GPU with CUDA 12+",
+      "Python version range is narrow",
+      "Cloning a real person's voice needs their consent"
+    ],
+    "useCases": [
+      {
+        "title": "Narration",
+        "body": "Turn scripts into audio."
+      },
+      {
+        "title": "App voice",
+        "body": "Add speech output."
+      },
+      {
+        "title": "Multilingual audio",
+        "body": "Generate speech in many languages."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from VoxCPM's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/OpenBMB/VoxCPM/blob/300e4260b509066151d623dc9c0aa922cf82232b/README.md",
+      "prerequisites": [
+        "Python 3.10-3.12",
+        "NVIDIA GPU"
+      ],
+      "supportedOs": [
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Needs Python 3.10 to 3.12, PyTorch 2.5+ and CUDA 12.0+.",
+              "code": "pip install voxcpm",
+              "lang": "bash"
+            },
+            {
+              "title": "Check the CLI",
+              "code": "voxcpm --help",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Generate speech with a designed voice",
+          "code": "voxcpm design \\\n  --text \"VoxCPM2 brings studio-quality multilingual speech synthesis.\" \\\n  --output out.wav",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Design a voice and control its style",
+      "useCase": "Create speech with a voice described in words.",
+      "setup": [
+        "pip install voxcpm"
+      ],
+      "steps": [
+        {
+          "title": "Generate with a style description",
+          "code": "voxcpm design \\\n  --text \"VoxCPM2 brings studio-quality multilingual speech synthesis.\" \\\n  --control \"Young female voice, warm and gentle, slightly smiling\" \\\n  --seed 42 \\\n  --output out.wav",
+          "lang": "bash"
+        },
+        {
+          "title": "Listen to out.wav",
+          "body": "Change the --control text or --seed to try other voices."
+        }
+      ],
+      "expected": "out.wav contains the sentence spoken in the described style.",
+      "nextSteps": [
+        "Batch-process a text file",
+        "Add word timestamps",
+        "Read the quick start docs"
+      ],
+      "sourceUrl": "https://github.com/OpenBMB/VoxCPM/blob/300e4260b509066151d623dc9c0aa922cf82232b/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software and model",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Hardware",
+        "value": "Runs on your own NVIDIA GPU.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install fails on Python 3.13",
+        "solution": "VoxCPM needs Python 3.10 to 3.12.",
+        "sourceUrl": "https://github.com/OpenBMB/VoxCPM/blob/300e4260b509066151d623dc9c0aa922cf82232b/README.md"
+      },
+      {
+        "problem": "CUDA errors",
+        "solution": "It needs PyTorch 2.5+ and CUDA 12.0+.",
+        "sourceUrl": "https://github.com/OpenBMB/VoxCPM/blob/300e4260b509066151d623dc9c0aa922cf82232b/README.md"
+      }
+    ],
+    "bestFor": [
+      "Text-to-speech",
+      "Multilingual narration",
+      "Voice design"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Text-to-speech model"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Model size",
+        "value": "2B (VoxCPM2)"
+      }
+    ]
+  }
+}

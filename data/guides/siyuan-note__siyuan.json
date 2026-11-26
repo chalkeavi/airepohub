@@ -1,0 +1,225 @@
+{
+  "fullName": "siyuan-note/siyuan",
+  "summary": "Privacy-first, self-hostable note-taking and knowledge app with block-level links, Markdown editing and built-in AI writing.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/siyuan-note/siyuan/blob/c901a60323f3ad22867145f16ace0cface627b5a/README.md"
+    ],
+    "sourceCommitSha": "c901a60323f3ad22867145f16ace0cface627b5a",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Run the server with Docker",
+        "command": "docker run -d -v workspace_dir_host:workspace_dir_container -p 6806:6806 b3log/siyuan serve --workspace=workspace_dir_container --accessAuthCode=\"${AuthCode:?Set AuthCode}\""
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "SiYuan is a privacy-first personal knowledge management app. You write in a block-based Markdown editor, link and reference any block, and organise notes into a knowledge base, with AI writing and Q&A through the OpenAI API.",
+      "problem": "Many note apps lock your data in the cloud or only link whole pages. SiYuan keeps data on your devices or your own server and lets you reference and embed individual blocks.",
+      "whoFor": [
+        "People building a personal knowledge base",
+        "Researchers and students linking ideas",
+        "Self-hosters who want a private notes server",
+        "Teams of humans and agents sharing a workspace"
+      ],
+      "whyChoose": "Choose it for fine-grained block references, a rich editor and self-hosting, with apps on desktop, Android, iOS and HarmonyOS.",
+      "requirements": [
+        "Desktop or mobile app, or Docker for self-hosting",
+        "An OpenAI-compatible API key for AI features"
+      ]
+    },
+    "overview": [
+      "Features include block-level references and two-way links, SQL query embeds, a block-style Markdown WYSIWYG editor, formulas and diagrams, web clipping, PDF annotation links, database table views, flashcards with spaced repetition, Tesseract OCR and AI writing and Q&A via the OpenAI API.",
+      "Install from your app store (recommended for easy upgrades), from the GitHub releases page, a package manager, or run the server with Docker, Kubernetes, Unraid or TrueNAS. Since v3.7.0 the Docker image needs the serve subcommand, and you must set an access auth code.",
+      "Most features are free, even for commercial use; some require a paid membership. The code is AGPL-3.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Block references",
+        "body": "Link and embed any block."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Markdown WYSIWYG",
+        "body": "Block-style editor."
+      },
+      {
+        "icon": "puzzle",
+        "title": "AI writing",
+        "body": "Writing and Q&A via the OpenAI API."
+      },
+      {
+        "icon": "file-code",
+        "title": "Flashcards",
+        "body": "Spaced repetition built in."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Self-hosting",
+        "body": "Docker, Kubernetes, Unraid, TrueNAS."
+      },
+      {
+        "icon": "shield",
+        "title": "Many platforms",
+        "body": "Desktop, Android, iOS, HarmonyOS."
+      }
+    ],
+    "strengths": [
+      "Privacy-first",
+      "Powerful linking",
+      "Runs everywhere"
+    ],
+    "limitations": [
+      "Some features need a paid membership",
+      "AGPL-3.0 license",
+      "AI features need an API key"
+    ],
+    "useCases": [
+      {
+        "title": "Personal wiki",
+        "body": "Link notes block by block."
+      },
+      {
+        "title": "Study",
+        "body": "Turn notes into flashcards."
+      },
+      {
+        "title": "Private notes server",
+        "body": "Self-host for access anywhere."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from SiYuan's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/siyuan-note/siyuan/blob/c901a60323f3ad22867145f16ace0cface627b5a/README.md",
+      "prerequisites": [
+        "Desktop/mobile app or Docker"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "App download",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Install from your app market",
+              "body": "Recommended so you can upgrade in one click. Installers are also on the GitHub releases page and b3log.org."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker server",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Set a strong access password",
+              "code": "export AuthCode='your-strong-password'",
+              "lang": "bash"
+            },
+            {
+              "title": "Run the container",
+              "code": "docker run -d \\\n  -v workspace_dir_host:workspace_dir_container \\\n  -p 6806:6806 \\\n  -e PUID=1001 -e PGID=1002 \\\n  b3log/siyuan \\\n  serve \\\n  --workspace=workspace_dir_container \\\n  --accessAuthCode=\"${AuthCode:?Set AuthCode}\"",
+              "lang": "bash"
+            },
+            {
+              "title": "Open it",
+              "body": "Go to http://localhost:6806 and enter your access code."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Create a note and reference a block",
+          "body": "Type (( in the editor to search for and link another block."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Self-host SiYuan with Docker",
+      "useCase": "Run your own SiYuan server and open it in a browser.",
+      "setup": [
+        "Docker"
+      ],
+      "steps": [
+        {
+          "title": "Set an access code",
+          "code": "export AuthCode='your-strong-password'",
+          "lang": "bash"
+        },
+        {
+          "title": "Start the server",
+          "code": "docker run -d -v workspace_dir_host:workspace_dir_container -p 6806:6806 b3log/siyuan serve --workspace=workspace_dir_container --accessAuthCode=\"${AuthCode:?Set AuthCode}\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Open http://localhost:6806",
+          "body": "Log in with your access code."
+        }
+      ],
+      "expected": "SiYuan opens in your browser with your workspace stored on the host folder you mounted.",
+      "nextSteps": [
+        "Set up AI with an OpenAI API key",
+        "Install the mobile app",
+        "Try flashcards"
+      ],
+      "sourceUrl": "https://github.com/siyuan-note/siyuan/blob/c901a60323f3ad22867145f16ace0cface627b5a/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free for most features, including commercial use; AGPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Membership",
+        "value": "Some features need a paid membership.",
+        "tone": "depends"
+      },
+      {
+        "label": "AI",
+        "value": "Your OpenAI-compatible provider bills for usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Docker container exits at start",
+        "solution": "Since v3.7.0 pass the serve subcommand, and set AuthCode; the command stops if it's empty.",
+        "sourceUrl": "https://github.com/siyuan-note/siyuan/blob/c901a60323f3ad22867145f16ace0cface627b5a/README.md"
+      }
+    ],
+    "bestFor": [
+      "Personal knowledge management",
+      "Self-hosted notes",
+      "Block-based writing"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Knowledge management app"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "Port",
+        "value": "6806"
+      }
+    ]
+  }
+}

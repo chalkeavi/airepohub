@@ -1,0 +1,189 @@
+{
+  "fullName": "aymericdamien/TensorFlow-Examples",
+  "summary": "Beginner-friendly TensorFlow tutorials and notebooks, from basic models to neural networks, for TF v2 and v1.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/aymericdamien/TensorFlow-Examples/blob/c1b36e0357d024cf59fdd68b75c29988256f45a9/README.md"
+    ],
+    "sourceCommitSha": "c1b36e0357d024cf59fdd68b75c29988256f45a9",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Get the examples",
+        "command": "git clone https://github.com/aymericdamien/TensorFlow-Examples"
+      },
+      {
+        "comment": "Install TensorFlow",
+        "command": "pip install tensorflow"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "TensorFlow Examples is a collection of tutorials for learning TensorFlow through clear, concise examples. It includes notebooks and source code with explanations for TensorFlow v2, plus older v1 examples.",
+      "problem": "TensorFlow's full documentation can be a lot for a beginner. This repo walks through ML basics, models and neural networks one small example at a time.",
+      "whoFor": [
+        "Beginners learning TensorFlow",
+        "Students studying machine learning",
+        "Developers who learn best from code"
+      ],
+      "whyChoose": "Choose it for a well-known, easy-to-follow set of TensorFlow examples with notebooks. The author also offers JAX examples in a separate repo.",
+      "requirements": [
+        "Python",
+        "TensorFlow",
+        "Jupyter to open the notebooks"
+      ]
+    },
+    "overview": [
+      "The tutorial index starts with prerequisites (introduction to machine learning and the MNIST dataset) and moves through introduction, basic models and neural networks.",
+      "Since 2020 the default examples use TF2; TF v1.15 examples are kept in the tensorflow_v1 folder. Some extra examples come from TFLearn.",
+      "Clone the repo and install TensorFlow to run them. The project is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Notebooks",
+        "body": "Explained step by step."
+      },
+      {
+        "icon": "scan-search",
+        "title": "TF2 examples",
+        "body": "Default since 2020."
+      },
+      {
+        "icon": "puzzle",
+        "title": "TF1 examples",
+        "body": "Kept for reference."
+      },
+      {
+        "icon": "file-code",
+        "title": "Beginner path",
+        "body": "Starts from ML basics."
+      }
+    ],
+    "strengths": [
+      "Clear and concise",
+      "Free and MIT licensed",
+      "Well known"
+    ],
+    "limitations": [
+      "A learning resource, not a library",
+      "Some examples target older TensorFlow versions"
+    ],
+    "useCases": [
+      {
+        "title": "Learn TensorFlow",
+        "body": "Follow the tutorial index."
+      },
+      {
+        "title": "Reference code",
+        "body": "Copy patterns for basic models."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from TensorFlow Examples's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/aymericdamien/TensorFlow-Examples/blob/c1b36e0357d024cf59fdd68b75c29988256f45a9/README.md",
+      "prerequisites": [
+        "Python"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Clone and install",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/aymericdamien/TensorFlow-Examples",
+              "lang": "bash"
+            },
+            {
+              "title": "Install TensorFlow",
+              "code": "pip install tensorflow",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open the first notebook",
+          "body": "Start with tensorflow_v2/notebooks/0_Prerequisite/ml_introduction.ipynb."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Start the TensorFlow tutorial path",
+      "useCase": "Run the first notebooks on your machine.",
+      "setup": [
+        "Python and Jupyter"
+      ],
+      "steps": [
+        {
+          "title": "Clone",
+          "code": "git clone https://github.com/aymericdamien/TensorFlow-Examples",
+          "lang": "bash"
+        },
+        {
+          "title": "Install TensorFlow",
+          "code": "pip install tensorflow",
+          "lang": "bash"
+        },
+        {
+          "title": "Open the prerequisite notebooks",
+          "body": "Read the introduction to machine learning, then the MNIST dataset notebook."
+        }
+      ],
+      "expected": "You can run the notebooks and move on to the introduction and basic models sections.",
+      "nextSteps": [
+        "Basic models section",
+        "Neural networks section",
+        "JAX examples"
+      ],
+      "sourceUrl": "https://github.com/aymericdamien/TensorFlow-Examples/blob/c1b36e0357d024cf59fdd68b75c29988256f45a9/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Example uses TensorFlow 1 APIs",
+        "solution": "Use the tensorflow_v2 folder; v1 code lives in tensorflow_v1.",
+        "sourceUrl": "https://github.com/aymericdamien/TensorFlow-Examples/blob/c1b36e0357d024cf59fdd68b75c29988256f45a9/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning TensorFlow",
+      "ML tutorials",
+      "Beginner deep learning"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Tutorials"
+      },
+      {
+        "label": "Language",
+        "value": "Jupyter Notebook, Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Covers",
+        "value": "TF v2 and v1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "fullName": "GokuMohandas/Made-With-ML",
+  "summary": "Free course with code that teaches you to design, build, deploy and improve production-grade machine learning applications.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/GokuMohandas/Made-With-ML/blob/3361aeb8ddfc2affdba9f545c978c38c85cee764/README.md"
+    ],
+    "sourceCommitSha": "3361aeb8ddfc2affdba9f545c978c38c85cee764",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Clone and set up",
+        "command": "git clone https://github.com/GokuMohandas/Made-With-ML.git .\npython3 -m venv venv\nsource venv/bin/activate\npython3 -m pip install -r requirements.txt"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Made With ML is a free course, with this repository as its code, on combining machine learning with software engineering. It walks from experimentation to production: designing, developing, deploying and iterating on a real ML application.",
+      "problem": "Many ML tutorials stop at a notebook. This course teaches the engineering around the model, such as testing, scaling, serving and iteration, so you can ship reliable ML systems.",
+      "whoFor": [
+        "Developers moving into ML engineering",
+        "Data scientists who want production skills",
+        "Students learning MLOps",
+        "Teams adopting ML best practices"
+      ],
+      "whyChoose": "Choose it for a first-principles course with best practices and code you can run, joined by over 40,000 developers according to the README.",
+      "requirements": [
+        "Python (3.10 recommended)",
+        "git"
+      ]
+    },
+    "overview": [
+      "Lessons live on madewithml.com and the code lives here. The course goes from design and development to deployment and iteration, building understanding from first principles before writing code.",
+      "It emphasises software engineering best practices and scaling ML workloads (data, training, tuning and serving) in Python.",
+      "Setup clones the repository into your own copy, creates a virtual environment and installs requirements. The repository is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Full ML lifecycle",
+        "body": "Design, develop, deploy, iterate."
+      },
+      {
+        "icon": "scan-search",
+        "title": "First principles",
+        "body": "Concepts before code."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Best practices",
+        "body": "Testing and engineering habits."
+      },
+      {
+        "icon": "file-code",
+        "title": "Scaling in Python",
+        "body": "Data, train, tune and serve."
+      }
+    ],
+    "strengths": [
+      "Production-focused",
+      "Free with runnable code",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "A course, not a library",
+      "Some steps assume your own GitHub repository and cluster setup"
+    ],
+    "useCases": [
+      {
+        "title": "Learn MLOps",
+        "body": "Follow the lessons with the code."
+      },
+      {
+        "title": "Template a project",
+        "body": "Reuse the structure for your ML app."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Made With ML's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/GokuMohandas/Made-With-ML/blob/3361aeb8ddfc2affdba9f545c978c38c85cee764/README.md",
+      "prerequisites": [
+        "Python 3.10",
+        "git"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Local setup",
+          "method": "venv",
+          "steps": [
+            {
+              "title": "Clone the code",
+              "body": "The README suggests first creating your own GitHub repository named Made-With-ML with a README.",
+              "code": "git clone https://github.com/GokuMohandas/Made-With-ML.git .",
+              "lang": "bash"
+            },
+            {
+              "title": "Create a virtual environment",
+              "code": "export PYTHONPATH=$PYTHONPATH:$PWD\npython3 -m venv venv\nsource venv/bin/activate",
+              "lang": "bash"
+            },
+            {
+              "title": "Install dependencies",
+              "code": "python3 -m pip install --upgrade pip setuptools wheel\npython3 -m pip install -r requirements.txt",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open the lessons",
+          "body": "Go to madewithml.com and start with the first lesson while following along in the code."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Set up the course environment",
+      "useCase": "Get the code running so you can follow the lessons.",
+      "setup": [
+        "Python 3.10",
+        "git"
+      ],
+      "steps": [
+        {
+          "title": "Clone and create a virtual environment",
+          "code": "git clone https://github.com/GokuMohandas/Made-With-ML.git .\npython3 -m venv venv\nsource venv/bin/activate",
+          "lang": "bash"
+        },
+        {
+          "title": "Install requirements",
+          "code": "python3 -m pip install -r requirements.txt",
+          "lang": "bash"
+        },
+        {
+          "title": "Register the notebook kernel",
+          "code": "python3 -m ipykernel install --user --name=venv",
+          "lang": "bash"
+        }
+      ],
+      "expected": "You can open the course notebooks with the venv kernel and run the code.",
+      "nextSteps": [
+        "Work through the design lessons",
+        "Train and tune the model",
+        "Deploy the model"
+      ],
+      "sourceUrl": "https://github.com/GokuMohandas/Made-With-ML/blob/3361aeb8ddfc2affdba9f545c978c38c85cee764/README.md"
+    },
+    "costs": [
+      {
+        "label": "Course and code",
+        "value": "Free; code is MIT licensed.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Your own machine or cluster.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Notebook can't find packages",
+        "solution": "Select the venv kernel in Jupyter after installing it with ipykernel.",
+        "sourceUrl": "https://github.com/GokuMohandas/Made-With-ML/blob/3361aeb8ddfc2affdba9f545c978c38c85cee764/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning MLOps",
+      "Production ML",
+      "ML engineering"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "ML engineering course"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Lessons",
+        "value": "madewithml.com"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      }
+    ]
+  }
+}

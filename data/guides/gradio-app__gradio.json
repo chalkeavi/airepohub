@@ -1,0 +1,193 @@
+{
+  "fullName": "gradio-app/gradio",
+  "summary": "Python library for building and sharing web demos of machine learning models or any Python function in a few lines.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/gradio-app/gradio/blob/626553066c5309d94fedd21bf5e3a7e7ec50b269/README.md"
+    ],
+    "sourceCommitSha": "626553066c5309d94fedd21bf5e3a7e7ec50b269",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install --upgrade gradio"
+      },
+      {
+        "comment": "Run your app",
+        "command": "python app.py"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Gradio is an open-source Python package for quickly building a demo or web app for a machine learning model, an API or any Python function, and sharing it with a link. No JavaScript, CSS or web hosting experience is needed.",
+      "problem": "Showing a model to others usually means building a web front end. Gradio wraps your function in a browser UI with a few lines of Python.",
+      "whoFor": [
+        "ML engineers demoing models",
+        "Researchers sharing results",
+        "Students learning ML",
+        "Developers prototyping AI apps"
+      ],
+      "whyChoose": "Choose it for the fastest way to put a UI around a Python function, with 30+ built-in components, hot reload and easy sharing.",
+      "requirements": [
+        "Python 3.10 or higher"
+      ]
+    },
+    "overview": [
+      "Install with pip, ideally in a virtual environment. Gradio runs in your editor, Jupyter, Google Colab or anywhere you write Python.",
+      "The Interface class takes a function, input components and output components. Running the file opens the demo at http://localhost:7860; in a notebook it appears inline.",
+      "Run gradio app.py instead of python app.py for hot reload, and add --vibe for an in-browser chat that edits your app in natural language. Gradio is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Interface class",
+        "body": "Wrap any function in a UI."
+      },
+      {
+        "icon": "scan-search",
+        "title": "30+ components",
+        "body": "Textbox, Image, HTML and more."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Hot reload",
+        "body": "gradio app.py reloads on save."
+      },
+      {
+        "icon": "file-code",
+        "title": "Vibe mode",
+        "body": "Edit your app by chatting."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Sharing",
+        "body": "Share demos with a link."
+      }
+    ],
+    "strengths": [
+      "Very little code",
+      "Works in notebooks",
+      "Large component library"
+    ],
+    "limitations": [
+      "Focused on demos and ML apps",
+      "Complex apps may need Blocks or custom code"
+    ],
+    "useCases": [
+      {
+        "title": "Model demo",
+        "body": "Let others try your model."
+      },
+      {
+        "title": "Internal tool",
+        "body": "Simple UI for a Python script."
+      },
+      {
+        "title": "Teaching",
+        "body": "Interactive ML examples."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Gradio's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/gradio-app/gradio/blob/626553066c5309d94fedd21bf5e3a7e7ec50b269/README.md",
+      "prerequisites": [
+        "Python 3.10+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install (a virtual environment is recommended)",
+              "code": "pip install --upgrade gradio",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run a demo file",
+          "code": "python app.py",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build your first Gradio demo",
+      "useCase": "Wrap a greeting function in a web UI.",
+      "setup": [
+        "pip install --upgrade gradio"
+      ],
+      "steps": [
+        {
+          "title": "Create app.py",
+          "code": "import gradio as gr\n\ndef greet(name, intensity):\n    return \"Hello, \" + name + \"!\" * int(intensity)\n\ndemo = gr.Interface(\n    fn=greet,\n    inputs=[\"text\", \"slider\"],\n    outputs=[\"text\"],\n    api_name=\"predict\"\n)\n\ndemo.launch()",
+          "lang": "text"
+        },
+        {
+          "title": "Run it",
+          "code": "python app.py",
+          "lang": "bash"
+        },
+        {
+          "title": "Open the demo",
+          "body": "Go to http://localhost:7860, type a name, drag the slider and press Submit."
+        }
+      ],
+      "expected": "A friendly greeting appears on the right.",
+      "nextSteps": [
+        "Use gradio app.py for hot reload",
+        "Try other components",
+        "Share your demo"
+      ],
+      "sourceUrl": "https://github.com/gradio-app/gradio/blob/626553066c5309d94fedd21bf5e3a7e7ec50b269/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install errors",
+        "solution": "Gradio needs Python 3.10 or higher; install in a virtual environment.",
+        "sourceUrl": "https://github.com/gradio-app/gradio/blob/626553066c5309d94fedd21bf5e3a7e7ec50b269/README.md"
+      }
+    ],
+    "bestFor": [
+      "ML demos",
+      "Python web UIs",
+      "Prototyping AI apps"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "ML demo / web UI library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Default port",
+        "value": "7860"
+      }
+    ]
+  }
+}

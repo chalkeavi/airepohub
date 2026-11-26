@@ -1,0 +1,216 @@
+{
+  "fullName": "bmad-code-org/BMAD-METHOD",
+  "summary": "An agile method for AI-driven development that guides your coding agent from idea to briefs, specs, architecture and working code.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/bmad-code-org/BMAD-METHOD/blob/e435a22574fe55722841086e5566420178b98df3/README.md"
+    ],
+    "sourceCommitSha": "e435a22574fe55722841086e5566420178b98df3",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install the stable release in your project",
+        "command": "npx bmad-method install"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "BMad Method is an agile framework for building software with AI coding agents. It turns an idea or change request into briefs, specifications, architecture and working code, keeping the key decisions with you instead of handing everything to the model.",
+      "problem": "Coding agents jump straight to code and lose track of what you are building and why. BMad adds a structured, agile process that covers planning, design and change, so the project holds together as it grows.",
+      "whoFor": [
+        "Developers building projects with AI coding tools",
+        "Small teams that want a repeatable AI workflow",
+        "Product people writing briefs and specs with AI",
+        "Teams adding AI planning to an existing delivery process"
+      ],
+      "whyChoose": "Choose it when you want a full method rather than ad-hoc prompts: you can run it end to end or take its briefs, specs and architecture into your own workflow.",
+      "requirements": [
+        "Node.js 20.12+",
+        "Python 3.10+",
+        "An AI coding tool"
+      ]
+    },
+    "overview": [
+      "BMad ships on two lines. The stable v6.12 release installs with the npm installer and only receives bug fixes. V7 is a preview alpha installed as agent skills, and the README warns it can change between updates.",
+      "After installing v6.12, open your project in your AI coding tool, invoke bmad-build with what you want to change, and run bmad-help whenever you want guidance on the next step.",
+      "The project is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "End-to-end method",
+        "body": "From idea to briefs, specs, architecture and code."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Guided next steps",
+        "body": "bmad-help tells you what comes next."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Works with your tools",
+        "body": "Runs inside your AI coding tool."
+      },
+      {
+        "icon": "file-code",
+        "title": "Two release lines",
+        "body": "Stable v6.12 or V7 preview skills."
+      }
+    ],
+    "strengths": [
+      "Structured process for AI coding",
+      "Decisions stay with you",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "V7 is alpha with breaking changes",
+      "Needs Node.js and Python",
+      "More process than quick one-off prompts"
+    ],
+    "useCases": [
+      {
+        "title": "Start a new project",
+        "body": "Go from idea to architecture and code."
+      },
+      {
+        "title": "Plan a change",
+        "body": "Turn a change request into a spec."
+      },
+      {
+        "title": "Add structure to AI coding",
+        "body": "Use its briefs in your own workflow."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from BMad Method's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/bmad-code-org/BMAD-METHOD/blob/e435a22574fe55722841086e5566420178b98df3/README.md",
+      "prerequisites": [
+        "Node.js 20.12+",
+        "Python 3.10+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Stable v6.12",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Run the installer in your project",
+              "code": "npx bmad-method install",
+              "lang": "bash"
+            },
+            {
+              "title": "Open the project in your AI coding tool",
+              "body": "Invoke bmad-build with what you want to change."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "V7 preview (skills)",
+          "method": "skills",
+          "steps": [
+            {
+              "title": "Install core tools and the method as skills",
+              "body": "Expect breaking changes between updates.",
+              "code": "npx skills add bmad-code-org/BMAD-METHOD/skills/core-tools --skill '*'\nnpx skills add bmad-code-org/BMAD-METHOD/skills/method --skill '*'",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Ask for guidance in your AI coding tool",
+          "code": "bmad-help",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build your first change with BMad",
+      "useCase": "Install the stable release and let BMad guide a change from idea to code.",
+      "setup": [
+        "Node.js 20.12+",
+        "Python 3.10+",
+        "An AI coding tool"
+      ],
+      "steps": [
+        {
+          "title": "Install in your project",
+          "code": "npx bmad-method install",
+          "lang": "bash"
+        },
+        {
+          "title": "Describe the change",
+          "body": "In your AI coding tool, invoke bmad-build with what you want to build or change."
+        },
+        {
+          "title": "Follow the guidance",
+          "body": "Run bmad-help whenever you are unsure what comes next."
+        }
+      ],
+      "expected": "BMad walks you through planning and building the change, producing documents and code along the way.",
+      "nextSteps": [
+        "Read the v6.12 docs",
+        "Try the V7 preview skills",
+        "Carry the specs into your own workflow"
+      ],
+      "sourceUrl": "https://github.com/bmad-code-org/BMAD-METHOD/blob/e435a22574fe55722841086e5566420178b98df3/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "AI tool",
+        "value": "Your AI coding tool's subscription or API usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install fails",
+        "solution": "Check you have Node.js 20.12+ and Python 3.10+.",
+        "sourceUrl": "https://github.com/bmad-code-org/BMAD-METHOD/blob/e435a22574fe55722841086e5566420178b98df3/README.md"
+      },
+      {
+        "problem": "Things changed after an update on V7",
+        "solution": "V7 is a preview alpha; use stable v6.12 if you need stability.",
+        "sourceUrl": "https://github.com/bmad-code-org/BMAD-METHOD/blob/e435a22574fe55722841086e5566420178b98df3/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI-driven development",
+      "Planning with AI agents",
+      "Agile workflows"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI development method"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Stable version",
+        "value": "v6.12"
+      },
+      {
+        "label": "Install",
+        "value": "npx bmad-method install"
+      }
+    ]
+  }
+}

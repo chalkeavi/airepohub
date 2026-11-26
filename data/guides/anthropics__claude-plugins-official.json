@@ -1,0 +1,187 @@
+{
+  "fullName": "anthropics/claude-plugins-official",
+  "summary": "Anthropic's own Claude Code plugins and the official claude-plugins-official marketplace you install them from.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/anthropics/claude-plugins-official/blob/0fbfda5a91f4adc311daca25acc99132f40f0b6e/README.md"
+    ],
+    "sourceCommitSha": "0fbfda5a91f4adc311daca25acc99132f40f0b6e",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install a plugin in Claude Code",
+        "command": "/plugin install {plugin-name}@claude-plugins-official"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "This repository holds Anthropic's own plugins for Claude and the claude-plugins-official marketplace for Claude Code. Plugins add commands, agents, skills, hooks and MCP servers to Claude Code.",
+      "problem": "Finding trustworthy Claude Code plugins is hard. This is Anthropic's official home for its own plugins, installable straight from Claude Code's plugin system.",
+      "whoFor": [
+        "Claude Code users",
+        "Developers extending Claude Code",
+        "Teams standardising their Claude Code setup",
+        "Plugin authors looking for examples"
+      ],
+      "whyChoose": "Choose it for plugins maintained by Anthropic, installed with one command from inside Claude Code.",
+      "requirements": [
+        "Claude Code"
+      ]
+    },
+    "overview": [
+      "Install a plugin with /plugin install followed by the plugin name and @claude-plugins-official, or browse in /plugin > Discover.",
+      "The plugins folder holds plugins built by Anthropic; external_plugins holds third-party plugins added before submissions moved to claude.ai/directory/manage, plus Anthropic's channel plugins. The marketplace file is being reduced over time to Anthropic's own plugins.",
+      "The README warns that Anthropic does not control what MCP servers, files or software third-party plugins include, so trust a plugin before installing it. The repository is Apache-2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Official plugins",
+        "body": "Built and maintained by Anthropic."
+      },
+      {
+        "icon": "scan-search",
+        "title": "One-command install",
+        "body": "/plugin install inside Claude Code."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Discover menu",
+        "body": "Browse plugins in /plugin."
+      },
+      {
+        "icon": "file-code",
+        "title": "Examples",
+        "body": "Real plugin structure to learn from."
+      }
+    ],
+    "strengths": [
+      "Official source",
+      "Easy install",
+      "Apache-2.0 licensed"
+    ],
+    "limitations": [
+      "Third-party plugins are being phased out of this marketplace",
+      "Check any plugin before trusting it"
+    ],
+    "useCases": [
+      {
+        "title": "Extend Claude Code",
+        "body": "Add Anthropic's plugins."
+      },
+      {
+        "title": "Learn plugin structure",
+        "body": "Read real plugins as examples."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Claude Plugins (official)'s README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/blob/0fbfda5a91f4adc311daca25acc99132f40f0b6e/README.md",
+      "prerequisites": [
+        "Claude Code"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code plugin system",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Install a plugin by name",
+              "code": "/plugin install {plugin-name}@claude-plugins-official",
+              "lang": "text"
+            },
+            {
+              "title": "Or browse",
+              "code": "/plugin",
+              "lang": "text"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open the plugin menu and go to Discover",
+          "code": "/plugin",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Install your first official plugin",
+      "useCase": "Browse the official marketplace and install a plugin.",
+      "setup": [
+        "Claude Code"
+      ],
+      "steps": [
+        {
+          "title": "Open the plugin menu",
+          "code": "/plugin",
+          "lang": "text"
+        },
+        {
+          "title": "Choose Discover and pick a plugin"
+        },
+        {
+          "title": "Or install by name",
+          "code": "/plugin install {plugin-name}@claude-plugins-official",
+          "lang": "text"
+        }
+      ],
+      "expected": "The plugin's commands, skills or agents become available in Claude Code.",
+      "nextSteps": [
+        "Browse the plugins folder",
+        "Submit your own plugin at claude.ai/directory/manage"
+      ],
+      "sourceUrl": "https://github.com/anthropics/claude-plugins-official/blob/0fbfda5a91f4adc311daca25acc99132f40f0b6e/README.md"
+    },
+    "costs": [
+      {
+        "label": "Plugins",
+        "value": "Free; repository is Apache-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Claude Code",
+        "value": "Needs a Claude plan or API usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Want to submit a plugin",
+        "solution": "Submit at claude.ai/directory/manage; pull requests here are not the route.",
+        "sourceUrl": "https://github.com/anthropics/claude-plugins-official/blob/0fbfda5a91f4adc311daca25acc99132f40f0b6e/README.md"
+      }
+    ],
+    "bestFor": [
+      "Claude Code plugins",
+      "Official extensions"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Plugin marketplace"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Made by",
+        "value": "Anthropic"
+      },
+      {
+        "label": "For",
+        "value": "Claude Code"
+      }
+    ]
+  }
+}

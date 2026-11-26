@@ -1,0 +1,212 @@
+{
+  "fullName": "microsoft/qlib",
+  "summary": "Microsoft's AI-oriented quant investment platform for researching, backtesting and deploying machine learning trading strategies.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/microsoft/qlib/blob/54355232463878d2eebb91fe0ee5fa7fa1f5976c/README.md"
+    ],
+    "sourceCommitSha": "54355232463878d2eebb91fe0ee5fa7fa1f5976c",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install pyqlib"
+      },
+      {
+        "comment": "Run a LightGBM research workflow",
+        "command": "cd examples\nqrun benchmarks/LightGBM/workflow_config_lightgbm_Alpha158.yaml"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Qlib is an open-source quantitative investment platform from Microsoft that applies machine learning to finance. It covers the whole research loop: preparing market data, training models, backtesting strategies and evaluating results.",
+      "problem": "Building a quant research pipeline means stitching together data handling, models, backtests and reports. Qlib provides those pieces and a qrun tool that runs a full workflow from one config file.",
+      "whoFor": [
+        "Quant researchers",
+        "Data scientists exploring ML for finance",
+        "Students learning quantitative investing",
+        "Teams prototyping trading models"
+      ],
+      "whyChoose": "Choose it for a complete, research-grade ML quant platform with benchmark workflows, from Microsoft.",
+      "requirements": [
+        "Python 3.8 to 3.12",
+        "Conda recommended",
+        "Market data (see the data preparation section)"
+      ]
+    },
+    "overview": [
+      "Install with pip install pyqlib for the latest stable release, or from source for the newest features. The README recommends conda, since installing outside conda can miss header files.",
+      "You need data before running workflows. The official dataset is temporarily disabled, and the README points to a community data source you can download into ~/.qlib/qlib_data/cn_data. The qrun tool then builds the dataset, trains a model, backtests and evaluates in one go.",
+      "The README warns of an unreleased breaking change for source builds that restricts loading saved artifacts. Qlib is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Full research loop",
+        "body": "Data, models, backtests and evaluation."
+      },
+      {
+        "icon": "scan-search",
+        "title": "qrun workflows",
+        "body": "Run a whole experiment from one config."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Benchmarks",
+        "body": "Ready configs like LightGBM on Alpha158."
+      },
+      {
+        "icon": "file-code",
+        "title": "Data tools",
+        "body": "Download, collect and check market data."
+      }
+    ],
+    "strengths": [
+      "Research-grade and complete",
+      "Backed by Microsoft",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Official dataset temporarily disabled",
+      "Apple M1 may need extra steps for LightGBM",
+      "Unreleased breaking change for source builds"
+    ],
+    "useCases": [
+      {
+        "title": "Test an alpha factor",
+        "body": "Run benchmark workflows on your own data."
+      },
+      {
+        "title": "Compare models",
+        "body": "Benchmark ML models for stock prediction."
+      },
+      {
+        "title": "Learn quant research",
+        "body": "Follow the examples end to end."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Qlib's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/microsoft/qlib/blob/54355232463878d2eebb91fe0ee5fa7fa1f5976c/README.md",
+      "prerequisites": [
+        "Python 3.8 to 3.12",
+        "conda"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install the stable release",
+              "code": "pip install pyqlib",
+              "lang": "bash"
+            },
+            {
+              "title": "Download data",
+              "body": "The official dataset is temporarily disabled; the README suggests this community source.",
+              "code": "wget https://github.com/chenditc/investment_data/releases/latest/download/qlib_bin.tar.gz\nmkdir -p ~/.qlib/qlib_data/cn_data\ntar -zxvf qlib_bin.tar.gz -C ~/.qlib/qlib_data/cn_data --strip-components=1\nrm -f qlib_bin.tar.gz",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run the LightGBM workflow from the repository's examples folder",
+          "code": "cd examples\nqrun benchmarks/LightGBM/workflow_config_lightgbm_Alpha158.yaml",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your first quant research workflow",
+      "useCase": "Train and backtest a LightGBM model with qrun.",
+      "setup": [
+        "Qlib installed",
+        "Data in ~/.qlib/qlib_data/cn_data",
+        "The repository cloned for the examples folder"
+      ],
+      "steps": [
+        {
+          "title": "Go to the examples folder",
+          "body": "Avoid running from a directory that contains the qlib package.",
+          "code": "cd examples",
+          "lang": "bash"
+        },
+        {
+          "title": "Run the workflow",
+          "code": "qrun benchmarks/LightGBM/workflow_config_lightgbm_Alpha158.yaml",
+          "lang": "bash"
+        }
+      ],
+      "expected": "qrun builds the dataset, trains the model, runs a backtest and prints evaluation results.",
+      "nextSteps": [
+        "Try other benchmark configs",
+        "Check data health with the scripts folder",
+        "Read the docs on readthedocs"
+      ],
+      "sourceUrl": "https://github.com/microsoft/qlib/blob/54355232463878d2eebb91fe0ee5fa7fa1f5976c/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Data",
+        "value": "Public data sources; no cost stated in the README.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install fails with missing headers",
+        "solution": "Use a conda environment.",
+        "sourceUrl": "https://github.com/microsoft/qlib/blob/54355232463878d2eebb91fe0ee5fa7fa1f5976c/README.md"
+      },
+      {
+        "problem": "LightGBM wheel fails on Apple M1",
+        "solution": "Install the missing OpenMP dependency as described in the README tips.",
+        "sourceUrl": "https://github.com/microsoft/qlib/blob/54355232463878d2eebb91fe0ee5fa7fa1f5976c/README.md"
+      },
+      {
+        "problem": "Run fails inside the repo root",
+        "solution": "Run qrun from the examples folder.",
+        "sourceUrl": "https://github.com/microsoft/qlib/blob/54355232463878d2eebb91fe0ee5fa7fa1f5976c/README.md"
+      }
+    ],
+    "bestFor": [
+      "Quant research",
+      "ML for finance",
+      "Backtesting"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Quant investment platform"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Made by",
+        "value": "Microsoft"
+      }
+    ]
+  }
+}

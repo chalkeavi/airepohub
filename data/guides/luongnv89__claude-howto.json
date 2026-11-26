@@ -1,0 +1,198 @@
+{
+  "fullName": "luongnv89/claude-howto",
+  "summary": "Visual, example-driven guide to Claude Code with copy-paste templates for commands, memory, skills, hooks, subagents and MCP.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/luongnv89/claude-howto/blob/5609e68a6ce838579e15fd31ceb6025be08841df/README.md"
+    ],
+    "sourceCommitSha": "5609e68a6ce838579e15fd31ceb6025be08841df",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Get the guide and copy your first command",
+        "command": "git clone https://github.com/luongnv89/claude-howto.git\ncd claude-howto\nmkdir -p /path/to/your-project/.claude/commands\ncp 01-slash-commands/optimize.md /path/to/your-project/.claude/commands/"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Claude How To is a visual guide to Claude Code that takes you from typing claude to orchestrating agents. It has tutorials, a guided learning path and copy-paste templates for slash commands, project memory, skills, hooks, subagents, MCP servers and plugins.",
+      "problem": "Claude Code has many features and the docs alone don't show how to set them up in a real project. This guide gives ready-made templates you copy into your project, organised by level.",
+      "whoFor": [
+        "New Claude Code users",
+        "Developers who want templates, not theory",
+        "Teams setting up shared Claude Code config",
+        "Learners following a weekend plan"
+      ],
+      "whyChoose": "Choose it for a structured, hands-on path with templates you can use in minutes, available in several languages.",
+      "requirements": [
+        "Claude Code",
+        "git"
+      ]
+    },
+    "overview": [
+      "Start in 15 minutes: clone the guide, copy a slash command into your project's .claude/commands folder and try it in Claude Code. Then add project memory with a CLAUDE.md template and install a skill into ~/.claude/skills.",
+      "A one-hour essential setup covers slash commands, project memory and a skill; the weekend goal adds hooks, subagents, MCP and plugins. A feature catalog and a level finder help you choose where to start.",
+      "The README recommends Claude Code's native installer. The guide is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Learning path",
+        "body": "From basics to agents in a weekend."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Copy-paste templates",
+        "body": "Commands, memory, skills and more."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Visual tutorials",
+        "body": "Diagrams and examples."
+      },
+      {
+        "icon": "file-code",
+        "title": "Feature catalog",
+        "body": "Every feature in one place."
+      }
+    ],
+    "strengths": [
+      "Practical and fast to apply",
+      "Clear progression",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "A guide, not a tool",
+      "Claude Code changes quickly, so check the official docs too"
+    ],
+    "useCases": [
+      {
+        "title": "Set up a new project",
+        "body": "Copy commands and CLAUDE.md templates."
+      },
+      {
+        "title": "Learn hooks and subagents",
+        "body": "Follow the weekend plan."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Claude How To's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/luongnv89/claude-howto/blob/5609e68a6ce838579e15fd31ceb6025be08841df/README.md",
+      "prerequisites": [
+        "Claude Code",
+        "git"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Clone and copy templates",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone the guide",
+              "code": "git clone https://github.com/luongnv89/claude-howto.git\ncd claude-howto",
+              "lang": "bash"
+            },
+            {
+              "title": "Copy a slash command into your project",
+              "code": "mkdir -p /path/to/your-project/.claude/commands\ncp 01-slash-commands/optimize.md /path/to/your-project/.claude/commands/",
+              "lang": "bash"
+            },
+            {
+              "title": "Add project memory and a skill",
+              "code": "cp 02-memory/project-CLAUDE.md /path/to/your-project/CLAUDE.md\ncp -r 03-skills/code-review-specialist ~/.claude/skills/",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Try the command in Claude Code",
+          "code": "/optimize",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Do the one-hour essential setup",
+      "useCase": "Add slash commands, project memory and a skill to your project.",
+      "setup": [
+        "Claude Code",
+        "The guide cloned"
+      ],
+      "steps": [
+        {
+          "title": "Slash commands",
+          "code": "cp 01-slash-commands/*.md .claude/commands/",
+          "lang": "bash"
+        },
+        {
+          "title": "Project memory",
+          "code": "cp 02-memory/project-CLAUDE.md ./CLAUDE.md",
+          "lang": "bash"
+        },
+        {
+          "title": "A skill",
+          "code": "cp -r 03-skills/code-review-specialist ~/.claude/skills/",
+          "lang": "bash"
+        }
+      ],
+      "expected": "Claude Code in your project has new slash commands, a CLAUDE.md and a code review skill.",
+      "nextSteps": [
+        "Add hooks",
+        "Create a subagent",
+        "Connect an MCP server"
+      ],
+      "sourceUrl": "https://github.com/luongnv89/claude-howto/blob/5609e68a6ce838579e15fd31ceb6025be08841df/README.md"
+    },
+    "costs": [
+      {
+        "label": "Guide",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Claude Code",
+        "value": "Needs a Claude plan or API usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Command not showing",
+        "solution": "Make sure the .md file is in .claude/commands inside the project you opened in Claude Code.",
+        "sourceUrl": "https://github.com/luongnv89/claude-howto/blob/5609e68a6ce838579e15fd31ceb6025be08841df/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning Claude Code",
+      "Claude Code templates"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Learning guide"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "For",
+        "value": "Claude Code"
+      },
+      {
+        "label": "Format",
+        "value": "Tutorials and templates"
+      }
+    ]
+  }
+}

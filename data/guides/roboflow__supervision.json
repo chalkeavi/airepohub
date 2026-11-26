@@ -1,0 +1,191 @@
+{
+  "fullName": "roboflow/supervision",
+  "summary": "Python toolkit from Roboflow with reusable computer vision tools for detections, annotations, tracking and datasets.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/roboflow/supervision/blob/73d09a525de39c589d0e93c3bbd92517d066b532/README.md"
+    ],
+    "sourceCommitSha": "73d09a525de39c589d0e93c3bbd92517d066b532",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install supervision"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Supervision is a Python library from Roboflow with reusable tools for computer vision. It takes results from any detection, segmentation or classification model and helps you draw annotations, filter and count detections, track objects and work with datasets.",
+      "problem": "Every computer vision project rewrites the same glue code for drawing boxes, converting formats and counting objects. Supervision provides that code once, and it works with many models.",
+      "whoFor": [
+        "Python developers building vision apps",
+        "ML engineers working with object detection",
+        "Students learning computer vision",
+        "Teams processing video for counting or tracking"
+      ],
+      "whyChoose": "Choose it for a model-agnostic toolkit with ready-made annotators, dataset utilities and connectors for popular models, maintained by Roboflow.",
+      "requirements": [
+        "Python 3.10+"
+      ]
+    },
+    "overview": [
+      "Supervision is model agnostic: you plug in any classification, detection or segmentation model, and connectors convert results into its Detections format. The README example uses RF-DETR, and Roboflow Inference is supported with an API key.",
+      "Annotators draw boxes, labels, masks and more onto images and video. Dataset tools load, split, merge and convert datasets between formats.",
+      "Install with pip; conda, mamba and source installs are covered in the docs. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Model agnostic",
+        "body": "Works with many detection and segmentation models."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Annotators",
+        "body": "Boxes, labels, masks and more."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Datasets",
+        "body": "Load, split, merge and convert."
+      },
+      {
+        "icon": "file-code",
+        "title": "Detections API",
+        "body": "Filter and count results."
+      }
+    ],
+    "strengths": [
+      "Saves boilerplate code",
+      "Works with many models",
+      "Good docs and tutorials",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "You bring your own model",
+      "Roboflow Inference connector needs an API key"
+    ],
+    "useCases": [
+      {
+        "title": "Count objects in video",
+        "body": "Detect and count items per frame."
+      },
+      {
+        "title": "Visualise results",
+        "body": "Draw model outputs on images."
+      },
+      {
+        "title": "Prepare datasets",
+        "body": "Convert between dataset formats."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Supervision's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/roboflow/supervision/blob/73d09a525de39c589d0e93c3bbd92517d066b532/README.md",
+      "prerequisites": [
+        "Python 3.10+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install supervision",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Install the example model dependencies",
+          "code": "pip install pillow rfdetr",
+          "lang": "bash"
+        },
+        {
+          "title": "Run a detection",
+          "code": "import supervision as sv\nfrom PIL import Image\nfrom rfdetr import RFDETRSmall\n\nimage = Image.open(\"path/to/image.jpg\")\nmodel = RFDETRSmall()\ndetections = model.predict(image, threshold=0.5)\nlen(detections)",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Detect objects in an image",
+      "useCase": "Run a detector and inspect results with Supervision.",
+      "setup": [
+        "pip install supervision pillow rfdetr"
+      ],
+      "steps": [
+        {
+          "title": "Load an image and a model",
+          "code": "import supervision as sv\nfrom PIL import Image\nfrom rfdetr import RFDETRSmall\n\nimage = Image.open(\"path/to/image.jpg\")\nmodel = RFDETRSmall()",
+          "lang": "text"
+        },
+        {
+          "title": "Predict and count",
+          "code": "detections = model.predict(image, threshold=0.5)\nprint(len(detections))",
+          "lang": "text"
+        }
+      ],
+      "expected": "The number of objects found in your image prints.",
+      "nextSteps": [
+        "Draw the detections with an annotator",
+        "Track objects across video frames",
+        "Load a dataset"
+      ],
+      "sourceUrl": "https://github.com/roboflow/supervision/blob/73d09a525de39c589d0e93c3bbd92517d066b532/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Roboflow Inference",
+        "value": "Optional; needs a Roboflow API key.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Example import errors",
+        "solution": "Install the example's extra packages: pip install pillow rfdetr.",
+        "sourceUrl": "https://github.com/roboflow/supervision/blob/73d09a525de39c589d0e93c3bbd92517d066b532/README.md"
+      }
+    ],
+    "bestFor": [
+      "Computer vision tooling",
+      "Object detection apps",
+      "Video analytics"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Computer vision library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Made by",
+        "value": "Roboflow"
+      }
+    ]
+  }
+}
