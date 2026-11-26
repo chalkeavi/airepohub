@@ -47,6 +47,7 @@ pnpm lint         # eslint
 pnpm typecheck    # tsc --noEmit
 pnpm test         # vitest (unit tests for ranking, activity, data layer)
 pnpm build        # production build
+pnpm writer       # local writer: any LLM writes new repo pages into Supabase (docs/local-writer.md)
 ```
 
 ## Workflow

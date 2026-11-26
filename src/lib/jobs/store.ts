@@ -104,6 +104,8 @@ export interface JobStore {
   /** Hide pages from search engines (seo_metadata.noindex) until they get reviewed content. */
   setNoindex(repositoryIds: string[]): Promise<void>;
   markQueueApproved(githubIds: number[]): Promise<void>;
+  /** Remember repos the writer couldn't write a page for (queue status ignored + reason), so later runs skip them. */
+  ignoreInQueue(rows: { github_id: number; full_name: string; github_url: string; payload: Record<string, unknown>; notes: string }[], at: string): Promise<void>;
   /** Published repo ids keyed by lower-case owner/name. */
   repoIdsByFullName(fullNames: string[]): Promise<Map<string, string>>;
   /** Write a full product-page guide, publish it, and make the page indexable. */
@@ -318,6 +320,17 @@ export class SupabaseJobStore implements JobStore {
     for (let i = 0; i < githubIds.length; i += 500) {
       check(await this.db.from("discovery_queue").update({ status: "approved" }).in("github_id", githubIds.slice(i, i + 500)), "queue approve");
     }
+  }
+
+  async ignoreInQueue(rows: { github_id: number; full_name: string; github_url: string; payload: Record<string, unknown>; notes: string }[], at: string) {
+    if (!rows.length) return;
+    check(
+      await this.db.from("discovery_queue").upsert(
+        rows.map((r) => ({ github_id: r.github_id, full_name: r.full_name, github_url: r.github_url, payload: r.payload, status: "ignored", review_notes: r.notes.slice(0, 2000), reviewed_at: at, last_seen_at: at })),
+        { onConflict: "github_id" },
+      ),
+      "queue ignore",
+    );
   }
 
   async repoIdsByFullName(fullNames: string[]) {

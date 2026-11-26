@@ -48,6 +48,10 @@ export interface GithubApi {
    * (deleted, renamed to a reused name, hidden) should be looked up with getRepoById.
    */
   getReposBatch?(refs: RepoRef[]): Promise<Map<number, GithubRepo>>;
+  /** Current commit SHA of a branch. Optional: only the writer job uses it. */
+  getHeadSha?(fullName: string, branch: string): Promise<string | null>;
+  /** The repo's README at a commit (text and path). Null when there is none. */
+  getReadme?(fullName: string, ref: string): Promise<{ path: string; text: string } | null>;
 }
 
 export class GithubClient implements GithubApi {
@@ -103,6 +107,17 @@ export class GithubClient implements GithubApi {
       `/search/repositories?q=${q}&sort=stars&order=desc&per_page=${perPage}&page=${page}`,
     );
     return { total: res.body?.total_count ?? 0, items: res.body?.items ?? [] };
+  }
+
+  async getHeadSha(fullName: string, branch: string): Promise<string | null> {
+    const res = await this.get<{ sha: string }>(`/repos/${fullName}/commits/${encodeURIComponent(branch)}`);
+    return res.body?.sha ?? null;
+  }
+
+  async getReadme(fullName: string, ref: string): Promise<{ path: string; text: string } | null> {
+    const res = await this.get<{ path: string; content: string; encoding: string }>(`/repos/${fullName}/readme?ref=${encodeURIComponent(ref)}`);
+    if (!res.body || res.body.encoding !== "base64") return null;
+    return { path: res.body.path, text: Buffer.from(res.body.content, "base64").toString("utf8") };
   }
 
   async getReposBatch(refs: RepoRef[]): Promise<Map<number, GithubRepo>> {
