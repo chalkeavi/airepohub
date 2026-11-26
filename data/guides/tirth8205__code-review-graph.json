@@ -1,0 +1,187 @@
+{
+  "fullName": "tirth8205/code-review-graph",
+  "summary": "Local code map for AI coding assistants that shows what each change touches, so reviews and edits use less context.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/tirth8205/code-review-graph/blob/bbdda4b9e4b4818a9f04d7ef96ac0e50da13f208/README.md"
+    ],
+    "sourceCommitSha": "bbdda4b9e4b4818a9f04d7ef96ac0e50da13f208",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "uv tool install code-review-graph\ncode-review-graph install\ncode-review-graph build"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "code-review-graph builds a persistent, local graph of your codebase and exposes it to AI coding tools through MCP, hooks and skills. Assistants can then see which parts of the code a change affects and review it with focused context.",
+      "problem": "AI assistants reading a whole repo to review a change waste tokens and miss connections. A code graph points them at exactly what's affected.",
+      "whoFor": [
+        "Developers using Claude Code and other AI coding tools",
+        "Reviewers of large codebases",
+        "Teams wanting faster AI code review"
+      ],
+      "whyChoose": "Choose it for a local-first tool that sets itself up for the AI tools it finds, previews every file it will change, and can be fully undone.",
+      "requirements": [
+        "Python 3.10+",
+        "An AI coding tool such as Claude Code"
+      ]
+    },
+    "overview": [
+      "Install with uv, pipx or pip. code-review-graph install detects AI coding tools on your machine and adds an MCP server entry, hooks and skills for each, after listing the files it will change.",
+      "code-review-graph build parses the codebase, and detect-changes --brief shows what your last change touches. Restart your editor and ask the assistant to review your changes.",
+      "Undo with code-review-graph uninstall (try --dry-run first), and run doctor to check the setup. MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Code graph",
+        "body": "Persistent local map."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Change impact",
+        "body": "What a change touches."
+      },
+      {
+        "icon": "puzzle",
+        "title": "MCP, hooks, skills",
+        "body": "Set up automatically."
+      },
+      {
+        "icon": "file-code",
+        "title": "Preview first",
+        "body": "Lists files before writing."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Uninstall",
+        "body": "Clean undo."
+      }
+    ],
+    "strengths": [
+      "Local-first",
+      "Saves context",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Writes config files into your project",
+      "Graph must be rebuilt as code changes"
+    ],
+    "useCases": [
+      {
+        "title": "AI code review",
+        "body": "Ask to review my changes."
+      },
+      {
+        "title": "Impact analysis",
+        "body": "See affected code."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from code-review-graph's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/tirth8205/code-review-graph/blob/bbdda4b9e4b4818a9f04d7ef96ac0e50da13f208/README.md",
+      "prerequisites": [
+        "Python 3.10+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "uv tool install code-review-graph",
+              "lang": "bash"
+            },
+            {
+              "title": "Set up your AI tools",
+              "code": "code-review-graph install",
+              "lang": "bash"
+            },
+            {
+              "title": "Parse the codebase",
+              "code": "code-review-graph build",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "See what your last change touches",
+          "code": "code-review-graph detect-changes --brief",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Get an AI review of your changes",
+      "useCase": "Use the graph with your coding assistant.",
+      "setup": [
+        "code-review-graph installed and built"
+      ],
+      "steps": [
+        {
+          "title": "Restart your editor or AI tool"
+        },
+        {
+          "title": "Ask for a review",
+          "code": "Review my changes",
+          "lang": "text"
+        }
+      ],
+      "expected": "A review focused on the code your change affects.",
+      "nextSteps": [
+        "Run doctor to check setup",
+        "Uninstall with --dry-run first"
+      ],
+      "sourceUrl": "https://github.com/tirth8205/code-review-graph/blob/bbdda4b9e4b4818a9f04d7ef96ac0e50da13f208/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Something doesn't work",
+        "solution": "Run code-review-graph doctor; it checks the setup and changes nothing.",
+        "sourceUrl": "https://github.com/tirth8205/code-review-graph/blob/bbdda4b9e4b4818a9f04d7ef96ac0e50da13f208/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI code review",
+      "Code intelligence"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Code graph for AI tools"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "uv tool install code-review-graph"
+      }
+    ]
+  }
+}

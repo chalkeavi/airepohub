@@ -1,0 +1,183 @@
+{
+  "fullName": "explosion/spaCy",
+  "summary": "Fast, production-grade Python library for natural language processing, with pretrained pipelines for 70+ languages.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/explosion/spaCy/blob/a83cdd39f99fc405838029e3311890c24c5cd095/README.md"
+    ],
+    "sourceCommitSha": "a83cdd39f99fc405838029e3311890c24c5cd095",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install -U pip setuptools wheel\npip install spacy"
+      },
+      {
+        "comment": "Get an English model",
+        "command": "python -m spacy download en_core_web_sm"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "spaCy is a library for advanced natural language processing in Python and Cython, designed from day one for real products. It has pretrained pipelines, tokenization and training for 70+ languages, and fast neural models for tagging, parsing, named entity recognition, text classification and more.",
+      "problem": "Turning raw text into structured data needs reliable, fast NLP. spaCy gives you production-ready pipelines you can also train and extend.",
+      "whoFor": [
+        "Developers building text-processing apps",
+        "Data scientists extracting information",
+        "NLP engineers training custom models"
+      ],
+      "whyChoose": "Choose it for speed, a polished API, pretrained models and an established ecosystem, under the MIT license.",
+      "requirements": [
+        "Python 3.7 to 3.12, 64-bit",
+        "macOS, Linux or Windows"
+      ]
+    },
+    "overview": [
+      "Install with pip (or conda via conda-forge), then download a trained pipeline such as en_core_web_sm with python -m spacy download.",
+      "Load a pipeline with spacy.load(\"en_core_web_sm\") and call it on text to get a Doc with tokens, tags, entities and more.",
+      "When upgrading, run python -m spacy validate to check that installed pipelines are compatible. spaCy is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "70+ languages",
+        "body": "Tokenization and training."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Pretrained pipelines",
+        "body": "Ready models."
+      },
+      {
+        "icon": "puzzle",
+        "title": "NER and parsing",
+        "body": "Fast neural models."
+      },
+      {
+        "icon": "file-code",
+        "title": "Training",
+        "body": "Custom models."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Production ready",
+        "body": "Built for real products."
+      }
+    ],
+    "strengths": [
+      "Fast",
+      "Great docs",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Python 3.7-3.12 only",
+      "Not an LLM; best for structured NLP tasks"
+    ],
+    "useCases": [
+      {
+        "title": "Entity extraction",
+        "body": "Find names, places, dates."
+      },
+      {
+        "title": "Text preprocessing",
+        "body": "Tokenize and tag."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from spaCy's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/explosion/spaCy/blob/a83cdd39f99fc405838029e3311890c24c5cd095/README.md",
+      "prerequisites": [
+        "Python 3.7-3.12"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install -U pip setuptools wheel\npip install spacy",
+              "lang": "bash"
+            },
+            {
+              "title": "Download a pipeline",
+              "code": "python -m spacy download en_core_web_sm",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Process a sentence",
+          "code": "import spacy\n\nnlp = spacy.load(\"en_core_web_sm\")\ndoc = nlp(\"This is a sentence.\")",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Find entities in text",
+      "useCase": "Load a pipeline and list the entities it finds.",
+      "setup": [
+        "spaCy and en_core_web_sm installed"
+      ],
+      "steps": [
+        {
+          "title": "Load and run",
+          "code": "import spacy\n\nnlp = spacy.load(\"en_core_web_sm\")\ndoc = nlp(\"This is a sentence.\")\nfor ent in doc.ents:\n    print(ent.text, ent.label_)",
+          "lang": "text"
+        }
+      ],
+      "expected": "Each named entity in your text with its label.",
+      "nextSteps": [
+        "Try a larger pipeline",
+        "Train a custom model"
+      ],
+      "sourceUrl": "https://github.com/explosion/spaCy/blob/a83cdd39f99fc405838029e3311890c24c5cd095/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Pipeline incompatible after upgrade",
+        "solution": "Run python -m spacy validate.",
+        "sourceUrl": "https://github.com/explosion/spaCy/blob/a83cdd39f99fc405838029e3311890c24c5cd095/README.md"
+      }
+    ],
+    "bestFor": [
+      "NLP in Python",
+      "Entity extraction"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "NLP library"
+      },
+      {
+        "label": "Language",
+        "value": "Python, Cython"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Languages",
+        "value": "70+"
+      }
+    ]
+  }
+}

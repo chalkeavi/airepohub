@@ -1,0 +1,236 @@
+{
+  "fullName": "srbhr/Resume-Matcher",
+  "summary": "Free, self-hosted resume builder that uses AI to tailor your resume and cover letter to each job description, with ATS checks and PDF export.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/srbhr/Resume-Matcher/blob/959e4587dab33d7ff849d822b8182e11e7669dfc/README.md"
+    ],
+    "sourceCommitSha": "959e4587dab33d7ff849d822b8182e11e7669dfc",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Docker",
+        "command": "docker run --name resume-matcher -p 3000:3000 -v resume-data:/app/backend/data ghcr.io/srbhr/resume-matcher:latest"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Resume Matcher is an open-source app that tailors your resume to each job. You upload a master resume (PDF or DOCX), paste a job description, review the AI's suggested changes, generate a cover letter and interview prep, then export a PDF from a template. It includes ATS scoring, keyword highlighting and a queue for tailoring several applications.",
+      "problem": "Rewriting a resume for every application is slow. Resume Matcher drafts tailored versions from your master resume so you only review and adjust.",
+      "whoFor": [
+        "Job seekers applying to many roles",
+        "Software engineers tuning resumes",
+        "People who want their data kept on their own machine"
+      ],
+      "whyChoose": "Choose it for a free, self-hosted tool that works with many AI providers, including local Ollama, a Claude or ChatGPT subscription, or your coding agent with no API key.",
+      "requirements": [
+        "Docker, or Python 3.14+, Node.js 26.13.1 and uv for a source install",
+        "An AI provider (Ollama, an API key, or a supported subscription)"
+      ]
+    },
+    "overview": [
+      "The quickest route is the official Docker image, which serves the app at localhost:3000 with the API under /api. Mount a volume to keep your data.",
+      "From source, run the Python backend with uv in one terminal and the Next.js frontend with npm in another, then configure your AI provider in Settings. Windows 11 steps are in SETUP.md.",
+      "Supported providers include Ollama, OpenAI, Anthropic, Gemini, OpenRouter, DeepSeek and Groq. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Master resume",
+        "body": "One source for every application."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Job tailoring",
+        "body": "AI-suggested changes per job."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Cover letters",
+        "body": "Generated per application."
+      },
+      {
+        "icon": "file-code",
+        "title": "Interview prep",
+        "body": "Optional practice material."
+      },
+      {
+        "icon": "git-compare",
+        "title": "ATS check",
+        "body": "Score and keyword highlighting."
+      },
+      {
+        "icon": "shield",
+        "title": "PDF templates",
+        "body": "Professional exports."
+      }
+    ],
+    "strengths": [
+      "Free and self-hosted",
+      "Many AI providers, including local",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Source install needs very recent Python and Node",
+      "Always review AI edits for accuracy"
+    ],
+    "useCases": [
+      {
+        "title": "Apply to several jobs",
+        "body": "Use the tailoring queue."
+      },
+      {
+        "title": "Improve ATS match",
+        "body": "Check keywords before applying."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Resume Matcher's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/srbhr/Resume-Matcher/blob/959e4587dab33d7ff849d822b8182e11e7669dfc/README.md",
+      "prerequisites": [
+        "Docker, or Python 3.14+, Node.js and uv"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Run the container",
+              "code": "docker run --name resume-matcher \\\n  -p 3000:3000 \\\n  -v resume-data:/app/backend/data \\\n  ghcr.io/srbhr/resume-matcher:latest",
+              "lang": "bash"
+            },
+            {
+              "title": "Open the app",
+              "body": "Go to http://localhost:3000 and configure your AI provider in Settings."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "From source (macOS, WSL, Ubuntu)",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/srbhr/Resume-Matcher.git\ncd Resume-Matcher",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the backend (terminal 1)",
+              "body": "Edit .env to configure your AI provider.",
+              "code": "cd apps/backend\ncp .env.example .env\nuv sync\nuv run app",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the frontend (terminal 2)",
+              "code": "cd apps/frontend\nnpm install\nnpm run dev",
+              "lang": "bash"
+            },
+            {
+              "title": "Open the app",
+              "body": "Go to http://localhost:3000."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Set your AI provider",
+          "body": "Open Settings and pick Ollama or a cloud provider."
+        },
+        {
+          "title": "Upload your master resume",
+          "body": "PDF or DOCX."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Tailor your resume to a job",
+      "useCase": "The README's How It Works flow.",
+      "setup": [
+        "App running at localhost:3000",
+        "AI provider configured"
+      ],
+      "steps": [
+        {
+          "title": "Upload",
+          "body": "Add your master resume."
+        },
+        {
+          "title": "Paste a job description",
+          "body": "Use the role you're targeting."
+        },
+        {
+          "title": "Review",
+          "body": "Accept or edit the AI's tailored content."
+        },
+        {
+          "title": "Export",
+          "body": "Pick a template and download a PDF."
+        }
+      ],
+      "expected": "A tailored resume PDF for that job.",
+      "nextSteps": [
+        "Generate a cover letter",
+        "Run the ATS check",
+        "Queue several jobs"
+      ],
+      "sourceUrl": "https://github.com/srbhr/Resume-Matcher/blob/959e4587dab33d7ff849d822b8182e11e7669dfc/README.md"
+    },
+    "costs": [
+      {
+        "label": "Resume Matcher",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "AI provider",
+        "value": "Free with Ollama; cloud providers bill for usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Docker can't reach Ollama",
+        "solution": "Use http://host.docker.internal:11434 as the Ollama URL.",
+        "sourceUrl": "https://github.com/srbhr/Resume-Matcher/blob/959e4587dab33d7ff849d822b8182e11e7669dfc/README.md"
+      },
+      {
+        "problem": "Check the API is up",
+        "solution": "Open http://localhost:3000/api/v1/health.",
+        "sourceUrl": "https://github.com/srbhr/Resume-Matcher/blob/959e4587dab33d7ff849d822b8182e11e7669dfc/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI resume tailoring",
+      "Self-hosted job application tool"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Web app"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "Docker image"
+      }
+    ]
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "fullName": "iOfficeAI/AionUi",
+  "summary": "Free desktop cowork app with a built-in AI agent that also drives Claude Code, Codex and 20+ other agents, using any API key.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/iOfficeAI/AionUi/blob/e108b6b56b1a6eb99a00904878d0582f657b2908/readme.md"
+    ],
+    "sourceCommitSha": "e108b6b56b1a6eb99a00904878d0582f657b2908",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install (macOS)",
+        "command": "brew install aionui"
+      },
+      {
+        "comment": "Or download",
+        "command": "Get the installer for macOS, Windows or Linux from the Releases page"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "AionUi is a free, open-source cowork app with AI agents. It ships with its own agent engine that can read and write files, search the web, generate images and use MCP tools, and it can also work with CLI agents such as Claude Code, Codex, OpenCode, OpenClaw and Hermes.",
+      "problem": "Most agent tools need command-line setup. AionUi works as soon as you install it and paste an API key, with a friendly desktop interface.",
+      "whoFor": [
+        "People who want agents without the terminal",
+        "Users of several coding agents",
+        "Teams automating office documents"
+      ],
+      "whyChoose": "Choose it for zero-setup agents, multi-agent support, remote access, 24/7 automation and 21 ready assistants for slides, Word and Excel.",
+      "requirements": [
+        "macOS, Windows or Linux",
+        "An API key for a model provider"
+      ]
+    },
+    "overview": [
+      "Get started in three steps: install AionUi, enter any API key, and start coworking with the built-in agent.",
+      "The built-in agent handles files, web search, image generation and MCP tools, and there are 21 assistants such as PPT Creator, Word Creator and Excel Creator. It also connects to Claude Code, Codex, OpenCode and 20+ other agents.",
+      "Install from the Releases page or with Homebrew on macOS. AionUi is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Built-in agent",
+        "body": "No CLI tools needed."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Any API key",
+        "body": "Bring your own provider."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Multi-agent",
+        "body": "Claude Code, Codex and more."
+      },
+      {
+        "icon": "file-code",
+        "title": "Office assistants",
+        "body": "Slides, Word and Excel creators."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Remote access",
+        "body": "Use it away from your desk."
+      },
+      {
+        "icon": "shield",
+        "title": "24/7 automation",
+        "body": "Scheduled tasks."
+      }
+    ],
+    "strengths": [
+      "Zero setup",
+      "Cross-platform",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "You pay for model usage",
+      "Many features to learn"
+    ],
+    "useCases": [
+      {
+        "title": "Make a deck",
+        "body": "Use the PPT Creator."
+      },
+      {
+        "title": "Run coding agents",
+        "body": "One UI for several CLIs."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from AionUi's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/iOfficeAI/AionUi/blob/e108b6b56b1a6eb99a00904878d0582f657b2908/readme.md",
+      "prerequisites": [
+        "Desktop computer",
+        "API key"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Installer",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download",
+              "body": "Get the installer for your platform from the Releases page."
+            },
+            {
+              "title": "Enter an API key",
+              "body": "Paste any supported provider key to start."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Homebrew (macOS)",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install aionui",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start a cowork session",
+          "body": "Ask the built-in agent to summarise a folder of files."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Create a slide deck with an assistant",
+      "useCase": "Use the PPT Creator assistant.",
+      "setup": [
+        "AionUi installed",
+        "An API key"
+      ],
+      "steps": [
+        {
+          "title": "Open the PPT Creator assistant"
+        },
+        {
+          "title": "Describe your deck",
+          "body": "Give a topic and the number of slides."
+        },
+        {
+          "title": "Review and edit",
+          "body": "Ask for changes until it's right."
+        }
+      ],
+      "expected": "A slide deck file generated by the assistant.",
+      "nextSteps": [
+        "Try Word or Excel creators",
+        "Connect Claude Code",
+        "Set up an automation"
+      ],
+      "sourceUrl": "https://github.com/iOfficeAI/AionUi/blob/e108b6b56b1a6eb99a00904878d0582f657b2908/readme.md"
+    },
+    "costs": [
+      {
+        "label": "App",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Your provider bills for usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Agent doesn't respond",
+        "solution": "Check the API key you entered.",
+        "sourceUrl": "https://github.com/iOfficeAI/AionUi/blob/e108b6b56b1a6eb99a00904878d0582f657b2908/readme.md"
+      }
+    ],
+    "bestFor": [
+      "AI cowork app",
+      "Agent desktop UI"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Desktop agent app"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "brew install aionui"
+      }
+    ]
+  }
+}

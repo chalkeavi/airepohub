@@ -1,0 +1,211 @@
+{
+  "fullName": "78/xiaozhi-esp32",
+  "summary": "Firmware that turns a cheap ESP32 board into a voice AI chatbot that talks through MCP-connected models and tools.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/78/xiaozhi-esp32/blob/a31349491ba9805c5e7b7f7b4dc6f33172cdc655/README.md"
+    ],
+    "sourceCommitSha": "a31349491ba9805c5e7b7f7b4dc6f33172cdc655",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Get started",
+        "command": "Flash the beginner firmware using the guide at docs.xiaozhi.me"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "XiaoZhi is an MCP-based voice chatbot that runs on ESP32 boards. It streams audio with speech recognition, an LLM and text-to-speech, or end-to-end realtime voice models, and can control devices through MCP.",
+      "problem": "Building your own voice assistant hardware is complicated. XiaoZhi gives ready firmware for many ESP32 boards and a hosted server so beginners can start quickly.",
+      "whoFor": [
+        "Makers and hardware hobbyists",
+        "Students learning embedded AI",
+        "Developers building voice devices"
+      ],
+      "whyChoose": "Choose it for support across ESP32, C3, C5, C6, S3 and P4 chips, many supported boards, and both hosted and self-hosted server options.",
+      "requirements": [
+        "A supported ESP32 board with microphone and speaker",
+        "For development: ESP-IDF v6.0.1 or later"
+      ]
+    },
+    "overview": [
+      "Beginners can flash prebuilt firmware without a development environment; see the Beginner's Firmware Flashing Guide. The firmware connects to the official xiaozhi.me server by default, where personal users can register and use the Qwen realtime model for free, per the README.",
+      "Developers build with ESP-IDF v6.0.1+ (release/v6.1 recommended). A breadboard tutorial for ESP32-S3 and a list of supported boards are in the docs.",
+      "You can self-host the server with community projects such as xiaozhi-esp32-server (Python) or a Java version. The firmware is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Voice chat",
+        "body": "ASR, LLM and TTS."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Realtime models",
+        "body": "Full-duplex on capable hardware."
+      },
+      {
+        "icon": "puzzle",
+        "title": "MCP",
+        "body": "Control devices and tools."
+      },
+      {
+        "icon": "file-code",
+        "title": "Many chips",
+        "body": "ESP32 family."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Hosted or self-hosted",
+        "body": "xiaozhi.me or your own server."
+      }
+    ],
+    "strengths": [
+      "Cheap hardware",
+      "Beginner firmware",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Needs physical hardware",
+      "Default server is a third-party service"
+    ],
+    "useCases": [
+      {
+        "title": "Desk voice assistant",
+        "body": "Talk to an AI at home."
+      },
+      {
+        "title": "Smart home control",
+        "body": "Use MCP tools."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from XiaoZhi ESP32's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/78/xiaozhi-esp32/blob/a31349491ba9805c5e7b7f7b4dc6f33172cdc655/README.md",
+      "prerequisites": [
+        "ESP32 board"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Beginner firmware",
+          "method": "flash",
+          "steps": [
+            {
+              "title": "Get a supported board",
+              "body": "See the hardware list or the ESP32-S3 breadboard tutorial."
+            },
+            {
+              "title": "Flash the firmware",
+              "body": "Follow the Beginner's Firmware Flashing Guide at docs.xiaozhi.me."
+            },
+            {
+              "title": "Register and connect",
+              "body": "Create an account on xiaozhi.me and activate your device."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Build from source",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Install ESP-IDF v6.0.1 or later",
+              "body": "release/v6.1 is recommended."
+            },
+            {
+              "title": "Clone and build",
+              "code": "git clone https://github.com/78/xiaozhi-esp32.git",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Say hello",
+          "body": "After activation, press the button and speak to your device."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build a breadboard voice assistant",
+      "useCase": "Assemble an ESP32-S3 board and flash XiaoZhi.",
+      "setup": [
+        "ESP32-S3, microphone and speaker parts"
+      ],
+      "steps": [
+        {
+          "title": "Follow the breadboard tutorial",
+          "body": "Linked in the README's Hardware section."
+        },
+        {
+          "title": "Flash the beginner firmware"
+        },
+        {
+          "title": "Configure it in the xiaozhi.me console"
+        }
+      ],
+      "expected": "A working voice chatbot on your desk.",
+      "nextSteps": [
+        "Self-host the server",
+        "Add MCP tools"
+      ],
+      "sourceUrl": "https://github.com/78/xiaozhi-esp32/blob/a31349491ba9805c5e7b7f7b4dc6f33172cdc655/README.md"
+    },
+    "costs": [
+      {
+        "label": "Firmware",
+        "value": "Free under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Hardware",
+        "value": "ESP32 board and parts.",
+        "tone": "paid"
+      },
+      {
+        "label": "Hosted server",
+        "value": "Free personal use per the README.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Build errors",
+        "solution": "The project needs ESP-IDF v6.0.1+; 5.x is no longer supported.",
+        "sourceUrl": "https://github.com/78/xiaozhi-esp32/blob/a31349491ba9805c5e7b7f7b4dc6f33172cdc655/README.md"
+      }
+    ],
+    "bestFor": [
+      "DIY voice assistant",
+      "ESP32 AI"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "ESP32 voice chatbot firmware"
+      },
+      {
+        "label": "Language",
+        "value": "C++"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Chips",
+        "value": "ESP32, C3, C5, C6, S3, P4"
+      }
+    ]
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "fullName": "openai/openai-agents-python",
+  "summary": "OpenAI's lightweight Python framework for building agents and multi-agent workflows, with tools, handoffs, guardrails, sessions and tracing.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/openai/openai-agents-python/blob/6afdd47b4fab14d61e0e6f7c002e6ec9b36fcd71/README.md"
+    ],
+    "sourceCommitSha": "6afdd47b4fab14d61e0e6f7c002e6ec9b36fcd71",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install openai-agents"
+      },
+      {
+        "comment": "Or with uv",
+        "command": "uv add openai-agents"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "The OpenAI Agents SDK is a Python framework for building agent workflows. An agent is a model with instructions, tools, guardrails and handoffs, and the SDK runs it for you. It also supports sandbox agents that work in a container, realtime and voice agents, human-in-the-loop steps, sessions and built-in tracing.",
+      "problem": "Writing the loop that calls a model, runs tools, hands off between agents and keeps history is repetitive. The SDK provides those pieces with a small API.",
+      "whoFor": [
+        "Python developers building agents",
+        "Teams building multi-agent workflows",
+        "Builders of voice agents"
+      ],
+      "whyChoose": "Choose it for a small, provider-agnostic API that supports the OpenAI Responses and Chat Completions APIs and many other models.",
+      "requirements": [
+        "Python 3.10 or newer",
+        "An OPENAI_API_KEY (or another supported provider)"
+      ]
+    },
+    "overview": [
+      "Install with pip or uv. Optional extras add voice support, Redis sessions and Docker sandboxes.",
+      "Set OPENAI_API_KEY, create an Agent with a name and instructions, and run it with Runner.run_sync. Agents can call function tools, MCP tools and hosted tools, and hand work to other agents.",
+      "There are four main ways to run agents: text, sandbox, realtime and voice. Tracing lets you view and debug runs. It is MIT licensed; a JavaScript/TypeScript version is in a separate repo."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Agents",
+        "body": "Instructions, tools, guardrails, handoffs."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Sandbox agents",
+        "body": "Work in a container on long tasks."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Realtime and voice",
+        "body": "Voice agents and pipelines."
+      },
+      {
+        "icon": "file-code",
+        "title": "Guardrails",
+        "body": "Input and output checks."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Sessions",
+        "body": "Automatic conversation history."
+      },
+      {
+        "icon": "shield",
+        "title": "Tracing",
+        "body": "View and debug runs."
+      }
+    ],
+    "strengths": [
+      "Small API",
+      "Provider-agnostic",
+      "MIT license"
+    ],
+    "limitations": [
+      "Python only here (JS version is separate)",
+      "Model usage is billed by your provider"
+    ],
+    "useCases": [
+      {
+        "title": "Customer support triage",
+        "body": "Agents that hand off to specialists."
+      },
+      {
+        "title": "Coding tasks",
+        "body": "Sandbox agent that edits files and runs commands."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from OpenAI Agents SDK's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/openai/openai-agents-python/blob/6afdd47b4fab14d61e0e6f7c002e6ec9b36fcd71/README.md",
+      "prerequisites": [
+        "Python 3.10+",
+        "OPENAI_API_KEY"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "venv + pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Create a virtual environment",
+              "body": "On Windows activate with .venv\\Scripts\\activate.",
+              "code": "python -m venv .venv\nsource .venv/bin/activate",
+              "lang": "bash"
+            },
+            {
+              "title": "Install",
+              "code": "pip install openai-agents",
+              "lang": "bash"
+            },
+            {
+              "title": "Optional extras",
+              "body": "Voice or Redis session support.",
+              "code": "pip install 'openai-agents[voice]'",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Create a project and add the SDK",
+              "code": "uv init\nuv add openai-agents",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "OPENAI_API_KEY",
+          "required": true,
+          "description": "Your OpenAI API key."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Set your API key",
+          "body": "Export OPENAI_API_KEY."
+        },
+        {
+          "title": "Run a text agent",
+          "body": "Create an Agent and call Runner.run_sync with a prompt."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your first text agent",
+      "useCase": "The README's hello-world agent.",
+      "setup": [
+        "openai-agents installed",
+        "OPENAI_API_KEY set"
+      ],
+      "steps": [
+        {
+          "title": "Create the agent",
+          "body": "from agents import Agent, Runner, then Agent(name=\"Assistant\", instructions=\"You are a helpful assistant\")."
+        },
+        {
+          "title": "Run it",
+          "body": "Runner.run_sync(agent, \"Write a haiku about recursion in programming.\")."
+        },
+        {
+          "title": "Print the answer",
+          "body": "print(result.final_output)."
+        }
+      ],
+      "expected": "A short haiku printed in your terminal.",
+      "nextSteps": [
+        "Add a function tool",
+        "Try a handoff between agents",
+        "Look at the trace"
+      ],
+      "sourceUrl": "https://github.com/openai/openai-agents-python/blob/6afdd47b4fab14d61e0e6f7c002e6ec9b36fcd71/README.md"
+    },
+    "costs": [
+      {
+        "label": "SDK",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Model usage",
+        "value": "Billed by OpenAI or your chosen provider.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Authentication error",
+        "solution": "Set OPENAI_API_KEY before running.",
+        "sourceUrl": "https://github.com/openai/openai-agents-python/blob/6afdd47b4fab14d61e0e6f7c002e6ec9b36fcd71/README.md"
+      },
+      {
+        "problem": "Sandbox example fails on Windows",
+        "solution": "UnixLocalSandboxClient is macOS/Linux only; use DockerSandboxClient with the docker extra.",
+        "sourceUrl": "https://github.com/openai/openai-agents-python/blob/6afdd47b4fab14d61e0e6f7c002e6ec9b36fcd71/README.md"
+      }
+    ],
+    "bestFor": [
+      "Python agent framework",
+      "Multi-agent workflows"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent framework"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "pip install openai-agents"
+      }
+    ]
+  }
+}

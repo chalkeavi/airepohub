@@ -1,0 +1,198 @@
+{
+  "fullName": "OthmanAdi/planning-with-files",
+  "summary": "Agent skill that makes coding agents keep their plan, findings and progress in Markdown files so they can pick up after /clear or a crash.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/OthmanAdi/planning-with-files/blob/189fd09fecb246a4064f2cd0635153b5297f5369/README.md"
+    ],
+    "sourceCommitSha": "189fd09fecb246a4064f2cd0635153b5297f5369",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "npx skills add OthmanAdi/planning-with-files --skill planning-with-files -g"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "planning-with-files is a skill for Claude Code and 60+ other agents that makes the agent store its working state on disk in three files: task_plan.md (phases and checkboxes), findings.md (research notes and decisions) and progress.md (session log and test results). With the Claude Code plugin, hooks re-inject the active plan each turn, so the agent stays on track even after /clear.",
+      "problem": "Long agent tasks fall apart when the context is cleared or the session crashes. Keeping the plan in files gives the agent a resume point.",
+      "whoFor": [
+        "Claude Code users on long tasks",
+        "Users of other agents that support Agent Skills",
+        "People running multi-agent workflows"
+      ],
+      "whyChoose": "Choose it for a simple 3-file pattern, slash commands for planning and status, and hooks that keep the plan in front of the agent.",
+      "requirements": [
+        "A coding agent (Claude Code for the full plugin)",
+        "Node.js for npx"
+      ]
+    },
+    "overview": [
+      "Install globally with the skills CLI for any agent, or use the Claude Code plugin route, which adds hooks and slash commands.",
+      "Run /plan to create the three files and start; /status shows the current phase; /plan-doctor checks the setup.",
+      "The planning files are working memory and are gitignored by default. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "3-file pattern",
+        "body": "Plan, findings, progress."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Survives /clear",
+        "body": "Resume from the files."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Hooks",
+        "body": "Re-inject plan context each turn."
+      },
+      {
+        "icon": "file-code",
+        "title": "Slash commands",
+        "body": "/plan, /status, /plan-doctor."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Plan attest",
+        "body": "Lock the plan with a hash."
+      },
+      {
+        "icon": "shield",
+        "title": "Many agents",
+        "body": "60+ via Agent Skills."
+      }
+    ],
+    "strengths": [
+      "Simple idea that works",
+      "Many hosts supported",
+      "MIT license"
+    ],
+    "limitations": [
+      "Full hooks and commands need the Claude Code plugin",
+      "Adds files to your project folder"
+    ],
+    "useCases": [
+      {
+        "title": "Multi-day refactor",
+        "body": "Resume after context clears."
+      },
+      {
+        "title": "Research-heavy task",
+        "body": "Keep findings in one place."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from planning-with-files's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/OthmanAdi/planning-with-files/blob/189fd09fecb246a4064f2cd0635153b5297f5369/README.md",
+      "prerequisites": [
+        "A supported agent"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code plugin",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add and install",
+              "code": "/plugin marketplace add OthmanAdi/planning-with-files\n/plugin install planning-with-files@planning-with-files",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Any agent (skills CLI)",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install globally",
+              "code": "npx skills add OthmanAdi/planning-with-files --skill planning-with-files -g",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start a plan",
+          "body": "Type /plan in Claude Code."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run a long task that survives /clear",
+      "useCase": "See the plan files in action.",
+      "setup": [
+        "Plugin installed in Claude Code"
+      ],
+      "steps": [
+        {
+          "title": "Start planning",
+          "body": "Run /plan and describe your task."
+        },
+        {
+          "title": "Work for a while",
+          "body": "The agent updates task_plan.md, findings.md and progress.md."
+        },
+        {
+          "title": "Clear and resume",
+          "body": "Run /clear, then ask the agent to continue."
+        }
+      ],
+      "expected": "The agent reads the files and continues from the right phase.",
+      "nextSteps": [
+        "Check /status",
+        "Run /plan-doctor",
+        "Try /plan-attest"
+      ],
+      "sourceUrl": "https://github.com/OthmanAdi/planning-with-files/blob/189fd09fecb246a4064f2cd0635153b5297f5369/README.md"
+    },
+    "costs": [
+      {
+        "label": "Skill",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Plan isn't picked up",
+        "solution": "Run /plan-doctor to check hooks and install state.",
+        "sourceUrl": "https://github.com/OthmanAdi/planning-with-files/blob/189fd09fecb246a4064f2cd0635153b5297f5369/README.md"
+      }
+    ],
+    "bestFor": [
+      "Agent planning",
+      "Long-running coding tasks"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent skill / plugin"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Files",
+        "value": "task_plan.md, findings.md, progress.md"
+      },
+      {
+        "label": "Install",
+        "value": "npx skills add"
+      }
+    ]
+  }
+}

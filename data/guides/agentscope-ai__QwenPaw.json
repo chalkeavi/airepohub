@@ -1,0 +1,220 @@
+{
+  "fullName": "agentscope-ai/QwenPaw",
+  "summary": "Personal AI assistant you run locally or in the cloud, with long-term memory, skills, plugins and chat app connections.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/agentscope-ai/QwenPaw/blob/1826c6ca9bdfd2f27a91ec03de789899e9a3ceb6/README.md"
+    ],
+    "sourceCommitSha": "1826c6ca9bdfd2f27a91ec03de789899e9a3ceb6",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install qwenpaw\nqwenpaw init --defaults\nqwenpaw app"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "QwenPaw is a personal AI assistant from the AgentScope team. You deploy it on your own machine or in the cloud, extend it with skills and plugins, and talk to it from chat apps like DingTalk, Lark and WeChat.",
+      "problem": "Most assistants forget past conversations and live only in the cloud. QwenPaw keeps a three-layer memory, can run a local model with no API key, and blocks dangerous commands before they run.",
+      "whoFor": [
+        "People who want a self-hosted assistant",
+        "Teams using DingTalk, Lark or WeChat",
+        "Developers extending assistants with skills"
+      ],
+      "whyChoose": "Choose it for built-in local models (QwenPaw-Flash) that run without an API key, strong security guards, multi-agent support and many channels.",
+      "requirements": [
+        "Python 3.11 to 3.13 for pip install, or use the install script"
+      ]
+    },
+    "overview": [
+      "Install with pip (then qwenpaw init --defaults and qwenpaw app) or with a one-line script for macOS/Linux or Windows that sets up uv and a virtual environment for you. Open the console at http://127.0.0.1:8088/ to configure your model.",
+      "Memory has three layers: live working context, full history and a self-evolving knowledge base. QwenPaw-Flash models (2B to 35B) run through the built-in local runtime, or you can use cloud providers.",
+      "Security features include a kernel-level sandbox, tool and file guards, a skill scanner and access policies. You can spawn sub-agents and use the Agent Communication Protocol. The project is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Three-layer memory",
+        "body": "Context, history, knowledge base."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Local models",
+        "body": "QwenPaw-Flash, no API key."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Security guards",
+        "body": "Sandbox, Tool Guard, File Guard."
+      },
+      {
+        "icon": "file-code",
+        "title": "Multi-agent",
+        "body": "Sub-agents and ACP."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Channels",
+        "body": "DingTalk, Lark, WeChat and more."
+      }
+    ],
+    "strengths": [
+      "Runs free locally",
+      "Security built in",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Some backends are separate plugins",
+      "Local models need enough hardware"
+    ],
+    "useCases": [
+      {
+        "title": "Personal assistant",
+        "body": "Remembers your preferences."
+      },
+      {
+        "title": "Team chat bot",
+        "body": "Answer in Lark or DingTalk."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from QwenPaw's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/agentscope-ai/QwenPaw/blob/1826c6ca9bdfd2f27a91ec03de789899e9a3ceb6/README.md",
+      "prerequisites": [
+        "Python 3.11-3.13"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install and initialise",
+              "code": "pip install qwenpaw\nqwenpaw init --defaults",
+              "lang": "bash"
+            },
+            {
+              "title": "Start",
+              "code": "qwenpaw app",
+              "lang": "bash"
+            },
+            {
+              "title": "Configure your model",
+              "body": "Open http://127.0.0.1:8088/ in your browser."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Install script (macOS/Linux)",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Run the installer",
+              "code": "curl -fsSL https://qwenpaw.agentscope.io/install.sh | bash",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Install script (Windows)",
+          "method": "powershell",
+          "steps": [
+            {
+              "title": "Run in PowerShell",
+              "code": "irm https://qwenpaw.agentscope.io/install.ps1 | iex",
+              "lang": "powershell"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open the console and pick a model",
+          "body": "Go to http://127.0.0.1:8088/ and choose the local runtime or a provider."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your own assistant",
+      "useCase": "Install QwenPaw and chat with it in the browser.",
+      "setup": [
+        "Python 3.11+"
+      ],
+      "steps": [
+        {
+          "title": "Install",
+          "code": "pip install qwenpaw\nqwenpaw init --defaults",
+          "lang": "bash"
+        },
+        {
+          "title": "Start the app",
+          "code": "qwenpaw app",
+          "lang": "bash"
+        },
+        {
+          "title": "Configure and chat",
+          "body": "Open the console, set a model, and start chatting."
+        }
+      ],
+      "expected": "A running assistant you can chat with that remembers past conversations.",
+      "nextSteps": [
+        "Connect a chat channel",
+        "Add a skill or plugin",
+        "Try sub-agents"
+      ],
+      "sourceUrl": "https://github.com/agentscope-ai/QwenPaw/blob/1826c6ca9bdfd2f27a91ec03de789899e9a3ceb6/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Local models are free; cloud providers bill usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "pip install fails",
+        "solution": "Use Python 3.11 to 3.13, or the install script.",
+        "sourceUrl": "https://github.com/agentscope-ai/QwenPaw/blob/1826c6ca9bdfd2f27a91ec03de789899e9a3ceb6/README.md"
+      }
+    ],
+    "bestFor": [
+      "Personal AI assistant",
+      "Self-hosted agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Personal AI assistant"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Console",
+        "value": "127.0.0.1:8088"
+      }
+    ]
+  }
+}

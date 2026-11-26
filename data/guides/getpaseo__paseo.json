@@ -1,0 +1,234 @@
+{
+  "fullName": "getpaseo/paseo",
+  "summary": "One app to run and manage many coding agents (Claude Code, Codex, Copilot and more) in parallel, on desktop, phone, web or CLI.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/getpaseo/paseo/blob/5238bfb641ef0e3bdc37678a6cdd623caa23cd65/README.md"
+    ],
+    "sourceCommitSha": "5238bfb641ef0e3bdc37678a6cdd623caa23cd65",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Desktop app",
+        "command": "Download from paseo.sh/download"
+      },
+      {
+        "comment": "Server",
+        "command": "npm install -g @getpaseo/cli"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Paseo is an open-source development environment for working with AI coding agents. A local server (the daemon) manages agents like Claude Code, Codex, GitHub Copilot and OpenCode, and desktop, mobile, web and CLI clients connect to it. You can run many agents at once, each in its own git worktree, review their diffs, open pull requests, use terminals and a built-in browser, and even control it by voice.",
+      "problem": "Juggling several coding agents across terminals and machines is messy. Paseo puts them in one interface you can reach from any device.",
+      "whoFor": [
+        "Developers using several AI coding agents",
+        "People who want to check on agents from their phone",
+        "Teams running agents on a remote workstation"
+      ],
+      "whyChoose": "Choose it to orchestrate multiple agent CLIs side by side, self-hosted, without telemetry or forced login.",
+      "requirements": [
+        "At least one agent CLI installed and signed in, such as Claude Code, Codex, Copilot or OpenCode"
+      ]
+    },
+    "overview": [
+      "Install and sign in to at least one supported agent CLI first.",
+      "Download the desktop app from paseo.sh/download or GitHub releases; opening it starts the daemon automatically.",
+      "On a server, install the CLI with npm and run paseo, or use the Docker image. It is Apache-2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Parallel agents",
+        "body": "Each in its own worktree."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Multi-provider",
+        "body": "Claude Code, Codex, Copilot, OpenCode and more."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Full workflow",
+        "body": "Edit, diff, terminals, pull requests, browser."
+      },
+      {
+        "icon": "file-code",
+        "title": "Cross-device",
+        "body": "Desktop, iOS, Android, web, CLI."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Voice control",
+        "body": "Dictate tasks."
+      },
+      {
+        "icon": "shield",
+        "title": "Privacy",
+        "body": "No telemetry; optional end-to-end encrypted relay."
+      }
+    ],
+    "strengths": [
+      "Works with many agent CLIs",
+      "Self-hosted",
+      "Phone access to running agents"
+    ],
+    "limitations": [
+      "Needs your own agent CLIs and their subscriptions",
+      "Docker image must be extended with the agent CLIs you use"
+    ],
+    "useCases": [
+      {
+        "title": "Parallel features",
+        "body": "Run agents on separate branches at once."
+      },
+      {
+        "title": "Remote checks",
+        "body": "Follow agents from your phone."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Paseo's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/getpaseo/paseo/blob/5238bfb641ef0e3bdc37678a6cdd623caa23cd65/README.md",
+      "prerequisites": [
+        "A supported agent CLI with credentials"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Desktop app",
+          "method": "desktop",
+          "steps": [
+            {
+              "title": "Download",
+              "body": "Get the app from paseo.sh/download or the GitHub releases page."
+            },
+            {
+              "title": "Open it",
+              "body": "The daemon starts automatically. To pair your phone, open Settings, your host, Pair Device."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Server (CLI)",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install the CLI",
+              "code": "npm install -g @getpaseo/cli",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the daemon",
+              "body": "It asks whether to enable the encrypted relay for device pairing; if you decline, connect over TCP, Tailscale or a VPN.",
+              "code": "paseo",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Run the daemon and web UI",
+              "body": "Change the password, then open http://localhost:6767. Extend the image with the agent CLIs you use.",
+              "code": "docker run -d --name paseo \\\n  -p 6767:6767 \\\n  -e PASEO_PASSWORD=change-me \\\n  -v \"$PWD/paseo-home:/home/paseo\" \\\n  -v \"$PWD:/workspace\" \\\n  ghcr.io/getpaseo/paseo:latest",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start an agent",
+          "body": "Open the desktop app and start a task with an agent you have installed."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run agents from the CLI",
+      "useCase": "The README's CLI examples.",
+      "setup": [
+        "Paseo daemon running",
+        "An agent CLI such as Claude Code or Codex signed in"
+      ],
+      "steps": [
+        {
+          "title": "Start a task",
+          "body": "paseo run with --provider and a task description; add --worktree to run it on its own branch."
+        },
+        {
+          "title": "Check running agents",
+          "code": "paseo ls",
+          "lang": "bash"
+        },
+        {
+          "title": "Follow and steer",
+          "body": "paseo attach <id> streams live output; paseo send <id> \"also add tests\" gives a follow-up."
+        }
+      ],
+      "expected": "Agents working in parallel that you can watch and message.",
+      "nextSteps": [
+        "Pair your phone",
+        "Run on a remote host with --host",
+        "Use the TypeScript SDK"
+      ],
+      "sourceUrl": "https://github.com/getpaseo/paseo/blob/5238bfb641ef0e3bdc37678a6cdd623caa23cd65/README.md"
+    },
+    "costs": [
+      {
+        "label": "Paseo",
+        "value": "Free and open source under Apache-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent providers",
+        "value": "Uses your own Claude, Codex, Copilot or other subscriptions.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "No agents available",
+        "solution": "Install and sign in to at least one supported agent CLI.",
+        "sourceUrl": "https://github.com/getpaseo/paseo/blob/5238bfb641ef0e3bdc37678a6cdd623caa23cd65/README.md"
+      },
+      {
+        "problem": "Phone can't connect",
+        "solution": "Enable the encrypted relay, or connect directly over Tailscale or a VPN.",
+        "sourceUrl": "https://github.com/getpaseo/paseo/blob/5238bfb641ef0e3bdc37678a6cdd623caa23cd65/README.md"
+      }
+    ],
+    "bestFor": [
+      "Managing several coding agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent workspace app"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Clients",
+        "value": "Desktop, mobile, web, CLI"
+      }
+    ]
+  }
+}

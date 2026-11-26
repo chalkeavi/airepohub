@@ -1,0 +1,203 @@
+{
+  "fullName": "AgriciDaniel/claude-seo",
+  "summary": "Free SEO audit plugin for Claude Code with sub-skills and agents for technical SEO, Core Web Vitals, schema and AI search.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/AgriciDaniel/claude-seo/blob/5d7d85ef32ade08dd4265cb678af8357ca6e6098/README.md"
+    ],
+    "sourceCommitSha": "5d7d85ef32ade08dd4265cb678af8357ca6e6098",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install in Claude Code",
+        "command": "/plugin marketplace add AgriciDaniel/claude-seo\n/plugin install claude-seo@agricidaniel-claude-seo\n/seo setup"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Claude SEO is an open-source SEO audit plugin for Claude Code. It has 29 sub-skills and 20 specialist agents covering technical SEO, Core Web Vitals, E-E-A-T, Schema.org, AI search (GEO), local SEO, e-commerce and international SEO.",
+      "problem": "A full SEO audit means many tools and checklists. Claude SEO lets Claude Code run the checks and explain fixes.",
+      "whoFor": [
+        "Site owners and marketers",
+        "Developers improving their sites' SEO",
+        "Agencies doing audits"
+      ],
+      "whyChoose": "Choose it for a free, MIT-licensed, wide-coverage audit that sets up its own Python environment and headless browser without touching the rest of your system.",
+      "requirements": [
+        "Claude Code 1.0.33 or newer"
+      ]
+    },
+    "overview": [
+      "Inside Claude Code, add the marketplace, install the plugin and run /seo setup, which prepares a private Python environment and a headless browser. Run /seo doctor any time to check things.",
+      "Manual install on macOS and Linux: clone the repo and run install.sh (review scripts before running them).",
+      "Areas covered include technical SEO, Core Web Vitals, E-E-A-T, structured data, generative engine optimisation, local, e-commerce and international SEO. MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "29 sub-skills",
+        "body": "Wide SEO coverage."
+      },
+      {
+        "icon": "scan-search",
+        "title": "20 agents",
+        "body": "Specialist reviewers."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Core Web Vitals",
+        "body": "Performance checks."
+      },
+      {
+        "icon": "file-code",
+        "title": "Schema.org",
+        "body": "Structured data."
+      },
+      {
+        "icon": "git-compare",
+        "title": "AI search (GEO)",
+        "body": "Optimise for AI answers."
+      }
+    ],
+    "strengths": [
+      "Free",
+      "Self-contained setup",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Needs Claude Code and its usage",
+      "Recommendations still need human judgement"
+    ],
+    "useCases": [
+      {
+        "title": "Site audit",
+        "body": "Find SEO problems."
+      },
+      {
+        "title": "Schema check",
+        "body": "Validate structured data."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Claude SEO's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/AgriciDaniel/claude-seo/blob/5d7d85ef32ade08dd4265cb678af8357ca6e6098/README.md",
+      "prerequisites": [
+        "Claude Code 1.0.33+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code plugin",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add and install",
+              "code": "/plugin marketplace add AgriciDaniel/claude-seo\n/plugin install claude-seo@agricidaniel-claude-seo",
+              "lang": "text"
+            },
+            {
+              "title": "Set up",
+              "code": "/seo setup",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Manual (macOS/Linux)",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone and install",
+              "code": "git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git\nbash claude-seo/install.sh",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Check the setup",
+          "code": "/seo doctor",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Audit your website",
+      "useCase": "Run an SEO audit from Claude Code.",
+      "setup": [
+        "Claude SEO installed"
+      ],
+      "steps": [
+        {
+          "title": "Run setup once",
+          "code": "/seo setup",
+          "lang": "text"
+        },
+        {
+          "title": "Ask for an audit",
+          "body": "Ask Claude SEO to audit your site's URL."
+        },
+        {
+          "title": "Work through the fixes",
+          "body": "Start with the highest-priority issues."
+        }
+      ],
+      "expected": "A prioritised list of SEO issues and suggested fixes.",
+      "nextSteps": [
+        "Check Core Web Vitals",
+        "Review structured data"
+      ],
+      "sourceUrl": "https://github.com/AgriciDaniel/claude-seo/blob/5d7d85ef32ade08dd4265cb678af8357ca6e6098/README.md"
+    },
+    "costs": [
+      {
+        "label": "Plugin",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Claude Code",
+        "value": "Your Claude plan or API usage.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Something seems broken",
+        "solution": "Run /seo doctor.",
+        "sourceUrl": "https://github.com/AgriciDaniel/claude-seo/blob/5d7d85ef32ade08dd4265cb678af8357ca6e6098/README.md"
+      }
+    ],
+    "bestFor": [
+      "SEO audits",
+      "Claude Code plugins"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Claude Code plugin"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Coverage",
+        "value": "29 sub-skills, 20 agents"
+      }
+    ]
+  }
+}

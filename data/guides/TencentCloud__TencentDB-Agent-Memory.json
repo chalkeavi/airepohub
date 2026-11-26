@@ -1,0 +1,216 @@
+{
+  "fullName": "TencentCloud/TencentDB-Agent-Memory",
+  "summary": "Self-hosted memory hub for agent teams that saves chat memory, reusable skills, document wikis and code maps so the next agent doesn't start from zero.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/TencentCloud/TencentDB-Agent-Memory/blob/3eb5b04fcf6a19d9690467cbce0dbd515b239040/README.md"
+    ],
+    "sourceCommitSha": "3eb5b04fcf6a19d9690467cbce0dbd515b239040",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Start",
+        "command": "./start-all.sh"
+      },
+      {
+        "comment": "Panel",
+        "command": "http://localhost:8125"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "TencentDB Agent Memory is a memory hub for AI agents. It extracts chat memory and reusable skills from conversations, turns documents into a linked wiki and code into a CodeGraph, and shares them across agents and team members. Agents connect through a proxy by pointing their base URL at it.",
+      "problem": "Agents forget project context between sessions and every new agent re-reads the same docs and code. This keeps that knowledge and hands it to the next agent.",
+      "whoFor": [
+        "Teams running several coding agents",
+        "Claude Code, OpenClaw, Hermes or OpenCode users",
+        "People who want self-hosted agent memory"
+      ],
+      "whyChoose": "Choose it for memory that isn't tied to one agent framework, with chat memory, skills, wiki and code graph in one panel.",
+      "requirements": [
+        "Git",
+        "LLM API settings for the memory and proxy services",
+        "See INSTALL.md for full requirements"
+      ]
+    },
+    "overview": [
+      "One script starts three services: memory-core, memory-hub and a proxy. You fill in two sets of LLM settings in .env first, one for memory processing and one for the proxy.",
+      "Agents such as Claude Code, Hermes and OpenClaw connect through the proxy with a user key; most need no plugin, hook or MCP server. The panel at localhost:8125 lets you review and edit memories and skills.",
+      "Memory is layered from raw conversations up to scenarios and personas, and sharing is controlled by session bindings and permissions. Full deployment docs are in INSTALL.md."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Chat memory",
+        "body": "Preferences, facts and decisions."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Skill library",
+        "body": "Versioned skills extracted from work."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Wiki",
+        "body": "Docs, Word, Excel, PDF into linked pages."
+      },
+      {
+        "icon": "file-code",
+        "title": "CodeGraph",
+        "body": "Symbols, calls and impact paths."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Proxy integration",
+        "body": "Point an agent's base URL at it."
+      },
+      {
+        "icon": "shield",
+        "title": "Team sharing",
+        "body": "Permissions on who sees what."
+      }
+    ],
+    "strengths": [
+      "Framework-independent",
+      "Self-hosted",
+      "One-command start"
+    ],
+    "limitations": [
+      "Needs LLM API settings",
+      "Several services to run"
+    ],
+    "useCases": [
+      {
+        "title": "Shared team context",
+        "body": "New agents start with existing knowledge."
+      },
+      {
+        "title": "Code impact checks",
+        "body": "Agents check callers before editing."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from TencentDB Agent Memory's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/TencentCloud/TencentDB-Agent-Memory/blob/3eb5b04fcf6a19d9690467cbce0dbd515b239040/README.md",
+      "prerequisites": [
+        "A machine that can run the services",
+        "LLM API credentials"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "One-command start",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Clone the repo",
+              "code": "git clone https://github.com/TencentCloud/TencentDB-Agent-Memory.git\ncd TencentDB-Agent-Memory/deploy/global-images",
+              "lang": "bash"
+            },
+            {
+              "title": "Create your settings",
+              "body": "Copy the example and fill in two sets of LLM parameters (memory group and proxy group).",
+              "code": "cp .env.example .env",
+              "lang": "bash"
+            },
+            {
+              "title": "Start everything",
+              "body": "When it finishes it prints a line you can paste into Claude.",
+              "code": "./start-all.sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Open the panel",
+              "body": "Go to http://localhost:8125."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Connect an agent",
+          "body": "Paste the line printed by start-all.sh, or point your agent's base URL at the proxy with your user key."
+        },
+        {
+          "title": "Check the panel",
+          "body": "See memories appear after a session."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Give Claude Code a memory",
+      "useCase": "Connect a coding agent so it remembers project context.",
+      "setup": [
+        "Services started with start-all.sh"
+      ],
+      "steps": [
+        {
+          "title": "Copy the connection line",
+          "body": "start-all.sh prints it at the end."
+        },
+        {
+          "title": "Work in a session",
+          "body": "Explain a project rule to the agent."
+        },
+        {
+          "title": "Review in the panel",
+          "body": "Open localhost:8125 and look at the extracted memory."
+        }
+      ],
+      "expected": "A later session reuses that context without you repeating it.",
+      "nextSteps": [
+        "Import docs into the Wiki",
+        "Index a codebase in CodeGraph",
+        "Share skills with the team"
+      ],
+      "sourceUrl": "https://github.com/TencentCloud/TencentDB-Agent-Memory/blob/3eb5b04fcf6a19d9690467cbce0dbd515b239040/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source (see the LICENSE file).",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "The LLM provider you configure bills for usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Services fail to start",
+        "solution": "Check that both LLM groups in .env are filled in, and see INSTALL.md for ports and cleanup.",
+        "sourceUrl": "https://github.com/TencentCloud/TencentDB-Agent-Memory/blob/3eb5b04fcf6a19d9690467cbce0dbd515b239040/README.md"
+      }
+    ],
+    "bestFor": [
+      "Agent memory",
+      "Shared context for agent teams"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent memory hub"
+      },
+      {
+        "label": "Panel",
+        "value": "localhost:8125"
+      },
+      {
+        "label": "License",
+        "value": "See LICENSE (MIT-based)"
+      },
+      {
+        "label": "Install",
+        "value": "./start-all.sh"
+      }
+    ]
+  }
+}

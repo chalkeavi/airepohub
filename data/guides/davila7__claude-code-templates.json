@@ -1,0 +1,185 @@
+{
+  "fullName": "davila7/claude-code-templates",
+  "summary": "Open catalog and CLI for adding ready-made agents, commands, skills, MCP servers and hooks to Claude Code in one command.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/davila7/claude-code-templates/blob/2a104d81976267e26f31db66901b83f1c97a41df/README.md"
+    ],
+    "sourceCommitSha": "2a104d81976267e26f31db66901b83f1c97a41df",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Browse and install",
+        "command": "npx claude-code-templates@latest"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Claude Code Templates is an open catalog of components for Claude Code, including agents, commands, skills, MCP integrations, settings, hooks, mods, loops and plugins. A CLI installs any of them with one command, and aitmpl.com lets you browse them.",
+      "problem": "Setting up Claude Code with good agents and integrations takes time. This catalog lets you add tested components quickly.",
+      "whoFor": [
+        "Claude Code users customising their setup",
+        "Teams sharing agent configurations",
+        "Beginners looking for ready components"
+      ],
+      "whyChoose": "Choose it for a large, MIT-licensed catalog with a no-install npx CLI and exact install commands on every component page.",
+      "requirements": [
+        "Node.js (for npx)",
+        "Claude Code"
+      ]
+    },
+    "overview": [
+      "Run npx claude-code-templates@latest to browse the catalog and install interactively, or pass flags such as --skill, --agent, --command or --mcp to install specific components. You can install a whole stack in one command.",
+      "Add --yes to skip the confirmation prompt. Every component page on aitmpl.com shows its exact install command. Mods, loops and plugins need recent Claude Code versions, as noted in the README.",
+      "The project is MIT licensed. Check what a component does before installing it, as with any third-party add-on."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Agents",
+        "body": "Ready sub-agents."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Commands and skills",
+        "body": "Reusable workflows."
+      },
+      {
+        "icon": "puzzle",
+        "title": "MCP integrations",
+        "body": "GitHub, Postgres and more."
+      },
+      {
+        "icon": "file-code",
+        "title": "Hooks and settings",
+        "body": "Automate behaviour."
+      },
+      {
+        "icon": "git-compare",
+        "title": "One-command install",
+        "body": "npx, no global install."
+      }
+    ],
+    "strengths": [
+      "Huge catalog",
+      "Quick installs",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Third-party components vary in quality",
+      "Some types need newer Claude Code"
+    ],
+    "useCases": [
+      {
+        "title": "Add a code reviewer agent",
+        "body": "--agent development-tools/code-reviewer."
+      },
+      {
+        "title": "Connect a database",
+        "body": "--mcp database/postgresql-integration."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Claude Code Templates's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/davila7/claude-code-templates/blob/2a104d81976267e26f31db66901b83f1c97a41df/README.md",
+      "prerequisites": [
+        "Node.js",
+        "Claude Code"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npx",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Browse interactively",
+              "code": "npx claude-code-templates@latest",
+              "lang": "bash"
+            },
+            {
+              "title": "Or install one component",
+              "code": "npx claude-code-templates@latest --skill creative-design/frontend-design",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Install a stack",
+          "code": "npx claude-code-templates@latest \\\n  --agent development-team/frontend-developer \\\n  --command testing/generate-tests \\\n  --mcp integration/github-integration",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Add a code reviewer to Claude Code",
+      "useCase": "Install one agent and use it.",
+      "setup": [
+        "Node.js",
+        "Claude Code"
+      ],
+      "steps": [
+        {
+          "title": "Install the agent",
+          "code": "npx claude-code-templates@latest --agent development-tools/code-reviewer",
+          "lang": "bash"
+        },
+        {
+          "title": "Open Claude Code",
+          "body": "Ask it to review your latest changes with the code reviewer."
+        }
+      ],
+      "expected": "Claude Code uses the new agent to review your code.",
+      "nextSteps": [
+        "Browse aitmpl.com",
+        "Add a hook"
+      ],
+      "sourceUrl": "https://github.com/davila7/claude-code-templates/blob/2a104d81976267e26f31db66901b83f1c97a41df/README.md"
+    },
+    "costs": [
+      {
+        "label": "Catalog and CLI",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "A mod or plugin won't install",
+        "solution": "Update Claude Code; the README lists minimum versions.",
+        "sourceUrl": "https://github.com/davila7/claude-code-templates/blob/2a104d81976267e26f31db66901b83f1c97a41df/README.md"
+      }
+    ],
+    "bestFor": [
+      "Claude Code setup",
+      "Agent components"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Component catalog and CLI"
+      },
+      {
+        "label": "Language",
+        "value": "Python, JavaScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Site",
+        "value": "aitmpl.com"
+      }
+    ]
+  }
+}

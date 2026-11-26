@@ -1,0 +1,203 @@
+{
+  "fullName": "Tencent/WeKnora",
+  "summary": "Tencent's open-source knowledge platform that turns team documents into RAG search, a reasoning agent and a wiki.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Tencent/WeKnora/blob/3b36d23dcb729987f64b1a6e054354a90048b3ee/README.md"
+    ],
+    "sourceCommitSha": "3b36d23dcb729987f64b1a6e054354a90048b3ee",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Run with Docker Compose",
+        "command": "git clone https://github.com/Tencent/WeKnora.git\ncd WeKnora\ncp .env.example .env\ndocker compose up -d"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "WeKnora is an open-source, LLM-powered knowledge framework from Tencent for enterprise document understanding, semantic retrieval and reasoning. It brings a team's documents together so they can be searched with RAG, worked on by an agent for multi-step tasks, and organised as a wiki, all on the same knowledge bases.",
+      "problem": "Company knowledge is scattered across files and hard to query. WeKnora turns raw documents into something you can ask questions of and reason over.",
+      "whoFor": [
+        "Teams building internal knowledge bases",
+        "Developers adding document Q&A",
+        "WeChat ecosystem builders"
+      ],
+      "whyChoose": "Choose it for a full knowledge platform (RAG, agent and wiki) you can self-host with Docker or Kubernetes, or use online through WeChat.",
+      "requirements": [
+        "Docker, Docker Compose and Git for self-hosting",
+        "Model settings configured in .env"
+      ]
+    },
+    "overview": [
+      "Three ways to use it: online via the WeChat Dialog Open Platform (connect Q&A to Official Accounts and Mini Programs), a Tencent Cloud Lighthouse template, or self-hosted with Docker or Kubernetes.",
+      "For self-hosting, clone the repo, copy .env.example to .env and edit it, pull the images and start the core services, then open http://localhost and follow the onboarding guide.",
+      "The docs Quickstart has a walkthrough with sample data. WeKnora is MIT licensed, apart from listed third-party components."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "RAG",
+        "body": "Look things up in your docs."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Agent",
+        "body": "Multi-step reasoning tasks."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Wiki",
+        "body": "Organise knowledge."
+      },
+      {
+        "icon": "file-code",
+        "title": "Self-host",
+        "body": "Docker or Kubernetes."
+      },
+      {
+        "icon": "git-compare",
+        "title": "WeChat integration",
+        "body": "Official Accounts and Mini Programs."
+      }
+    ],
+    "strengths": [
+      "All-in-one knowledge platform",
+      "From a major company",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Several services to run",
+      "Some options are tied to Tencent and WeChat"
+    ],
+    "useCases": [
+      {
+        "title": "Internal Q&A",
+        "body": "Answer staff questions from docs."
+      },
+      {
+        "title": "Customer support",
+        "body": "Connect Q&A to WeChat."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from WeKnora's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Tencent/WeKnora/blob/3b36d23dcb729987f64b1a6e054354a90048b3ee/README.md",
+      "prerequisites": [
+        "Docker",
+        "Git"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker Compose",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/Tencent/WeKnora.git\ncd WeKnora",
+              "lang": "bash"
+            },
+            {
+              "title": "Create your config",
+              "body": "Edit .env as needed; the file has comments.",
+              "code": "cp .env.example .env",
+              "lang": "bash"
+            },
+            {
+              "title": "Pull and start",
+              "code": "docker compose pull\ndocker compose up -d",
+              "lang": "bash"
+            },
+            {
+              "title": "Open",
+              "body": "Go to http://localhost and follow the onboarding guide."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Follow the onboarding guide",
+          "body": "Create a knowledge base and upload a document."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build a knowledge base and ask it questions",
+      "useCase": "Self-host WeKnora and query your documents.",
+      "setup": [
+        "Docker and Git"
+      ],
+      "steps": [
+        {
+          "title": "Start WeKnora",
+          "code": "docker compose up -d",
+          "lang": "bash"
+        },
+        {
+          "title": "Create a knowledge base",
+          "body": "Open http://localhost and upload documents."
+        },
+        {
+          "title": "Ask a question",
+          "body": "Use RAG chat, or the agent for multi-step tasks."
+        }
+      ],
+      "expected": "Answers grounded in your uploaded documents.",
+      "nextSteps": [
+        "Try the wiki view",
+        "Deploy on Kubernetes",
+        "Connect to WeChat"
+      ],
+      "sourceUrl": "https://github.com/Tencent/WeKnora/blob/3b36d23dcb729987f64b1a6e054354a90048b3ee/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Models and hosting",
+        "value": "Your model provider and server costs apply.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Unsure what to set in .env",
+        "solution": "Read the comments in .env.example and the Quickstart in the docs.",
+        "sourceUrl": "https://github.com/Tencent/WeKnora/blob/3b36d23dcb729987f64b1a6e054354a90048b3ee/README.md"
+      }
+    ],
+    "bestFor": [
+      "Enterprise RAG",
+      "Knowledge management"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "LLM knowledge platform"
+      },
+      {
+        "label": "Language",
+        "value": "Go"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Maker",
+        "value": "Tencent"
+      }
+    ]
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "fullName": "fastai/fastai",
+  "summary": "Deep learning library on PyTorch that gets state-of-the-art results in a few lines, with a free course and book to learn from.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/fastai/fastai/blob/46231bdc3e88a457c940dd7bde8a03c92fb42901/README.md"
+    ],
+    "sourceCommitSha": "46231bdc3e88a457c940dd7bde8a03c92fb42901",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install fastai"
+      },
+      {
+        "comment": "Or",
+        "command": "Use it in Google Colab with no install"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "fastai is a deep learning library built on PyTorch. It gives practitioners high-level components that reach strong results quickly in vision, text, tabular data and recommendation, and gives researchers low-level parts to mix and match. Its quick start builds an image classifier, segmentation model, sentiment model, recommender or tabular model in about five lines each.",
+      "problem": "Deep learning code is often long and fiddly. fastai's layered API lets beginners get good results fast while still letting experts customize everything.",
+      "whoFor": [
+        "Beginners learning deep learning",
+        "Practitioners who want quick strong baselines",
+        "Researchers who want hackable building blocks"
+      ],
+      "whyChoose": "Choose it for very concise code, excellent free learning material (course.fast.ai and the book), and a design that's both approachable and deeply configurable.",
+      "requirements": [
+        "Python",
+        "PyTorch (install it first for the best version for your machine)"
+      ]
+    },
+    "overview": [
+      "You can use fastai with no installation in Google Colab; every docs page is also a notebook (switch the runtime to GPU). Locally, install PyTorch first, then pip install fastai.",
+      "Start with the free course and the book, then the Quick Start and Tutorials in the docs.",
+      "On Windows, Jupyter forces num_workers to 0, which slows vision tasks; the README recommends WSL or running from a script. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "High-level API",
+        "body": "Strong results in a few lines."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Vision, text, tabular",
+        "body": "And recommendation systems."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Data block API",
+        "body": "Flexible data loading."
+      },
+      {
+        "icon": "file-code",
+        "title": "Callbacks",
+        "body": "Change any part of training."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Optimizers",
+        "body": "Modern optimizers in a few lines."
+      },
+      {
+        "icon": "shield",
+        "title": "Docs as notebooks",
+        "body": "Open any page in Colab."
+      }
+    ],
+    "strengths": [
+      "Beginner friendly",
+      "Free course and book",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Slower in Jupyter on Windows",
+      "Its own abstractions to learn on top of PyTorch"
+    ],
+    "useCases": [
+      {
+        "title": "Image classifier",
+        "body": "Train one in a few lines."
+      },
+      {
+        "title": "Tabular predictions",
+        "body": "Quick models on spreadsheets of data."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from fastai's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/fastai/fastai/blob/46231bdc3e88a457c940dd7bde8a03c92fb42901/README.md",
+      "prerequisites": [
+        "Python",
+        "PyTorch"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install PyTorch first",
+              "body": "Follow pytorch.org/get-started/locally for your system."
+            },
+            {
+              "title": "Install fastai",
+              "code": "pip install fastai",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Google Colab",
+          "method": "colab",
+          "steps": [
+            {
+              "title": "Open a docs page in Colab",
+              "body": "Click Open in colab at the top of any fastai docs page and set the runtime to GPU."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run the Quick Start",
+          "body": "Try the five-line image classifier from docs.fast.ai/quick_start.html."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Train your first image classifier",
+      "useCase": "Follow the fastai Quick Start.",
+      "setup": [
+        "fastai installed, or Colab with a GPU runtime"
+      ],
+      "steps": [
+        {
+          "title": "Open the Quick Start",
+          "body": "Go to docs.fast.ai/quick_start.html."
+        },
+        {
+          "title": "Run the vision example",
+          "body": "It loads data, builds a learner and fine-tunes it."
+        },
+        {
+          "title": "Try a prediction",
+          "body": "Predict on an image of your own."
+        }
+      ],
+      "expected": "A trained image classifier with good accuracy after a short fine-tune.",
+      "nextSteps": [
+        "Take the free course",
+        "Try the text sentiment example",
+        "Read the Tutorials"
+      ],
+      "sourceUrl": "https://github.com/fastai/fastai/blob/46231bdc3e88a457c940dd7bde8a03c92fb42901/README.md"
+    },
+    "costs": [
+      {
+        "label": "fastai",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Course",
+        "value": "Free at course.fast.ai.",
+        "tone": "free"
+      },
+      {
+        "label": "Book",
+        "value": "Sold separately.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Slow training in Jupyter on Windows",
+        "solution": "Use WSL or run your code from a script.",
+        "sourceUrl": "https://github.com/fastai/fastai/blob/46231bdc3e88a457c940dd7bde8a03c92fb42901/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning deep learning",
+      "Fast PyTorch training"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Deep learning library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "pip install fastai"
+      }
+    ]
+  }
+}

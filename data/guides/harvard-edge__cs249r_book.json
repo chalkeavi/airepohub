@@ -1,0 +1,219 @@
+{
+  "fullName": "harvard-edge/cs249r_book",
+  "summary": "Harvard's free, open textbook and curriculum on machine learning systems, with hands-on labs, kits and TinyTorch, a framework you build yourself.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/harvard-edge/cs249r_book/blob/a2703705caa57e84ef912227548da6daaca9a153/README.md"
+    ],
+    "sourceCommitSha": "a2703705caa57e84ef912227548da6daaca9a153",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Read online",
+        "command": "Open Volume I at mlsysbook.ai/vol1/"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Machine Learning Systems is an open curriculum from Harvard for learning AI engineering. It centres on a textbook series, with Volume I (Introduction to Machine Learning Systems) released and forthcoming in print from MIT Press, and later volumes on scaling, agentic systems and physical AI. The repository also holds TinyTorch, the MLSys·im modeling tool, hardware kits, labs, slides, study sheets and an instructor hub.",
+      "problem": "Most ML courses teach models, not the systems that run them. This curriculum connects ML ideas to how they execute efficiently on real hardware, at scale and in production.",
+      "whoFor": [
+        "Students and self-learners in AI engineering",
+        "Instructors building ML systems courses",
+        "Engineers moving into ML infrastructure"
+      ],
+      "whyChoose": "Choose it for a free, structured path that pairs reading with building, from a textbook to writing your own mini framework.",
+      "requirements": [
+        "A web browser to read online",
+        "For TinyTorch and labs, see each component's own guide"
+      ]
+    },
+    "overview": [
+      "Students start by reading Volume I at mlsysbook.ai, then build TinyTorch, model systems with MLSys·im, review chapters with study sheets and practise with labs.",
+      "Instructors start at the Instructor Hub, which has syllabi, slides, kits and labs for courses.",
+      "Each component has its own license: the textbook, labs, kits and slides are non-commercial, TinyTorch is MIT, MLSys·im is Apache 2.0 and StaffML is AGPL v3."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Textbook series",
+        "body": "Volume I released; Volume II in preview."
+      },
+      {
+        "icon": "scan-search",
+        "title": "TinyTorch",
+        "body": "Build your own ML framework."
+      },
+      {
+        "icon": "puzzle",
+        "title": "MLSys·im",
+        "body": "Model ML system performance."
+      },
+      {
+        "icon": "file-code",
+        "title": "Labs and kits",
+        "body": "Hands-on hardware exercises."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Slides and study sheets",
+        "body": "Review material per chapter."
+      },
+      {
+        "icon": "shield",
+        "title": "Instructor hub",
+        "body": "Syllabi and course material."
+      }
+    ],
+    "strengths": [
+      "Free and open",
+      "Reading plus building",
+      "From a university course"
+    ],
+    "limitations": [
+      "Textbook material is non-commercial",
+      "Later volumes still in progress"
+    ],
+    "useCases": [
+      {
+        "title": "Self-study",
+        "body": "Read Volume I and build TinyTorch."
+      },
+      {
+        "title": "Teach a course",
+        "body": "Use the Instructor Hub."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Machine Learning Systems's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/harvard-edge/cs249r_book/blob/a2703705caa57e84ef912227548da6daaca9a153/README.md",
+      "prerequisites": [
+        "A browser"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Read online",
+          "method": "web",
+          "steps": [
+            {
+              "title": "Open Volume I",
+              "body": "Go to mlsysbook.ai/vol1/ and start reading."
+            },
+            {
+              "title": "Go deeper",
+              "body": "Use the study sheets, TinyTorch and labs linked from mlsysbook.ai."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Get the source",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/harvard-edge/cs249r_book.git",
+              "lang": "bash"
+            },
+            {
+              "title": "Pick a component",
+              "body": "Each folder (such as tinytorch) has its own guide and license."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Read the first chapter",
+          "body": "Start Volume I online."
+        },
+        {
+          "title": "Try TinyTorch",
+          "body": "Open mlsysbook.ai/tinytorch/."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Plan a self-study path",
+      "useCase": "The README's Start Here route for students.",
+      "setup": [
+        "A browser"
+      ],
+      "steps": [
+        {
+          "title": "Read Volume I",
+          "body": "Work through it at mlsysbook.ai/vol1/."
+        },
+        {
+          "title": "Build TinyTorch",
+          "body": "Follow mlsysbook.ai/tinytorch/ alongside the chapters."
+        },
+        {
+          "title": "Review",
+          "body": "Use the study sheets after each chapter."
+        }
+      ],
+      "expected": "A clear understanding of how ML models run as real systems, plus your own small framework.",
+      "nextSteps": [
+        "Try MLSys·im",
+        "Do a hardware lab",
+        "Preview Volume II"
+      ],
+      "sourceUrl": "https://github.com/harvard-edge/cs249r_book/blob/a2703705caa57e84ef912227548da6daaca9a153/README.md"
+    },
+    "costs": [
+      {
+        "label": "Online textbook and materials",
+        "value": "Free to read.",
+        "tone": "free"
+      },
+      {
+        "label": "Print edition",
+        "value": "Volume I is coming in print from MIT Press.",
+        "tone": "paid"
+      },
+      {
+        "label": "Hardware kits",
+        "value": "Physical kits cost money if you buy them.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Not sure which license applies",
+        "solution": "Check the LICENSE file inside the component's folder.",
+        "sourceUrl": "https://github.com/harvard-edge/cs249r_book/blob/a2703705caa57e84ef912227548da6daaca9a153/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning ML systems",
+      "AI engineering curriculum"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Textbook and curriculum"
+      },
+      {
+        "label": "From",
+        "value": "Harvard"
+      },
+      {
+        "label": "License",
+        "value": "Per component (CC BY-NC-SA textbook, MIT TinyTorch)"
+      },
+      {
+        "label": "Read",
+        "value": "mlsysbook.ai"
+      }
+    ]
+  }
+}

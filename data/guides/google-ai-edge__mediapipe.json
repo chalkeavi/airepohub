@@ -1,0 +1,181 @@
+{
+  "fullName": "google-ai-edge/mediapipe",
+  "summary": "Google's toolkit for running machine learning on phones, web, desktop and edge devices, with ready solutions for vision, text, audio and LLMs.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/google-ai-edge/mediapipe/blob/07b4da024346f8a86c0496dd077ca1b2e4ab2c32/README.md"
+    ],
+    "sourceCommitSha": "07b4da024346f8a86c0496dd077ca1b2e4ab2c32",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Get started",
+        "command": "Pick a solution and follow its developer guide at developers.google.com/edge/mediapipe"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "MediaPipe is Google's framework for on-device machine learning. It has ready-made solutions you can customise and deploy to Android, iOS, web, desktop, edge devices and IoT, covering vision, text, audio, retrieval, decisions and generative AI.",
+      "problem": "Running ML in apps on-device is hard to build from scratch. MediaPipe gives you tested solutions and tools for live and streaming media.",
+      "whoFor": [
+        "Mobile and web developers adding ML features",
+        "Developers building on-device AI",
+        "Makers working with edge devices"
+      ],
+      "whyChoose": "Choose it for Google-maintained, cross-platform on-device ML with demos and guides for each solution.",
+      "requirements": [
+        "A development setup for your platform: Android, iOS, Python or web"
+      ]
+    },
+    "overview": [
+      "MediaPipe Solutions include audio classification, decision making, LLM inference, semantic retrieval, text classification and vision tasks such as object detection.",
+      "Start with the developer guide for the solution you need, and the setup guide for Android, iOS, Python or web apps. Web demos let you try solutions first.",
+      "The primary documentation is at developers.google.com/edge/mediapipe. MediaPipe is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Vision",
+        "body": "Object detection and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Text and audio",
+        "body": "Classifiers."
+      },
+      {
+        "icon": "puzzle",
+        "title": "GenAI",
+        "body": "On-device LLM inference."
+      },
+      {
+        "icon": "file-code",
+        "title": "Cross-platform",
+        "body": "Android, iOS, web, desktop."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Demos",
+        "body": "Try in the browser."
+      }
+    ],
+    "strengths": [
+      "Runs on-device",
+      "Google maintained",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Setup differs per platform",
+      "Docs live off GitHub"
+    ],
+    "useCases": [
+      {
+        "title": "Camera apps",
+        "body": "Detect objects in live video."
+      },
+      {
+        "title": "On-device LLM",
+        "body": "Run a small model on a phone."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from MediaPipe's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/google-ai-edge/mediapipe/blob/07b4da024346f8a86c0496dd077ca1b2e4ab2c32/README.md",
+      "prerequisites": [
+        "Your platform's dev tools"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Developer guides",
+          "method": "docs",
+          "steps": [
+            {
+              "title": "Choose a solution",
+              "body": "For example vision object detection or genai LLM inference."
+            },
+            {
+              "title": "Set up your platform",
+              "body": "Follow the MediaPipe setup guide for Android, iOS, Python or web apps."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Try the web demos",
+          "body": "Open the demos linked in the README to see solutions in the browser."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Add object detection to an app",
+      "useCase": "Use a MediaPipe vision solution.",
+      "setup": [
+        "A Python, web, Android or iOS project"
+      ],
+      "steps": [
+        {
+          "title": "Read the object detector guide",
+          "body": "Linked from the README's Get started section."
+        },
+        {
+          "title": "Follow your platform's setup guide"
+        },
+        {
+          "title": "Run the sample",
+          "body": "Detect objects in an image or video."
+        }
+      ],
+      "expected": "Objects detected and labelled in your media.",
+      "nextSteps": [
+        "Try LLM inference",
+        "Customise a model"
+      ],
+      "sourceUrl": "https://github.com/google-ai-edge/mediapipe/blob/07b4da024346f8a86c0496dd077ca1b2e4ab2c32/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Not sure where to start",
+        "solution": "Begin with the web demos, then the guide for one solution.",
+        "sourceUrl": "https://github.com/google-ai-edge/mediapipe/blob/07b4da024346f8a86c0496dd077ca1b2e4ab2c32/README.md"
+      }
+    ],
+    "bestFor": [
+      "On-device ML",
+      "Computer vision"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "On-device ML framework"
+      },
+      {
+        "label": "Language",
+        "value": "C++"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Maker",
+        "value": "Google"
+      }
+    ]
+  }
+}

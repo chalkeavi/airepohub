@@ -1,0 +1,187 @@
+{
+  "fullName": "blakeblackshear/frigate",
+  "summary": "Local video recorder for IP cameras that uses AI object detection in real time, built to work with Home Assistant.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/blakeblackshear/frigate/blob/8eaae4b514be4ec985f115945dc88ad8aae9c2e6/README.md"
+    ],
+    "sourceCommitSha": "8eaae4b514be4ec985f115945dc88ad8aae9c2e6",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Get started",
+        "command": "Follow the installation guide at docs.frigate.video"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Frigate is a complete, local NVR (network video recorder) designed for Home Assistant, with AI object detection. It uses OpenCV and TensorFlow to detect objects in real time on your own hardware for IP cameras.",
+      "problem": "Cloud camera services send your footage elsewhere and flood you with motion alerts. Frigate runs locally and only alerts on real objects like people or cars.",
+      "whoFor": [
+        "Home Assistant users",
+        "Home security hobbyists",
+        "Self-hosters with IP cameras"
+      ],
+      "whyChoose": "Choose it for efficient local detection that only runs where and when motion happens, and tight Home Assistant integration.",
+      "requirements": [
+        "A machine to run Frigate",
+        "IP cameras",
+        "A GPU or AI accelerator is highly recommended"
+      ]
+    },
+    "overview": [
+      "Frigate uses very low-overhead motion detection to decide where to run object detection, and leans on multiprocessing, favouring real time over processing every frame.",
+      "It integrates with Home Assistant through a custom component. AI accelerators outperform even the best CPUs with little overhead; see the docs for supported detectors.",
+      "Installation and configuration are documented at docs.frigate.video. Frigate is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Real-time detection",
+        "body": "People, cars and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Local only",
+        "body": "Footage stays home."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Home Assistant",
+        "body": "Custom integration."
+      },
+      {
+        "icon": "file-code",
+        "title": "Efficient",
+        "body": "Detects only where motion is."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Accelerator support",
+        "body": "GPUs and AI chips."
+      }
+    ],
+    "strengths": [
+      "Private",
+      "Efficient",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Install steps live in the docs",
+      "Works best with an AI accelerator",
+      "Respect local laws when recording others"
+    ],
+    "useCases": [
+      {
+        "title": "Home security",
+        "body": "Get alerts only for people."
+      },
+      {
+        "title": "Smart home automations",
+        "body": "Trigger Home Assistant actions."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Frigate's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/blakeblackshear/frigate/blob/8eaae4b514be4ec985f115945dc88ad8aae9c2e6/README.md",
+      "prerequisites": [
+        "Server",
+        "IP cameras"
+      ],
+      "supportedOs": [
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Documentation",
+          "method": "docs",
+          "steps": [
+            {
+              "title": "Follow the install guide",
+              "body": "The README points to docs.frigate.video for installation and configuration."
+            },
+            {
+              "title": "Choose a detector",
+              "body": "Check the supported object detectors page for your GPU or accelerator."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Add a camera",
+          "body": "Configure your first IP camera as described in the docs."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Connect Frigate to Home Assistant",
+      "useCase": "Use detections in your smart home.",
+      "setup": [
+        "Frigate running",
+        "Home Assistant"
+      ],
+      "steps": [
+        {
+          "title": "Install the Frigate integration",
+          "body": "Use the frigate-hass-integration custom component linked in the README."
+        },
+        {
+          "title": "Create an automation",
+          "body": "Trigger an action when a person is detected."
+        }
+      ],
+      "expected": "Home Assistant reacts to Frigate's object detections.",
+      "nextSteps": [
+        "Add more cameras",
+        "Tune detection zones"
+      ],
+      "sourceUrl": "https://github.com/blakeblackshear/frigate/blob/8eaae4b514be4ec985f115945dc88ad8aae9c2e6/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Hardware",
+        "value": "Cameras, a server and optionally an AI accelerator.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "High CPU use",
+        "solution": "Add a GPU or AI accelerator; see supported detectors.",
+        "sourceUrl": "https://github.com/blakeblackshear/frigate/blob/8eaae4b514be4ec985f115945dc88ad8aae9c2e6/README.md"
+      }
+    ],
+    "bestFor": [
+      "Local NVR",
+      "AI camera detection",
+      "Home Assistant"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Network video recorder"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Docs",
+        "value": "docs.frigate.video"
+      }
+    ]
+  }
+}

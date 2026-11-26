@@ -1,0 +1,212 @@
+{
+  "fullName": "modular/modular",
+  "summary": "Open-source parts of Modular's AI platform: the Mojo programming language and the MAX framework for fast model inference on CPUs and GPUs.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/modular/modular/blob/cdf1ad928d192d9f2a154d9c748d53e5409b7cd0/README.md"
+    ],
+    "sourceCommitSha": "cdf1ad928d192d9f2a154d9c748d53e5409b7cd0",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Run Mojo from the repo",
+        "command": "./bazelw run //Mojo:mojo -- Mojo/examples/hello.mojo"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "This repository holds the open-source components of the Modular Platform. Mojo is a programming language for high-performance AI code, and MAX is a framework for building and serving models, including GPU programming abstractions, compute kernels, a graph compiler, a runtime, Python model authoring, model pipelines and an OpenAI-compatible inference server.",
+      "problem": "Getting AI models to run fast across different hardware usually means vendor-specific code. Modular aims to give one platform for writing kernels and serving models.",
+      "whoFor": [
+        "Developers writing high-performance AI code",
+        "Teams serving models with an OpenAI-compatible endpoint",
+        "People interested in the Mojo language"
+      ],
+      "whyChoose": "Choose it to work with Mojo and MAX source directly, run examples from the repo or contribute to them.",
+      "requirements": [
+        "For your own projects: follow the MAX and Mojo get-started guides",
+        "For text generation with MAX: a compatible GPU"
+      ]
+    },
+    "overview": [
+      "To use MAX and Mojo in your own projects, the README points to the official MAX get-started guide and the Mojo quickstart rather than listing install commands.",
+      "To experiment from the repository, use the bundled bazelw wrapper: run mojo on an example file, or run the MAX pipelines entrypoint to generate text with a model such as Qwen/Qwen3.5-0.8B (needs a compatible GPU).",
+      "Mojo is Apache 2.0 with LLVM Exceptions. Parts of MAX are under the separate MAX license, and the rest under Apache 2.0 with LLVM Exceptions."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Mojo language",
+        "body": "Compiler and standard library."
+      },
+      {
+        "icon": "scan-search",
+        "title": "GPU programming",
+        "body": "MAX GPU abstractions in Mojo."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Kernels",
+        "body": "Mojo compute kernels."
+      },
+      {
+        "icon": "file-code",
+        "title": "Model pipelines",
+        "body": "Ready model implementations."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Inference server",
+        "body": "OpenAI-compatible endpoint."
+      },
+      {
+        "icon": "shield",
+        "title": "Examples",
+        "body": "MAX and Mojo samples."
+      }
+    ],
+    "strengths": [
+      "One stack from kernels to serving",
+      "Open source compiler and libraries",
+      "Active development"
+    ],
+    "limitations": [
+      "Install steps live in external docs",
+      "Part of MAX uses a custom license",
+      "GPU needed for model generation"
+    ],
+    "useCases": [
+      {
+        "title": "Serve a model",
+        "body": "MAX's OpenAI-compatible server."
+      },
+      {
+        "title": "Write fast kernels",
+        "body": "GPU code in Mojo."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Modular Platform (MAX and Mojo)'s README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/modular/modular/blob/cdf1ad928d192d9f2a154d9c748d53e5409b7cd0/README.md",
+      "prerequisites": [
+        "Git",
+        "A compatible GPU for MAX generation"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Use in your projects",
+          "method": "docs",
+          "steps": [
+            {
+              "title": "Follow the official guides",
+              "body": "Use the MAX get-started guide (max.modular.com/get-started) and the Mojo quickstart (mojolang.org/docs/manual/quickstart/)."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Experiment from the repo",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/modular/modular.git\ncd modular",
+              "lang": "bash"
+            },
+            {
+              "title": "Run Mojo on a file",
+              "code": "./bazelw run //Mojo:mojo -- Mojo/examples/hello.mojo",
+              "lang": "bash"
+            },
+            {
+              "title": "Generate text with MAX",
+              "body": "Requires a compatible GPU.",
+              "code": "./bazelw run //max/python/max/_entrypoints:pipelines -- generate \\\n  --model Qwen/Qwen3.5-0.8B --max-batch-size 1 --max-length 8000 \\\n  --prompt \"The sky is blue because\"",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run hello.mojo",
+          "body": "Use the bazelw command from the repo."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Generate text with MAX from the repository",
+      "useCase": "The README's MAX example.",
+      "setup": [
+        "Repo cloned",
+        "A compatible GPU"
+      ],
+      "steps": [
+        {
+          "title": "Run the pipelines entrypoint",
+          "code": "./bazelw run //max/python/max/_entrypoints:pipelines -- generate --model Qwen/Qwen3.5-0.8B --max-batch-size 1 --max-length 8000 --prompt \"The sky is blue because\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Read the output",
+          "body": "The model continues the prompt."
+        }
+      ],
+      "expected": "Generated text printed in the terminal.",
+      "nextSteps": [
+        "Browse max/examples",
+        "Try the inference server",
+        "Read the Mojo manual"
+      ],
+      "sourceUrl": "https://github.com/modular/modular/blob/cdf1ad928d192d9f2a154d9c748d53e5409b7cd0/README.md"
+    },
+    "costs": [
+      {
+        "label": "Open-source components",
+        "value": "Free; Apache 2.0 with LLVM Exceptions, parts of MAX under the MAX license.",
+        "tone": "free"
+      },
+      {
+        "label": "Hardware",
+        "value": "Your own GPU or cloud GPUs.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "MAX generate fails",
+        "solution": "Check your GPU against MAX's system requirements.",
+        "sourceUrl": "https://github.com/modular/modular/blob/cdf1ad928d192d9f2a154d9c748d53e5409b7cd0/README.md"
+      }
+    ],
+    "bestFor": [
+      "Mojo language",
+      "High-performance AI inference"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI platform (language + framework)"
+      },
+      {
+        "label": "Languages",
+        "value": "Mojo, Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0 with LLVM Exceptions; MAX license for parts"
+      },
+      {
+        "label": "Docs",
+        "value": "max.modular.com"
+      }
+    ]
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "fullName": "NVIDIA/SkillSpector",
+  "summary": "NVIDIA's security scanner for AI agent skills: checks a skill for prompt injection, data theft and other risks before you install it.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/NVIDIA/SkillSpector/blob/02894ec5b8a0a70637df5a6b45763de92940cedd/README.md"
+    ],
+    "sourceCommitSha": "02894ec5b8a0a70637df5a6b45763de92940cedd",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "python -m pip install --upgrade skillspector"
+      },
+      {
+        "comment": "Scan",
+        "command": "skillspector scan ./my-skill/"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "SkillSpector scans AI agent skills (as used by Claude Code, Codex CLI, Gemini CLI and others) for security problems before you install them. It checks Git repos, URLs, zip files, folders or a single SKILL.md against 71 patterns in 17 categories, including prompt injection, data exfiltration, privilege escalation, supply-chain risk and excessive agency, and gives a 0 to 100 risk score.",
+      "problem": "Skills run with implicit trust and little vetting. SkillSpector helps answer: is this skill safe to install?",
+      "whoFor": [
+        "Developers who install third-party agent skills",
+        "Security teams reviewing skills",
+        "Skill authors checking their own work"
+      ],
+      "whyChoose": "Choose it for fast static analysis with optional LLM review, live CVE lookups, several report formats and baseline support for known findings.",
+      "requirements": [
+        "Python 3.12 or 3.13 (for prebuilt YARA wheels), or Docker"
+      ]
+    },
+    "overview": [
+      "Install from PyPI into a virtual environment, or with uv tool install from GitHub; an MCP server extra is available. A Docker image lets you scan without Python.",
+      "Run skillspector scan on a folder, SKILL.md, Git URL or zip. Use --no-llm for static analysis only and --format json, Markdown or SARIF for reports.",
+      "Remote and archive inputs are size-capped to limit oversized downloads and zip bombs. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Many inputs",
+        "body": "Repos, URLs, zips, folders, files."
+      },
+      {
+        "icon": "scan-search",
+        "title": "71 patterns",
+        "body": "17 risk categories."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Two-stage analysis",
+        "body": "Static plus optional LLM."
+      },
+      {
+        "icon": "file-code",
+        "title": "CVE lookups",
+        "body": "Queries OSV.dev."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Reports",
+        "body": "Terminal, JSON, Markdown, SARIF."
+      },
+      {
+        "icon": "shield",
+        "title": "Risk score",
+        "body": "0 to 100 with advice."
+      }
+    ],
+    "strengths": [
+      "Focused on agent skills",
+      "CI-friendly output",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Python version matters for install",
+      "A clean scan isn't a guarantee of safety"
+    ],
+    "useCases": [
+      {
+        "title": "Vet a skill before install",
+        "body": "Scan the GitHub URL."
+      },
+      {
+        "title": "CI check for your skills",
+        "body": "SARIF output in pipelines."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from SkillSpector's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/NVIDIA/SkillSpector/blob/02894ec5b8a0a70637df5a6b45763de92940cedd/README.md",
+      "prerequisites": [
+        "Python 3.12/3.13 or Docker"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Create and activate a virtual environment",
+              "body": "Use Python 3.12 or 3.13."
+            },
+            {
+              "title": "Install",
+              "code": "python -m pip install --upgrade skillspector",
+              "lang": "bash"
+            },
+            {
+              "title": "Verify",
+              "code": "skillspector --version",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "uv (from GitHub)",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install the CLI",
+              "code": "uv tool install --python 3.13 git+https://github.com/NVIDIA/skillspector.git",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Scan a skill folder",
+          "code": "skillspector scan ./my-skill/",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Check a skill before installing it",
+      "useCase": "Scan a skill from GitHub.",
+      "setup": [
+        "SkillSpector installed"
+      ],
+      "steps": [
+        {
+          "title": "Scan the repo",
+          "code": "skillspector scan https://github.com/user/my-skill",
+          "lang": "bash"
+        },
+        {
+          "title": "Read the score",
+          "body": "Look at the risk score, severity and recommendations."
+        },
+        {
+          "title": "Save a report",
+          "code": "skillspector scan ./my-skill/ --no-llm --format json --output report.json",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A risk score and a list of findings for the skill.",
+      "nextSteps": [
+        "Add LLM analysis",
+        "Set up a baseline",
+        "Try the MCP server"
+      ],
+      "sourceUrl": "https://github.com/NVIDIA/SkillSpector/blob/02894ec5b8a0a70637df5a6b45763de92940cedd/README.md"
+    },
+    "costs": [
+      {
+        "label": "SkillSpector",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "LLM analysis",
+        "value": "Optional; your LLM provider bills for it.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "YARA install fails",
+        "solution": "Use Python 3.12 or 3.13 for prebuilt wheels, or use Docker.",
+        "sourceUrl": "https://github.com/NVIDIA/SkillSpector/blob/02894ec5b8a0a70637df5a6b45763de92940cedd/README.md"
+      }
+    ],
+    "bestFor": [
+      "Agent skill security",
+      "Scanning SKILL.md files"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Security scanner"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "pip install skillspector"
+      }
+    ]
+  }
+}

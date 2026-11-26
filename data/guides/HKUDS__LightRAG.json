@@ -1,0 +1,239 @@
+{
+  "fullName": "HKUDS/LightRAG",
+  "summary": "Simple, fast retrieval-augmented generation that builds a knowledge graph from your documents, with a server and web UI.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/HKUDS/LightRAG/blob/2487bbb5a56174a087208c3da69585cf5f33e8a0/README.md"
+    ],
+    "sourceCommitSha": "2487bbb5a56174a087208c3da69585cf5f33e8a0",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install the server",
+        "command": "uv tool install \"lightrag-hku[api]\""
+      },
+      {
+        "comment": "Start it",
+        "command": "lightrag-server"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "LightRAG is a retrieval-augmented generation (RAG) system from HKU. It extracts entities and relationships from your documents into a knowledge graph and uses it with vector search to answer questions, through a Python library or a server with a web UI and REST API.",
+      "problem": "Plain vector RAG can miss how facts connect. LightRAG adds graph-based retrieval while staying simple and fast, and it now also parses multimodal content.",
+      "whoFor": [
+        "Developers building RAG apps",
+        "Researchers working on graph RAG",
+        "Teams indexing internal documents"
+      ],
+      "whyChoose": "Choose it for a well-known, MIT-licensed graph RAG system with a prebuilt web UI, many storage backends and per-role LLM settings.",
+      "requirements": [
+        "uv (recommended) or pip with Python 3.11+",
+        "An OpenAI API key or another OpenAI-compatible provider for the LLM and embeddings"
+      ]
+    },
+    "overview": [
+      "Install the server with uv tool install \"lightrag-hku[api]\" (the PyPI package includes the WebUI), copy env.example to .env, set LLM_BINDING_API_KEY and EMBEDDING_BINDING_API_KEY, and run lightrag-server.",
+      "The WebUI is at http://localhost:9621/webui and the API docs at /docs. For other providers, set the binding host and model values too.",
+      "Security warning from the README: the server binds to all interfaces with authentication off by default, so secure it before running on a shared network or cloud host. LightRAG is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Graph + vector retrieval",
+        "body": "Knowledge graph from documents."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Web UI",
+        "body": "Prebuilt in the PyPI package."
+      },
+      {
+        "icon": "puzzle",
+        "title": "REST API",
+        "body": "Docs at /docs."
+      },
+      {
+        "icon": "file-code",
+        "title": "Chunking strategies",
+        "body": "Fix, Recursive, Vector, Paragraph."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Multimodal parsing",
+        "body": "Via MinerU or Docling."
+      },
+      {
+        "icon": "shield",
+        "title": "Many storages",
+        "body": "Including OpenSearch."
+      }
+    ],
+    "strengths": [
+      "Simple setup",
+      "Graph-aware answers",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Needs LLM and embedding API usage to index",
+      "Server is open by default; you must secure it"
+    ],
+    "useCases": [
+      {
+        "title": "Document Q&A",
+        "body": "Ask questions over your files."
+      },
+      {
+        "title": "Knowledge graph",
+        "body": "See how entities connect."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from LightRAG's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/HKUDS/LightRAG/blob/2487bbb5a56174a087208c3da69585cf5f33e8a0/README.md",
+      "prerequisites": [
+        "uv or Python 3.11+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "uv tool (server)",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "uv tool install \"lightrag-hku[api]\"",
+              "lang": "bash"
+            },
+            {
+              "title": "Get the config template",
+              "code": "curl -O https://raw.githubusercontent.com/HKUDS/LightRAG/main/env.example\ncp env.example .env",
+              "lang": "bash"
+            },
+            {
+              "title": "Set your keys in .env",
+              "body": "Set LLM_BINDING_API_KEY and EMBEDDING_BINDING_API_KEY (they can be the same OpenAI key)."
+            },
+            {
+              "title": "Start",
+              "code": "lightrag-server",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install in a virtual environment",
+              "code": "python -m venv .venv\nsource .venv/bin/activate\npip install \"lightrag-hku[api]\"",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "LLM_BINDING_API_KEY",
+          "required": true,
+          "description": "Key for the LLM provider."
+        },
+        {
+          "name": "EMBEDDING_BINDING_API_KEY",
+          "required": true,
+          "description": "Key for the embedding provider."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Open the web UI",
+          "body": "Go to http://localhost:9621/webui and upload a document."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Ask questions over your documents",
+      "useCase": "Index a document and query it in the web UI.",
+      "setup": [
+        "LightRAG server installed",
+        "An OpenAI key"
+      ],
+      "steps": [
+        {
+          "title": "Start the server",
+          "code": "lightrag-server",
+          "lang": "bash"
+        },
+        {
+          "title": "Upload a document",
+          "body": "Open http://localhost:9621/webui and add a file."
+        },
+        {
+          "title": "Ask a question",
+          "body": "Use the query view once indexing finishes."
+        }
+      ],
+      "expected": "Answers grounded in your document, plus a knowledge graph you can explore.",
+      "nextSteps": [
+        "Turn on authentication",
+        "Try another storage backend",
+        "Use the REST API"
+      ],
+      "sourceUrl": "https://github.com/HKUDS/LightRAG/blob/2487bbb5a56174a087208c3da69585cf5f33e8a0/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Your LLM and embedding provider bills for indexing and queries.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Server reachable by anyone",
+        "solution": "It binds to 0.0.0.0 with auth off by default; secure it before exposing it.",
+        "sourceUrl": "https://github.com/HKUDS/LightRAG/blob/2487bbb5a56174a087208c3da69585cf5f33e8a0/README.md"
+      },
+      {
+        "problem": "Using a non-OpenAI provider",
+        "solution": "Also set LLM_BINDING_HOST, LLM_MODEL, EMBEDDING_BINDING_HOST and EMBEDDING_MODEL.",
+        "sourceUrl": "https://github.com/HKUDS/LightRAG/blob/2487bbb5a56174a087208c3da69585cf5f33e8a0/README.md"
+      }
+    ],
+    "bestFor": [
+      "Graph RAG",
+      "Document Q&A"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "RAG framework and server"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Port",
+        "value": "9621"
+      }
+    ]
+  }
+}

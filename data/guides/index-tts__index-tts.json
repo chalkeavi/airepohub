@@ -1,0 +1,237 @@
+{
+  "fullName": "index-tts/index-tts",
+  "summary": "Zero-shot text-to-speech that speaks in a voice from one reference clip, with emotion control, in Chinese, English and more.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/index-tts/index-tts/blob/d9e41aac89fd00b3d71497fddb287b7f24613712/README.md"
+    ],
+    "sourceCommitSha": "d9e41aac89fd00b3d71497fddb287b7f24613712",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Run",
+        "command": "uv run webui.py"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "IndexTTS is a text-to-speech system from bilibili that copies a speaker's voice from a single reference audio clip. The latest release, IndexTTS-2.5, supports Chinese, English, Japanese, Spanish and Arabic, and lets you control emotion with a separate emotional reference clip, an emotion vector, or a text description. It comes with a web demo and a Python API.",
+      "problem": "Most TTS voices sound flat and fixed. IndexTTS lets you pick a voice from a short sample and steer its emotion.",
+      "whoFor": [
+        "Developers adding speech to apps",
+        "Video and audio creators",
+        "Researchers in speech synthesis"
+      ],
+      "whyChoose": "Choose it for multilingual zero-shot TTS with fine-grained emotion control and a ready web demo.",
+      "requirements": [
+        "git",
+        "uv (the project requires it)",
+        "NVIDIA GPU recommended; CUDA Toolkit 12.8 or newer if you see CUDA errors"
+      ]
+    },
+    "overview": [
+      "Clone the repo and run uv sync --all-extras, which creates a virtual environment with the right Python and dependencies.",
+      "Download the model weights from Hugging Face or ModelScope into the checkpoints folder.",
+      "Start the web demo with uv run webui.py and open http://127.0.0.1:7860. Use is governed by the bilibili Model Use License Agreement; read the DISCLAIMER too."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Zero-shot voice",
+        "body": "One reference clip sets the voice."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Emotion control",
+        "body": "By reference audio, vector, or text."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Five languages",
+        "body": "Chinese, English, Japanese, Spanish, Arabic in 2.5."
+      },
+      {
+        "icon": "file-code",
+        "title": "Web demo",
+        "body": "Gradio-style UI on port 7860."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Python API",
+        "body": "Call infer from your code."
+      },
+      {
+        "icon": "shield",
+        "title": "Speed options",
+        "body": "BF16/FP16, DeepSpeed, CUDA kernels."
+      }
+    ],
+    "strengths": [
+      "Expressive emotion control",
+      "Multilingual",
+      "Clear install with uv"
+    ],
+    "limitations": [
+      "Custom model license, not a standard open-source one",
+      "DeepSpeed can be hard to install on Windows",
+      "Large model download"
+    ],
+    "useCases": [
+      {
+        "title": "Narration",
+        "body": "Read scripts in a chosen voice."
+      },
+      {
+        "title": "Dubbing",
+        "body": "Speech with matched emotion."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from IndexTTS's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/index-tts/index-tts/blob/d9e41aac89fd00b3d71497fddb287b7f24613712/README.md",
+      "prerequisites": [
+        "git",
+        "uv",
+        "NVIDIA GPU recommended"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "uv (from source)",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/index-tts/index-tts.git && cd index-tts",
+              "lang": "bash"
+            },
+            {
+              "title": "Install uv",
+              "code": "pip install -U uv",
+              "lang": "bash"
+            },
+            {
+              "title": "Install dependencies",
+              "body": "On Windows, if DeepSpeed fails, drop --all-extras and add the other feature flags manually.",
+              "code": "uv sync --all-extras",
+              "lang": "bash"
+            },
+            {
+              "title": "Install the Hugging Face CLI",
+              "code": "uv tool install \"huggingface-hub\"",
+              "lang": "bash"
+            },
+            {
+              "title": "Download IndexTTS-2.5 weights",
+              "code": "hf download IndexTeam/IndexTTS-2.5 --local-dir=checkpoints",
+              "lang": "bash"
+            },
+            {
+              "title": "Check the GPU",
+              "code": "uv run tools/gpu_check.py",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the web demo",
+              "body": "Then open http://127.0.0.1:7860.",
+              "code": "uv run webui.py",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Clone a voice in the web demo",
+          "body": "Upload a reference clip, type text, and generate speech."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Generate speech from Python",
+      "useCase": "The README's Python API example for IndexTTS-2.5.",
+      "setup": [
+        "Dependencies installed with uv",
+        "Weights in checkpoints/"
+      ],
+      "steps": [
+        {
+          "title": "Load the model",
+          "body": "from indextts.infer_v2_5 import IndexTTS2; tts = IndexTTS2(cfg_path=\"checkpoints/config.yaml\", model_dir=\"checkpoints\", use_bf16=True)."
+        },
+        {
+          "title": "Synthesize",
+          "body": "tts.infer(spk_audio_prompt='examples/voice_01.wav', text=text, lang=\"EN\", output_path=\"gen.wav\")."
+        },
+        {
+          "title": "Run it with uv",
+          "body": "Use uv run so the script runs inside the project environment; you may need to add the current folder to PYTHONPATH."
+        }
+      ],
+      "expected": "A gen.wav file in the reference voice.",
+      "nextSteps": [
+        "Add an emotion reference clip",
+        "Adjust emo_alpha",
+        "Try emotion from text"
+      ],
+      "sourceUrl": "https://github.com/index-tts/index-tts/blob/d9e41aac89fd00b3d71497fddb287b7f24613712/README.md"
+    },
+    "costs": [
+      {
+        "label": "IndexTTS",
+        "value": "Free to download; use is under the bilibili Model Use License Agreement.",
+        "tone": "depends"
+      },
+      {
+        "label": "GPU",
+        "value": "Your own hardware.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "CUDA error during install",
+        "solution": "Install NVIDIA CUDA Toolkit 12.8 or newer.",
+        "sourceUrl": "https://github.com/index-tts/index-tts/blob/d9e41aac89fd00b3d71497fddb287b7f24613712/README.md"
+      },
+      {
+        "problem": "Dependency conflicts",
+        "solution": "Don't activate another environment before uv commands; uv activates the right one.",
+        "sourceUrl": "https://github.com/index-tts/index-tts/blob/d9e41aac89fd00b3d71497fddb287b7f24613712/README.md"
+      },
+      {
+        "problem": "Example audio missing",
+        "solution": "Start the WebUI once, or run the README's ensure_examples_available command.",
+        "sourceUrl": "https://github.com/index-tts/index-tts/blob/d9e41aac89fd00b3d71497fddb287b7f24613712/README.md"
+      }
+    ],
+    "bestFor": [
+      "Expressive multilingual TTS"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Text-to-speech model"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "bilibili Model Use License"
+      },
+      {
+        "label": "Install",
+        "value": "uv sync --all-extras"
+      }
+    ]
+  }
+}

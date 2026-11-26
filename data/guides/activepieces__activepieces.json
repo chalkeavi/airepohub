@@ -1,0 +1,197 @@
+{
+  "fullName": "activepieces/activepieces",
+  "summary": "Open-source Zapier alternative for building AI automations with a no-code builder, 200+ app integrations that also work as MCP servers.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/activepieces/activepieces/blob/98c6c8e9750a6c38bff94913b1a3ee192e4f2065/README.md"
+    ],
+    "sourceCommitSha": "98c6c8e9750a6c38bff94913b1a3ee192e4f2065",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install guide",
+        "command": "See activepieces.com/docs/install/overview"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Activepieces is an all-in-one AI automation platform. Non-technical users build flows in a visual builder with loops, branches, retries, HTTP and code steps, while developers extend it with 'pieces', type-safe TypeScript npm packages for each app. Every piece is also available as an MCP server for Claude Desktop, Cursor or Windsurf, and native AI pieces and an AI SDK help build agents.",
+      "problem": "Automation tools like Zapier are closed and costly at scale. Activepieces is open source and can be self-hosted, even on an isolated network.",
+      "whoFor": [
+        "Teams automating work across apps",
+        "Developers writing custom integrations",
+        "Companies that need self-hosted automation"
+      ],
+      "whyChoose": "Choose it for a friendly builder, a large open MCP toolkit, human-in-the-loop steps and self-hosting.",
+      "requirements": [
+        "See the official installation guide (self-hosting options)"
+      ]
+    },
+    "overview": [
+      "The README doesn't list install commands; it links to the installation overview in the Activepieces docs for self-hosting, and to activepieces.com for the cloud.",
+      "Flows support approvals and delays, chat and form triggers, versioning, templates and an Ask AI helper in code steps. There are 200+ pieces, many contributed by the community.",
+      "The Community Edition is MIT licensed; enterprise features are under a commercial license."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "No-code builder",
+        "body": "Loops, branches, retries."
+      },
+      {
+        "icon": "scan-search",
+        "title": "200+ pieces",
+        "body": "App integrations."
+      },
+      {
+        "icon": "puzzle",
+        "title": "MCP servers",
+        "body": "Pieces usable from LLM clients."
+      },
+      {
+        "icon": "file-code",
+        "title": "AI pieces",
+        "body": "Multiple providers and an AI SDK."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Human in the loop",
+        "body": "Approvals and delays."
+      },
+      {
+        "icon": "shield",
+        "title": "Chat and form triggers",
+        "body": "Human input interfaces."
+      }
+    ],
+    "strengths": [
+      "Open source",
+      "Self-hostable",
+      "Developer-extensible"
+    ],
+    "limitations": [
+      "Install steps live in the docs",
+      "Enterprise features need a commercial license"
+    ],
+    "useCases": [
+      {
+        "title": "Lead routing",
+        "body": "New form entry to CRM and Slack."
+      },
+      {
+        "title": "AI data cleanup",
+        "body": "Ask AI in a code step."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Activepieces's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/activepieces/activepieces/blob/98c6c8e9750a6c38bff94913b1a3ee192e4f2065/README.md",
+      "prerequisites": [
+        "A server or the cloud version"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Official install guide",
+          "method": "docs",
+          "steps": [
+            {
+              "title": "Open the install docs",
+              "body": "Go to activepieces.com/docs/install/overview and pick a self-hosting method."
+            },
+            {
+              "title": "Or use the cloud",
+              "body": "Sign up at activepieces.com."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Build a flow",
+          "body": "Pick a trigger and add a step in the builder."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Create your first automation",
+      "useCase": "A simple trigger-and-action flow.",
+      "setup": [
+        "Activepieces running (self-hosted or cloud)"
+      ],
+      "steps": [
+        {
+          "title": "Choose a trigger",
+          "body": "For example a form submission."
+        },
+        {
+          "title": "Add an AI step",
+          "body": "Summarize the submission with an AI piece."
+        },
+        {
+          "title": "Add an action",
+          "body": "Send the summary to Slack or email."
+        },
+        {
+          "title": "Publish",
+          "body": "Turn the flow on."
+        }
+      ],
+      "expected": "A running flow that summarizes each new form entry and sends it on.",
+      "nextSteps": [
+        "Add an approval step",
+        "Use a piece as an MCP server",
+        "Build your own piece"
+      ],
+      "sourceUrl": "https://github.com/activepieces/activepieces/blob/98c6c8e9750a6c38bff94913b1a3ee192e4f2065/README.md"
+    },
+    "costs": [
+      {
+        "label": "Community Edition",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Cloud and enterprise",
+        "value": "Paid plans; see activepieces.com/pricing.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install questions",
+        "solution": "Follow the official install overview for your platform.",
+        "sourceUrl": "https://github.com/activepieces/activepieces/blob/98c6c8e9750a6c38bff94913b1a3ee192e4f2065/README.md"
+      }
+    ],
+    "bestFor": [
+      "Open-source Zapier alternative",
+      "AI workflow automation"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Automation platform"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT (Community) + Commercial (enterprise)"
+      },
+      {
+        "label": "Docs",
+        "value": "activepieces.com/docs"
+      }
+    ]
+  }
+}

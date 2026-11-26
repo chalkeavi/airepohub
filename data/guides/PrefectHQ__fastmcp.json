@@ -1,0 +1,195 @@
+{
+  "fullName": "PrefectHQ/fastmcp",
+  "summary": "Python framework for building Model Context Protocol (MCP) servers, clients and apps: turn a Python function into a tool an LLM can call.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/PrefectHQ/fastmcp/blob/fbdb50f8a6f9a7f723f4ed4c446da4fa6179da29/README.md"
+    ],
+    "sourceCommitSha": "fbdb50f8a6f9a7f723f4ed4c446da4fa6179da29",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "uv add fastmcp"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "FastMCP is a framework for the Model Context Protocol, the standard that connects LLMs to tools and data. You write ordinary Python functions, mark them as tools, and FastMCP generates the schema, validation and docs. It also provides clients that connect to MCP servers and handle transports, authentication and the protocol lifecycle, plus apps that give tools interactive UIs inside the conversation.",
+      "problem": "Writing an MCP server by hand means dealing with schemas, transports and auth. FastMCP hides that so a working server is a few lines of Python.",
+      "whoFor": [
+        "Python developers exposing tools to AI assistants",
+        "Teams building MCP servers for internal data",
+        "Developers connecting apps to MCP servers"
+      ],
+      "whyChoose": "Choose it for the most widely used MCP framework, with servers, clients and apps in one package and an official install guide.",
+      "requirements": [
+        "Python",
+        "uv (recommended) or another package manager"
+      ]
+    },
+    "overview": [
+      "Add FastMCP to your project with uv add fastmcp. The full installation guide (including verification and upgrading) is at gofastmcp.com.",
+      "A server is a FastMCP object with functions decorated as tools; calling mcp.run() starts it. Resources and prompts can be exposed the same way.",
+      "FastMCP 1.0 was folded into the official MCP Python SDK in 2024, and this standalone project continues it. Upgrade guides cover moves from earlier FastMCP and MCP SDK versions. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Servers",
+        "body": "Expose tools, resources and prompts."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Auto schemas",
+        "body": "Generated from Python type hints."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Clients",
+        "body": "Connect to any MCP server by URL."
+      },
+      {
+        "icon": "file-code",
+        "title": "Auth and transports",
+        "body": "Handled for you."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Apps",
+        "body": "Interactive UIs for tools in chat."
+      },
+      {
+        "icon": "shield",
+        "title": "Upgrade guides",
+        "body": "From older FastMCP and MCP SDKs."
+      }
+    ],
+    "strengths": [
+      "Very little code",
+      "Widely adopted",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Python only",
+      "Major versions change APIs, so read upgrade guides"
+    ],
+    "useCases": [
+      {
+        "title": "Give Claude access to your database",
+        "body": "Wrap queries as tools."
+      },
+      {
+        "title": "Internal tool server",
+        "body": "Share company APIs with AI assistants."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from FastMCP's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/PrefectHQ/fastmcp/blob/fbdb50f8a6f9a7f723f4ed4c446da4fa6179da29/README.md",
+      "prerequisites": [
+        "Python",
+        "uv"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Add to your project",
+              "code": "uv add fastmcp",
+              "lang": "bash"
+            },
+            {
+              "title": "Check the install guide",
+              "body": "See gofastmcp.com/getting-started/installation for verification and upgrade notes."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Write a tool",
+          "body": "Decorate a Python function with @mcp.tool."
+        },
+        {
+          "title": "Run the server",
+          "body": "Call mcp.run()."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build your first MCP server",
+      "useCase": "The README's Demo server.",
+      "setup": [
+        "fastmcp installed"
+      ],
+      "steps": [
+        {
+          "title": "Create the server",
+          "body": "from fastmcp import FastMCP, then mcp = FastMCP(\"Demo\")."
+        },
+        {
+          "title": "Add a tool",
+          "body": "Decorate def add(a: int, b: int) -> int with @mcp.tool and return a + b."
+        },
+        {
+          "title": "Run it",
+          "body": "Call mcp.run() under if __name__ == \"__main__\"."
+        }
+      ],
+      "expected": "A running MCP server with an add tool that MCP clients can call.",
+      "nextSteps": [
+        "Connect it to Claude or another MCP client",
+        "Add a resource",
+        "Try a FastMCP client"
+      ],
+      "sourceUrl": "https://github.com/PrefectHQ/fastmcp/blob/fbdb50f8a6f9a7f723f4ed4c446da4fa6179da29/README.md"
+    },
+    "costs": [
+      {
+        "label": "FastMCP",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Code from older tutorials breaks",
+        "solution": "Follow the upgrade guide for the version you came from.",
+        "sourceUrl": "https://github.com/PrefectHQ/fastmcp/blob/fbdb50f8a6f9a7f723f4ed4c446da4fa6179da29/README.md"
+      }
+    ],
+    "bestFor": [
+      "Building MCP servers",
+      "Python tools for LLMs"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "MCP framework"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "uv add fastmcp"
+      }
+    ]
+  }
+}

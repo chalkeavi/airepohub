@@ -1,0 +1,248 @@
+{
+  "fullName": "comet-ml/opik",
+  "summary": "Open-source platform to trace, evaluate and monitor LLM apps and AI agents, self-hosted or on Comet's cloud.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/comet-ml/opik/blob/cfdb0665b498bc958845cd5568394fd5ca7222b6/README.md"
+    ],
+    "sourceCommitSha": "cfdb0665b498bc958845cd5568394fd5ca7222b6",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install SDK",
+        "command": "pip install opik"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Opik, built by Comet, records what your LLM app or AI agent does so you can debug and improve it. It traces LLM calls, tool calls and multi-step agent runs as trace trees, evaluates outputs with datasets, experiments and LLM-as-a-judge metrics (for example hallucination detection), manages prompts with a playground, and monitors production with dashboards and online evaluation rules. It has Python and TypeScript SDKs, OpenTelemetry support and many framework integrations. The full platform, including the backend, is open source.",
+      "problem": "LLM apps fail in ways that are hard to see. Opik shows every step and gives you tests and metrics to catch problems before and after release.",
+      "whoFor": [
+        "ML engineers building LLM agents",
+        "AI teams moving from prototype to production",
+        "Teams needing self-hosted observability"
+      ],
+      "whyChoose": "Pick it for a fully open-source, self-hostable tracing and evaluation platform that isn't tied to one framework.",
+      "requirements": [
+        "Python for the SDK",
+        "Docker for self-hosting the server, or a free Comet account for the cloud"
+      ]
+    },
+    "overview": [
+      "Install the SDK with pip install opik and run opik configure to point it at Comet's cloud or your own server.",
+      "Add the @track decorator to a function and every call, including nested calls, is logged as a trace.",
+      "To self-host, clone the repo and run ./opik.sh (or opik.ps1 on Windows), then open localhost:5173. Apache-2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Agent tracing",
+        "body": "Full trace trees for tools and steps."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Evaluation",
+        "body": "Datasets, experiments, LLM-as-a-judge."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Prompt playground",
+        "body": "Try prompts and models."
+      },
+      {
+        "icon": "file-code",
+        "title": "Production monitoring",
+        "body": "Dashboards and online rules."
+      },
+      {
+        "icon": "git-compare",
+        "title": "CI tests",
+        "body": "PyTest integration."
+      },
+      {
+        "icon": "shield",
+        "title": "Guardrails and optimizer",
+        "body": "Improve and secure apps."
+      }
+    ],
+    "strengths": [
+      "Whole platform is open source",
+      "Framework-agnostic",
+      "Cloud or self-hosted"
+    ],
+    "limitations": [
+      "Self-hosting runs several containers",
+      "LLM-as-a-judge metrics cost model calls"
+    ],
+    "useCases": [
+      {
+        "title": "Debug agents",
+        "body": "See each step and tool call."
+      },
+      {
+        "title": "Regression tests",
+        "body": "Evaluate on every commit."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Opik's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/comet-ml/opik/blob/cfdb0665b498bc958845cd5568394fd5ca7222b6/README.md",
+      "prerequisites": [
+        "Python",
+        "Docker (self-host)"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Python SDK",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install opik",
+              "lang": "bash"
+            },
+            {
+              "title": "Configure",
+              "body": "Choose Comet's cloud or your own Opik server.",
+              "code": "opik configure",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Self-host (Linux/macOS)",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/comet-ml/opik.git\ncd opik",
+              "lang": "bash"
+            },
+            {
+              "title": "Start Opik",
+              "body": "Then open localhost:5173. Use --help for options.",
+              "code": "./opik.sh",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Self-host (Windows)",
+          "method": "powershell",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/comet-ml/opik.git\ncd opik",
+              "lang": "powershell"
+            },
+            {
+              "title": "Start Opik",
+              "code": "powershell -ExecutionPolicy ByPass -c \".\\\\opik.ps1\"",
+              "lang": "powershell"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Comet cloud",
+          "method": "cloud",
+          "steps": [
+            {
+              "title": "Sign up",
+              "body": "Create a free Comet account to use hosted Opik without setup."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Trace a function",
+          "body": "Add @track to a function and call it."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Log your first trace",
+      "useCase": "The README's quick start.",
+      "setup": [
+        "opik installed and configured"
+      ],
+      "steps": [
+        {
+          "title": "Import",
+          "body": "from opik import track."
+        },
+        {
+          "title": "Decorate",
+          "body": "Put @track above a function, such as one that calls your LLM."
+        },
+        {
+          "title": "Run and view",
+          "body": "Call the function and open Opik to see the trace, including nested calls."
+        }
+      ],
+      "expected": "Traces of each call visible in the Opik dashboard.",
+      "nextSteps": [
+        "Create a dataset and run an experiment",
+        "Add a hallucination metric",
+        "Use an integration for your framework"
+      ],
+      "sourceUrl": "https://github.com/comet-ml/opik/blob/cfdb0665b498bc958845cd5568394fd5ca7222b6/README.md"
+    },
+    "costs": [
+      {
+        "label": "Opik",
+        "value": "Free and open source under Apache-2.0 to self-host.",
+        "tone": "free"
+      },
+      {
+        "label": "Comet cloud",
+        "value": "Free account available; hosted by Comet.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Containers not starting",
+        "solution": "Run ./opik.sh --help or --info to troubleshoot.",
+        "sourceUrl": "https://github.com/comet-ml/opik/blob/cfdb0665b498bc958845cd5568394fd5ca7222b6/README.md"
+      },
+      {
+        "problem": "Want to remove all data",
+        "solution": "./opik.sh has a stop option that deletes data volumes; this erases all Opik data.",
+        "sourceUrl": "https://github.com/comet-ml/opik/blob/cfdb0665b498bc958845cd5568394fd5ca7222b6/README.md"
+      }
+    ],
+    "bestFor": [
+      "Tracing and evaluating LLM agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "LLM observability platform"
+      },
+      {
+        "label": "Language",
+        "value": "Java"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "SDKs",
+        "value": "Python, TypeScript, OpenTelemetry"
+      }
+    ]
+  }
+}

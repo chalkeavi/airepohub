@@ -1,0 +1,176 @@
+{
+  "fullName": "huggingface/pytorch-image-models",
+  "summary": "Hugging Face's huge library of pretrained PyTorch image models, layers and training scripts for computer vision.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/huggingface/pytorch-image-models/blob/b4f423c19f778672f875e0948f296322c775f24b/README.md"
+    ],
+    "sourceCommitSha": "b4f423c19f778672f875e0948f296322c775f24b",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Get started",
+        "command": "Follow the official docs at huggingface.co/docs/hub/timm"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "PyTorch Image Models (timm) is a collection of image models, layers, utilities, optimizers, schedulers, data loaders, augmentations and reference training and validation scripts. It brings together a wide range of state-of-the-art vision models and can reproduce ImageNet training results.",
+      "problem": "Finding, comparing and training modern vision backbones means hunting through many repos. timm puts them in one consistent library.",
+      "whoFor": [
+        "Computer vision researchers",
+        "ML engineers fine-tuning image models",
+        "Students learning vision architectures"
+      ],
+      "whyChoose": "Choose it for the largest collection of PyTorch image encoders and backbones, maintained by Hugging Face, with training, evaluation and inference scripts.",
+      "requirements": [
+        "Python and PyTorch"
+      ]
+    },
+    "overview": [
+      "timm includes many model families with pretrained weights, plus the building blocks used to make them.",
+      "The repo ships train, validation and inference scripts. Official documentation is at huggingface.co/docs/hub/timm; timmdocs and Papers with Code are other good references.",
+      "Community tools such as timmx export models to ONNX, CoreML, LiteRT and TensorRT. timm is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Many models",
+        "body": "State-of-the-art backbones."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Pretrained weights",
+        "body": "Ready to fine-tune."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Training scripts",
+        "body": "Reproduce ImageNet results."
+      },
+      {
+        "icon": "file-code",
+        "title": "Utilities",
+        "body": "Optimizers, schedulers, augmentations."
+      }
+    ],
+    "strengths": [
+      "Huge model zoo",
+      "Consistent API",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Install steps are in the docs, not the README",
+      "Large models need GPUs to train"
+    ],
+    "useCases": [
+      {
+        "title": "Image classification",
+        "body": "Fine-tune a backbone."
+      },
+      {
+        "title": "Feature extraction",
+        "body": "Use encoders in other models."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from PyTorch Image Models (timm)'s README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/huggingface/pytorch-image-models/blob/b4f423c19f778672f875e0948f296322c775f24b/README.md",
+      "prerequisites": [
+        "Python",
+        "PyTorch"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Documentation",
+          "method": "docs",
+          "steps": [
+            {
+              "title": "Open the official docs",
+              "body": "The README points to huggingface.co/docs/hub/timm for installation and getting started."
+            },
+            {
+              "title": "Browse models",
+              "body": "Use Papers with Code or the docs to pick a model."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Read the practitioner's guide",
+          "body": "The README links 'Getting Started with PyTorch Image Models (timm): A Practitioner's Guide'."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run the reference scripts",
+      "useCase": "Use the repo's train, validation and inference scripts.",
+      "setup": [
+        "Python and PyTorch",
+        "The repo cloned"
+      ],
+      "steps": [
+        {
+          "title": "Clone the repo",
+          "code": "git clone https://github.com/huggingface/pytorch-image-models.git",
+          "lang": "bash"
+        },
+        {
+          "title": "Read the scripts section",
+          "body": "See 'Train, Validation, Inference Scripts' in the README for usage."
+        }
+      ],
+      "expected": "A model evaluated or trained with the reference scripts.",
+      "nextSteps": [
+        "Fine-tune on your data",
+        "Export with timmx"
+      ],
+      "sourceUrl": "https://github.com/huggingface/pytorch-image-models/blob/b4f423c19f778672f875e0948f296322c775f24b/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Not sure where to start",
+        "solution": "Begin with the official docs at huggingface.co/docs/hub/timm.",
+        "sourceUrl": "https://github.com/huggingface/pytorch-image-models/blob/b4f423c19f778672f875e0948f296322c775f24b/README.md"
+      }
+    ],
+    "bestFor": [
+      "Computer vision models",
+      "Image backbones"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Vision model library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Maker",
+        "value": "Hugging Face"
+      }
+    ]
+  }
+}

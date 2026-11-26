@@ -1,0 +1,203 @@
+{
+  "fullName": "datawhalechina/llm-cookbook",
+  "summary": "Chinese-language LLM course for developers, translating and reproducing 11 of Andrew Ng's courses, from prompting to RAG and fine-tuning.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/datawhalechina/llm-cookbook/blob/92440ede735a6c450228cb924a5ee488a6ae6415/README.md"
+    ],
+    "sourceCommitSha": "92440ede735a6c450228cb924a5ee488a6ae6415",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Read online",
+        "command": "datawhalechina.github.io/llm-cookbook"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "LLM Cookbook is a Chinese learning guide from Datawhale for developers starting with large language models. It translates and reproduces the code of 11 of Andrew Ng's LLM short courses, covering prompt engineering, building systems on the ChatGPT API, LangChain apps and chatting with your own data, then optional courses on Gradio, evaluation, fine-tuning, semantic search, advanced retrieval with Chroma, advanced RAG, and LangChain agents. It also adds Chinese prompts that work about as well as the English ones.",
+      "problem": "Many top LLM courses are only in English. This gives Chinese-speaking developers translated lessons and runnable notebooks in a recommended order.",
+      "whoFor": [
+        "Chinese-speaking developers new to LLMs",
+        "Students with basic Python",
+        "Study groups"
+      ],
+      "whyChoose": "Use it for a structured Chinese path through well-known LLM development courses, with runnable bilingual notebooks.",
+      "requirements": [
+        "Basic Python",
+        "Jupyter Notebook",
+        "At least one LLM API key, ideally OpenAI"
+      ]
+    },
+    "overview": [
+      "Read the required courses online at datawhalechina.github.io/llm-cookbook or download the PDF from the releases page.",
+      "Run the bilingual notebooks in the content folder; they are the most up to date.",
+      "Start with the four required courses in order, then pick optional ones. Licensed CC BY-NC-SA 4.0."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "11 courses",
+        "body": "Based on Andrew Ng's LLM series."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Required and optional tracks",
+        "body": "A suggested learning order."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Runnable notebooks",
+        "body": "Bilingual code in content/."
+      },
+      {
+        "icon": "file-code",
+        "title": "Online reading and PDF",
+        "body": "For the required courses."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Chinese prompts",
+        "body": "Tuned to match the English examples."
+      }
+    ],
+    "strengths": [
+      "Clear beginner path",
+      "In Chinese",
+      "Covers prompting to RAG and fine-tuning"
+    ],
+    "limitations": [
+      "Content is in Chinese",
+      "Examples mostly use the OpenAI API; other APIs need code changes",
+      "Non-commercial license"
+    ],
+    "useCases": [
+      {
+        "title": "Learn LLM development",
+        "body": "Follow the required courses."
+      },
+      {
+        "title": "Go deeper",
+        "body": "RAG, fine-tuning and agents electives."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from LLM Cookbook's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/datawhalechina/llm-cookbook/blob/92440ede735a6c450228cb924a5ee488a6ae6415/README.md",
+      "prerequisites": [
+        "Python and Jupyter",
+        "An LLM API key"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Read online",
+          "method": "web",
+          "steps": [
+            {
+              "title": "Open the site",
+              "body": "Read the required courses at datawhalechina.github.io/llm-cookbook, or download the PDF from the GitHub releases page."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Run the notebooks",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/datawhalechina/llm-cookbook.git",
+              "lang": "bash"
+            },
+            {
+              "title": "Open the notebooks",
+              "body": "Open the course notebooks in the content folder with Jupyter and add your LLM API key."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start the prompt engineering course",
+          "body": "The first required course, based on ChatGPT Prompt Engineering for Developers."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Begin the required track",
+      "useCase": "The README's learning guide.",
+      "setup": [
+        "Python and Jupyter",
+        "An OpenAI API key (or adapt the code for another API)"
+      ],
+      "steps": [
+        {
+          "title": "Prompt engineering",
+          "body": "Learn to write prompts and use the API for summarizing, inferring and transforming text."
+        },
+        {
+          "title": "Build a Q&A system",
+          "body": "Follow Building Systems with the ChatGPT API."
+        },
+        {
+          "title": "LangChain",
+          "body": "Build apps with LangChain, then let them use your own data."
+        }
+      ],
+      "expected": "A grounding in LLM app development with working notebook examples.",
+      "nextSteps": [
+        "Take an elective such as advanced RAG",
+        "Try fine-tuning with lamini"
+      ],
+      "sourceUrl": "https://github.com/datawhalechina/llm-cookbook/blob/92440ede735a6c450228cb924a5ee488a6ae6415/README.md"
+    },
+    "costs": [
+      {
+        "label": "Course material",
+        "value": "Free under CC BY-NC-SA 4.0.",
+        "tone": "free"
+      },
+      {
+        "label": "LLM API",
+        "value": "Running examples uses a paid API.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Not using OpenAI",
+        "solution": "Code changes are needed; the README points to Datawhale's llm-universe tutorial for other APIs.",
+        "sourceUrl": "https://github.com/datawhalechina/llm-cookbook/blob/92440ede735a6c450228cb924a5ee488a6ae6415/README.md"
+      }
+    ],
+    "bestFor": [
+      "Chinese LLM course for developers"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Course and notebooks"
+      },
+      {
+        "label": "Language",
+        "value": "Jupyter Notebook"
+      },
+      {
+        "label": "License",
+        "value": "CC BY-NC-SA 4.0"
+      },
+      {
+        "label": "Courses",
+        "value": "11"
+      }
+    ]
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "fullName": "Fincept-Corporation/FinceptTerminal",
+  "summary": "Free desktop terminal for financial research with market analytics, AI chat and a quant lab, as an open alternative to costly terminals.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Fincept-Corporation/FinceptTerminal/blob/914134de5fd227fe66969c4591ac9ca7e461cdf4/README.md"
+    ],
+    "sourceCommitSha": "914134de5fd227fe66969c4591ac9ca7e461cdf4",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Download",
+        "command": "Get the installer for Windows, Linux or macOS from GitHub Releases"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Fincept Terminal is a native C++20 desktop app for financial research, with a Qt6 interface and embedded Python analytics in one binary. It offers market analytics, AI chat and a quant research lab, as a free open-source alternative to closed, expensive financial terminals.",
+      "problem": "Professional financial terminals cost a lot. Fincept gives individuals and small teams research tools for free.",
+      "whoFor": [
+        "Retail investors",
+        "Finance students",
+        "Analysts who want a free terminal"
+      ],
+      "whyChoose": "Choose it for a fast native app with AI features and analytics, free to use, with optional paid account tiers for more cloud credits.",
+      "requirements": [
+        "Windows x64, Linux x64 (Flatpak or Ubuntu 22.04+/Debian 12+), or macOS Apple Silicon"
+      ]
+    },
+    "overview": [
+      "Download the installer for your platform from the latest release: a Windows setup exe, a Linux Flatpak or deb, or a macOS dmg for Apple Silicon. You can also build from source with ./setup.sh on Linux and macOS.",
+      "The open-source repo is the free AGPL edition. A Fincept account is free, or Pro at $10 a month for more cloud credits and higher API limits, per the README.",
+      "A separate closed-source Enterprise edition exists for funds and research desks. Nothing here is investment advice."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Native app",
+        "body": "C++20 and Qt6, no Electron."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Python analytics",
+        "body": "Embedded Python 3.11."
+      },
+      {
+        "icon": "puzzle",
+        "title": "AI chat",
+        "body": "Ask about markets."
+      },
+      {
+        "icon": "file-code",
+        "title": "Quant lab",
+        "body": "Research tools."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Cross-platform",
+        "body": "Windows, Linux, macOS."
+      }
+    ],
+    "strengths": [
+      "Free",
+      "Fast native app",
+      "Open source"
+    ],
+    "limitations": [
+      "AGPL-3.0",
+      "Some data and AI features use cloud credits",
+      "macOS build is Apple Silicon only"
+    ],
+    "useCases": [
+      {
+        "title": "Market research",
+        "body": "Analyse stocks."
+      },
+      {
+        "title": "Learning finance",
+        "body": "Explore data and models."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Fincept Terminal's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Fincept-Corporation/FinceptTerminal/blob/914134de5fd227fe66969c4591ac9ca7e461cdf4/README.md",
+      "prerequisites": [
+        "Desktop computer"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Installer",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download from the latest release",
+              "body": "Windows setup exe, Linux Flatpak or deb, or macOS arm64 dmg."
+            },
+            {
+              "title": "Install and sign in",
+              "body": "A free Fincept account works; Pro is optional."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Build from source",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Clone and run setup (Linux/macOS)",
+              "code": "git clone https://github.com/Fincept-Corporation/FinceptTerminal.git\ncd FinceptTerminal\n./setup.sh",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open the AI chat",
+          "body": "Ask a question about a stock or market."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Research a stock",
+      "useCase": "Use the terminal's analytics and AI chat.",
+      "setup": [
+        "Fincept Terminal installed"
+      ],
+      "steps": [
+        {
+          "title": "Search for a ticker"
+        },
+        {
+          "title": "Review the analytics",
+          "body": "Charts and key data."
+        },
+        {
+          "title": "Ask AI chat for a summary"
+        }
+      ],
+      "expected": "An overview of the stock with charts and an AI summary.",
+      "nextSteps": [
+        "Try the Quant Lab",
+        "Build a watchlist"
+      ],
+      "sourceUrl": "https://github.com/Fincept-Corporation/FinceptTerminal/blob/914134de5fd227fe66969c4591ac9ca7e461cdf4/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under AGPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Account",
+        "value": "Free, or Pro at $10/month per the README.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Build from source fails",
+        "solution": "Use the pinned toolchain listed in the README (CMake, Ninja, Qt 6.8.3, Python 3.11.9).",
+        "sourceUrl": "https://github.com/Fincept-Corporation/FinceptTerminal/blob/914134de5fd227fe66969c4591ac9ca7e461cdf4/README.md"
+      }
+    ],
+    "bestFor": [
+      "Financial research",
+      "Free terminal"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Financial research app"
+      },
+      {
+        "label": "Language",
+        "value": "C++"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "UI",
+        "value": "Qt6"
+      }
+    ]
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "fullName": "2noise/ChatTTS",
+  "summary": "Text-to-speech model designed for natural everyday dialogue, with a web UI, command line and Python API.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/2noise/ChatTTS/blob/77b89ee281cd479f5b1a787ada330dc975ca1f2a/README.md"
+    ],
+    "sourceCommitSha": "77b89ee281cd479f5b1a787ada330dc975ca1f2a",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install ChatTTS"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "ChatTTS is a generative speech model made for daily dialogue, such as conversations with an AI assistant. This repository has the model's infrastructure and simple examples, including a web UI and a command-line script.",
+      "problem": "Many TTS voices sound flat in conversation. ChatTTS aims for natural, conversational speech you can generate from Python.",
+      "whoFor": [
+        "Developers adding voice to chatbots",
+        "Researchers working on speech",
+        "Hobbyists making voiced content"
+      ],
+      "whyChoose": "Choose it for a widely used open dialogue-focused TTS with a simple Python API. Community end-user apps are listed in Awesome-ChatTTS.",
+      "requirements": [
+        "Python (3.11 suggested in the conda setup)",
+        "PyTorch and torchaudio"
+      ]
+    },
+    "overview": [
+      "Install from PyPI with pip install ChatTTS, or clone the repo and install requirements.txt (optionally in a conda environment with Python 3.11).",
+      "From the repo root you can launch the web UI with python examples/web/webui.py, or run python examples/cmd/run.py with your texts to save MP3 files.",
+      "In Python, create ChatTTS.Chat(), call load(), then infer() on a list of texts and save the audio at 24000 Hz. The README warns not to install TransformerEngine or FlashAttention-2 for normal use. The code is AGPL-3.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Dialogue speech",
+        "body": "Made for conversation."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Web UI",
+        "body": "examples/web/webui.py."
+      },
+      {
+        "icon": "puzzle",
+        "title": "CLI",
+        "body": "examples/cmd/run.py."
+      },
+      {
+        "icon": "file-code",
+        "title": "Python API",
+        "body": "Chat().infer()."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Optional vLLM",
+        "body": "Linux only."
+      }
+    ],
+    "strengths": [
+      "Natural conversational tone",
+      "Simple API",
+      "Popular"
+    ],
+    "limitations": [
+      "AGPL-3.0 license",
+      "Some optional speed-ups are not ready",
+      "Repo has basic examples, not an end-user app"
+    ],
+    "useCases": [
+      {
+        "title": "Voice for chatbots",
+        "body": "Speak assistant replies."
+      },
+      {
+        "title": "Audio content",
+        "body": "Generate dialogue clips."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from ChatTTS's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/2noise/ChatTTS/blob/77b89ee281cd479f5b1a787ada330dc975ca1f2a/README.md",
+      "prerequisites": [
+        "Python"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install ChatTTS",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "From the repo",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Clone and install",
+              "code": "git clone https://github.com/2noise/ChatTTS\ncd ChatTTS\npip install --upgrade -r requirements.txt",
+              "lang": "bash"
+            },
+            {
+              "title": "Launch the web UI",
+              "code": "python examples/web/webui.py",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Generate speech from the command line (repo root)",
+          "code": "python examples/cmd/run.py \"Your text 1.\" \"Your text 2.\"",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Make speech from Python",
+      "useCase": "Generate audio files from text with the Python API.",
+      "setup": [
+        "pip install ChatTTS",
+        "torchaudio"
+      ],
+      "steps": [
+        {
+          "title": "Write the script",
+          "code": "import ChatTTS\nimport torch\nimport torchaudio\n\nchat = ChatTTS.Chat()\nchat.load(compile=False)\n\nwavs = chat.infer([\"PUT YOUR 1st TEXT HERE\", \"PUT YOUR 2nd TEXT HERE\"])\n\nfor i in range(len(wavs)):\n    torchaudio.save(f\"basic_output{i}.wav\", torch.from_numpy(wavs[i]).unsqueeze(0), 24000)",
+          "lang": "text"
+        },
+        {
+          "title": "Run it",
+          "body": "The first run downloads the model."
+        }
+      ],
+      "expected": "WAV files with your texts spoken.",
+      "nextSteps": [
+        "Try the web UI",
+        "Explore Awesome-ChatTTS apps"
+      ],
+      "sourceUrl": "https://github.com/2noise/ChatTTS/blob/77b89ee281cd479f5b1a787ada330dc975ca1f2a/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under AGPL-3.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "torchaudio.save errors",
+        "solution": "The README notes the save call differs between torchaudio versions; try torch.from_numpy(wavs[i]) without unsqueeze.",
+        "sourceUrl": "https://github.com/2noise/ChatTTS/blob/77b89ee281cd479f5b1a787ada330dc975ca1f2a/README.md"
+      },
+      {
+        "problem": "Slow or broken after installing extras",
+        "solution": "Don't install TransformerEngine or FlashAttention-2 for normal use.",
+        "sourceUrl": "https://github.com/2noise/ChatTTS/blob/77b89ee281cd479f5b1a787ada330dc975ca1f2a/README.md"
+      }
+    ],
+    "bestFor": [
+      "Conversational TTS",
+      "Voice for chatbots"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Text-to-speech model"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "Sample rate",
+        "value": "24 kHz"
+      }
+    ]
+  }
+}

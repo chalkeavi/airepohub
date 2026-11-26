@@ -1,0 +1,210 @@
+{
+  "fullName": "NirDiamant/GenAI_Agents",
+  "summary": "A large collection of Jupyter notebook tutorials that teach you to build AI agents, from simple chatbots to multi-agent systems.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/NirDiamant/GenAI_Agents/blob/263bf621682c51dadcf6efe9a5be1435ee6b9ae3/README.md"
+    ],
+    "sourceCommitSha": "263bf621682c51dadcf6efe9a5be1435ee6b9ae3",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Clone",
+        "command": "git clone https://github.com/NirDiamant/GenAI_Agents.git"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "GenAI Agents is a library of hands-on notebooks showing how to build generative AI agents. It starts with core patterns and beginner agents, includes a LangGraph framework tutorial, and goes on to educational, business, creative, analysis, news, shopping, productivity and testing agents. Most notebooks use LangChain and LangGraph, and the README notes they were updated in 2026 to work with LangChain 1.x and LangGraph 1.x.",
+      "problem": "Agent tutorials are scattered and quickly go out of date. This repo gathers many working examples by category so you can learn by running them.",
+      "whoFor": [
+        "Developers learning to build AI agents",
+        "Students of LLM applications",
+        "Teams looking for agent patterns to copy"
+      ],
+      "whyChoose": "Use it for a broad, categorized set of runnable agent examples, especially with LangGraph.",
+      "requirements": [
+        "Python 3.11+",
+        "Docker (needed for some agents)",
+        "API keys for the model providers each notebook uses"
+      ]
+    },
+    "overview": [
+      "Clone the repo and install the shared dependencies with pip install -r requirements.txt.",
+      "Go to the folder of the technique you want under all_agents_tutorials and open its notebook.",
+      "Each notebook installs anything extra in its first cell. The license is a custom non-commercial license; commercial use needs written permission."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Core patterns first",
+        "body": "A 2026 'start here' section."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Beginner agents",
+        "body": "Simple starting points."
+      },
+      {
+        "icon": "puzzle",
+        "title": "LangGraph tutorial",
+        "body": "Workflows and state."
+      },
+      {
+        "icon": "file-code",
+        "title": "Many use cases",
+        "body": "Business, research, creative, news, shopping and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Multi-agent systems",
+        "body": "Planning and collaboration examples."
+      },
+      {
+        "icon": "shield",
+        "title": "Safety resources",
+        "body": "Governance and agent contracts."
+      }
+    ],
+    "strengths": [
+      "Very broad coverage",
+      "Organized by category",
+      "Updated for LangChain 1.x"
+    ],
+    "limitations": [
+      "Non-commercial license",
+      "Many notebooks need paid model API keys",
+      "Quality varies across contributed notebooks"
+    ],
+    "useCases": [
+      {
+        "title": "Learn agents",
+        "body": "Work from beginner to advanced."
+      },
+      {
+        "title": "Find a pattern",
+        "body": "Copy an approach for your own agent."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from GenAI Agents's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/NirDiamant/GenAI_Agents/blob/263bf621682c51dadcf6efe9a5be1435ee6b9ae3/README.md",
+      "prerequisites": [
+        "Python 3.11+",
+        "Jupyter"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Clone and run notebooks",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/NirDiamant/GenAI_Agents.git",
+              "lang": "bash"
+            },
+            {
+              "title": "Install shared dependencies",
+              "code": "pip install -r requirements.txt",
+              "lang": "bash"
+            },
+            {
+              "title": "Open a tutorial",
+              "body": "Go to the technique's folder and follow its notebook.",
+              "code": "cd all_agents_tutorials/technique-name",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start with core patterns",
+          "body": "Open a notebook from the README's 'Start here' section."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your first agent notebook",
+      "useCase": "The README's getting-started steps.",
+      "setup": [
+        "Repo cloned and requirements installed",
+        "An API key for the notebook's model provider"
+      ],
+      "steps": [
+        {
+          "title": "Pick a tutorial",
+          "body": "Choose one from the Beginner-Friendly Agents list."
+        },
+        {
+          "title": "Open the notebook",
+          "body": "Open it in Jupyter; the first cell installs any extras."
+        },
+        {
+          "title": "Add your key and run",
+          "body": "Set the API key the notebook asks for, then run the cells in order."
+        }
+      ],
+      "expected": "A working example agent you can modify.",
+      "nextSteps": [
+        "Try the LangGraph tutorial",
+        "Explore multi-agent examples",
+        "Read the governance resources"
+      ],
+      "sourceUrl": "https://github.com/NirDiamant/GenAI_Agents/blob/263bf621682c51dadcf6efe9a5be1435ee6b9ae3/README.md"
+    },
+    "costs": [
+      {
+        "label": "Notebooks",
+        "value": "Free for non-commercial use.",
+        "tone": "free"
+      },
+      {
+        "label": "Model APIs",
+        "value": "Most notebooks call paid LLM APIs.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Import errors",
+        "solution": "Install the shared requirements on Python 3.11, then run the notebook's first cell.",
+        "sourceUrl": "https://github.com/NirDiamant/GenAI_Agents/blob/263bf621682c51dadcf6efe9a5be1435ee6b9ae3/README.md"
+      },
+      {
+        "problem": "Some agents fail to start",
+        "solution": "Make sure Docker is installed and running.",
+        "sourceUrl": "https://github.com/NirDiamant/GenAI_Agents/blob/263bf621682c51dadcf6efe9a5be1435ee6b9ae3/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning to build AI agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Tutorial notebooks"
+      },
+      {
+        "label": "Language",
+        "value": "Jupyter Notebook"
+      },
+      {
+        "label": "License",
+        "value": "Custom non-commercial"
+      },
+      {
+        "label": "Main frameworks",
+        "value": "LangChain, LangGraph"
+      }
+    ]
+  }
+}

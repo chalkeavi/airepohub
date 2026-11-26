@@ -1,0 +1,256 @@
+{
+  "fullName": "ComposioHQ/composio",
+  "summary": "SDKs and CLI that give AI agents ready-authenticated tools for 1000+ apps such as email, calendars and GitHub, with per-user sessions.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ComposioHQ/composio/blob/bc62a890cbdde13904a5ae70993357b4b9651078/README.md"
+    ],
+    "sourceCommitSha": "bc62a890cbdde13904a5ae70993357b4b9651078",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Python",
+        "command": "pip install composio composio-openai-agents openai-agents"
+      },
+      {
+        "comment": "TypeScript",
+        "command": "npm install @composio/core @composio/openai-agents @openai/agents"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Composio is the SDK monorepo for the Composio platform. It gives your agents 1000+ toolkits for real apps, handles each user's sign-in to those apps, and adds triggers and a sandbox. It includes a TypeScript SDK, a Python SDK, a CLI and adapters for agent frameworks.",
+      "problem": "Connecting an agent to Gmail, Slack, GitHub and other apps means building OAuth flows and API wrappers for each one. Composio provides them ready to use.",
+      "whoFor": [
+        "Developers building agents that act in real apps",
+        "Teams adding app integrations to an AI product",
+        "Coding-agent users who want a tool CLI"
+      ],
+      "whyChoose": "Choose it to skip writing per-app integrations and auth. A session finds, authenticates and runs tools at runtime, and can also be used as an MCP endpoint.",
+      "requirements": [
+        "A Composio account and COMPOSIO_API_KEY",
+        "Python or Node.js",
+        "An agent framework such as OpenAI Agents"
+      ]
+    },
+    "overview": [
+      "You create a session for one of your users, give its tools to your agent and let the agent act across apps. By default a session exposes meta tools that discover, authenticate and execute app tools when needed, so you don't load hundreds of tool definitions.",
+      "Adapters cover the OpenAI Agents SDK, Claude Agent SDK, Vercel AI SDK, LangChain and more. Each session can also expose a hosted MCP URL for Claude, Cursor or other MCP clients.",
+      "The composio CLI lets you search, run and script tools from the shell. The SDKs are MIT licensed; the platform itself is a hosted service."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "1000+ toolkits",
+        "body": "Pre-built app integrations."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Per-user sessions",
+        "body": "Each user's accounts kept separate."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Managed auth",
+        "body": "Sign-in to apps handled for you."
+      },
+      {
+        "icon": "file-code",
+        "title": "Triggers",
+        "body": "React to events in apps."
+      },
+      {
+        "icon": "git-compare",
+        "title": "MCP endpoint",
+        "body": "Use tools from any MCP client."
+      },
+      {
+        "icon": "shield",
+        "title": "CLI",
+        "body": "Search and execute tools in a shell."
+      }
+    ],
+    "strengths": [
+      "Huge app catalog",
+      "Works with many agent frameworks",
+      "MIT-licensed SDKs"
+    ],
+    "limitations": [
+      "Depends on the hosted Composio service",
+      "Needs an API key"
+    ],
+    "useCases": [
+      {
+        "title": "Email assistant",
+        "body": "Agent reads and summarizes a user's inbox."
+      },
+      {
+        "title": "Dev workflow agent",
+        "body": "Agent acts in GitHub or Slack."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Composio's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ComposioHQ/composio/blob/bc62a890cbdde13904a5ae70993357b4b9651078/README.md",
+      "prerequisites": [
+        "COMPOSIO_API_KEY from the Composio dashboard",
+        "Python or Node.js"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Python SDK",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Get an API key",
+              "body": "Create a COMPOSIO_API_KEY in the Composio dashboard and set it as an environment variable."
+            },
+            {
+              "title": "Install",
+              "code": "pip install composio composio-openai-agents openai-agents",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "TypeScript SDK",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Get an API key",
+              "body": "Create a COMPOSIO_API_KEY in the Composio dashboard."
+            },
+            {
+              "title": "Install",
+              "code": "npm install @composio/core @composio/openai-agents @openai/agents",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "CLI",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "curl -fsSL https://composio.dev/install | sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Log in",
+              "body": "Open a new terminal, then sign in.",
+              "code": "composio login",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "COMPOSIO_API_KEY",
+          "required": true,
+          "description": "Your key from the Composio dashboard."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Create a session",
+          "body": "Call create with a user id to scope tools to that user."
+        },
+        {
+          "title": "Give tools to your agent",
+          "body": "Pass session tools to an OpenAI Agents agent and run a request."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Summarize today's email with an agent",
+      "useCase": "The README quickstart: an agent that acts in a user's apps.",
+      "setup": [
+        "COMPOSIO_API_KEY set",
+        "Python SDK and OpenAI Agents installed"
+      ],
+      "steps": [
+        {
+          "title": "Create the client",
+          "body": "Make a Composio client with the OpenAIAgentsProvider."
+        },
+        {
+          "title": "Create a session",
+          "body": "Call composio.create(user_id=\"user_123\") and get session.tools()."
+        },
+        {
+          "title": "Build and run the agent",
+          "body": "Create an Agent with those tools and run it with \"Summarize my emails from today\"."
+        }
+      ],
+      "expected": "The agent asks the user to connect the email account if needed, then returns a summary.",
+      "nextSteps": [
+        "Store and reuse the session id",
+        "Try the hosted MCP endpoint",
+        "Explore the CLI"
+      ],
+      "sourceUrl": "https://github.com/ComposioHQ/composio/blob/bc62a890cbdde13904a5ae70993357b4b9651078/README.md"
+    },
+    "costs": [
+      {
+        "label": "SDKs",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Composio platform",
+        "value": "Hosted service; check composio.dev for plans.",
+        "tone": "depends"
+      },
+      {
+        "label": "Models",
+        "value": "Your model provider bills for agent usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Authentication errors",
+        "solution": "Check that COMPOSIO_API_KEY is set in the environment.",
+        "sourceUrl": "https://github.com/ComposioHQ/composio/blob/bc62a890cbdde13904a5ae70993357b4b9651078/README.md"
+      },
+      {
+        "problem": "composio command not found",
+        "solution": "Open a new terminal after the CLI install so PATH updates.",
+        "sourceUrl": "https://github.com/ComposioHQ/composio/blob/bc62a890cbdde13904a5ae70993357b4b9651078/README.md"
+      }
+    ],
+    "bestFor": [
+      "Agent tool integrations",
+      "App actions for AI agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent tooling SDK + CLI"
+      },
+      {
+        "label": "Languages",
+        "value": "TypeScript, Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "pip install composio"
+      }
+    ]
+  }
+}

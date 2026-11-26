@@ -1,0 +1,275 @@
+{
+  "fullName": "eyaltoledano/claude-task-master",
+  "summary": "AI task manager for coding with Cursor, Claude Code and other editors: turns a product spec into a task list your AI works through.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/eyaltoledano/claude-task-master/blob/c0c98d367c55296bfe69e65680625b6db437af02/README.md"
+    ],
+    "sourceCommitSha": "c0c98d367c55296bfe69e65680625b6db437af02",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Claude Code",
+        "command": "claude mcp add taskmaster-ai -- npx -y task-master-ai"
+      },
+      {
+        "comment": "CLI",
+        "command": "npm install -g task-master-ai"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Task Master is a task management system for AI-driven development. You write a PRD (product requirements document), Task Master parses it into tasks with dependencies, and your AI assistant asks for the next task, implements it, expands complex ones and researches fresh information. It runs as an MCP server inside Cursor, Windsurf, VS Code, Claude Code or Q CLI, or as a command-line tool.",
+      "problem": "AI coding assistants lose the plot on bigger projects. Task Master keeps a structured plan they can follow step by step.",
+      "whoFor": [
+        "Developers building projects with Cursor or Claude Code",
+        "People who plan with PRDs",
+        "Solo builders using AI for whole features"
+      ],
+      "whyChoose": "Choose it for PRD-to-tasks parsing, a next-task workflow and support for many model providers, including Claude Code or Codex CLI without an API key.",
+      "requirements": [
+        "Node.js for npx/npm",
+        "At least one model: an API key (Anthropic, OpenAI, Gemini, Perplexity, xAI, OpenRouter...) or Claude Code / Codex CLI"
+      ]
+    },
+    "overview": [
+      "The recommended setup is the MCP server: add task-master-ai to your editor's MCP config with your API keys (Claude Code users can run one claude mcp add command). Then ask the AI to initialize Task Master in your project.",
+      "Put a detailed PRD at .taskmaster/docs/prd.txt and ask the AI to parse it. Then ask things like 'What's the next task?' or 'Help me implement task 3'.",
+      "The CLI offers the same flow: task-master init, parse-prd, list, next, show and research. It is MIT with Commons Clause: you can use and build on it, but not sell it or host it as a service."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "PRD parsing",
+        "body": "Spec becomes tasks."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Next task",
+        "body": "Tells the AI what to do next."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Task expansion",
+        "body": "Break down complex tasks."
+      },
+      {
+        "icon": "file-code",
+        "title": "Research",
+        "body": "Fresh info with project context."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Many editors",
+        "body": "Cursor, Windsurf, VS Code, Claude Code."
+      },
+      {
+        "icon": "shield",
+        "title": "Many models",
+        "body": "Main, research and fallback models."
+      }
+    ],
+    "strengths": [
+      "Keeps AI on track",
+      "Works in many editors",
+      "No key needed with Claude Code"
+    ],
+    "limitations": [
+      "Commons Clause limits selling or hosting it",
+      "Needs a good PRD for best results"
+    ],
+    "useCases": [
+      {
+        "title": "Build an app from a spec",
+        "body": "Parse PRD and work task by task."
+      },
+      {
+        "title": "Plan a big refactor",
+        "body": "Expand it into subtasks."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Task Master's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/eyaltoledano/claude-task-master/blob/c0c98d367c55296bfe69e65680625b6db437af02/README.md",
+      "prerequisites": [
+        "Node.js",
+        "A model API key or Claude Code/Codex CLI"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code (MCP)",
+          "method": "claude-mcp",
+          "steps": [
+            {
+              "title": "Add the MCP server",
+              "code": "claude mcp add taskmaster-ai -- npx -y task-master-ai",
+              "lang": "bash"
+            },
+            {
+              "title": "Add API keys",
+              "body": "Put keys in your project's .env or the env section of the MCP config."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Cursor / Windsurf / VS Code (MCP)",
+          "method": "mcp",
+          "steps": [
+            {
+              "title": "Edit your MCP config",
+              "body": "Add a task-master-ai server that runs npx -y task-master-ai, with your API keys in env (for VS Code use the servers key and type stdio)."
+            },
+            {
+              "title": "Enable it (Cursor)",
+              "body": "Open Cursor Settings, MCP tab, and toggle task-master-ai on."
+            },
+            {
+              "title": "Initialize",
+              "body": "In the AI chat, say: Initialize taskmaster-ai in my project."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Command line",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install -g task-master-ai",
+              "lang": "bash"
+            },
+            {
+              "title": "Initialize a project",
+              "code": "task-master init",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "required": false,
+          "description": "Claude models."
+        },
+        {
+          "name": "OPENAI_API_KEY",
+          "required": false,
+          "description": "OpenAI models."
+        },
+        {
+          "name": "PERPLEXITY_API_KEY",
+          "required": false,
+          "description": "Recommended for the research model."
+        },
+        {
+          "name": "GOOGLE_API_KEY",
+          "required": false,
+          "description": "Gemini models."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Write a PRD",
+          "body": "Save it at .taskmaster/docs/prd.txt; a template is in .taskmaster/templates."
+        },
+        {
+          "title": "Parse it",
+          "body": "Ask: Can you parse my PRD?"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Turn a PRD into tasks from the CLI",
+      "useCase": "The README's command-line flow.",
+      "setup": [
+        "task-master-ai installed",
+        "An API key configured"
+      ],
+      "steps": [
+        {
+          "title": "Initialize",
+          "code": "task-master init",
+          "lang": "bash"
+        },
+        {
+          "title": "Parse your PRD",
+          "code": "task-master parse-prd your-prd.txt",
+          "lang": "bash"
+        },
+        {
+          "title": "See tasks",
+          "code": "task-master list",
+          "lang": "bash"
+        },
+        {
+          "title": "Get the next one",
+          "code": "task-master next",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A task list with dependencies and a suggested next task.",
+      "nextSteps": [
+        "Expand a complex task",
+        "Use task-master research",
+        "Set up the MCP server in your editor"
+      ],
+      "sourceUrl": "https://github.com/eyaltoledano/claude-task-master/blob/c0c98d367c55296bfe69e65680625b6db437af02/README.md"
+    },
+    "costs": [
+      {
+        "label": "Task Master",
+        "value": "Free under MIT with Commons Clause.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Your providers bill for usage; Claude Code or Codex CLI use your existing plan.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "MCP shows 0 tools enabled",
+        "solution": "Restart your editor and check the API keys in the config.",
+        "sourceUrl": "https://github.com/eyaltoledano/claude-task-master/blob/c0c98d367c55296bfe69e65680625b6db437af02/README.md"
+      },
+      {
+        "problem": "task-master init doesn't respond",
+        "solution": "See the README's troubleshooting section.",
+        "sourceUrl": "https://github.com/eyaltoledano/claude-task-master/blob/c0c98d367c55296bfe69e65680625b6db437af02/README.md"
+      }
+    ],
+    "bestFor": [
+      "Task planning for AI coding",
+      "PRD to tasks"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI task manager (MCP + CLI)"
+      },
+      {
+        "label": "Language",
+        "value": "JavaScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT with Commons Clause"
+      },
+      {
+        "label": "Install",
+        "value": "npm install -g task-master-ai"
+      }
+    ]
+  }
+}

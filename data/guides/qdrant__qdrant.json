@@ -1,0 +1,201 @@
+{
+  "fullName": "qdrant/qdrant",
+  "summary": "Fast vector database and search engine written in Rust, for semantic search, recommendations and RAG with rich filtering.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/qdrant/qdrant/blob/23065a0bf6857c3e5da45f6c8939cc746cc0580e/README.md"
+    ],
+    "sourceCommitSha": "23065a0bf6857c3e5da45f6c8939cc746cc0580e",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Run the server",
+        "command": "docker run -p 6333:6333 qdrant/qdrant"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Qdrant is a vector similarity search engine and vector database. It stores points (vectors with a payload) and provides a production-ready API to search and manage them, with extended filtering for semantic matching, faceted search and more.",
+      "problem": "Turning embeddings into a real search or recommendation app needs a fast, reliable store with filters. Qdrant provides that, written in Rust for performance under load.",
+      "whoFor": [
+        "Developers building RAG and semantic search",
+        "Teams running recommendations",
+        "ML engineers storing embeddings"
+      ],
+      "whyChoose": "Choose it for strong filtering, distributed deployment with sharding and replication, official clients in many languages, and agent skills for coding assistants.",
+      "requirements": [
+        "Docker for the server",
+        "A client library such as qdrant-client for Python"
+      ]
+    },
+    "overview": [
+      "Run the server with Docker on port 6333, then connect with a client, for example QdrantClient(url=\"http://localhost:6333\") in Python. Official clients include Python, Go, Rust and others.",
+      "This quick-start container has no authentication and listens on all interfaces, so read the installation and security guides before production.",
+      "Qdrant scales with sharding and replication, can resize collections with zero downtime, and offers ready-made agent skills. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Vector search",
+        "body": "Fast similarity search."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Filtering",
+        "body": "Rich payload filters."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Distributed",
+        "body": "Sharding and replication."
+      },
+      {
+        "icon": "file-code",
+        "title": "Clients",
+        "body": "Python, Go, Rust and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Agent skills",
+        "body": "For coding assistants."
+      }
+    ],
+    "strengths": [
+      "Fast (Rust)",
+      "Production ready",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Default container is unsecured",
+      "Clusters need operating"
+    ],
+    "useCases": [
+      {
+        "title": "RAG",
+        "body": "Store document embeddings."
+      },
+      {
+        "title": "Recommendations",
+        "body": "Similar items."
+      },
+      {
+        "title": "Semantic search",
+        "body": "Search by meaning."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Qdrant's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/qdrant/qdrant/blob/23065a0bf6857c3e5da45f6c8939cc746cc0580e/README.md",
+      "prerequisites": [
+        "Docker"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Run Qdrant",
+              "body": "This starts an insecure deployment with no authentication; secure it before exposing it.",
+              "code": "docker run -p 6333:6333 qdrant/qdrant",
+              "lang": "bash"
+            },
+            {
+              "title": "Connect from Python",
+              "code": "from qdrant_client import QdrantClient\n\nclient = QdrantClient(url=\"http://localhost:6333\")",
+              "lang": "text"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Connect a client",
+          "code": "from qdrant_client import QdrantClient\n\nclient = QdrantClient(url=\"http://localhost:6333\")",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Start Qdrant and connect",
+      "useCase": "Run the server locally and connect from Python.",
+      "setup": [
+        "Docker",
+        "The Python client"
+      ],
+      "steps": [
+        {
+          "title": "Start the server",
+          "code": "docker run -p 6333:6333 qdrant/qdrant",
+          "lang": "bash"
+        },
+        {
+          "title": "Connect",
+          "code": "from qdrant_client import QdrantClient\n\nclient = QdrantClient(url=\"http://localhost:6333\")",
+          "lang": "text"
+        },
+        {
+          "title": "Create a collection and add points",
+          "body": "Follow the client docs to create a collection and upsert vectors."
+        }
+      ],
+      "expected": "A running Qdrant you can store and search vectors in.",
+      "nextSteps": [
+        "Secure your instance",
+        "Try filtering",
+        "Deploy a cluster"
+      ],
+      "sourceUrl": "https://github.com/qdrant/qdrant/blob/23065a0bf6857c3e5da45f6c8939cc746cc0580e/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Hosting",
+        "value": "Your own servers, or Qdrant's managed cloud.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Anyone can reach the server",
+        "solution": "The quick-start container has no auth; follow the security guide.",
+        "sourceUrl": "https://github.com/qdrant/qdrant/blob/23065a0bf6857c3e5da45f6c8939cc746cc0580e/README.md"
+      }
+    ],
+    "bestFor": [
+      "Vector database",
+      "Semantic search",
+      "RAG"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Vector database"
+      },
+      {
+        "label": "Language",
+        "value": "Rust"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Port",
+        "value": "6333"
+      }
+    ]
+  }
+}

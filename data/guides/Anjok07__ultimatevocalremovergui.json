@@ -1,0 +1,235 @@
+{
+  "fullName": "Anjok07/ultimatevocalremovergui",
+  "summary": "Desktop app that uses AI source separation models to remove or isolate vocals and instruments from songs, with installers for Windows and macOS.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Anjok07/ultimatevocalremovergui/blob/a5f88453bfb2b38b05a965bcf67727243e0cbf19/README.md"
+    ],
+    "sourceCommitSha": "a5f88453bfb2b38b05a965bcf67727243e0cbf19",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Windows",
+        "command": "Download UVR_v5.6.0_setup.exe from the v5.6 release"
+      },
+      {
+        "comment": "macOS",
+        "command": "Download the arm64 or x86_64 DMG from the v5.6 release"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Ultimate Vocal Remover (UVR) is a graphical app that separates audio into parts, such as vocals and instrumentals, using state-of-the-art source separation models. The core developers trained most of the bundled models, and Demucs v3 and v4 4-stem models are included too.",
+      "problem": "Isolating a vocal or making an instrumental from a finished song normally needs the original recording stems. UVR does it with AI models in a simple interface.",
+      "whoFor": [
+        "Musicians and producers",
+        "Karaoke and cover creators",
+        "DJs"
+      ],
+      "whyChoose": "Choose it for an all-in-one installer with Python, PyTorch and models bundled, so no setup is needed on Windows or macOS.",
+      "requirements": [
+        "Windows 10+ (install to the C: drive), macOS Big Sur+, or Debian/Arch Linux for a manual install"
+      ]
+    },
+    "overview": [
+      "The Windows and macOS bundles include the interface, Python, PyTorch and other dependencies, so there are no prerequisites. On Windows, install UVR to the main C: drive. AMD Radeon and Intel Arc users can try the DirectML build.",
+      "On macOS, pick the arm64 DMG for Apple Silicon or the x86_64 DMG for Intel. Linux users follow a manual install using ffmpeg, Python and Tk on Debian or Arch-based systems.",
+      "Without FFmpeg, non-WAV files can't be converted. The code is MIT licensed; credit UVR if you use its models in your own app."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Vocal removal",
+        "body": "Isolate or remove vocals."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Stem separation",
+        "body": "Including Demucs 4-stem models."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Bundled installers",
+        "body": "No prerequisites on Windows and macOS."
+      },
+      {
+        "icon": "file-code",
+        "title": "Trained models",
+        "body": "Made by the UVR developers."
+      },
+      {
+        "icon": "git-compare",
+        "title": "DirectML build",
+        "body": "For AMD and Intel GPUs."
+      },
+      {
+        "icon": "shield",
+        "title": "Linux manual install",
+        "body": "Debian and Arch."
+      }
+    ],
+    "strengths": [
+      "Easy installers",
+      "Strong models",
+      "MIT-licensed code"
+    ],
+    "limitations": [
+      "Windows install must be on C:",
+      "Large memory use on long files"
+    ],
+    "useCases": [
+      {
+        "title": "Karaoke tracks",
+        "body": "Remove vocals."
+      },
+      {
+        "title": "Sample extraction",
+        "body": "Isolate drums or bass."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Ultimate Vocal Remover's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Anjok07/ultimatevocalremovergui/blob/a5f88453bfb2b38b05a965bcf67727243e0cbf19/README.md",
+      "prerequisites": [
+        "A supported desktop OS"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "windows",
+          "label": "Windows installer",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download",
+              "body": "Get UVR_v5.6.0_setup.exe from the v5.6 GitHub release."
+            },
+            {
+              "title": "Install to C:",
+              "body": "Installing to a secondary drive causes instability."
+            }
+          ]
+        },
+        {
+          "os": "macos",
+          "label": "macOS DMG",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download",
+              "body": "Choose the arm64 DMG for Apple Silicon or x86_64 for Intel, from the v5.6 release."
+            },
+            {
+              "title": "Install",
+              "body": "Open the DMG and move the app to Applications."
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Linux (manual, Debian-based)",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Download and extract the repository",
+              "body": "From the master.zip link in the README."
+            },
+            {
+              "title": "Install dependencies",
+              "code": "sudo apt update && sudo apt upgrade\nsudo apt-get install -y ffmpeg python3-pip python3-tk",
+              "lang": "bash"
+            },
+            {
+              "title": "Finish setup",
+              "body": "Follow the README's Linux steps for the virtual environment and requirements."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Load a song",
+          "body": "Pick an audio file as input."
+        },
+        {
+          "title": "Choose a model",
+          "body": "Select a vocal removal model and process."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Make an instrumental track",
+      "useCase": "Remove vocals from a song.",
+      "setup": [
+        "UVR installed"
+      ],
+      "steps": [
+        {
+          "title": "Select input",
+          "body": "Choose your song file."
+        },
+        {
+          "title": "Select output folder"
+        },
+        {
+          "title": "Choose a model and start",
+          "body": "Pick a vocal model and click Start Processing."
+        }
+      ],
+      "expected": "Separate vocal and instrumental files in your output folder.",
+      "nextSteps": [
+        "Try Demucs 4-stem",
+        "Compare models",
+        "Adjust segment size"
+      ],
+      "sourceUrl": "https://github.com/Anjok07/ultimatevocalremovergui/blob/a5f88453bfb2b38b05a965bcf67727243e0cbf19/README.md"
+    },
+    "costs": [
+      {
+        "label": "UVR",
+        "value": "Free; code under MIT.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Error converting non-WAV files",
+        "solution": "Install FFmpeg.",
+        "sourceUrl": "https://github.com/Anjok07/ultimatevocalremovergui/blob/a5f88453bfb2b38b05a965bcf67727243e0cbf19/README.md"
+      },
+      {
+        "problem": "Memory allocation errors",
+        "solution": "Lower the Segment or Window size.",
+        "sourceUrl": "https://github.com/Anjok07/ultimatevocalremovergui/blob/a5f88453bfb2b38b05a965bcf67727243e0cbf19/README.md"
+      }
+    ],
+    "bestFor": [
+      "Vocal removal",
+      "AI stem separation app"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Desktop audio app"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Version",
+        "value": "5.6"
+      }
+    ]
+  }
+}

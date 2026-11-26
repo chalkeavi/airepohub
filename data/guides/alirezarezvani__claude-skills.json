@@ -1,0 +1,232 @@
+{
+  "fullName": "alirezarezvani/claude-skills",
+  "summary": "Hundreds of ready-made skills for Claude Code, Codex, Cursor, Gemini CLI and other agents, grouped by role from engineering to marketing and finance.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/alirezarezvani/claude-skills/blob/ea7b5ab8da93bbba8880152d9ccb8c9979f12252/README.md"
+    ],
+    "sourceCommitSha": "ea7b5ab8da93bbba8880152d9ccb8c9979f12252",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Claude Code",
+        "command": "/plugin marketplace add alirezarezvani/claude-skills"
+      },
+      {
+        "comment": "Other agents",
+        "command": "npx skills add alirezarezvani/claude-skills"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "This is a large library of agent skills (the README counts 434) for Claude Code and 12 other coding agents. Skills are grouped into bundles by role, such as engineering, advanced engineering, product, project management, marketing, C-level, regulated industries and finance. Each skill has a SKILL.md with instructions, and many include Python scripts and reference templates.",
+      "problem": "Agents lack domain know-how like PRD writing, SOC 2 checks or month-end close. Installing a skill bundle gives them that structure without writing the prompts yourself.",
+      "whoFor": [
+        "Claude Code and Codex users",
+        "Engineers, PMs, marketers and founders using agents",
+        "Teams in regulated industries"
+      ],
+      "whyChoose": "Choose it for one install per role, with skills tested for whether they load on plain-language prompts and a built-in skill security auditor.",
+      "requirements": [
+        "Claude Code, or another agent supported by the skills installer",
+        "Python 3 for the bundled scripts"
+      ]
+    },
+    "overview": [
+      "In Claude Code, add the marketplace and install a bundle for your role, for example engineering-skills. For Codex, Cursor, Gemini CLI, Copilot and others, use the open-source skills installer. You can also clone the repo and copy skill folders by hand.",
+      "Bundles include engineering-skills, engineering-advanced-skills, product-skills, pm-skills, marketing-skills, c-level-skills, ra-qm-skills and finance-skills.",
+      "The repo includes a Skill Security Auditor that scans any skill for injection, data exfiltration and similar risks before you install it. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Role bundles",
+        "body": "Install the set for your job."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Many agents",
+        "body": "Claude Code, Codex, Gemini CLI, Cursor and more."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Python tools",
+        "body": "Standard-library scripts inside skills."
+      },
+      {
+        "icon": "file-code",
+        "title": "Templates",
+        "body": "Checklists and reference docs."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Security auditor",
+        "body": "Scan skills before installing."
+      },
+      {
+        "icon": "shield",
+        "title": "Load testing",
+        "body": "Skills checked against plain prompts."
+      }
+    ],
+    "strengths": [
+      "Very wide coverage",
+      "Easy role-based install",
+      "MIT license"
+    ],
+    "limitations": [
+      "So many skills it can be hard to choose",
+      "Some agents need an extra sync step"
+    ],
+    "useCases": [
+      {
+        "title": "Code review and architecture",
+        "body": "engineering-skills bundle."
+      },
+      {
+        "title": "Compliance readiness",
+        "body": "ra-qm-skills for ISO, SOC 2, GDPR."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Claude Code Skills & Plugins's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/alirezarezvani/claude-skills/blob/ea7b5ab8da93bbba8880152d9ccb8c9979f12252/README.md",
+      "prerequisites": [
+        "A supported coding agent"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code plugin",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace",
+              "code": "/plugin marketplace add alirezarezvani/claude-skills",
+              "lang": "text"
+            },
+            {
+              "title": "Install a bundle",
+              "body": "Pick the bundle for your role.",
+              "code": "/plugin install engineering-skills@claude-code-skills",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Other agents (skills installer)",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npx skills add alirezarezvani/claude-skills",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Manual",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone",
+              "body": "On Windows, clone with git clone -c core.symlinks=true and Developer Mode enabled.",
+              "code": "git clone https://github.com/alirezarezvani/claude-skills.git",
+              "lang": "bash"
+            },
+            {
+              "title": "Copy skills",
+              "body": "Copy any skill folder to ~/.claude/skills/ (Claude Code) or ~/.codex/skills/ (Codex)."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Install your role's bundle",
+          "body": "For example product-skills or marketing-skills."
+        },
+        {
+          "title": "Ask in plain language",
+          "body": "Describe the task; the matching skill loads."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Audit a skill before installing it",
+      "useCase": "Use the bundled security auditor.",
+      "setup": [
+        "Repo cloned",
+        "Python 3"
+      ],
+      "steps": [
+        {
+          "title": "Run the auditor on a skill folder",
+          "code": "python3 engineering/skill-security-auditor/scripts/skill_security_auditor.py /path/to/skill/",
+          "lang": "bash"
+        },
+        {
+          "title": "Read the result",
+          "body": "It returns PASS, WARN or FAIL with fixes."
+        }
+      ],
+      "expected": "A security verdict for the skill.",
+      "nextSteps": [
+        "Install a role bundle",
+        "Try agent-run-forensics",
+        "Browse VERIFIED.md"
+      ],
+      "sourceUrl": "https://github.com/alirezarezvani/claude-skills/blob/ea7b5ab8da93bbba8880152d9ccb8c9979f12252/README.md"
+    },
+    "costs": [
+      {
+        "label": "Skills",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent",
+        "value": "Your agent's model usage is billed by its provider.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Mirror folders look like one-line text files on Windows",
+        "solution": "Clone with git clone -c core.symlinks=true with Developer Mode on.",
+        "sourceUrl": "https://github.com/alirezarezvani/claude-skills/blob/ea7b5ab8da93bbba8880152d9ccb8c9979f12252/README.md"
+      }
+    ],
+    "bestFor": [
+      "Claude Code skills library",
+      "Role-based agent skills"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent skills library"
+      },
+      {
+        "label": "Agents",
+        "value": "Claude Code and 12 others"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "npx skills add alirezarezvani/claude-skills"
+      }
+    ]
+  }
+}

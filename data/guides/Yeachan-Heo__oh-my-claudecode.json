@@ -1,0 +1,216 @@
+{
+  "fullName": "Yeachan-Heo/oh-my-claudecode",
+  "summary": "Plugin that adds multi-agent orchestration to Claude Code, with autopilot, team and planning commands.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Yeachan-Heo/oh-my-claudecode/blob/b8fe8682ae5b3696d96ef43225c06b7461327a26/README.md"
+    ],
+    "sourceCommitSha": "b8fe8682ae5b3696d96ef43225c06b7461327a26",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install in Claude Code",
+        "command": "/plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "oh-my-claudecode (OMC) adds multi-agent orchestration to Claude Code. It gives you commands like /autopilot to build a whole task, /team to run several agents in parallel, and planning and interview modes, so you can get more done without learning Claude Code's details.",
+      "problem": "Coordinating several agents and long tasks in Claude Code takes setup and know-how. OMC packages workflows and agents so you can start with one command.",
+      "whoFor": [
+        "Claude Code users wanting multi-agent workflows",
+        "Developers automating larger tasks",
+        "Teams using several AI coding tools together"
+      ],
+      "whyChoose": "Choose it for a popular, MIT-licensed orchestration layer for Claude Code. A sister project, oh-my-codex, does the same for Codex CLI.",
+      "requirements": [
+        "Claude Code",
+        "Node.js for the optional npm CLI"
+      ]
+    },
+    "overview": [
+      "Install through the Claude Code plugin marketplace (recommended): add the marketplace, then install oh-my-claudecode, entering the two commands one at a time. Or install the CLI with npm i -g oh-my-claude-sisyphus@latest.",
+      "Run /omc-setup inside Claude Code, or omc setup in a terminal. Then try /autopilot followed by a task description.",
+      "Other commands include /team for parallel agents, /ralph, /execute, /deep-interview and omc ask to query other providers. Named autopilot stage profiles currently need Linux. The project is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Autopilot",
+        "body": "Build a task end to end."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Team mode",
+        "body": "Several agents in parallel."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Deep interview",
+        "body": "Clarify requirements first."
+      },
+      {
+        "icon": "file-code",
+        "title": "Ask providers",
+        "body": "Get a second opinion from Codex and others."
+      },
+      {
+        "icon": "git-compare",
+        "title": "CLI",
+        "body": "omc commands in your terminal."
+      }
+    ],
+    "strengths": [
+      "Quick start",
+      "Rich workflows",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Adds complexity on top of Claude Code",
+      "Uses more tokens when many agents run"
+    ],
+    "useCases": [
+      {
+        "title": "Build a feature",
+        "body": "Run /autopilot with a task."
+      },
+      {
+        "title": "Parallel fixes",
+        "body": "Use /team to split work."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from oh-my-claudecode's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Yeachan-Heo/oh-my-claudecode/blob/b8fe8682ae5b3696d96ef43225c06b7461327a26/README.md",
+      "prerequisites": [
+        "Claude Code"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code plugin",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace (one command at a time)",
+              "code": "/plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode",
+              "lang": "text"
+            },
+            {
+              "title": "Install the plugin",
+              "code": "/plugin install oh-my-claudecode",
+              "lang": "text"
+            },
+            {
+              "title": "Run setup",
+              "code": "/omc-setup",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "npm CLI",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install the CLI",
+              "body": "npm may warn about deprecated prebuild-install; that alone doesn't mean the install failed.",
+              "code": "npm i -g oh-my-claude-sisyphus@latest",
+              "lang": "bash"
+            },
+            {
+              "title": "Run setup",
+              "code": "omc setup",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run autopilot on a task",
+          "code": "/autopilot \"build a REST API for managing tasks\"",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build something with autopilot",
+      "useCase": "Let OMC plan and build a small project in Claude Code.",
+      "setup": [
+        "Claude Code",
+        "OMC plugin installed and set up"
+      ],
+      "steps": [
+        {
+          "title": "Open Claude Code in an empty project folder"
+        },
+        {
+          "title": "Start autopilot",
+          "code": "/autopilot \"build a REST API for managing tasks\"",
+          "lang": "text"
+        },
+        {
+          "title": "Review the result",
+          "body": "Check the code and tests OMC produced."
+        }
+      ],
+      "expected": "A working small project built through OMC's agents.",
+      "nextSteps": [
+        "Try /team for parallel work",
+        "Use /deep-interview before big tasks",
+        "Read the CLI reference"
+      ],
+      "sourceUrl": "https://github.com/Yeachan-Heo/oh-my-claudecode/blob/b8fe8682ae5b3696d96ef43225c06b7461327a26/README.md"
+    },
+    "costs": [
+      {
+        "label": "Plugin",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Claude Code",
+        "value": "Uses your Claude plan or API usage; multi-agent runs use more.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Marketplace commands fail",
+        "solution": "Enter the two /plugin commands one at a time, not pasted together.",
+        "sourceUrl": "https://github.com/Yeachan-Heo/oh-my-claudecode/blob/b8fe8682ae5b3696d96ef43225c06b7461327a26/README.md"
+      }
+    ],
+    "bestFor": [
+      "Claude Code multi-agent",
+      "Coding automation"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Claude Code plugin"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "CLI package",
+        "value": "oh-my-claude-sisyphus"
+      }
+    ]
+  }
+}

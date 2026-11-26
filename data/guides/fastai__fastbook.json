@@ -1,0 +1,208 @@
+{
+  "fullName": "fastai/fastbook",
+  "summary": "The Jupyter notebooks behind the fastai deep learning book and course, teaching deep learning with fastai and PyTorch.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/fastai/fastbook/blob/971f0289c3d0bda81868d3c028a832c6ee380b58/README.md"
+    ],
+    "sourceCommitSha": "971f0289c3d0bda81868d3c028a832c6ee380b58",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Run",
+        "command": "Open in Google Colab"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "fastbook holds the notebooks of the book Deep Learning for Coders with fastai and PyTorch, which also power the fast.ai online course. They introduce deep learning, the fastai library and PyTorch, chapter by chapter, from image classification onward.",
+      "problem": "Deep learning can feel out of reach without a strong math background. This course teaches it hands-on, starting with working code.",
+      "whoFor": [
+        "Programmers new to deep learning",
+        "Students taking the fast.ai course",
+        "Self-learners"
+      ],
+      "whyChoose": "Use it to learn deep learning through runnable notebooks, with Colab so you don't need your own GPU.",
+      "requirements": [
+        "A Google account for Colab, or Jupyter on your own machine"
+      ]
+    },
+    "overview": [
+      "The README recommends reading and running the notebooks in Google Colab instead of cloning the repo.",
+      "Each chapter has a direct Colab link in the README, starting with an introduction to Jupyter.",
+      "Code in the notebooks is GPL v3; the prose is not openly licensed and may not be redistributed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Full book chapters",
+        "body": "As runnable notebooks."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Colab links",
+        "body": "One click per chapter."
+      },
+      {
+        "icon": "puzzle",
+        "title": "fastai and PyTorch",
+        "body": "Learn both together."
+      },
+      {
+        "icon": "file-code",
+        "title": "Course material",
+        "body": "Basis of the fast.ai MOOC."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Many translations",
+        "body": "README in several languages."
+      }
+    ],
+    "strengths": [
+      "Hands-on, code-first teaching",
+      "No local GPU needed with Colab",
+      "Free to read"
+    ],
+    "limitations": [
+      "Prose can't be copied or rehosted",
+      "Colab sessions have time limits"
+    ],
+    "useCases": [
+      {
+        "title": "Learn deep learning",
+        "body": "Work through each chapter."
+      },
+      {
+        "title": "Course companion",
+        "body": "Follow along with course.fast.ai."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from The fastai book's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/fastai/fastbook/blob/971f0289c3d0bda81868d3c028a832c6ee380b58/README.md",
+      "prerequisites": [
+        "Web browser and a Google account"
+      ],
+      "supportedOs": [
+        "Web (Google Colab)",
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Google Colab",
+          "method": "colab",
+          "steps": [
+            {
+              "title": "Open a chapter",
+              "body": "Click a chapter's Colab link in the README, starting with Introduction to Jupyter."
+            },
+            {
+              "title": "Run the cells",
+              "body": "Run the notebook cells in order in Colab."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Clone locally",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/fastai/fastbook.git",
+              "lang": "bash"
+            },
+            {
+              "title": "Open in Jupyter",
+              "body": "Open the chapter notebooks in Jupyter; the README recommends Colab instead."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open chapter 1 in Colab",
+          "body": "Use the README's Colab link and run the first cells."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Start the fastai book in Colab",
+      "useCase": "The README's recommended way to use the notebooks.",
+      "setup": [
+        "A Google account"
+      ],
+      "steps": [
+        {
+          "title": "Open Introduction to Jupyter",
+          "body": "Learn how notebooks work."
+        },
+        {
+          "title": "Open chapter 1",
+          "body": "Use its Colab link."
+        },
+        {
+          "title": "Run and experiment",
+          "body": "Run cells in order and change values to see what happens."
+        }
+      ],
+      "expected": "Working deep learning examples running in your browser.",
+      "nextSteps": [
+        "Continue chapter by chapter",
+        "Follow the course at course.fast.ai"
+      ],
+      "sourceUrl": "https://github.com/fastai/fastbook/blob/971f0289c3d0bda81868d3c028a832c6ee380b58/README.md"
+    },
+    "costs": [
+      {
+        "label": "Notebooks",
+        "value": "Free to use; code is GPL v3.",
+        "tone": "free"
+      },
+      {
+        "label": "Google Colab",
+        "value": "Free tier available; paid plans exist.",
+        "tone": "depends"
+      },
+      {
+        "label": "Printed book",
+        "value": "Sold separately.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Session ended",
+        "solution": "Colab sessions time out; reopen and rerun the cells.",
+        "sourceUrl": "https://github.com/fastai/fastbook/blob/971f0289c3d0bda81868d3c028a832c6ee380b58/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning deep learning by doing"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Book and course notebooks"
+      },
+      {
+        "label": "Language",
+        "value": "Jupyter Notebook"
+      },
+      {
+        "label": "License",
+        "value": "GPL v3 for code; prose not openly licensed"
+      },
+      {
+        "label": "Format",
+        "value": "Jupyter notebooks"
+      }
+    ]
+  }
+}

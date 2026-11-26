@@ -1,0 +1,218 @@
+{
+  "fullName": "Cinnamon/kotaemon",
+  "summary": "Open-source, self-hosted web app for chatting with your documents, with hybrid search, citations and support for local or cloud models.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Cinnamon/kotaemon/blob/9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9/README.md"
+    ],
+    "sourceCommitSha": "9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Docker",
+        "command": "docker run -e GRADIO_SERVER_NAME=0.0.0.0 -e GRADIO_SERVER_PORT=7860 -v ./ktem_app_data:/app/ktem_app_data -p 7860:7860 -it --rm ghcr.io/cinnamon/kotaemon:main-full"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "kotaemon is a clean, customizable RAG interface for asking questions about your documents. It supports multiple users, private and public file collections, local LLMs and API providers (OpenAI, Azure, Ollama, Groq), a hybrid full-text and vector retriever with re-ranking, questions over figures and tables, detailed citations with document preview, and agent-style reasoning for multi-step questions. Developers can plug in their own RAG pipelines.",
+      "problem": "Gives teams a ready document Q&A app they can host themselves instead of building a RAG front end from scratch.",
+      "whoFor": [
+        "Teams wanting private document Q&A",
+        "Non-developers who want a RAG app",
+        "Developers prototyping RAG pipelines"
+      ],
+      "whyChoose": "Choose it for strong citations, hybrid retrieval, local-model support including an Ollama image, and a settings UI for prompts and retrieval.",
+      "requirements": [
+        "Docker (recommended) or Python 3.10+",
+        "Unstructured for file types beyond PDF, HTML, MHTML and XLSX",
+        "A model: local (Ollama) or an API key"
+      ]
+    },
+    "overview": [
+      "Run the Docker image: main-full adds extra file types, main-ollama bundles Ollama for local private RAG and main-lite is smaller. Images are built for linux/amd64 and linux/arm64.",
+      "Open localhost:7860 and log in with admin/admin, then change it and add users in the UI. Configure your LLM and embedding models in settings.",
+      "Non-developers can follow the User Guide and download a release zip. GraphRAG, local models and multimodal parsing have their own setup sections. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Document Q&A",
+        "body": "Multi-user web UI."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Hybrid retrieval",
+        "body": "Full-text, vector and re-ranking."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Citations",
+        "body": "With document preview and scores."
+      },
+      {
+        "icon": "file-code",
+        "title": "Multimodal",
+        "body": "Figures and tables."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Reasoning agents",
+        "body": "Question decomposition, ReAct, ReWOO."
+      },
+      {
+        "icon": "shield",
+        "title": "Custom pipelines",
+        "body": "Add your own RAG."
+      }
+    ],
+    "strengths": [
+      "Polished UI",
+      "Local or cloud models",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Extra setup for more file types",
+      "Default admin password must be changed"
+    ],
+    "useCases": [
+      {
+        "title": "Company knowledge base",
+        "body": "Ask questions over internal PDFs."
+      },
+      {
+        "title": "Research reading",
+        "body": "Cited answers across papers."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from kotaemon's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Cinnamon/kotaemon/blob/9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9/README.md",
+      "prerequisites": [
+        "Docker"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker (full)",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Run the container",
+              "body": "Use main-ollama for bundled Ollama or main-lite for a smaller image.",
+              "code": "docker run \\\n-e GRADIO_SERVER_NAME=0.0.0.0 \\\n-e GRADIO_SERVER_PORT=7860 \\\n-v ./ktem_app_data:/app/ktem_app_data \\\n-p 7860:7860 -it --rm \\\nghcr.io/cinnamon/kotaemon:main-full",
+              "lang": "bash"
+            },
+            {
+              "title": "Open the app",
+              "body": "Go to http://localhost:7860 and log in with admin / admin, then change the password."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Release zip (non-developers)",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Follow the User Guide",
+              "body": "Download the zip from the latest release and follow the guide at cinnamon.github.io/kotaemon."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Set up models",
+          "body": "Add an LLM and embedding model in settings, or use the Ollama image."
+        },
+        {
+          "title": "Upload documents",
+          "body": "Add files to a collection."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Ask questions about your PDFs",
+      "useCase": "Basic document Q&A.",
+      "setup": [
+        "kotaemon running",
+        "A model configured"
+      ],
+      "steps": [
+        {
+          "title": "Upload",
+          "body": "Add a few PDFs to a private collection."
+        },
+        {
+          "title": "Ask a question",
+          "body": "Type a question in the chat."
+        },
+        {
+          "title": "Check citations",
+          "body": "Open the cited passages in the preview."
+        }
+      ],
+      "expected": "Answers with citations you can click to see the source.",
+      "nextSteps": [
+        "Try GraphRAG",
+        "Use a local model",
+        "Tune retrieval settings"
+      ],
+      "sourceUrl": "https://github.com/Cinnamon/kotaemon/blob/9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9/README.md"
+    },
+    "costs": [
+      {
+        "label": "kotaemon",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Free locally with Ollama; API providers bill for usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "File type not supported",
+        "solution": "Use the full image or install Unstructured.",
+        "sourceUrl": "https://github.com/Cinnamon/kotaemon/blob/9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9/README.md"
+      },
+      {
+        "problem": "Wrong CPU platform",
+        "solution": "Pass --platform linux/arm64 or linux/amd64 to docker run.",
+        "sourceUrl": "https://github.com/Cinnamon/kotaemon/blob/9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9/README.md"
+      }
+    ],
+    "bestFor": [
+      "Chat with documents",
+      "Self-hosted RAG UI"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "RAG web app"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Port",
+        "value": "7860"
+      }
+    ]
+  }
+}

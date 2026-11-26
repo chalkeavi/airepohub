@@ -1,0 +1,190 @@
+{
+  "fullName": "lucidrains/vit-pytorch",
+  "summary": "Simple PyTorch implementations of the Vision Transformer and dozens of its variants, ready to drop into image models.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/lucidrains/vit-pytorch/blob/7994aab2e25eefbeaea327e45f344159bd43b634/README.md"
+    ],
+    "sourceCommitSha": "7994aab2e25eefbeaea327e45f344159bd43b634",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install vit-pytorch"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "vit-pytorch implements the Vision Transformer (ViT), which classifies images by splitting them into patches and running a transformer over them, in a small PyTorch package. Beyond the base model it includes many variants from research papers, such as Simple ViT, NaViT, CaiT, CrossViT, MobileViT, MaxViT, 3D ViT and ViViT, plus training approaches like distillation, masked autoencoders and Dino.",
+      "problem": "Vision transformer papers are hard to reproduce from scratch. This package gives clean, ready-to-use implementations of many of them in one place.",
+      "whoFor": [
+        "ML researchers",
+        "Students learning vision transformers",
+        "Developers prototyping image models"
+      ],
+      "whyChoose": "Pick it for a quick, readable way to try ViT and its variants in PyTorch.",
+      "requirements": [
+        "Python",
+        "PyTorch"
+      ]
+    },
+    "overview": [
+      "Install with pip install vit-pytorch.",
+      "Create a ViT with settings like image_size, patch_size, num_classes, dim, depth, heads and mlp_dim, then pass an image tensor to get predictions.",
+      "Other variants are imported the same way from vit_pytorch. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Base ViT",
+        "body": "Configurable patch size, depth and heads."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Many variants",
+        "body": "Simple ViT, NaViT, CaiT, CrossViT, MobileViT, MaxViT and more."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Video and 3D",
+        "body": "3D ViT and ViViT."
+      },
+      {
+        "icon": "file-code",
+        "title": "Self-supervised training",
+        "body": "Masked autoencoder, Dino, EsViT."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Distillation",
+        "body": "Train from a teacher network."
+      },
+      {
+        "icon": "shield",
+        "title": "Inspect attention",
+        "body": "Access attention maps and embeddings."
+      }
+    ],
+    "strengths": [
+      "Many architectures in one package",
+      "Short readable code",
+      "MIT license"
+    ],
+    "limitations": [
+      "You bring your own training loop and data",
+      "No pretrained weights are described in the README"
+    ],
+    "useCases": [
+      {
+        "title": "Image classification",
+        "body": "Train a ViT on your dataset."
+      },
+      {
+        "title": "Research",
+        "body": "Compare transformer variants."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from vit-pytorch's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/lucidrains/vit-pytorch/blob/7994aab2e25eefbeaea327e45f344159bd43b634/README.md",
+      "prerequisites": [
+        "Python with PyTorch"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install vit-pytorch",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run a forward pass",
+          "body": "Create a ViT and pass a random 256x256 image tensor."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build and run a Vision Transformer",
+      "useCase": "The README's usage example.",
+      "setup": [
+        "vit-pytorch and torch installed"
+      ],
+      "steps": [
+        {
+          "title": "Import",
+          "body": "import torch and from vit_pytorch import ViT."
+        },
+        {
+          "title": "Create the model",
+          "body": "ViT(image_size=256, patch_size=32, num_classes=1000, dim=1024, depth=6, heads=16, mlp_dim=2048, dropout=0.1, emb_dropout=0.1). image_size must be divisible by patch_size."
+        },
+        {
+          "title": "Predict",
+          "body": "img = torch.randn(1, 3, 256, 256); preds = v(img) gives a (1, 1000) output."
+        }
+      ],
+      "expected": "A tensor of class scores, one per class.",
+      "nextSteps": [
+        "Try Simple ViT or NaViT",
+        "Train with distillation",
+        "Pretrain with a masked autoencoder"
+      ],
+      "sourceUrl": "https://github.com/lucidrains/vit-pytorch/blob/7994aab2e25eefbeaea327e45f344159bd43b634/README.md"
+    },
+    "costs": [
+      {
+        "label": "vit-pytorch",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Size error",
+        "solution": "image_size must be divisible by patch_size.",
+        "sourceUrl": "https://github.com/lucidrains/vit-pytorch/blob/7994aab2e25eefbeaea327e45f344159bd43b634/README.md"
+      },
+      {
+        "problem": "Rectangular images",
+        "solution": "Set image_size to the larger of width and height, as the README advises.",
+        "sourceUrl": "https://github.com/lucidrains/vit-pytorch/blob/7994aab2e25eefbeaea327e45f344159bd43b634/README.md"
+      }
+    ],
+    "bestFor": [
+      "Trying vision transformer architectures"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Model library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "pip install vit-pytorch"
+      }
+    ]
+  }
+}

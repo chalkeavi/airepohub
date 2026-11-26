@@ -1,0 +1,196 @@
+{
+  "fullName": "trycua/cua",
+  "summary": "Open tools for computer-use agents: desktops for AI to operate, local VMs, a desktop automation driver and benchmarks.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/trycua/cua/blob/705089e1db0b76f97c83775cd1ee71ac6b4fdbca/README.md"
+    ],
+    "sourceCommitSha": "705089e1db0b76f97c83775cd1ee71ac6b4fdbca",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install (macOS/Linux)",
+        "command": "curl -fsSL https://cua.ai/install.sh | sh"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Cua provides the computers and automation tools for AI agents that use desktops. It includes Cua Spaces (a desktop app that gives agents full desktops as VMs or images), Cua Driver for desktop automation, Lume for local macOS VMs, an SDK and CLI, small CUA-S1 decision models and Cua Bench for tasks.",
+      "problem": "Letting an agent use a real computer safely needs isolated desktops, automation drivers and ways to test. Cua packages these pieces.",
+      "whoFor": [
+        "Developers building computer-use agents",
+        "Researchers benchmarking agents",
+        "Teams sharing desktops with agents"
+      ],
+      "whyChoose": "Choose it for cross-OS sandboxes, a shared multiplayer desktop with agents, and benchmarks, bringing your own agent and model.",
+      "requirements": [
+        "macOS 26+ for Cua Spaces, or macOS/Linux/Windows for the CLI"
+      ]
+    },
+    "overview": [
+      "Install with the script on macOS or Linux, or the PowerShell script on Windows; on macOS it installs the Cua Spaces app plus the cua CLI. A signed .dmg is also available.",
+      "Spaces gives each agent a desktop (a local macOS VM or a Linux image) and lets you move a signed-in app into a Space after you approve. You and agents can work on the same desktop with separate cursors.",
+      "Spaces is free for individuals, with Pro at $18 a month and Teams at $30 per seat a month, per the README. The repo is MIT licensed; the Spaces app is source-available under FSL-1.1-MIT."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Cua Spaces",
+        "body": "Desktops for agents."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Cua Driver",
+        "body": "Desktop automation."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Lume",
+        "body": "Local macOS VMs."
+      },
+      {
+        "icon": "file-code",
+        "title": "SDK and CLI",
+        "body": "Sandboxes from code."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Cua Bench",
+        "body": "Simulated tasks."
+      }
+    ],
+    "strengths": [
+      "Complete computer-use toolkit",
+      "Cross-OS",
+      "Bring your own model"
+    ],
+    "limitations": [
+      "Spaces needs macOS 26+",
+      "Paid plans for Pro and Teams"
+    ],
+    "useCases": [
+      {
+        "title": "Agent sandboxes",
+        "body": "Let an agent use a safe desktop."
+      },
+      {
+        "title": "Benchmarks",
+        "body": "Test agents on tasks."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Cua's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/trycua/cua/blob/705089e1db0b76f97c83775cd1ee71ac6b4fdbca/README.md",
+      "prerequisites": [
+        "macOS, Linux or Windows"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "macOS / Linux",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "curl -fsSL https://cua.ai/install.sh | sh",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Windows",
+          "method": "powershell",
+          "steps": [
+            {
+              "title": "Install the CLI",
+              "code": "irm https://cua.ai/install.ps1 | iex",
+              "lang": "powershell"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run the Cua Driver quickstart",
+          "body": "Operate Calculator and verify its result, as in the docs quickstart."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your first Space",
+      "useCase": "Give an agent its own desktop.",
+      "setup": [
+        "macOS 26+",
+        "Cua installed"
+      ],
+      "steps": [
+        {
+          "title": "Open Cua Spaces"
+        },
+        {
+          "title": "Create a Space",
+          "body": "Follow the Spaces quickstart in the docs."
+        },
+        {
+          "title": "Connect your agent",
+          "body": "Bring your own agent and model."
+        }
+      ],
+      "expected": "An agent operating a separate desktop you can watch.",
+      "nextSteps": [
+        "Teleport an app",
+        "Try Cua Bench"
+      ],
+      "sourceUrl": "https://github.com/trycua/cua/blob/705089e1db0b76f97c83775cd1ee71ac6b4fdbca/README.md"
+    },
+    "costs": [
+      {
+        "label": "Repository",
+        "value": "MIT licensed.",
+        "tone": "free"
+      },
+      {
+        "label": "Spaces",
+        "value": "Free for individuals; Pro $18/month, Teams $30/seat/month per the README.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Spaces won't install",
+        "solution": "It needs macOS 26 or later.",
+        "sourceUrl": "https://github.com/trycua/cua/blob/705089e1db0b76f97c83775cd1ee71ac6b4fdbca/README.md"
+      }
+    ],
+    "bestFor": [
+      "Computer-use agents",
+      "Agent sandboxes"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Computer-use toolkit"
+      },
+      {
+        "label": "Language",
+        "value": "Rust, Python, Swift"
+      },
+      {
+        "label": "License",
+        "value": "MIT (Spaces: FSL-1.1-MIT)"
+      },
+      {
+        "label": "Install",
+        "value": "cua.ai/install.sh"
+      }
+    ]
+  }
+}

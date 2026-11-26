@@ -1,0 +1,238 @@
+{
+  "fullName": "jackwener/OpenCLI",
+  "summary": "Command-line browser automation for AI agents that drives your own logged-in Chrome, with ready adapters that turn websites into commands.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/jackwener/OpenCLI/blob/9bc5f5ca132ec4d4e48d7ee517d4303bf159e8e8/README.md"
+    ],
+    "sourceCommitSha": "9bc5f5ca132ec4d4e48d7ee517d4303bf159e8e8",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install (npm)",
+        "command": "npm install -g @jackwener/opencli"
+      },
+      {
+        "comment": "Check setup",
+        "command": "opencli doctor"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "OpenCLI is a browser automation CLI for people and AI agents. It can navigate, inspect, click, fill forms, extract and screenshot pages in your real Chrome session, and built-in adapters turn sites like Reddit, Hacker News and Twitter/X into repeatable commands.",
+      "problem": "Agents that use a fresh headless browser get blocked by logins. OpenCLI works through your existing Chrome profile so the agent sees what you see.",
+      "whoFor": [
+        "Developers giving coding agents a browser",
+        "People automating sites they are logged in to",
+        "Adapter authors"
+      ],
+      "whyChoose": "Choose it for deterministic site commands plus general browser control from one CLI, with a skill for agents like Claude Code and Cursor.",
+      "requirements": [
+        "Chrome or Chromium",
+        "The OpenCLI Browser Bridge extension",
+        "Node.js 20.18.1+ for the npm install"
+      ]
+    },
+    "overview": [
+      "Setup has three parts: install OpenCLI (the OpenCLIApp desktop app on macOS and Windows, or the npm package), install the Browser Bridge extension in Chrome, and run opencli doctor to check the connection. A small local daemon starts automatically.",
+      "Use built-in adapters for supported sites, use opencli browser commands to operate any page, or write new adapters with the adapter tools.",
+      "AI agents can use it through the opencli-browser skill. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Built-in adapters",
+        "body": "Site commands for many popular sites."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Browser control",
+        "body": "Navigate, click, type, extract, screenshot."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Your logged-in Chrome",
+        "body": "Uses your existing sessions."
+      },
+      {
+        "icon": "file-code",
+        "title": "Agent skill",
+        "body": "For Claude Code, Cursor and others."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Adapter authoring",
+        "body": "init, check and test tools."
+      },
+      {
+        "icon": "shield",
+        "title": "Profiles",
+        "body": "Name and pick Chrome profiles."
+      }
+    ],
+    "strengths": [
+      "Works with logged-in sites",
+      "Deterministic adapters",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Needs Chrome and the extension",
+      "Agents act with your real accounts, so watch what they do"
+    ],
+    "useCases": [
+      {
+        "title": "Agent web research",
+        "body": "Let an agent browse with your session."
+      },
+      {
+        "title": "Scripted site data",
+        "body": "Run an adapter command for a site."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from OpenCLI's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/jackwener/OpenCLI/blob/9bc5f5ca132ec4d4e48d7ee517d4303bf159e8e8/README.md",
+      "prerequisites": [
+        "Chrome or Chromium",
+        "Node.js 20.18.1+ (npm route)"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "OpenCLIApp (macOS / Windows)",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download the app",
+              "body": "Get OpenCLIApp from opencli.info/download and install it."
+            },
+            {
+              "title": "Install the command",
+              "body": "Open the app once and use the System page to install the opencli command."
+            },
+            {
+              "title": "Add the Chrome extension",
+              "body": "Install OpenCLI from the Chrome Web Store."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "npm (CLI only)",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Check Node.js",
+              "code": "node --version",
+              "lang": "bash"
+            },
+            {
+              "title": "Install",
+              "code": "npm install -g @jackwener/opencli",
+              "lang": "bash"
+            },
+            {
+              "title": "Add the Chrome extension",
+              "body": "Install OpenCLI from the Chrome Web Store, or load the unpacked extension zip from the Releases page."
+            },
+            {
+              "title": "Verify",
+              "code": "opencli doctor",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run the doctor",
+          "body": "opencli doctor confirms the extension and daemon are connected."
+        },
+        {
+          "title": "Open a page",
+          "body": "Try opencli browser open https://example.com --session research."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Open and inspect a page from the terminal",
+      "useCase": "Drive your Chrome from the command line.",
+      "setup": [
+        "OpenCLI installed",
+        "Browser Bridge extension installed"
+      ],
+      "steps": [
+        {
+          "title": "Verify setup",
+          "code": "opencli doctor",
+          "lang": "bash"
+        },
+        {
+          "title": "Open a page in a session",
+          "code": "opencli browser open https://example.com --session research",
+          "lang": "bash"
+        },
+        {
+          "title": "Look at network calls",
+          "code": "opencli browser network --static --session research",
+          "lang": "bash"
+        }
+      ],
+      "expected": "Chrome opens the page and OpenCLI prints what it found.",
+      "nextSteps": [
+        "List adapters with opencli list",
+        "Install the agent skill",
+        "Write an adapter"
+      ],
+      "sourceUrl": "https://github.com/jackwener/OpenCLI/blob/9bc5f5ca132ec4d4e48d7ee517d4303bf159e8e8/README.md"
+    },
+    "costs": [
+      {
+        "label": "OpenCLI",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Doctor can't reach the browser",
+        "solution": "Make sure the extension is installed and enabled in the Chrome profile you use.",
+        "sourceUrl": "https://github.com/jackwener/OpenCLI/blob/9bc5f5ca132ec4d4e48d7ee517d4303bf159e8e8/README.md"
+      },
+      {
+        "problem": "Several Chrome profiles",
+        "solution": "Use opencli profile list and opencli profile use to pick one.",
+        "sourceUrl": "https://github.com/jackwener/OpenCLI/blob/9bc5f5ca132ec4d4e48d7ee517d4303bf159e8e8/README.md"
+      }
+    ],
+    "bestFor": [
+      "Browser automation for agents",
+      "Website to CLI"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Browser automation CLI"
+      },
+      {
+        "label": "Language",
+        "value": "JavaScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "npm install -g @jackwener/opencli"
+      }
+    ]
+  }
+}

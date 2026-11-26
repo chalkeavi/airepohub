@@ -1,0 +1,224 @@
+{
+  "fullName": "HandsOnLLM/Hands-On-Large-Language-Models",
+  "summary": "Code notebooks for the book Hands-On Large Language Models, chapter by chapter from tokens and embeddings to RAG and fine-tuning.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/HandsOnLLM/Hands-On-Large-Language-Models/blob/ea3390819997999a51983677b80b3aac4dc50ada/README.md"
+    ],
+    "sourceCommitSha": "ea3390819997999a51983677b80b3aac4dc50ada",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Easiest",
+        "command": "Open any chapter notebook in Google Colab"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "This repository holds the code for every example in the book Hands-On Large Language Models. There is a notebook for each of its 12 chapters: language model basics, tokens and embeddings, how transformers work, text classification, clustering and topic modeling, prompt engineering, advanced text generation, semantic search and RAG, multimodal models, building embedding models and fine-tuning.",
+      "problem": "Learning LLMs from theory alone is hard. These notebooks let you run each concept from the book and see the results.",
+      "whoFor": [
+        "Readers of the book",
+        "Developers learning practical LLM use",
+        "Students who want runnable examples"
+      ],
+      "whyChoose": "Choose it for well-explained, chapter-ordered notebooks that the authors built and tested on free Google Colab GPUs.",
+      "requirements": [
+        "A Google account for Colab (recommended)",
+        "Or a local Python setup using the repo's setup guide"
+      ]
+    },
+    "overview": [
+      "The authors recommend running the examples in Google Colab, which offers a free T4 GPU with 16GB of VRAM. Each chapter has an Open in Colab link in the README.",
+      "For local use, the .setup folder has a quick-start guide and the conda folder has a full environment guide including PyTorch.",
+      "There is also bonus content in the bonus folder. The code is Apache 2.0 licensed; the book itself is sold separately."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "12 chapter notebooks",
+        "body": "From tokens to fine-tuning."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Colab-ready",
+        "body": "Free GPU, no local setup."
+      },
+      {
+        "icon": "puzzle",
+        "title": "RAG chapter",
+        "body": "Semantic search and retrieval."
+      },
+      {
+        "icon": "file-code",
+        "title": "Fine-tuning",
+        "body": "Representation and generation models."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Multimodal",
+        "body": "Vision-language models."
+      },
+      {
+        "icon": "shield",
+        "title": "Bonus content",
+        "body": "Extra guides."
+      }
+    ],
+    "strengths": [
+      "Tested on Colab",
+      "Clear progression",
+      "Apache 2.0 code"
+    ],
+    "limitations": [
+      "Best used alongside the book",
+      "Local setup takes more work"
+    ],
+    "useCases": [
+      {
+        "title": "Learn embeddings",
+        "body": "Run the tokens and embeddings chapter."
+      },
+      {
+        "title": "Build RAG",
+        "body": "Work through chapter 8."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Hands-On Large Language Models's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/HandsOnLLM/Hands-On-Large-Language-Models/blob/ea3390819997999a51983677b80b3aac4dc50ada/README.md",
+      "prerequisites": [
+        "Google account for Colab"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Google Colab (recommended)",
+          "method": "colab",
+          "steps": [
+            {
+              "title": "Pick a chapter",
+              "body": "In the README, click Open in Colab next to the chapter."
+            },
+            {
+              "title": "Turn on a GPU",
+              "body": "Use a T4 GPU runtime, which Colab offers for free."
+            },
+            {
+              "title": "Run the cells",
+              "body": "Run the notebook top to bottom."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Local setup",
+          "method": "local",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/HandsOnLLM/Hands-On-Large-Language-Models.git",
+              "lang": "bash"
+            },
+            {
+              "title": "Install packages",
+              "body": "Follow the quick-start guide in the .setup folder, or the conda guide for a full environment with PyTorch."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open chapter 1",
+          "body": "Run the Introduction to Language Models notebook in Colab."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your first chapter in Colab",
+      "useCase": "Start the book's code with zero setup.",
+      "setup": [
+        "A Google account"
+      ],
+      "steps": [
+        {
+          "title": "Open chapter 1",
+          "body": "Click Open in Colab for Chapter 1 in the README."
+        },
+        {
+          "title": "Select a GPU runtime",
+          "body": "Choose a T4 GPU."
+        },
+        {
+          "title": "Run all cells",
+          "body": "Follow along with the explanations."
+        }
+      ],
+      "expected": "The chapter's examples run and show model outputs.",
+      "nextSteps": [
+        "Chapter 2: tokens and embeddings",
+        "Chapter 6: prompt engineering",
+        "Chapter 8: RAG"
+      ],
+      "sourceUrl": "https://github.com/HandsOnLLM/Hands-On-Large-Language-Models/blob/ea3390819997999a51983677b80b3aac4dc50ada/README.md"
+    },
+    "costs": [
+      {
+        "label": "Code",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Colab",
+        "value": "Free tier includes a T4 GPU.",
+        "tone": "free"
+      },
+      {
+        "label": "Book",
+        "value": "Sold separately.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Out-of-memory errors",
+        "solution": "Make sure the Colab runtime has a GPU selected.",
+        "sourceUrl": "https://github.com/HandsOnLLM/Hands-On-Large-Language-Models/blob/ea3390819997999a51983677b80b3aac4dc50ada/README.md"
+      },
+      {
+        "problem": "Local package errors",
+        "solution": "Use the conda guide in the .setup folder.",
+        "sourceUrl": "https://github.com/HandsOnLLM/Hands-On-Large-Language-Models/blob/ea3390819997999a51983677b80b3aac4dc50ada/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning LLMs",
+      "Book companion code"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Book notebooks"
+      },
+      {
+        "label": "Language",
+        "value": "Python (Jupyter)"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Run",
+        "value": "Google Colab"
+      }
+    ]
+  }
+}

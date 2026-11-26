@@ -1,0 +1,247 @@
+{
+  "fullName": "QwenLM/qwen-code",
+  "summary": "Open-source AI coding agent from the Qwen team that works in your terminal, editor, desktop app, browser or chat apps.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/QwenLM/qwen-code/blob/85ca2eb591258e864ee2d3b3d4da1a1a4e720def/README.md"
+    ],
+    "sourceCommitSha": "85ca2eb591258e864ee2d3b3d4da1a1a4e720def",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install (npm)",
+        "command": "npm install -g @qwen-code/qwen-code@latest"
+      },
+      {
+        "comment": "Start",
+        "command": "qwen"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Qwen Code is an open-source AI coding agent. You run qwen in a project folder and ask it to explain, edit or build code. It also comes as a desktop app, an experimental web UI, editor integrations for VS Code, Zed and JetBrains, chat connectors, a headless mode for scripts and SDKs for TypeScript, Python and Java.",
+      "problem": "Gives you an agent that can read and change your codebase from the terminal, with a choice of signing in with a Qwen subscription or using your own API key.",
+      "whoFor": [
+        "Developers who want a terminal coding agent",
+        "Qwen model users",
+        "Teams scripting agents in CI"
+      ],
+      "whyChoose": "Choose it for an Apache-licensed coding agent with many interfaces and SDKs.",
+      "requirements": [
+        "Node.js 22+ for the npm install (the standalone installer doesn't need it)",
+        "A Qwen subscription or a provider API key"
+      ]
+    },
+    "overview": [
+      "Install with the standalone script (Linux/macOS or Windows PowerShell), npm or Homebrew, then restart your terminal.",
+      "Open a terminal in your project and run qwen. Inside the session, run /auth and either sign in with a Qwen Plus or Pro subscription or configure a provider with an API key.",
+      "For automation, qwen -p runs headless in scripts and CI, and qwen serve exposes a daemon over HTTP. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Terminal agent",
+        "body": "Run qwen in your project."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Desktop app",
+        "body": "macOS, Windows and Linux."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Editor integrations",
+        "body": "VS Code, Zed, JetBrains."
+      },
+      {
+        "icon": "file-code",
+        "title": "Headless mode",
+        "body": "qwen -p for scripts and CI."
+      },
+      {
+        "icon": "git-compare",
+        "title": "SDKs",
+        "body": "TypeScript, Python, Java."
+      },
+      {
+        "icon": "shield",
+        "title": "Chat channels",
+        "body": "Telegram, DingTalk, WeChat and more."
+      }
+    ],
+    "strengths": [
+      "Many ways to use it",
+      "Open source",
+      "Subscription or API key"
+    ],
+    "limitations": [
+      "Needs a subscription or paid API usage",
+      "Web UI and daemon are experimental"
+    ],
+    "useCases": [
+      {
+        "title": "Learn a codebase",
+        "body": "Ask it to explain the repo."
+      },
+      {
+        "title": "CI automation",
+        "body": "Run prompts headless."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Qwen Code's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/QwenLM/qwen-code/blob/85ca2eb591258e864ee2d3b3d4da1a1a4e720def/README.md",
+      "prerequisites": [
+        "A terminal",
+        "Node.js 22+ for npm"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Standalone installer (Linux/macOS)",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "curl -fsSL https://qwen-code-assets.oss-cn-hangzhou.aliyuncs.com/installation/install-qwen-standalone.sh | bash",
+              "lang": "bash"
+            },
+            {
+              "title": "Restart your terminal",
+              "body": "So the environment variables take effect."
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Standalone installer (Windows)",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "irm https://qwen-code-assets.oss-cn-hangzhou.aliyuncs.com/installation/install-qwen-standalone.ps1 | iex",
+              "lang": "powershell"
+            },
+            {
+              "title": "Restart your terminal"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "npm",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Requires Node.js 22+.",
+              "code": "npm install -g @qwen-code/qwen-code@latest",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Homebrew",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install qwen-code",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start in a project",
+          "body": "cd into your project and run qwen."
+        },
+        {
+          "title": "Authenticate",
+          "body": "Run /auth and pick Qwen subscription sign-in or an API key provider."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Get a tour of a repository",
+      "useCase": "The README's first prompt.",
+      "setup": [
+        "Qwen Code installed",
+        "Signed in with /auth"
+      ],
+      "steps": [
+        {
+          "title": "Open your project",
+          "code": "cd /path/to/your-project\nqwen",
+          "lang": "bash"
+        },
+        {
+          "title": "Ask for a tour",
+          "body": "Type: Explain this repository and show me where to start."
+        }
+      ],
+      "expected": "An explanation of the project's structure and where to begin.",
+      "nextSteps": [
+        "Ask it to make a change",
+        "Try the desktop app",
+        "Run qwen -p in a script"
+      ],
+      "sourceUrl": "https://github.com/QwenLM/qwen-code/blob/85ca2eb591258e864ee2d3b3d4da1a1a4e720def/README.md"
+    },
+    "costs": [
+      {
+        "label": "Qwen Code",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Qwen Plus/Pro subscription or your provider's API pricing.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "qwen not found after install",
+        "solution": "Restart your terminal so PATH updates.",
+        "sourceUrl": "https://github.com/QwenLM/qwen-code/blob/85ca2eb591258e864ee2d3b3d4da1a1a4e720def/README.md"
+      },
+      {
+        "problem": "npm install fails",
+        "solution": "Check that Node.js is version 22 or newer.",
+        "sourceUrl": "https://github.com/QwenLM/qwen-code/blob/85ca2eb591258e864ee2d3b3d4da1a1a4e720def/README.md"
+      }
+    ],
+    "bestFor": [
+      "Terminal coding agent",
+      "Qwen-powered coding"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI coding agent"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "npm install -g @qwen-code/qwen-code@latest"
+      }
+    ]
+  }
+}

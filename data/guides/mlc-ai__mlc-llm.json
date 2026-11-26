@@ -1,0 +1,184 @@
+{
+  "fullName": "mlc-ai/mlc-llm",
+  "summary": "Compiler and engine that runs large language models natively on almost any GPU, phone or browser, with an OpenAI-compatible API.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/mlc-ai/mlc-llm/blob/ca6274826acda36fc87c9f40218a8819318ff6bb/README.md"
+    ],
+    "sourceCommitSha": "ca6274826acda36fc87c9f40218a8819318ff6bb",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Get started",
+        "command": "Follow the install guide at llm.mlc.ai/docs"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "MLC LLM is a machine learning compiler and high-performance deployment engine for large language models. It compiles models to run on MLCEngine, one inference engine that works across AMD, NVIDIA, Apple and Intel GPUs (via Vulkan, CUDA, ROCm or Metal), in web browsers (WebGPU and WASM), on iPhones and iPads (Metal) and on Android (OpenCL on Adreno and Mali GPUs). MLCEngine exposes an OpenAI-compatible API through a REST server, Python, JavaScript, iOS and Android.",
+      "problem": "Each device and GPU vendor usually needs its own LLM runtime. MLC LLM compiles models once to run natively across all of them.",
+      "whoFor": [
+        "Developers deploying LLMs on phones or in browsers",
+        "Engineers targeting non-NVIDIA GPUs",
+        "Researchers in ML compilation"
+      ],
+      "whyChoose": "Pick it when you need the same LLM app to run on many kinds of hardware, including mobile and web.",
+      "requirements": [
+        "See the official installation guide for your platform"
+      ]
+    },
+    "overview": [
+      "The README sends setup to the documentation: the Installation page, the Quick start and the Introduction.",
+      "Models are compiled for your target and run on MLCEngine.",
+      "Use the OpenAI-compatible REST server, or the Python, JavaScript, iOS or Android APIs. Apache-2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Runs everywhere",
+        "body": "Linux, Windows, macOS, web, iOS, Android."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Many GPU backends",
+        "body": "Vulkan, CUDA, ROCm, Metal, OpenCL, WebGPU."
+      },
+      {
+        "icon": "puzzle",
+        "title": "MLCEngine",
+        "body": "One unified inference engine."
+      },
+      {
+        "icon": "file-code",
+        "title": "OpenAI-compatible API",
+        "body": "REST, Python, JavaScript, mobile."
+      },
+      {
+        "icon": "git-compare",
+        "title": "ML compilation",
+        "body": "Optimized code per platform."
+      }
+    ],
+    "strengths": [
+      "Widest hardware coverage",
+      "Same API on every platform",
+      "Active research project"
+    ],
+    "limitations": [
+      "Install steps are in the docs, not the README",
+      "Compiling models adds a setup step"
+    ],
+    "useCases": [
+      {
+        "title": "On-device chat",
+        "body": "Run an LLM on a phone."
+      },
+      {
+        "title": "In-browser LLM",
+        "body": "WebGPU apps with no server."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from MLC LLM's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/mlc-ai/mlc-llm/blob/ca6274826acda36fc87c9f40218a8819318ff6bb/README.md",
+      "prerequisites": [
+        "Depends on your target platform"
+      ],
+      "supportedOs": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "iOS",
+        "Android",
+        "Web browser"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Official documentation",
+          "method": "docs",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Follow the Installation page at llm.mlc.ai/docs/install/mlc_llm for your platform."
+            },
+            {
+              "title": "Quick start",
+              "body": "Then follow the Quick start at llm.mlc.ai/docs/get_started/quick_start."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Follow the quick start",
+          "body": "Run a first model with MLCEngine using the official quick start."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Get a model running with MLC LLM",
+      "useCase": "Use the official docs the README links to.",
+      "setup": [
+        "MLC LLM installed using the official guide"
+      ],
+      "steps": [
+        {
+          "title": "Read the Introduction",
+          "body": "Learn how compilation and MLCEngine fit together."
+        },
+        {
+          "title": "Do the Quick start",
+          "body": "Run a model through one of the APIs."
+        },
+        {
+          "title": "Pick your target",
+          "body": "Follow the docs for the REST server, browser, iOS or Android."
+        }
+      ],
+      "expected": "An LLM running on your chosen device with an OpenAI-compatible API.",
+      "nextSteps": [
+        "Deploy to a phone",
+        "Serve over REST"
+      ],
+      "sourceUrl": "https://github.com/mlc-ai/mlc-llm/blob/ca6274826acda36fc87c9f40218a8819318ff6bb/README.md"
+    },
+    "costs": [
+      {
+        "label": "MLC LLM",
+        "value": "Free and open source under Apache-2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Unsure which backend to use",
+        "solution": "Check the README's platform table: Vulkan or CUDA on NVIDIA, ROCm or Vulkan on AMD, Metal on Apple.",
+        "sourceUrl": "https://github.com/mlc-ai/mlc-llm/blob/ca6274826acda36fc87c9f40218a8819318ff6bb/README.md"
+      }
+    ],
+    "bestFor": [
+      "Running LLMs across many devices"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "LLM compiler and engine"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Platforms",
+        "value": "Desktop GPUs, web, iOS, Android"
+      }
+    ]
+  }
+}

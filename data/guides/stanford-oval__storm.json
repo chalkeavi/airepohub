@@ -1,0 +1,221 @@
+{
+  "fullName": "stanford-oval/storm",
+  "summary": "Stanford research system that researches a topic online and writes a full, cited Wikipedia-style article.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/README.md"
+    ],
+    "sourceCommitSha": "fb951af7744dab086e34962e9bc6fe878e145f83",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install knowledge-storm"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "STORM (Synthesis of Topic Outlines through Retrieval and Multi-perspective Question Asking) is an LLM system from Stanford that researches a topic using web search and writes a long, Wikipedia-style article with citations. Co-STORM adds a collaborative mode where you take part in the research.",
+      "problem": "Writing a well-sourced overview of a topic takes hours of research. STORM automates the research and outlining, giving you a cited first draft.",
+      "whoFor": [
+        "Researchers and students starting a literature overview",
+        "Writers needing cited drafts",
+        "Developers studying research agents"
+      ],
+      "whyChoose": "Choose it for a well-known research system with a Python package, multi-perspective questioning and support for many models via litellm.",
+      "requirements": [
+        "Python 3.11 (conda suggested for source installs)",
+        "An OpenAI (or other) API key",
+        "A search API key such as Bing or You.com"
+      ]
+    },
+    "overview": [
+      "Install with pip install knowledge-storm, or clone the repo and install requirements in a conda environment for full control.",
+      "Put API keys in a secrets.toml file at the repo root (OpenAI key, retriever key such as BING_SEARCH_API_KEY, encoder type). Then run the example script with research, outline, article and polish steps.",
+      "The examples folder shows how to use other models or ground STORM on your own corpus, and how to run Co-STORM. MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Automatic research",
+        "body": "Searches and gathers sources."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Outlines",
+        "body": "Multi-perspective questions."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Cited articles",
+        "body": "Wikipedia-style output."
+      },
+      {
+        "icon": "file-code",
+        "title": "Co-STORM",
+        "body": "Collaborative research."
+      },
+      {
+        "icon": "git-compare",
+        "title": "litellm",
+        "body": "Many models."
+      }
+    ],
+    "strengths": [
+      "Cited output",
+      "Research-backed method",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Needs LLM and search API keys",
+      "Drafts still need fact-checking"
+    ],
+    "useCases": [
+      {
+        "title": "Topic overview",
+        "body": "Draft a cited article."
+      },
+      {
+        "title": "Learning",
+        "body": "Get up to speed on a subject."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from STORM's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/README.md",
+      "prerequisites": [
+        "Python 3.11"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install knowledge-storm",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "From source",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/stanford-oval/storm.git\ncd storm",
+              "lang": "bash"
+            },
+            {
+              "title": "Install requirements",
+              "code": "conda create -n storm python=3.11\nconda activate storm\npip install -r requirements.txt",
+              "lang": "bash"
+            },
+            {
+              "title": "Add keys to secrets.toml",
+              "code": "OPENAI_API_KEY=\"your_openai_api_key\"\nOPENAI_API_TYPE=\"openai\"\nBING_SEARCH_API_KEY=\"your_bing_search_api_key\"\nENCODER_API_TYPE=\"openai\"",
+              "lang": "text"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "OPENAI_API_KEY",
+          "required": true,
+          "description": "Language model key."
+        },
+        {
+          "name": "BING_SEARCH_API_KEY",
+          "required": false,
+          "description": "Needed when using Bing as the retriever."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Run the GPT example",
+          "code": "python examples/storm_examples/run_storm_wiki_gpt.py \\\n    --output-dir $OUTPUT_DIR \\\n    --retriever bing \\\n    --do-research \\\n    --do-generate-outline \\\n    --do-generate-article \\\n    --do-polish-article",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Generate a cited article on a topic",
+      "useCase": "Run STORM end to end from the source checkout.",
+      "setup": [
+        "Source install with secrets.toml"
+      ],
+      "steps": [
+        {
+          "title": "Set an output folder",
+          "code": "export OUTPUT_DIR=./output",
+          "lang": "bash"
+        },
+        {
+          "title": "Run the example",
+          "body": "Use the command above and enter a topic when asked."
+        },
+        {
+          "title": "Read the article",
+          "body": "Open the polished article in the output folder."
+        }
+      ],
+      "expected": "A long article with an outline and citations.",
+      "nextSteps": [
+        "Try Co-STORM",
+        "Use your own corpus"
+      ],
+      "sourceUrl": "https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "APIs",
+        "value": "LLM and search providers bill usage.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Missing keys",
+        "solution": "Create secrets.toml in the repo root with your API keys.",
+        "sourceUrl": "https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI research writing",
+      "Cited article generation"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Research and writing system"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Maker",
+        "value": "Stanford OVAL"
+      }
+    ]
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "fullName": "chatboxai/chatbox",
+  "summary": "Desktop chat app for ChatGPT, Claude, Gemini, local Ollama models and more, with your chats stored on your device.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/chatboxai/chatbox/blob/446bcf43e7a89a0411218821de54d87d7f3cfe11/README.md"
+    ],
+    "sourceCommitSha": "446bcf43e7a89a0411218821de54d87d7f3cfe11",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Download",
+        "command": "Get the installer for Windows, macOS or Linux from GitHub Releases or chatboxai.app"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Chatbox is a desktop client for chatting with ChatGPT, Claude and other LLMs. This repository is the open-source Community Edition, which the team keeps in sync with their pro version.",
+      "problem": "Juggling a different web app for each AI model is clumsy. Chatbox puts many providers, including local models via Ollama, in one desktop app that keeps your data local.",
+      "whoFor": [
+        "People who use several AI models",
+        "Users who want a desktop app with local chat history",
+        "Ollama users who want a friendly interface"
+      ],
+      "whyChoose": "Choose it for a polished, no-setup desktop app that works with many providers, with local data storage and a GPLv3 community edition.",
+      "requirements": [
+        "Windows 10 x64, macOS 11+, or Ubuntu 20.04+ / AppImage-capable Linux",
+        "An API key for your chosen provider, or Ollama for local models"
+      ]
+    },
+    "overview": [
+      "Download the installer for your platform, install and launch, set up your AI provider (OpenAI, Claude and others) in settings, and start chatting.",
+      "Supported providers listed in the README include OpenAI, Azure OpenAI, Claude, Google Gemini, Ollama and ChatGLM-6B, plus Dall-E-3 image generation. Data stays on your device.",
+      "Developers can clone the repo, run pnpm install and pnpm run dev. The Community Edition is GPLv3 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Many providers",
+        "body": "OpenAI, Claude, Gemini, Ollama and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Local storage",
+        "body": "Chats stay on your device."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Image generation",
+        "body": "Dall-E-3 support."
+      },
+      {
+        "icon": "file-code",
+        "title": "Installers",
+        "body": "No deployment needed."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Dark theme and shortcuts",
+        "body": "Comfortable for long use."
+      }
+    ],
+    "strengths": [
+      "Easy to install",
+      "Works with local models",
+      "Open source"
+    ],
+    "limitations": [
+      "You need your own API keys for cloud models",
+      "Some features may live only in the pro version"
+    ],
+    "useCases": [
+      {
+        "title": "One app for many models",
+        "body": "Switch between providers."
+      },
+      {
+        "title": "Local AI chat",
+        "body": "Use Ollama models with a nice UI."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Chatbox's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/chatboxai/chatbox/blob/446bcf43e7a89a0411218821de54d87d7f3cfe11/README.md",
+      "prerequisites": [
+        "A Windows, macOS or Linux computer"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Desktop installer",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download",
+              "body": "Get the installer for your platform from GitHub Releases or chatboxai.app."
+            },
+            {
+              "title": "Install and launch Chatbox"
+            },
+            {
+              "title": "Add your AI provider",
+              "body": "Open settings and configure OpenAI, Claude or another provider."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "From source (developers)",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/chatboxai/chatbox.git\ncd chatbox",
+              "lang": "bash"
+            },
+            {
+              "title": "Install and run in dev mode",
+              "code": "pnpm install\npnpm run dev",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start a chat",
+          "body": "After adding a provider in settings, open a new chat and send a message."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Chat with a local model through Ollama",
+      "useCase": "Use Chatbox as a front end for a model on your computer.",
+      "setup": [
+        "Chatbox installed",
+        "Ollama running with a model"
+      ],
+      "steps": [
+        {
+          "title": "Open settings",
+          "body": "Choose Ollama as the provider."
+        },
+        {
+          "title": "Pick your model and chat",
+          "body": "Select a local model and send a message."
+        }
+      ],
+      "expected": "Replies come from the model on your own machine.",
+      "nextSteps": [
+        "Add a cloud provider",
+        "Try image generation",
+        "Use keyboard shortcuts"
+      ],
+      "sourceUrl": "https://github.com/chatboxai/chatbox/blob/446bcf43e7a89a0411218821de54d87d7f3cfe11/README.md"
+    },
+    "costs": [
+      {
+        "label": "App",
+        "value": "The Community Edition is free and open source under GPLv3.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Cloud providers bill for API usage; Ollama is free to run locally.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "No replies",
+        "solution": "Check the provider and API key in settings.",
+        "sourceUrl": "https://github.com/chatboxai/chatbox/blob/446bcf43e7a89a0411218821de54d87d7f3cfe11/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI desktop client",
+      "Multi-model chat",
+      "Ollama front end"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Desktop AI chat client"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "GPLv3"
+      },
+      {
+        "label": "Edition",
+        "value": "Community Edition"
+      }
+    ]
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "fullName": "onyx-dot-app/onyx",
+  "summary": "Open-source AI chat and search platform that connects to 50+ team apps so answers include your company's knowledge.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/onyx-dot-app/onyx/blob/28ef9d3a400e93e63a38ab8b1c5b9821f6919db2/README.md"
+    ],
+    "sourceCommitSha": "28ef9d3a400e93e63a38ab8b1c5b9821f6919db2",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Deploy with one command",
+        "command": "curl -fsSL https://onyx.app/install_onyx.sh | bash"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Onyx is a knowledge and context layer for teams and AI agents. It indexes knowledge from 50+ applications and lets LLMs answer with it, plus web search, sandboxes, skills and agents, in self-hosted deployments that keep your data under your control.",
+      "problem": "LLMs know public information but not what's happening in your team. Onyx connects your apps so the AI knows your context.",
+      "whoFor": [
+        "Companies wanting an internal AI assistant",
+        "IT teams that need self-hosting",
+        "Teams with knowledge spread across many tools"
+      ],
+      "whyChoose": "Choose it for 50+ connectors, works with every LLM, and a choice of full Standard mode or a lightweight Lite chat UI.",
+      "requirements": [
+        "A server with Docker (or Kubernetes)",
+        "An LLM provider"
+      ]
+    },
+    "overview": [
+      "Deploy with the one-command install script, or with Docker, Kubernetes, Helm or Terraform; guides cover major clouds. You can also try Onyx Cloud without deploying.",
+      "Standard mode includes a vector and keyword index for RAG, background workers that sync connectors, model inference servers, Redis and MinIO. Lite mode is a chat UI needing under 1 GB of memory, without document indexing.",
+      "The core is MIT licensed, with some portions under a separate enterprise license."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "50+ connectors",
+        "body": "Index your team apps."
+      },
+      {
+        "icon": "scan-search",
+        "title": "RAG search",
+        "body": "Vector and keyword."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Agents and skills",
+        "body": "Beyond search."
+      },
+      {
+        "icon": "file-code",
+        "title": "Any LLM",
+        "body": "Bring your provider."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Lite mode",
+        "body": "Under 1 GB memory."
+      }
+    ],
+    "strengths": [
+      "Self-hosted data control",
+      "Many connectors",
+      "MIT core"
+    ],
+    "limitations": [
+      "Standard mode needs more resources",
+      "Some features are enterprise-only"
+    ],
+    "useCases": [
+      {
+        "title": "Company Q&A",
+        "body": "Ask across Slack, Drive and more."
+      },
+      {
+        "title": "Team chat UI",
+        "body": "Shared assistant with agents."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Onyx's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/onyx-dot-app/onyx/blob/28ef9d3a400e93e63a38ab8b1c5b9821f6919db2/README.md",
+      "prerequisites": [
+        "Server with Docker"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Deploy",
+              "code": "curl -fsSL https://onyx.app/install_onyx.sh | bash",
+              "lang": "bash"
+            },
+            {
+              "title": "Pick Standard or Lite",
+              "body": "Lite is a light chat UI; Standard adds indexing and connectors."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Connect an app",
+          "body": "Add a connector such as your docs tool and ask a question about its content."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Ask questions across your team's tools",
+      "useCase": "Index one app and query it.",
+      "setup": [
+        "Onyx Standard running",
+        "An LLM key"
+      ],
+      "steps": [
+        {
+          "title": "Add a connector",
+          "body": "Choose one of the 50+ apps."
+        },
+        {
+          "title": "Wait for indexing"
+        },
+        {
+          "title": "Ask in chat",
+          "body": "Answers cite your team's documents."
+        }
+      ],
+      "expected": "Answers grounded in your connected apps.",
+      "nextSteps": [
+        "Add more connectors",
+        "Create an agent"
+      ],
+      "sourceUrl": "https://github.com/onyx-dot-app/onyx/blob/28ef9d3a400e93e63a38ab8b1c5b9821f6919db2/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "MIT core; enterprise features are separate.",
+        "tone": "free"
+      },
+      {
+        "label": "Cloud",
+        "value": "Onyx Cloud available to try.",
+        "tone": "depends"
+      },
+      {
+        "label": "Models",
+        "value": "Your LLM provider bills usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Server runs out of memory",
+        "solution": "Use Lite mode, or give Standard mode more resources.",
+        "sourceUrl": "https://github.com/onyx-dot-app/onyx/blob/28ef9d3a400e93e63a38ab8b1c5b9821f6919db2/README.md"
+      }
+    ],
+    "bestFor": [
+      "Enterprise AI search",
+      "Team AI chat"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI chat and search platform"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT (core)"
+      },
+      {
+        "label": "Connectors",
+        "value": "50+"
+      }
+    ]
+  }
+}

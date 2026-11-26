@@ -1,0 +1,231 @@
+{
+  "fullName": "labring/FastGPT",
+  "summary": "Self-hostable platform for building AI agents and knowledge-base chatbots with a visual drag-and-drop workflow editor.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/labring/FastGPT/blob/7474d6b45374e2064b3f86d8828abaaaf2a0af46/README_en.md"
+    ],
+    "sourceCommitSha": "7474d6b45374e2064b3f86d8828abaaaf2a0af46",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Get config",
+        "command": "bash <(curl -fsSL https://doc.fastgpt.io/deploy/install.sh)"
+      },
+      {
+        "comment": "Start",
+        "command": "docker compose up -d"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "FastGPT is a platform for building AI agents and knowledge-base Q&A apps. It handles document processing and model calls for you, and lets you design complex flows visually. Knowledge bases accept txt, md, html, pdf, docx, pptx, csv and xlsx files plus URLs, with hybrid retrieval and reranking.",
+      "problem": "Building a chatbot over your own documents, with workflows and tools, usually takes a lot of custom code. FastGPT gives you a ready platform with a visual editor.",
+      "whoFor": [
+        "Teams building internal knowledge-base assistants",
+        "Non-developers designing AI workflows visually",
+        "Companies that want to self-host"
+      ],
+      "whyChoose": "Choose it for a mature knowledge base, visual workflow orchestration with MCP support, debugging tools and one-click embedding.",
+      "requirements": [
+        "Docker with Docker Compose",
+        "Model provider API keys"
+      ]
+    },
+    "overview": [
+      "Run the install script to pull the configuration files, then start everything with docker compose up -d. FastGPT is then at localhost:3000 with the default account root and password 1234; change it right away.",
+      "You can also use the hosted cloud version at fastgpt.io, deploy with Sealos, or buy a commercial version with more features and support.",
+      "It uses the FastGPT Open Source License, based on Apache 2.0: commercial use as a backend is allowed, but running it as a SaaS is not without authorization."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Visual workflows",
+        "body": "Agent skills, dialogue and plugin workflows."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Knowledge base",
+        "body": "Many file types, hybrid retrieval, reranking."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Bidirectional MCP",
+        "body": "Use and expose MCP tools."
+      },
+      {
+        "icon": "file-code",
+        "title": "Debugging",
+        "body": "Search tests, call-chain logs, evaluation."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Sharing",
+        "body": "Login-free share window and iframe embed."
+      },
+      {
+        "icon": "shield",
+        "title": "OpenAPI",
+        "body": "Integrate with your systems."
+      }
+    ],
+    "strengths": [
+      "Feature-rich knowledge base",
+      "Visual editor",
+      "Docker self-hosting"
+    ],
+    "limitations": [
+      "SaaS use not allowed without a commercial license",
+      "Several services to run"
+    ],
+    "useCases": [
+      {
+        "title": "Company help desk bot",
+        "body": "Answers from internal docs."
+      },
+      {
+        "title": "Website chat widget",
+        "body": "Embed with an iframe."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from FastGPT's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/labring/FastGPT/blob/7474d6b45374e2064b3f86d8828abaaaf2a0af46/README_en.md",
+      "prerequisites": [
+        "Docker and Docker Compose"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Pull the configuration",
+              "body": "Follow the prompts.",
+              "code": "bash <(curl -fsSL https://doc.fastgpt.io/deploy/install.sh)",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the services",
+              "code": "docker compose up -d",
+              "lang": "bash"
+            },
+            {
+              "title": "Log in",
+              "body": "Open http://localhost:3000 with account root and password 1234, then change the password."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Cloud",
+          "method": "cloud",
+          "steps": [
+            {
+              "title": "Use the hosted version",
+              "body": "Sign up at fastgpt.io if you don't need to self-host."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Add a model",
+          "body": "Configure your model provider in the admin settings."
+        },
+        {
+          "title": "Create a knowledge base",
+          "body": "Upload a few documents."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build a chatbot over your documents",
+      "useCase": "A basic knowledge-base Q&A app.",
+      "setup": [
+        "FastGPT running",
+        "A model configured"
+      ],
+      "steps": [
+        {
+          "title": "Create a knowledge base",
+          "body": "Upload PDF, Word or Markdown files."
+        },
+        {
+          "title": "Create an app",
+          "body": "Link the knowledge base to a new app."
+        },
+        {
+          "title": "Test it",
+          "body": "Ask questions and check the cited chunks."
+        }
+      ],
+      "expected": "A chatbot that answers from your documents with references.",
+      "nextSteps": [
+        "Build a workflow",
+        "Add an MCP tool",
+        "Share via iframe"
+      ],
+      "sourceUrl": "https://github.com/labring/FastGPT/blob/7474d6b45374e2064b3f86d8828abaaaf2a0af46/README_en.md"
+    },
+    "costs": [
+      {
+        "label": "Community edition",
+        "value": "Free to self-host under the FastGPT Open Source License.",
+        "tone": "free"
+      },
+      {
+        "label": "Cloud and commercial versions",
+        "value": "Paid; see FastGPT's pricing page.",
+        "tone": "paid"
+      },
+      {
+        "label": "Models",
+        "value": "Your provider bills for usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Can't reach localhost:3000",
+        "solution": "Wait until all containers have fully started, then check docker compose ps.",
+        "sourceUrl": "https://github.com/labring/FastGPT/blob/7474d6b45374e2064b3f86d8828abaaaf2a0af46/README_en.md"
+      },
+      {
+        "problem": "Other deployment problems",
+        "solution": "See the full Docker deployment tutorial on doc.fastgpt.io.",
+        "sourceUrl": "https://github.com/labring/FastGPT/blob/7474d6b45374e2064b3f86d8828abaaaf2a0af46/README_en.md"
+      }
+    ],
+    "bestFor": [
+      "Knowledge-base chatbot platform",
+      "Visual AI workflows"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI agent platform"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "FastGPT Open Source License (Apache 2.0 based)"
+      },
+      {
+        "label": "Install",
+        "value": "docker compose up -d"
+      }
+    ]
+  }
+}

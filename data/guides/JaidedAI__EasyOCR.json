@@ -1,0 +1,208 @@
+{
+  "fullName": "JaidedAI/EasyOCR",
+  "summary": "Ready-to-use Python OCR that reads text from images in 80+ languages, including Latin, Chinese, Arabic, Devanagari and Cyrillic scripts.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/JaidedAI/EasyOCR/blob/2f77e2e8125d666af859a57d49014731ecbf40c6/README.md"
+    ],
+    "sourceCommitSha": "2f77e2e8125d666af859a57d49014731ecbf40c6",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install easyocr"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "EasyOCR is a Python library that finds and reads text in images. You create a Reader with the languages you need and call readtext on an image file, an OpenCV array, bytes or an image URL. It returns each piece of text with its bounding box and a confidence score, and it also has a command-line tool.",
+      "problem": "Pulling text from photos, screenshots and scans in many languages usually needs complex setup. EasyOCR works in a few lines and downloads the language models it needs automatically.",
+      "whoFor": [
+        "Python developers extracting text from images",
+        "Projects that need multilingual OCR",
+        "Data pipelines that digitize images"
+      ],
+      "whyChoose": "Choose it for a simple API with wide language coverage that runs on GPU or CPU.",
+      "requirements": [
+        "Python",
+        "PyTorch (on Windows, install torch and torchvision first)"
+      ]
+    },
+    "overview": [
+      "Install from PyPI with pip install easyocr. On Windows, install torch and torchvision first from pytorch.org with the right CUDA version. A Dockerfile is also provided.",
+      "Create a Reader with a list of languages (English works with every language), then call readtext. Model weights download automatically on first use, or you can place them in ~/.EasyOCR/model.",
+      "Without a GPU, pass gpu=False to run on the CPU. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "80+ languages",
+        "body": "All popular writing scripts."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Bounding boxes",
+        "body": "Text positions and confidence."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Simple output",
+        "body": "detail=0 for text only."
+      },
+      {
+        "icon": "file-code",
+        "title": "Flexible input",
+        "body": "Files, arrays, bytes or URLs."
+      },
+      {
+        "icon": "git-compare",
+        "title": "CPU or GPU",
+        "body": "gpu=False for CPU."
+      },
+      {
+        "icon": "shield",
+        "title": "CLI",
+        "body": "easyocr command."
+      }
+    ],
+    "strengths": [
+      "Very easy to use",
+      "Wide language support",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Not all languages can be combined in one Reader",
+      "Slower on CPU"
+    ],
+    "useCases": [
+      {
+        "title": "Read signs and photos",
+        "body": "Extract street names or labels."
+      },
+      {
+        "title": "Digitize documents",
+        "body": "Pull text from scanned images."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from EasyOCR's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/JaidedAI/EasyOCR/blob/2f77e2e8125d666af859a57d49014731ecbf40c6/README.md",
+      "prerequisites": [
+        "Python and pip",
+        "PyTorch"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Windows only: install PyTorch first",
+              "body": "Follow pytorch.org and pick the right CUDA version."
+            },
+            {
+              "title": "Install EasyOCR",
+              "code": "pip install easyocr",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Development version",
+          "method": "pip-git",
+          "steps": [
+            {
+              "title": "Install from GitHub",
+              "code": "pip install git+https://github.com/JaidedAI/EasyOCR.git",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Read an image",
+          "body": "Create easyocr.Reader(['en']) and call readtext('image.jpg')."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Read text from an image",
+      "useCase": "The README's usage example.",
+      "setup": [
+        "EasyOCR installed"
+      ],
+      "steps": [
+        {
+          "title": "Load the model",
+          "body": "reader = easyocr.Reader(['ch_sim','en']) loads once into memory."
+        },
+        {
+          "title": "Read the image",
+          "body": "result = reader.readtext('chinese.jpg')."
+        },
+        {
+          "title": "Simplify output",
+          "body": "reader.readtext('chinese.jpg', detail = 0) returns text only."
+        }
+      ],
+      "expected": "A list of detected text with boxes and confidence, or just the text with detail=0.",
+      "nextSteps": [
+        "Try the command line",
+        "Run with gpu=False on CPU",
+        "Train your own model"
+      ],
+      "sourceUrl": "https://github.com/JaidedAI/EasyOCR/blob/2f77e2e8125d666af859a57d49014731ecbf40c6/README.md"
+    },
+    "costs": [
+      {
+        "label": "EasyOCR",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install problems on Windows",
+        "solution": "Install torch and torchvision from pytorch.org first.",
+        "sourceUrl": "https://github.com/JaidedAI/EasyOCR/blob/2f77e2e8125d666af859a57d49014731ecbf40c6/README.md"
+      },
+      {
+        "problem": "No GPU or low GPU memory",
+        "solution": "Use gpu=False.",
+        "sourceUrl": "https://github.com/JaidedAI/EasyOCR/blob/2f77e2e8125d666af859a57d49014731ecbf40c6/README.md"
+      }
+    ],
+    "bestFor": [
+      "Multilingual OCR",
+      "Text from images in Python"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "OCR library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "pip install easyocr"
+      }
+    ]
+  }
+}

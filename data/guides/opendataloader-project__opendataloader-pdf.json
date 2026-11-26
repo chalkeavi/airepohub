@@ -1,0 +1,243 @@
+{
+  "fullName": "opendataloader-project/opendataloader-pdf",
+  "summary": "Local PDF parser that turns PDFs into Markdown, JSON with bounding boxes or HTML for RAG, and can auto-tag PDFs for accessibility.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/opendataloader-project/opendataloader-pdf/blob/1a8adb0598c43cb912e0d138e1ac3254bb1304ec/README.md"
+    ],
+    "sourceCommitSha": "1a8adb0598c43cb912e0d138e1ac3254bb1304ec",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install -U opendataloader-pdf"
+      },
+      {
+        "comment": "Convert",
+        "command": "opendataloader-pdf file1.pdf folder/"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "OpenDataLoader PDF extracts content from PDFs into Markdown, JSON (with a bounding box and type for every element) and HTML, ready for LLM and RAG pipelines. It keeps reading order on multi-column pages, and a hybrid mode sends hard pages such as complex tables, scans, formulas and charts to a local AI backend. It can also auto-tag PDFs to Tagged PDF as a step toward accessibility.",
+      "problem": "Feeding PDFs to an LLM usually loses tables, headings and reading order. This gives clean, structured output while running entirely on your machine.",
+      "whoFor": [
+        "Developers building RAG over PDFs",
+        "Teams handling legal, health or finance documents locally",
+        "People making PDFs accessible"
+      ],
+      "whyChoose": "Choose it for fast, local, deterministic parsing with element positions, plus an optional hybrid mode for tough documents and SDKs for Python, Node.js and Java.",
+      "requirements": [
+        "Java 11+",
+        "Python 3.11+ (or Node.js / Java SDKs)"
+      ]
+    },
+    "overview": [
+      "Install the Python package, then call convert with a list of files or folders, an output folder and formats such as markdown and json. Batch files in one call, since each call starts a Java process.",
+      "Fast mode is the default and needs no server. For complex tables, scanned PDFs (OCR), formulas or chart descriptions, install the hybrid extra, start opendataloader-pdf-hybrid in one terminal and run the client with --hybrid docling-fast in another.",
+      "Everything runs locally with no data sent to the cloud. It includes prompt-injection filtering and a LangChain integration. The core is Apache 2.0; PDF/UA export is an enterprise add-on."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Structured output",
+        "body": "Markdown, JSON, HTML."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Bounding boxes",
+        "body": "Position and type for each element."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Reading order",
+        "body": "Handles multi-column layouts."
+      },
+      {
+        "icon": "file-code",
+        "title": "Hybrid mode",
+        "body": "AI backend for complex pages."
+      },
+      {
+        "icon": "git-compare",
+        "title": "OCR",
+        "body": "Scanned and non-English PDFs."
+      },
+      {
+        "icon": "shield",
+        "title": "Auto-tagging",
+        "body": "Untagged PDF to Tagged PDF."
+      }
+    ],
+    "strengths": [
+      "Runs fully locally",
+      "Fast default mode",
+      "Apache 2.0 core"
+    ],
+    "limitations": [
+      "Needs Java 11+",
+      "PDF/UA export is enterprise-only"
+    ],
+    "useCases": [
+      {
+        "title": "RAG ingestion",
+        "body": "Convert a PDF library to Markdown and JSON."
+      },
+      {
+        "title": "Accessibility",
+        "body": "Auto-tag untagged PDFs."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from OpenDataLoader PDF's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/opendataloader-project/opendataloader-pdf/blob/1a8adb0598c43cb912e0d138e1ac3254bb1304ec/README.md",
+      "prerequisites": [
+        "Java 11+ (check with java -version)",
+        "Python 3.11+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Python",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Check Java",
+              "body": "If missing, install JDK 11+ from Adoptium.",
+              "code": "java -version",
+              "lang": "bash"
+            },
+            {
+              "title": "Install",
+              "code": "pip install -U opendataloader-pdf",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Node.js",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install @opendataloader/pdf",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Hybrid mode (complex PDFs)",
+          "method": "pip-hybrid",
+          "steps": [
+            {
+              "title": "Install the extra",
+              "code": "pip install -U \"opendataloader-pdf[hybrid]\"",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the backend (terminal 1)",
+              "body": "Add --force-ocr for scanned PDFs.",
+              "code": "opendataloader-pdf-hybrid --port 5002",
+              "lang": "bash"
+            },
+            {
+              "title": "Process PDFs (terminal 2)",
+              "code": "opendataloader-pdf --hybrid docling-fast file1.pdf file2.pdf folder/",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Convert one file",
+          "body": "Run opendataloader-pdf on a PDF and look at the output."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Convert PDFs to Markdown and JSON in Python",
+      "useCase": "The README's 30-second start.",
+      "setup": [
+        "Java 11+",
+        "pip install -U opendataloader-pdf"
+      ],
+      "steps": [
+        {
+          "title": "Import",
+          "body": "import opendataloader_pdf"
+        },
+        {
+          "title": "Convert in one batch",
+          "body": "Call opendataloader_pdf.convert(input_path=[\"file1.pdf\", \"folder/\"], output_dir=\"output/\", format=\"markdown,json\")."
+        },
+        {
+          "title": "Check output",
+          "body": "Open the files in output/."
+        }
+      ],
+      "expected": "Markdown and JSON files for each PDF, with element positions in the JSON.",
+      "nextSteps": [
+        "Try hybrid mode for tables",
+        "Use the LangChain integration",
+        "Auto-tag a PDF"
+      ],
+      "sourceUrl": "https://github.com/opendataloader-project/opendataloader-pdf/blob/1a8adb0598c43cb912e0d138e1ac3254bb1304ec/README.md"
+    },
+    "costs": [
+      {
+        "label": "Core",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Enterprise add-on",
+        "value": "PDF/UA export and accessibility studio are paid.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "java not found",
+        "solution": "Install JDK 11+ and check java -version.",
+        "sourceUrl": "https://github.com/opendataloader-project/opendataloader-pdf/blob/1a8adb0598c43cb912e0d138e1ac3254bb1304ec/README.md"
+      },
+      {
+        "problem": "Slow when converting many files",
+        "solution": "Pass all files in a single convert call.",
+        "sourceUrl": "https://github.com/opendataloader-project/opendataloader-pdf/blob/1a8adb0598c43cb912e0d138e1ac3254bb1304ec/README.md"
+      }
+    ],
+    "bestFor": [
+      "PDF parsing for RAG",
+      "Local PDF extraction"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "PDF parser"
+      },
+      {
+        "label": "Languages",
+        "value": "Java core; Python, Node.js, Java SDKs"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "pip install -U opendataloader-pdf"
+      }
+    ]
+  }
+}

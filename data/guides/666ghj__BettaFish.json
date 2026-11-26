@@ -1,0 +1,253 @@
+{
+  "fullName": "666ghj/BettaFish",
+  "summary": "Multi-agent public opinion analysis system: ask a question like a chat and AI agents research online sentiment and write a report.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/666ghj/BettaFish/blob/b67928ff1ce515dd7672408221fb1e9500d0972d/README-EN.md"
+    ],
+    "sourceCommitSha": "b67928ff1ce515dd7672408221fb1e9500d0972d",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Start with Docker",
+        "command": "docker compose up -d"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "BettaFish (WeiYu) is a multi-agent system for public opinion analysis. You ask what you want to know as if chatting, and several AI agents search news and social media, analyse text, images and video, debate their findings in a shared forum, and produce an interactive HTML report.",
+      "problem": "Understanding public sentiment usually means manual searching and dashboards. BettaFish automates the research and reporting, and its authors say it can be adapted to other analysis like financial markets by changing the agents' tools and prompts.",
+      "whoFor": [
+        "Brand and PR teams tracking reputation",
+        "Analysts and researchers studying public sentiment",
+        "Developers building multi-agent analysis systems"
+      ],
+      "whyChoose": "Choose it for an open-source, Python-based multi-agent pipeline that combines web search, multimodal analysis, a private database and report generation.",
+      "requirements": [
+        "Docker, or Python 3.9+ with Conda or uv",
+        "PostgreSQL (recommended) or MySQL",
+        "API keys for OpenAI-compatible LLMs",
+        "2GB+ RAM recommended"
+      ]
+    },
+    "overview": [
+      "Five kinds of agents work together. The Query Agent searches news at home and abroad, the Media Agent handles multimodal content, the Insight Agent mines a private opinion database, and the Report Agent writes multi-round reports from templates. A ForumEngine moderator guides their debate.",
+      "The quickest start is docker compose up -d, then set the database values (the compose file's PostgreSQL uses db/5432/bettafish) and the LLM keys. Every LLM call uses the OpenAI API format, so each agent can use any compatible provider.",
+      "From source: create a Python 3.11 environment, pip install -r requirements.txt, install Playwright's Chromium for the crawler, copy .env.example to .env and fill in keys, then run python app.py. The project is GPL-2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Multi-agent research",
+        "body": "Query, Media, Insight and Report agents."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Agent forum",
+        "body": "A moderator model guides debate."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Multimodal",
+        "body": "Analyses images and video too."
+      },
+      {
+        "icon": "file-code",
+        "title": "HTML reports",
+        "body": "Interactive reports from templates."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Any OpenAI-compatible LLM",
+        "body": "Per-agent models."
+      }
+    ],
+    "strengths": [
+      "End-to-end research to report",
+      "Modular Python",
+      "Adaptable to other domains"
+    ],
+    "limitations": [
+      "Needs several LLM keys and a database",
+      "Social media crawling must respect each site's terms",
+      "Main docs and examples are Chinese-focused"
+    ],
+    "useCases": [
+      {
+        "title": "Brand reputation",
+        "body": "Report on how people talk about a brand."
+      },
+      {
+        "title": "Event tracking",
+        "body": "Follow sentiment on a topic over time."
+      },
+      {
+        "title": "Market analysis",
+        "body": "Adapt agents to finance."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from BettaFish's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/666ghj/BettaFish/blob/b67928ff1ce515dd7672408221fb1e9500d0972d/README-EN.md",
+      "prerequisites": [
+        "Docker or Python 3.9+",
+        "PostgreSQL or MySQL"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker Compose",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/666ghj/BettaFish.git\ncd BettaFish",
+              "lang": "bash"
+            },
+            {
+              "title": "Start all services",
+              "code": "docker compose up -d",
+              "lang": "bash"
+            },
+            {
+              "title": "Configure the database and LLMs",
+              "body": "Use DB_HOST=db, DB_PORT=5432, DB_USER/DB_PASSWORD/DB_NAME=bettafish, then fill in the LLM settings for each agent."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "From source",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Create a Python 3.11 environment",
+              "code": "conda create -n bettafish python=3.11\nconda activate bettafish",
+              "lang": "bash"
+            },
+            {
+              "title": "Install dependencies and the browser driver",
+              "code": "pip install -r requirements.txt\nplaywright install chromium",
+              "lang": "bash"
+            },
+            {
+              "title": "Configure",
+              "body": "Copy .env.example to .env and fill in the database and each agent's API key, base URL and model name."
+            },
+            {
+              "title": "Launch",
+              "code": "python app.py",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "INSIGHT_ENGINE_API_KEY",
+          "required": true,
+          "description": "LLM key for the Insight Agent; other agents have their own keys."
+        },
+        {
+          "name": "DB_HOST",
+          "required": true,
+          "description": "Database host."
+        },
+        {
+          "name": "DB_PASSWORD",
+          "required": true,
+          "description": "Database password."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Ask an analysis question",
+          "body": "Once the app is running, type the topic you want analysed, as you would in a chat."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your first opinion report",
+      "useCase": "Start BettaFish and generate a report on one topic.",
+      "setup": [
+        "Docker",
+        "OpenAI-compatible API keys"
+      ],
+      "steps": [
+        {
+          "title": "Start the services",
+          "code": "docker compose up -d",
+          "lang": "bash"
+        },
+        {
+          "title": "Fill in the LLM settings",
+          "body": "Start with the recommended model for each agent from the config file."
+        },
+        {
+          "title": "Ask about a topic",
+          "body": "Describe what you want analysed; the agents search, debate and draft a report."
+        }
+      ],
+      "expected": "An interactive HTML report on your topic.",
+      "nextSteps": [
+        "Connect a private database for the Insight Agent",
+        "Try other report templates",
+        "Adapt prompts to a new domain"
+      ],
+      "sourceUrl": "https://github.com/666ghj/BettaFish/blob/b67928ff1ce515dd7672408221fb1e9500d0972d/README-EN.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under GPL-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "LLMs and search",
+        "value": "Your providers bill for model and search API usage.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Docker images pull slowly",
+        "solution": "The docker-compose.yml file lists alternative mirror addresses as comments.",
+        "sourceUrl": "https://github.com/666ghj/BettaFish/blob/b67928ff1ce515dd7672408221fb1e9500d0972d/README-EN.md"
+      },
+      {
+        "problem": "PDF export missing",
+        "solution": "Install the optional PDF system dependencies before pip install, or WeasyPrint may fail.",
+        "sourceUrl": "https://github.com/666ghj/BettaFish/blob/b67928ff1ce515dd7672408221fb1e9500d0972d/README-EN.md"
+      }
+    ],
+    "bestFor": [
+      "Public opinion analysis",
+      "Multi-agent research",
+      "Automated reports"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Multi-agent analysis system"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "GPL-2.0"
+      },
+      {
+        "label": "Database",
+        "value": "PostgreSQL or MySQL"
+      }
+    ]
+  }
+}

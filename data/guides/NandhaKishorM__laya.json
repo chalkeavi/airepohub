@@ -1,0 +1,187 @@
+{
+  "fullName": "NandhaKishorM/laya",
+  "summary": "Local decision engine for agents that answers typed questions about text, images or audio with calibrated probabilities and can abstain.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/NandhaKishorM/laya/blob/5b32bd39bd775d28dfb0138c62687f5084e91824/README.md"
+    ],
+    "sourceCommitSha": "5b32bd39bd775d28dfb0138c62687f5084e91824",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install -U laya"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "laya makes typed decisions (choices, scores and yes/no answers) about text, images, audio and video in one forward pass on your own machine. Instead of generating text, it returns calibrated probabilities, a prediction set and an honest abstain flag when it shouldn't decide.",
+      "problem": "Using a full LLM to route a ticket or score urgency is slow, costly and inconsistent. laya gives fast, deterministic, typed answers with confidence.",
+      "whoFor": [
+        "Developers routing support tickets",
+        "Agent builders needing reliable decisions",
+        "Teams classifying documents locally"
+      ],
+      "whyChoose": "Choose it for local, constant-cost decisions with probabilities and abstention, 73k tokens of context, and optional server, MCP and LangChain extras.",
+      "requirements": [
+        "Python 3.10+"
+      ]
+    },
+    "overview": [
+      "Create laya.Agent() and call predict with your input and a dictionary of questions. Each question has a type (choice, score or noul for yes/no), instructions and criteria; answers include the choice, probabilities and a prediction set.",
+      "Since 0.5.0 the default engine is a frozen 0.8B reader with a small 'physics' layer; you can switch readers (for example a 4B model) with one string, or use laya's own encoders.",
+      "laya is Apache 2.0 and free for any use. Continuous learning (laya.Learner and related) needs the separate vegaml-learn package, which is noncommercial only."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Typed decisions",
+        "body": "Choice, score, yes/no."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Calibrated",
+        "body": "Probabilities and prediction sets."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Abstain",
+        "body": "Says when it shouldn't decide."
+      },
+      {
+        "icon": "file-code",
+        "title": "Multimodal",
+        "body": "Text, images, audio, video."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Long context",
+        "body": "73,728 tokens."
+      }
+    ],
+    "strengths": [
+      "Runs locally",
+      "Deterministic, constant cost",
+      "Apache 2.0 core"
+    ],
+    "limitations": [
+      "Continuous learning add-on is noncommercial",
+      "Not for generating text"
+    ],
+    "useCases": [
+      {
+        "title": "Ticket routing",
+        "body": "Pick the right department."
+      },
+      {
+        "title": "Urgency scoring",
+        "body": "Rate how urgent a message is."
+      },
+      {
+        "title": "Churn detection",
+        "body": "Spot cancel threats."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from laya's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/NandhaKishorM/laya/blob/5b32bd39bd775d28dfb0138c62687f5084e91824/README.md",
+      "prerequisites": [
+        "Python 3.10+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install -U laya",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Route a support message",
+          "code": "import laya\n\nagent = laya.Agent()\nout = agent.predict(\"We were billed twice for March. Refund it today or we cancel.\",\n    {\"department\": {\"type\": \"choice\", \"instructions\": \"Which department should handle this?\",\n                    \"criteria\": {\"billing\": \"invoices, refunds\", \"technical\": \"bugs, outages\"}}})\nprint(out[\"answers\"][\"department\"][\"choice\"])",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Make several decisions about one message",
+      "useCase": "Get department, urgency and churn risk at once.",
+      "setup": [
+        "pip install -U laya"
+      ],
+      "steps": [
+        {
+          "title": "Define questions",
+          "code": "questions = {\n    \"department\": {\"type\": \"choice\", \"instructions\": \"Which department should handle this?\",\n                   \"criteria\": {\"billing\": \"invoices, payments, refunds\", \"technical\": \"bugs, outages\", \"other\": \"everything else\"}},\n    \"urgency\": {\"type\": \"score\", \"instructions\": \"How urgent is this?\",\n                \"criteria\": [\"not urgent\", \"soon\", \"blocking\"]},\n    \"churn_risk\": {\"type\": \"noul\", \"instructions\": \"Does the user threaten to cancel or leave?\"},\n}",
+          "lang": "text"
+        },
+        {
+          "title": "Predict",
+          "code": "import laya\nagent = laya.Agent()\nout = agent.predict(\"Hi, we were billed twice for March. Please refund the duplicate today or we will cancel our plan.\", questions)\nprint(out[\"answers\"])",
+          "lang": "text"
+        }
+      ],
+      "expected": "Typed answers with probabilities, for example department billing.",
+      "nextSteps": [
+        "Try images or audio",
+        "Run the HTTP server or MCP extra"
+      ],
+      "sourceUrl": "https://github.com/NandhaKishorM/laya/blob/5b32bd39bd775d28dfb0138c62687f5084e91824/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "laya itself is free under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Continuous learning",
+        "value": "vegaml-learn is noncommercial only.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Need vision or video",
+        "solution": "Install the extra: pip install 'laya[vision]'.",
+        "sourceUrl": "https://github.com/NandhaKishorM/laya/blob/5b32bd39bd775d28dfb0138c62687f5084e91824/README.md"
+      }
+    ],
+    "bestFor": [
+      "Classification",
+      "Agent decisions"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Decision engine"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Context",
+        "value": "73,728 tokens"
+      }
+    ]
+  }
+}

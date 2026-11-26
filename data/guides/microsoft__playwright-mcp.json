@@ -1,0 +1,186 @@
+{
+  "fullName": "microsoft/playwright-mcp",
+  "summary": "Microsoft's MCP server that lets AI assistants control a web browser through Playwright, using page structure instead of screenshots.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/microsoft/playwright-mcp/blob/2337aff0213d28db41d3e3daf48cee19b3d0bd82/README.md"
+    ],
+    "sourceCommitSha": "2337aff0213d28db41d3e3daf48cee19b3d0bd82",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Add to Claude Code",
+        "command": "claude mcp add playwright npx @playwright/mcp@latest"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Playwright MCP is a Model Context Protocol server that gives AI models browser automation through Playwright. It lets an LLM navigate and interact with web pages using structured accessibility snapshots rather than pixel-based input.",
+      "problem": "AI assistants can't use websites on their own. Playwright MCP gives them fast, reliable browser control without needing vision models.",
+      "whoFor": [
+        "Developers giving agents web access",
+        "QA engineers exploring automated testing with AI",
+        "Users of Claude, Cursor, VS Code and other MCP clients"
+      ],
+      "whyChoose": "Choose it for an official, lightweight browser MCP server that works in most MCP clients. For coding agents, Microsoft suggests the Playwright CLI with skills, which uses fewer tokens.",
+      "requirements": [
+        "Node.js (for npx)",
+        "An MCP client such as Claude Code, VS Code, Cursor or Amp"
+      ]
+    },
+    "overview": [
+      "Most clients use the standard config: an mcpServers entry named playwright that runs npx @playwright/mcp@latest. Claude Code users can add it with one command.",
+      "It uses Playwright's accessibility tree, so it is fast and deterministic and needs no vision model.",
+      "MCP suits agent loops that need persistent state and rich page introspection; for coding agents, the separate Playwright CLI plus skills can be more token-efficient. The project is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Browser control",
+        "body": "Navigate, click, type."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Accessibility snapshots",
+        "body": "No screenshots needed."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Works in many clients",
+        "body": "Standard MCP config."
+      },
+      {
+        "icon": "file-code",
+        "title": "Official",
+        "body": "From Microsoft's Playwright team."
+      }
+    ],
+    "strengths": [
+      "Fast and lightweight",
+      "Deterministic",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Large tool schemas use tokens",
+      "Coding agents may prefer the Playwright CLI"
+    ],
+    "useCases": [
+      {
+        "title": "Web tasks for agents",
+        "body": "Fill forms or read pages."
+      },
+      {
+        "title": "Exploratory testing",
+        "body": "Let an agent explore your app."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Playwright MCP's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/microsoft/playwright-mcp/blob/2337aff0213d28db41d3e3daf48cee19b3d0bd82/README.md",
+      "prerequisites": [
+        "Node.js",
+        "MCP client"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code",
+          "method": "cli",
+          "steps": [
+            {
+              "title": "Add the server",
+              "code": "claude mcp add playwright npx @playwright/mcp@latest",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Standard MCP config",
+          "method": "config",
+          "steps": [
+            {
+              "title": "Add to your client's MCP config",
+              "code": "{\n  \"mcpServers\": {\n    \"playwright\": {\n      \"command\": \"npx\",\n      \"args\": [\n        \"@playwright/mcp@latest\"\n      ]\n    }\n  }\n}",
+              "lang": "text"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Ask your assistant to open a page",
+          "body": "For example: open example.com and tell me the page title."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Let Claude Code browse a page",
+      "useCase": "Add Playwright MCP and use it for a simple web task.",
+      "setup": [
+        "Claude Code",
+        "Node.js"
+      ],
+      "steps": [
+        {
+          "title": "Add the server",
+          "code": "claude mcp add playwright npx @playwright/mcp@latest",
+          "lang": "bash"
+        },
+        {
+          "title": "Ask for a web task",
+          "body": "Ask Claude to open a page and summarise it."
+        }
+      ],
+      "expected": "A browser opens and the assistant reports what it found.",
+      "nextSteps": [
+        "Try the Playwright CLI with skills",
+        "Configure options in your client"
+      ],
+      "sourceUrl": "https://github.com/microsoft/playwright-mcp/blob/2337aff0213d28db41d3e3daf48cee19b3d0bd82/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Server doesn't start",
+        "solution": "Make sure Node.js is installed so npx works.",
+        "sourceUrl": "https://github.com/microsoft/playwright-mcp/blob/2337aff0213d28db41d3e3daf48cee19b3d0bd82/README.md"
+      }
+    ],
+    "bestFor": [
+      "Browser automation for AI",
+      "MCP servers"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "MCP server"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Package",
+        "value": "@playwright/mcp"
+      }
+    ]
+  }
+}

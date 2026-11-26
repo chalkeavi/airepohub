@@ -1,0 +1,215 @@
+{
+  "fullName": "pyg-team/pytorch_geometric",
+  "summary": "PyTorch library for graph neural networks, with many ready-made GNN layers and datasets for learning on networks and other graph data.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/pyg-team/pytorch_geometric/blob/d1f2f8642387b6e0563d6aee227c39130746c738/README.md"
+    ],
+    "sourceCommitSha": "d1f2f8642387b6e0563d6aee227c39130746c738",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install torch_geometric"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "PyG (PyTorch Geometric) is a library built on PyTorch for writing and training graph neural networks (GNNs), models that learn from data shaped as graphs such as social networks, citation networks, molecules or 3D meshes. It ships implementations of most state-of-the-art GNN architectures from published papers, common datasets, and a message passing API for building your own layers. It also supports large graphs with millions of nodes, dynamic graphs and heterogeneous graphs.",
+      "problem": "Graph data doesn't fit normal neural network layers. PyG provides the building blocks to train models on graphs with a PyTorch-style API.",
+      "whoFor": [
+        "ML researchers working on graphs",
+        "Data scientists with network or molecule data",
+        "Students learning geometric deep learning"
+      ],
+      "whyChoose": "Pick it for the widest set of GNN models in PyTorch with an API that feels like plain PyTorch.",
+      "requirements": [
+        "Python 3.10 to 3.14",
+        "PyTorch"
+      ]
+    },
+    "overview": [
+      "Since PyG 2.3, pip install torch_geometric is enough; only PyTorch is required.",
+      "Optional extensions (pyg-lib, torch-scatter, torch-sparse) add speed and extra features; install them later from the PyG wheel index matching your PyTorch and CUDA versions.",
+      "Start with the README's 2-layer GCN on the Cora citation dataset. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Many GNN models",
+        "body": "GCN, GAT, GraphSAGE, EdgeConv and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "PyTorch-style API",
+        "body": "Tensor-centric and familiar."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Message passing API",
+        "body": "Write custom layers."
+      },
+      {
+        "icon": "file-code",
+        "title": "Datasets",
+        "body": "Cora and many more built in."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Scale",
+        "body": "Graphs with millions of nodes."
+      },
+      {
+        "icon": "shield",
+        "title": "Heterogeneous and dynamic graphs",
+        "body": "Beyond simple graphs."
+      }
+    ],
+    "strengths": [
+      "Huge model collection",
+      "Well maintained",
+      "Simple minimal install"
+    ],
+    "limitations": [
+      "Optional extensions must match your exact PyTorch and CUDA versions",
+      "GPU wheels for extensions are not offered on macOS"
+    ],
+    "useCases": [
+      {
+        "title": "Node classification",
+        "body": "Label papers in a citation graph."
+      },
+      {
+        "title": "Molecules",
+        "body": "Predict chemical properties."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from PyG (PyTorch Geometric)'s README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/pyg-team/pytorch_geometric/blob/d1f2f8642387b6e0563d6aee227c39130746c738/README.md",
+      "prerequisites": [
+        "Python 3.10–3.14",
+        "PyTorch installed"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip (minimal)",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install torch_geometric",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Optional extensions",
+          "method": "pip-ext",
+          "steps": [
+            {
+              "title": "Install matching wheels",
+              "body": "Replace ${CUDA} with cpu or your CUDA version (for example cu126), and use the URL for your PyTorch version as listed in the README.",
+              "code": "pip install pyg_lib torch_scatter torch_sparse -f https://data.pyg.org/whl/torch-2.12.0+${CUDA}.html",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "NVIDIA container",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Use NVIDIA's PyG container",
+              "body": "NVIDIA provides a PyG Docker container on its NGC catalog for GPU training and deployment."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Train a GCN on Cora",
+          "body": "Run the README's 2-layer GCN example to classify papers."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Classify papers in a citation graph",
+      "useCase": "The README's quick tour.",
+      "setup": [
+        "torch_geometric installed"
+      ],
+      "steps": [
+        {
+          "title": "Load data",
+          "body": "from torch_geometric.datasets import Planetoid and load the Cora dataset."
+        },
+        {
+          "title": "Define the model",
+          "body": "Build a module with two GCNConv layers from torch_geometric.nn."
+        },
+        {
+          "title": "Train",
+          "body": "Train with a normal PyTorch loop on the training nodes."
+        }
+      ],
+      "expected": "A model that predicts the topic of each paper node.",
+      "nextSteps": [
+        "Write a custom layer with MessagePassing",
+        "Try GAT or GraphSAGE",
+        "Open the Colab notebooks"
+      ],
+      "sourceUrl": "https://github.com/pyg-team/pytorch_geometric/blob/d1f2f8642387b6e0563d6aee227c39130746c738/README.md"
+    },
+    "costs": [
+      {
+        "label": "PyG",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Extension install fails",
+        "solution": "Use the wheel URL that matches your exact PyTorch version and CUDA tag.",
+        "sourceUrl": "https://github.com/pyg-team/pytorch_geometric/blob/d1f2f8642387b6e0563d6aee227c39130746c738/README.md"
+      },
+      {
+        "problem": "Don't need extras",
+        "solution": "Basic PyG works without pyg-lib, torch-scatter or torch-sparse; start minimal.",
+        "sourceUrl": "https://github.com/pyg-team/pytorch_geometric/blob/d1f2f8642387b6e0563d6aee227c39130746c738/README.md"
+      }
+    ],
+    "bestFor": [
+      "Graph neural networks in PyTorch"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Deep learning library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "pip install torch_geometric"
+      }
+    ]
+  }
+}

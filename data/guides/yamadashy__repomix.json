@@ -1,0 +1,229 @@
+{
+  "fullName": "yamadashy/repomix",
+  "summary": "Command-line tool that packs a whole code repository into one AI-friendly file you can paste into Claude, ChatGPT or other LLMs.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/yamadashy/repomix/blob/7bde93e34dee399488f0fa0a1f5b2c56deb9e510/README.md"
+    ],
+    "sourceCommitSha": "7bde93e34dee399488f0fa0a1f5b2c56deb9e510",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Try without installing",
+        "command": "npx repomix@latest"
+      },
+      {
+        "comment": "Install",
+        "command": "npm install -g repomix"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Repomix bundles all the files in a repository into a single file (repomix-output.xml by default) laid out so an AI model can read the whole codebase at once. It counts tokens per file and in total, respects .gitignore, can compress code to its key structure with Tree-sitter, and checks for secrets before you share.",
+      "problem": "Giving an LLM your codebase file by file is slow and loses context. Repomix makes one file you can attach with a prompt like 'review this before I refactor'.",
+      "whoFor": [
+        "Developers who chat with AI about their code",
+        "People reviewing or documenting repositories with AI",
+        "Anyone hitting LLM context limits"
+      ],
+      "whyChoose": "Choose it for a one-command pack with token counts, ignore-file support, compression and Secretlint-based secret detection.",
+      "requirements": [
+        "Node.js (for npx or npm)",
+        "Or Homebrew, or the browser version at repomix.com"
+      ]
+    },
+    "overview": [
+      "Run npx repomix@latest in your project folder to try it without installing, or install it globally with npm, yarn, bun or Homebrew and run repomix.",
+      "It writes repomix-output.xml in the current folder. You can pack a sub-folder, include or exclude glob patterns, pack a remote GitHub repo with --remote, and shrink output with --compress.",
+      "There are also browser extensions, a website at repomix.com, a GitHub Action and a library API. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "One-file pack",
+        "body": "Whole repo in AI-friendly format."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Token counts",
+        "body": "Per file and in total."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Git-aware",
+        "body": "Respects .gitignore and .repomixignore."
+      },
+      {
+        "icon": "file-code",
+        "title": "Secret check",
+        "body": "Secretlint leaves out credential files."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Compression",
+        "body": "Tree-sitter keeps structure, cuts tokens."
+      },
+      {
+        "icon": "shield",
+        "title": "Remote repos",
+        "body": "--remote packs a GitHub repo."
+      }
+    ],
+    "strengths": [
+      "Instant with npx",
+      "Security check built in",
+      "MIT license"
+    ],
+    "limitations": [
+      "Large repos can still exceed model limits",
+      "Output is a snapshot, not live"
+    ],
+    "useCases": [
+      {
+        "title": "Code review with AI",
+        "body": "Attach the pack and ask for a review."
+      },
+      {
+        "title": "Explain a new codebase",
+        "body": "Pack a remote repo and ask questions."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Repomix's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/yamadashy/repomix/blob/7bde93e34dee399488f0fa0a1f5b2c56deb9e510/README.md",
+      "prerequisites": [
+        "Node.js"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npx (no install)",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Run in your project",
+              "code": "npx repomix@latest",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "npm global",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install -g repomix",
+              "lang": "bash"
+            },
+            {
+              "title": "Run in any project",
+              "code": "repomix",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Homebrew",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install repomix",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Pack your repo",
+          "body": "Run repomix and find repomix-output.xml."
+        },
+        {
+          "title": "Send it to an AI",
+          "body": "Attach the file with your question."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Get an AI review of your codebase",
+      "useCase": "The README's quick start flow.",
+      "setup": [
+        "Node.js installed"
+      ],
+      "steps": [
+        {
+          "title": "Pack the repository",
+          "code": "npx repomix@latest",
+          "lang": "bash"
+        },
+        {
+          "title": "Check the output",
+          "body": "Look at the token count and any security warnings in the CLI output."
+        },
+        {
+          "title": "Ask the AI",
+          "body": "Attach repomix-output.xml with: This file contains all the files in the repository combined into one. I want to refactor the code, so please review it first."
+        }
+      ],
+      "expected": "An AI review of your whole codebase in one conversation.",
+      "nextSteps": [
+        "Use --compress for big repos",
+        "Pack only src with --include",
+        "Try --remote on another repo"
+      ],
+      "sourceUrl": "https://github.com/yamadashy/repomix/blob/7bde93e34dee399488f0fa0a1f5b2c56deb9e510/README.md"
+    },
+    "costs": [
+      {
+        "label": "Repomix",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Output too large for the model",
+        "solution": "Use --compress or --include to pack less.",
+        "sourceUrl": "https://github.com/yamadashy/repomix/blob/7bde93e34dee399488f0fa0a1f5b2c56deb9e510/README.md"
+      },
+      {
+        "problem": "A file was left out",
+        "solution": "The security check skips files that look like credentials; check the warning list.",
+        "sourceUrl": "https://github.com/yamadashy/repomix/blob/7bde93e34dee399488f0fa0a1f5b2c56deb9e510/README.md"
+      }
+    ],
+    "bestFor": [
+      "Feeding code to LLMs",
+      "Repository packing"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "CLI tool"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "npx repomix@latest"
+      }
+    ]
+  }
+}

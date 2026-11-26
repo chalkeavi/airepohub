@@ -1,0 +1,233 @@
+{
+  "fullName": "AlexsJones/llmfit",
+  "summary": "Command-line tool that checks your CPU, RAM and GPU and tells you which open-source LLMs your computer can run well.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/AlexsJones/llmfit/blob/6bc8f67890c1b0223de3f8f404ce06c088aac27f/README.md"
+    ],
+    "sourceCommitSha": "6bc8f67890c1b0223de3f8f404ce06c088aac27f",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install (macOS/Linux)",
+        "command": "brew install AlexsJones/llmfit/llmfit"
+      },
+      {
+        "comment": "Run",
+        "command": "llmfit"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "llmfit inspects your CPU, system RAM, GPUs, VRAM and accelerators and recommends open-source LLMs you can comfortably run. It ranks models by fit in an interactive terminal UI, prints tables or JSON for scripts, and can benchmark real tokens per second on your machine.",
+      "problem": "It's hard to know whether a model will fit your hardware before downloading many gigabytes. llmfit answers that in one command.",
+      "whoFor": [
+        "People starting with local LLMs",
+        "Developers choosing models for a machine",
+        "Agents and scripts that need model recommendations"
+      ],
+      "whyChoose": "Choose it for quick, hardware-aware recommendations across hundreds of models and providers, with a TUI, JSON output, a web UI and benchmarks.",
+      "requirements": [
+        "Windows, macOS or Linux"
+      ]
+    },
+    "overview": [
+      "Install with winget or Scoop on Windows, Homebrew on macOS and Linux, uv tool install -U llmfit, the install script, a pre-built binary, or Docker (ghcr.io/alexsjones/llmfit).",
+      "Run llmfit for the interactive TUI. Other commands: llmfit fit (ranked table), llmfit recommend --json (top picks for scripts), llmfit info <model>, llmfit bench (real tok/s against your running provider), llmfit doctor and llmfit serve (web UI and API on port 8787).",
+      "You can share benchmark results to improve estimates for everyone. llmfit is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Hardware detection",
+        "body": "CPU, RAM, GPU, VRAM."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Ranked models",
+        "body": "Fit for your machine."
+      },
+      {
+        "icon": "puzzle",
+        "title": "TUI",
+        "body": "Interactive terminal view."
+      },
+      {
+        "icon": "file-code",
+        "title": "JSON",
+        "body": "For agents and scripts."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Benchmarks",
+        "body": "Real tok/s."
+      },
+      {
+        "icon": "shield",
+        "title": "Web UI",
+        "body": "llmfit serve."
+      }
+    ],
+    "strengths": [
+      "Fast answer",
+      "Many install options",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Estimates until you benchmark",
+      "Benchmarks need a running model provider"
+    ],
+    "useCases": [
+      {
+        "title": "Pick a local model",
+        "body": "Find what runs well."
+      },
+      {
+        "title": "Automation",
+        "body": "Feed recommendations to scripts."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from llmfit's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/AlexsJones/llmfit/blob/6bc8f67890c1b0223de3f8f404ce06c088aac27f/README.md",
+      "prerequisites": [
+        "A computer"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Homebrew",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install AlexsJones/llmfit/llmfit",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Windows (winget)",
+          "method": "winget",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "winget install --exact --id AlexsJones.llmfit",
+              "lang": "powershell"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "uv tool install -U llmfit",
+              "lang": "bash"
+            },
+            {
+              "title": "Or run without installing",
+              "code": "uvx llmfit",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Run the TUI",
+              "code": "docker run -it --rm ghcr.io/alexsjones/llmfit --tui",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open the interactive view",
+          "code": "llmfit",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Find a model your computer can run",
+      "useCase": "Get ranked recommendations and check one model.",
+      "setup": [
+        "llmfit installed"
+      ],
+      "steps": [
+        {
+          "title": "See all models ranked",
+          "code": "llmfit fit",
+          "lang": "bash"
+        },
+        {
+          "title": "Get top picks as JSON",
+          "code": "llmfit recommend --json",
+          "lang": "bash"
+        },
+        {
+          "title": "Check one model",
+          "code": "llmfit info \"<model>\"",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A list of models that fit your hardware, best first.",
+      "nextSteps": [
+        "Benchmark with llmfit bench",
+        "Start the web UI with llmfit serve"
+      ],
+      "sourceUrl": "https://github.com/AlexsJones/llmfit/blob/6bc8f67890c1b0223de3f8f404ce06c088aac27f/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Hardware not detected correctly",
+        "solution": "Run llmfit doctor and include its report in a bug report.",
+        "sourceUrl": "https://github.com/AlexsJones/llmfit/blob/6bc8f67890c1b0223de3f8f404ce06c088aac27f/README.md"
+      }
+    ],
+    "bestFor": [
+      "Choosing local LLMs",
+      "Hardware checks"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "CLI tool"
+      },
+      {
+        "label": "Language",
+        "value": "Rust"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Web UI port",
+        "value": "8787"
+      }
+    ]
+  }
+}

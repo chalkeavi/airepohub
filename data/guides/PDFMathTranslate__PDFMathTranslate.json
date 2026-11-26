@@ -1,0 +1,228 @@
+{
+  "fullName": "PDFMathTranslate/PDFMathTranslate",
+  "summary": "Translates scientific PDFs into other languages while keeping formulas, charts, tables and layout intact.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/PDFMathTranslate/PDFMathTranslate/blob/45a526c91a8b744c84d2a9a421e66a461b29477e/README.md"
+    ],
+    "sourceCommitSha": "45a526c91a8b744c84d2a9a421e66a461b29477e",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install pdf2zh"
+      },
+      {
+        "comment": "Translate",
+        "command": "pdf2zh document.pdf"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "PDFMathTranslate (pdf2zh) translates scientific PDF papers while preserving their layout, including formulas, charts, the table of contents and annotations. It supports many languages and translation services, with a command-line tool, a browser interface and Docker.",
+      "problem": "Normal translators break the layout and math of research papers. PDFMathTranslate keeps the paper looking like the original.",
+      "whoFor": [
+        "Researchers and students reading papers in other languages",
+        "Academics sharing translated papers",
+        "Anyone translating technical PDFs"
+      ],
+      "whyChoose": "Choose it for layout-preserving translation of papers, with free online demos and a simple local install. Version 2.0 continues in the PDFMathTranslate-next repository.",
+      "requirements": [
+        "Python 3.11 or 3.12 for local install"
+      ]
+    },
+    "overview": [
+      "Try it online with no install at pdf2zh.com, Immersive Translate's BabelDOC (free quota), or demos on Hugging Face and ModelScope.",
+      "Locally, install with uv (uv tool install --python 3.12 pdf2zh) or pip install pdf2zh, then run pdf2zh document.pdf; output files appear in the current folder. pdf2zh -i opens a browser interface at http://localhost:7860.",
+      "Recent updates added an --ultrafast mode for native-text PDFs and experimental OCR. The project is AGPL-3.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Layout preserved",
+        "body": "Formulas, charts and tables."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Many languages",
+        "body": "And translation services."
+      },
+      {
+        "icon": "puzzle",
+        "title": "CLI",
+        "body": "pdf2zh document.pdf."
+      },
+      {
+        "icon": "file-code",
+        "title": "Browser UI",
+        "body": "pdf2zh -i."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Online demos",
+        "body": "No install needed."
+      }
+    ],
+    "strengths": [
+      "Keeps math intact",
+      "Easy install",
+      "Free demos"
+    ],
+    "limitations": [
+      "Python 3.11-3.12 only",
+      "Online demos have limited resources",
+      "2.0 is in a separate repo"
+    ],
+    "useCases": [
+      {
+        "title": "Read foreign papers",
+        "body": "Translate to your language."
+      },
+      {
+        "title": "Share research",
+        "body": "Provide translated versions."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from PDFMathTranslate's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/PDFMathTranslate/PDFMathTranslate/blob/45a526c91a8b744c84d2a9a421e66a461b29477e/README.md",
+      "prerequisites": [
+        "Python 3.11-3.12"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install pdf2zh",
+              "lang": "bash"
+            },
+            {
+              "title": "Translate a PDF",
+              "code": "pdf2zh document.pdf",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install uv\nuv tool install --python 3.12 pdf2zh",
+              "lang": "bash"
+            },
+            {
+              "title": "Translate",
+              "code": "pdf2zh document.pdf",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Online",
+          "method": "web",
+          "steps": [
+            {
+              "title": "Use the free service",
+              "body": "Open pdf2zh.com and upload your PDF."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Translate your first paper",
+          "code": "pdf2zh document.pdf",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Translate a paper in the browser UI",
+      "useCase": "Use the graphical interface on your computer.",
+      "setup": [
+        "pip install pdf2zh"
+      ],
+      "steps": [
+        {
+          "title": "Start the interface",
+          "code": "pdf2zh -i",
+          "lang": "bash"
+        },
+        {
+          "title": "Open it",
+          "body": "If the browser doesn't open, go to http://localhost:7860/."
+        },
+        {
+          "title": "Upload a PDF and choose languages and a service"
+        }
+      ],
+      "expected": "A translated PDF with the original layout and formulas.",
+      "nextSteps": [
+        "Try --ultrafast for text PDFs",
+        "Try PDFMathTranslate-next (2.0)"
+      ],
+      "sourceUrl": "https://github.com/PDFMathTranslate/PDFMathTranslate/blob/45a526c91a8b744c84d2a9a421e66a461b29477e/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under AGPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Translation services",
+        "value": "Some services need paid API keys.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install fails",
+        "solution": "Use Python 3.11 or 3.12.",
+        "sourceUrl": "https://github.com/PDFMathTranslate/PDFMathTranslate/blob/45a526c91a8b744c84d2a9a421e66a461b29477e/README.md"
+      },
+      {
+        "problem": "Browser doesn't open with -i",
+        "solution": "Go to http://localhost:7860/ manually.",
+        "sourceUrl": "https://github.com/PDFMathTranslate/PDFMathTranslate/blob/45a526c91a8b744c84d2a9a421e66a461b29477e/README.md"
+      }
+    ],
+    "bestFor": [
+      "PDF translation",
+      "Scientific papers"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "PDF translator"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "Command",
+        "value": "pdf2zh"
+      }
+    ]
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "fullName": "openai/openai-python",
+  "summary": "OpenAI's official Python library for calling its API, with typed requests and sync and async clients.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/openai/openai-python/blob/b5b55ab8fa98faa109ba2326295fed8e2310b225/README.md"
+    ],
+    "sourceCommitSha": "b5b55ab8fa98faa109ba2326295fed8e2310b225",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install openai"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "The OpenAI Python library gives convenient access to the OpenAI REST API from Python 3.10+ apps. It includes type definitions for all request parameters and response fields, and offers synchronous and asynchronous clients.",
+      "problem": "Calling a REST API by hand means managing requests, types and errors yourself. The official library handles that.",
+      "whoFor": [
+        "Python developers using OpenAI models",
+        "Teams building AI features",
+        "Learners trying the API"
+      ],
+      "whyChoose": "Choose it as the official, typed, well-maintained way to use the OpenAI API from Python.",
+      "requirements": [
+        "Python 3.10+",
+        "An OpenAI API key"
+      ]
+    },
+    "overview": [
+      "Install from PyPI with pip install openai. Create a client (it reads OPENAI_API_KEY from the environment by default).",
+      "The primary API for generating text is the Responses API: call client.responses.create with a model, optional instructions and input, then read output_text. The full API is documented in api.md.",
+      "The library is Apache 2.0 licensed. API usage is billed by OpenAI."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Typed",
+        "body": "Types for every param and field."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Sync and async",
+        "body": "Both clients."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Responses API",
+        "body": "Primary text API."
+      },
+      {
+        "icon": "file-code",
+        "title": "Official",
+        "body": "Maintained by OpenAI."
+      }
+    ],
+    "strengths": [
+      "Official",
+      "Typed",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Only for OpenAI's API",
+      "Usage costs money"
+    ],
+    "useCases": [
+      {
+        "title": "Chat features",
+        "body": "Add AI replies to an app."
+      },
+      {
+        "title": "Scripts",
+        "body": "Automate text tasks."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from OpenAI Python library's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/openai/openai-python/blob/b5b55ab8fa98faa109ba2326295fed8e2310b225/README.md",
+      "prerequisites": [
+        "Python 3.10+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install openai",
+              "lang": "bash"
+            },
+            {
+              "title": "Set your API key",
+              "code": "export OPENAI_API_KEY=\"your-key\"",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "OPENAI_API_KEY",
+          "required": true,
+          "description": "Your OpenAI API key; read automatically by the client."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Generate a reply",
+          "code": "import os\nfrom openai import OpenAI\n\nclient = OpenAI(api_key=os.environ.get(\"OPENAI_API_KEY\"))\n\nresponse = client.responses.create(\n    model=\"gpt-5.5\",\n    instructions=\"You are a coding assistant that talks like a pirate.\",\n    input=\"How do I check if a Python object is an instance of a class?\",\n)\n\nprint(response.output_text)",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Make your first API call",
+      "useCase": "Send a prompt and print the reply.",
+      "setup": [
+        "pip install openai",
+        "OPENAI_API_KEY set"
+      ],
+      "steps": [
+        {
+          "title": "Save the example as hello.py"
+        },
+        {
+          "title": "Run it",
+          "code": "python hello.py",
+          "lang": "bash"
+        }
+      ],
+      "expected": "The model's answer prints in your terminal.",
+      "nextSteps": [
+        "Try the async client",
+        "Read api.md"
+      ],
+      "sourceUrl": "https://github.com/openai/openai-python/blob/b5b55ab8fa98faa109ba2326295fed8e2310b225/README.md"
+    },
+    "costs": [
+      {
+        "label": "Library",
+        "value": "Free under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "API",
+        "value": "OpenAI bills per use.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Authentication error",
+        "solution": "Set OPENAI_API_KEY or pass api_key to OpenAI().",
+        "sourceUrl": "https://github.com/openai/openai-python/blob/b5b55ab8fa98faa109ba2326295fed8e2310b225/README.md"
+      }
+    ],
+    "bestFor": [
+      "OpenAI API in Python"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "API client library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Maker",
+        "value": "OpenAI"
+      }
+    ]
+  }
+}

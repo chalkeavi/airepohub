@@ -1,0 +1,195 @@
+{
+  "fullName": "Donchitos/Claude-Code-Game-Studios",
+  "summary": "Claude Code project template that turns a one-line game idea into a playable browser game, then helps you grow and finish it.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Donchitos/Claude-Code-Game-Studios/blob/abc0de79d6ceb0b5d7aa693945849b3937afbe6a/README.md"
+    ],
+    "sourceCommitSha": "abc0de79d6ceb0b5d7aa693945849b3937afbe6a",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Get the template",
+        "command": "git clone https://github.com/Donchitos/Claude-Code-Game-Studios.git my-game"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Claude Code Game Studios is a project setup for Claude Code that acts like a small game studio. You describe a game, Claude Code asks a few questions, writes a one-page brief and builds a playable browser game, then you change, grow and finish it one step at a time.",
+      "problem": "Going from a game idea to something playable takes many skills. This template guides Claude Code through design, building, checking and polishing so beginners can make real games.",
+      "whoFor": [
+        "Beginners who want to make a game",
+        "Indie developers prototyping ideas",
+        "Claude Code users exploring game dev"
+      ],
+      "whyChoose": "Choose it for a guided workflow with briefs, automatic checks in a headless browser, checkpoints, and a path to a real Vite and TypeScript project.",
+      "requirements": [
+        "Claude Code",
+        "Git"
+      ]
+    },
+    "overview": [
+      "Clone the repo (or use it as a template), open Claude Code in the project's root folder, and type /prototype with your idea or run /start, which asks where you are and guides you.",
+      "The first build is a browser game in prototypes/<name>/ that opens with a double-click. It is checked with scripted key presses before you get it, and the handover card says what passed and what was guessed.",
+      "Other commands include /next-step, /brainstorm, /setup-engine (for example Godot) and /cut for finishing. The project is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "/prototype",
+        "body": "Idea to playable game."
+      },
+      {
+        "icon": "scan-search",
+        "title": "One-page brief",
+        "body": "Your design in writing."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Automatic checks",
+        "body": "Headless browser tests."
+      },
+      {
+        "icon": "file-code",
+        "title": "Tweak panel",
+        "body": "Sliders for game values."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Grow to a real project",
+        "body": "Vite and TypeScript."
+      }
+    ],
+    "strengths": [
+      "Beginner friendly",
+      "Honest handover notes",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Needs Claude Code and uses your plan's usage",
+      "Must be started from the project root"
+    ],
+    "useCases": [
+      {
+        "title": "Game jam prototype",
+        "body": "Build a playable idea quickly."
+      },
+      {
+        "title": "Learn game dev",
+        "body": "Grow a game feature by feature."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Claude Code Game Studios's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Donchitos/Claude-Code-Game-Studios/blob/abc0de79d6ceb0b5d7aa693945849b3937afbe6a/README.md",
+      "prerequisites": [
+        "Claude Code"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Clone and open in Claude Code",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/Donchitos/Claude-Code-Game-Studios.git my-game\ncd my-game",
+              "lang": "bash"
+            },
+            {
+              "title": "Start Claude Code in the root folder",
+              "body": "Starting in a subfolder skips the project's hooks and permission rules.",
+              "code": "claude",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Describe your game",
+          "code": "/prototype a fishing game where the rare fish only bite at dusk",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Make your first browser game",
+      "useCase": "Go from an idea to a game you can play.",
+      "setup": [
+        "Claude Code",
+        "The template cloned"
+      ],
+      "steps": [
+        {
+          "title": "Run /start or /prototype",
+          "code": "/prototype a fishing game where the rare fish only bite at dusk",
+          "lang": "text"
+        },
+        {
+          "title": "Answer the questions and review the brief",
+          "body": "Say Build it, or change something first."
+        },
+        {
+          "title": "Play the game",
+          "body": "Open the game in prototypes/<name>/ with a double-click."
+        }
+      ],
+      "expected": "A playable browser game plus a handover card listing what passed, what's broken and what was guessed.",
+      "nextSteps": [
+        "Ask for changes",
+        "Share a clean copy",
+        "Grow it into a real project"
+      ],
+      "sourceUrl": "https://github.com/Donchitos/Claude-Code-Game-Studios/blob/abc0de79d6ceb0b5d7aa693945849b3937afbe6a/README.md"
+    },
+    "costs": [
+      {
+        "label": "Template",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Claude Code",
+        "value": "Uses your Claude plan or API usage.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Hooks or permissions don't apply",
+        "solution": "Start Claude Code in the folder that holds CLAUDE.md and project.yaml.",
+        "sourceUrl": "https://github.com/Donchitos/Claude-Code-Game-Studios/blob/abc0de79d6ceb0b5d7aa693945849b3937afbe6a/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI game development",
+      "Claude Code templates"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Claude Code project template"
+      },
+      {
+        "label": "Language",
+        "value": "Shell, Markdown"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Output",
+        "value": "Browser games"
+      }
+    ]
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "fullName": "The-Vibe-Company/quivr",
+  "summary": "Open-source engine that stores incoming content, makes it searchable by keyword and meaning, and alerts you on topics you follow.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/The-Vibe-Company/quivr/blob/87f3743fa42f83a03d7cc5e9f0e324d0e5dcb5c9/README.md"
+    ],
+    "sourceCommitSha": "87f3743fa42f83a03d7cc5e9f0e324d0e5dcb5c9",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Try it locally",
+        "command": "git clone https://github.com/The-Vibe-Company/quivr.git && cd quivr\nmake dev"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Quivr is a backend engine for content that keeps arriving, such as news articles, emails, posts and PDFs. It stores every version, makes each document searchable within seconds, and checks new documents against your saved alerts. Your app talks to it over an HTTP API; it has no user interface of its own.",
+      "problem": "Monitoring a stream of documents for topics you care about usually means stitching together storage, search and alerting. Quivr does all three with citations back to the exact passage.",
+      "whoFor": [
+        "Developers building monitoring or news apps",
+        "Teams tracking topics across feeds and mailboxes",
+        "Builders giving AI agents searchable, citable sources"
+      ],
+      "whyChoose": "Choose it for durable ingestion, hybrid keyword and semantic search, versioned documents, alerts with reasons, and an MCP server for agents.",
+      "requirements": [
+        "Linux x86_64 or a Mac with Apple Silicon",
+        "Docker with Compose v2",
+        "Go (version in go.mod), Python 3.12 with venv, and jq",
+        "About 1 GB download on first start"
+      ]
+    },
+    "overview": [
+      "Send documents one by one or in batches, or let Quivr collect them on a schedule from RSS feeds, Microsoft 365 mailboxes and X lists. Plugins read files such as PDFs.",
+      "Search by keywords, meaning or both; every result cites its passage, document and version. Save alerts like \"harbour strike\" AND (ferry OR port) or plain-language descriptions, and read matches or receive signed webhooks. quivr mcp lets agents search and quote it.",
+      "Run make dev to start it in Docker, then follow the Quickstart (about fifteen minutes). make demo adds a web app at http://127.0.0.1:5183. Quivr 2's /v0 API stays compatible across 2.x. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Durable ingestion",
+        "body": "Confirmed documents are never lost."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Hybrid search",
+        "body": "Keyword and semantic."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Alerts",
+        "body": "Follow topics, get webhooks."
+      },
+      {
+        "icon": "file-code",
+        "title": "Versioning",
+        "body": "Corrections keep history."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Plugins",
+        "body": "Swap sources, formats and models."
+      },
+      {
+        "icon": "shield",
+        "title": "MCP",
+        "body": "Agents can search and cite."
+      }
+    ],
+    "strengths": [
+      "Citable results",
+      "Reliable storage",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "No built-in user interface",
+      "Developer setup needs Docker, Go, Python and jq"
+    ],
+    "useCases": [
+      {
+        "title": "News monitoring",
+        "body": "Get alerted on a topic."
+      },
+      {
+        "title": "Mailbox search",
+        "body": "Search Microsoft 365 mail."
+      },
+      {
+        "title": "Agent sources",
+        "body": "Give agents citable documents."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Quivr's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/The-Vibe-Company/quivr/blob/87f3743fa42f83a03d7cc5e9f0e324d0e5dcb5c9/README.md",
+      "prerequisites": [
+        "Docker",
+        "Go",
+        "Python 3.12"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Local with Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/The-Vibe-Company/quivr.git && cd quivr",
+              "lang": "bash"
+            },
+            {
+              "title": "Start Quivr and its dependencies",
+              "code": "make dev",
+              "lang": "bash"
+            },
+            {
+              "title": "Point your shell at the API",
+              "code": "eval \"$(make -s env)\"",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Follow the Quickstart",
+          "body": "Create a collection, add an article and find it by keyword and by meaning."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Search and alert on an article",
+      "useCase": "Run Quivr locally and set up your first alert.",
+      "setup": [
+        "Docker, Go, Python 3.12, jq"
+      ],
+      "steps": [
+        {
+          "title": "Start it",
+          "code": "make dev\neval \"$(make -s env)\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Create a collection and add an article",
+          "body": "Follow the Quickstart in the docs."
+        },
+        {
+          "title": "Save an alert on a topic",
+          "body": "New matching documents are recorded with the reason."
+        },
+        {
+          "title": "Optional: add the demo web app",
+          "code": "make demo",
+          "lang": "bash"
+        }
+      ],
+      "expected": "Your article is searchable and the alert catches matching documents.",
+      "nextSteps": [
+        "Connect RSS or Microsoft 365",
+        "Use quivr mcp with an agent",
+        "Run on one machine from published images"
+      ],
+      "sourceUrl": "https://github.com/The-Vibe-Company/quivr/blob/87f3743fa42f83a03d7cc5e9f0e324d0e5dcb5c9/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Hosting",
+        "value": "Your own server or cloud costs.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "First start is slow",
+        "solution": "It downloads about 1 GB the first time.",
+        "sourceUrl": "https://github.com/The-Vibe-Company/quivr/blob/87f3743fa42f83a03d7cc5e9f0e324d0e5dcb5c9/README.md"
+      }
+    ],
+    "bestFor": [
+      "Content monitoring",
+      "Document search API"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Ingestion, search and alerting engine"
+      },
+      {
+        "label": "Language",
+        "value": "Go"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "API",
+        "value": "HTTP /v0"
+      }
+    ]
+  }
+}

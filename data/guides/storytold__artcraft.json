@@ -1,0 +1,193 @@
+{
+  "fullName": "storytold/artcraft",
+  "summary": "Desktop app for crafting AI images and video with visual tools: stage scenes in 3D, pose characters and pick your models.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/storytold/artcraft/blob/ac0e3695209a055a4fb55eb2dcafc0ef01e1600f/README.md"
+    ],
+    "sourceCommitSha": "ac0e3695209a055a4fb55eb2dcafc0ef01e1600f",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Download",
+        "command": "Get ArtCraft for Windows, macOS or Linux from getartcraft.com"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "ArtCraft is an IDE for interactive AI image and video creation. You compose in 2D, stage scenes in 3D and choose the models that fit your work, so you build the scene before you generate it instead of relying only on prompts.",
+      "problem": "Text prompts alone give little control over composition, character identity and camera placement. ArtCraft adds visual tools such as 3D compositing, character posing and scene blocking.",
+      "whoFor": [
+        "Artists and illustrators",
+        "Designers making concept art",
+        "Filmmakers planning shots"
+      ],
+      "whyChoose": "Choose it for precise control over AI image and video generation, with many models from several providers in one open-source app.",
+      "requirements": [
+        "Windows, macOS or Linux",
+        "An account or subscription for the generation providers you use"
+      ]
+    },
+    "overview": [
+      "Crafting features include image to location, 2D and 3D compositing, image to 3D mesh, character posing, scene blocking with kitbashing, character identity transfer and background removal. Quick prompting covers text to image, prompted and canvas image editing, and image to video.",
+      "Providers include ArtCraft's own catalog (images, video, music and sound, 3D meshes and worlds) plus Grok, Midjourney, Sora and World Labs. More integrations are planned.",
+      "Download stable releases from getartcraft.com or GitHub Releases, or build from source. ArtCraft is dual-licensed MIT or Apache-2.0."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "3D compositing",
+        "body": "Layer scenes with depth."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Character posing",
+        "body": "Set pose and camera first."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Image to 3D mesh",
+        "body": "Turn images into objects."
+      },
+      {
+        "icon": "file-code",
+        "title": "Image to video",
+        "body": "Animate with your choice of model."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Many models",
+        "body": "ArtCraft, Grok, Midjourney, Sora and more."
+      }
+    ],
+    "strengths": [
+      "Visual control over generation",
+      "Many models in one place",
+      "MIT/Apache-2.0"
+    ],
+    "limitations": [
+      "Generation costs depend on the provider",
+      "Some catalog models are disabled or restricted"
+    ],
+    "useCases": [
+      {
+        "title": "Storyboards",
+        "body": "Plan consistent shots in one location."
+      },
+      {
+        "title": "Concept art",
+        "body": "Compose scenes before rendering."
+      },
+      {
+        "title": "Short videos",
+        "body": "Animate stills."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from ArtCraft's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/storytold/artcraft/blob/ac0e3695209a055a4fb55eb2dcafc0ef01e1600f/README.md",
+      "prerequisites": [
+        "Desktop computer"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Desktop download",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download ArtCraft",
+              "body": "Stable releases for Windows, macOS and Linux are on getartcraft.com and GitHub Releases."
+            },
+            {
+              "title": "Install and open it"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Generate an image from a prompt",
+          "body": "Use Text to Image to explore an idea, then refine it with the canvas and scene tools."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Stage a scene before generating",
+      "useCase": "Compose a scene in 3D and generate the final image.",
+      "setup": [
+        "ArtCraft installed",
+        "Access to a generation provider"
+      ],
+      "steps": [
+        {
+          "title": "Start a scene",
+          "body": "Add a backdrop and props in 3D compositing."
+        },
+        {
+          "title": "Pose a character and place the camera"
+        },
+        {
+          "title": "Generate",
+          "body": "Pick a model and render the shot."
+        }
+      ],
+      "expected": "An image that follows your composition and camera.",
+      "nextSteps": [
+        "Animate it with Image to Video",
+        "Try Image to 3D Mesh",
+        "Reuse the location for more shots"
+      ],
+      "sourceUrl": "https://github.com/storytold/artcraft/blob/ac0e3695209a055a4fb55eb2dcafc0ef01e1600f/README.md"
+    },
+    "costs": [
+      {
+        "label": "App",
+        "value": "Free and open source (MIT or Apache-2.0).",
+        "tone": "free"
+      },
+      {
+        "label": "Generation",
+        "value": "Model usage through ArtCraft or other providers may cost money; see each provider.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Model not available",
+        "solution": "The README marks some models as currently disabled or restricted in the desktop app.",
+        "sourceUrl": "https://github.com/storytold/artcraft/blob/ac0e3695209a055a4fb55eb2dcafc0ef01e1600f/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI image creation",
+      "AI video creation",
+      "Scene composition"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI image and video creation app"
+      },
+      {
+        "label": "Language",
+        "value": "Rust"
+      },
+      {
+        "label": "License",
+        "value": "MIT or Apache-2.0"
+      },
+      {
+        "label": "Platforms",
+        "value": "Windows, macOS, Linux"
+      }
+    ]
+  }
+}

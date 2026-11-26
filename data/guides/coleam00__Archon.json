@@ -1,0 +1,229 @@
+{
+  "fullName": "coleam00/Archon",
+  "summary": "Turns your development process into YAML workflows that coding agents like Claude Code and Codex follow the same way every time.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/coleam00/Archon/blob/f9543df488651ac0beeac1a6122c5ff83c6b47f8/README.md"
+    ],
+    "sourceCommitSha": "f9543df488651ac0beeac1a6122c5ff83c6b47f8",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install (macOS/Linux)",
+        "command": "curl -fsSL https://archon.diy/install | bash"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Archon is a workflow engine for AI coding. You describe how work should get done as a YAML graph of steps: agents handle judgment (planning, implementing), scripts handle checks (like running tests until they pass), and approval gates pause for your decisions. Archon runs Claude Code, Codex and Pi through their own CLIs with the accounts you already have. A bundled software pack takes an issue all the way to a merged pull request, and every run keeps an event log, transcript and cost record in your own database.",
+      "problem": "Ask a coding agent to fix something and it may skip the plan, forget tests or ignore your PR template. Archon makes the process fixed and repeatable, so you only step in for real decisions.",
+      "whoFor": [
+        "Developers who rely on Claude Code or Codex",
+        "Teams that want consistent agent output",
+        "Engineers automating issue-to-PR work"
+      ],
+      "whyChoose": "Pick it to make agent coding runs deterministic with your own steps, checks and approval gates, self-hosted.",
+      "requirements": [
+        "Claude Code (signed in) or Codex",
+        "A git repository to run workflows in"
+      ]
+    },
+    "overview": [
+      "Install Claude Code or Codex first, then install Archon with the script for your OS or with Homebrew; the installer asks which providers to add.",
+      "In any git repo, list workflows with archon workflow list and start one with archon workflow run.",
+      "Follow runs and answer their questions in the web console (archon serve) or the terminal. MIT licensed; it stores data in SQLite by default."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "YAML workflows",
+        "body": "A graph of agent, code and human steps."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Loops with checks",
+        "body": "Repeat until tests pass."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Approval gates",
+        "body": "Pauses for your decisions."
+      },
+      {
+        "icon": "file-code",
+        "title": "Your own agents",
+        "body": "Claude Code, Codex, Pi."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Run records",
+        "body": "Event log, transcript and cost per run."
+      },
+      {
+        "icon": "shield",
+        "title": "Chat platforms",
+        "body": "Slack, Telegram, Discord, GitHub webhooks."
+      }
+    ],
+    "strengths": [
+      "Repeatable agent runs",
+      "Human only where needed",
+      "Self-hosted"
+    ],
+    "limitations": [
+      "Needs a coding agent subscription",
+      "Sends anonymous usage telemetry unless you opt out",
+      "The older Python Archon is only on an archive branch"
+    ],
+    "useCases": [
+      {
+        "title": "Issue to PR",
+        "body": "Use the bundled software pack."
+      },
+      {
+        "title": "Custom processes",
+        "body": "Encode your team's review and test steps."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Archon's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/coleam00/Archon/blob/f9543df488651ac0beeac1a6122c5ff83c6b47f8/README.md",
+      "prerequisites": [
+        "Claude Code or Codex installed and signed in"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Install script (macOS/Linux)",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "curl -fsSL https://archon.diy/install | bash",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Windows PowerShell",
+          "method": "powershell",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "irm https://archon.diy/install.ps1 | iex",
+              "lang": "powershell"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Homebrew",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install coleam00/archon/archon",
+              "lang": "bash"
+            },
+            {
+              "title": "Set up providers",
+              "code": "archon setup",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run the investigate workflow",
+          "body": "Ask Archon why a test fails in one of your repos."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your first Archon workflow",
+      "useCase": "The README's quickstart.",
+      "setup": [
+        "Archon installed",
+        "Claude Code or Codex signed in",
+        "A git repository"
+      ],
+      "steps": [
+        {
+          "title": "List workflows",
+          "code": "cd your-project\narchon workflow list",
+          "lang": "bash"
+        },
+        {
+          "title": "Run one",
+          "code": "archon workflow run archon-investigate \"Why does the login test fail?\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Answer questions",
+          "body": "Open the web console with archon serve, or use archon workflow attention in the terminal."
+        }
+      ],
+      "expected": "A run that investigates and reports, pausing only when it needs your decision.",
+      "nextSteps": [
+        "Let your agent drive Archon with archon skill add",
+        "Write your own workflow YAML",
+        "Connect Slack or GitHub"
+      ],
+      "sourceUrl": "https://github.com/coleam00/Archon/blob/f9543df488651ac0beeac1a6122c5ff83c6b47f8/README.md"
+    },
+    "costs": [
+      {
+        "label": "Archon",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Coding agents",
+        "value": "Uses your Claude Code, Codex or Pi accounts.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Want to turn off telemetry",
+        "solution": "Set ARCHON_TELEMETRY_DISABLED=1 in your environment.",
+        "sourceUrl": "https://github.com/coleam00/Archon/blob/f9543df488651ac0beeac1a6122c5ff83c6b47f8/README.md"
+      },
+      {
+        "problem": "Looking for the old Archon",
+        "solution": "The original Python task-management and RAG version is on the archive/v1-task-management-rag branch.",
+        "sourceUrl": "https://github.com/coleam00/Archon/blob/f9543df488651ac0beeac1a6122c5ff83c6b47f8/README.md"
+      }
+    ],
+    "bestFor": [
+      "Repeatable AI coding workflows"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent workflow engine"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Storage",
+        "value": "SQLite by default, PostgreSQL optional"
+      }
+    ]
+  }
+}

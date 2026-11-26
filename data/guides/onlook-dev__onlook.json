@@ -1,0 +1,215 @@
+{
+  "fullName": "onlook-dev/onlook",
+  "summary": "Free, local-first desktop app where designers edit a real web app visually on a canvas, with Claude Code or Codex making the code changes.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/onlook-dev/onlook/blob/1648c3a307911af76a7e3013941399424080a159/README.md"
+    ],
+    "sourceCommitSha": "1648c3a307911af76a7e3013941399424080a159",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Download",
+        "command": "Get the desktop app for macOS or Windows from onlook.com/install"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Onlook is an open-source design tool that works on your real codebase. It opens any Git repository on your computer, runs your own dev server, and shows the live app in frames on an infinite canvas. You describe changes in chat, and the Claude Code or ChatGPT/Codex account you connect edits the actual files. You can export artifacts as HTML, PNG, JPEG or PDF.",
+      "problem": "Designs made in mockup tools have to be rebuilt in code. Onlook lets designers shape the real product directly.",
+      "whoFor": [
+        "Designers working with developers",
+        "Developers who prefer visual editing",
+        "Teams prototyping UI changes"
+      ],
+      "whyChoose": "Choose it for design on your actual app, bring-your-own agent (no Onlook model), local-first operation and one-press pull requests.",
+      "requirements": [
+        "macOS (Apple Silicon or Intel) or Windows x64",
+        "A Claude Code or ChatGPT/Codex account"
+      ]
+    },
+    "overview": [
+      "Download the desktop app for macOS or Windows. There's no Linux build yet. A source build for Mac is described in SOURCE_BUILD.md and needs no Onlook account or cloud keys.",
+      "Point Onlook at a Git repo; it works on a safe worktree copy and runs your dev server. Select frames or double-click elements to guide the agent, view mobile, tablet and desktop side by side, and open pull requests.",
+      "The official download collects usage analytics by default (you can turn them off in Settings). It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Live canvas",
+        "body": "Your running app in frames."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Bring your own agent",
+        "body": "Claude Code or Codex."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Real repo",
+        "body": "Edits actual files on a worktree."
+      },
+      {
+        "icon": "file-code",
+        "title": "Responsive frames",
+        "body": "Mobile, tablet, desktop."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Export",
+        "body": "HTML, PDF, PNG, JPEG."
+      },
+      {
+        "icon": "shield",
+        "title": "Pull requests",
+        "body": "From checks to merge."
+      }
+    ],
+    "strengths": [
+      "Designs become real code",
+      "Local-first",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "No Linux app yet",
+      "Needs a Claude Code or Codex plan",
+      "Analytics on by default in the download"
+    ],
+    "useCases": [
+      {
+        "title": "Redesign a page",
+        "body": "Prompt changes and see them live."
+      },
+      {
+        "title": "Share a sketch",
+        "body": "Export an artifact as HTML or PNG."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Onlook's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/onlook-dev/onlook/blob/1648c3a307911af76a7e3013941399424080a159/README.md",
+      "prerequisites": [
+        "macOS or Windows",
+        "Claude Code or Codex account"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Desktop app",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download",
+              "body": "Get Onlook for macOS (Apple Silicon or Intel) or Windows x64 from onlook.com/install."
+            },
+            {
+              "title": "Connect your agent",
+              "body": "Sign in with your Claude Code or ChatGPT/Codex account."
+            }
+          ]
+        },
+        {
+          "os": "macos",
+          "label": "Build from source (Mac)",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Follow SOURCE_BUILD.md",
+              "body": "It covers building and running Onlook on a Mac without an account or cloud keys."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start a draft",
+          "body": "Click New Draft on the projects page."
+        },
+        {
+          "title": "Describe a design",
+          "body": "Type what you want in the chat box."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Design and export your first draft",
+      "useCase": "The README's example workflow.",
+      "setup": [
+        "Onlook installed",
+        "Agent connected"
+      ],
+      "steps": [
+        {
+          "title": "New Draft",
+          "body": "Click New Draft in the upper left."
+        },
+        {
+          "title": "Prompt a design",
+          "body": "Write what you want in the lower-right input and answer the agent's questions."
+        },
+        {
+          "title": "Refine",
+          "body": "Select frames, or double-click an element for inline chat."
+        },
+        {
+          "title": "Export",
+          "body": "Ask the agent to make an Artifact, then export it as HTML/CSS or PNG."
+        }
+      ],
+      "expected": "A shareable design you can paste into Slack or email.",
+      "nextSteps": [
+        "Open your own repo",
+        "Try responsive frames",
+        "Open a pull request"
+      ],
+      "sourceUrl": "https://github.com/onlook-dev/onlook/blob/1648c3a307911af76a7e3013941399424080a159/README.md"
+    },
+    "costs": [
+      {
+        "label": "Onlook",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent",
+        "value": "Uses your Claude Code or ChatGPT/Codex plan.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Want to turn off analytics",
+        "solution": "Disable them in Settings.",
+        "sourceUrl": "https://github.com/onlook-dev/onlook/blob/1648c3a307911af76a7e3013941399424080a159/README.md"
+      }
+    ],
+    "bestFor": [
+      "Visual editing of real apps",
+      "AI design tool"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Desktop design app"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Platforms",
+        "value": "macOS, Windows"
+      }
+    ]
+  }
+}

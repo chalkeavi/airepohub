@@ -1,0 +1,234 @@
+{
+  "fullName": "vercel-labs/agent-desktop",
+  "summary": "Computer-use tool for AI agents that reads and operates desktop apps on macOS, Windows and Linux through the accessibility tree, without screenshots.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/vercel-labs/agent-desktop/blob/ce2ddf07226346818de2a1c6bae9869cfad142df/README.md"
+    ],
+    "sourceCommitSha": "ce2ddf07226346818de2a1c6bae9869cfad142df",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "npm install -g agent-desktop"
+      },
+      {
+        "comment": "Check",
+        "command": "agent-desktop status"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "agent-desktop gives AI agents computer use without screenshots or pixel matching. It reads a desktop app's accessibility tree and returns it as JSON with a ref for every element, so an agent can click, type and verify by ref. It works as a CLI, an MCP server over stdio or a C library, and ships agent guides inside the binary.",
+      "problem": "Screenshot-based computer use is slow and error-prone. Using the OS accessibility tree gives agents precise, structured control of desktop apps.",
+      "whoFor": [
+        "Developers giving agents desktop control",
+        "People automating native apps",
+        "Agent framework builders"
+      ],
+      "whyChoose": "Choose it for structured JSON output, refs instead of coordinates, MCP support and the same tool on all three major desktop OSes.",
+      "requirements": [
+        "macOS 13+, Windows 10 1809+, or Ubuntu 24.04+ (X11 or Wayland)",
+        "Node.js for the npm install, or Homebrew, or a native release archive",
+        "On macOS, the Accessibility permission"
+      ]
+    },
+    "overview": [
+      "Install with npm (or Bun, Yarn, pnpm, or Homebrew on macOS/Linux), then run agent-desktop status to see platform and permissions. On macOS, agent-desktop permissions --guide walks you through granting Accessibility access.",
+      "Take a snapshot of an app's interactive elements, act on a ref, then snapshot again to verify. agent-desktop mcp serves every command as an MCP tool.",
+      "Snapshots, clipboard reads and screenshots can contain private desktop content, so keep them out of public logs. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Accessibility tree",
+        "body": "No screenshots or pixels."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Element refs",
+        "body": "Click and type by ref."
+      },
+      {
+        "icon": "puzzle",
+        "title": "JSON output",
+        "body": "One envelope per command."
+      },
+      {
+        "icon": "file-code",
+        "title": "MCP server",
+        "body": "agent-desktop mcp."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Agent skill",
+        "body": "Built-in guides and a skills.sh skill."
+      },
+      {
+        "icon": "shield",
+        "title": "Cross-platform",
+        "body": "macOS, Windows, Linux."
+      }
+    ],
+    "strengths": [
+      "Precise and structured",
+      "Works across OSes",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Only as good as an app's accessibility support",
+      "Outputs can contain private data"
+    ],
+    "useCases": [
+      {
+        "title": "Automate a native app",
+        "body": "Agent fills a form in a desktop app."
+      },
+      {
+        "title": "Desktop testing",
+        "body": "Scripted UI checks."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from agent-desktop's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/vercel-labs/agent-desktop/blob/ce2ddf07226346818de2a1c6bae9869cfad142df/README.md",
+      "prerequisites": [
+        "Supported OS version",
+        "Node.js or Homebrew"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npm",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install -g agent-desktop",
+              "lang": "bash"
+            },
+            {
+              "title": "Check status",
+              "code": "agent-desktop status",
+              "lang": "bash"
+            },
+            {
+              "title": "macOS: grant Accessibility",
+              "code": "agent-desktop permissions --guide",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Homebrew (macOS / Linux)",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install agent-desktop",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Agent skill",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Add to your agent",
+              "code": "npx skills add https://github.com/vercel-labs/agent-desktop --skill agent-desktop",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Snapshot an app",
+          "code": "agent-desktop snapshot --app Finder -i",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Click a button in a desktop app",
+      "useCase": "The README's quick start loop.",
+      "setup": [
+        "agent-desktop installed",
+        "Permissions granted"
+      ],
+      "steps": [
+        {
+          "title": "Snapshot",
+          "code": "agent-desktop snapshot --app Finder -i",
+          "lang": "bash"
+        },
+        {
+          "title": "Act on a ref",
+          "body": "Use a ref from the snapshot, e.g. agent-desktop click @s8f3k2p9:e8."
+        },
+        {
+          "title": "Verify",
+          "body": "Take another snapshot to confirm the change."
+        }
+      ],
+      "expected": "JSON output showing the app's state before and after the click.",
+      "nextSteps": [
+        "Run agent-desktop mcp",
+        "Read agent-desktop skills get desktop",
+        "Try another app"
+      ],
+      "sourceUrl": "https://github.com/vercel-labs/agent-desktop/blob/ce2ddf07226346818de2a1c6bae9869cfad142df/README.md"
+    },
+    "costs": [
+      {
+        "label": "agent-desktop",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Nothing happens on macOS",
+        "solution": "Grant Accessibility permission with agent-desktop permissions --guide.",
+        "sourceUrl": "https://github.com/vercel-labs/agent-desktop/blob/ce2ddf07226346818de2a1c6bae9869cfad142df/README.md"
+      },
+      {
+        "problem": "When to retry",
+        "solution": "Only retry when error.disposition.retry is safe.",
+        "sourceUrl": "https://github.com/vercel-labs/agent-desktop/blob/ce2ddf07226346818de2a1c6bae9869cfad142df/README.md"
+      }
+    ],
+    "bestFor": [
+      "Desktop computer use for agents",
+      "Accessibility-based automation"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent computer-use CLI"
+      },
+      {
+        "label": "Language",
+        "value": "Rust"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "npm install -g agent-desktop"
+      }
+    ]
+  }
+}

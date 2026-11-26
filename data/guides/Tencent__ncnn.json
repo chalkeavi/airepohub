@@ -1,0 +1,231 @@
+{
+  "fullName": "Tencent/ncnn",
+  "summary": "Tencent's fast, dependency-free neural network inference engine for running AI models on phones, PCs, browsers and edge devices.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Tencent/ncnn/blob/24f9e9b748d8db19e2de5be6c554567ace2d5e1c/README.md"
+    ],
+    "sourceCommitSha": "24f9e9b748d8db19e2de5be6c554567ace2d5e1c",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Convert a model",
+        "command": "pip3 install pnnx"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "ncnn is a high-performance inference framework for running trained neural networks on mobile, embedded and desktop devices. It is pure C++ with no third-party runtime dependencies, runs on CPUs (with ARM NEON optimizations) and on GPUs through Vulkan, and has a C API and Python binding. The pnnx tool converts PyTorch and ONNX models to ncnn's format, and it supports fp16, int8 quantization and custom layers.",
+      "problem": "Running AI models on phones and small devices needs a small, fast runtime. ncnn provides one without heavy dependencies.",
+      "whoFor": [
+        "Mobile and embedded developers",
+        "Engineers deploying vision models on edge devices",
+        "App makers adding on-device AI"
+      ],
+      "whyChoose": "Pick it for lightweight on-device inference with Vulkan GPU support and an easy PyTorch-to-ncnn path.",
+      "requirements": [
+        "Python with PyTorch (for converting models with pnnx)",
+        "CMake and a C++ compiler (to build from source)"
+      ]
+    },
+    "overview": [
+      "The recommended beginner path is PyTorch to pnnx to ncnn: install pnnx with pip3 install pnnx and export your model.",
+      "Export produces model.ncnn.param and model.ncnn.bin, which you load with the C++ API or the Python binding.",
+      "Use the prebuilt packages when possible, or build from source with CMake for Linux, Windows, macOS, Android, iOS or WebAssembly. BSD 3-Clause licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "No dependencies",
+        "body": "No BLAS or NNPACK needed."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Mobile CPU speed",
+        "body": "ARM NEON and multi-core."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Vulkan GPU",
+        "body": "On supported platforms."
+      },
+      {
+        "icon": "file-code",
+        "title": "pnnx converter",
+        "body": "From PyTorch and ONNX."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Quantization",
+        "body": "fp16 and int8."
+      },
+      {
+        "icon": "shield",
+        "title": "C++, C and Python",
+        "body": "APIs for each."
+      }
+    ],
+    "strengths": [
+      "Very small footprint",
+      "Runs almost anywhere",
+      "Mature and widely used"
+    ],
+    "limitations": [
+      "Only operators ncnn supports can be converted",
+      "Building from source for each platform takes setup"
+    ],
+    "useCases": [
+      {
+        "title": "On-device vision",
+        "body": "Detection, segmentation, OCR on phones."
+      },
+      {
+        "title": "Edge AI",
+        "body": "Run models on embedded boards."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from ncnn's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Tencent/ncnn/blob/24f9e9b748d8db19e2de5be6c554567ace2d5e1c/README.md",
+      "prerequisites": [
+        "Python and PyTorch for conversion",
+        "C++ toolchain for building"
+      ],
+      "supportedOs": [
+        "Linux",
+        "Windows",
+        "macOS",
+        "Android",
+        "iOS"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Convert with pnnx",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install pnnx",
+              "body": "Install it in a Python environment that has PyTorch.",
+              "code": "pip3 install pnnx",
+              "lang": "bash"
+            },
+            {
+              "title": "Export your model",
+              "body": "In Python: pnnx.export(model, \"model.pt\", (x,)) creates model.ncnn.param and model.ncnn.bin."
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Build from source (Linux)",
+          "method": "cmake",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone --recursive https://github.com/Tencent/ncnn.git\ncd ncnn",
+              "lang": "bash"
+            },
+            {
+              "title": "Configure",
+              "code": "mkdir build && cd build\ncmake -DCMAKE_BUILD_TYPE=Release -DNCNN_VULKAN=ON -DNCNN_BUILD_EXAMPLES=ON ..",
+              "lang": "bash"
+            },
+            {
+              "title": "Build",
+              "code": "cmake --build . -j$(nproc)",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Prebuilt packages",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download",
+              "body": "Get a prebuilt package for your platform from the README's download table or GitHub releases. See the how-to-build wiki for other platforms."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Convert a tiny PyTorch model",
+          "body": "Export the README's small conv model with pnnx and run it."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run a PyTorch model with ncnn",
+      "useCase": "The README's quick start.",
+      "setup": [
+        "PyTorch and pnnx installed"
+      ],
+      "steps": [
+        {
+          "title": "Export",
+          "body": "Create a model, call model.eval(), make an input x = torch.rand(1, 3, 224, 224) and run pnnx.export(model, \"model.pt\", (x,))."
+        },
+        {
+          "title": "Load in ncnn",
+          "body": "net.load_param(\"model.ncnn.param\") and net.load_model(\"model.ncnn.bin\")."
+        },
+        {
+          "title": "Run inference",
+          "body": "Create an extractor, set input in0, and extract out0."
+        }
+      ],
+      "expected": "The model's output computed by ncnn.",
+      "nextSteps": [
+        "Quantize to int8",
+        "Turn on Vulkan",
+        "Try an example app"
+      ],
+      "sourceUrl": "https://github.com/Tencent/ncnn/blob/24f9e9b748d8db19e2de5be6c554567ace2d5e1c/README.md"
+    },
+    "costs": [
+      {
+        "label": "ncnn",
+        "value": "Free and open source under BSD 3-Clause.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Conversion fails",
+        "solution": "Check the supported PyTorch and ONNX operator lists in the pnnx docs.",
+        "sourceUrl": "https://github.com/Tencent/ncnn/blob/24f9e9b748d8db19e2de5be6c554567ace2d5e1c/README.md"
+      },
+      {
+        "problem": "Want to inspect a model",
+        "solution": "Open the .param or .onnx file in Netron.",
+        "sourceUrl": "https://github.com/Tencent/ncnn/blob/24f9e9b748d8db19e2de5be6c554567ace2d5e1c/README.md"
+      }
+    ],
+    "bestFor": [
+      "On-device AI inference"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Inference framework"
+      },
+      {
+        "label": "Language",
+        "value": "C++"
+      },
+      {
+        "label": "License",
+        "value": "BSD 3-Clause"
+      },
+      {
+        "label": "Backends",
+        "value": "CPU, Vulkan GPU"
+      }
+    ]
+  }
+}

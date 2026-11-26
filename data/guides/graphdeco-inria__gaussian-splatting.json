@@ -1,0 +1,228 @@
+{
+  "fullName": "graphdeco-inria/gaussian-splatting",
+  "summary": "The original research code for 3D Gaussian Splatting: turn a set of photos into a 3D scene you can view in real time.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/graphdeco-inria/gaussian-splatting/blob/54c035f7834b564019656c3e3fcc3646292f727d/README.md"
+    ],
+    "sourceCommitSha": "54c035f7834b564019656c3e3fcc3646292f727d",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Clone",
+        "command": "git clone https://github.com/graphdeco-inria/gaussian-splatting --recursive"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "This is the reference implementation of the paper 3D Gaussian Splatting for Real-Time Radiance Field Rendering from Inria. It trains a 3D model made of many small Gaussians from photos of a scene (via COLMAP structure-from-motion data), then renders new views in real time. The codebase has four parts: a PyTorch optimizer that trains models, a network viewer to watch training, an OpenGL real-time viewer, and a script that turns your own images into a training-ready dataset.",
+      "problem": "Earlier neural rendering methods were slow to train and render. Gaussian Splatting gives high-quality novel views at real-time speed.",
+      "whoFor": [
+        "Computer graphics and vision researchers",
+        "3D capture enthusiasts with a strong GPU",
+        "Developers exploring radiance fields"
+      ],
+      "whyChoose": "Use it to reproduce the original method or train scenes from your own photos with the authors' code.",
+      "requirements": [
+        "CUDA GPU with Compute Capability 7.0+",
+        "24 GB VRAM to train at paper quality (the FAQ covers smaller setups)",
+        "Conda, a C++ compiler and CUDA SDK 11 (11.8 was used)"
+      ]
+    },
+    "overview": [
+      "Clone with --recursive, then create the Conda environment from environment.yml and activate gaussian_splatting. It assumes CUDA SDK 11, not 12.",
+      "Train with python train.py -s pointing at a COLMAP or NeRF Synthetic dataset; use convert.py to prepare your own images.",
+      "View results with the SIBR viewers; pre-built Windows binaries are offered. Tested on Windows 10 and Ubuntu 22.04. The license allows research use only."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Real-time rendering",
+        "body": "Novel views at interactive speed."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Optimizer",
+        "body": "PyTorch with CUDA extensions."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Network viewer",
+        "body": "Watch training live."
+      },
+      {
+        "icon": "file-code",
+        "title": "Real-time viewer",
+        "body": "OpenGL SIBR app."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Own scenes",
+        "body": "convert.py builds COLMAP datasets."
+      },
+      {
+        "icon": "shield",
+        "title": "Extras",
+        "body": "Depth regularization, exposure compensation, anti-aliasing."
+      }
+    ],
+    "strengths": [
+      "Original reference code",
+      "Real-time quality views",
+      "Detailed docs and FAQ"
+    ],
+    "limitations": [
+      "Research-only license",
+      "Needs a powerful NVIDIA GPU",
+      "Building viewers and submodules can be tricky, especially on Windows"
+    ],
+    "useCases": [
+      {
+        "title": "3D capture",
+        "body": "Turn photos of a place into a viewable scene."
+      },
+      {
+        "title": "Research",
+        "body": "Baseline for new splatting methods."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from 3D Gaussian Splatting's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/graphdeco-inria/gaussian-splatting/blob/54c035f7834b564019656c3e3fcc3646292f727d/README.md",
+      "prerequisites": [
+        "NVIDIA GPU (24 GB VRAM for paper quality)",
+        "Conda",
+        "C++ compiler and CUDA SDK 11"
+      ],
+      "supportedOs": [
+        "Windows",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Conda",
+          "method": "conda",
+          "steps": [
+            {
+              "title": "Clone with submodules",
+              "code": "git clone https://github.com/graphdeco-inria/gaussian-splatting --recursive",
+              "lang": "bash"
+            },
+            {
+              "title": "Create the environment",
+              "body": "On Windows, first run SET DISTUTILS_USE_SDK=1.",
+              "code": "conda env create --file environment.yml",
+              "lang": "bash"
+            },
+            {
+              "title": "Activate it",
+              "code": "conda activate gaussian_splatting",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Windows viewers",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Get pre-built viewers",
+              "body": "Download the pre-built SIBR viewer binaries for Windows linked in the README, which the authors recommend over building."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Train on a sample scene",
+          "body": "Download the T&T+DB COLMAP dataset linked in the README and train on one scene."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Train and view a scene",
+      "useCase": "The README's training and viewer commands.",
+      "setup": [
+        "Environment active",
+        "A COLMAP or NeRF Synthetic dataset"
+      ],
+      "steps": [
+        {
+          "title": "Train",
+          "code": "python train.py -s <path to COLMAP or NeRF Synthetic dataset>",
+          "lang": "bash"
+        },
+        {
+          "title": "Render and score (optional)",
+          "body": "python render.py -m <path to trained model> then python metrics.py -m <path to trained model>."
+        },
+        {
+          "title": "View in real time",
+          "code": "./<SIBR install dir>/bin/SIBR_gaussianViewer_app -m <path to trained model>",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A trained Gaussian scene you can fly through in the viewer.",
+      "nextSteps": [
+        "Process your own photos with convert.py",
+        "Try depth regularization",
+        "Speed up training"
+      ],
+      "sourceUrl": "https://github.com/graphdeco-inria/gaussian-splatting/blob/54c035f7834b564019656c3e3fcc3646292f727d/README.md"
+    },
+    "costs": [
+      {
+        "label": "Code",
+        "value": "Free for research use under the Gaussian-Splatting License.",
+        "tone": "free"
+      },
+      {
+        "label": "GPU",
+        "value": "High-VRAM NVIDIA GPU needed.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "cl.exe not found on Windows",
+        "solution": "Building submodules can fail on Windows; see the FAQ workaround.",
+        "sourceUrl": "https://github.com/graphdeco-inria/gaussian-splatting/blob/54c035f7834b564019656c3e3fcc3646292f727d/README.md"
+      },
+      {
+        "problem": "Out of GPU memory",
+        "solution": "See the FAQ for smaller VRAM settings, or set data_device to cpu for large datasets.",
+        "sourceUrl": "https://github.com/graphdeco-inria/gaussian-splatting/blob/54c035f7834b564019656c3e3fcc3646292f727d/README.md"
+      },
+      {
+        "problem": "Build errors with CUDA",
+        "solution": "The setup assumes CUDA SDK 11 (11.8 used; 11.6 has known issues).",
+        "sourceUrl": "https://github.com/graphdeco-inria/gaussian-splatting/blob/54c035f7834b564019656c3e3fcc3646292f727d/README.md"
+      }
+    ],
+    "bestFor": [
+      "Reproducing Gaussian Splatting research"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Research code"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Gaussian-Splatting License (research only)"
+      },
+      {
+        "label": "Tested on",
+        "value": "Windows 10, Ubuntu 22.04"
+      }
+    ]
+  }
+}

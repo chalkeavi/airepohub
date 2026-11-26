@@ -1,0 +1,210 @@
+{
+  "fullName": "sinaptik-ai/pandas-ai",
+  "summary": "Python library that lets you ask questions about your data in plain English and get answers or charts back, using an LLM.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/sinaptik-ai/pandas-ai/blob/bbbb771d31062d81f6fa19bafb40620d5cbe48f4/README.md"
+    ],
+    "sourceCommitSha": "bbbb771d31062d81f6fa19bafb40620d5cbe48f4",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install pandasai pandasai-litellm"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "PandasAI lets you chat with your data. Load a CSV or DataFrame, connect an LLM through LiteLLM, and ask questions like 'What is the average revenue by region?' or ask for a chart. The LLM writes and runs code to answer. It can work across multiple DataFrames, and an optional Docker sandbox runs the generated code in an isolated environment for safety.",
+      "problem": "Answering simple questions about data often needs pandas or SQL skills. PandasAI lets anyone ask in natural language.",
+      "whoFor": [
+        "Analysts who want quick answers from data",
+        "Non-technical users exploring spreadsheets",
+        "Developers adding natural-language data queries to apps"
+      ],
+      "whyChoose": "Pick it to put a natural-language layer over pandas data with your choice of LLM through LiteLLM.",
+      "requirements": [
+        "Python 3.8 to 3.11",
+        "An LLM API key, such as OpenAI"
+      ]
+    },
+    "overview": [
+      "Install pandasai and pandasai-litellm with pip or poetry.",
+      "Create a LiteLLM model with your API key and set it in pai.config.",
+      "Load data with pai.read_csv and call df.chat() with a question. MIT licensed, except the pandasai/ee directory, which has its own license."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Ask in plain English",
+        "body": "df.chat returns answers."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Charts",
+        "body": "Ask for a visualization."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Multiple DataFrames",
+        "body": "Questions across tables."
+      },
+      {
+        "icon": "file-code",
+        "title": "Any LLM via LiteLLM",
+        "body": "OpenAI and others."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Docker sandbox",
+        "body": "Run generated code isolated."
+      }
+    ],
+    "strengths": [
+      "Very little code to start",
+      "Flexible LLM choice",
+      "Safer execution option"
+    ],
+    "limitations": [
+      "Python 3.11 or older",
+      "Answers depend on the LLM and can be wrong",
+      "LLM API costs"
+    ],
+    "useCases": [
+      {
+        "title": "Quick analysis",
+        "body": "Ask about a CSV without writing pandas."
+      },
+      {
+        "title": "Data chat in apps",
+        "body": "Let users query their data."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from PandasAI's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/sinaptik-ai/pandas-ai/blob/bbbb771d31062d81f6fa19bafb40620d5cbe48f4/README.md",
+      "prerequisites": [
+        "Python 3.8–3.11",
+        "LLM API key"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install pandasai\npip install pandasai-litellm",
+              "lang": "bash"
+            },
+            {
+              "title": "Optional Docker sandbox",
+              "code": "pip install \"pandasai-docker\"",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "poetry",
+          "method": "poetry",
+          "steps": [
+            {
+              "title": "Add to your project",
+              "code": "poetry add pandasai\npoetry add pandasai-litellm",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Ask about a CSV",
+          "body": "Load a CSV and ask for an average by group."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Ask your first data question",
+      "useCase": "The README's usage example.",
+      "setup": [
+        "pandasai and pandasai-litellm installed",
+        "An OpenAI API key"
+      ],
+      "steps": [
+        {
+          "title": "Set up the LLM",
+          "body": "llm = LiteLLM(model=\"gpt-4.1-mini\", api_key=\"YOUR_OPENAI_API_KEY\"); pai.config.set({\"llm\": llm})."
+        },
+        {
+          "title": "Load data",
+          "body": "df = pai.read_csv(\"data/companies.csv\")."
+        },
+        {
+          "title": "Ask",
+          "body": "print(df.chat(\"What is the average revenue by region?\"))."
+        }
+      ],
+      "expected": "A plain answer computed from your data.",
+      "nextSteps": [
+        "Ask for a chart",
+        "Query several DataFrames",
+        "Run code in the Docker sandbox"
+      ],
+      "sourceUrl": "https://github.com/sinaptik-ai/pandas-ai/blob/bbbb771d31062d81f6fa19bafb40620d5cbe48f4/README.md"
+    },
+    "costs": [
+      {
+        "label": "PandasAI",
+        "value": "Free and open source (MIT, except pandasai/ee).",
+        "tone": "free"
+      },
+      {
+        "label": "LLM API",
+        "value": "Pay your provider per use.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install fails on new Python",
+        "solution": "PandasAI requires Python 3.8 to 3.11.",
+        "sourceUrl": "https://github.com/sinaptik-ai/pandas-ai/blob/bbbb771d31062d81f6fa19bafb40620d5cbe48f4/README.md"
+      },
+      {
+        "problem": "Worried about running generated code",
+        "solution": "Use the Docker sandbox for an isolated environment.",
+        "sourceUrl": "https://github.com/sinaptik-ai/pandas-ai/blob/bbbb771d31062d81f6fa19bafb40620d5cbe48f4/README.md"
+      }
+    ],
+    "bestFor": [
+      "Natural-language questions over data"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Python library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT (except pandasai/ee)"
+      },
+      {
+        "label": "Python",
+        "value": "3.8 to 3.11"
+      }
+    ]
+  }
+}

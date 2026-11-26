@@ -1,0 +1,200 @@
+{
+  "fullName": "jarrodwatts/claude-hud",
+  "summary": "Claude Code plugin that shows context usage, rate limits, active tools, running agents and todo progress in a status line under your input.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/jarrodwatts/claude-hud/blob/5fc08cbb610a7439993e40124637cbe193d60ea3/README.md"
+    ],
+    "sourceCommitSha": "5fc08cbb610a7439993e40124637cbe193d60ea3",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install in Claude Code",
+        "command": "/plugin marketplace add jarrodwatts/claude-hud"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Claude HUD is a plugin for Claude Code that adds a heads-up display below the input box. It shows how much context you've used, your rate limits, which tools are active, which agents are running and how far through the todo list Claude is.",
+      "problem": "During long Claude Code sessions it's hard to see how close you are to context or rate limits and what Claude is doing. The HUD keeps that visible at all times.",
+      "whoFor": [
+        "Claude Code users",
+        "People running long or multi-agent sessions"
+      ],
+      "whyChoose": "Choose it for an always-visible summary of session health with a guided setup.",
+      "requirements": [
+        "Claude Code",
+        "Node.js 22.18 or later (the /hud command helps if yours is older)"
+      ]
+    },
+    "overview": [
+      "Inside Claude Code, add the marketplace, install the plugin, reload plugins and run /hud. You can also install from the terminal with the claude plugin commands.",
+      "/hud checks your setup and, after asking you, points your status line at the HUD.",
+      "Claude Code doesn't auto-update third-party plugins by default; turn on auto-update for this marketplace in /plugin. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Context usage",
+        "body": "See how full the context is."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Rate limits",
+        "body": "Know when you're close."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Active tools",
+        "body": "What's running now."
+      },
+      {
+        "icon": "file-code",
+        "title": "Agents",
+        "body": "Running subagents."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Todo progress",
+        "body": "How far through the plan."
+      },
+      {
+        "icon": "shield",
+        "title": "Guided setup",
+        "body": "/hud configures the status line."
+      }
+    ],
+    "strengths": [
+      "Quick install",
+      "Always visible",
+      "MIT license"
+    ],
+    "limitations": [
+      "Claude Code only",
+      "Needs a recent Node.js"
+    ],
+    "useCases": [
+      {
+        "title": "Watch context in long sessions",
+        "body": "Know when to compact."
+      },
+      {
+        "title": "Monitor agents",
+        "body": "See what's running."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Claude HUD's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/jarrodwatts/claude-hud/blob/5fc08cbb610a7439993e40124637cbe193d60ea3/README.md",
+      "prerequisites": [
+        "Claude Code",
+        "Node.js 22.18+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Inside Claude Code",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add and install",
+              "code": "/plugin marketplace add jarrodwatts/claude-hud\n/plugin install claude-hud\n/reload-plugins\n/hud",
+              "lang": "text"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "From the terminal",
+          "method": "cli",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "claude plugin marketplace add jarrodwatts/claude-hud\nclaude plugin install claude-hud@claude-hud",
+              "lang": "bash"
+            },
+            {
+              "title": "Finish in a session",
+              "body": "Run /reload-plugins and /hud inside Claude Code."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run /hud",
+          "body": "Let it set your status line to the HUD."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Turn on the HUD and keep it updated",
+      "useCase": "Install and enable auto-update.",
+      "setup": [
+        "Claude Code installed"
+      ],
+      "steps": [
+        {
+          "title": "Install the plugin",
+          "body": "Run the four commands inside Claude Code."
+        },
+        {
+          "title": "Accept the status line change",
+          "body": "/hud asks before changing it."
+        },
+        {
+          "title": "Enable auto-update",
+          "body": "Run /plugin, open Marketplaces, select claude-hud and choose Enable auto-update."
+        }
+      ],
+      "expected": "A HUD line under your input showing context, limits, tools, agents and todos.",
+      "nextSteps": [
+        "Watch it during a long task"
+      ],
+      "sourceUrl": "https://github.com/jarrodwatts/claude-hud/blob/5fc08cbb610a7439993e40124637cbe193d60ea3/README.md"
+    },
+    "costs": [
+      {
+        "label": "Plugin",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "HUD doesn't appear",
+        "solution": "Run /hud again to check the setup and Node.js version.",
+        "sourceUrl": "https://github.com/jarrodwatts/claude-hud/blob/5fc08cbb610a7439993e40124637cbe193d60ea3/README.md"
+      }
+    ],
+    "bestFor": [
+      "Claude Code status line",
+      "Session monitoring"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Claude Code plugin"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Needs",
+        "value": "Node.js 22.18+"
+      },
+      {
+        "label": "Install",
+        "value": "/plugin install claude-hud"
+      }
+    ]
+  }
+}

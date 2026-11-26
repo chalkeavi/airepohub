@@ -1,0 +1,197 @@
+{
+  "fullName": "SYSTRAN/faster-whisper",
+  "summary": "Faster reimplementation of OpenAI's Whisper speech-to-text using CTranslate2: up to 4x faster for the same accuracy, with less memory.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/SYSTRAN/faster-whisper/blob/6cb639e70786aea42b9233006ae60eaf07190bdb/README.md"
+    ],
+    "sourceCommitSha": "6cb639e70786aea42b9233006ae60eaf07190bdb",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install faster-whisper"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "faster-whisper reimplements OpenAI's Whisper speech recognition model on CTranslate2, a fast inference engine for Transformers. It transcribes audio up to four times faster than openai/whisper for the same accuracy while using less memory, and 8-bit quantization makes it more efficient on CPU and GPU. It supports batched transcription, word-level timestamps, a voice activity filter and Distil-Whisper models.",
+      "problem": "Original Whisper is slow and memory-hungry on long audio. faster-whisper makes transcription practical on ordinary hardware.",
+      "whoFor": [
+        "Developers building transcription features",
+        "People transcribing podcasts, meetings or videos",
+        "Projects running speech-to-text on CPU"
+      ],
+      "whyChoose": "Choose it for big speed and memory gains over the original Whisper, without needing FFmpeg installed.",
+      "requirements": [
+        "Python 3.9+",
+        "For GPU: NVIDIA cuBLAS and cuDNN 9 for CUDA 12"
+      ]
+    },
+    "overview": [
+      "Install from PyPI with pip install faster-whisper. FFmpeg isn't needed because audio is decoded with PyAV.",
+      "For GPU use, install cuBLAS and cuDNN for CUDA 12; on Linux they can come from pip, or use the official NVIDIA CUDA Docker image.",
+      "Load a WhisperModel such as large-v3 on cuda or cpu with a compute type like float16 or int8, then call transcribe. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Up to 4x faster",
+        "body": "Same accuracy as Whisper."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Less memory",
+        "body": "Plus 8-bit quantization."
+      },
+      {
+        "icon": "puzzle",
+        "title": "CPU or GPU",
+        "body": "int8 on CPU, float16 on GPU."
+      },
+      {
+        "icon": "file-code",
+        "title": "Batched transcription",
+        "body": "Higher throughput."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Word timestamps",
+        "body": "Per-word timing."
+      },
+      {
+        "icon": "shield",
+        "title": "VAD filter",
+        "body": "Skip silence."
+      }
+    ],
+    "strengths": [
+      "Fast",
+      "No FFmpeg needed",
+      "MIT license"
+    ],
+    "limitations": [
+      "GPU setup needs CUDA libraries",
+      "Segments are a generator, so iterate to run"
+    ],
+    "useCases": [
+      {
+        "title": "Podcast transcripts",
+        "body": "Transcribe long audio."
+      },
+      {
+        "title": "Subtitles",
+        "body": "Word-level timestamps."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from faster-whisper's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/SYSTRAN/faster-whisper/blob/6cb639e70786aea42b9233006ae60eaf07190bdb/README.md",
+      "prerequisites": [
+        "Python 3.9+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install faster-whisper",
+              "lang": "bash"
+            },
+            {
+              "title": "GPU on Linux (optional)",
+              "body": "Install the CUDA libraries with pip, then set LD_LIBRARY_PATH before starting Python as the README shows.",
+              "code": "pip install nvidia-cublas-cu12 nvidia-cudnn-cu12==9.*",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Transcribe a file",
+          "body": "Load WhisperModel and call transcribe on an MP3."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Transcribe an audio file",
+      "useCase": "The README's usage example.",
+      "setup": [
+        "faster-whisper installed"
+      ],
+      "steps": [
+        {
+          "title": "Load a model",
+          "body": "model = WhisperModel(\"large-v3\", device=\"cpu\", compute_type=\"int8\") on CPU, or device=\"cuda\" with float16 on GPU."
+        },
+        {
+          "title": "Transcribe",
+          "body": "segments, info = model.transcribe(\"audio.mp3\", beam_size=5)."
+        },
+        {
+          "title": "Print segments",
+          "body": "Loop over segments to print start, end and text; the work happens as you iterate."
+        }
+      ],
+      "expected": "The detected language and timestamped transcript lines.",
+      "nextSteps": [
+        "Turn on word timestamps",
+        "Use the VAD filter",
+        "Try batched transcription"
+      ],
+      "sourceUrl": "https://github.com/SYSTRAN/faster-whisper/blob/6cb639e70786aea42b9233006ae60eaf07190bdb/README.md"
+    },
+    "costs": [
+      {
+        "label": "faster-whisper",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Nothing happens after transcribe",
+        "solution": "segments is a generator; iterate over it or call list(segments).",
+        "sourceUrl": "https://github.com/SYSTRAN/faster-whisper/blob/6cb639e70786aea42b9233006ae60eaf07190bdb/README.md"
+      },
+      {
+        "problem": "CUDA library errors",
+        "solution": "Install cuBLAS and cuDNN 9 for CUDA 12.",
+        "sourceUrl": "https://github.com/SYSTRAN/faster-whisper/blob/6cb639e70786aea42b9233006ae60eaf07190bdb/README.md"
+      }
+    ],
+    "bestFor": [
+      "Fast speech-to-text",
+      "Whisper transcription"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Speech-to-text library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "pip install faster-whisper"
+      }
+    ]
+  }
+}

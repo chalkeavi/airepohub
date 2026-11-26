@@ -1,0 +1,215 @@
+{
+  "fullName": "alibaba/page-agent",
+  "summary": "JavaScript library that adds an AI agent inside your web page, so users can operate your app by typing commands like 'fill in this form'.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/alibaba/page-agent/blob/d8dd334487cb2de14206aa8ca939a1613cd612dc/README.md"
+    ],
+    "sourceCommitSha": "d8dd334487cb2de14206aa8ca939a1613cd612dc",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "npm install page-agent"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Page Agent is an in-page GUI agent. You add one script or npm package to your web app, and an AI agent can click, type and fill forms on that page from natural-language instructions. It reads the page as text (DOM), so it doesn't need screenshots, multimodal models, a browser extension, Python or a headless browser.",
+      "problem": "Adding an AI copilot to a web product usually means backend work and custom tools. Page Agent runs in the browser on your existing UI.",
+      "whoFor": [
+        "SaaS teams adding an AI copilot",
+        "Developers of ERP, CRM and admin systems",
+        "Teams improving accessibility"
+      ],
+      "whyChoose": "Choose it for drop-in integration, text-based page control that works with most models including local ones, and an optional Chrome extension and MCP server for multi-page tasks.",
+      "requirements": [
+        "A web app you can add JavaScript to",
+        "An LLM endpoint and API key (OpenAI-compatible)"
+      ]
+    },
+    "overview": [
+      "For a quick test, add the demo script tag from jsDelivr, which uses a free testing LLM meant for evaluation only. Add ?autoInit=false to load it without starting the demo agent.",
+      "For real use, install the npm package, create a PageAgent with your model, base URL and API key, then call execute with an instruction such as 'Click the login button'.",
+      "It is built for client-side web enhancement, not server-side automation, and its DOM processing is derived from browser-use. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "In-page agent",
+        "body": "Pure JavaScript in your page."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Text-based DOM",
+        "body": "No screenshots or vision model."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Bring your own LLM",
+        "body": "Most mainstream and local models."
+      },
+      {
+        "icon": "file-code",
+        "title": "Chrome extension",
+        "body": "Optional multi-page tasks."
+      },
+      {
+        "icon": "git-compare",
+        "title": "MCP server (beta)",
+        "body": "Control it from agent clients."
+      },
+      {
+        "icon": "shield",
+        "title": "Demo script",
+        "body": "One-line trial."
+      }
+    ],
+    "strengths": [
+      "Very easy integration",
+      "No vision model needed",
+      "MIT license"
+    ],
+    "limitations": [
+      "Demo LLM is for evaluation only",
+      "Client-side only, not for server automation"
+    ],
+    "useCases": [
+      {
+        "title": "AI copilot in a SaaS app",
+        "body": "Users ask it to do tasks."
+      },
+      {
+        "title": "Smart form filling",
+        "body": "One sentence instead of many clicks."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Page Agent's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/alibaba/page-agent/blob/d8dd334487cb2de14206aa8ca939a1613cd612dc/README.md",
+      "prerequisites": [
+        "Node.js and npm for the package",
+        "An LLM API key"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npm",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install page-agent",
+              "lang": "bash"
+            },
+            {
+              "title": "Create the agent",
+              "body": "Import PageAgent and pass your model, baseURL, apiKey and language, then call agent.execute('Click the login button')."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Demo script (evaluation only)",
+          "method": "script-tag",
+          "steps": [
+            {
+              "title": "Add the script",
+              "body": "Uses a free testing LLM; read its terms first.",
+              "code": "<script\n    src=\"https://cdn.jsdelivr.net/npm/page-agent@1.12.4/dist/iife/page-agent.demo.js\"\n    crossorigin=\"anonymous\"\n></script>",
+              "lang": "text"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Try the demo",
+          "body": "Add the demo script to a test page and give it a command."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Add an agent to your web app",
+      "useCase": "The README's npm example.",
+      "setup": [
+        "page-agent installed",
+        "An OpenAI-compatible endpoint and key"
+      ],
+      "steps": [
+        {
+          "title": "Import",
+          "body": "import { PageAgent } from 'page-agent'."
+        },
+        {
+          "title": "Configure",
+          "body": "new PageAgent({ model, baseURL, apiKey, language: 'en-US' })."
+        },
+        {
+          "title": "Run an instruction",
+          "body": "await agent.execute('Click the login button')."
+        }
+      ],
+      "expected": "The agent finds and clicks the login button on the page.",
+      "nextSteps": [
+        "Try a form-filling task",
+        "Install the Chrome extension",
+        "Try the MCP server"
+      ],
+      "sourceUrl": "https://github.com/alibaba/page-agent/blob/d8dd334487cb2de14206aa8ca939a1613cd612dc/README.md"
+    },
+    "costs": [
+      {
+        "label": "Library",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Your LLM provider bills for usage; a free testing API exists for evaluation.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Can't reach jsDelivr",
+        "solution": "Use the China CDN mirror listed in the README.",
+        "sourceUrl": "https://github.com/alibaba/page-agent/blob/d8dd334487cb2de14206aa8ca939a1613cd612dc/README.md"
+      },
+      {
+        "problem": "Don't put a real key in public pages",
+        "solution": "Use your own backend or proxy for production keys.",
+        "sourceUrl": "https://github.com/alibaba/page-agent/blob/d8dd334487cb2de14206aa8ca939a1613cd612dc/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI copilot for web apps",
+      "In-browser agent"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "In-page web agent"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "npm install page-agent"
+      }
+    ]
+  }
+}

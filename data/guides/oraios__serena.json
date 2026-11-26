@@ -1,0 +1,193 @@
+{
+  "fullName": "oraios/serena",
+  "summary": "MCP toolkit that gives coding agents IDE-like abilities: find symbols, navigate code and make precise edits.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/oraios/serena/blob/23c06ff715409b2e9dc9be7ca26b7b2fbf356b7c/README.md"
+    ],
+    "sourceCommitSha": "23c06ff715409b2e9dc9be7ca26b7b2fbf356b7c",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "uv tool install -p 3.13 serena-agent"
+      },
+      {
+        "comment": "Initialise",
+        "command": "serena init"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Serena gives coding agents IDE-like tools for semantic code retrieval, editing, refactoring and debugging. It works at the symbol level using language servers (or a JetBrains backend) and connects to any client or LLM through MCP.",
+      "problem": "Agents that read and edit code as plain text waste tokens and make clumsy changes. Serena lets them find and edit exactly the right symbols.",
+      "whoFor": [
+        "Users of Claude Code, Codex and other coding agents",
+        "Developers working in large codebases",
+        "JetBrains IDE users"
+      ],
+      "whyChoose": "Choose it for agent-first, symbol-level tools across many languages that plug into any MCP client.",
+      "requirements": [
+        "uv"
+      ]
+    },
+    "overview": [
+      "Install with uv tool install -p 3.13 serena-agent; the serena command then becomes available. Don't install it from MCP or plugin marketplaces, which the README says have outdated commands.",
+      "Run serena init to set up the language server backend (or add -b JetBrains for the JetBrains plugin). Some languages need extra dependencies; see the language support page.",
+      "Connect it to your client with a launch command or by running the MCP server in HTTP mode; the docs cover Claude Code, Codex, Claude Desktop and IDEs. Licensing: the Serena app is GPL-3.0-or-later, and the SolidLSP part is MIT."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Symbol-level retrieval",
+        "body": "Find definitions and references."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Precise editing",
+        "body": "Edit by symbol."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Refactoring and debugging",
+        "body": "IDE-like tools."
+      },
+      {
+        "icon": "file-code",
+        "title": "Many languages",
+        "body": "Via language servers."
+      },
+      {
+        "icon": "git-compare",
+        "title": "MCP",
+        "body": "Works with any client."
+      }
+    ],
+    "strengths": [
+      "Efficient agents",
+      "Any client",
+      "Open source"
+    ],
+    "limitations": [
+      "GPL-3.0 for the app",
+      "Some languages need extra setup"
+    ],
+    "useCases": [
+      {
+        "title": "Large refactors",
+        "body": "Rename and move symbols."
+      },
+      {
+        "title": "Code navigation",
+        "body": "Answer where is this used."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Serena's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/oraios/serena/blob/23c06ff715409b2e9dc9be7ca26b7b2fbf356b7c/README.md",
+      "prerequisites": [
+        "uv"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "uv tool install -p 3.13 serena-agent",
+              "lang": "bash"
+            },
+            {
+              "title": "Initialise and verify",
+              "code": "serena init",
+              "lang": "bash"
+            },
+            {
+              "title": "Connect your MCP client",
+              "body": "Follow the clients page in the Serena docs for Claude Code, Codex, Claude Desktop or your IDE."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Check the setup",
+          "code": "serena init",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Use Serena with your coding agent",
+      "useCase": "Give your agent symbol-level tools on a project.",
+      "setup": [
+        "Serena installed and initialised",
+        "An MCP client"
+      ],
+      "steps": [
+        {
+          "title": "Add Serena to your client",
+          "body": "Configure the launch command from the docs."
+        },
+        {
+          "title": "Open a project",
+          "body": "Read about Serena's project-based workflow in the user guide."
+        },
+        {
+          "title": "Ask your agent to find and change a function"
+        }
+      ],
+      "expected": "Your agent locates and edits the right symbol precisely.",
+      "nextSteps": [
+        "Try the JetBrains backend",
+        "Read the user guide"
+      ],
+      "sourceUrl": "https://github.com/oraios/serena/blob/23c06ff715409b2e9dc9be7ca26b7b2fbf356b7c/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free; GPL-3.0-or-later (SolidLSP MIT).",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Outdated install from a marketplace",
+        "solution": "Uninstall it and use uv tool install as in the README.",
+        "sourceUrl": "https://github.com/oraios/serena/blob/23c06ff715409b2e9dc9be7ca26b7b2fbf356b7c/README.md"
+      }
+    ],
+    "bestFor": [
+      "Coding agent tools",
+      "MCP servers"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "MCP coding toolkit"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "GPL-3.0-or-later (SolidLSP MIT)"
+      },
+      {
+        "label": "Install",
+        "value": "uv tool install serena-agent"
+      }
+    ]
+  }
+}

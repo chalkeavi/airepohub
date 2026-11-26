@@ -1,0 +1,213 @@
+{
+  "fullName": "alchaincyf/huashu-design",
+  "summary": "Agent skill that turns a one-line request into finished designs: clickable app prototypes, slide decks, motion videos and infographics.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/alchaincyf/huashu-design/blob/59065698ad63f87ea1532c126c87f488d4f93fd6/README.en.md"
+    ],
+    "sourceCommitSha": "59065698ad63f87ea1532c126c87f488d4f93fd6",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "npx skills add alchaincyf/huashu-design"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Huashu Design is a skill for AI coding agents such as Claude Code, Cursor, Codex, OpenClaw and Hermes. You describe what you want and it produces design deliverables: single-file HTML app prototypes, HTML slide decks with editable PPTX, MP4 and GIF motion design, infographics, social carousels and App Store screenshots.",
+      "problem": "Making a launch video, deck or prototype normally needs design tools and skills. This skill gets an agent to produce them from a prompt, and can read your brand assets to match your style.",
+      "whoFor": [
+        "Founders and marketers who need launch assets",
+        "Developers who want quick prototypes",
+        "Agent users who don't use design tools"
+      ],
+      "whyChoose": "Choose it for many deliverable types from one skill, with the core pipeline running locally with no API keys.",
+      "requirements": [
+        "An agent that supports skills (Claude Code, Cursor, Codex and others)",
+        "Node.js for npx"
+      ]
+    },
+    "overview": [
+      "Install it with npx skills add. The skill includes 430+ referenced files in references, assets, scripts and demos folders, so check they all installed; if not, update the skills tool or git clone the repo into your skills folder.",
+      "Give it your logo, colors or screenshots and it follows your brand. With nothing, it proposes design directions to choose from. Typical jobs take about 3 to 30 minutes.",
+      "The design, render and export pipeline runs locally. Optional cloud features (narration, AI video review) use your own keys. It is MIT licensed, except demo stickers under a separate license."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "App prototypes",
+        "body": "Clickable single-file HTML."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Slide decks",
+        "body": "HTML deck plus editable PPTX."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Motion design",
+        "body": "MP4 and GIF with music."
+      },
+      {
+        "icon": "file-code",
+        "title": "Infographics",
+        "body": "Export to PDF, PNG or SVG."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Design directions",
+        "body": "Several candidates to pick from."
+      },
+      {
+        "icon": "shield",
+        "title": "Design critique",
+        "body": "Scored review with fixes."
+      }
+    ],
+    "strengths": [
+      "Works across agents",
+      "Local pipeline, no keys needed",
+      "MIT license"
+    ],
+    "limitations": [
+      "Output is HTML, not layer-editable design files",
+      "No 3D or physics animation",
+      "Quality drops without brand assets"
+    ],
+    "useCases": [
+      {
+        "title": "Product launch video",
+        "body": "Short animated promo."
+      },
+      {
+        "title": "Pitch deck",
+        "body": "Deck you can edit in PowerPoint."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Huashu Design's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/alchaincyf/huashu-design/blob/59065698ad63f87ea1532c126c87f488d4f93fd6/README.en.md",
+      "prerequisites": [
+        "A skills-capable agent",
+        "Node.js"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "skills CLI",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install the skill",
+              "code": "npx skills add alchaincyf/huashu-design",
+              "lang": "bash"
+            },
+            {
+              "title": "Check the install",
+              "body": "Make sure the references, assets, scripts and demos folders are present in the installed skill."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "git clone fallback",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone into your skills folder",
+              "code": "git clone https://github.com/alchaincyf/huashu-design.git ~/.claude/skills/huashu-design",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Ask for a design",
+          "body": "In your agent, describe a prototype, deck or animation you want."
+        },
+        {
+          "title": "Share brand assets",
+          "body": "Add a logo, palette or UI screenshots for on-brand results."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Make a clickable app prototype",
+      "useCase": "Turn an app idea into an HTML prototype.",
+      "setup": [
+        "Skill installed in your agent"
+      ],
+      "steps": [
+        {
+          "title": "Describe the app",
+          "body": "Explain the screens and main flow you want."
+        },
+        {
+          "title": "Pick a direction",
+          "body": "Choose from the design directions it proposes."
+        },
+        {
+          "title": "Open the HTML",
+          "body": "Click through the prototype in your browser."
+        }
+      ],
+      "expected": "A single-file HTML prototype with navigable screens.",
+      "nextSteps": [
+        "Make a launch animation",
+        "Export a deck to PPTX",
+        "Ask for a design critique"
+      ],
+      "sourceUrl": "https://github.com/alchaincyf/huashu-design/blob/59065698ad63f87ea1532c126c87f488d4f93fd6/README.en.md"
+    },
+    "costs": [
+      {
+        "label": "Skill",
+        "value": "Free under MIT, including commercial use.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent",
+        "value": "Your agent's model usage is billed by its provider.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Skill behaves oddly after install",
+        "solution": "Update with npm i -g skills@latest, or use the git clone install.",
+        "sourceUrl": "https://github.com/alchaincyf/huashu-design/blob/59065698ad63f87ea1532c126c87f488d4f93fd6/README.en.md"
+      }
+    ],
+    "bestFor": [
+      "AI design deliverables",
+      "Agent skill for designs"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent skill"
+      },
+      {
+        "label": "Outputs",
+        "value": "HTML, PPTX, MP4, GIF, PDF"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "npx skills add alchaincyf/huashu-design"
+      }
+    ]
+  }
+}
