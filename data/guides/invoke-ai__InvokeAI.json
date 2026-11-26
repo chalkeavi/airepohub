@@ -1,0 +1,201 @@
+{
+  "fullName": "invoke-ai/InvokeAI",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/invoke-ai/InvokeAI/blob/78eded1a589940f01f83e0675785568b55a95332/README.md"
+    ],
+    "sourceCommitSha": "78eded1a589940f01f83e0675785568b55a95332",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Download the Invoke Launcher",
+        "command": "https://github.com/invoke-ai/launcher/releases/latest"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Invoke is a creative app for making images with AI. It runs a web interface on your own computer where you generate, edit and refine images, paint on a canvas with in-painting and out-painting, and build reusable node-based workflows.",
+      "problem": "Running image models like Stable Diffusion and Flux by hand means juggling scripts and model files. Invoke wraps them in a polished local app with a canvas, a gallery and a model manager, free under a commercially friendly license.",
+      "whoFor": [
+        "Artists and designers using AI image generation",
+        "Hobbyists running image models on their own GPU",
+        "Studios building repeatable image workflows",
+        "Users who want a canvas rather than a chat box"
+      ],
+      "whyChoose": "Choose it for a professional-feeling local UI with a unified canvas, node workflows and support for many model families, from SD 1.5 and SDXL to Flux and Qwen Image.",
+      "requirements": [
+        "Compatible hardware (see the installation docs)",
+        "Disk space for image models"
+      ]
+    },
+    "overview": [
+      "You install Invoke with its Launcher, downloaded from the invoke-ai/launcher releases page. Invoke then runs a locally hosted web server with a React interface.",
+      "The Unified Canvas supports generation, in-painting, out-painting and brush tools. Workflows and Nodes let you build and share custom generation pipelines, and the gallery stores images with metadata so you can reuse settings.",
+      "Supported models include SD 1.5, SD 2.0, SDXL, SD 3.5, Flux.1 and Flux.2 variants, CogView 4, Qwen Image and more, plus some API-only models. It supports ckpt, diffusers and some gguf models, upscaling, embeddings and SAM/SAM2 segmentation. The project is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Unified Canvas",
+        "body": "In-painting, out-painting and brush tools."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Workflows and nodes",
+        "body": "Build and share custom pipelines."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Gallery and boards",
+        "body": "Organise images with rich metadata."
+      },
+      {
+        "icon": "file-code",
+        "title": "Many models",
+        "body": "SD, SDXL, Flux, Qwen Image and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Model manager",
+        "body": "Manage checkpoints, diffusers and embeddings."
+      },
+      {
+        "icon": "shield",
+        "title": "Upscaling and segmentation",
+        "body": "Upscalers and SAM / SAM2."
+      }
+    ],
+    "strengths": [
+      "Polished local web UI",
+      "Commercially friendly license",
+      "Broad model support",
+      "Free to use"
+    ],
+    "limitations": [
+      "Needs capable hardware for local models",
+      "Some listed models are API-only",
+      "Install details live in the docs, not the README"
+    ],
+    "useCases": [
+      {
+        "title": "Concept art",
+        "body": "Generate and refine images on a canvas."
+      },
+      {
+        "title": "Photo editing",
+        "body": "In-paint or out-paint parts of an image."
+      },
+      {
+        "title": "Repeatable pipelines",
+        "body": "Save node workflows for consistent output."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Invoke's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/invoke-ai/InvokeAI/blob/78eded1a589940f01f83e0675785568b55a95332/README.md",
+      "prerequisites": [
+        "Compatible hardware"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Invoke Launcher",
+          "method": "launcher",
+          "steps": [
+            {
+              "title": "Download the Launcher",
+              "body": "Get the latest release for your system from https://github.com/invoke-ai/launcher/releases/latest."
+            },
+            {
+              "title": "Run the Launcher and follow its steps",
+              "body": "It installs and starts Invoke. See the installation docs for hardware requirements."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open the Invoke web UI from the Launcher",
+          "body": "Install a model in the model manager, then generate your first image."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Generate and refine your first image",
+      "useCase": "Install Invoke, add a model and create an image on the canvas.",
+      "setup": [
+        "Invoke installed with the Launcher"
+      ],
+      "steps": [
+        {
+          "title": "Add a model",
+          "body": "Use the model manager to install a supported model, such as an SDXL or Flux model."
+        },
+        {
+          "title": "Generate",
+          "body": "Write a prompt and generate an image."
+        },
+        {
+          "title": "Refine on the canvas",
+          "body": "Use in-painting to change part of the image, then save it to the gallery."
+        }
+      ],
+      "expected": "Your images appear in the gallery with their settings stored as metadata.",
+      "nextSteps": [
+        "Build a node workflow",
+        "Try upscaling",
+        "Read the documentation and tutorials"
+      ],
+      "sourceUrl": "https://github.com/invoke-ai/InvokeAI/blob/78eded1a589940f01f83e0675785568b55a95332/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free to use under the Apache 2.0 license.",
+        "tone": "free"
+      },
+      {
+        "label": "Hardware",
+        "value": "Runs on your own machine; image models need a capable GPU.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Installation problems",
+        "solution": "Check the FAQ in the Invoke documentation, or ask on Discord.",
+        "sourceUrl": "https://github.com/invoke-ai/InvokeAI/blob/78eded1a589940f01f83e0675785568b55a95332/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI image generation",
+      "Canvas editing",
+      "Image workflows"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI image generation app"
+      },
+      {
+        "label": "Language",
+        "value": "Python, TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "Launcher"
+      }
+    ]
+  }
+}

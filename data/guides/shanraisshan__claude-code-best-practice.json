@@ -1,0 +1,208 @@
+{
+  "fullName": "shanraisshan/claude-code-best-practice",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/shanraisshan/claude-code-best-practice/blob/53e34a13a163b621ef3f91dae4665c74694398a0/README.md"
+    ],
+    "sourceCommitSha": "53e34a13a163b621ef3f91dae4665c74694398a0",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Get the repository",
+        "command": "git clone https://github.com/shanraisshan/claude-code-best-practice.git\ncd claude-code-best-practice"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "claude-code-best-practice is a learning resource for Claude Code. It explains each building block, such as subagents, commands, skills, hooks, MCP servers, memory and settings, with a best-practice note and a working example in the repository.",
+      "problem": "Claude Code has many features and it's hard to know how they fit together. This repo maps each one to where it lives (like .claude/agents or CLAUDE.md), links the official docs, and shows a full command to agent to skill workflow you can copy.",
+      "whoFor": [
+        "Claude Code users moving beyond chat-style use",
+        "Developers building their own agent workflows",
+        "Teams writing CLAUDE.md and project settings",
+        "Learners who prefer examples over docs alone"
+      ],
+      "whyChoose": "Choose it as a structured course: concept tables with links, implementations you can run, and a large tips and tricks section to apply to your own project.",
+      "requirements": [
+        "Claude Code installed",
+        "git"
+      ]
+    },
+    "overview": [
+      "The README is organised as tables. The Concepts table covers subagents, commands, skills, workflows, hooks, MCP servers, plugins, settings, status line, memory, checkpointing, sessions and the context window, each with its file location, official docs link and the repo's own best-practice and implementation notes. A Hot table tracks newer features.",
+      "The author suggests reading it as a course rather than installing it as a workflow. Running the /weather-orchestrator command shows a complete command, agent and skill flow you can use as a template.",
+      "There's also a tips and tricks section, sourced from the Claude team, that you can point Claude at to suggest improvements to your own CLAUDE.md. The repository is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Concept map",
+        "body": "Every Claude Code feature with its file location."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Best-practice notes",
+        "body": "A written guide per feature."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Implementations",
+        "body": "Working examples in the repo."
+      },
+      {
+        "icon": "file-code",
+        "title": "Orchestration example",
+        "body": "The /weather-orchestrator workflow."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Tips and tricks",
+        "body": "Advice sourced from the Claude team."
+      },
+      {
+        "icon": "shield",
+        "title": "Hot features",
+        "body": "Tracks newly released features."
+      }
+    ],
+    "strengths": [
+      "Clear structure",
+      "Links to official docs",
+      "Runnable examples",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Reference material, not a tool",
+      "Specific to Claude Code",
+      "Feature list changes quickly"
+    ],
+    "useCases": [
+      {
+        "title": "Learn Claude Code",
+        "body": "Work through the concept tables."
+      },
+      {
+        "title": "Improve your CLAUDE.md",
+        "body": "Ask Claude to apply the tips to your project."
+      },
+      {
+        "title": "Template a workflow",
+        "body": "Copy the command to agent to skill pattern."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from claude-code-best-practice's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/shanraisshan/claude-code-best-practice/blob/53e34a13a163b621ef3f91dae4665c74694398a0/README.md",
+      "prerequisites": [
+        "Claude Code",
+        "git"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Clone and open in Claude Code",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/shanraisshan/claude-code-best-practice.git\ncd claude-code-best-practice",
+              "lang": "bash"
+            },
+            {
+              "title": "Open it in Claude Code",
+              "code": "claude",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run the example workflow inside Claude Code",
+          "code": "/weather-orchestrator",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "See a full command, agent and skill workflow",
+      "useCase": "Run the example orchestration and use it as a template.",
+      "setup": [
+        "Claude Code installed",
+        "Repository cloned"
+      ],
+      "steps": [
+        {
+          "title": "Start Claude Code in the repo",
+          "code": "cd claude-code-best-practice\nclaude",
+          "lang": "bash"
+        },
+        {
+          "title": "Run the orchestrator command",
+          "code": "/weather-orchestrator",
+          "lang": "text"
+        },
+        {
+          "title": "Read how it's built",
+          "body": "Open orchestration-workflow/orchestration-workflow.md and .claude/commands/weather-orchestrator.md."
+        }
+      ],
+      "expected": "You see a command hand work to an agent that uses a skill, and the files that define each part.",
+      "nextSteps": [
+        "Read the subagents and skills best-practice notes",
+        "Apply the tips section to your own CLAUDE.md",
+        "Explore the Hot features table"
+      ],
+      "sourceUrl": "https://github.com/shanraisshan/claude-code-best-practice/blob/53e34a13a163b621ef3f91dae4665c74694398a0/README.md"
+    },
+    "costs": [
+      {
+        "label": "Repository",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Claude Code",
+        "value": "Needs a Claude subscription or API usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Slash command not found",
+        "solution": "Make sure Claude Code was started inside the cloned repository folder.",
+        "sourceUrl": "https://github.com/shanraisshan/claude-code-best-practice/blob/53e34a13a163b621ef3f91dae4665c74694398a0/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning Claude Code",
+      "Agent workflow patterns",
+      "CLAUDE.md tips"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Learning resource"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "For",
+        "value": "Claude Code"
+      },
+      {
+        "label": "Format",
+        "value": "Docs plus examples"
+      }
+    ]
+  }
+}

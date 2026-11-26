@@ -1,0 +1,317 @@
+{
+  "fullName": "crewAIInc/crewAI",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/crewAIInc/crewAI/blob/77237aecacb204684a80e334dcd8eefa90d7ee60/README.md"
+    ],
+    "sourceCommitSha": "77237aecacb204684a80e334dcd8eefa90d7ee60",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install the CrewAI CLI with uv",
+        "command": "uv tool install crewai"
+      },
+      {
+        "comment": "Create and run a crew",
+        "command": "crewai create crew my_project\ncd my_project\ncrewai install\ncrewai run"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "CrewAI is an open-source Python framework for building teams of AI agents. You give each agent a role, a goal and tools, assign them tasks, and they work together to finish multi-step jobs like research and report writing.",
+      "problem": "A single prompt or chatbot struggles with multi-step work that needs research, tools and review. CrewAI splits that work across specialised agents (Crews) and lets you wrap them in event-driven workflows with explicit control (Flows).",
+      "whoFor": [
+        "Python developers building agent workflows",
+        "Teams automating research and reporting",
+        "Builders who want agents plus plain Python business logic",
+        "Learners following the DeepLearning.AI CrewAI courses"
+      ],
+      "whyChoose": "Choose it when you want role-based agents that collaborate, plus precise workflow control in regular Python, in one framework that runs from prototype to production.",
+      "requirements": [
+        "Python 3.10 to 3.13",
+        "uv package manager",
+        "An API key for your model provider (OpenAI by default)"
+      ]
+    },
+    "overview": [
+      "CrewAI has two building blocks. Crews are teams of autonomous agents with roles, goals and backstories that delegate and collaborate. Flows are event-driven workflows with state, branching and routing that can call single LLMs or whole Crews.",
+      "The crewai CLI scaffolds a project: agents live in agents/*.jsonc, tasks and crew settings in crew.jsonc, and crewai run loads them. A --classic option creates the older Python/YAML layout. Agents use the OpenAI API by default, and the docs show how to connect other providers, including local models through Ollama.",
+      "CrewAI is MIT licensed. It sends anonymous telemetry by default, which you can turn off with OTEL_SDK_DISABLED=true. A commercial AMP Suite adds managed deployment and observability."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Crews",
+        "body": "Role-based agents that collaborate and delegate."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Flows",
+        "body": "Event-driven workflows with state and branching."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Project CLI",
+        "body": "Scaffold, install and run crews from the terminal."
+      },
+      {
+        "icon": "file-code",
+        "title": "Tools and memory",
+        "body": "Tools, memory, knowledge and checkpointing."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Any model",
+        "body": "OpenAI by default; other providers and local models supported."
+      },
+      {
+        "icon": "shield",
+        "title": "MCP and A2A",
+        "body": "Support for MCP and agent-to-agent protocols."
+      }
+    ],
+    "strengths": [
+      "Clear role, goal and task model",
+      "Mix autonomy with deterministic steps",
+      "Plain Python, MIT licensed",
+      "Large community and free courses"
+    ],
+    "limitations": [
+      "Needs an LLM API key or a local model",
+      "Anonymous telemetry is on unless you disable it",
+      "Requires Python 3.10 to 3.13"
+    ],
+    "useCases": [
+      {
+        "title": "Research reports",
+        "body": "A researcher and an analyst agent produce a report."
+      },
+      {
+        "title": "Business automations",
+        "body": "Flows with branching that call agents when needed."
+      },
+      {
+        "title": "Content pipelines",
+        "body": "Agents that draft, review and refine text."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from CrewAI's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/crewAIInc/crewAI/blob/77237aecacb204684a80e334dcd8eefa90d7ee60/README.md",
+      "prerequisites": [
+        "Python 3.10 to 3.13",
+        "uv"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "macOS / Linux",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install uv",
+              "code": "curl -LsSf https://astral.sh/uv/install.sh | sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Install the CrewAI CLI",
+              "code": "uv tool install crewai",
+              "lang": "bash"
+            },
+            {
+              "title": "Fix PATH if uv warns about it",
+              "code": "uv tool update-shell",
+              "lang": "bash"
+            },
+            {
+              "title": "Check the install",
+              "code": "uv tool list",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Linux",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install uv",
+              "code": "curl -LsSf https://astral.sh/uv/install.sh | sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Install the CrewAI CLI",
+              "code": "uv tool install crewai",
+              "lang": "bash"
+            },
+            {
+              "title": "Fix PATH if uv warns about it",
+              "code": "uv tool update-shell",
+              "lang": "bash"
+            },
+            {
+              "title": "Check the install",
+              "code": "uv tool list",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Windows",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install uv in PowerShell",
+              "code": "powershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"",
+              "lang": "powershell"
+            },
+            {
+              "title": "Install the CrewAI CLI",
+              "code": "uv tool install crewai",
+              "lang": "powershell"
+            },
+            {
+              "title": "Check the install",
+              "code": "uv tool list",
+              "lang": "powershell"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "OPENAI_API_KEY",
+          "required": false,
+          "description": "Key for the default OpenAI models; use your own provider's key if you connect another model."
+        },
+        {
+          "name": "SERPER_API_KEY",
+          "required": false,
+          "description": "Only needed if your agents use the Serper web search tool."
+        },
+        {
+          "name": "OTEL_SDK_DISABLED",
+          "required": false,
+          "description": "Set to true to turn off anonymous telemetry."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Create a crew project",
+          "code": "crewai create crew latest-ai-development\ncd latest_ai_development",
+          "lang": "bash"
+        },
+        {
+          "title": "Add your model API key to the .env file, then install and run",
+          "code": "crewai install\ncrewai run",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build a two-agent research crew",
+      "useCase": "Create a researcher and a reporting analyst that research a topic and write a report.",
+      "setup": [
+        "CrewAI CLI installed",
+        "A model provider API key"
+      ],
+      "steps": [
+        {
+          "title": "Scaffold the project",
+          "code": "crewai create crew latest-ai-development\ncd latest_ai_development",
+          "lang": "bash"
+        },
+        {
+          "title": "Edit the agents",
+          "body": "Set each agent's role, goal, backstory, model and tools in agents/*.jsonc. Use {topic} placeholders and set a default under inputs in crew.jsonc."
+        },
+        {
+          "title": "Add keys",
+          "body": "Put your model provider key, and SERPER_API_KEY if you use web search, in the .env file."
+        },
+        {
+          "title": "Install and run",
+          "code": "crewai install\ncrewai run",
+          "lang": "bash"
+        }
+      ],
+      "expected": "The agents' work prints in the console and output/report.md is created in the project folder.",
+      "nextSteps": [
+        "Try the hierarchical process with a manager agent",
+        "Wrap the crew in a Flow",
+        "Connect a local model through Ollama"
+      ],
+      "sourceUrl": "https://github.com/crewAIInc/crewAI/blob/77237aecacb204684a80e334dcd8eefa90d7ee60/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Model usage",
+        "value": "You pay your LLM provider for API calls, unless you run a local model.",
+        "tone": "depends"
+      },
+      {
+        "label": "CrewAI AMP",
+        "value": "Optional commercial suite; the Crew Control Plane has a free tier.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "crewai command not found after install",
+        "solution": "Run uv tool update-shell, then open a new terminal.",
+        "sourceUrl": "https://github.com/crewAIInc/crewAI/blob/77237aecacb204684a80e334dcd8eefa90d7ee60/README.md"
+      },
+      {
+        "problem": "Wrong Python version",
+        "solution": "CrewAI needs Python 3.10 up to but not including 3.14.",
+        "sourceUrl": "https://github.com/crewAIInc/crewAI/blob/77237aecacb204684a80e334dcd8eefa90d7ee60/README.md"
+      },
+      {
+        "problem": "Agents can't search the web",
+        "solution": "Add SERPER_API_KEY to your .env file.",
+        "sourceUrl": "https://github.com/crewAIInc/crewAI/blob/77237aecacb204684a80e334dcd8eefa90d7ee60/README.md"
+      },
+      {
+        "problem": "Want to stop telemetry",
+        "solution": "Set OTEL_SDK_DISABLED=true.",
+        "sourceUrl": "https://github.com/crewAIInc/crewAI/blob/77237aecacb204684a80e334dcd8eefa90d7ee60/README.md"
+      }
+    ],
+    "bestFor": [
+      "Multi-agent workflows",
+      "Research and reporting automation",
+      "Agent orchestration in Python"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Multi-agent framework"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Installs with",
+        "value": "uv"
+      }
+    ]
+  }
+}

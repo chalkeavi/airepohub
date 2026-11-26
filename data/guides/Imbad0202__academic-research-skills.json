@@ -1,0 +1,234 @@
+{
+  "fullName": "Imbad0202/academic-research-skills",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Imbad0202/academic-research-skills/blob/91273b26fd926ddeab317ef99d830379140ae40a/README.md"
+    ],
+    "sourceCommitSha": "91273b26fd926ddeab317ef99d830379140ae40a",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install in Claude Code",
+        "command": "/plugin marketplace add Imbad0202/academic-research-skills\n/plugin install academic-research-skills"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Academic Research Skills (ARS) is a suite of Claude Code skills for academic research, from planning a paper through literature review and drafting to publication. It keeps you in charge, pausing for your confirmation at every stage.",
+      "problem": "AI writing tools can invent citations and push researchers out of the decisions. ARS handles grunt work like finding references and formatting citations, adds integrity checks such as citation verification, and stops for your approval at each step.",
+      "whoFor": [
+        "Graduate students and academics writing papers",
+        "Researchers doing literature reviews",
+        "Claude Code users in academia",
+        "Teams that need citation checks"
+      ],
+      "whyChoose": "Choose it for a human-in-the-loop research pipeline with integrity gates, citation anchors and an optional claim audit, built for Claude Code and available for other hosts.",
+      "requirements": [
+        "Claude Code (latest)",
+        "ANTHROPIC_API_KEY or a Claude login",
+        "Optional: Pandoc for DOCX, tectonic for PDF"
+      ]
+    },
+    "overview": [
+      "Install it as a Claude Code plugin, then run /ars-plan to map a paper's structure through Socratic dialogue, or /ars-lit-review for a one-shot literature review. It also works on claude.ai and Claude Desktop paid plans as a plugin added from a repository, though hooks and plugin agents don't run in plain chat there.",
+      "The pipeline includes integrity gates with a blocking checklist of known AI research failure modes, locator anchors on every citation and an opt-in claim audit (ARS_CLAIM_AUDIT=1) that checks each cited source. Style Calibration learns your voice from past work.",
+      "The README estimates about US$3 to 7 in model costs for a full 15,000-word paper at 2026-09 list prices. Sibling distributions exist for Codex CLI and Pi. ARS is licensed CC BY-NC 4.0, which does not allow commercial use."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Full research pipeline",
+        "body": "Planning, review, drafting and publication."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Human in the loop",
+        "body": "Stops for confirmation at each stage."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Citation integrity",
+        "body": "Locator anchors and optional claim audit."
+      },
+      {
+        "icon": "file-code",
+        "title": "Style Calibration",
+        "body": "Learns your writing voice."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Export",
+        "body": "DOCX via Pandoc, APA PDF via tectonic."
+      },
+      {
+        "icon": "shield",
+        "title": "Multi-host",
+        "body": "Claude Code, claude.ai, Codex and Pi versions."
+      }
+    ],
+    "strengths": [
+      "Strong focus on research integrity",
+      "You stay in control",
+      "Detailed setup and risk docs"
+    ],
+    "limitations": [
+      "Non-commercial license (CC BY-NC 4.0)",
+      "Best features need Claude Code",
+      "Hooks don't run in plain claude.ai chat"
+    ],
+    "useCases": [
+      {
+        "title": "Plan a paper",
+        "body": "Map chapters with /ars-plan."
+      },
+      {
+        "title": "Literature review",
+        "body": "Run /ars-lit-review on a topic."
+      },
+      {
+        "title": "Check citations",
+        "body": "Turn on the claim audit before submitting."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Academic Research Skills's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Imbad0202/academic-research-skills/blob/91273b26fd926ddeab317ef99d830379140ae40a/README.md",
+      "prerequisites": [
+        "Claude Code",
+        "Anthropic API key or Claude login"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code plugin",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace and install",
+              "code": "/plugin marketplace add Imbad0202/academic-research-skills\n/plugin install academic-research-skills",
+              "lang": "text"
+            },
+            {
+              "title": "Check it works",
+              "code": "/ars-plan",
+              "lang": "text"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "required": false,
+          "description": "Export it, or set it on first claude run."
+        },
+        {
+          "name": "ARS_CLAIM_AUDIT",
+          "required": false,
+          "description": "Set to 1 to turn on the opt-in claim audit."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Plan a paper",
+          "body": "Describe a paper you're working on; ARS starts a Socratic dialogue to map its structure.",
+          "code": "/ars-plan",
+          "lang": "text"
+        },
+        {
+          "title": "Or try a single-shot literature review",
+          "code": "/ars-lit-review \"your topic\"",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Map out your paper with /ars-plan",
+      "useCase": "Use Socratic dialogue to plan chapters before writing.",
+      "setup": [
+        "ARS installed in Claude Code"
+      ],
+      "steps": [
+        {
+          "title": "Start the planner",
+          "code": "/ars-plan",
+          "lang": "text"
+        },
+        {
+          "title": "Answer its questions",
+          "body": "Describe your research question, field and target venue; confirm each stage."
+        },
+        {
+          "title": "Run a literature review on a section",
+          "code": "/ars-lit-review \"your topic\"",
+          "lang": "text"
+        }
+      ],
+      "expected": "You get a chapter structure for your paper and a literature review with anchored citations.",
+      "nextSteps": [
+        "Turn on ARS_CLAIM_AUDIT=1",
+        "Set up Pandoc for DOCX export",
+        "Read docs/SETUP.md for other install methods"
+      ],
+      "sourceUrl": "https://github.com/Imbad0202/academic-research-skills/blob/91273b26fd926ddeab317ef99d830379140ae40a/README.md"
+    },
+    "costs": [
+      {
+        "label": "Skills",
+        "value": "Free for non-commercial use (CC BY-NC 4.0).",
+        "tone": "free"
+      },
+      {
+        "label": "Model usage",
+        "value": "About US$3 to 7 for a full 15k-word paper at 2026-09 list prices, per the README.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "/plugin not available",
+        "solution": "Update Claude Code; plugin packaging needs a recent version (v3.7.0+ of ARS).",
+        "sourceUrl": "https://github.com/Imbad0202/academic-research-skills/blob/91273b26fd926ddeab317ef99d830379140ae40a/README.md"
+      },
+      {
+        "problem": "Hooks or agents not running on claude.ai",
+        "solution": "They don't run in plain chat; use Claude Code for full features.",
+        "sourceUrl": "https://github.com/Imbad0202/academic-research-skills/blob/91273b26fd926ddeab317ef99d830379140ae40a/README.md"
+      },
+      {
+        "problem": "No DOCX or PDF output",
+        "solution": "Install Pandoc (DOCX) or tectonic and Source Han Serif TC (APA PDF).",
+        "sourceUrl": "https://github.com/Imbad0202/academic-research-skills/blob/91273b26fd926ddeab317ef99d830379140ae40a/README.md"
+      }
+    ],
+    "bestFor": [
+      "Academic writing",
+      "Literature reviews",
+      "Citation integrity"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Claude Code skills suite"
+      },
+      {
+        "label": "License",
+        "value": "CC BY-NC 4.0"
+      },
+      {
+        "label": "For",
+        "value": "Academic research"
+      },
+      {
+        "label": "Install",
+        "value": "Claude Code plugin"
+      }
+    ]
+  }
+}

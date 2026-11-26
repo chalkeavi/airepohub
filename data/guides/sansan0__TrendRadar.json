@@ -1,0 +1,268 @@
+{
+  "fullName": "sansan0/TrendRadar",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/sansan0/TrendRadar/blob/ad2221fae0d908f6c11f40f70680dd5f9b41cd5d/README-EN.md"
+    ],
+    "sourceCommitSha": "ad2221fae0d908f6c11f40f70680dd5f9b41cd5d",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Clone and run locally with uv",
+        "command": "git clone https://github.com/sansan0/TrendRadar.git\ncd TrendRadar\nuv sync\nuv run python -m trendradar"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "TrendRadar is a self-hosted news assistant. It collects trending topics from 11 Chinese platforms such as Weibo, Zhihu and Bilibili plus your RSS feeds, filters them by your keywords or with AI, and pushes a digest to WeChat Work, Telegram, Slack, email and other channels.",
+      "problem": "Scrolling many trending lists to find the few stories you care about wastes time. TrendRadar watches them for you, keeps only matching news, and sends it to the apps you already use, with optional AI analysis and translation.",
+      "whoFor": [
+        "People following Chinese trending news",
+        "Analysts tracking topics across platforms",
+        "Users who want a news digest in Telegram, Slack or WeChat",
+        "Self-hosters with a server, NAS or always-on PC"
+      ],
+      "whyChoose": "Choose it for a lightweight, quick-to-deploy news monitor that supports keyword or AI filtering and many push channels, deployable with Docker, GitHub Actions or locally.",
+      "requirements": [
+        "Docker, or uv for local runs, or a GitHub account for Actions",
+        "A push channel (Telegram, Slack, email, WeChat Work and others)",
+        "An AI model API key only if you use the AI features"
+      ]
+    },
+    "overview": [
+      "By default TrendRadar monitors 11 platforms, including Zhihu, Douyin, Bilibili, Baidu, Weibo and Toutiao, and you can add custom platforms and RSS or Atom feeds. Trending data comes through the API of the newsnow project.",
+      "Filtering uses keywords in config/frequency_words.txt, or AI mode, where you describe your interests in plain language in ai_interests.txt and AI scores each story. AI features also include analysis reports and multi-language translation. Main settings live in config/config.yaml.",
+      "There are three ways to deploy: Docker (recommended, more stable), GitHub Actions created from the template (needs a check-in renewal every 7 days and cloud storage), or locally with uv. An MCP server is also available. The project is GPL-3.0 licensed, and its main README is in Chinese with an English version."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Multi-platform trending",
+        "body": "11 platforms by default, plus custom ones."
+      },
+      {
+        "icon": "scan-search",
+        "title": "RSS feeds",
+        "body": "Merged with trending into one push."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Keyword or AI filtering",
+        "body": "Describe interests in plain language."
+      },
+      {
+        "icon": "file-code",
+        "title": "Many push channels",
+        "body": "WeChat Work, Telegram, Slack, email and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "AI analysis and translation",
+        "body": "Summaries and multi-language output."
+      },
+      {
+        "icon": "shield",
+        "title": "MCP server",
+        "body": "Query collected news from AI clients."
+      }
+    ],
+    "strengths": [
+      "Quick to deploy",
+      "Flexible keyword and AI filtering",
+      "Many notification channels",
+      "Docker, Actions or local"
+    ],
+    "limitations": [
+      "Focused on Chinese platforms",
+      "GitHub Actions mode needs renewal every 7 days",
+      "Depends on the newsnow API for trending data"
+    ],
+    "useCases": [
+      {
+        "title": "Daily topic digest",
+        "body": "Get matching trending news in Telegram each morning."
+      },
+      {
+        "title": "Brand monitoring",
+        "body": "Track keywords across platforms."
+      },
+      {
+        "title": "AI-filtered news",
+        "body": "Let AI pick stories that match your interests."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from TrendRadar's English README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/sansan0/TrendRadar/blob/ad2221fae0d908f6c11f40f70680dd5f9b41cd5d/README-EN.md",
+      "prerequisites": [
+        "Docker, uv, or a GitHub account"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Local with uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install uv (macOS / Linux)",
+              "code": "curl -LsSf https://astral.sh/uv/install.sh | sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Clone and run",
+              "body": "Edit config/config.yaml first to set your push channels.",
+              "code": "git clone https://github.com/sansan0/TrendRadar.git\ncd TrendRadar\nuv sync\nuv run python -m trendradar",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Windows",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install uv in PowerShell",
+              "code": "powershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"",
+              "lang": "powershell"
+            },
+            {
+              "title": "Clone and run",
+              "body": "Or double-click setup-windows-en.bat for one-click setup.",
+              "code": "git clone https://github.com/sansan0/TrendRadar.git\ncd TrendRadar\nuv sync\nuv run python -m trendradar",
+              "lang": "powershell"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker Compose",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Get the project",
+              "code": "git clone https://github.com/sansan0/TrendRadar.git\ncd TrendRadar",
+              "lang": "bash"
+            },
+            {
+              "title": "Configure",
+              "body": "Set settings in config/config.yaml and keywords in config/frequency_words.txt; put secrets in docker/.env."
+            },
+            {
+              "title": "Start it from the docker folder",
+              "code": "cd docker\ndocker compose up -d",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Set your keywords and a push channel",
+          "body": "Add topics you care about to config/frequency_words.txt and a channel such as a Telegram bot in config/config.yaml."
+        },
+        {
+          "title": "Run once",
+          "code": "uv run python -m trendradar",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Get AI-filtered news in your chat app",
+      "useCase": "Switch filtering to AI and describe your interests in plain language.",
+      "setup": [
+        "TrendRadar running",
+        "A push channel configured",
+        "An AI model API key"
+      ],
+      "steps": [
+        {
+          "title": "Turn on AI filtering in config/config.yaml",
+          "code": "filter:\n  method: ai",
+          "lang": "text"
+        },
+        {
+          "title": "Describe your interests",
+          "body": "Write your focus areas in everyday language in config/ai_interests.txt."
+        },
+        {
+          "title": "Run it",
+          "code": "uv run python -m trendradar",
+          "lang": "bash"
+        }
+      ],
+      "expected": "Only news that AI scores as relevant to your interests is pushed to your channel; if AI filtering fails it falls back to keywords.",
+      "nextSteps": [
+        "Add RSS feeds",
+        "Turn on AI translation",
+        "Deploy with Docker for always-on runs"
+      ],
+      "sourceUrl": "https://github.com/sansan0/TrendRadar/blob/ad2221fae0d908f6c11f40f70680dd5f9b41cd5d/README-EN.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under GPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Hosting",
+        "value": "Runs on your own machine, server or GitHub Actions.",
+        "tone": "depends"
+      },
+      {
+        "label": "AI features",
+        "value": "Optional; your AI provider bills for usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Runtime issues after forking",
+        "solution": "Use the Use this template button instead of Fork, as the README advises.",
+        "sourceUrl": "https://github.com/sansan0/TrendRadar/blob/ad2221fae0d908f6c11f40f70680dd5f9b41cd5d/README-EN.md"
+      },
+      {
+        "problem": "GitHub Actions stops running",
+        "solution": "Actions mode needs a check-in renewal every 7 days.",
+        "sourceUrl": "https://github.com/sansan0/TrendRadar/blob/ad2221fae0d908f6c11f40f70680dd5f9b41cd5d/README-EN.md"
+      },
+      {
+        "problem": "No notifications",
+        "solution": "Check the push channel settings in config/config.yaml or docker/.env.",
+        "sourceUrl": "https://github.com/sansan0/TrendRadar/blob/ad2221fae0d908f6c11f40f70680dd5f9b41cd5d/README-EN.md"
+      }
+    ],
+    "bestFor": [
+      "Trending news monitoring",
+      "News digests in chat apps",
+      "Chinese social platforms"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "News monitoring and push tool"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "GPL-3.0"
+      },
+      {
+        "label": "Deploy",
+        "value": "Docker, GitHub Actions or uv"
+      }
+    ]
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "fullName": "pathwaycom/serviette",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/pathwaycom/serviette/blob/53c6382ba8587b232cd9f3be5f316141b136b700/README.md"
+    ],
+    "sourceCommitSha": "53c6382ba8587b232cd9f3be5f316141b136b700",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install and run the demo",
+        "command": "pip install serviette\nexport PATHWAY_LICENSE_KEY=...\nexport OPENAI_API_KEY=sk-...\nserviette demo --embedder openai"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "serviette is a no-code RAG server built on the Pathway framework. Point it at a folder of documents, choose a vector database and an embedder in one YAML file, and you get a chat page and a REST API that answer from those documents with cited sources.",
+      "problem": "Most document Q&A setups go stale: someone has to re-upload or re-index files after every change. serviette watches your sources and reflects edits, new files and deletions in its answers within seconds.",
+      "whoFor": [
+        "Teams that want Q&A over internal documents",
+        "Developers who need a RAG API without writing pipeline code",
+        "Organisations that want data to stay on their own machines",
+        "Users of pgvector, Qdrant, Milvus and other vector databases"
+      ],
+      "whyChoose": "Choose it for an always-up-to-date RAG server configured in one YAML file, with eight vector database backends and a fully local option using local embeddings and DuckDB.",
+      "requirements": [
+        "Python 3.10+",
+        "pip 23.1 or newer",
+        "A free Pathway license key",
+        "An LLM API key for answer text (optional with a local stack)"
+      ]
+    },
+    "overview": [
+      "serviette runs two processes, an indexer and a stateless API server, that share only the vector database. DuckDB is the default zero-setup backend; pgvector, Qdrant, Milvus, ChromaDB, Weaviate, Pinecone and MongoDB Atlas are also supported.",
+      "Sources can be local folders, Google Drive, S3 or MinIO, SharePoint and anything PyFilesystem opens, such as FTP or SFTP. It parses text, Office files, PDFs with tables, scanned images, and with API keys, audio and video. Embedders include OpenAI, LiteLLM, SentenceTransformers, Gemini and Bedrock.",
+      "The server hosts a chat page on / next to the versioned API at /api/v1. A serviette wizard command can generate the YAML config. It needs a free Pathway license key from pathway.com. The repository is MIT licensed, and the older llm-app templates now live in the Pathway repository."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Live updates",
+        "body": "Edits and deletions show up in seconds."
+      },
+      {
+        "icon": "scan-search",
+        "title": "8 vector databases",
+        "body": "DuckDB default, plus pgvector, Qdrant and more."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Many sources",
+        "body": "Local, Google Drive, S3, SharePoint, FTP."
+      },
+      {
+        "icon": "file-code",
+        "title": "Multimodal",
+        "body": "PDFs, Office, images, audio and video."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Chat UI and REST API",
+        "body": "Same port, no extra service."
+      },
+      {
+        "icon": "shield",
+        "title": "Scales out",
+        "body": "Stateless server and sharded indexer."
+      }
+    ],
+    "strengths": [
+      "No code, one YAML file",
+      "Answers cite their sources",
+      "Fully local option",
+      "Built on a mature engine"
+    ],
+    "limitations": [
+      "Requires a (free) Pathway license key",
+      "Old pip versions can take hours to resolve dependencies",
+      "Answer generation needs a model API unless you set up a local stack"
+    ],
+    "useCases": [
+      {
+        "title": "Company knowledge assistant",
+        "body": "Q&A over policies and docs with citations."
+      },
+      {
+        "title": "Support documentation bot",
+        "body": "Answers that follow doc edits instantly."
+      },
+      {
+        "title": "Private RAG",
+        "body": "Local embeddings and DuckDB on your own machine."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from serviette's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/pathwaycom/serviette/blob/53c6382ba8587b232cd9f3be5f316141b136b700/README.md",
+      "prerequisites": [
+        "Python 3.10+",
+        "pip 23.1+",
+        "Pathway license key"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Upgrade pip first",
+              "code": "python -m pip install -U pip",
+              "lang": "bash"
+            },
+            {
+              "title": "Install serviette",
+              "code": "pip install serviette",
+              "lang": "bash"
+            },
+            {
+              "title": "Set your keys",
+              "body": "Get a free Pathway license at pathway.com/framework/get-license.",
+              "code": "export PATHWAY_LICENSE_KEY=...\nexport OPENAI_API_KEY=sk-...",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "PATHWAY_LICENSE_KEY",
+          "required": true,
+          "description": "Free Pathway license key, required by every command."
+        },
+        {
+          "name": "OPENAI_API_KEY",
+          "required": false,
+          "description": "Needed when you use OpenAI for embeddings or answers."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Run the demo",
+          "body": "It indexes a small bundled corpus into ./serviette-demo/docs and opens a chat at http://localhost:8989.",
+          "code": "serviette demo --embedder openai",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Watch answers change as you edit a document",
+      "useCase": "Run the demo, ask a question, edit a file and ask again.",
+      "setup": [
+        "serviette installed",
+        "PATHWAY_LICENSE_KEY and OPENAI_API_KEY set"
+      ],
+      "steps": [
+        {
+          "title": "Start the demo",
+          "code": "serviette demo --embedder openai",
+          "lang": "bash"
+        },
+        {
+          "title": "Ask a question in the chat",
+          "body": "Open http://localhost:8989 and ask about the bundled coffee-machine company docs."
+        },
+        {
+          "title": "Edit or add a file",
+          "body": "Change a file in ./serviette-demo/docs while it runs, then ask again."
+        }
+      ],
+      "expected": "Within seconds the answer reflects your edit and cites the changed document.",
+      "nextSteps": [
+        "Generate your own config with serviette wizard",
+        "Switch to a local embedder",
+        "Connect pgvector or Qdrant"
+      ],
+      "sourceUrl": "https://github.com/pathwaycom/serviette/blob/53c6382ba8587b232cd9f3be5f316141b136b700/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Open source under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Pathway license",
+        "value": "Free, but required.",
+        "tone": "free"
+      },
+      {
+        "label": "Model usage",
+        "value": "Optional model API for answer text is billed per question.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install takes hours",
+        "solution": "Upgrade to pip 23.1 or newer first.",
+        "sourceUrl": "https://github.com/pathwaycom/serviette/blob/53c6382ba8587b232cd9f3be5f316141b136b700/README.md"
+      },
+      {
+        "problem": "Commands fail at start",
+        "solution": "Set PATHWAY_LICENSE_KEY.",
+        "sourceUrl": "https://github.com/pathwaycom/serviette/blob/53c6382ba8587b232cd9f3be5f316141b136b700/README.md"
+      }
+    ],
+    "bestFor": [
+      "Live RAG over documents",
+      "No-code RAG server",
+      "Private document Q&A"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "RAG server"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Built on",
+        "value": "Pathway"
+      }
+    ]
+  }
+}

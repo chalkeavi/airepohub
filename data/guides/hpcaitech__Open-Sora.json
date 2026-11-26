@@ -1,0 +1,236 @@
+{
+  "fullName": "hpcaitech/Open-Sora",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/hpcaitech/Open-Sora/blob/7ad6a96a135feb81f755c84fb391818718f6beb2/README.md"
+    ],
+    "sourceCommitSha": "7ad6a96a135feb81f755c84fb391818718f6beb2",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "git clone https://github.com/hpcaitech/Open-Sora\ncd Open-Sora\npip install -v ."
+      },
+      {
+        "comment": "Generate a 256px video",
+        "command": "torchrun --nproc_per_node 1 --standalone scripts/diffusion/inference.py configs/diffusion/inference/t2i2v_256px.py --save-dir samples --prompt \"raining, sea\""
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Open-Sora is an open-source video generation model and toolkit from HPC-AI Tech. Its 11B Open-Sora 2.0 model turns text prompts or images into short videos, and the project publishes checkpoints, training code and technical reports.",
+      "problem": "High-quality video generation has mostly been locked inside commercial products. Open-Sora makes the model, training pipeline and details open so anyone can generate, fine-tune or study video models.",
+      "whoFor": [
+        "Researchers studying video generation",
+        "Developers with strong GPUs exploring text-to-video",
+        "Teams fine-tuning video models",
+        "Students reading the technical reports"
+      ],
+      "whyChoose": "Choose it for a fully open video model with weights, training code and reports. The README reports Open-Sora 2.0 performing on par with 11B HunyuanVideo and 30B Step-Video on VBench and human preference.",
+      "requirements": [
+        "Linux with an NVIDIA GPU",
+        "Python 3.10",
+        "PyTorch 2.4.0 or newer",
+        "Large disk space for the 11B checkpoint"
+      ]
+    },
+    "overview": [
+      "The 11B model supports 256px and 768px resolution, and one model handles both text-to-video and image-to-video. It is optimised for image-to-video, so its text-to-video path first creates an image with the Flux text-to-image model and then animates it; direct text-to-video is also available.",
+      "Install into a Python 3.10 environment, add xformers and flash-attn, then download weights from Hugging Face or ModelScope into ./ckpts. Generate with torchrun and a config file; options set aspect ratio and number of frames, and --offload True saves memory. 768px on multiple GPUs uses ColossalAI sequence parallelism.",
+      "Older versions live in separate branches. The project is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Text-to-video",
+        "body": "From a prompt, via text-to-image or directly."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Image-to-video",
+        "body": "Animate a reference image."
+      },
+      {
+        "icon": "puzzle",
+        "title": "256px and 768px",
+        "body": "Two resolutions, many aspect ratios."
+      },
+      {
+        "icon": "file-code",
+        "title": "Open training code",
+        "body": "Train or fine-tune your own model."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Video autoencoder",
+        "body": "High-compression VAE included."
+      },
+      {
+        "icon": "shield",
+        "title": "Multi-GPU inference",
+        "body": "Sequence parallelism for 768px."
+      }
+    ],
+    "strengths": [
+      "Fully open weights and training code",
+      "Detailed technical reports",
+      "Strong benchmark results for its size"
+    ],
+    "limitations": [
+      "Needs powerful NVIDIA GPUs",
+      "Complex install (xformers, flash-attn)",
+      "768px generation is much heavier"
+    ],
+    "useCases": [
+      {
+        "title": "Short video clips",
+        "body": "Generate 5-second clips from prompts."
+      },
+      {
+        "title": "Animate images",
+        "body": "Image-to-video from a reference frame."
+      },
+      {
+        "title": "Research",
+        "body": "Study or fine-tune a video model."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Open-Sora's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/hpcaitech/Open-Sora/blob/7ad6a96a135feb81f755c84fb391818718f6beb2/README.md",
+      "prerequisites": [
+        "NVIDIA GPU",
+        "conda or another Python 3.10 environment",
+        "PyTorch 2.4+"
+      ],
+      "supportedOs": [
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "linux",
+          "label": "From source",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Create an environment",
+              "code": "conda create -n opensora python=3.10\nconda activate opensora",
+              "lang": "bash"
+            },
+            {
+              "title": "Get the code and install",
+              "body": "Make sure torch is 2.4.0 or newer.",
+              "code": "git clone https://github.com/hpcaitech/Open-Sora\ncd Open-Sora\npip install -v .",
+              "lang": "bash"
+            },
+            {
+              "title": "Install attention libraries",
+              "body": "Pick the xformers build for your CUDA version.",
+              "code": "pip install xformers==0.0.27.post2 --index-url https://download.pytorch.org/whl/cu121\npip install flash-attn --no-build-isolation",
+              "lang": "bash"
+            },
+            {
+              "title": "Download the model",
+              "code": "pip install \"huggingface_hub[cli]\"\nhuggingface-cli download hpcai-tech/Open-Sora-v2 --local-dir ./ckpts",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Generate a video from a prompt at 256px",
+          "code": "torchrun --nproc_per_node 1 --standalone scripts/diffusion/inference.py configs/diffusion/inference/t2i2v_256px.py --save-dir samples --prompt \"raining, sea\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Low on memory? Add offloading",
+          "code": "torchrun --nproc_per_node 1 --standalone scripts/diffusion/inference.py configs/diffusion/inference/t2i2v_256px.py --save-dir samples --prompt \"raining, sea\" --offload True",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Generate your first Open-Sora video",
+      "useCase": "Install Open-Sora, download the 11B model and make a 256px clip.",
+      "setup": [
+        "Linux with an NVIDIA GPU",
+        "Open-Sora installed",
+        "Weights in ./ckpts"
+      ],
+      "steps": [
+        {
+          "title": "Run text-to-image-to-video",
+          "code": "torchrun --nproc_per_node 1 --standalone scripts/diffusion/inference.py configs/diffusion/inference/t2i2v_256px.py --save-dir samples --prompt \"raining, sea\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Try several prompts from a CSV file",
+          "code": "torchrun --nproc_per_node 1 --standalone scripts/diffusion/inference.py configs/diffusion/inference/t2i2v_256px.py --save-dir samples --dataset.data-path assets/texts/example.csv",
+          "lang": "bash"
+        }
+      ],
+      "expected": "Generated videos are saved in the samples folder.",
+      "nextSteps": [
+        "Try 768px with t2i2v_768px.py",
+        "Change --aspect_ratio and --num_frames",
+        "Read the Open-Sora 2.0 tech report"
+      ],
+      "sourceUrl": "https://github.com/hpcaitech/Open-Sora/blob/7ad6a96a135feb81f755c84fb391818718f6beb2/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Hardware",
+        "value": "Needs powerful NVIDIA GPUs; 768px benefits from multiple GPUs.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Out of GPU memory",
+        "solution": "Add --offload True, or use 256px instead of 768px.",
+        "sourceUrl": "https://github.com/hpcaitech/Open-Sora/blob/7ad6a96a135feb81f755c84fb391818718f6beb2/README.md"
+      },
+      {
+        "problem": "xformers install fails",
+        "solution": "Install the xformers build that matches your CUDA version.",
+        "sourceUrl": "https://github.com/hpcaitech/Open-Sora/blob/7ad6a96a135feb81f755c84fb391818718f6beb2/README.md"
+      },
+      {
+        "problem": "Looking for an older version",
+        "solution": "Old versions live in separate branches of the repository.",
+        "sourceUrl": "https://github.com/hpcaitech/Open-Sora/blob/7ad6a96a135feb81f755c84fb391818718f6beb2/README.md"
+      }
+    ],
+    "bestFor": [
+      "Open video generation",
+      "Video model research",
+      "Image-to-video"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Video generation model"
+      },
+      {
+        "label": "Language",
+        "value": "Python (PyTorch)"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Model size",
+        "value": "11B (Open-Sora 2.0)"
+      }
+    ]
+  }
+}

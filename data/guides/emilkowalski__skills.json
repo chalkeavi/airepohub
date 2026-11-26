@@ -1,0 +1,200 @@
+{
+  "fullName": "emilkowalski/skills",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/emilkowalski/skills/blob/64eb3deb9a5fbfa041faf783e0bc3fd635872e9c/README.md"
+    ],
+    "sourceCommitSha": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install the skills",
+        "command": "npx skills@latest add emilkowalski/skills"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "A set of AI agent skills from designer and engineer Emil Kowalski that help coding agents build better user interfaces, especially animations. They cover easing, timing, gestures, performance and design choices, based on his work at companies like Vercel and Linear.",
+      "problem": "AI agents often pick the wrong details for UI motion, such as an ease-in curve on an enter animation, and small mistakes add up to an interface that feels off. These skills list those mistakes and how to fix them.",
+      "whoFor": [
+        "Front-end engineers using AI agents",
+        "Designers who code",
+        "Teams polishing animations and interactions",
+        "React Native and Expo developers"
+      ],
+      "whyChoose": "Choose it to give your agent expert taste in motion and interface details, with skills for building, reviewing, auditing and removing animations.",
+      "requirements": [
+        "An AI coding agent that supports skills",
+        "Node.js for npx"
+      ]
+    },
+    "overview": [
+      "The main skill, emil-design-eng, is mostly about animation with some design advice. Others build an animation from scratch (animate, animate-expo), review or improve existing ones, find or remove animation opportunities, coordinate several elements (choreograph) and fix dropped frames (animation-performance).",
+      "Further skills cover Apple-style design principles, 1:1 gestures, picking UI libraries, prototyping several versions of a component, making web apps feel native on phones, stress-testing UI with worst-case data, and learn-taste, which turns your corrections into rules in DESIGN.md.",
+      "Every skill has a page at aiforui.dev/skills with when to use it, an example result and prompts to try. The repository is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Animation skills",
+        "body": "Build, review and improve motion."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Performance",
+        "body": "Fix animations that drop frames."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Gestures",
+        "body": "Drag, swipe and sheets that track the finger."
+      },
+      {
+        "icon": "file-code",
+        "title": "Design advice",
+        "body": "Apple principles and UI library picks."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Mobile polish",
+        "body": "Make web apps feel native on phones."
+      },
+      {
+        "icon": "shield",
+        "title": "learn-taste",
+        "body": "Turn your corrections into rules."
+      }
+    ],
+    "strengths": [
+      "Expert, specific guidance",
+      "Covers web and React Native",
+      "One-command install",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Focused on UI and animation",
+      "Results depend on your agent and model"
+    ],
+    "useCases": [
+      {
+        "title": "Review animations",
+        "body": "Run review-animations on a component."
+      },
+      {
+        "title": "Audit a codebase",
+        "body": "Use improve-animations for prioritised fixes."
+      },
+      {
+        "title": "Mobile web polish",
+        "body": "Apply mobile-native fixes."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Emil Kowalski's skills's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/emilkowalski/skills/blob/64eb3deb9a5fbfa041faf783e0bc3fd635872e9c/README.md",
+      "prerequisites": [
+        "An AI coding agent",
+        "Node.js"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npx skills",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install the skills",
+              "code": "npx skills@latest add emilkowalski/skills",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Ask your agent which skill fits",
+          "body": "Use ask-emil: describe your situation and it points you to the right skill or sequence."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Review the animations in your app",
+      "useCase": "Use the review skill to check animations against strict rules.",
+      "setup": [
+        "Skills installed",
+        "A project with UI animations"
+      ],
+      "steps": [
+        {
+          "title": "Install",
+          "code": "npx skills@latest add emilkowalski/skills",
+          "lang": "bash"
+        },
+        {
+          "title": "Ask for a review",
+          "body": "Ask your agent to review a component's animations; it applies review-animations."
+        },
+        {
+          "title": "Apply the fixes",
+          "body": "Use improve-animations for prioritised, self-contained plans."
+        }
+      ],
+      "expected": "Your agent lists animation problems, such as wrong easing or duration, with how to fix each one.",
+      "nextSteps": [
+        "Try find-animation-opportunities",
+        "Run learn-taste at the end of a session",
+        "Read the skill pages on aiforui.dev"
+      ],
+      "sourceUrl": "https://github.com/emilkowalski/skills/blob/64eb3deb9a5fbfa041faf783e0bc3fd635872e9c/README.md"
+    },
+    "costs": [
+      {
+        "label": "Skills",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent",
+        "value": "Your AI agent's subscription or API usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Not sure which skill to use",
+        "solution": "Use the ask-emil skill to be pointed to the right one.",
+        "sourceUrl": "https://github.com/emilkowalski/skills/blob/64eb3deb9a5fbfa041faf783e0bc3fd635872e9c/README.md"
+      }
+    ],
+    "bestFor": [
+      "UI animation",
+      "Design engineering",
+      "Agent skills for front-end"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent skills library"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Focus",
+        "value": "UI and animation"
+      },
+      {
+        "label": "Install",
+        "value": "npx skills"
+      }
+    ]
+  }
+}

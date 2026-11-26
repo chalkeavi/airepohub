@@ -1,0 +1,268 @@
+{
+  "fullName": "binary-husky/gpt_academic",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/binary-husky/gpt_academic/blob/d6bde0fa54373309bd05823a49bda8da019d2c77/README.md"
+    ],
+    "sourceCommitSha": "d6bde0fa54373309bd05823a49bda8da019d2c77",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Download the project",
+        "command": "git clone --depth=1 https://github.com/binary-husky/gpt_academic.git\ncd gpt_academic"
+      },
+      {
+        "comment": "Install and run",
+        "command": "python -m pip install -r requirements.txt\npython main.py"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "GPT Academic is a web app that puts large language models to work on academic tasks. Its one-click plugins translate and polish papers, read LaTeX and PDF papers and summarise them, translate arXiv articles, explain code and generate comments.",
+      "problem": "Researchers spend hours translating papers, fixing grammar in LaTeX and summarising long PDFs. GPT Academic bundles those jobs as plugins in one interface, with your choice of OpenAI or Chinese models like Qwen and GLM.",
+      "whoFor": [
+        "Researchers and students writing papers",
+        "Readers translating English or Chinese papers",
+        "Developers analysing unfamiliar codebases",
+        "Users of Chinese LLMs such as Qwen and GLM"
+      ],
+      "whyChoose": "Choose it for a large set of ready-made academic plugins, from arXiv translation to LaTeX proofreading, with support for many model providers in one app. The main README is in Chinese, with English and other translations in the docs folder.",
+      "requirements": [
+        "Python 3.9 to 3.11",
+        "An LLM API key (OpenAI, Qwen, GLM and others)",
+        "Docker as an alternative"
+      ]
+    },
+    "overview": [
+      "You set API keys and options in config.py, or better in a private config_private.py that overrides it, or through environment variables. Several API keys can coexist, for example OpenAI and Azure keys in one setting.",
+      "Plugins cover paper translation and polishing, full PDF translation, arXiv paper translation, LaTeX grammar checking, Google Scholar related-work drafting, project code analysis, batch comment generation and Mermaid diagram rendering. Formulas show in both TeX and rendered form.",
+      "Optional extras add local models like ChatGLM and MOSS, which need more dependencies and a strong GPU. Several Docker images cover different capability sets. The project is GPL-3.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Paper translation",
+        "body": "Translate PDF, LaTeX and arXiv papers."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Polishing and proofreading",
+        "body": "Grammar and style fixes for papers."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Code analysis",
+        "body": "Explain a project or generate comments."
+      },
+      {
+        "icon": "file-code",
+        "title": "Many models",
+        "body": "OpenAI, Qwen, GLM, local models and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Plugin system",
+        "body": "Hot-reloadable custom plugins."
+      },
+      {
+        "icon": "shield",
+        "title": "Formula display",
+        "body": "TeX and rendered formulas side by side."
+      }
+    ],
+    "strengths": [
+      "Large set of academic plugins",
+      "Supports Chinese and Western models",
+      "Docker and local install options",
+      "Open source"
+    ],
+    "limitations": [
+      "Main README is in Chinese",
+      "Local models need extra setup and a strong GPU",
+      "GPL-3.0 license"
+    ],
+    "useCases": [
+      {
+        "title": "Translate a paper",
+        "body": "Translate an arXiv or PDF paper in one click."
+      },
+      {
+        "title": "Proofread LaTeX",
+        "body": "Check grammar and spelling and output a comparison PDF."
+      },
+      {
+        "title": "Understand a codebase",
+        "body": "Analyse a project tree with a plugin."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from GPT Academic's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/binary-husky/gpt_academic/blob/d6bde0fa54373309bd05823a49bda8da019d2c77/README.md",
+      "prerequisites": [
+        "Python 3.9 to 3.11",
+        "git",
+        "An LLM API key"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Run with pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Download the project",
+              "code": "git clone --depth=1 https://github.com/binary-husky/gpt_academic.git\ncd gpt_academic",
+              "lang": "bash"
+            },
+            {
+              "title": "Set your API key",
+              "body": "Put API_KEY and other settings in config_private.py (it overrides config.py) or in environment variables."
+            },
+            {
+              "title": "Install dependencies",
+              "body": "Use the exact versions in requirements.txt.",
+              "code": "python -m pip install -r requirements.txt",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the app",
+              "code": "python main.py",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Run with Anaconda",
+          "method": "conda",
+          "steps": [
+            {
+              "title": "Create and activate an environment",
+              "code": "conda create -n gptac_venv python=3.11\nconda activate gptac_venv",
+              "lang": "bash"
+            },
+            {
+              "title": "Install dependencies and run",
+              "code": "python -m pip install -r requirements.txt\npython main.py",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Choose a scheme in docker-compose.yml",
+              "body": "Keep the scheme you want (for example scheme 1, online models only, recommended for most people) and delete the others."
+            },
+            {
+              "title": "Start it",
+              "code": "docker-compose up",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "API_KEY",
+          "required": true,
+          "description": "Your model provider key(s), set in config_private.py, config.py or the environment; several keys can be comma-separated."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Start the app and open the address it prints",
+          "code": "python main.py",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Translate an arXiv paper",
+      "useCase": "Use the arXiv plugin to translate a paper's abstract and download its PDF.",
+      "setup": [
+        "GPT Academic running",
+        "An API key configured"
+      ],
+      "steps": [
+        {
+          "title": "Start the app",
+          "code": "python main.py",
+          "lang": "bash"
+        },
+        {
+          "title": "Pick the arXiv helper plugin",
+          "body": "Paste an arXiv article URL into the input box and run the plugin."
+        }
+      ],
+      "expected": "The plugin translates the abstract and downloads the paper's PDF.",
+      "nextSteps": [
+        "Try full PDF translation",
+        "Proofread a LaTeX paper",
+        "Switch to a different model in config"
+      ],
+      "sourceUrl": "https://github.com/binary-husky/gpt_academic/blob/d6bde0fa54373309bd05823a49bda8da019d2c77/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under GPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Model usage",
+        "value": "Your LLM provider bills for API calls; local models are free but need a strong GPU.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Dependency errors",
+        "solution": "Install the exact versions pinned in requirements.txt; Python 3.9 to 3.11 is recommended.",
+        "sourceUrl": "https://github.com/binary-husky/gpt_academic/blob/d6bde0fa54373309bd05823a49bda8da019d2c77/README.md"
+      },
+      {
+        "problem": "Settings not applied",
+        "solution": "Settings in config_private.py override config.py; check you edited the right file.",
+        "sourceUrl": "https://github.com/binary-husky/gpt_academic/blob/d6bde0fa54373309bd05823a49bda8da019d2c77/README.md"
+      },
+      {
+        "problem": "ChatGLM fails to load",
+        "solution": "Local models need extra requirements files and enough GPU memory; see the README's optional steps.",
+        "sourceUrl": "https://github.com/binary-husky/gpt_academic/blob/d6bde0fa54373309bd05823a49bda8da019d2c77/README.md"
+      }
+    ],
+    "bestFor": [
+      "Paper translation",
+      "Academic writing help",
+      "Chinese LLM users"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Academic AI assistant (web app)"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "GPL-3.0"
+      },
+      {
+        "label": "Install",
+        "value": "pip, conda or Docker"
+      }
+    ]
+  }
+}

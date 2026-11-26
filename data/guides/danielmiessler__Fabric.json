@@ -1,0 +1,312 @@
+{
+  "fullName": "danielmiessler/Fabric",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/danielmiessler/Fabric/blob/d3ee2c3bfbc63da0a25f4a485ad1aad0b29b88aa/README.md"
+    ],
+    "sourceCommitSha": "d3ee2c3bfbc63da0a25f4a485ad1aad0b29b88aa",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "One-line install (macOS, Linux)",
+        "command": "curl -fsSL https://raw.githubusercontent.com/danielmiessler/fabric/main/scripts/installer/install.sh | bash"
+      },
+      {
+        "comment": "Set up providers and keys",
+        "command": "fabric --setup"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Fabric is an open-source command-line tool that organises AI prompts, called patterns, by real-world task. You pipe text, a web page or a YouTube video into a pattern like summarize or extract_wisdom, and get the result from the AI model of your choice.",
+      "problem": "Good prompts get lost across chat apps and notes, and using AI inside everyday workflows means a lot of copy and paste. Fabric keeps a library of tested prompts and runs them from the terminal, so you can chain them with other command-line tools.",
+      "whoFor": [
+        "Command-line users who want AI in their workflow",
+        "People who summarise articles, videos and papers",
+        "Developers who want a reusable prompt library",
+        "Anyone who wants to try many AI providers from one tool"
+      ],
+      "whyChoose": "Choose it for a large ready-made library of task prompts and one CLI that works with OpenAI, Anthropic, Gemini, Ollama and many other providers.",
+      "requirements": [
+        "macOS, Linux or Windows",
+        "An API key for an AI provider, or a local model through Ollama"
+      ]
+    },
+    "overview": [
+      "Fabric's core idea is patterns: Markdown prompt files organised by task, like summarize, analyze_claims and extract_wisdom. You can run them through the fabric CLI or just read and copy them from the patterns folder.",
+      "Input can come from stdin, a URL (scraped to Markdown via Jina AI) or a YouTube video. Run fabric --setup once to choose your providers and enter keys. Supported providers include OpenAI, Anthropic, Google Gemini, Ollama, Azure OpenAI, Amazon Bedrock, Vertex AI and LM Studio.",
+      "You can add your own patterns in ~/.config/fabric/patterns. Fabric also has a REST API server. It's written in Go and MIT licensed; older videos show the earlier Python version, so follow the current install steps."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Pattern library",
+        "body": "A library of task-focused prompts."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Pipe anything in",
+        "body": "stdin, URLs and YouTube videos."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Many providers",
+        "body": "OpenAI, Anthropic, Gemini, Ollama and more."
+      },
+      {
+        "icon": "file-code",
+        "title": "Custom patterns",
+        "body": "Save your own prompts as Markdown."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Streaming",
+        "body": "See results as they generate."
+      },
+      {
+        "icon": "shield",
+        "title": "REST API",
+        "body": "Use Fabric from other apps."
+      }
+    ],
+    "strengths": [
+      "Prompts are reusable and shareable",
+      "Fits Unix-style pipelines",
+      "Works with local models",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Command-line first",
+      "Needs an AI provider or local model",
+      "Homebrew and AUR installs name it fabric-ai"
+    ],
+    "useCases": [
+      {
+        "title": "Summarise articles",
+        "body": "Pipe text into the summarize pattern."
+      },
+      {
+        "title": "Learn from videos",
+        "body": "Run extract_wisdom on a YouTube link."
+      },
+      {
+        "title": "Check claims",
+        "body": "Run analyze_claims on a web page."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Fabric's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/danielmiessler/Fabric/blob/d3ee2c3bfbc63da0a25f4a485ad1aad0b29b88aa/README.md",
+      "prerequisites": [
+        "An AI provider API key or Ollama"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "One-line install",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Run the installer",
+              "code": "curl -fsSL https://raw.githubusercontent.com/danielmiessler/fabric/main/scripts/installer/install.sh | bash",
+              "lang": "bash"
+            },
+            {
+              "title": "Run setup",
+              "code": "fabric --setup",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "macos",
+          "label": "Homebrew",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install fabric-ai",
+              "lang": "bash"
+            },
+            {
+              "title": "Add an alias, since Homebrew names it fabric-ai",
+              "code": "alias fabric='fabric-ai'",
+              "lang": "bash"
+            },
+            {
+              "title": "Run setup",
+              "code": "fabric --setup",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "One-line install",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Run the installer",
+              "code": "curl -fsSL https://raw.githubusercontent.com/danielmiessler/fabric/main/scripts/installer/install.sh | bash",
+              "lang": "bash"
+            },
+            {
+              "title": "Run setup",
+              "code": "fabric --setup",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "PowerShell installer",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Run the installer",
+              "code": "iwr -useb https://raw.githubusercontent.com/danielmiessler/fabric/main/scripts/installer/install.ps1 | iex",
+              "lang": "powershell"
+            },
+            {
+              "title": "Run setup",
+              "code": "fabric --setup",
+              "lang": "powershell"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Winget",
+          "method": "winget",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "winget install danielmiessler.Fabric",
+              "lang": "powershell"
+            },
+            {
+              "title": "Run setup",
+              "code": "fabric --setup",
+              "lang": "powershell"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "From source (Go)",
+          "method": "go",
+          "steps": [
+            {
+              "title": "Install with Go",
+              "code": "go install github.com/danielmiessler/fabric/cmd/fabric@latest",
+              "lang": "bash"
+            },
+            {
+              "title": "Run setup",
+              "code": "fabric --setup",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Summarise text from your clipboard (macOS)",
+          "code": "pbpaste | fabric --pattern summarize",
+          "lang": "bash"
+        },
+        {
+          "title": "Analyse a web page",
+          "code": "fabric -u https://github.com/danielmiessler/fabric/ -p analyze_claims",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Pull the key ideas out of a YouTube video",
+      "useCase": "Run the extract_wisdom pattern on a video and stream the result.",
+      "setup": [
+        "Fabric installed",
+        "fabric --setup done with a provider"
+      ],
+      "steps": [
+        {
+          "title": "Run the pattern on a video",
+          "code": "fabric -y \"https://youtube.com/watch?v=uXs-zPc63kM\" --stream --pattern extract_wisdom",
+          "lang": "bash"
+        },
+        {
+          "title": "Try another pattern on a web page",
+          "code": "fabric -u https://github.com/danielmiessler/fabric/ -p analyze_claims",
+          "lang": "bash"
+        }
+      ],
+      "expected": "Fabric streams a structured summary of the video's main ideas to your terminal.",
+      "nextSteps": [
+        "Browse the patterns folder",
+        "Write your own pattern in ~/.config/fabric/patterns",
+        "Run the REST API server"
+      ],
+      "sourceUrl": "https://github.com/danielmiessler/Fabric/blob/d3ee2c3bfbc63da0a25f4a485ad1aad0b29b88aa/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Model usage",
+        "value": "Your AI provider bills for usage; local models through Ollama are free to run.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "fabric: command not found after Homebrew or AUR install",
+        "solution": "These name it fabric-ai; add alias fabric='fabric-ai'.",
+        "sourceUrl": "https://github.com/danielmiessler/Fabric/blob/d3ee2c3bfbc63da0a25f4a485ad1aad0b29b88aa/README.md"
+      },
+      {
+        "problem": "Installer problems",
+        "solution": "See scripts/installer/README.md in the repository.",
+        "sourceUrl": "https://github.com/danielmiessler/Fabric/blob/d3ee2c3bfbc63da0a25f4a485ad1aad0b29b88aa/README.md"
+      },
+      {
+        "problem": "No models available",
+        "solution": "Run fabric --setup and add a provider key.",
+        "sourceUrl": "https://github.com/danielmiessler/Fabric/blob/d3ee2c3bfbc63da0a25f4a485ad1aad0b29b88aa/README.md"
+      }
+    ],
+    "bestFor": [
+      "Prompt library",
+      "Summarising content",
+      "AI in the terminal"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI prompt framework (CLI)"
+      },
+      {
+        "label": "Language",
+        "value": "Go"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Providers",
+        "value": "OpenAI, Anthropic, Gemini, Ollama and more"
+      }
+    ]
+  }
+}
