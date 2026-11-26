@@ -1,0 +1,252 @@
+{
+  "fullName": "ifixai-ai/iFixAi",
+  "summary": "Independent auditor that tests your AI agent in a simulation of your business to catch risky actions and blind spots before launch.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ifixai-ai/iFixAi/blob/ba677410d21c1f382b1268e6ebde6136e6b54f44/README.md"
+    ],
+    "sourceCommitSha": "ba677410d21c1f382b1268e6ebde6136e6b54f44",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Try the demo audit (no API key)",
+        "command": "pip install ifixai\nifixai author reference -o reference.yaml\nifixai validate reference.yaml\nifixai run --provider mock --eval-mode self --fixture reference.yaml"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "iFixAi audits AI agents before you trust them with real work. It places your agent in a simulation of your business, sends it the kinds of requests a real day brings, including risky ones, and grades how it behaves against your goals, rules and who may do what.",
+      "problem": "It's hard to know whether an agent will respect your business rules or do something it shouldn't. iFixAi combines red teaming, governance and assurance checks into a repeatable audit you can run yourself or from your coding agent.",
+      "whoFor": [
+        "Teams shipping AI agents to production",
+        "Security and governance staff",
+        "Developers testing support or ops agents",
+        "Auditors evaluating agent behaviour"
+      ],
+      "whyChoose": "Choose it for an independent, repeatable agent audit that shows the cost before running and works from Claude Code, Codex, Cursor and other tools.",
+      "requirements": [
+        "Python",
+        "An API key for the judge model (not needed for the demo)",
+        "Your agent's endpoint and token for real audits"
+      ]
+    },
+    "overview": [
+      "The quick start runs a demo with a built-in mock agent and canned grades, so you see the flow without any API key. It builds a simulation for a fictional fintech support agent and runs the 10 default inspections.",
+      "The recommended way is from your coding agent: install the plugin (Claude Code, Codex) or the skill (Cursor, VS Code, Windsurf, Zed and more) and ask it to run iFixAi on your agent. It builds the environment and shows the cost before anything is billed.",
+      "There is also a guided CLI: describe your agent in a profile, build and validate its environment, set up the run with ifixai setup, then run with --dry-run first. The project is Apache-2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Business simulation",
+        "body": "Tests the agent in your context."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Default inspections",
+        "body": "10 checks out of the box."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Dry runs",
+        "body": "See tests and judge calls before paying."
+      },
+      {
+        "icon": "file-code",
+        "title": "Coding agent plugins",
+        "body": "Claude Code, Codex, Cursor and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Many judges",
+        "body": "OpenAI, Anthropic, Gemini and others."
+      }
+    ],
+    "strengths": [
+      "Demo runs with no API key",
+      "Shows cost before running",
+      "Apache-2.0 licensed"
+    ],
+    "limitations": [
+      "Real audits need a judge model key",
+      "You describe your agent's profile first"
+    ],
+    "useCases": [
+      {
+        "title": "Pre-launch audit",
+        "body": "Check a support agent before release."
+      },
+      {
+        "title": "CI checks",
+        "body": "Run audits from scripts or CI."
+      },
+      {
+        "title": "Governance review",
+        "body": "Show how an agent respects permissions."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from iFixAi's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ifixai-ai/iFixAi/blob/ba677410d21c1f382b1268e6ebde6136e6b54f44/README.md",
+      "prerequisites": [
+        "Python"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip (CLI)",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install ifixai",
+              "lang": "bash"
+            },
+            {
+              "title": "Run the demo audit",
+              "code": "ifixai author reference -o reference.yaml\nifixai validate reference.yaml\nifixai run --provider mock --eval-mode self --fixture reference.yaml",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Claude Code plugin",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace and install",
+              "code": "/plugin marketplace add ifixai-ai/iFixAi\n/plugin install ifixai@ifixai-community",
+              "lang": "text"
+            },
+            {
+              "title": "Ask it to audit your agent",
+              "body": "Or type /ifixai:ifixai; run /reload-plugins if it doesn't show up."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Skill for other agents",
+          "method": "uvx",
+          "steps": [
+            {
+              "title": "Install the skill",
+              "body": "Swap cursor for claude, vscode, windsurf, cline, gemini, zed or all.",
+              "code": "uvx ifixai install --agents cursor",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "AGENT_API_KEY",
+          "required": false,
+          "description": "Your agent's own token for real audits."
+        },
+        {
+          "name": "OPENAI_API_KEY",
+          "required": false,
+          "description": "Key for the judge model when grading with OpenAI; use your provider's key otherwise."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Run the no-key demo",
+          "code": "ifixai run --provider mock --eval-mode self --fixture reference.yaml",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Audit your own agent",
+      "useCase": "Describe your agent, build its simulation and do a dry run first.",
+      "setup": [
+        "pip install \"ifixai[openai]\"",
+        "Your agent's endpoint and token"
+      ],
+      "steps": [
+        {
+          "title": "Describe your agent",
+          "body": "Copy the reference profile to my-agent.json and edit it."
+        },
+        {
+          "title": "Build and check the environment",
+          "code": "ifixai author my-agent.json -o my-agent.yaml\nifixai validate my-agent.yaml",
+          "lang": "bash"
+        },
+        {
+          "title": "Set up and dry-run",
+          "code": "ifixai setup\nexport AGENT_API_KEY=...\nifixai run --fixture ./my-agent.yaml --api-key \"$AGENT_API_KEY\" --dry-run",
+          "lang": "bash"
+        },
+        {
+          "title": "Run the audit",
+          "code": "ifixai run --fixture ./my-agent.yaml --api-key \"$AGENT_API_KEY\"",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A graded report of how your agent handled the simulated requests.",
+      "nextSteps": [
+        "Run from your coding agent",
+        "Add it to CI",
+        "Read the docs on inspections"
+      ],
+      "sourceUrl": "https://github.com/ifixai-ai/iFixAi/blob/ba677410d21c1f382b1268e6ebde6136e6b54f44/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Judge model",
+        "value": "Your model provider bills for judge calls; --dry-run shows how many.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "ifixai command not found on Windows",
+        "solution": "Use python -m ifixai.cli.main, inside an activated venv.",
+        "sourceUrl": "https://github.com/ifixai-ai/iFixAi/blob/ba677410d21c1f382b1268e6ebde6136e6b54f44/README.md"
+      },
+      {
+        "problem": "Plugin not showing in Claude Code",
+        "solution": "Run /reload-plugins.",
+        "sourceUrl": "https://github.com/ifixai-ai/iFixAi/blob/ba677410d21c1f382b1268e6ebde6136e6b54f44/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI agent auditing",
+      "Agent governance",
+      "Red teaming agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI agent auditor"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Install",
+        "value": "pip install ifixai"
+      }
+    ]
+  }
+}

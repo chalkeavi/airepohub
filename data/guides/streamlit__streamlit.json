@@ -1,0 +1,194 @@
+{
+  "fullName": "streamlit/streamlit",
+  "summary": "Python framework for building data apps and dashboards in plain Python, with skills so coding agents write them well.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/streamlit/streamlit/blob/a9a3a4366d4e70f90243b6353e721306197e7084/README.md"
+    ],
+    "sourceCommitSha": "a9a3a4366d4e70f90243b6353e721306197e7084",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install streamlit"
+      },
+      {
+        "comment": "Run an app",
+        "command": "streamlit run streamlit_app.py"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Streamlit is a Python framework for building data apps and dashboards. Each app is a plain Python script, with no separate frontend or API, and Streamlit handles the interface, state, caching, sign-in and theming.",
+      "problem": "Turning data work into an interactive app usually means learning web frameworks. Streamlit lets you, or your coding agent, write the whole app in Python and run it with one command.",
+      "whoFor": [
+        "Data scientists sharing models and analyses",
+        "Analysts building dashboards",
+        "Developers prototyping AI apps",
+        "Teams using coding agents to build internal tools"
+      ],
+      "whyChoose": "Choose it for the most widely used Python data app framework, with expert skills for coding agents so they follow current best practices.",
+      "requirements": [
+        "Python"
+      ]
+    },
+    "overview": [
+      "Install with pip, write a Python script that uses Streamlit functions like st.title, st.slider and st.cache_data, and run it with streamlit run. The app opens in your browser and updates as you change the code.",
+      "Run streamlit skills in your project to install Streamlit's skills for Claude Code and other agents that read the shared .agents skills folder, matched to your Streamlit version. Then ask your agent to build an app and mention Streamlit.",
+      "The README says more than a million repositories depend on it. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Plain Python apps",
+        "body": "No frontend code needed."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Widgets",
+        "body": "Sliders, inputs, tables and charts."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Caching",
+        "body": "st.cache_data for fast reloads."
+      },
+      {
+        "icon": "file-code",
+        "title": "Agent skills",
+        "body": "streamlit skills for coding agents."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Built-in essentials",
+        "body": "State, sign-in and theming."
+      }
+    ],
+    "strengths": [
+      "Very fast to build with",
+      "Huge community",
+      "Apache 2.0 licensed"
+    ],
+    "limitations": [
+      "Best for data apps, not every kind of web app",
+      "Reruns the script on interaction, which needs caching for heavy work"
+    ],
+    "useCases": [
+      {
+        "title": "Dashboards",
+        "body": "Share data views with your team."
+      },
+      {
+        "title": "Model demos",
+        "body": "Wrap a model in a UI."
+      },
+      {
+        "title": "Internal tools",
+        "body": "Forms and workflows in Python."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Streamlit's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/streamlit/streamlit/blob/a9a3a4366d4e70f90243b6353e721306197e7084/README.md",
+      "prerequisites": [
+        "Python"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install streamlit",
+              "lang": "bash"
+            },
+            {
+              "title": "Optional: install skills for your coding agent",
+              "code": "streamlit skills",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Save a script as streamlit_app.py and run it",
+          "code": "streamlit run streamlit_app.py",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build a small interactive app",
+      "useCase": "Write a Python script with a title and a slider and run it.",
+      "setup": [
+        "pip install streamlit"
+      ],
+      "steps": [
+        {
+          "title": "Create streamlit_app.py",
+          "code": "import streamlit as st\n\nst.title(\"Demand plan\")\ngrowth = st.slider(\"Monthly growth (%)\", -5.0, 10.0, 2.0, step=0.5)\nst.write(\"Growth:\", growth)",
+          "lang": "text"
+        },
+        {
+          "title": "Run it",
+          "code": "streamlit run streamlit_app.py",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A browser tab opens with your title and a slider; moving the slider updates the value.",
+      "nextSteps": [
+        "Cache data with st.cache_data",
+        "Install agent skills with streamlit skills",
+        "Deploy the app"
+      ],
+      "sourceUrl": "https://github.com/streamlit/streamlit/blob/a9a3a4366d4e70f90243b6353e721306197e7084/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Agent writes outdated Streamlit code",
+        "solution": "Run streamlit skills and mention Streamlit in your request.",
+        "sourceUrl": "https://github.com/streamlit/streamlit/blob/a9a3a4366d4e70f90243b6353e721306197e7084/README.md"
+      }
+    ],
+    "bestFor": [
+      "Python data apps",
+      "Dashboards",
+      "AI app prototypes"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Data app framework"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Run with",
+        "value": "streamlit run"
+      }
+    ]
+  }
+}

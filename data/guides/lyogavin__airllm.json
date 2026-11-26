@@ -1,0 +1,197 @@
+{
+  "fullName": "lyogavin/airllm",
+  "summary": "Python library that runs very large language models on small GPUs by loading the model one layer at a time.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/lyogavin/airllm/blob/e8a270d556858dad7d8e15f934506ac9fb39f5d3/README.md"
+    ],
+    "sourceCommitSha": "e8a270d556858dad7d8e15f934506ac9fb39f5d3",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install airllm"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "AirLLM cuts the GPU memory needed for LLM inference by splitting a model into layers and streaming them through the GPU. The README says this lets 70B models run on a single 4GB GPU without quantization, distillation or pruning, and it now also supports training on small VRAM.",
+      "problem": "Big open models normally need expensive GPUs with lots of memory. AirLLM trades speed and disk space for memory so you can try them on modest hardware.",
+      "whoFor": [
+        "Hobbyists with small GPUs",
+        "Researchers testing large models cheaply",
+        "Developers experimenting with open LLMs"
+      ],
+      "whyChoose": "Choose it when GPU memory, not time, is your limit. It loads models with one AutoModel line from Hugging Face IDs or local paths.",
+      "requirements": [
+        "Python",
+        "An NVIDIA GPU, or Apple silicon on macOS",
+        "Plenty of disk space for the layer-split model"
+      ]
+    },
+    "overview": [
+      "Install with pip, then load a model with AutoModel.from_pretrained using a Hugging Face repo ID or a local path, and call generate as with a regular transformers model.",
+      "On first use the original model is decomposed and saved layer by layer, so make sure the Hugging Face cache has enough disk space. Optional block-wise compression can speed inference by up to 3x per the README.",
+      "On macOS, install mlx and torch; only Apple silicon and Llama-style models are supported there. The project is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Layer streaming",
+        "body": "Runs big models in little VRAM."
+      },
+      {
+        "icon": "scan-search",
+        "title": "AutoModel",
+        "body": "Load by Hugging Face ID."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Compression",
+        "body": "Optional block-wise quantization speed-up."
+      },
+      {
+        "icon": "file-code",
+        "title": "macOS support",
+        "body": "Apple silicon via mlx."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Training",
+        "body": "Adapters on small VRAM."
+      }
+    ],
+    "strengths": [
+      "Very low GPU memory",
+      "Simple API",
+      "Apache 2.0 licensed"
+    ],
+    "limitations": [
+      "Much slower than keeping a model in memory",
+      "Needs a lot of disk space",
+      "macOS supports only Llama-style models"
+    ],
+    "useCases": [
+      {
+        "title": "Try large models",
+        "body": "Test a 70B model on a small GPU."
+      },
+      {
+        "title": "Low-budget research",
+        "body": "Experiment without big hardware."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from AirLLM's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/lyogavin/airllm/blob/e8a270d556858dad7d8e15f934506ac9fb39f5d3/README.md",
+      "prerequisites": [
+        "Python",
+        "GPU"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install airllm",
+              "lang": "bash"
+            },
+            {
+              "title": "On macOS",
+              "body": "Also install mlx and torch; only Apple silicon is supported."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Load a model",
+          "code": "from airllm import AutoModel\n\nmodel = AutoModel.from_pretrained(\"Qwen/Qwen3-32B\")",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Generate text with a large model",
+      "useCase": "Load a model by Hugging Face ID and generate an answer.",
+      "setup": [
+        "pip install airllm",
+        "Free disk space in the Hugging Face cache"
+      ],
+      "steps": [
+        {
+          "title": "Write the script",
+          "code": "from airllm import AutoModel\n\nMAX_LENGTH = 128\nmodel = AutoModel.from_pretrained(\"Qwen/Qwen3-32B\")\n\ninput_tokens = model.tokenizer(['What is the capital of United States?'],\n    return_tensors=\"pt\", return_attention_mask=False,\n    truncation=True, max_length=MAX_LENGTH, padding=False)\n\ngeneration_output = model.generate(\n    input_tokens['input_ids'].to(model.device),\n    max_new_tokens=20, use_cache=True, return_dict_in_generate=True)\n\nprint(model.tokenizer.decode(generation_output.sequences[0]))",
+          "lang": "text"
+        },
+        {
+          "title": "Run it",
+          "body": "The first run downloads the model and splits it into layers, which takes time and disk space."
+        }
+      ],
+      "expected": "The script prints the model's answer.",
+      "nextSteps": [
+        "Enable compression for speed",
+        "Try streaming chat output",
+        "Run on macOS"
+      ],
+      "sourceUrl": "https://github.com/lyogavin/airllm/blob/e8a270d556858dad7d8e15f934506ac9fb39f5d3/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Hardware",
+        "value": "Runs on your own GPU; large models need lots of disk.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Out of disk space on first run",
+        "solution": "The model is split and saved layer-wise; free space in the Hugging Face cache or set layer_shards_saving_path.",
+        "sourceUrl": "https://github.com/lyogavin/airllm/blob/e8a270d556858dad7d8e15f934506ac9fb39f5d3/README.md"
+      },
+      {
+        "problem": "Error on macOS with a non-Llama model",
+        "solution": "Only Llama-style models run on macOS for now.",
+        "sourceUrl": "https://github.com/lyogavin/airllm/blob/e8a270d556858dad7d8e15f934506ac9fb39f5d3/README.md"
+      }
+    ],
+    "bestFor": [
+      "Large LLMs on small GPUs",
+      "Low-memory inference"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "LLM inference library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "pip install airllm"
+      }
+    ]
+  }
+}

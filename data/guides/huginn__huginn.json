@@ -1,0 +1,219 @@
+{
+  "fullName": "huginn/huginn",
+  "summary": "Self-hosted system of agents that watch the web, feeds and inboxes and act for you, including AI text and image steps.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/huginn/huginn/blob/4d4fa3f49383bfd621b6b7abc05e1c70fa0c0001/README.md"
+    ],
+    "sourceCommitSha": "4d4fa3f49383bfd621b6b7abc05e1c70fa0c0001",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Try it with Docker",
+        "command": "docker run -it -p 3000:3000 ghcr.io/huginn/huginn"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Huginn lets you build agents that do automated tasks for you online. Agents read websites, watch feeds and mailboxes, react to events and take actions such as sending alerts or posting messages, and they can use OpenAI-compatible APIs to summarise, classify or translate text.",
+      "problem": "Keeping an eye on websites, feeds and services by hand is tedious, and hosted automation tools see all your data. Huginn runs on your own server and chains small agents together into your own automations.",
+      "whoFor": [
+        "Self-hosters who want their own automation server",
+        "Developers wiring up web and API workflows",
+        "People tracking prices, news or site changes",
+        "Teams sending alerts to Slack or Telegram"
+      ],
+      "whyChoose": "Choose it for a mature, self-hosted alternative to hosted automation services, with agents that pass events to each other and optional AI steps.",
+      "requirements": [
+        "Docker for the quickest start",
+        "MySQL or PostgreSQL for production"
+      ]
+    },
+    "overview": [
+      "Agents create and consume events and pass them along a directed graph. Examples in the README: scrape websites and email you on changes, watch RSS feeds, IMAP mailboxes, webhooks and MQTT, track the weather, send digests, post to Slack or Telegram, and summarise, classify, translate or generate images and speech through OpenAI-compatible APIs.",
+      "The quickest trial is the official Docker image; log in as admin with the password printed once in the container log. For production, the README recommends Docker Compose with MySQL or PostgreSQL, and there is a manual install guide for Ubuntu or Debian.",
+      "Huginn is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Event-driven agents",
+        "body": "Agents pass events to each other."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Web and feed watching",
+        "body": "Scrape sites, RSS, IMAP, webhooks, MQTT."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Notifications",
+        "body": "Email, Slack, Telegram, SMS and more."
+      },
+      {
+        "icon": "file-code",
+        "title": "AI steps",
+        "body": "Summarise, classify and translate via OpenAI-compatible APIs."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Self-hosted",
+        "body": "Runs on your own server."
+      }
+    ],
+    "strengths": [
+      "Mature and flexible",
+      "Your data stays on your server",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "You run and maintain the server",
+      "AI steps need an API",
+      "Building agents takes some setup"
+    ],
+    "useCases": [
+      {
+        "title": "Price alerts",
+        "body": "Get notified when a deal appears."
+      },
+      {
+        "title": "Site change monitoring",
+        "body": "Email when a page changes."
+      },
+      {
+        "title": "Daily digest",
+        "body": "Collect feeds and summarise them."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Huginn's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/huginn/huginn/blob/4d4fa3f49383bfd621b6b7abc05e1c70fa0c0001/README.md",
+      "prerequisites": [
+        "Docker"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker (trial)",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Run the all-in-one image",
+              "code": "docker run -it -p 3000:3000 ghcr.io/huginn/huginn",
+              "lang": "bash"
+            },
+            {
+              "title": "Log in",
+              "body": "Open http://localhost:3000 and log in as admin with the password printed once in the container log."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker Compose (production)",
+          "method": "compose",
+          "steps": [
+            {
+              "title": "Use the official Compose setup",
+              "body": "Runs the web process and worker with MySQL or PostgreSQL. See the Docker documentation in the repository for persistent storage."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Create your first agent",
+          "body": "In the web UI, add a Website Agent that watches a page and connect it to an Email Agent."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Get an email when a website changes",
+      "useCase": "Chain two agents: one watches a page, one sends you an email.",
+      "setup": [
+        "Huginn running"
+      ],
+      "steps": [
+        {
+          "title": "Start Huginn",
+          "code": "docker run -it -p 3000:3000 ghcr.io/huginn/huginn",
+          "lang": "bash"
+        },
+        {
+          "title": "Add a Website Agent",
+          "body": "Point it at the page and the part you want to watch."
+        },
+        {
+          "title": "Add an Email Agent",
+          "body": "Make it receive events from the Website Agent."
+        }
+      ],
+      "expected": "When the watched part of the page changes, you get an email.",
+      "nextSteps": [
+        "Add an RSS agent",
+        "Post alerts to Slack",
+        "Use an AI agent to summarise events"
+      ],
+      "sourceUrl": "https://github.com/huginn/huginn/blob/4d4fa3f49383bfd621b6b7abc05e1c70fa0c0001/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Hosting",
+        "value": "Your own server or computer.",
+        "tone": "depends"
+      },
+      {
+        "label": "AI steps",
+        "value": "Optional; billed by your AI provider.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Can't log in after starting Docker",
+        "solution": "The admin password is printed once in the container log; check the log.",
+        "sourceUrl": "https://github.com/huginn/huginn/blob/4d4fa3f49383bfd621b6b7abc05e1c70fa0c0001/README.md"
+      },
+      {
+        "problem": "Data lost after restart",
+        "solution": "Set up persistent storage as described in the Docker documentation.",
+        "sourceUrl": "https://github.com/huginn/huginn/blob/4d4fa3f49383bfd621b6b7abc05e1c70fa0c0001/README.md"
+      }
+    ],
+    "bestFor": [
+      "Self-hosted automation",
+      "Web monitoring",
+      "Alerts and digests"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Automation agents platform"
+      },
+      {
+        "label": "Language",
+        "value": "Ruby"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Deploy",
+        "value": "Docker"
+      }
+    ]
+  }
+}

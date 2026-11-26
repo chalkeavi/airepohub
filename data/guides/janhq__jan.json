@@ -1,0 +1,192 @@
+{
+  "fullName": "janhq/jan",
+  "summary": "Open-source desktop ChatGPT alternative that downloads and runs AI models on your own computer, with optional cloud models.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/janhq/jan/blob/49a84bdeaebdfc0f36c00f252eb638f516a48432/README.md"
+    ],
+    "sourceCommitSha": "49a84bdeaebdfc0f36c00f252eb638f516a48432",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Download",
+        "command": "Get the installer for Windows, macOS or Linux from jan.ai or GitHub Releases"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Jan is a desktop app for chatting with AI models. You can download open models such as Llama, Gemma and Qwen from Hugging Face and run them locally, or connect cloud models from OpenAI, Anthropic, Mistral, Groq and others, all in one app.",
+      "problem": "Many people want ChatGPT-style help without sending everything to the cloud. Jan gives full control and privacy by running models on your machine when you want it to.",
+      "whoFor": [
+        "Privacy-minded people who want local AI",
+        "Beginners who prefer an app over the command line",
+        "Developers who need a local OpenAI-compatible API",
+        "Users who mix local and cloud models"
+      ],
+      "whyChoose": "Choose it for an easy, open-source app that runs models locally, exposes an OpenAI-compatible server at localhost:1337 and supports MCP.",
+      "requirements": [
+        "macOS 13.6+, Windows 10+ or a common Linux distribution",
+        "Enough RAM for your model size (8GB for 3B, 16GB for 7B, 32GB for 13B on macOS)"
+      ]
+    },
+    "overview": [
+      "Install the app from jan.ai, GitHub Releases, the Microsoft Store or Flathub. Downloads are available for Windows, macOS (universal), Linux deb, AppImage and Arm64.",
+      "Features include local models from Hugging Face, cloud integrations, custom assistants, a local OpenAI-compatible API server at localhost:1337 for other apps, and Model Context Protocol support for agent capabilities.",
+      "System requirements from the README: macOS 13.6+ (8GB RAM for 3B models, 16GB for 7B, 32GB for 13B), Windows 10+ with GPU support for NVIDIA, AMD or Intel Arc, and most Linux distributions with GPU acceleration. The project is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Local models",
+        "body": "Download and run open LLMs."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Cloud models",
+        "body": "OpenAI, Anthropic, Mistral, Groq and more."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Custom assistants",
+        "body": "Build assistants for your tasks."
+      },
+      {
+        "icon": "file-code",
+        "title": "Local API",
+        "body": "OpenAI-compatible server on port 1337."
+      },
+      {
+        "icon": "git-compare",
+        "title": "MCP",
+        "body": "Agent capabilities via Model Context Protocol."
+      }
+    ],
+    "strengths": [
+      "Easy desktop app",
+      "Privacy first",
+      "Open source"
+    ],
+    "limitations": [
+      "Local models need enough RAM",
+      "Cloud models need your own API keys"
+    ],
+    "useCases": [
+      {
+        "title": "Private chat",
+        "body": "Use AI without the cloud."
+      },
+      {
+        "title": "Local API for apps",
+        "body": "Point tools at localhost:1337."
+      },
+      {
+        "title": "Compare models",
+        "body": "Switch between local and cloud models."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Jan's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/janhq/jan/blob/49a84bdeaebdfc0f36c00f252eb638f516a48432/README.md",
+      "prerequisites": [
+        "A Windows, macOS or Linux computer"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Desktop installer",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download the app",
+              "body": "Get jan.exe, jan.dmg, jan.deb or jan.AppImage from jan.ai or GitHub Releases, or install from the Microsoft Store or Flathub."
+            },
+            {
+              "title": "Install and open Jan",
+              "body": "Run the installer, then open Jan."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Download a model and start a chat",
+          "body": "Pick a model from the Hub in Jan, wait for it to download, then start a new chat."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Chat with a local model",
+      "useCase": "Run an open model fully on your computer.",
+      "setup": [
+        "Jan installed",
+        "Enough RAM for the model"
+      ],
+      "steps": [
+        {
+          "title": "Open Jan and pick a model",
+          "body": "Choose a small model first (around 3B) if you have 8GB RAM."
+        },
+        {
+          "title": "Start a chat",
+          "body": "Create a new chat and select the downloaded model."
+        }
+      ],
+      "expected": "The model answers on your own machine without a cloud account.",
+      "nextSteps": [
+        "Turn on the local API server",
+        "Connect a cloud provider",
+        "Add an MCP server"
+      ],
+      "sourceUrl": "https://github.com/janhq/jan/blob/49a84bdeaebdfc0f36c00f252eb638f516a48432/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Cloud models",
+        "value": "Your provider bills for usage if you connect one.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Model runs slowly or fails to load",
+        "solution": "Use a smaller model; the README lists 8GB RAM for 3B and 16GB for 7B models on macOS.",
+        "sourceUrl": "https://github.com/janhq/jan/blob/49a84bdeaebdfc0f36c00f252eb638f516a48432/README.md"
+      }
+    ],
+    "bestFor": [
+      "Local AI chat",
+      "Private ChatGPT alternative",
+      "Local OpenAI-compatible API"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Desktop AI chat app"
+      },
+      {
+        "label": "Language",
+        "value": "Rust, TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Local API",
+        "value": "localhost:1337"
+      }
+    ]
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "fullName": "milvus-io/milvus",
+  "summary": "High-performance, cloud-native vector database for storing and searching embeddings at scale in AI and RAG apps.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/milvus-io/milvus/blob/09792e9612c479d29b8859d79a3e92bac2f935d3/README.md"
+    ],
+    "sourceCommitSha": "09792e9612c479d29b8859d79a3e92bac2f935d3",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install the Python SDK with Milvus Lite",
+        "command": "pip install -U \"pymilvus[milvus-lite]\""
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Milvus is an open-source vector database built for scale. It stores embeddings of text, images and other unstructured data and finds the most similar items quickly, which is the core of semantic search, recommendations and RAG apps.",
+      "problem": "Searching millions or billions of vectors fast needs specialised indexing and infrastructure. Milvus provides that with hardware acceleration and a distributed, Kubernetes-native design, and also a lightweight local mode for getting started.",
+      "whoFor": [
+        "Developers building RAG and semantic search",
+        "ML engineers running similarity search at scale",
+        "Teams deploying vector search on Kubernetes",
+        "Learners trying vector databases locally"
+      ],
+      "whyChoose": "Choose it for a mature, high-performance vector database that scales from a local file (Milvus Lite) to large distributed clusters, under the LF AI & Data Foundation.",
+      "requirements": [
+        "Python for the pymilvus SDK",
+        "Docker or Kubernetes for a full server"
+      ]
+    },
+    "overview": [
+      "Milvus is written in Go and C++ with CPU and GPU acceleration. Its distributed, Kubernetes-native architecture scales horizontally.",
+      "Install pymilvus, the Python SDK, and use MilvusClient. With Milvus Lite you create a local database just by giving a file name; you can also connect to a deployed Milvus server or Zilliz Cloud with a URI and token. Then create collections, insert data and search.",
+      "Milvus is an LF AI & Data Foundation project under Apache 2.0, with Zilliz as its main contributor; Zilliz Cloud is a managed option."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Vector search",
+        "body": "Fast similarity search at scale."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Milvus Lite",
+        "body": "Local database in a file."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Distributed",
+        "body": "Kubernetes-native, scales out."
+      },
+      {
+        "icon": "file-code",
+        "title": "Hardware acceleration",
+        "body": "CPU and GPU."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Python SDK",
+        "body": "MilvusClient API."
+      },
+      {
+        "icon": "shield",
+        "title": "Managed option",
+        "body": "Zilliz Cloud."
+      }
+    ],
+    "strengths": [
+      "Scales very large",
+      "Easy local start",
+      "Apache 2.0, foundation-governed"
+    ],
+    "limitations": [
+      "Full clusters take effort to operate",
+      "Lite mode is for small projects and testing"
+    ],
+    "useCases": [
+      {
+        "title": "RAG",
+        "body": "Store document embeddings for retrieval."
+      },
+      {
+        "title": "Semantic search",
+        "body": "Find similar text or images."
+      },
+      {
+        "title": "Recommendations",
+        "body": "Similarity-based suggestions."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Milvus's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/milvus-io/milvus/blob/09792e9612c479d29b8859d79a3e92bac2f935d3/README.md",
+      "prerequisites": [
+        "Python"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pymilvus with Milvus Lite",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install the SDK",
+              "code": "pip install -U pymilvus",
+              "lang": "bash"
+            },
+            {
+              "title": "Add Milvus Lite for a local database",
+              "code": "pip install -U \"pymilvus[milvus-lite]\"",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Create a local database and a collection",
+          "code": "from pymilvus import MilvusClient\n\nclient = MilvusClient(\"milvus_demo.db\")\nclient.create_collection(collection_name=\"demo_collection\", dimension=768)",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Store and search vectors locally",
+      "useCase": "Create a Milvus Lite database, insert vectors and search.",
+      "setup": [
+        "pip install -U \"pymilvus[milvus-lite]\"",
+        "Embeddings with 768 dimensions"
+      ],
+      "steps": [
+        {
+          "title": "Create the client and collection",
+          "code": "from pymilvus import MilvusClient\n\nclient = MilvusClient(\"milvus_demo.db\")\nclient.create_collection(collection_name=\"demo_collection\", dimension=768)",
+          "lang": "text"
+        },
+        {
+          "title": "Insert your data",
+          "code": "res = client.insert(collection_name=\"demo_collection\", data=data)",
+          "lang": "text"
+        },
+        {
+          "title": "Search",
+          "body": "Query the collection with a vector to get the most similar items."
+        }
+      ],
+      "expected": "Search returns the stored items closest to your query vector.",
+      "nextSteps": [
+        "Connect to a Milvus server",
+        "Try Zilliz Cloud",
+        "Read the docs on indexes"
+      ],
+      "sourceUrl": "https://github.com/milvus-io/milvus/blob/09792e9612c479d29b8859d79a3e92bac2f935d3/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Zilliz Cloud",
+        "value": "Optional managed service with a free tier per the README.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Need to connect to a server instead of Lite",
+        "solution": "Pass uri and token to MilvusClient.",
+        "sourceUrl": "https://github.com/milvus-io/milvus/blob/09792e9612c479d29b8859d79a3e92bac2f935d3/README.md"
+      }
+    ],
+    "bestFor": [
+      "Vector database",
+      "RAG",
+      "Similarity search"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Vector database"
+      },
+      {
+        "label": "Language",
+        "value": "Go, C++"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Governance",
+        "value": "LF AI & Data Foundation"
+      }
+    ]
+  }
+}

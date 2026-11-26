@@ -1,0 +1,211 @@
+{
+  "fullName": "jeecgboot/JeecgBoot",
+  "summary": "Open-source AI low-code platform for Java business systems, with code generation, AI apps, knowledge bases and Claude Code skills.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/jeecgboot/JeecgBoot/blob/6184e2448fbf0a84e7f638596324c69c1a747549/README.en-US.md"
+    ],
+    "sourceCommitSha": "6184e2448fbf0a84e7f638596324c69c1a747549",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Start with Docker Compose",
+        "command": "git clone https://github.com/jeecgboot/JeecgBoot.git\ncd JeecgBoot\n./start-docker-compose.sh"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "JeecgBoot is a free, open-source AI low-code platform for building business systems in Java. It generates full-stack code, forms, workflows, reports and dashboards, and includes an AI application platform with chat assistants, knowledge bases and workflow orchestration.",
+      "problem": "Enterprise Java apps repeat the same work: permissions, CRUD screens, workflows and reports. JeecgBoot builds those in and lets AI generate only the business-specific parts, which the README says removes about 80% of repetitive work.",
+      "whoFor": [
+        "Java teams building internal business systems",
+        "Companies needing workflows, reports and permissions",
+        "Developers using Claude Code to generate apps",
+        "Teams adding AI chat and knowledge bases to products"
+      ],
+      "whyChoose": "Choose it for a mature, Apache-2.0 platform that is free for commercial use and combines low-code tools with AI generation and an AI app platform.",
+      "requirements": [
+        "Docker and docker-compose",
+        "Maven and pnpm for the one-click script"
+      ]
+    },
+    "overview": [
+      "The platform covers permissions, multi-tenancy, data permissions, workflow (BPM), reports, dashboards, an AI knowledge base and AI chat with RAG. AI Skills, paired with Claude Code, generate CRUD code, online forms, reports, BPMN flows and dashboards from one sentence.",
+      "The frontend uses Ant Design Vue, Vue 3, TypeScript and Vite; the backend uses Spring Boot, Spring Cloud Alibaba and MyBatis-Plus. It supports models such as ChatGPT, DeepSeek and Ollama.",
+      "The quickest start is the Docker Compose script; the frontend opens at http://localhost and the backend API at http://localhost:8080/jeecg-boot. The default account is admin with password 123456. Licence: Apache-2.0."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Code generator",
+        "body": "Frontend, backend, DDL and menus."
+      },
+      {
+        "icon": "scan-search",
+        "title": "AI Skills",
+        "body": "Generate systems with Claude Code."
+      },
+      {
+        "icon": "puzzle",
+        "title": "AI app platform",
+        "body": "Chat, workflows, MCP and plugins."
+      },
+      {
+        "icon": "file-code",
+        "title": "Knowledge base",
+        "body": "RAG Q&A over documents."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Low-code designers",
+        "body": "Forms, workflows, reports, dashboards."
+      },
+      {
+        "icon": "shield",
+        "title": "Enterprise basics",
+        "body": "Users, roles, multi-tenancy, permissions."
+      }
+    ],
+    "strengths": [
+      "Free for commercial use",
+      "Mature and widely used",
+      "AI plus low-code in one platform"
+    ],
+    "limitations": [
+      "Java-heavy stack to learn",
+      "Main README is in Chinese (English version available)",
+      "Change the default admin password"
+    ],
+    "useCases": [
+      {
+        "title": "Internal admin systems",
+        "body": "Generate CRUD apps with permissions."
+      },
+      {
+        "title": "Approval workflows",
+        "body": "Build BPM flows."
+      },
+      {
+        "title": "AI knowledge assistant",
+        "body": "Q&A over company documents."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from JeecgBoot's English README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/jeecgboot/JeecgBoot/blob/6184e2448fbf0a84e7f638596324c69c1a747549/README.en-US.md",
+      "prerequisites": [
+        "Docker",
+        "docker-compose",
+        "Maven",
+        "pnpm"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker one-click (monolithic)",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Get the code",
+              "code": "git clone https://github.com/jeecgboot/JeecgBoot.git\ncd JeecgBoot",
+              "lang": "bash"
+            },
+            {
+              "title": "Start everything",
+              "body": "On Windows use start-docker-compose.bat.",
+              "code": "./start-docker-compose.sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Open it",
+              "body": "Frontend at http://localhost, backend API at http://localhost:8080/jeecg-boot. Log in with admin / 123456."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Log in and change the default password",
+          "body": "Use admin / 123456, then set a new password."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run JeecgBoot locally",
+      "useCase": "Start the platform with Docker and explore the code generator.",
+      "setup": [
+        "Docker, docker-compose, Maven and pnpm"
+      ],
+      "steps": [
+        {
+          "title": "Clone and start",
+          "code": "git clone https://github.com/jeecgboot/JeecgBoot.git\ncd JeecgBoot\n./start-docker-compose.sh",
+          "lang": "bash"
+        },
+        {
+          "title": "Log in",
+          "body": "Open http://localhost and sign in with admin / 123456."
+        },
+        {
+          "title": "Try the online form designer or code generator"
+        }
+      ],
+      "expected": "The admin console loads and you can create forms and generate code.",
+      "nextSteps": [
+        "Configure AI chat in the docs",
+        "Install the AI Skills for Claude Code",
+        "Try the microservices mode"
+      ],
+      "sourceUrl": "https://github.com/jeecgboot/JeecgBoot/blob/6184e2448fbf0a84e7f638596324c69c1a747549/README.en-US.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache-2.0, including commercial use.",
+        "tone": "free"
+      },
+      {
+        "label": "AI models",
+        "value": "Your model provider bills for usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Script fails",
+        "solution": "Make sure Docker, docker-compose, Maven and pnpm are installed.",
+        "sourceUrl": "https://github.com/jeecgboot/JeecgBoot/blob/6184e2448fbf0a84e7f638596324c69c1a747549/README.en-US.md"
+      }
+    ],
+    "bestFor": [
+      "Java low-code",
+      "Enterprise admin systems",
+      "AI app platform"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI low-code platform"
+      },
+      {
+        "label": "Language",
+        "value": "Java"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Version",
+        "value": "3.9.6"
+      }
+    ]
+  }
+}

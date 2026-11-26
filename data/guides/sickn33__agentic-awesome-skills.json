@@ -1,0 +1,197 @@
+{
+  "fullName": "sickn33/agentic-awesome-skills",
+  "summary": "Library of 3,000+ installable SKILL.md playbooks for Claude Code, Codex, Cursor and other coding agents, with a tool to search and pick them.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/sickn33/agentic-awesome-skills/blob/166f581cfdc37d94cf56efe4454fb06a5759776c/README.md"
+    ],
+    "sourceCommitSha": "166f581cfdc37d94cf56efe4454fb06a5759776c",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Preview and install one skill with GitHub CLI",
+        "command": "gh skill preview sickn33/agentic-awesome-skills skills/brainstorming/SKILL.md@v21.3.0\ngh skill install sickn33/agentic-awesome-skills skills/brainstorming/SKILL.md --agent codex --scope user --pin v21.3.0"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Agentic Awesome Skills (AAS) is a large library of more than 3,000 installable SKILL.md playbooks for AI coding agents such as Claude Code, Codex, Cursor and Gemini CLI. Its AAS Core tool helps an agent search the catalog and choose a reviewed set of skills for your project.",
+      "problem": "Finding good skills for your agent across scattered repositories is slow, and installing too many clutters the agent. AAS gathers them in one catalog you can inspect, then helps keep an exact, reviewable skill set.",
+      "whoFor": [
+        "Claude Code and Codex users",
+        "Developers building agent workflows",
+        "Teams standardising agent skills",
+        "People exploring what skills exist"
+      ],
+      "whyChoose": "Choose it for a very large, searchable skill catalog with pinned installs, so you know exactly which skill version your agent uses.",
+      "requirements": [
+        "An AI coding agent that supports skills",
+        "GitHub CLI with gh skill"
+      ]
+    },
+    "overview": [
+      "Skills are Markdown playbooks your agent loads for specific tasks. You can browse the catalog on the project's website, preview a skill's full files, then install it pinned to a release with gh skill.",
+      "AAS Core supports local catalog inspection, agent-owned selection, stack validation and plan preview; apply and recovery are still experimental. The project was previously named Antigravity Awesome Skills and is an independent community project.",
+      "The README notes that npm publishing is paused while the maintainer account is locked, so use GitHub for current skills. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "3,000+ skills",
+        "body": "Playbooks for many tasks."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Pinned installs",
+        "body": "Install a skill at an exact release."
+      },
+      {
+        "icon": "puzzle",
+        "title": "AAS Core",
+        "body": "Search and select skills from your agent."
+      },
+      {
+        "icon": "file-code",
+        "title": "Multi-agent",
+        "body": "Claude Code, Codex, Cursor, Gemini CLI."
+      }
+    ],
+    "strengths": [
+      "Huge catalog",
+      "Reviewable, pinned skill sets",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "npm publishing paused; use GitHub",
+      "Some AAS Core features are experimental",
+      "Quality varies across community skills"
+    ],
+    "useCases": [
+      {
+        "title": "Add a brainstorming skill",
+        "body": "Install one playbook for your agent."
+      },
+      {
+        "title": "Build a skill stack",
+        "body": "Pick a reviewed set for a project."
+      },
+      {
+        "title": "Explore skills",
+        "body": "Browse the catalog by task."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Agentic Awesome Skills's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/sickn33/agentic-awesome-skills/blob/166f581cfdc37d94cf56efe4454fb06a5759776c/README.md",
+      "prerequisites": [
+        "GitHub CLI",
+        "An agent that supports skills"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "GitHub CLI",
+          "method": "gh",
+          "steps": [
+            {
+              "title": "Preview a skill at a release",
+              "code": "gh skill preview sickn33/agentic-awesome-skills skills/brainstorming/SKILL.md@v21.3.0",
+              "lang": "bash"
+            },
+            {
+              "title": "Install it for your agent, pinned",
+              "body": "This example targets Codex at user scope.",
+              "code": "gh skill install sickn33/agentic-awesome-skills skills/brainstorming/SKILL.md --agent codex --scope user --pin v21.3.0",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Browse the catalog",
+          "body": "Open the skill catalog on the project's website and pick a skill to preview."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Install and update a pinned skill",
+      "useCase": "Add one skill to your agent at a fixed version.",
+      "setup": [
+        "GitHub CLI with gh skill"
+      ],
+      "steps": [
+        {
+          "title": "Preview the skill",
+          "code": "gh skill preview sickn33/agentic-awesome-skills skills/brainstorming/SKILL.md@v21.3.0",
+          "lang": "bash"
+        },
+        {
+          "title": "Install it pinned",
+          "code": "gh skill install sickn33/agentic-awesome-skills skills/brainstorming/SKILL.md --agent codex --scope user --pin v21.3.0",
+          "lang": "bash"
+        },
+        {
+          "title": "Update later",
+          "body": "Preview at the newer release tag, then repeat the install with that tag."
+        }
+      ],
+      "expected": "The skill is installed for your agent at the release you chose.",
+      "nextSteps": [
+        "Try AAS Core to pick skills",
+        "Read the Claude Code setup guide",
+        "Browse more skills"
+      ],
+      "sourceUrl": "https://github.com/sickn33/agentic-awesome-skills/blob/166f581cfdc37d94cf56efe4454fb06a5759776c/README.md"
+    },
+    "costs": [
+      {
+        "label": "Skills",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent",
+        "value": "Your AI agent's subscription or API usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "npm package outdated",
+        "solution": "npm publishing is paused; install from GitHub instead.",
+        "sourceUrl": "https://github.com/sickn33/agentic-awesome-skills/blob/166f581cfdc37d94cf56efe4454fb06a5759776c/README.md"
+      }
+    ],
+    "bestFor": [
+      "Agent skill catalog",
+      "Claude Code and Codex",
+      "Pinned skill sets"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent skills library"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Skills",
+        "value": "3,137+"
+      },
+      {
+        "label": "Release",
+        "value": "V21.3.0"
+      }
+    ]
+  }
+}

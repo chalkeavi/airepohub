@@ -1,0 +1,204 @@
+{
+  "fullName": "deepspeedai/DeepSpeed",
+  "summary": "Deep learning optimization library for training and running very large models efficiently across many GPUs.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/deepspeedai/DeepSpeed/blob/3f9f0baca709986ca7e33afaade588e929e06c0e/README.md"
+    ],
+    "sourceCommitSha": "3f9f0baca709986ca7e33afaade588e929e06c0e",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install deepspeed"
+      },
+      {
+        "comment": "Check your setup",
+        "command": "ds_report"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "DeepSpeed is a deep learning optimization library for PyTorch that makes large-scale training and inference faster and cheaper. It includes C++/CUDA extensions, called ops, that are built just in time when needed.",
+      "problem": "Training huge models runs into GPU memory and speed limits. DeepSpeed provides the system optimizations to train and serve them at scale.",
+      "whoFor": [
+        "ML engineers training large models",
+        "Researchers scaling experiments",
+        "Teams using Hugging Face or Lightning at scale"
+      ],
+      "whyChoose": "Choose it for a widely used training optimizer that integrates with Hugging Face Transformers and PyTorch Lightning and supports many hardware accelerators.",
+      "requirements": [
+        "PyTorch installed first (2.0+ recommended)",
+        "A CUDA or ROCm compiler such as nvcc or hipcc",
+        "A GPU; best tested on NVIDIA Pascal to Hopper and AMD MI100/MI200"
+      ]
+    },
+    "overview": [
+      "Install PyTorch first, then pip install deepspeed. Run ds_report to check your install and see which extensions your machine supports. Ops are JIT-compiled with ninja by default; advanced instructions cover pre-compiling them.",
+      "Contributed hardware support includes Intel Gaudi 2, Xeon and Data Center GPU Max, Huawei Ascend NPU and others.",
+      "For examples, see DeepSpeedExamples, Megatron-DeepSpeed and the Hugging Face Transformers and PyTorch Lightning integrations. DeepSpeed is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Training at scale",
+        "body": "Optimizations for large models."
+      },
+      {
+        "icon": "scan-search",
+        "title": "JIT ops",
+        "body": "C++/CUDA extensions built when needed."
+      },
+      {
+        "icon": "puzzle",
+        "title": "ds_report",
+        "body": "Checks your environment."
+      },
+      {
+        "icon": "file-code",
+        "title": "Integrations",
+        "body": "Hugging Face, Lightning, AzureML."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Many accelerators",
+        "body": "NVIDIA, AMD, Intel, Ascend and more."
+      }
+    ],
+    "strengths": [
+      "Proven at large scale",
+      "Broad hardware support",
+      "Apache 2.0 licensed"
+    ],
+    "limitations": [
+      "Needs a compiler toolchain for ops",
+      "Mainly for multi-GPU work"
+    ],
+    "useCases": [
+      {
+        "title": "Large model training",
+        "body": "Fit bigger models across GPUs."
+      },
+      {
+        "title": "Fine-tuning with Transformers",
+        "body": "Use the Hugging Face integration."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from DeepSpeed's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/deepspeedai/DeepSpeed/blob/3f9f0baca709986ca7e33afaade588e929e06c0e/README.md",
+      "prerequisites": [
+        "PyTorch",
+        "CUDA or ROCm"
+      ],
+      "supportedOs": [
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install PyTorch first",
+              "body": "Use PyTorch 2.0 or newer, ideally the latest stable release."
+            },
+            {
+              "title": "Install DeepSpeed",
+              "code": "pip install deepspeed",
+              "lang": "bash"
+            },
+            {
+              "title": "Validate the install",
+              "code": "ds_report",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run the environment report",
+          "code": "ds_report",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Install and check DeepSpeed",
+      "useCase": "Install DeepSpeed and confirm which ops your machine supports.",
+      "setup": [
+        "PyTorch 2.0+",
+        "CUDA or ROCm compiler"
+      ],
+      "steps": [
+        {
+          "title": "Install",
+          "code": "pip install deepspeed",
+          "lang": "bash"
+        },
+        {
+          "title": "Check",
+          "code": "ds_report",
+          "lang": "bash"
+        },
+        {
+          "title": "Pick an example",
+          "body": "Start with DeepSpeedExamples or the Hugging Face Transformers integration."
+        }
+      ],
+      "expected": "ds_report lists your setup and which extensions are compatible.",
+      "nextSteps": [
+        "Try DeepSpeedExamples",
+        "Use it with Hugging Face Transformers",
+        "Pre-compile ops"
+      ],
+      "sourceUrl": "https://github.com/deepspeedai/DeepSpeed/blob/3f9f0baca709986ca7e33afaade588e929e06c0e/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Your GPUs or cloud bill for training.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Ops fail to build",
+        "solution": "Make sure PyTorch was installed first and a CUDA/ROCm compiler is available; ds_report shows what's missing.",
+        "sourceUrl": "https://github.com/deepspeedai/DeepSpeed/blob/3f9f0baca709986ca7e33afaade588e929e06c0e/README.md"
+      }
+    ],
+    "bestFor": [
+      "Large model training",
+      "Distributed deep learning"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Training optimization library"
+      },
+      {
+        "label": "Language",
+        "value": "Python, C++/CUDA"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "pip install deepspeed"
+      }
+    ]
+  }
+}

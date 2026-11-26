@@ -1,0 +1,217 @@
+{
+  "fullName": "obsidianmd/obsidian-skills",
+  "summary": "Official Obsidian agent skills that teach Claude, ChatGPT and other agents to work with Obsidian Markdown, Bases, Canvas and vaults.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/obsidianmd/obsidian-skills/blob/79e85b73ef041fdfb6437ab3824e2fe29eda9244/README.md"
+    ],
+    "sourceCommitSha": "79e85b73ef041fdfb6437ab3824e2fe29eda9244",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install in Claude Code",
+        "command": "claude plugin marketplace add obsidianmd/obsidian-skills\nclaude plugin install obsidian@obsidian-skills"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Obsidian Skills is the official set of agent skills from the Obsidian team. They teach AI agents to create and edit Obsidian notes, Bases and JSON Canvas files correctly, use the Obsidian CLI, and work with open formats like Markdown.",
+      "problem": "AI agents often break Obsidian-specific syntax such as wikilinks, embeds and Bases formulas. These skills give the agent the exact formats and tools, so edits to your vault come out right.",
+      "whoFor": [
+        "Obsidian users who work with AI agents",
+        "Claude Code and Codex users with notes in Obsidian",
+        "Plugin and theme developers",
+        "People who sync or publish vaults from the command line"
+      ],
+      "whyChoose": "Choose it for official, standards-based skills that work across many agents, from Claude and ChatGPT to Cursor, Copilot and Gemini CLI.",
+      "requirements": [
+        "An agent that supports skills",
+        "Obsidian (for vault features)"
+      ]
+    },
+    "overview": [
+      "Skills include obsidian-markdown (Obsidian Flavored Markdown), obsidian-bases (Bases views, filters and formulas), json-canvas (Canvas files), obsidian-cli (vault and plugin work through the Obsidian CLI), obsidian-headless (sync and publish without the app), defuddle (clean Markdown from web pages) and knap (templates from JSON or CSV).",
+      "Obsidian is listed as an official plugin for Claude, ChatGPT, Cursor and others. For Claude Code, add the marketplace and install the plugin; other agents can install with npx skills or by copying the skill folders.",
+      "The skills follow the Agent Skills specification and are MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Obsidian Markdown",
+        "body": "Wikilinks, embeds, callouts and properties."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Bases",
+        "body": "Views, filters and formulas."
+      },
+      {
+        "icon": "puzzle",
+        "title": "JSON Canvas",
+        "body": "Nodes, edges and groups."
+      },
+      {
+        "icon": "file-code",
+        "title": "Obsidian CLI",
+        "body": "Vault, plugin and theme work."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Headless sync",
+        "body": "Sync and publish without the app."
+      },
+      {
+        "icon": "shield",
+        "title": "Web to Markdown",
+        "body": "Clean pages with Defuddle."
+      }
+    ],
+    "strengths": [
+      "Official from the Obsidian team",
+      "Works across many agents",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "obsidian-cli skill doesn't work in cloud agents like Muse",
+      "Results depend on your agent"
+    ],
+    "useCases": [
+      {
+        "title": "Write notes with AI",
+        "body": "Have your agent create correctly formatted notes."
+      },
+      {
+        "title": "Build Bases",
+        "body": "Generate views and formulas."
+      },
+      {
+        "title": "Save web pages",
+        "body": "Clip pages to clean Markdown."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Obsidian Skills's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/obsidianmd/obsidian-skills/blob/79e85b73ef041fdfb6437ab3824e2fe29eda9244/README.md",
+      "prerequisites": [
+        "An agent that supports skills"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace and install",
+              "code": "claude plugin marketplace add obsidianmd/obsidian-skills\nclaude plugin install obsidian@obsidian-skills",
+              "lang": "bash"
+            },
+            {
+              "title": "Update later",
+              "code": "claude plugin update obsidian@obsidian-skills",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Other agents (npx skills)",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install and choose your agents",
+              "code": "npx skills add https://github.com/obsidianmd/obsidian-skills",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Ask your agent to create a note",
+          "body": "For example: create an Obsidian note with properties and a callout linking to my Projects note."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Let your agent build an Obsidian Base",
+      "useCase": "Install the skills and have your agent create a Base view of your notes.",
+      "setup": [
+        "Claude Code",
+        "An Obsidian vault"
+      ],
+      "steps": [
+        {
+          "title": "Install the plugin",
+          "code": "claude plugin marketplace add obsidianmd/obsidian-skills\nclaude plugin install obsidian@obsidian-skills",
+          "lang": "bash"
+        },
+        {
+          "title": "Open your vault folder in Claude Code",
+          "code": "claude",
+          "lang": "bash"
+        },
+        {
+          "title": "Ask for a Base",
+          "body": "For example: make a Base listing notes tagged book, with a filter for unread ones."
+        }
+      ],
+      "expected": "The agent writes a valid .base file you can open in Obsidian.",
+      "nextSteps": [
+        "Try json-canvas",
+        "Use defuddle to clip web pages",
+        "Install for another agent"
+      ],
+      "sourceUrl": "https://github.com/obsidianmd/obsidian-skills/blob/79e85b73ef041fdfb6437ab3824e2fe29eda9244/README.md"
+    },
+    "costs": [
+      {
+        "label": "Skills",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent",
+        "value": "Your AI agent's subscription or API usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Need new skills after an update",
+        "solution": "Run claude plugin update obsidian@obsidian-skills.",
+        "sourceUrl": "https://github.com/obsidianmd/obsidian-skills/blob/79e85b73ef041fdfb6437ab3824e2fe29eda9244/README.md"
+      }
+    ],
+    "bestFor": [
+      "Obsidian with AI",
+      "Note-taking agents",
+      "Knowledge management"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent skills"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Made by",
+        "value": "Obsidian"
+      },
+      {
+        "label": "Standard",
+        "value": "Agent Skills"
+      }
+    ]
+  }
+}

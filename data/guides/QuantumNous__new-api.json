@@ -1,0 +1,236 @@
+{
+  "fullName": "QuantumNous/new-api",
+  "summary": "Self-hosted AI gateway that puts many model providers behind one API, with routing, access control, usage tracking and a web console.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/QuantumNous/new-api/blob/c27abf36268001ebfcf4f478ba0f7bae1c19de22/README.md"
+    ],
+    "sourceCommitSha": "c27abf36268001ebfcf4f478ba0f7bae1c19de22",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Try it locally with Docker",
+        "command": "mkdir -p data\ndocker run --name new-api -d --restart unless-stopped -p 127.0.0.1:3000:3000 -v \"$(pwd)/data:/data\" calciumion/new-api:latest"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "New API is a self-hosted AI gateway. You connect your upstream model services, and it gives your apps and team one consistent API, with routing, access control, usage tracking and cost accounting managed from a web console.",
+      "problem": "Teams using several AI providers end up configuring keys and endpoints in every client and lose track of usage and cost. New API centralises that so you can switch providers without reconfiguring clients.",
+      "whoFor": [
+        "Teams sharing authorised model access",
+        "Companies running a private multi-model service",
+        "Developers who switch between AI providers",
+        "Admins who need usage and cost tracking"
+      ],
+      "whyChoose": "Choose it for a self-hosted gateway with a web console, usage dashboards and model routing that you run on your own server.",
+      "requirements": [
+        "Docker",
+        "Your own lawfully obtained upstream API keys"
+      ]
+    },
+    "overview": [
+      "The quickest start is a single Docker container with SQLite, bound to localhost; open http://localhost:3000 and complete the setup wizard to create the admin account. For production, the Docker Compose file starts New API with PostgreSQL and Redis.",
+      "Before using Compose, replace the example database and Redis passwords and set a persistent random SESSION_SECRET. The README stresses that it is for lawful, authorised use: you must obtain upstream keys legitimately and follow providers' terms, and public or resale services need the required filings and licences.",
+      "New API is licensed under AGPL-3.0."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "One API",
+        "body": "Consistent API across upstream models."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Routing",
+        "body": "Route requests between providers."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Access control",
+        "body": "Manage users and keys."
+      },
+      {
+        "icon": "file-code",
+        "title": "Usage and cost",
+        "body": "Dashboards and logs."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Web console",
+        "body": "Set up and manage everything in a browser."
+      },
+      {
+        "icon": "shield",
+        "title": "Docker deploy",
+        "body": "SQLite for trials, Postgres and Redis for production."
+      }
+    ],
+    "strengths": [
+      "Self-hosted, you keep control",
+      "Web console and dashboards",
+      "Easy Docker start"
+    ],
+    "limitations": [
+      "AGPL-3.0 license",
+      "You must follow upstream providers' terms",
+      "Production setup needs Postgres and Redis"
+    ],
+    "useCases": [
+      {
+        "title": "Team AI access",
+        "body": "Share authorised model access with usage tracking."
+      },
+      {
+        "title": "Provider switching",
+        "body": "Change providers without touching clients."
+      },
+      {
+        "title": "Private multi-model service",
+        "body": "Run one internal AI endpoint."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from New API's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/QuantumNous/new-api/blob/c27abf36268001ebfcf4f478ba0f7bae1c19de22/README.md",
+      "prerequisites": [
+        "Docker"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker (local trial)",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Start a single instance with SQLite",
+              "code": "mkdir -p data\ndocker run --name new-api -d --restart unless-stopped \\\n  -p 127.0.0.1:3000:3000 \\\n  -e TZ=Asia/Shanghai \\\n  -v \"$(pwd)/data:/data\" \\\n  calciumion/new-api:latest",
+              "lang": "bash"
+            },
+            {
+              "title": "Finish setup",
+              "body": "Open http://localhost:3000 and complete the wizard to create the admin account."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker Compose (production)",
+          "method": "compose",
+          "steps": [
+            {
+              "title": "Get the code",
+              "code": "git clone https://github.com/QuantumNous/new-api.git\ncd new-api",
+              "lang": "bash"
+            },
+            {
+              "title": "Edit docker-compose.yml",
+              "body": "Replace the example database and Redis passwords and set a persistent random SESSION_SECRET."
+            },
+            {
+              "title": "Start it",
+              "code": "docker compose up -d\ndocker compose logs -f new-api",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "SESSION_SECRET",
+          "required": true,
+          "description": "Persistent random secret for sessions in Compose deployments."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Open the console and create the admin account",
+          "body": "Go to http://localhost:3000 and follow the setup wizard."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run a private AI gateway",
+      "useCase": "Start New API locally and connect your first upstream provider.",
+      "setup": [
+        "Docker",
+        "An API key from a model provider"
+      ],
+      "steps": [
+        {
+          "title": "Start the container",
+          "code": "mkdir -p data\ndocker run --name new-api -d --restart unless-stopped -p 127.0.0.1:3000:3000 -v \"$(pwd)/data:/data\" calciumion/new-api:latest",
+          "lang": "bash"
+        },
+        {
+          "title": "Create the admin account",
+          "body": "Open http://localhost:3000 and complete the wizard."
+        },
+        {
+          "title": "Add an upstream channel",
+          "body": "Connect your provider in the console, then point your app at New API."
+        }
+      ],
+      "expected": "Your app sends requests to New API, which forwards them to your provider and records usage in the dashboard.",
+      "nextSteps": [
+        "Move to Docker Compose with PostgreSQL",
+        "Set up user access",
+        "Review the usage dashboard"
+      ],
+      "sourceUrl": "https://github.com/QuantumNous/new-api/blob/c27abf36268001ebfcf4f478ba0f7bae1c19de22/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under AGPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Model usage",
+        "value": "You pay your upstream providers.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Data lost after replacing the container",
+        "solution": "Mount the data directory, which holds the SQLite database.",
+        "sourceUrl": "https://github.com/QuantumNous/new-api/blob/c27abf36268001ebfcf4f478ba0f7bae1c19de22/README.md"
+      },
+      {
+        "problem": "Compose deployment insecure",
+        "solution": "Replace the example passwords and set SESSION_SECRET before starting.",
+        "sourceUrl": "https://github.com/QuantumNous/new-api/blob/c27abf36268001ebfcf4f478ba0f7bae1c19de22/README.md"
+      }
+    ],
+    "bestFor": [
+      "Self-hosted AI gateway",
+      "Multi-provider teams",
+      "Usage tracking"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI API gateway"
+      },
+      {
+        "label": "Language",
+        "value": "Go"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "Deploy",
+        "value": "Docker"
+      }
+    ]
+  }
+}

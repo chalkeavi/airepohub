@@ -1,0 +1,241 @@
+{
+  "fullName": "upscayl/upscayl",
+  "summary": "Free desktop app that enlarges and sharpens low-resolution images with AI, on Windows, macOS and Linux.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/upscayl/upscayl/blob/a00d55fee90e0f9435d5eaa86e76700df8199af8/README.md"
+    ],
+    "sourceCommitSha": "a00d55fee90e0f9435d5eaa86e76700df8199af8",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install on macOS with Homebrew",
+        "command": "brew install --cask upscayl"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Upscayl is a free, open-source desktop app that uses AI to enlarge and enhance low-resolution images. You open a picture, choose a model and scale, and it produces a bigger, sharper version on your own computer.",
+      "problem": "Enlarging a small image normally makes it blurry. Upscayl uses AI upscaling models to add detail instead, without uploading your photos to an online service.",
+      "whoFor": [
+        "Photographers and designers",
+        "People restoring old or small photos",
+        "Content creators preparing images",
+        "Anyone who wants offline image upscaling"
+      ],
+      "whyChoose": "Choose it for a simple, free desktop upscaler that runs locally on Windows, macOS and Linux.",
+      "requirements": [
+        "A Vulkan-compatible GPU (many integrated GPUs don't work)",
+        "Windows 10+, macOS 12+ or Linux"
+      ]
+    },
+    "overview": [
+      "Download the app for your system from the releases page or upscayl.org. Linux users can use the AppImage, Flatpak, Snap, RPM, DEB or ZIP; macOS users get a DMG or can use Homebrew; Windows users run the installer.",
+      "Upscaling runs on your GPU through Vulkan, so a compatible graphics card is required; the README notes that many integrated GPUs don't work.",
+      "Upscayl is licensed under AGPL-3.0."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "AI upscaling",
+        "body": "Enlarge images while adding detail."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Desktop app",
+        "body": "Windows, macOS and Linux."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Runs locally",
+        "body": "Images stay on your computer."
+      },
+      {
+        "icon": "file-code",
+        "title": "Many packages",
+        "body": "AppImage, Flatpak, DMG, Homebrew, EXE."
+      }
+    ],
+    "strengths": [
+      "Free and open source",
+      "Simple interface",
+      "Works offline"
+    ],
+    "limitations": [
+      "Needs a Vulkan-compatible GPU",
+      "Many integrated GPUs don't work",
+      "Windows installer may show a SmartScreen warning"
+    ],
+    "useCases": [
+      {
+        "title": "Restore old photos",
+        "body": "Enlarge small scans."
+      },
+      {
+        "title": "Print larger",
+        "body": "Upscale images before printing."
+      },
+      {
+        "title": "Improve web images",
+        "body": "Sharpen low-resolution assets."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Upscayl's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/upscayl/upscayl/blob/a00d55fee90e0f9435d5eaa86e76700df8199af8/README.md",
+      "prerequisites": [
+        "Vulkan-compatible GPU"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "Homebrew",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install --cask upscayl",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "macos",
+          "label": "DMG download",
+          "method": "dmg",
+          "steps": [
+            {
+              "title": "Download the mac .dmg",
+              "body": "From the latest GitHub release or upscayl.org."
+            },
+            {
+              "title": "Install",
+              "body": "Drag Upscayl into Applications, then right-click it and choose Open the first time."
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Installer",
+          "method": "exe",
+          "steps": [
+            {
+              "title": "Download the win .exe",
+              "body": "From the latest GitHub release or upscayl.org."
+            },
+            {
+              "title": "Run it",
+              "body": "If SmartScreen warns you, click More Info, then Run Anyway, and follow the installer."
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "AppImage",
+          "method": "appimage",
+          "steps": [
+            {
+              "title": "Download the linux .AppImage",
+              "body": "From the latest GitHub release or upscayl.org."
+            },
+            {
+              "title": "Make it executable and run",
+              "body": "In the file's Permissions tab, allow executing, then double-click it. RPM, DEB, ZIP, Flatpak and Snap are also available."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Upscale an image",
+          "body": "Open Upscayl, select an image, pick a model and output folder, then start upscaling."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Enlarge a small photo",
+      "useCase": "Use Upscayl to make a low-resolution photo bigger and sharper.",
+      "setup": [
+        "Upscayl installed",
+        "A Vulkan-compatible GPU"
+      ],
+      "steps": [
+        {
+          "title": "Open Upscayl and select your image"
+        },
+        {
+          "title": "Choose a model and output folder"
+        },
+        {
+          "title": "Click upscale and wait for it to finish"
+        }
+      ],
+      "expected": "An enlarged, sharper copy of your image is saved in the output folder.",
+      "nextSteps": [
+        "Try different models",
+        "Batch upscale a folder",
+        "Read the docs on upscayl.org"
+      ],
+      "sourceUrl": "https://github.com/upscayl/upscayl/blob/a00d55fee90e0f9435d5eaa86e76700df8199af8/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under AGPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Hardware",
+        "value": "Uses your own GPU.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Upscaling fails or nothing happens",
+        "solution": "You need a Vulkan-compatible GPU; many integrated GPUs don't work.",
+        "sourceUrl": "https://github.com/upscayl/upscayl/blob/a00d55fee90e0f9435d5eaa86e76700df8199af8/README.md"
+      },
+      {
+        "problem": "macOS won't open it",
+        "solution": "Right-click Upscayl in Applications and choose Open, then Open again.",
+        "sourceUrl": "https://github.com/upscayl/upscayl/blob/a00d55fee90e0f9435d5eaa86e76700df8199af8/README.md"
+      },
+      {
+        "problem": "Windows SmartScreen warning",
+        "solution": "Click More Info, then Run Anyway.",
+        "sourceUrl": "https://github.com/upscayl/upscayl/blob/a00d55fee90e0f9435d5eaa86e76700df8199af8/README.md"
+      }
+    ],
+    "bestFor": [
+      "Image upscaling",
+      "Photo restoration",
+      "Offline AI image tools"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI image upscaler (desktop)"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "Needs",
+        "value": "Vulkan GPU"
+      }
+    ]
+  }
+}
