@@ -1,0 +1,182 @@
+{
+  "fullName": "topoteretes/cognee",
+  "summary": "Open-source memory platform that gives AI agents long-term memory by building a knowledge graph from your data.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/topoteretes/cognee/blob/1961133d0c68b450fe8e71941a756371e94f7c04/README.md"
+    ],
+    "sourceCommitSha": "1961133d0c68b450fe8e71941a756371e94f7c04",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "uv pip install \"cognee[gliner]\""
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Cognee is an open-source AI memory platform for agents. It turns text and documents into a knowledge graph plus embeddings, so agents can remember facts and recall the relevant source later.",
+      "problem": "Agents forget between sessions and plain vector search loses how facts relate. Cognee stores memory as a graph you can query.",
+      "whoFor": [
+        "Developers building agents with memory",
+        "RAG builders who want graph retrieval",
+        "Teams keeping knowledge across sessions"
+      ],
+      "whyChoose": "Choose it for a simple remember and recall API that even runs locally without an LLM key, using a local extraction model.",
+      "requirements": [
+        "Python 3.10 to 3.14"
+      ]
+    },
+    "overview": [
+      "Install with pip or uv. The gliner extra adds a local extraction model used when no LLM key is set.",
+      "With no key, Cognee extracts the graph with GLiNER and embeds locally; both models download on first use. Call cognee.remember with text and a dataset name, then cognee.recall with a question to get matching source text.",
+      "Add an LLM key to get generated answers and richer extraction. Cognee is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Knowledge graph",
+        "body": "From your text."
+      },
+      {
+        "icon": "scan-search",
+        "title": "remember / recall",
+        "body": "Simple async API."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Runs locally",
+        "body": "No LLM key needed."
+      },
+      {
+        "icon": "file-code",
+        "title": "Datasets",
+        "body": "Separate memories."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Agent memory",
+        "body": "Persistent across sessions."
+      }
+    ],
+    "strengths": [
+      "Easy API",
+      "Local option",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Local mode returns source text, not generated answers",
+      "First run downloads models"
+    ],
+    "useCases": [
+      {
+        "title": "Agent memory",
+        "body": "Remember user facts."
+      },
+      {
+        "title": "Graph RAG",
+        "body": "Query related knowledge."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Cognee's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/topoteretes/cognee/blob/1961133d0c68b450fe8e71941a756371e94f7c04/README.md",
+      "prerequisites": [
+        "Python 3.10+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "uv / pip",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "uv pip install \"cognee[gliner]\"",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Remember and recall a fact",
+          "code": "import asyncio\nimport cognee\n\nasync def main():\n    await cognee.remember(\n        \"Marie Curie was born in Warsaw and worked at the University of Paris.\",\n        dataset_name=\"local_quickstart\",\n    )\n    results = await cognee.recall(\n        \"Where was Marie Curie born?\",\n        datasets=[\"local_quickstart\"],\n    )\n    for result in results:\n        print(result)\n\nif __name__ == \"__main__\":\n    asyncio.run(main())",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build a local memory without an LLM",
+      "useCase": "Store a fact and query it on your machine.",
+      "setup": [
+        "uv pip install \"cognee[gliner]\""
+      ],
+      "steps": [
+        {
+          "title": "Save the example as quickstart.py",
+          "body": "Use the code in the first step above."
+        },
+        {
+          "title": "Run it",
+          "code": "python quickstart.py",
+          "lang": "bash"
+        }
+      ],
+      "expected": "The matching source sentence about Warsaw is printed.",
+      "nextSteps": [
+        "Add an LLM key for answers",
+        "Load your own documents"
+      ],
+      "sourceUrl": "https://github.com/topoteretes/cognee/blob/1961133d0c68b450fe8e71941a756371e94f7c04/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "LLM",
+        "value": "Optional; provider costs apply if you add a key.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Slow first run",
+        "solution": "Local models download on first use.",
+        "sourceUrl": "https://github.com/topoteretes/cognee/blob/1961133d0c68b450fe8e71941a756371e94f7c04/README.md"
+      }
+    ],
+    "bestFor": [
+      "Agent memory",
+      "Knowledge graphs"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI memory platform"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Python",
+        "value": "3.10-3.14"
+      }
+    ]
+  }
+}

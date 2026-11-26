@@ -1,0 +1,186 @@
+{
+  "fullName": "datawhalechina/self-llm",
+  "summary": "Beginner tutorials for setting up, running and fine-tuning popular open-source LLMs on Linux, from Datawhale.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/datawhalechina/self-llm/blob/4da223bd0a25eeedc247696b1de51deafb58563e/README_en.md"
+    ],
+    "sourceCommitSha": "4da223bd0a25eeedc247696b1de51deafb58563e",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Get the tutorials",
+        "command": "git clone https://github.com/datawhalechina/self-llm.git"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Self LLM (the 'Open-Source LLM User Guide') is a Datawhale tutorial collection for beginners, mainly in Chinese, on using open-source large models on Linux. It covers environment setup, deployment, command-line use, web demos, LangChain integration and fine-tuning for models such as LLaMA, ChatGLM and InternLM.",
+      "problem": "Getting an open model running and fine-tuned involves many setup details. These tutorials walk through each step per model.",
+      "whoFor": [
+        "Beginners learning to run open LLMs",
+        "Students in China learning model deployment",
+        "Developers wanting fine-tuning recipes"
+      ],
+      "whyChoose": "Choose it for step-by-step, per-model guides from a well-known learning community, with example projects.",
+      "requirements": [
+        "A Linux machine, ideally with a GPU"
+      ]
+    },
+    "overview": [
+      "Contents: environment configuration guides per model, deployment and usage tutorials for mainstream open LLMs, deployment and application guidance (command line, online demo, LangChain), and full and efficient fine-tuning (distributed full fine-tuning, LoRA, p-tuning).",
+      "The suggested order is environment setup first, then deployment and usage, then fine-tuning. Example projects include fine-tuned chat characters and a maths tutor model.",
+      "The tutorials are mostly in Chinese, with an English README. Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Per-model guides",
+        "body": "LLaMA, ChatGLM, InternLM and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Environment setup",
+        "body": "Linux steps."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Deployment",
+        "body": "CLI, demo, LangChain."
+      },
+      {
+        "icon": "file-code",
+        "title": "Fine-tuning",
+        "body": "Full, LoRA, p-tuning."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Examples",
+        "body": "Fun fine-tuned projects."
+      }
+    ],
+    "strengths": [
+      "Beginner friendly",
+      "Very practical",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Mostly in Chinese",
+      "Linux focused"
+    ],
+    "useCases": [
+      {
+        "title": "Run a model locally",
+        "body": "Follow a model's guide."
+      },
+      {
+        "title": "Learn fine-tuning",
+        "body": "Try LoRA on a small model."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Self LLM's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/datawhalechina/self-llm/blob/4da223bd0a25eeedc247696b1de51deafb58563e/README_en.md",
+      "prerequisites": [
+        "Linux"
+      ],
+      "supportedOs": [
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Clone",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone the repo",
+              "code": "git clone https://github.com/datawhalechina/self-llm.git",
+              "lang": "bash"
+            },
+            {
+              "title": "Pick a model folder",
+              "body": "Start with its environment setup guide."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Set up your environment",
+          "body": "Follow the environment configuration guide before any model tutorial."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Deploy your first open model",
+      "useCase": "Follow one model's tutorial end to end.",
+      "setup": [
+        "A Linux GPU machine"
+      ],
+      "steps": [
+        {
+          "title": "Configure the environment",
+          "body": "Use the repo's Linux setup guide."
+        },
+        {
+          "title": "Deploy the model",
+          "body": "Follow the deployment tutorial for that model."
+        },
+        {
+          "title": "Try the web demo",
+          "body": "Each guide shows how to run a demo."
+        }
+      ],
+      "expected": "An open-source LLM running on your machine.",
+      "nextSteps": [
+        "Integrate with LangChain",
+        "Fine-tune with LoRA"
+      ],
+      "sourceUrl": "https://github.com/datawhalechina/self-llm/blob/4da223bd0a25eeedc247696b1de51deafb58563e/README_en.md"
+    },
+    "costs": [
+      {
+        "label": "Tutorials",
+        "value": "Free under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "GPU time for running and fine-tuning.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Can't read the Chinese guides",
+        "solution": "Use a translation tool; the README is in English.",
+        "sourceUrl": "https://github.com/datawhalechina/self-llm/blob/4da223bd0a25eeedc247696b1de51deafb58563e/README_en.md"
+      }
+    ],
+    "bestFor": [
+      "Learning open LLMs",
+      "Fine-tuning tutorials"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Tutorials"
+      },
+      {
+        "label": "Language",
+        "value": "Jupyter Notebook"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Maker",
+        "value": "Datawhale"
+      }
+    ]
+  }
+}

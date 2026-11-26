@@ -1,0 +1,188 @@
+{
+  "fullName": "TabbyML/tabby",
+  "summary": "Self-hosted AI coding assistant, an open-source, on-premises alternative to GitHub Copilot that runs on consumer GPUs.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/TabbyML/tabby/blob/21b29048d7bcf6b94f9f482f2d0fd05efadfd19f/README.md"
+    ],
+    "sourceCommitSha": "21b29048d7bcf6b94f9f482f2d0fd05efadfd19f",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Run with Docker",
+        "command": "docker run -it \\\n  --gpus all -p 8080:8080 -v $HOME/.tabby:/data \\\n  tabbyml/tabby \\\n  serve --model StarCoder-1B --device cuda --chat-model Qwen2-1.5B-Instruct"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Tabby is a self-hosted AI coding assistant. It gives code completion and chat in your editor from a server you run yourself, as an open-source, on-premises alternative to GitHub Copilot.",
+      "problem": "Cloud coding assistants send your code to someone else. Tabby keeps it on your own hardware.",
+      "whoFor": [
+        "Companies that can't send code to the cloud",
+        "Developers with a spare GPU",
+        "Teams wanting a private Copilot alternative"
+      ],
+      "whyChoose": "Choose it for a self-contained server with no database or cloud service needed, an OpenAPI interface and support for consumer-grade GPUs.",
+      "requirements": [
+        "Docker with GPU support (NVIDIA, for the example command)",
+        "An editor extension for your IDE"
+      ]
+    },
+    "overview": [
+      "The quickest start is one Docker command that serves a completion model (StarCoder-1B) and a chat model (Qwen2-1.5B-Instruct) on port 8080 using CUDA.",
+      "Then install the Tabby extension for your IDE or editor and point it at your server. Installation, extensions and configuration are covered in the docs.",
+      "Tabby is self-contained, with no DBMS or cloud service needed. Most of the code is open source; some portions use a separate license, so see the LICENSE file."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Code completion",
+        "body": "In your editor."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Chat",
+        "body": "Ask about your code."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Self-contained",
+        "body": "No database or cloud."
+      },
+      {
+        "icon": "file-code",
+        "title": "OpenAPI",
+        "body": "Easy to integrate."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Consumer GPUs",
+        "body": "Runs on gaming cards."
+      }
+    ],
+    "strengths": [
+      "Private",
+      "Simple to run",
+      "Open source"
+    ],
+    "limitations": [
+      "Needs a GPU for good speed",
+      "Small local models are less capable than big cloud ones"
+    ],
+    "useCases": [
+      {
+        "title": "Private completion",
+        "body": "Autocomplete without the cloud."
+      },
+      {
+        "title": "Team assistant",
+        "body": "One server for a team."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Tabby's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/TabbyML/tabby/blob/21b29048d7bcf6b94f9f482f2d0fd05efadfd19f/README.md",
+      "prerequisites": [
+        "Docker",
+        "GPU"
+      ],
+      "supportedOs": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Start the server",
+              "code": "docker run -it \\\n  --gpus all -p 8080:8080 -v $HOME/.tabby:/data \\\n  tabbyml/tabby \\\n  serve --model StarCoder-1B --device cuda --chat-model Qwen2-1.5B-Instruct",
+              "lang": "bash"
+            },
+            {
+              "title": "Install an editor extension",
+              "body": "See the IDE/Editor Extensions page in the docs and connect it to http://localhost:8080."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open the server in your browser",
+          "body": "Go to http://localhost:8080 to finish setup."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Get private code completion",
+      "useCase": "Run Tabby and connect your editor.",
+      "setup": [
+        "Docker with an NVIDIA GPU"
+      ],
+      "steps": [
+        {
+          "title": "Run the Docker command above"
+        },
+        {
+          "title": "Install the Tabby extension in your editor"
+        },
+        {
+          "title": "Start typing code",
+          "body": "Suggestions come from your own server."
+        }
+      ],
+      "expected": "Code completions in your editor served by Tabby.",
+      "nextSteps": [
+        "Try chat",
+        "Change models in the configuration"
+      ],
+      "sourceUrl": "https://github.com/TabbyML/tabby/blob/21b29048d7bcf6b94f9f482f2d0fd05efadfd19f/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free to self-host; see the LICENSE file for details.",
+        "tone": "free"
+      },
+      {
+        "label": "Hardware",
+        "value": "Your GPU and server.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "No GPU",
+        "solution": "See the installation docs for other devices and options.",
+        "sourceUrl": "https://github.com/TabbyML/tabby/blob/21b29048d7bcf6b94f9f482f2d0fd05efadfd19f/README.md"
+      }
+    ],
+    "bestFor": [
+      "Self-hosted coding assistant",
+      "Copilot alternative"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI coding assistant server"
+      },
+      {
+        "label": "Language",
+        "value": "Rust"
+      },
+      {
+        "label": "License",
+        "value": "Mostly open source (see LICENSE)"
+      },
+      {
+        "label": "Port",
+        "value": "8080"
+      }
+    ]
+  }
+}

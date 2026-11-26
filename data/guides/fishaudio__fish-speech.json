@@ -1,0 +1,178 @@
+{
+  "fullName": "fishaudio/fish-speech",
+  "summary": "Open text-to-speech system with large models for expressive, multi-character speech and long content.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/fishaudio/fish-speech/blob/0f8a12e8a651062fdee9c33a894bdccd3a8513f1/README.md"
+    ],
+    "sourceCommitSha": "0f8a12e8a651062fdee9c33a894bdccd3a8513f1",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "Follow the installation guide at speech.fish.audio/install"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Fish Speech is a text-to-speech project from Fish Audio. Its models include Drama 3, a 35B mixture-of-experts flagship (3B active per token) for multi-character scenes and long content, and the faster 4B S2-Pro. Both share the same command line and API server.",
+      "problem": "Natural, expressive speech for long or multi-voice content is hard to get from open models. Fish Speech provides strong open weights with a CLI, API server and web UI.",
+      "whoFor": [
+        "Developers adding speech to apps",
+        "Creators producing audiobooks or dramas",
+        "Researchers working on TTS"
+      ],
+      "whyChoose": "Choose it for state-of-the-art open TTS models, with fast serving options through SGLang-Omni or vLLM-Omni.",
+      "requirements": [
+        "A GPU",
+        "See the installation docs for environment setup and weights"
+      ]
+    },
+    "overview": [
+      "The README points to the docs for installation (environment setup, downloading weights, Docker) and inference (command line, API server and WebUI).",
+      "For efficiency, the team recommends serving with SGLang-Omni; a vLLM-Omni recipe also exists. The model type is detected from the checkpoint's config.",
+      "The code and weights use the Fish Audio Community License, and S2-Pro weights use the Fish Audio Research License, so check the license before commercial use. Use voice features only with consent."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Drama 3",
+        "body": "Multi-character, long content."
+      },
+      {
+        "icon": "scan-search",
+        "title": "S2-Pro",
+        "body": "Faster 4B model."
+      },
+      {
+        "icon": "puzzle",
+        "title": "CLI, API, WebUI",
+        "body": "Several ways to run."
+      },
+      {
+        "icon": "file-code",
+        "title": "Fast serving",
+        "body": "SGLang-Omni and vLLM-Omni."
+      }
+    ],
+    "strengths": [
+      "High quality",
+      "Open weights",
+      "Active project"
+    ],
+    "limitations": [
+      "Custom licenses with restrictions",
+      "Large models need strong GPUs",
+      "Install steps are in the docs"
+    ],
+    "useCases": [
+      {
+        "title": "Audiobooks",
+        "body": "Long narration."
+      },
+      {
+        "title": "Drama and games",
+        "body": "Multi-character voices."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Fish Speech's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/fishaudio/fish-speech/blob/0f8a12e8a651062fdee9c33a894bdccd3a8513f1/README.md",
+      "prerequisites": [
+        "GPU"
+      ],
+      "supportedOs": [
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Documentation",
+          "method": "docs",
+          "steps": [
+            {
+              "title": "Follow the install guide",
+              "body": "speech.fish.audio/install covers environment setup, weights and Docker."
+            },
+            {
+              "title": "Run inference",
+              "body": "speech.fish.audio/inference covers the command line, API server and WebUI."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start the WebUI",
+          "body": "After installing, launch the WebUI as described in the inference docs and generate a sample."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Generate speech with the WebUI",
+      "useCase": "Install Fish Speech and make your first clip.",
+      "setup": [
+        "A GPU machine"
+      ],
+      "steps": [
+        {
+          "title": "Install",
+          "body": "Follow speech.fish.audio/install."
+        },
+        {
+          "title": "Download a model",
+          "body": "S2-Pro is faster; Drama 3 is the flagship."
+        },
+        {
+          "title": "Generate",
+          "body": "Use the WebUI or command line from the inference docs."
+        }
+      ],
+      "expected": "An audio file of your text.",
+      "nextSteps": [
+        "Serve with SGLang-Omni",
+        "Try the API server"
+      ],
+      "sourceUrl": "https://github.com/fishaudio/fish-speech/blob/0f8a12e8a651062fdee9c33a894bdccd3a8513f1/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software and weights",
+        "value": "Free under the Fish Audio Community License; check its terms.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Slow generation",
+        "solution": "Use SGLang-Omni, which the team recommends for efficiency.",
+        "sourceUrl": "https://github.com/fishaudio/fish-speech/blob/0f8a12e8a651062fdee9c33a894bdccd3a8513f1/README.md"
+      }
+    ],
+    "bestFor": [
+      "Text-to-speech",
+      "Expressive voices"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Text-to-speech"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Fish Audio Community License"
+      },
+      {
+        "label": "Models",
+        "value": "Drama 3, S2-Pro"
+      }
+    ]
+  }
+}

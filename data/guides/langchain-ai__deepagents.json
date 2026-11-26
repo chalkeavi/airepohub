@@ -1,0 +1,185 @@
+{
+  "fullName": "langchain-ai/deepagents",
+  "summary": "LangChain's ready-to-run agent harness that plans, works with files and manages its own context for long, multi-step tasks.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/langchain-ai/deepagents/blob/6e874efa74e5d80cda80148381b7552ce418b3db/README.md"
+    ],
+    "sourceCommitSha": "6e874efa74e5d80cda80148381b7552ce418b3db",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "uv add deepagents"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Deep Agents is an open-source agent harness from LangChain: an opinionated agent that runs out of the box, with defaults tuned for long-horizon, multi-step work. It can plan, read and write files and manage its own context, and you can extend, override or replace any piece.",
+      "problem": "Building an agent that handles long tasks well takes a lot of plumbing. Deep Agents gives you a working harness to start from.",
+      "whoFor": [
+        "Python developers building agents",
+        "Teams prototyping research or coding agents",
+        "LangChain and LangGraph users"
+      ],
+      "whyChoose": "Choose it for a batteries-included starting point with sub-agents, custom tools and swappable models, without forking.",
+      "requirements": [
+        "Python with uv (or pip)",
+        "An API key for your model provider"
+      ]
+    },
+    "overview": [
+      "Add the package with uv add deepagents, then call create_deep_agent with a model string and a system prompt, and invoke it with messages.",
+      "Out of the box the agent can plan, read and write files and manage context. You can add tools, swap models, customise prompts and configure sub-agents.",
+      "LangSmith is suggested for debugging and deploying. Deep Agents is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Planning",
+        "body": "For multi-step work."
+      },
+      {
+        "icon": "scan-search",
+        "title": "File tools",
+        "body": "Read and write files."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Context management",
+        "body": "Handles long tasks."
+      },
+      {
+        "icon": "file-code",
+        "title": "Sub-agents",
+        "body": "Configurable."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Extensible",
+        "body": "Override any piece."
+      }
+    ],
+    "strengths": [
+      "Works out of the box",
+      "Flexible",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Model costs for long tasks",
+      "Opinionated defaults may need tuning"
+    ],
+    "useCases": [
+      {
+        "title": "Research assistant",
+        "body": "Research and summarise."
+      },
+      {
+        "title": "Task automation",
+        "body": "Long multi-step jobs."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Deep Agents's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/langchain-ai/deepagents/blob/6e874efa74e5d80cda80148381b7552ce418b3db/README.md",
+      "prerequisites": [
+        "Python"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Add the package",
+              "code": "uv add deepagents",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Create and run an agent",
+          "code": "from deepagents import create_deep_agent\n\nagent = create_deep_agent(\n    model=\"openai:gpt-6-astra\",\n    system_prompt=\"You are a research assistant.\",\n)\nresult = agent.invoke({\"messages\": \"Research LangGraph and write a summary\"})",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build a research agent",
+      "useCase": "Run a deep agent on a research task.",
+      "setup": [
+        "uv add deepagents",
+        "Your provider API key set"
+      ],
+      "steps": [
+        {
+          "title": "Save the example as agent.py",
+          "body": "Change the model string to one you have access to."
+        },
+        {
+          "title": "Run it",
+          "code": "uv run agent.py",
+          "lang": "bash"
+        }
+      ],
+      "expected": "The agent plans, researches and returns a summary.",
+      "nextSteps": [
+        "Add your own tools",
+        "Configure sub-agents",
+        "Trace with LangSmith"
+      ],
+      "sourceUrl": "https://github.com/langchain-ai/deepagents/blob/6e874efa74e5d80cda80148381b7552ce418b3db/README.md"
+    },
+    "costs": [
+      {
+        "label": "Library",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Your provider bills usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Model not found",
+        "solution": "Use a model string your provider supports.",
+        "sourceUrl": "https://github.com/langchain-ai/deepagents/blob/6e874efa74e5d80cda80148381b7552ce418b3db/README.md"
+      }
+    ],
+    "bestFor": [
+      "Agent harness",
+      "Long-running agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent harness"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Maker",
+        "value": "LangChain"
+      }
+    ]
+  }
+}

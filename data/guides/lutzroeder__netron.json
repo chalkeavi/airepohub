@@ -1,0 +1,215 @@
+{
+  "fullName": "lutzroeder/netron",
+  "summary": "Viewer that draws the structure of neural network and machine learning model files like ONNX, PyTorch and TensorFlow.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/lutzroeder/netron/blob/9be16915c1bae0ab06c7d804327b19b4ce264089/README.md"
+    ],
+    "sourceCommitSha": "9be16915c1bae0ab06c7d804327b19b4ce264089",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Open in browser",
+        "command": "Go to netron.app"
+      },
+      {
+        "comment": "Install with pip",
+        "command": "pip install netron"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Netron is a viewer for neural network, deep learning and machine learning models. Open a model file and it shows the graph of layers and their properties.",
+      "problem": "Model files are opaque. Netron lets you see what's inside without writing code.",
+      "whoFor": [
+        "ML engineers debugging models",
+        "Students learning architectures",
+        "Developers converting models between formats"
+      ],
+      "whyChoose": "Choose it for broad format support (ONNX, TensorFlow Lite, PyTorch, TensorFlow, Core ML, OpenVINO, Keras, Safetensors and more) in a browser, desktop app or Python package.",
+      "requirements": [
+        "A browser, or the desktop app, or Python"
+      ]
+    },
+    "overview": [
+      "Supported formats include ONNX, TensorFlow Lite, PyTorch, torch.export, ExecuTorch, TorchScript, TensorFlow, Core ML, OpenVINO, Keras, Caffe, Darknet, Safetensors and NumPy, with experimental support for MLIR, JAX, GGUF and others.",
+      "Use the browser version at netron.app, download the desktop app (macOS dmg or brew install --cask netron, Linux deb or rpm, Windows exe or winget), or pip install netron and run netron [FILE].",
+      "Netron is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Many formats",
+        "body": "ONNX, PyTorch, TF and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Browser",
+        "body": "No install."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Desktop apps",
+        "body": "macOS, Linux, Windows."
+      },
+      {
+        "icon": "file-code",
+        "title": "Python",
+        "body": "netron.start()."
+      }
+    ],
+    "strengths": [
+      "Instant visual",
+      "Wide format support",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Viewing only, not editing",
+      "Some formats are experimental"
+    ],
+    "useCases": [
+      {
+        "title": "Inspect a model",
+        "body": "Check layers and shapes."
+      },
+      {
+        "title": "Debug conversion",
+        "body": "Compare before and after."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Netron's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/lutzroeder/netron/blob/9be16915c1bae0ab06c7d804327b19b4ce264089/README.md",
+      "prerequisites": [
+        "Browser or Python"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Browser",
+          "method": "web",
+          "steps": [
+            {
+              "title": "Open netron.app and drop in a model file"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Python",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install netron",
+              "lang": "bash"
+            },
+            {
+              "title": "Open a model",
+              "code": "netron model.onnx",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "macOS",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install --cask netron",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Windows",
+          "method": "winget",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "winget install -s winget netron",
+              "lang": "powershell"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "View a model",
+          "code": "netron model.onnx",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Look inside a model file",
+      "useCase": "Open a model and inspect a layer.",
+      "setup": [
+        "netron installed or netron.app"
+      ],
+      "steps": [
+        {
+          "title": "Open your model",
+          "code": "netron model.onnx",
+          "lang": "bash"
+        },
+        {
+          "title": "Click a node",
+          "body": "See its attributes, inputs and outputs."
+        }
+      ],
+      "expected": "A graph of your model's layers in the browser.",
+      "nextSteps": [
+        "Compare two model versions",
+        "Open from Python with netron.start()"
+      ],
+      "sourceUrl": "https://github.com/lutzroeder/netron/blob/9be16915c1bae0ab06c7d804327b19b4ce264089/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Format not shown well",
+        "solution": "Check whether that format is listed as experimental.",
+        "sourceUrl": "https://github.com/lutzroeder/netron/blob/9be16915c1bae0ab06c7d804327b19b4ce264089/README.md"
+      }
+    ],
+    "bestFor": [
+      "Model visualisation",
+      "Debugging models"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Model viewer"
+      },
+      {
+        "label": "Language",
+        "value": "JavaScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Web",
+        "value": "netron.app"
+      }
+    ]
+  }
+}

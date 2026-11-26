@@ -1,0 +1,184 @@
+{
+  "fullName": "ScrapeGraphAI/Scrapegraph-ai",
+  "summary": "Python library that scrapes websites and documents with an LLM: describe what you want and get structured results.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ScrapeGraphAI/Scrapegraph-ai/blob/194055e203afce41ed4e70365dbc416bad756115/README.md"
+    ],
+    "sourceCommitSha": "194055e203afce41ed4e70365dbc416bad756115",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install scrapegraphai\nplaywright install"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "ScrapeGraphAI is a Python scraping library that uses LLMs and graph pipelines to extract information from websites or local files. You give a prompt and a source, and it returns structured data.",
+      "problem": "Traditional scrapers break whenever a page layout changes. ScrapeGraphAI lets you say what you want in plain language instead of writing selectors.",
+      "whoFor": [
+        "Developers collecting web data",
+        "Researchers building datasets",
+        "Analysts extracting info from documents"
+      ],
+      "whyChoose": "Choose it for several ready pipelines (such as SmartScraperGraph), support for local Ollama models or OpenAI, and an MIT license.",
+      "requirements": [
+        "Python (a virtual environment is recommended)",
+        "Playwright browsers",
+        "An LLM: local Ollama or an API key"
+      ]
+    },
+    "overview": [
+      "Install with pip, then run playwright install so it can fetch pages. Using a virtual environment avoids library conflicts.",
+      "SmartScraperGraph is the most common pipeline: give it a prompt, a source URL and a config naming the LLM (for example ollama/llama3.2, or openai/gpt-4o-mini with an API key), then call run().",
+      "Respect each website's terms and robots rules when scraping. The library is MIT licensed; a hosted service also exists."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Prompt-based scraping",
+        "body": "Say what to extract."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Pipelines",
+        "body": "SmartScraperGraph and others."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Local or cloud LLMs",
+        "body": "Ollama or OpenAI."
+      },
+      {
+        "icon": "file-code",
+        "title": "Websites and files",
+        "body": "Many sources."
+      }
+    ],
+    "strengths": [
+      "Resilient to layout changes",
+      "Simple API",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "LLM calls make it slower than plain scrapers",
+      "Must respect site terms"
+    ],
+    "useCases": [
+      {
+        "title": "Company info",
+        "body": "Extract details from a site."
+      },
+      {
+        "title": "Datasets",
+        "body": "Collect structured data."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from ScrapeGraphAI's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ScrapeGraphAI/Scrapegraph-ai/blob/194055e203afce41ed4e70365dbc416bad756115/README.md",
+      "prerequisites": [
+        "Python"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install scrapegraphai",
+              "lang": "bash"
+            },
+            {
+              "title": "Install browsers for fetching pages",
+              "code": "playwright install",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Scrape a page with a local model",
+          "code": "from scrapegraphai.graphs import SmartScraperGraph\n\ngraph_config = {\n    \"llm\": {\"model\": \"ollama/llama3.2\", \"model_tokens\": 8192, \"format\": \"json\"},\n    \"verbose\": True,\n    \"headless\": False,\n}\n\nsmart_scraper_graph = SmartScraperGraph(\n    prompt=\"Extract useful information from the webpage, including a description of what the company does, founders and social media links\",\n    source=\"https://scrapegraphai.com/\",\n    config=graph_config,\n)\n\nprint(smart_scraper_graph.run())",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Extract company info from a website",
+      "useCase": "Run SmartScraperGraph with Ollama.",
+      "setup": [
+        "scrapegraphai installed",
+        "Ollama with llama3.2"
+      ],
+      "steps": [
+        {
+          "title": "Save the example as scrape.py"
+        },
+        {
+          "title": "Run it",
+          "code": "python scrape.py",
+          "lang": "bash"
+        }
+      ],
+      "expected": "JSON with the company description, founders and social links.",
+      "nextSteps": [
+        "Use an OpenAI model",
+        "Try other pipelines"
+      ],
+      "sourceUrl": "https://github.com/ScrapeGraphAI/Scrapegraph-ai/blob/194055e203afce41ed4e70365dbc416bad756115/README.md"
+    },
+    "costs": [
+      {
+        "label": "Library",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Ollama is free locally; API models are billed.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Pages don't load",
+        "solution": "Run playwright install.",
+        "sourceUrl": "https://github.com/ScrapeGraphAI/Scrapegraph-ai/blob/194055e203afce41ed4e70365dbc416bad756115/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI web scraping",
+      "Data extraction"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI scraping library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "pip install scrapegraphai"
+      }
+    ]
+  }
+}

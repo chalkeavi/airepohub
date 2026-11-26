@@ -1,0 +1,197 @@
+{
+  "fullName": "zeroclaw-labs/zeroclaw",
+  "summary": "Small, fast personal AI assistant runtime in a single Rust binary, talking to many model providers and 30+ chat channels.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/zeroclaw-labs/zeroclaw/blob/caada4005a1e4791e8d79039d510c2b230a83f0c/README.md"
+    ],
+    "sourceCommitSha": "caada4005a1e4791e8d79039d510c2b230a83f0c",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install (macOS/Linux)",
+        "command": "curl -fsSL https://raw.githubusercontent.com/zeroclaw-labs/zeroclaw/master/install.sh | sh"
+      },
+      {
+        "comment": "Set up",
+        "command": "zeroclaw quickstart"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "ZeroClaw is an agent runtime: a single Rust binary you configure and run as your own personal AI assistant. It talks to LLM providers such as Anthropic, OpenAI, Ollama and about 20 others, and reaches you through 30+ channels like Discord and Telegram.",
+      "problem": "Many assistant platforms are heavy or tie your data to a service. ZeroClaw is small and runs on your own machine, so you own the agent and the data.",
+      "whoFor": [
+        "Self-hosters wanting an always-on assistant",
+        "Developers who like lightweight tools",
+        "People chatting with AI from messaging apps"
+      ],
+      "whyChoose": "Choose it for one fast binary that installs as a background service on any OS, with safety gates by default.",
+      "requirements": [
+        "macOS, Linux or Windows",
+        "An API key for a provider, or local Ollama"
+      ]
+    },
+    "overview": [
+      "Install with the script, then run zeroclaw quickstart to pick a provider and write a working config, and zeroclaw agent -a to chat interactively.",
+      "zeroclaw service install and zeroclaw service start register it as a systemd, launchctl or Windows service so it runs always-on.",
+      "Safety gates are on by default; a YOLO mode for dev boxes is described in the docs. ZeroClaw is dual-licensed MIT or Apache 2.0."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Single binary",
+        "body": "Rust, fast and small."
+      },
+      {
+        "icon": "scan-search",
+        "title": "~20 providers",
+        "body": "Anthropic, OpenAI, Ollama and more."
+      },
+      {
+        "icon": "puzzle",
+        "title": "30+ channels",
+        "body": "Discord, Telegram and others."
+      },
+      {
+        "icon": "file-code",
+        "title": "Background service",
+        "body": "systemd, launchctl, Windows."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Safety gates",
+        "body": "On by default."
+      }
+    ],
+    "strengths": [
+      "Lightweight",
+      "Runs anywhere",
+      "MIT or Apache 2.0"
+    ],
+    "limitations": [
+      "Configuration takes some learning",
+      "Cloud models cost money"
+    ],
+    "useCases": [
+      {
+        "title": "Always-on assistant",
+        "body": "Chat from Telegram."
+      },
+      {
+        "title": "Local agent",
+        "body": "Use Ollama models privately."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from ZeroClaw's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/zeroclaw-labs/zeroclaw/blob/caada4005a1e4791e8d79039d510c2b230a83f0c/README.md",
+      "prerequisites": [
+        "A computer"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "curl -fsSL https://raw.githubusercontent.com/zeroclaw-labs/zeroclaw/master/install.sh | sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Set up a provider and config",
+              "code": "zeroclaw quickstart",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Chat interactively",
+          "body": "Run zeroclaw agent -a with the agent name from your config."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run ZeroClaw as a background service",
+      "useCase": "Set it up once and keep it running.",
+      "setup": [
+        "ZeroClaw installed"
+      ],
+      "steps": [
+        {
+          "title": "Create a config",
+          "code": "zeroclaw quickstart",
+          "lang": "bash"
+        },
+        {
+          "title": "Install the service",
+          "code": "zeroclaw service install",
+          "lang": "bash"
+        },
+        {
+          "title": "Start it",
+          "code": "zeroclaw service start",
+          "lang": "bash"
+        }
+      ],
+      "expected": "ZeroClaw runs in the background and answers on your configured channels.",
+      "nextSteps": [
+        "Add a chat channel",
+        "Read the Philosophy docs"
+      ],
+      "sourceUrl": "https://github.com/zeroclaw-labs/zeroclaw/blob/caada4005a1e4791e8d79039d510c2b230a83f0c/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free; MIT or Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Your provider bills usage; Ollama is free locally.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Installer options",
+        "solution": "Run ./install.sh --help for all flags.",
+        "sourceUrl": "https://github.com/zeroclaw-labs/zeroclaw/blob/caada4005a1e4791e8d79039d510c2b230a83f0c/README.md"
+      }
+    ],
+    "bestFor": [
+      "Personal AI assistant",
+      "Lightweight agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent runtime"
+      },
+      {
+        "label": "Language",
+        "value": "Rust"
+      },
+      {
+        "label": "License",
+        "value": "MIT or Apache 2.0"
+      },
+      {
+        "label": "Channels",
+        "value": "30+"
+      }
+    ]
+  }
+}

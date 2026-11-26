@@ -1,0 +1,213 @@
+{
+  "fullName": "mksglu/context-mode",
+  "summary": "Free local plugin for coding agents that keeps large tool output out of the context window, saving tokens.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/mksglu/context-mode/blob/1400b93fee0eec0f3404d67a7c328b45d1ed033e/README.md"
+    ],
+    "sourceCommitSha": "1400b93fee0eec0f3404d67a7c328b45d1ed033e",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install in Claude Code",
+        "command": "claude plugin marketplace add mksglu/context-mode\nclaude plugin install context-mode@context-mode"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Context Mode is a free, local plugin for 11 coding agents including Claude Code, Codex, Gemini CLI and Qwen Code. When your agent reads files, runs commands or fetches pages, the plugin processes the output in a sandbox so only the relevant part reaches the agent's context window.",
+      "problem": "Every tool result fills the agent's context, which costs tokens and pushes out earlier work. Context Mode cuts that down; the README's live examples show over 96% of raw bytes kept out of context.",
+      "whoFor": [
+        "Heavy users of Claude Code, Codex and Gemini CLI",
+        "Developers working with large files and web pages",
+        "Anyone hitting context limits"
+      ],
+      "whyChoose": "Choose it for a local plugin that keeps usage data on your machine, with hooks, MCP and skills support across many agents.",
+      "requirements": [
+        "Node 24.15.0 or later",
+        "On Windows, Git for Windows (tools run in Git Bash)",
+        "A supported coding agent"
+      ]
+    },
+    "overview": [
+      "Pick your agent's install block in the README. For Claude Code, add the marketplace and install the plugin; similar commands exist for Codex, Gemini CLI, Qwen Code and others. Each block also shows update, check and remove steps.",
+      "After installing, paste one of the README's example prompts, then run the stats skill to see how much context was saved.",
+      "The plugin is free and its source is on GitHub under the Elastic License 2.0. Context Mode Gateway is a separate hosted service with its own subscription."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Sandboxed tool output",
+        "body": "Only relevant parts reach context."
+      },
+      {
+        "icon": "scan-search",
+        "title": "11 agents",
+        "body": "Claude Code, Codex, Gemini CLI and more."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Local data",
+        "body": "Usage stays on your machine."
+      },
+      {
+        "icon": "file-code",
+        "title": "Stats skill",
+        "body": "See the savings."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Doctor",
+        "body": "Checks your setup."
+      }
+    ],
+    "strengths": [
+      "Saves tokens",
+      "Free plugin",
+      "Works across agents"
+    ],
+    "limitations": [
+      "Elastic License 2.0, not OSI open source",
+      "Needs a recent Node version"
+    ],
+    "useCases": [
+      {
+        "title": "Large web pages",
+        "body": "Fetch docs without flooding context."
+      },
+      {
+        "title": "Big JSON",
+        "body": "Query data in the sandbox."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Context Mode's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/mksglu/context-mode/blob/1400b93fee0eec0f3404d67a7c328b45d1ed033e/README.md",
+      "prerequisites": [
+        "Node 24.15+",
+        "Coding agent"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace and install",
+              "code": "claude plugin marketplace add mksglu/context-mode\nclaude plugin install context-mode@context-mode",
+              "lang": "bash"
+            },
+            {
+              "title": "Check it's installed",
+              "code": "claude plugin list",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Codex",
+          "method": "plugin-2",
+          "steps": [
+            {
+              "title": "Add the marketplace",
+              "body": "Then follow the rest of the Codex block in the README.",
+              "code": "codex plugin marketplace add mksglu/context-mode",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Gemini CLI",
+          "method": "extension",
+          "steps": [
+            {
+              "title": "Install the extension",
+              "code": "gemini extensions install https://github.com/mksglu/context-mode",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Try an example prompt",
+          "code": "On https://react.dev/reference/react/useEffect, show me the example that connects to a chat server and cleans up, and list the rules for the dependency array.",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "See how much context you save",
+      "useCase": "Run a prompt and check the stats.",
+      "setup": [
+        "Context Mode installed"
+      ],
+      "steps": [
+        {
+          "title": "Paste an example prompt from the README"
+        },
+        {
+          "title": "Run the stats skill",
+          "body": "Read the report of raw bytes versus bytes that reached the context."
+        }
+      ],
+      "expected": "A report showing most of the raw tool output stayed out of context.",
+      "nextSteps": [
+        "Use it on your own large files",
+        "Run doctor if something looks off"
+      ],
+      "sourceUrl": "https://github.com/mksglu/context-mode/blob/1400b93fee0eec0f3404d67a7c328b45d1ed033e/README.md"
+    },
+    "costs": [
+      {
+        "label": "Plugin",
+        "value": "Free.",
+        "tone": "free"
+      },
+      {
+        "label": "Gateway",
+        "value": "Optional hosted service with its own subscription.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Shell tools fail on Windows",
+        "solution": "Install Git for Windows; the tools run in Git Bash.",
+        "sourceUrl": "https://github.com/mksglu/context-mode/blob/1400b93fee0eec0f3404d67a7c328b45d1ed033e/README.md"
+      }
+    ],
+    "bestFor": [
+      "Token saving",
+      "Coding agent plugins"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Coding agent plugin"
+      },
+      {
+        "label": "Language",
+        "value": "JavaScript"
+      },
+      {
+        "label": "License",
+        "value": "Elastic License 2.0"
+      },
+      {
+        "label": "npm package",
+        "value": "context-mode"
+      }
+    ]
+  }
+}

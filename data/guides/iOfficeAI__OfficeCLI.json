@@ -1,0 +1,207 @@
+{
+  "fullName": "iOfficeAI/OfficeCLI",
+  "summary": "Single-binary command-line tool that lets AI agents create, read and edit Word, Excel and PowerPoint files without Office.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/iOfficeAI/OfficeCLI/blob/fecece3ee6054f419d2e8ecca899d7498142d417/README.md"
+    ],
+    "sourceCommitSha": "fecece3ee6054f419d2e8ecca899d7498142d417",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install (macOS/Linux)",
+        "command": "curl -fsSL https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/install.sh | bash"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "OfficeCLI is an Office suite built for AI agents. It's a single binary with no Office installation or dependencies that can create, read and edit .docx, .xlsx and .pptx files, and render them to HTML or PNG so agents can see the result.",
+      "problem": "Agents struggle to produce well-formatted Office documents. OfficeCLI gives them precise commands and a renderer to check their work.",
+      "whoFor": [
+        "Developers giving agents document skills",
+        "People automating reports and decks",
+        "Teams generating Office files in pipelines"
+      ],
+      "whyChoose": "Choose it for a dependency-free binary with a skill file agents can install themselves, structured JSON output and high-fidelity rendering.",
+      "requirements": [
+        "macOS, Linux or Windows"
+      ]
+    },
+    "overview": [
+      "For agents, paste curl -fsSL https://officecli.ai/SKILL.md into your agent's chat; the skill file teaches it to install and use OfficeCLI.",
+      "For people, install with the script, Homebrew (brew install officecli), npm (npm install -g @officecli/officecli) or a binary from GitHub Releases. Windows uses a PowerShell script.",
+      "Commands include create, add (slides, shapes with properties), view as outline or HTML, and get elements as JSON. OfficeCLI is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Word, Excel, PowerPoint",
+        "body": "Create and edit."
+      },
+      {
+        "icon": "scan-search",
+        "title": "No Office needed",
+        "body": "Single binary."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Rendering",
+        "body": "HTML or PNG previews."
+      },
+      {
+        "icon": "file-code",
+        "title": "JSON output",
+        "body": "Structured element data."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Agent skill",
+        "body": "Self-install via SKILL.md."
+      }
+    ],
+    "strengths": [
+      "No dependencies",
+      "Agent friendly",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Command-line only",
+      "Complex layouts may need several commands"
+    ],
+    "useCases": [
+      {
+        "title": "Generate reports",
+        "body": "Build a deck from data."
+      },
+      {
+        "title": "Edit spreadsheets",
+        "body": "Update cells from scripts."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from OfficeCLI's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/iOfficeAI/OfficeCLI/blob/fecece3ee6054f419d2e8ecca899d7498142d417/README.md",
+      "prerequisites": [
+        "A terminal"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "curl -fsSL https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/install.sh | bash",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Homebrew",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install officecli",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Windows",
+          "method": "powershell",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "irm https://raw.githubusercontent.com/iOfficeAI/OfficeCLI/main/install.ps1 | iex",
+              "lang": "powershell"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Create a slide deck",
+          "code": "officecli create deck.pptx\nofficecli add deck.pptx / --type slide --prop title=\"Q4 Report\" --prop background=1A1A2E",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build and preview a slide",
+      "useCase": "Create a deck, add text and view it.",
+      "setup": [
+        "OfficeCLI installed"
+      ],
+      "steps": [
+        {
+          "title": "Create and add a slide",
+          "code": "officecli create deck.pptx\nofficecli add deck.pptx / --type slide --prop title=\"Q4 Report\" --prop background=1A1A2E",
+          "lang": "bash"
+        },
+        {
+          "title": "Add a text box",
+          "code": "officecli add deck.pptx '/slide[1]' --type shape \\\n  --prop text=\"Revenue grew 25%\" --prop x=2cm --prop y=5cm \\\n  --prop font=Arial --prop size=24 --prop color=FFFFFF",
+          "lang": "bash"
+        },
+        {
+          "title": "Preview",
+          "code": "officecli view deck.pptx html",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A rendered preview of your slide opens in the browser.",
+      "nextSteps": [
+        "Get elements as JSON",
+        "Let your agent install the skill"
+      ],
+      "sourceUrl": "https://github.com/iOfficeAI/OfficeCLI/blob/fecece3ee6054f419d2e8ecca899d7498142d417/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Agent doesn't know the commands",
+        "solution": "Have it read the SKILL.md file from officecli.ai.",
+        "sourceUrl": "https://github.com/iOfficeAI/OfficeCLI/blob/fecece3ee6054f419d2e8ecca899d7498142d417/README.md"
+      }
+    ],
+    "bestFor": [
+      "Office automation",
+      "Agent document tools"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Office CLI for agents"
+      },
+      {
+        "label": "Language",
+        "value": "C#"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Formats",
+        "value": "docx, xlsx, pptx"
+      }
+    ]
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "fullName": "Zackriya-Solutions/meetily",
+  "summary": "Privacy-first AI meeting assistant that records, transcribes and summarises meetings on your own computer.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Zackriya-Solutions/meetily/blob/2166bc6fe3ba585580f3f94b79cda7e7b91deb76/README.md"
+    ],
+    "sourceCommitSha": "2166bc6fe3ba585580f3f94b79cda7e7b91deb76",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Download",
+        "command": "Get the Windows .exe or macOS .dmg from GitHub Releases"
+      },
+      {
+        "comment": "Linux install",
+        "command": "curl -fsSL https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/scripts/install-linux.sh | sh"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Meetily is an AI meeting assistant that captures meetings, transcribes them in real time and generates summaries, all on your own machine with a local model by default.",
+      "problem": "Cloud meeting note-takers upload your conversations. Meetily keeps recordings and transcripts local.",
+      "whoFor": [
+        "Professionals with confidential meetings",
+        "Teams that need data sovereignty",
+        "Anyone wanting free meeting notes"
+      ],
+      "whyChoose": "Choose it for a free, MIT-licensed app with live transcription and a choice of AI providers, from local Ollama to Claude, Groq, OpenRouter or any OpenAI-compatible endpoint.",
+      "requirements": [
+        "Windows x64 or macOS Apple Silicon, or x86_64 Linux with glibc 2.35+"
+      ]
+    },
+    "overview": [
+      "Native apps exist for Windows (.exe) and macOS Apple Silicon (.dmg). On Linux, a one-line script installs the .deb or an AppImage, and manual packages are also available.",
+      "Meetily transcribes live during the meeting and summarises it afterwards with a local model by default. You can switch the AI provider to Ollama, Claude, Groq, OpenRouter or an OpenAI-compatible endpoint.",
+      "Get consent from participants before recording. Meetily is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Live transcription",
+        "body": "As the meeting happens."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Summaries",
+        "body": "Local model by default."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Provider choice",
+        "body": "Ollama, Claude, Groq, OpenRouter."
+      },
+      {
+        "icon": "file-code",
+        "title": "Local data",
+        "body": "Stays on your machine."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Cross-platform",
+        "body": "Windows, macOS, Linux."
+      }
+    ],
+    "strengths": [
+      "Private",
+      "Free",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "macOS build is Apple Silicon only",
+      "Local models need decent hardware"
+    ],
+    "useCases": [
+      {
+        "title": "Meeting notes",
+        "body": "Automatic summaries."
+      },
+      {
+        "title": "Interviews",
+        "body": "Transcribe locally."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Meetily's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Zackriya-Solutions/meetily/blob/2166bc6fe3ba585580f3f94b79cda7e7b91deb76/README.md",
+      "prerequisites": [
+        "Desktop computer"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Windows / macOS",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download the installer",
+              "body": "The .exe for Windows or .dmg for Apple Silicon Macs from GitHub Releases."
+            },
+            {
+              "title": "Install",
+              "body": "On macOS, drag Meetily to Applications."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Linux",
+          "method": "script",
+          "steps": [
+            {
+              "title": "One-line install",
+              "code": "curl -fsSL https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/scripts/install-linux.sh | sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Or the AppImage",
+              "code": "curl -fsSL https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/scripts/install-linux.sh | sh -s -- --appimage",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Record a test meeting",
+          "body": "Start a recording, speak for a minute, then stop and view the transcript and summary."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Get a summary of your next meeting",
+      "useCase": "Record, transcribe and summarise locally.",
+      "setup": [
+        "Meetily installed"
+      ],
+      "steps": [
+        {
+          "title": "Start recording when the meeting begins"
+        },
+        {
+          "title": "Watch the live transcript"
+        },
+        {
+          "title": "Stop and generate the summary"
+        }
+      ],
+      "expected": "A transcript and summary saved on your computer.",
+      "nextSteps": [
+        "Switch to a different AI provider",
+        "Export notes"
+      ],
+      "sourceUrl": "https://github.com/Zackriya-Solutions/meetily/blob/2166bc6fe3ba585580f3f94b79cda7e7b91deb76/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Cloud AI",
+        "value": "Optional providers bill usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Linux install fails",
+        "solution": "It needs x86_64 with glibc 2.35 or newer; run the script with --help for options.",
+        "sourceUrl": "https://github.com/Zackriya-Solutions/meetily/blob/2166bc6fe3ba585580f3f94b79cda7e7b91deb76/README.md"
+      }
+    ],
+    "bestFor": [
+      "Meeting notes",
+      "Local transcription"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI meeting assistant"
+      },
+      {
+        "label": "Language",
+        "value": "Rust"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Platforms",
+        "value": "Windows, macOS, Linux"
+      }
+    ]
+  }
+}

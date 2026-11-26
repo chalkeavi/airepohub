@@ -1,0 +1,189 @@
+{
+  "fullName": "zarazhangrui/frontend-slides",
+  "summary": "Coding-agent skill that makes polished HTML slide decks from scratch or from PowerPoint files, and can deploy them to a link.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/zarazhangrui/frontend-slides/blob/9906a34d640d2111f724544cbc50f7f130569ae1/README.md"
+    ],
+    "sourceCommitSha": "9906a34d640d2111f724544cbc50f7f130569ae1",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install in Claude Code",
+        "command": "git clone https://github.com/zarazhangrui/frontend-slides.git ~/.claude/skills/frontend-slides"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Frontend Slides is a skill for coding agents that creates HTML presentations, either from scratch or by converting PowerPoint files. It is packaged as a Claude Code plugin, and the core SKILL.md works with other agents too.",
+      "problem": "Making good-looking slides takes time, and PowerPoint files are hard to share on the web. This skill uses an agent's frontend skills to build decks that work in any browser.",
+      "whoFor": [
+        "People who present often",
+        "Developers using Claude Code",
+        "Anyone converting PowerPoint to web"
+      ],
+      "whyChoose": "Choose it for style presets, a bold template pack, PowerPoint extraction, PDF export and one-command deploy to a shareable URL.",
+      "requirements": [
+        "Claude Code or another coding agent"
+      ]
+    },
+    "overview": [
+      "Install by cloning the repo into ~/.claude/skills/frontend-slides or copying the skill files there, then type /frontend-slides in Claude Code.",
+      "It includes style presets, animation patterns, a template pack and scripts to extract text from .pptx files, export to PDF and deploy a deck.",
+      "bash scripts/deploy.sh ./my-deck/ deploys slides to a permanent link that works on phones, tablets and laptops. A beginner video walkthrough is linked in the README. MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "HTML decks",
+        "body": "Beautiful web slides."
+      },
+      {
+        "icon": "scan-search",
+        "title": "PowerPoint conversion",
+        "body": "Extract from .pptx."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Style presets",
+        "body": "Ready looks."
+      },
+      {
+        "icon": "file-code",
+        "title": "Deploy",
+        "body": "Shareable URL."
+      },
+      {
+        "icon": "git-compare",
+        "title": "PDF export",
+        "body": "For handouts."
+      }
+    ],
+    "strengths": [
+      "Great-looking output",
+      "Works on any device",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Needs a coding agent",
+      "Deploy script uses an external host"
+    ],
+    "useCases": [
+      {
+        "title": "Talk slides",
+        "body": "Make a deck from notes."
+      },
+      {
+        "title": "Convert old decks",
+        "body": "PowerPoint to web."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Frontend Slides's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/zarazhangrui/frontend-slides/blob/9906a34d640d2111f724544cbc50f7f130569ae1/README.md",
+      "prerequisites": [
+        "Claude Code"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code skill",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone into your skills folder",
+              "code": "git clone https://github.com/zarazhangrui/frontend-slides.git ~/.claude/skills/frontend-slides",
+              "lang": "bash"
+            },
+            {
+              "title": "Use it",
+              "body": "Type /frontend-slides in Claude Code."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Make a deck",
+          "code": "/frontend-slides",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Create and share a slide deck",
+      "useCase": "Build a deck and deploy it to a link.",
+      "setup": [
+        "The skill installed"
+      ],
+      "steps": [
+        {
+          "title": "Run the skill",
+          "body": "Type /frontend-slides and describe your talk, or give a .pptx to convert."
+        },
+        {
+          "title": "Pick a style preset"
+        },
+        {
+          "title": "Deploy",
+          "code": "bash scripts/deploy.sh ./my-deck/",
+          "lang": "bash"
+        }
+      ],
+      "expected": "An HTML deck with a shareable URL.",
+      "nextSteps": [
+        "Export to PDF",
+        "Try the bold template pack"
+      ],
+      "sourceUrl": "https://github.com/zarazhangrui/frontend-slides/blob/9906a34d640d2111f724544cbc50f7f130569ae1/README.md"
+    },
+    "costs": [
+      {
+        "label": "Skill",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent",
+        "value": "Your coding agent's usage applies.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "/frontend-slides not found",
+        "solution": "Check the files are in ~/.claude/skills/frontend-slides; standalone skills aren't namespaced.",
+        "sourceUrl": "https://github.com/zarazhangrui/frontend-slides/blob/9906a34d640d2111f724544cbc50f7f130569ae1/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI slide decks",
+      "HTML presentations"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent skill"
+      },
+      {
+        "label": "Language",
+        "value": "JavaScript, HTML"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Command",
+        "value": "/frontend-slides"
+      }
+    ]
+  }
+}
