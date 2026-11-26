@@ -1,7 +1,7 @@
 # Progress
 
 **Current milestone:** 6 — Cloudflare deploy (config PR open, not deployed). Milestone 5 (admin) not started.
-**Last updated:** 2026-11-25
+**Last updated:** 2026-11-26
 
 ## Done (implemented and checked)
 - Milestone 1 (PR #1): docs and memory, schema, homepage, product page, categories, search, about, legal
@@ -30,6 +30,10 @@
 
 - 2026-11-25: Bulk import (decision #30) and full guides (decision #35): 100 guides written from READMEs, checked by
   `checkGuide`, published by the `publish-guides` job; a published guide makes the page indexable.
+
+- 2026-11-26: Homepage "Featured" section removed (owner: looked like promotion) and pages re-render after new data
+  (PRs #16, #17). 200-repo expansion: 8 batches of new AI repos, each with a summary and a full guide from its README
+  at a pinned SHA (PRs #18 and the batch 2–8 PR). Excluded by decision #34/#37 rules: see decision #37.
 
 ## Not done / known gaps
 - Weekly board and Trending appear ~7 days after the first real job run; monthly after ~30 days.
