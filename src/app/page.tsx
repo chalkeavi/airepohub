@@ -4,22 +4,18 @@ import Link from "next/link";
 import { AdSlot } from "@/components/ads/ad-slot";
 import { CategoryIcon } from "@/components/repo/category-icon";
 import { Leaderboard } from "@/components/repo/leaderboard";
-import { RepoAvatar } from "@/components/repo/repo-avatar";
 import { RepoCard } from "@/components/repo/repo-card";
-import { Terminal } from "@/components/repo/terminal";
 import { toLeaderboardData } from "@/components/repo/to-leaderboard-data";
 import { SearchBox } from "@/components/site/search-box";
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
-import { GithubIcon } from "@/components/ui/github-icon";
 import { SectionHeading } from "@/components/ui/section-heading";
 import {
   getBeginnerFriendly,
   getCategories,
   getCategoryCounts,
   getDataAsOf,
-  getFeaturedRepository,
   getLeaderboards,
   getPublishedCount,
   getRecentlyAdded,
@@ -28,18 +24,17 @@ import {
 } from "@/lib/data";
 import { JsonLd } from "@/components/site/json-ld";
 import { itemListJsonLd, websiteJsonLd } from "@/lib/seo";
-import { formatCount, formatDate, licenseLabel } from "@/lib/utils";
+import { formatDate } from "@/lib/utils";
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const POPULAR = ["local-llms", "ai-agents", "coding-assistants", "image-generation", "rag-knowledge"];
 
 export default async function HomePage() {
-  const [categories, counts, boards, featured, trending, beginner, recent, suggestions, repoCount, asOf] = await Promise.all([
+  const [categories, counts, boards, trending, beginner, recent, suggestions, repoCount, asOf] = await Promise.all([
     getCategories(),
     getCategoryCounts(),
     getLeaderboards(),
-    getFeaturedRepository(),
     getTrendingRepositories(),
     getBeginnerFriendly(),
     getRecentlyAdded(),
@@ -133,55 +128,6 @@ export default async function HomePage() {
           </span>
         </p>
       </section>
-
-      {/* ── Featured ─────────────────────────────────────────── */}
-      {featured && (
-        <section className="container-page pt-20" aria-labelledby="featured">
-          <div className="relative overflow-hidden rounded-2xl border border-border bg-surface shadow-card">
-            <div className="bg-grid pointer-events-none absolute inset-0 opacity-70" aria-hidden />
-            <div className="relative grid gap-10 p-6 sm:p-10 lg:grid-cols-[1.05fr_1fr] lg:items-center">
-              <div>
-                <p className="eyebrow mb-4 flex items-center gap-2">
-                  <span className="size-1.5 rounded-full bg-accent" aria-hidden /> Featured repository
-                </p>
-                <div className="flex items-center gap-4">
-                  <RepoAvatar src={featured.repository.avatarUrl} name={featured.repository.name} size={56} />
-                  <div>
-                    <h2 id="featured" className="text-3xl font-semibold tracking-[-0.03em]">
-                      {featured.repository.name}
-                    </h2>
-                    <p className="text-sm text-muted-foreground">by {featured.repository.owner}</p>
-                  </div>
-                </div>
-                <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
-                  {featured.content?.sixtySeconds.whatItDoes ?? featured.repository.summary ?? featured.repository.description}
-                </p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {featured.repository.categorySlugs.map((s) => (
-                    <Badge key={s} tone="accent">
-                      {catBySlug.get(s)?.name}
-                    </Badge>
-                  ))}
-                  {featured.repository.primaryLanguage && <Badge tone="muted">{featured.repository.primaryLanguage}</Badge>}
-                  <Badge tone="muted">{licenseLabel(featured.repository.licenseKey)} license</Badge>
-                  <Badge tone="muted">★ {formatCount(featured.repository.stars)}</Badge>
-                </div>
-                <div className="mt-7 flex flex-wrap gap-3">
-                  <ButtonLink href={`/repo/${featured.repository.slug}`} variant="accent" size="lg">
-                    Read the guide <ArrowRight aria-hidden />
-                  </ButtonLink>
-                  <ButtonLink href={featured.repository.githubUrl} external variant="outline" size="lg">
-                    <GithubIcon /> GitHub
-                  </ButtonLink>
-                </div>
-              </div>
-              {featured.content && (
-                <Terminal title={`${featured.repository.name}: quick start`} commands={featured.content.heroCommands} />
-              )}
-            </div>
-          </div>
-        </section>
-      )}
 
       <AdSlot slot="home-after-featured" className="container-page pt-16" />
 
