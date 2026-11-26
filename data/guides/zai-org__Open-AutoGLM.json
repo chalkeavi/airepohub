@@ -1,0 +1,229 @@
+{
+  "fullName": "zai-org/Open-AutoGLM",
+  "summary": "Phone agent framework from Z.ai that looks at an Android or HarmonyOS screen and taps through apps to finish tasks you describe in plain language.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/zai-org/Open-AutoGLM/blob/86f55382982fb054e8fc98ca80609dff8a2cdc3c/README_en.md"
+    ],
+    "sourceCommitSha": "86f55382982fb054e8fc98ca80609dff8a2cdc3c",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install -r requirements.txt && pip install -e ."
+      },
+      {
+        "comment": "Run",
+        "command": "python main.py --base-url http://localhost:8000/v1 \"Open Maps and search for nearby coffee shops\""
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Open-AutoGLM's Phone Agent is a mobile assistant framework built on the AutoGLM vision-language model. It reads the phone screen, plans the next step and operates the device through ADB (Android) or HDC (HarmonyOS). You describe a task like 'Open eBay and search for wireless earphones' and it carries out the whole flow, asking for confirmation on sensitive operations.",
+      "problem": "Automating phone apps normally means writing brittle scripts. Phone Agent understands the screen and acts like a person would.",
+      "whoFor": [
+        "Researchers in mobile GUI agents",
+        "Developers testing Android or HarmonyOS apps",
+        "Tinkerers automating phone tasks"
+      ],
+      "whyChoose": "Choose it for an open phone-agent framework with its own models, third-party hosted options and remote (wireless) debugging support.",
+      "requirements": [
+        "Python 3.10+",
+        "ADB (Android 7.0+) or HDC (HarmonyOS) with developer mode and USB debugging on",
+        "ADB Keyboard on Android for text input",
+        "A model endpoint: z.ai, Novita AI, Parasail, or self-hosted"
+      ]
+    },
+    "overview": [
+      "Set up Python, install ADB or HDC, enable developer mode and USB debugging on the phone, and on Android install ADB Keyboard. Then install the project's requirements.",
+      "Point it at a model service: a third-party host such as z.ai (model autoglm-phone-multilingual) with your own API key, or deploy the model yourself. Then run main.py with a task or in interactive mode.",
+      "The README states it is for research and learning only and forbids illegal use. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Screen understanding",
+        "body": "Vision-language model reads the UI."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Planning",
+        "body": "Decides the next action."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Android and HarmonyOS",
+        "body": "Via ADB or HDC."
+      },
+      {
+        "icon": "file-code",
+        "title": "Sensitive-action confirmation",
+        "body": "Asks before risky steps."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Remote debugging",
+        "body": "Wireless device control."
+      },
+      {
+        "icon": "shield",
+        "title": "Python API",
+        "body": "Use it from code."
+      }
+    ],
+    "strengths": [
+      "Open phone agent",
+      "Hosted or self-hosted models",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Research and learning use only",
+      "Setup needs developer mode on the phone"
+    ],
+    "useCases": [
+      {
+        "title": "App testing",
+        "body": "Run flows by description."
+      },
+      {
+        "title": "Phone task automation",
+        "body": "Search, navigate, fill forms."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Open-AutoGLM (Phone Agent)'s README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/zai-org/Open-AutoGLM/blob/86f55382982fb054e8fc98ca80609dff8a2cdc3c/README_en.md",
+      "prerequisites": [
+        "Python 3.10+",
+        "ADB or HDC",
+        "A phone with USB debugging"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "From source",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Prepare the phone",
+              "body": "Enable developer mode and USB debugging; on Android install ADB Keyboard."
+            },
+            {
+              "title": "Install dependencies",
+              "code": "pip install -r requirements.txt\npip install -e .",
+              "lang": "bash"
+            },
+            {
+              "title": "Choose a model service",
+              "body": "Use a hosted option such as z.ai with --base-url https://api.z.ai/api/paas/v4, --model autoglm-phone-multilingual and your API key, or deploy the model yourself."
+            },
+            {
+              "title": "Run a task",
+              "code": "python main.py --base-url http://localhost:8000/v1 \"Open Maps and search for nearby coffee shops\"",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "List supported apps",
+          "code": "python main.py --list-apps",
+          "lang": "bash"
+        },
+        {
+          "title": "Try interactive mode",
+          "body": "Run main.py with your base URL and model and type a task."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Have the agent search in an app",
+      "useCase": "Run a simple task on an Android phone.",
+      "setup": [
+        "Phone connected over ADB",
+        "Model service configured"
+      ],
+      "steps": [
+        {
+          "title": "Check the device",
+          "body": "Make sure adb sees your phone."
+        },
+        {
+          "title": "Run the task",
+          "code": "python main.py --base-url http://localhost:8000/v1 \"Open Maps and search for nearby coffee shops\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Watch and confirm",
+          "body": "Approve any sensitive steps it asks about."
+        }
+      ],
+      "expected": "The phone opens Maps and shows nearby coffee shops.",
+      "nextSteps": [
+        "Use English prompts with --lang en",
+        "Set up wireless debugging",
+        "Use the Python API"
+      ],
+      "sourceUrl": "https://github.com/zai-org/Open-AutoGLM/blob/86f55382982fb054e8fc98ca80609dff8a2cdc3c/README_en.md"
+    },
+    "costs": [
+      {
+        "label": "Open-AutoGLM",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Hosted model APIs",
+        "value": "Billed by z.ai, Novita AI or Parasail.",
+        "tone": "paid"
+      },
+      {
+        "label": "Self-hosted model",
+        "value": "Your own GPU.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Text doesn't type on Android",
+        "solution": "Install and enable ADB Keyboard.",
+        "sourceUrl": "https://github.com/zai-org/Open-AutoGLM/blob/86f55382982fb054e8fc98ca80609dff8a2cdc3c/README_en.md"
+      },
+      {
+        "problem": "Remote connection issues",
+        "solution": "See the README's remote connection troubleshooting.",
+        "sourceUrl": "https://github.com/zai-org/Open-AutoGLM/blob/86f55382982fb054e8fc98ca80609dff8a2cdc3c/README_en.md"
+      }
+    ],
+    "bestFor": [
+      "Phone automation agent",
+      "Mobile GUI agent"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Phone agent framework"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Devices",
+        "value": "Android 7.0+, HarmonyOS"
+      }
+    ]
+  }
+}

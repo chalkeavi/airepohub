@@ -1,0 +1,216 @@
+{
+  "fullName": "earthtojake/text-to-cad",
+  "summary": "Plugin that lets AI coding agents design physical parts: they write CAD models in Python, check them for manufacturing and export STEP, STL or 3MF.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/earthtojake/text-to-cad/blob/a35df3f4ab8abe86d370fbffb631277a4e170e7b/README.md"
+    ],
+    "sourceCommitSha": "a35df3f4ab8abe86d370fbffb631277a4e170e7b",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install (macOS/Linux)",
+        "command": "curl -fsSL https://texttocad.dev/install.sh | sh"
+      },
+      {
+        "comment": "Install (Windows)",
+        "command": "irm https://www.texttocad.dev/install.ps1 | iex"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "text-to-cad gives coding agents local workflows for designing physical products. Ask your agent for a part or assembly and it writes the model as a Python script with build123d and OpenCASCADE, runs it and shows it in a viewer. It can also design KiCad circuit boards, check whether parts can be machined, cut, molded or 3D printed, run stress checks, produce engineering drawings, make Blender renders and prepare files for fabrication services.",
+      "problem": "CAD tools have a steep learning curve. This lets you describe a part in plain language and get a real, manufacturable model file.",
+      "whoFor": [
+        "Makers and hardware hobbyists",
+        "Engineers prototyping parts",
+        "Agent users who want 3D output"
+      ],
+      "whyChoose": "Choose it for code-based, editable CAD models, manufacturing checks and support for over 20 agent apps.",
+      "requirements": [
+        "An agent app such as Claude Code, Codex, Cursor or Gemini CLI",
+        "macOS, Linux or Windows"
+      ]
+    },
+    "overview": [
+      "Run the one-line installer. It installs uv if needed, then the cad command, then the plugin for each agent app it finds, and turns on automatic updates.",
+      "Then ask your agent for a part. Outputs include STEP, GLB, STL and 3MF, plus DXF for sheet metal and fabrication files for circuit boards.",
+      "It works in Claude Code, Codex, Cursor, Gemini CLI, Cline, Goose, OpenCode, Windsurf and many more. Manual install steps are in docs/install.md. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Parts and assemblies",
+        "body": "Python CAD with build123d."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Circuit boards",
+        "body": "KiCad, ERC and DRC checks."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Manufacturing checks",
+        "body": "Machining, sheet metal, molding, printing."
+      },
+      {
+        "icon": "file-code",
+        "title": "Stress checks",
+        "body": "CalculiX analysis."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Drawings and renders",
+        "body": "PDF drawings, Blender renders."
+      },
+      {
+        "icon": "shield",
+        "title": "Fabrication prep",
+        "body": "SendCutSend checks and print slicing."
+      }
+    ],
+    "strengths": [
+      "Editable models as code",
+      "Wide agent support",
+      "MIT license"
+    ],
+    "limitations": [
+      "Results still need engineering review",
+      "Relies on your agent's model quality"
+    ],
+    "useCases": [
+      {
+        "title": "3D-printed bracket",
+        "body": "Describe it, get an STL."
+      },
+      {
+        "title": "Sheet metal part",
+        "body": "Check it, then order."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from text-to-cad's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/earthtojake/text-to-cad/blob/a35df3f4ab8abe86d370fbffb631277a4e170e7b/README.md",
+      "prerequisites": [
+        "A supported agent app"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Installer (macOS / Linux)",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "curl -fsSL https://texttocad.dev/install.sh | sh",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Installer (Windows)",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install in PowerShell",
+              "code": "irm https://www.texttocad.dev/install.ps1 | iex",
+              "lang": "powershell"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Ask for a part",
+          "body": "For example: a phone stand with a 70 degree angle."
+        },
+        {
+          "title": "Check the viewer",
+          "body": "The agent builds and shows the model."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Design a 3D-printable part",
+      "useCase": "Go from a description to a print file.",
+      "setup": [
+        "text-to-cad installed",
+        "An agent app open"
+      ],
+      "steps": [
+        {
+          "title": "Describe the part",
+          "body": "Give dimensions and purpose."
+        },
+        {
+          "title": "Review the model",
+          "body": "Look in the viewer and ask for changes."
+        },
+        {
+          "title": "Check printability",
+          "body": "Ask whether it can be 3D printed."
+        },
+        {
+          "title": "Export",
+          "body": "Ask for an STL or 3MF file."
+        }
+      ],
+      "expected": "A model file you can slice and print.",
+      "nextSteps": [
+        "Make an engineering drawing",
+        "Run a stress check",
+        "Design a circuit board"
+      ],
+      "sourceUrl": "https://github.com/earthtojake/text-to-cad/blob/a35df3f4ab8abe86d370fbffb631277a4e170e7b/README.md"
+    },
+    "costs": [
+      {
+        "label": "text-to-cad",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent",
+        "value": "Your agent's model usage is billed by its provider.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Something fails",
+        "solution": "Run cad doctor and include its output in a bug report.",
+        "sourceUrl": "https://github.com/earthtojake/text-to-cad/blob/a35df3f4ab8abe86d370fbffb631277a4e170e7b/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI CAD design",
+      "Text to 3D parts"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent plugin + CLI"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "install.sh / install.ps1"
+      }
+    ]
+  }
+}

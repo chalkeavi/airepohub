@@ -1,0 +1,212 @@
+{
+  "fullName": "m-bain/whisperX",
+  "summary": "Fast Whisper speech-to-text with accurate word-level timestamps and optional speaker labels (who spoke when).",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/m-bain/whisperX/blob/8d8e43bf3698dd1df4b011c0f1a8dd1d468ae365/README.md"
+    ],
+    "sourceCommitSha": "8d8e43bf3698dd1df4b011c0f1a8dd1d468ae365",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install whisperx"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "WhisperX builds on OpenAI's Whisper to transcribe audio quickly and with precise timing. It uses a faster-whisper backend for batched transcription (the README cites about 70x realtime with large-v2), aligns each word with a wav2vec2 model for accurate word-level timestamps, and can add speaker diarization with pyannote so the transcript shows who said what.",
+      "problem": "Plain Whisper gives timestamps per chunk that are often out of sync and no speaker labels. WhisperX gives word-accurate timing and speaker separation for subtitles and meeting notes.",
+      "whoFor": [
+        "People making subtitles",
+        "Developers transcribing meetings or interviews",
+        "Researchers who need word timings"
+      ],
+      "whyChoose": "Pick it when you need word-level timestamps or speaker labels on top of fast Whisper transcription.",
+      "requirements": [
+        "Python",
+        "For GPU: NVIDIA GPU with CUDA 12.8",
+        "For diarization: a Hugging Face read token and accepting the pyannote model terms"
+      ]
+    },
+    "overview": [
+      "Install from PyPI with pip install whisperx, or run it without installing using uvx whisperx.",
+      "Run whisperx on an audio file from the command line; the default model is Whisper small, and --model large-v2 gives higher accuracy.",
+      "Add --diarize with your Hugging Face token (--hf_token) to label speakers. It is BSD 2-Clause licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Batched transcription",
+        "body": "faster-whisper backend, about 70x realtime per the README."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Word timestamps",
+        "body": "wav2vec2 forced alignment."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Speaker diarization",
+        "body": "pyannote labels who spoke when."
+      },
+      {
+        "icon": "file-code",
+        "title": "Subtitle output",
+        "body": "Highlight word timing in .srt files."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Command line and Python",
+        "body": "Use either way."
+      }
+    ],
+    "strengths": [
+      "Accurate word timing",
+      "Speaker labels",
+      "Fast on GPU"
+    ],
+    "limitations": [
+      "Diarization needs a Hugging Face token and model terms",
+      "GPU use needs CUDA 12.8"
+    ],
+    "useCases": [
+      {
+        "title": "Subtitles",
+        "body": "Word-timed .srt files."
+      },
+      {
+        "title": "Meeting transcripts",
+        "body": "Transcripts split by speaker."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from WhisperX's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/m-bain/whisperX/blob/8d8e43bf3698dd1df4b011c0f1a8dd1d468ae365/README.md",
+      "prerequisites": [
+        "Python",
+        "Optional: NVIDIA GPU with CUDA 12.8"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install whisperx",
+              "lang": "bash"
+            },
+            {
+              "title": "Transcribe",
+              "body": "Runs with the default model (Whisper small).",
+              "code": "whisperx path/to/audio.wav",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "uvx (no install)",
+          "method": "uvx",
+          "steps": [
+            {
+              "title": "Run directly",
+              "code": "uvx whisperx path/to/audio.wav",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Transcribe a file",
+          "body": "Run whisperx on a WAV file and open the generated subtitles."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Transcribe a meeting with speaker labels",
+      "useCase": "The README's command-line example with diarization.",
+      "setup": [
+        "WhisperX installed",
+        "A Hugging Face read token, with the pyannote model terms accepted"
+      ],
+      "steps": [
+        {
+          "title": "Pick a bigger model",
+          "body": "Use --model large-v2 for better accuracy."
+        },
+        {
+          "title": "Turn on diarization",
+          "body": "Add --diarize and pass your token with --hf_token."
+        },
+        {
+          "title": "Show word timing",
+          "body": "Add --highlight_words True to visualise word timings in the .srt file."
+        }
+      ],
+      "expected": "A transcript with accurate word timings and speaker labels.",
+      "nextSteps": [
+        "Use the Python API",
+        "Try a bigger alignment model",
+        "Batch many files"
+      ],
+      "sourceUrl": "https://github.com/m-bain/whisperX/blob/8d8e43bf3698dd1df4b011c0f1a8dd1d468ae365/README.md"
+    },
+    "costs": [
+      {
+        "label": "WhisperX",
+        "value": "Free and open source under BSD 2-Clause.",
+        "tone": "free"
+      },
+      {
+        "label": "Hugging Face token",
+        "value": "Free account needed for diarization models.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Diarization fails to load",
+        "solution": "Pass a Hugging Face read token with --hf_token and accept the pyannote model user agreements.",
+        "sourceUrl": "https://github.com/m-bain/whisperX/blob/8d8e43bf3698dd1df4b011c0f1a8dd1d468ae365/README.md"
+      },
+      {
+        "problem": "GPU not used",
+        "solution": "Install CUDA 12.8 for GPU support.",
+        "sourceUrl": "https://github.com/m-bain/whisperX/blob/8d8e43bf3698dd1df4b011c0f1a8dd1d468ae365/README.md"
+      }
+    ],
+    "bestFor": [
+      "Word-timed subtitles",
+      "Speaker-labelled transcripts"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Speech-to-text tool"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "BSD 2-Clause"
+      },
+      {
+        "label": "Install",
+        "value": "pip install whisperx"
+      }
+    ]
+  }
+}

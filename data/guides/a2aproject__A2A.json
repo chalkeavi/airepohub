@@ -1,0 +1,241 @@
+{
+  "fullName": "a2aproject/A2A",
+  "summary": "Open protocol that lets AI agents built on different frameworks discover each other and work together, with SDKs for Python, JS, Go, Java, .NET and Rust.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/a2aproject/A2A/blob/a506d01d975977d0a6e46e263ef22c4044f404eb/README.md"
+    ],
+    "sourceCommitSha": "a506d01d975977d0a6e46e263ef22c4044f404eb",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Python SDK",
+        "command": "pip install a2a-sdk"
+      },
+      {
+        "comment": "JS SDK",
+        "command": "npm install @a2a-js/sdk"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "A2A (Agent2Agent) is an open standard for communication between AI agents. Agents publish Agent Cards describing what they can do and how to connect, then exchange text, files and structured data over JSON-RPC 2.0 on HTTP(S), with request/response, streaming (SSE) and async push notifications. Agents can collaborate without revealing their internal memory, logic or tools.",
+      "problem": "Agents built with different frameworks and vendors can't easily talk to each other. A2A gives them a shared protocol.",
+      "whoFor": [
+        "Developers building multi-agent systems",
+        "Platform teams connecting agents across vendors",
+        "Framework authors"
+      ],
+      "whyChoose": "Choose it for an open, community-driven standard with official SDKs in six languages and an enterprise focus on security, auth and observability.",
+      "requirements": [
+        "One of the official SDKs for your language"
+      ]
+    },
+    "overview": [
+      "This repo holds the protocol specification. Start with the documentation site at a2a-protocol.org for an overview, the spec, tutorials and guides.",
+      "Official SDKs: Python (pip install a2a-sdk), Go, JavaScript (npm install @a2a-js/sdk), Java (Maven), .NET (NuGet) and Rust (cargo add a2a-lf). The a2a-samples repo shows it in action.",
+      "There is also a DeepLearning.AI course. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Agent Cards",
+        "body": "Discovery of capabilities."
+      },
+      {
+        "icon": "scan-search",
+        "title": "JSON-RPC 2.0",
+        "body": "Over HTTP(S)."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Streaming",
+        "body": "Server-sent events."
+      },
+      {
+        "icon": "file-code",
+        "title": "Push notifications",
+        "body": "For long tasks."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Rich data",
+        "body": "Text, files, JSON."
+      },
+      {
+        "icon": "shield",
+        "title": "Opacity",
+        "body": "No need to share internals."
+      }
+    ],
+    "strengths": [
+      "Open standard",
+      "SDKs in many languages",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "A protocol, not a ready app",
+      "Needs agents on both sides to support it"
+    ],
+    "useCases": [
+      {
+        "title": "Cross-vendor agents",
+        "body": "Let a planner call a specialist agent."
+      },
+      {
+        "title": "Agent marketplace",
+        "body": "Discover agents via cards."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Agent2Agent (A2A) Protocol's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/a2aproject/A2A/blob/a506d01d975977d0a6e46e263ef22c4044f404eb/README.md",
+      "prerequisites": [
+        "Python, Node.js, Go, Java, .NET or Rust"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Python SDK",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install a2a-sdk",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "JavaScript SDK",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install @a2a-js/sdk",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Go SDK",
+          "method": "go",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "go get github.com/a2aproject/a2a-go",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": ".NET SDK",
+          "method": "dotnet",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "dotnet add package A2A",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Rust SDK",
+          "method": "cargo",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "cargo add a2a-lf",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Read the spec overview",
+          "body": "Start at a2a-protocol.org."
+        },
+        {
+          "title": "Run a sample",
+          "body": "Try one from the a2a-samples repository."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "See two agents talk over A2A",
+      "useCase": "Use the official samples.",
+      "setup": [
+        "An SDK installed"
+      ],
+      "steps": [
+        {
+          "title": "Open a2a-samples",
+          "body": "Pick a sample in your language."
+        },
+        {
+          "title": "Start the server agent",
+          "body": "It publishes an Agent Card."
+        },
+        {
+          "title": "Run the client",
+          "body": "It discovers the agent and sends a task."
+        }
+      ],
+      "expected": "A client agent sending a task to a server agent and getting a result.",
+      "nextSteps": [
+        "Read the full specification",
+        "Add streaming",
+        "Take the DeepLearning.AI course"
+      ],
+      "sourceUrl": "https://github.com/a2aproject/A2A/blob/a506d01d975977d0a6e46e263ef22c4044f404eb/README.md"
+    },
+    "costs": [
+      {
+        "label": "Protocol and SDKs",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Where to start",
+        "solution": "Use the documentation site and samples rather than the raw spec.",
+        "sourceUrl": "https://github.com/a2aproject/A2A/blob/a506d01d975977d0a6e46e263ef22c4044f404eb/README.md"
+      }
+    ],
+    "bestFor": [
+      "Agent interoperability",
+      "Multi-agent protocol"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Protocol specification"
+      },
+      {
+        "label": "Transport",
+        "value": "JSON-RPC 2.0 over HTTP(S)"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Docs",
+        "value": "a2a-protocol.org"
+      }
+    ]
+  }
+}

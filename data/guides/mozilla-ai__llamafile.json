@@ -1,0 +1,223 @@
+{
+  "fullName": "mozilla-ai/llamafile",
+  "summary": "Mozilla project that packs an open LLM into a single executable file you can download and run locally on most computers with no install.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/mozilla-ai/llamafile/blob/334e66444a96d5429fd2d667301bd067029b1eb5/README.md"
+    ],
+    "sourceCommitSha": "334e66444a96d5429fd2d667301bd067029b1eb5",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Download a model",
+        "command": "curl -LO https://huggingface.co/mozilla-ai/llamafile_0.10/resolve/main/Qwen3.5-0.8B-Q8_0.llamafile"
+      },
+      {
+        "comment": "Run",
+        "command": "./Qwen3.5-0.8B-Q8_0.llamafile"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "llamafile lets you distribute and run large language models as one file. It combines llama.cpp with Cosmopolitan Libc so a model and its runtime become a single executable that runs locally on most operating systems and CPU architectures. It also includes whisperfile, a single-file speech-to-text tool built on whisper.cpp.",
+      "problem": "Running a local LLM usually means installing runtimes and dependencies. With llamafile you download one file and run it.",
+      "whoFor": [
+        "Beginners trying local AI",
+        "Developers distributing models to users",
+        "Privacy-minded people who want offline AI"
+      ],
+      "whyChoose": "Choose it for the simplest possible local LLM experience, from Mozilla, on almost any OS.",
+      "requirements": [
+        "macOS, Linux, BSD or Windows",
+        "Enough memory for the model you pick"
+      ]
+    },
+    "overview": [
+      "Download a prebuilt llamafile, such as the small Qwen3.5 0.8B example, make it executable on macOS, Linux or BSD, and run it. On Windows, rename it to end in .exe.",
+      "Windows can only run executables under 4GB, so for bigger models download the llamafile binary and run it with external weights. Larger models give better answers if your hardware allows.",
+      "Versions from 0.10.0 use a new build system aligned with recent llama.cpp, so some older features may be missing. The project is Apache 2.0; its changes to llama.cpp and whisper.cpp are MIT."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Single file",
+        "body": "Model and runtime together."
+      },
+      {
+        "icon": "scan-search",
+        "title": "No install",
+        "body": "Download and run."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Cross-platform",
+        "body": "Most OSes and CPUs."
+      },
+      {
+        "icon": "file-code",
+        "title": "Prebuilt models",
+        "body": "Ready-made llamafiles."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Create your own",
+        "body": "Package any model."
+      },
+      {
+        "icon": "shield",
+        "title": "whisperfile",
+        "body": "Single-file speech-to-text."
+      }
+    ],
+    "strengths": [
+      "Extremely simple",
+      "Runs offline",
+      "Open source"
+    ],
+    "limitations": [
+      "Windows 4GB executable limit",
+      "0.10 changes removed some older features"
+    ],
+    "useCases": [
+      {
+        "title": "Offline chatbot",
+        "body": "Run a small model locally."
+      },
+      {
+        "title": "Ship a model",
+        "body": "Give users one file."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from llamafile's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/mozilla-ai/llamafile/blob/334e66444a96d5429fd2d667301bd067029b1eb5/README.md",
+      "prerequisites": [
+        "A computer with enough RAM"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "macOS / Linux / BSD",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download an example model",
+              "code": "curl -LO https://huggingface.co/mozilla-ai/llamafile_0.10/resolve/main/Qwen3.5-0.8B-Q8_0.llamafile",
+              "lang": "bash"
+            },
+            {
+              "title": "Make it executable",
+              "code": "chmod +x Qwen3.5-0.8B-Q8_0.llamafile",
+              "lang": "bash"
+            },
+            {
+              "title": "Run it",
+              "code": "./Qwen3.5-0.8B-Q8_0.llamafile",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Windows",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download the file",
+              "body": "Get the same example llamafile."
+            },
+            {
+              "title": "Rename",
+              "body": "Add .exe to the file name, then run it. Files over 4GB won't run on Windows."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Chat with the model",
+          "body": "Run the llamafile and start typing."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your first local LLM in one file",
+      "useCase": "The README's Quick Start.",
+      "setup": [
+        "A terminal"
+      ],
+      "steps": [
+        {
+          "title": "Download",
+          "code": "curl -LO https://huggingface.co/mozilla-ai/llamafile_0.10/resolve/main/Qwen3.5-0.8B-Q8_0.llamafile",
+          "lang": "bash"
+        },
+        {
+          "title": "Make executable",
+          "code": "chmod +x Qwen3.5-0.8B-Q8_0.llamafile",
+          "lang": "bash"
+        },
+        {
+          "title": "Run",
+          "code": "./Qwen3.5-0.8B-Q8_0.llamafile",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A local chat with a small model, no install needed.",
+      "nextSteps": [
+        "Try a larger prebuilt llamafile",
+        "Create your own llamafile",
+        "Try whisperfile"
+      ],
+      "sourceUrl": "https://github.com/mozilla-ai/llamafile/blob/334e66444a96d5429fd2d667301bd067029b1eb5/README.md"
+    },
+    "costs": [
+      {
+        "label": "llamafile",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Won't run on Windows",
+        "solution": "Rename to .exe, and use a model under 4GB or external weights.",
+        "sourceUrl": "https://github.com/mozilla-ai/llamafile/blob/334e66444a96d5429fd2d667301bd067029b1eb5/README.md"
+      },
+      {
+        "problem": "Other problems",
+        "solution": "See the Troubleshooting page in the llamafile docs.",
+        "sourceUrl": "https://github.com/mozilla-ai/llamafile/blob/334e66444a96d5429fd2d667301bd067029b1eb5/README.md"
+      }
+    ],
+    "bestFor": [
+      "Run LLMs locally",
+      "Single-file AI"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Local LLM runtime"
+      },
+      {
+        "label": "Language",
+        "value": "C++"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Docs",
+        "value": "docs.mozilla.ai/llamafile"
+      }
+    ]
+  }
+}

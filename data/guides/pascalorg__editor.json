@@ -1,0 +1,215 @@
+{
+  "fullName": "pascalorg/editor",
+  "summary": "Open-source 3D building editor for architecture and construction that runs in the browser or locally, and lets AI agents edit models over MCP.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/pascalorg/editor/blob/d7d0b436f2bda4bfb38fa3d083c1d1816ec7481c/README.md"
+    ],
+    "sourceCommitSha": "d7d0b436f2bda4bfb38fa3d083c1d1816ec7481c",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Run locally",
+        "command": "npx @pascal-app/cli editor"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Pascal Editor is a local-first, MIT-licensed editor for architecture, engineering, construction and operations (AECO). You model sites, buildings, levels, walls, slabs, roofs, openings, rooms and furniture, bring in 3D scans as reference layers for scan-to-BIM work, and let an AI agent read, edit, validate and save the same scenes through its MCP server. It's built with React Three Fiber and WebGPU.",
+      "problem": "Building modeling software is usually expensive and closed. Pascal is open, runs in a browser, and is designed to work with AI agents.",
+      "whoFor": [
+        "Architects and designers",
+        "Construction and facilities teams",
+        "Developers building AECO tools with agents"
+      ],
+      "whyChoose": "Choose it for a free browser-based building editor with local storage, a self-host option, embeddable packages and first-class agent support.",
+      "requirements": [
+        "Node.js 22.23.4+, 24.22.1+ or 26.12.1+ for the CLI",
+        "A browser with WebGPU support"
+      ]
+    },
+    "overview": [
+      "Run npx @pascal-app/cli editor to start a persistent local install. It starts the editor and an authenticated MCP service on free local ports and keeps projects in ~/.pascal/data/pascal.db.",
+      "To connect an agent, install the CLI globally and run pascal mcp setup claude (or set up Cursor, Codex or another MCP client). Local mode needs no account and uploads nothing; a hosted workspace needs an account and some operations use credits.",
+      "You can also self-host one container with SQLite, or embed the viewer or editor packages in a React app. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Building modeling",
+        "body": "Walls, slabs, roofs, rooms, furniture."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Scan-to-BIM",
+        "body": "3D scans as reference layers."
+      },
+      {
+        "icon": "puzzle",
+        "title": "MCP server",
+        "body": "Agents inspect, edit and validate."
+      },
+      {
+        "icon": "file-code",
+        "title": "Local-first",
+        "body": "Projects stored on your machine."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Self-host",
+        "body": "One container with SQLite."
+      },
+      {
+        "icon": "shield",
+        "title": "React packages",
+        "body": "Embed viewer or editor."
+      }
+    ],
+    "strengths": [
+      "Free and open",
+      "Agent-ready",
+      "Runs in the browser"
+    ],
+    "limitations": [
+      "Recent Node.js versions required",
+      "One agent client per local service"
+    ],
+    "useCases": [
+      {
+        "title": "Quick floor plans",
+        "body": "Model a building in the browser."
+      },
+      {
+        "title": "Agent-assisted design",
+        "body": "Ask Claude Code to add rooms."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Pascal Editor's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/pascalorg/editor/blob/d7d0b436f2bda4bfb38fa3d083c1d1816ec7481c/README.md",
+      "prerequisites": [
+        "Node.js (recent version)"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Run locally",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Start the editor",
+              "code": "npx @pascal-app/cli editor",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Connect Claude Code (local MCP)",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install the CLI",
+              "code": "npm install --global @pascal-app/cli",
+              "lang": "bash"
+            },
+            {
+              "title": "Register the server",
+              "code": "pascal mcp setup claude",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Create a project",
+          "body": "Start the editor and add a building level."
+        },
+        {
+          "title": "Ask an agent",
+          "body": "With MCP connected, ask your agent to add walls or a room."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Let Claude Code edit a building model",
+      "useCase": "Connect an agent to the local editor.",
+      "setup": [
+        "Pascal CLI installed",
+        "Claude Code installed"
+      ],
+      "steps": [
+        {
+          "title": "Start the editor",
+          "code": "npx @pascal-app/cli editor",
+          "lang": "bash"
+        },
+        {
+          "title": "Connect Claude Code",
+          "code": "pascal mcp setup claude",
+          "lang": "bash"
+        },
+        {
+          "title": "Ask for a change",
+          "body": "For example: add a 4 by 5 metre room on level 1."
+        }
+      ],
+      "expected": "The change appears in the open editor and is saved locally.",
+      "nextSteps": [
+        "Import a 3D scan",
+        "Self-host for a team",
+        "Install the agent skills"
+      ],
+      "sourceUrl": "https://github.com/pascalorg/editor/blob/d7d0b436f2bda4bfb38fa3d083c1d1816ec7481c/README.md"
+    },
+    "costs": [
+      {
+        "label": "Pascal Editor",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Hosted workspace",
+        "value": "Some hosted operations use Pascal credits.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Agents interfere with each other",
+        "solution": "Use one active agent client per local service, or separate PASCAL_HOME folders.",
+        "sourceUrl": "https://github.com/pascalorg/editor/blob/d7d0b436f2bda4bfb38fa3d083c1d1816ec7481c/README.md"
+      }
+    ],
+    "bestFor": [
+      "Open-source BIM editor",
+      "AI agents for architecture"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "3D building editor"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Run",
+        "value": "npx @pascal-app/cli editor"
+      }
+    ]
+  }
+}

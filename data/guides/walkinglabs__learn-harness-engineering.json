@@ -1,0 +1,198 @@
+{
+  "fullName": "walkinglabs/learn-harness-engineering",
+  "summary": "Free project-based course on the files, state, checks and controls that make AI coding agents work reliably on real projects.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/walkinglabs/learn-harness-engineering/blob/fe2c4ebd2010aa877b504e141437729296c934e8/README.md"
+    ],
+    "sourceCommitSha": "fe2c4ebd2010aa877b504e141437729296c934e8",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Read online",
+        "command": "walkinglabs.github.io/learn-harness-engineering"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Learn Harness Engineering is a course about the 'harness' around a coding agent: its instructions, tools, environment, state and feedback. Lectures explain the ideas, hands-on projects apply them to the same Electron knowledge-base app, and a resource library provides copy-ready templates such as AGENTS.md, feature_list.json and init.sh.",
+      "problem": "A smart model still fails on real projects without structure. The course teaches how to give agents a clear manual, progress tracking and verification so their work holds up.",
+      "whoFor": [
+        "Developers using Claude Code, Codex or other coding agents",
+        "Teams adopting agents on real codebases",
+        "Learners interested in agent reliability"
+      ],
+      "whyChoose": "Choose it for practical, agent-agnostic methods you can apply today with ready templates, plus deeper lectures and projects.",
+      "requirements": [
+        "A web browser",
+        "A coding agent and a project to try the templates on"
+      ]
+    },
+    "overview": [
+      "Start right away: drop the starter files into your repo, an AGENTS.md (or CLAUDE.md) operating manual, an init.sh that installs, verifies and starts, a feature_list.json and a progress log, so each session knows what to do and what's done.",
+      "The full course has lectures (14 in the current syllabus) and hands-on projects (8) on the same capstone app, plus breakdowns of frontier harness designs.",
+      "Materials are on the documentation website and as PDF coursebooks. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Lectures",
+        "body": "Concepts of harness engineering."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Projects",
+        "body": "Hands-on, one capstone app."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Resource library",
+        "body": "AGENTS.md, init.sh, feature_list.json."
+      },
+      {
+        "icon": "file-code",
+        "title": "Loop and graph engineering",
+        "body": "Newer lectures."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Design breakdowns",
+        "body": "Real harnesses analysed."
+      },
+      {
+        "icon": "shield",
+        "title": "PDF coursebooks",
+        "body": "Offline reading."
+      }
+    ],
+    "strengths": [
+      "Immediately usable templates",
+      "Agent-agnostic",
+      "Free and MIT licensed"
+    ],
+    "limitations": [
+      "A course, not a tool",
+      "Templates need adapting to your project"
+    ],
+    "useCases": [
+      {
+        "title": "Make an agent reliable",
+        "body": "Add the four starter files."
+      },
+      {
+        "title": "Team training",
+        "body": "Work through lectures together."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Learn Harness Engineering's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/walkinglabs/learn-harness-engineering/blob/fe2c4ebd2010aa877b504e141437729296c934e8/README.md",
+      "prerequisites": [
+        "A coding agent"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Use the templates",
+          "method": "web",
+          "steps": [
+            {
+              "title": "Open the Resource Library",
+              "body": "On the course website, grab the starter templates."
+            },
+            {
+              "title": "Add them to your repo",
+              "body": "Place AGENTS.md (or CLAUDE.md), init.sh, feature_list.json and the progress file at your project root."
+            },
+            {
+              "title": "Tell your agent",
+              "body": "Have it read the files at startup and update the progress log before handoff."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Read the Quick Start",
+          "body": "Improve your agent today with four files."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Give your coding agent a harness",
+      "useCase": "The README's quick start.",
+      "setup": [
+        "A real project",
+        "A coding agent"
+      ],
+      "steps": [
+        {
+          "title": "Copy the templates",
+          "body": "From the Resource Library."
+        },
+        {
+          "title": "Fill in AGENTS.md",
+          "body": "How to build, test and verify your project."
+        },
+        {
+          "title": "List features",
+          "body": "Mark which are done in feature_list.json."
+        },
+        {
+          "title": "Run a session",
+          "body": "Ask the agent to pick the next feature and log progress."
+        }
+      ],
+      "expected": "An agent that starts each session knowing the state of the project and how to verify its work.",
+      "nextSteps": [
+        "Read the first lecture",
+        "Try a project",
+        "Read the harness design breakdowns"
+      ],
+      "sourceUrl": "https://github.com/walkinglabs/learn-harness-engineering/blob/fe2c4ebd2010aa877b504e141437729296c934e8/README.md"
+    },
+    "costs": [
+      {
+        "label": "Course",
+        "value": "Free under MIT.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Agent ignores the files",
+        "solution": "Tell it in its root instructions to read them at startup.",
+        "sourceUrl": "https://github.com/walkinglabs/learn-harness-engineering/blob/fe2c4ebd2010aa877b504e141437729296c934e8/README.md"
+      }
+    ],
+    "bestFor": [
+      "Coding agent reliability",
+      "Agent harness design"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Course"
+      },
+      {
+        "label": "Format",
+        "value": "Lectures, projects, templates"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Read",
+        "value": "Course website"
+      }
+    ]
+  }
+}

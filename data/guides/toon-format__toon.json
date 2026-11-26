@@ -1,0 +1,216 @@
+{
+  "fullName": "toon-format/toon",
+  "summary": "A compact, readable format for sending JSON data to LLMs with fewer tokens, plus a TypeScript library and CLI to convert both ways.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/toon-format/toon/blob/12c4cd371c23679ad0edba11fafe356975586fee/packages/toon/README.md"
+    ],
+    "sourceCommitSha": "12c4cd371c23679ad0edba11fafe356975586fee",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "npm install @toon-format/toon"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "TOON (Token-Oriented Object Notation) is a compact encoding of the JSON data model designed for LLM input. It mixes YAML-style indentation for nested objects with CSV-style tables for lists of objects that share the same fields, so data takes fewer tokens while staying easy for a model to follow. Conversion is lossless both ways. This repo holds the TypeScript reference library and a command-line tool.",
+      "problem": "JSON repeats every field name on every row, which wastes tokens when you put data in a prompt. TOON declares fields once and lists rows, cutting token use for uniform data.",
+      "whoFor": [
+        "Developers putting structured data into prompts",
+        "Teams trying to lower LLM token costs",
+        "Tool and agent builders"
+      ],
+      "whyChoose": "Use it when you send arrays of similar objects to an LLM and want fewer tokens without losing structure.",
+      "requirements": [
+        "Node.js with npm"
+      ]
+    },
+    "overview": [
+      "Install the library with npm install @toon-format/toon and call encode() on your data to get TOON text.",
+      "Use encodeLines() to stream large datasets, and decode functions to turn TOON back into JSON.",
+      "For quick conversions, run the CLI with npx @toon-format/cli, which auto-detects JSON or TOON from the file extension. Licensed MIT."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Fewer tokens",
+        "body": "Matches JSON's retrieval accuracy with fewer tokens, per its benchmarks."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Lossless",
+        "body": "Same data model as JSON, deterministic round-trips."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Tabular rows",
+        "body": "Field list declared once for uniform objects."
+      },
+      {
+        "icon": "file-code",
+        "title": "Guardrails",
+        "body": "[N] row counts and {fields} lists catch truncated output."
+      },
+      {
+        "icon": "git-compare",
+        "title": "CLI",
+        "body": "Convert files and show token savings with --stats."
+      },
+      {
+        "icon": "shield",
+        "title": "Streaming",
+        "body": "encodeLines for big data."
+      }
+    ],
+    "strengths": [
+      "Clear token savings for uniform data",
+      "Lossless with JSON",
+      "Spec with ports in other languages"
+    ],
+    "limitations": [
+      "Deeply nested or non-uniform data can be smaller as compact JSON",
+      "Purely tabular data is smaller as CSV",
+      "Some local or quantized models may be faster with compact JSON"
+    ],
+    "useCases": [
+      {
+        "title": "Prompt data",
+        "body": "Send tables of records to a model cheaply."
+      },
+      {
+        "title": "Tool responses",
+        "body": "Shrink JSON tool output before the model reads it."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from TOON's package README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/toon-format/toon/blob/12c4cd371c23679ad0edba11fafe356975586fee/packages/toon/README.md",
+      "prerequisites": [
+        "Node.js and npm"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npm library",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install @toon-format/toon",
+              "lang": "bash"
+            },
+            {
+              "title": "Encode data",
+              "body": "Import encode from '@toon-format/toon' and call encode(data) on an object."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "CLI",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Convert JSON to TOON",
+              "code": "npx @toon-format/cli input.json -o output.toon",
+              "lang": "bash"
+            },
+            {
+              "title": "See token savings",
+              "code": "npx @toon-format/cli data.json --stats",
+              "lang": "bash"
+            },
+            {
+              "title": "Install globally (optional)",
+              "code": "npm install -g @toon-format/cli",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Encode a small list",
+          "body": "Encode a users array and see the field list declared once with one row per user."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Shrink a prompt's data with TOON",
+      "useCase": "The README's quick-start example.",
+      "setup": [
+        "@toon-format/toon installed"
+      ],
+      "steps": [
+        {
+          "title": "Prepare data",
+          "body": "Create an object with a users array, each with id, name and role."
+        },
+        {
+          "title": "Encode",
+          "body": "console.log(encode(data)) prints a header like users[2]{id,name,role}: followed by one row per user."
+        },
+        {
+          "title": "Use in a prompt",
+          "body": "Wrap the output in a toon code block; the README suggests showing the format rather than describing it."
+        }
+      ],
+      "expected": "A compact table-like text version of your JSON.",
+      "nextSteps": [
+        "Compare tokens with the CLI --stats flag",
+        "Stream large data with encodeLines",
+        "Read the LLM integration guide on toonformat.dev"
+      ],
+      "sourceUrl": "https://github.com/toon-format/toon/blob/12c4cd371c23679ad0edba11fafe356975586fee/packages/toon/README.md"
+    },
+    "costs": [
+      {
+        "label": "TOON",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "No token savings",
+        "solution": "TOON shines with uniform arrays; for deeply nested data compact JSON can be smaller.",
+        "sourceUrl": "https://github.com/toon-format/toon/blob/12c4cd371c23679ad0edba11fafe356975586fee/packages/toon/README.md"
+      },
+      {
+        "problem": "Model reads it wrong",
+        "solution": "Show one example in a toon code block so the model sees the format.",
+        "sourceUrl": "https://github.com/toon-format/toon/blob/12c4cd371c23679ad0edba11fafe356975586fee/packages/toon/README.md"
+      }
+    ],
+    "bestFor": [
+      "Cutting prompt tokens for tabular JSON"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Data format and library"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "npm install @toon-format/toon"
+      }
+    ]
+  }
+}

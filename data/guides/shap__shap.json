@@ -1,0 +1,202 @@
+{
+  "fullName": "shap/shap",
+  "summary": "Python library that explains machine learning predictions with Shapley values, showing how much each feature pushed a prediction up or down.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/shap/shap/blob/146a331755a7e4018807537f1d86de527c6d9aaf/README.md"
+    ],
+    "sourceCommitSha": "146a331755a7e4018807537f1d86de527c6d9aaf",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "pip",
+        "command": "pip install shap"
+      },
+      {
+        "comment": "conda",
+        "command": "conda install -c conda-forge shap"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "SHAP (SHapley Additive exPlanations) uses game theory to explain the output of any machine learning model. It assigns each input feature a contribution to a prediction, and offers fast exact algorithms for tree models (XGBoost, LightGBM, CatBoost, scikit-learn, PySpark), explainers for deep learning (TensorFlow, Keras, PyTorch) and transformers, a model-agnostic KernelExplainer, and plots to visualize the results.",
+      "problem": "Complex models are black boxes. SHAP shows why a model made a prediction, which helps with debugging, trust and reporting.",
+      "whoFor": [
+        "Data scientists",
+        "ML engineers who need explainability",
+        "Analysts presenting model results"
+      ],
+      "whyChoose": "Choose it for a widely used, theory-based method with explainers for almost every model type and clear plots.",
+      "requirements": [
+        "Python",
+        "The ML library of the model you want to explain"
+      ]
+    },
+    "overview": [
+      "Install from PyPI or conda-forge. GPU support is described in the README.",
+      "For a tree model, create shap.Explainer(model), compute shap_values = explainer(X), then plot, for example a waterfall plot for one prediction. The same syntax works for many model types.",
+      "There are sample notebooks for each explainer and documentation notebooks. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "TreeExplainer",
+        "body": "Fast exact values for tree ensembles."
+      },
+      {
+        "icon": "scan-search",
+        "title": "DeepExplainer",
+        "body": "TensorFlow/Keras models."
+      },
+      {
+        "icon": "puzzle",
+        "title": "GradientExplainer",
+        "body": "Including PyTorch."
+      },
+      {
+        "icon": "file-code",
+        "title": "KernelExplainer",
+        "body": "Any function."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Transformers",
+        "body": "Explain NLP models."
+      },
+      {
+        "icon": "shield",
+        "title": "Plots",
+        "body": "Waterfall, beeswarm and more."
+      }
+    ],
+    "strengths": [
+      "Works with most models",
+      "Sound theory",
+      "MIT license"
+    ],
+    "limitations": [
+      "KernelExplainer can be slow",
+      "Explanations need careful interpretation"
+    ],
+    "useCases": [
+      {
+        "title": "Explain a credit model",
+        "body": "Which features drove a decision."
+      },
+      {
+        "title": "Debug a model",
+        "body": "Spot features it relies on wrongly."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from SHAP's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/shap/shap/blob/146a331755a7e4018807537f1d86de527c6d9aaf/README.md",
+      "prerequisites": [
+        "Python and pip or conda"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install shap",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "conda",
+          "method": "conda",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "conda install -c conda-forge shap",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Explain a tree model",
+          "body": "Train XGBoost on the california dataset and run shap.Explainer."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Explain an XGBoost model",
+      "useCase": "The README's tree ensemble example.",
+      "setup": [
+        "shap and xgboost installed"
+      ],
+      "steps": [
+        {
+          "title": "Train",
+          "body": "X, y = shap.datasets.california(); model = xgboost.XGBRegressor().fit(X, y)."
+        },
+        {
+          "title": "Explain",
+          "body": "explainer = shap.Explainer(model); shap_values = explainer(X)."
+        },
+        {
+          "title": "Plot",
+          "body": "Visualize the first prediction with a waterfall plot."
+        }
+      ],
+      "expected": "A chart showing how each feature moved one prediction from the average.",
+      "nextSteps": [
+        "Try a beeswarm plot",
+        "Explain a transformer",
+        "Use KernelExplainer on any model"
+      ],
+      "sourceUrl": "https://github.com/shap/shap/blob/146a331755a7e4018807537f1d86de527c6d9aaf/README.md"
+    },
+    "costs": [
+      {
+        "label": "SHAP",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Very slow on big data",
+        "solution": "Use a model-specific explainer or a background sample instead of KernelExplainer on everything.",
+        "sourceUrl": "https://github.com/shap/shap/blob/146a331755a7e4018807537f1d86de527c6d9aaf/README.md"
+      }
+    ],
+    "bestFor": [
+      "Model explainability",
+      "Explaining ML predictions"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Explainability library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "pip install shap"
+      }
+    ]
+  }
+}

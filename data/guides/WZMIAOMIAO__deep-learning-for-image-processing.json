@@ -1,0 +1,192 @@
+{
+  "fullName": "WZMIAOMIAO/deep-learning-for-image-processing",
+  "summary": "Chinese video course with PyTorch and TensorFlow code for classic vision networks, from LeNet and ResNet to YOLO, U-Net and Vision Transformer.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/WZMIAOMIAO/deep-learning-for-image-processing/blob/1ec3fe6f374fc9969973a61f819de25658595afa/README.md"
+    ],
+    "sourceCommitSha": "1ec3fe6f374fc9969973a61f819de25658595afa",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Get the code",
+        "command": "git clone https://github.com/WZMIAOMIAO/deep-learning-for-image-processing.git"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "This is a tutorial series on deep learning for images, organized from the author's graduate research and shared as videos (in Chinese, on Bilibili) with matching code. For each network it explains the structure and key ideas, then builds and trains it in PyTorch and, for many, TensorFlow/Keras. Topics cover image classification, object detection, semantic segmentation, instance segmentation and keypoint detection.",
+      "problem": "Papers on vision models are hard to turn into working code. This series walks through each network and shows a full implementation.",
+      "whoFor": [
+        "Students learning computer vision",
+        "Chinese-speaking learners",
+        "Developers who want reference implementations"
+      ],
+      "whyChoose": "Choose it for a large, structured set of explained implementations, with slides for every lesson in the course_ppt folder.",
+      "requirements": [
+        "Python with PyTorch or TensorFlow",
+        "Chinese for the videos (the code is readable without them)"
+      ]
+    },
+    "overview": [
+      "Classification covers LeNet, AlexNet, VGG, GoogLeNet, ResNet, ResNeXt, MobileNet, ShuffleNet, EfficientNet, RepVGG, Vision Transformer, Swin Transformer, ConvNeXt and MobileViT.",
+      "Detection covers Faster R-CNN/FPN, SSD/RetinaNet, the YOLO series and FCOS; segmentation covers FCN, DeepLabV3, LR-ASPP, U-Net, U2Net and Mask R-CNN; keypoints cover DeepPose and HRNet.",
+      "Each topic links to explanation and source-code walkthrough videos. Slides are in course_ppt. It is GPL-3.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Classification",
+        "body": "LeNet to ConvNeXt and ViT."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Detection",
+        "body": "Faster R-CNN, SSD, YOLO, FCOS."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Segmentation",
+        "body": "FCN, DeepLabV3, U-Net, Mask R-CNN."
+      },
+      {
+        "icon": "file-code",
+        "title": "Keypoints",
+        "body": "DeepPose, HRNet."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Two frameworks",
+        "body": "PyTorch and TensorFlow."
+      },
+      {
+        "icon": "shield",
+        "title": "Slides",
+        "body": "In course_ppt."
+      }
+    ],
+    "strengths": [
+      "Very broad coverage",
+      "Theory plus code",
+      "Free"
+    ],
+    "limitations": [
+      "Videos and README are in Chinese",
+      "GPL-3.0 license"
+    ],
+    "useCases": [
+      {
+        "title": "Learn a network",
+        "body": "Watch the explainer, run the code."
+      },
+      {
+        "title": "Reference code",
+        "body": "Start a project from an implementation."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Deep Learning for Image Processing's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/WZMIAOMIAO/deep-learning-for-image-processing/blob/1ec3fe6f374fc9969973a61f819de25658595afa/README.md",
+      "prerequisites": [
+        "Python",
+        "PyTorch or TensorFlow"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Clone the code",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/WZMIAOMIAO/deep-learning-for-image-processing.git",
+              "lang": "bash"
+            },
+            {
+              "title": "Pick a network",
+              "body": "Open the folder for the model you want and follow its video."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start with LeNet",
+          "body": "The PyTorch official demo lesson is the first in the list."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Work through your first network",
+      "useCase": "Follow the course order.",
+      "setup": [
+        "Repo cloned",
+        "PyTorch installed"
+      ],
+      "steps": [
+        {
+          "title": "Watch the explainer",
+          "body": "Open the LeNet or AlexNet video from the README."
+        },
+        {
+          "title": "Read the code",
+          "body": "Open the matching folder."
+        },
+        {
+          "title": "Train it",
+          "body": "Run the training script on the sample dataset."
+        }
+      ],
+      "expected": "A trained classifier and an understanding of how the network is built.",
+      "nextSteps": [
+        "Move on to ResNet",
+        "Try YOLO for detection",
+        "Try U-Net for segmentation"
+      ],
+      "sourceUrl": "https://github.com/WZMIAOMIAO/deep-learning-for-image-processing/blob/1ec3fe6f374fc9969973a61f819de25658595afa/README.md"
+    },
+    "costs": [
+      {
+        "label": "Tutorials and code",
+        "value": "Free; code under GPL-3.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Can't follow the videos",
+        "solution": "The code is self-contained; read it alongside the network's paper.",
+        "sourceUrl": "https://github.com/WZMIAOMIAO/deep-learning-for-image-processing/blob/1ec3fe6f374fc9969973a61f819de25658595afa/README.md"
+      }
+    ],
+    "bestFor": [
+      "Computer vision tutorials",
+      "Vision model implementations"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Tutorial code + videos"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "GPL-3.0"
+      },
+      {
+        "label": "Frameworks",
+        "value": "PyTorch, TensorFlow"
+      }
+    ]
+  }
+}

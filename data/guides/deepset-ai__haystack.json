@@ -1,0 +1,213 @@
+{
+  "fullName": "deepset-ai/haystack",
+  "summary": "Open-source Python framework from deepset for building production LLM apps: RAG pipelines, agents and search, with any model provider.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/deepset-ai/haystack/blob/93ac29fd62510287b1dee77bc5948a4a6fe35919/README.md"
+    ],
+    "sourceCommitSha": "93ac29fd62510287b1dee77bc5948a4a6fe35919",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install haystack-ai"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Haystack is an AI orchestration framework for building production-ready LLM applications in Python. You compose pipelines and agents from components for retrieval, indexing, tool calling, memory and evaluation, with explicit control over how information is retrieved, ranked, filtered and routed before it reaches the model.",
+      "problem": "Production RAG and agent systems need careful control over context and a way to swap models and infrastructure. Haystack gives a modular structure for that.",
+      "whoFor": [
+        "Python developers building RAG and search",
+        "Teams shipping agents to production",
+        "Companies that want vendor-neutral LLM apps"
+      ],
+      "whyChoose": "Choose it for context-engineering control, async pipelines with streaming, agent hooks for guardrails and integrations with many model and database providers.",
+      "requirements": [
+        "Python",
+        "An LLM provider or local model"
+      ]
+    },
+    "overview": [
+      "Install with pip install haystack-ai, or pip install --pre haystack-ai for nightly pre-releases. Docker images and other methods are in the installation docs.",
+      "Pipelines run sync or async and stream tokens. Agents support lifecycle hooks such as before_llm and before_tool, and track steps, token usage and tool calls.",
+      "It integrates with OpenAI, Mistral, Anthropic, Cohere, Hugging Face, Google, Azure OpenAI, AWS Bedrock and local models. Hayhooks can serve pipelines as REST APIs or MCP servers. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Pipelines",
+        "body": "Compose components into flows."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Agents",
+        "body": "Hooks, tracking and concurrent tools."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Context engineering",
+        "body": "Control retrieval and routing."
+      },
+      {
+        "icon": "file-code",
+        "title": "Async and streaming",
+        "body": "Same pipeline, sync or async."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Vendor-agnostic",
+        "body": "Many models and stores."
+      },
+      {
+        "icon": "shield",
+        "title": "Hayhooks",
+        "body": "Serve as REST or MCP."
+      }
+    ],
+    "strengths": [
+      "Production focus",
+      "Modular",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "More concepts than a minimal library",
+      "Python only"
+    ],
+    "useCases": [
+      {
+        "title": "RAG over company docs",
+        "body": "Retrieval pipeline with ranking."
+      },
+      {
+        "title": "Agent with tools",
+        "body": "Guardrails via hooks."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Haystack's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/deepset-ai/haystack/blob/93ac29fd62510287b1dee77bc5948a4a6fe35919/README.md",
+      "prerequisites": [
+        "Python and pip"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install haystack-ai",
+              "lang": "bash"
+            },
+            {
+              "title": "Optional: nightly build",
+              "code": "pip install --pre haystack-ai",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Other methods",
+          "method": "docs",
+          "steps": [
+            {
+              "title": "See the installation guide",
+              "body": "Docker images and more at docs.haystack.deepset.ai/docs/installation."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Build a small pipeline",
+          "body": "Follow a getting-started tutorial in the Haystack docs."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Start your first Haystack project",
+      "useCase": "Install and follow an official tutorial.",
+      "setup": [
+        "haystack-ai installed",
+        "A model provider key"
+      ],
+      "steps": [
+        {
+          "title": "Open the docs",
+          "body": "Go to the Haystack documentation and tutorials."
+        },
+        {
+          "title": "Build a RAG pipeline",
+          "body": "Add a document store, retriever and generator."
+        },
+        {
+          "title": "Run a query",
+          "body": "Ask a question over your documents."
+        }
+      ],
+      "expected": "A working pipeline that answers from your documents.",
+      "nextSteps": [
+        "Add an agent with tools",
+        "Run the pipeline async",
+        "Serve it with Hayhooks"
+      ],
+      "sourceUrl": "https://github.com/deepset-ai/haystack/blob/93ac29fd62510287b1dee77bc5948a4a6fe35919/README.md"
+    },
+    "costs": [
+      {
+        "label": "Haystack",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Enterprise",
+        "value": "deepset offers paid support and a platform.",
+        "tone": "paid"
+      },
+      {
+        "label": "Models",
+        "value": "Your provider bills for usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Want the newest features",
+        "solution": "Install the nightly with pip install --pre haystack-ai.",
+        "sourceUrl": "https://github.com/deepset-ai/haystack/blob/93ac29fd62510287b1dee77bc5948a4a6fe35919/README.md"
+      }
+    ],
+    "bestFor": [
+      "RAG framework",
+      "Production LLM pipelines"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "LLM framework"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "pip install haystack-ai"
+      }
+    ]
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "fullName": "humanlayer/12-factor-agents",
+  "summary": "Free guide of 12 principles for building reliable LLM agents, in the spirit of the classic 12 Factor App, from owning prompts to stateless design.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/humanlayer/12-factor-agents/blob/d20c728368bf9c189d6d7aab704744decb6ec0cc/README.md"
+    ],
+    "sourceCommitSha": "d20c728368bf9c189d6d7aab704744decb6ec0cc",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Read",
+        "command": "Start with Factor 1 in the repo's content folder"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "12-Factor Agents is a written guide to building production-grade LLM applications. It sets out twelve principles, such as turning natural language into tool calls, owning your prompts and context window, treating tools as structured outputs, contacting humans through tool calls, owning your control flow, keeping agents small and focused, and making your agent a stateless reducer.",
+      "problem": "Many agent frameworks get you to a demo but not to reliable software. This guide explains the engineering patterns that make agents dependable in production.",
+      "whoFor": [
+        "Developers building LLM agents for real users",
+        "Engineering leads choosing an agent architecture",
+        "Anyone moving from prototype to production"
+      ],
+      "whyChoose": "Choose it for clear, framework-independent principles you can apply to any agent code.",
+      "requirements": [
+        "A web browser"
+      ]
+    },
+    "overview": [
+      "The README gives a short version of the 12 factors with a link to a page for each, plus background on how agents evolved from code to DAGs to loops.",
+      "Read the factors in order, or jump to the one you need, such as owning your context window or compacting errors into context.",
+      "Written content is CC BY-SA 4.0 and code is Apache 2.0."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "12 principles",
+        "body": "One page each."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Own your prompts",
+        "body": "Don't hide them in frameworks."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Own your context",
+        "body": "Control what the model sees."
+      },
+      {
+        "icon": "file-code",
+        "title": "Humans via tools",
+        "body": "Ask for help as a tool call."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Small agents",
+        "body": "Focused and composable."
+      },
+      {
+        "icon": "shield",
+        "title": "Stateless reducer",
+        "body": "Predictable agent design."
+      }
+    ],
+    "strengths": [
+      "Framework-agnostic",
+      "Practical, production-focused",
+      "Free to read"
+    ],
+    "limitations": [
+      "A guide, not a library",
+      "You implement the ideas yourself"
+    ],
+    "useCases": [
+      {
+        "title": "Design review",
+        "body": "Check an agent against the factors."
+      },
+      {
+        "title": "Team onboarding",
+        "body": "Shared vocabulary for agent design."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from 12-Factor Agents's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/humanlayer/12-factor-agents/blob/d20c728368bf9c189d6d7aab704744decb6ec0cc/README.md",
+      "prerequisites": [
+        "None"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Read on GitHub",
+          "method": "web",
+          "steps": [
+            {
+              "title": "Open the README",
+              "body": "Read the short version of the 12 factors."
+            },
+            {
+              "title": "Read each factor",
+              "body": "Follow the links into the content folder, starting with Factor 1: Natural Language to Tool Calls."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Read Factor 1",
+          "body": "Natural Language to Tool Calls."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Review your agent against the 12 factors",
+      "useCase": "Turn the guide into a checklist.",
+      "setup": [
+        "An agent project, even a prototype"
+      ],
+      "steps": [
+        {
+          "title": "List the factors",
+          "body": "Copy the 12 factor titles into a checklist."
+        },
+        {
+          "title": "Check each one",
+          "body": "For example: do you own your prompts and your control flow?"
+        },
+        {
+          "title": "Pick two to fix",
+          "body": "Start with context window and error handling."
+        }
+      ],
+      "expected": "A short list of concrete changes to make your agent more reliable.",
+      "nextSteps": [
+        "Read Factor 10: Small, Focused Agents",
+        "Read Factor 12: stateless reducer"
+      ],
+      "sourceUrl": "https://github.com/humanlayer/12-factor-agents/blob/d20c728368bf9c189d6d7aab704744decb6ec0cc/README.md"
+    },
+    "costs": [
+      {
+        "label": "Guide",
+        "value": "Free to read; content CC BY-SA 4.0, code Apache 2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Want code examples",
+        "solution": "Each factor page includes examples; the ideas apply in any language.",
+        "sourceUrl": "https://github.com/humanlayer/12-factor-agents/blob/d20c728368bf9c189d6d7aab704744decb6ec0cc/README.md"
+      }
+    ],
+    "bestFor": [
+      "Agent design principles",
+      "Production LLM apps"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Guide"
+      },
+      {
+        "label": "Topics",
+        "value": "Agent architecture"
+      },
+      {
+        "label": "License",
+        "value": "CC BY-SA 4.0 content, Apache 2.0 code"
+      },
+      {
+        "label": "Read",
+        "value": "GitHub"
+      }
+    ]
+  }
+}

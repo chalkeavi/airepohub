@@ -1,0 +1,251 @@
+{
+  "fullName": "browserbase/stagehand",
+  "summary": "SDK for browser agents from Browserbase: mix Playwright-style code with plain-English act, observe and extract steps that adapt when sites change.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/browserbase/stagehand/blob/97ff3e1189d3205bee10127fdde992f3313ef228/README.md"
+    ],
+    "sourceCommitSha": "97ff3e1189d3205bee10127fdde992f3313ef228",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "TypeScript",
+        "command": "pnpm add @browserbasehq/stagehand 'zod@~4.4.3'"
+      },
+      {
+        "comment": "Python",
+        "command": "pip install stagehand"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Stagehand is an SDK for AI browser automation. You write normal Playwright-style code (goto, click, locator) and add natural-language steps: observe finds elements and returns real selectors, act performs actions and self-heals when a site is redesigned, and extract returns schema-validated data. It runs locally with Chrome or on Browserbase, and there's a browse CLI and skill for coding agents.",
+      "problem": "Browser scripts break when sites change, and fully autonomous agents are unpredictable. Stagehand lets you choose code or AI for each step.",
+      "whoFor": [
+        "Developers automating websites",
+        "Teams building browser agents",
+        "Coding-agent users who need a browser"
+      ],
+      "whyChoose": "Choose it for familiar APIs, self-healing actions, typed data extraction and SDKs for TypeScript, Python and Go.",
+      "requirements": [
+        "Chrome for local runs",
+        "Node.js, Python or Go",
+        "A model API key for AI steps (not needed for the local browse CLI)"
+      ]
+    },
+    "overview": [
+      "Install the SDK for your language. Local runs need Chrome; the full setup is in the Quickstart docs.",
+      "A session can persist cookies in a user data folder so you stay signed in. observe returns selectors, so credentials you fill in never reach the model.",
+      "Coding agents can use the browse CLI and skill instead, with no LLM key or Browserbase account needed locally. Browserbase hosting and a hosted MCP are optional. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Playwright-style API",
+        "body": "goto, click, locator."
+      },
+      {
+        "icon": "scan-search",
+        "title": "act",
+        "body": "Natural-language actions that self-heal."
+      },
+      {
+        "icon": "puzzle",
+        "title": "observe",
+        "body": "Find elements, get selectors."
+      },
+      {
+        "icon": "file-code",
+        "title": "extract",
+        "body": "Schema-validated data."
+      },
+      {
+        "icon": "git-compare",
+        "title": "browse CLI",
+        "body": "For Claude Code, Cursor, Codex."
+      },
+      {
+        "icon": "shield",
+        "title": "Hosted option",
+        "body": "Run on Browserbase."
+      }
+    ],
+    "strengths": [
+      "Code plus AI control",
+      "Multiple languages",
+      "MIT license"
+    ],
+    "limitations": [
+      "AI steps cost model tokens",
+      "Some features use Browserbase's paid cloud"
+    ],
+    "useCases": [
+      {
+        "title": "Scrape a dashboard",
+        "body": "Sign in and extract invoices."
+      },
+      {
+        "title": "Form workflows",
+        "body": "Act steps across pages."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Stagehand's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/browserbase/stagehand/blob/97ff3e1189d3205bee10127fdde992f3313ef228/README.md",
+      "prerequisites": [
+        "Chrome",
+        "A language runtime"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "TypeScript",
+          "method": "pnpm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pnpm add @browserbasehq/stagehand 'zod@~4.4.3'",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Python",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install stagehand",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Go",
+          "method": "go",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "go get github.com/browserbase/stagehand/packages/sdk-go/v4@v4.0.0",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Coding agents (browse CLI)",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install CLI and skill",
+              "code": "npm install -g browse\nnpx skills add browserbase/stagehand --skill browse",
+              "lang": "bash"
+            },
+            {
+              "title": "Try it",
+              "code": "browse open https://example.com --local\nbrowse snapshot\nbrowse get title",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open a page",
+          "body": "Launch a local browser and goto a URL."
+        },
+        {
+          "title": "Act in English",
+          "body": "Call stagehand.act with an instruction."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Extract a page title with the browse CLI",
+      "useCase": "The quickest local test, no API key needed.",
+      "setup": [
+        "browse installed",
+        "Chrome installed"
+      ],
+      "steps": [
+        {
+          "title": "Open a page",
+          "code": "browse open https://example.com --local",
+          "lang": "bash"
+        },
+        {
+          "title": "Snapshot",
+          "code": "browse snapshot",
+          "lang": "bash"
+        },
+        {
+          "title": "Read the title",
+          "code": "browse get title",
+          "lang": "bash"
+        }
+      ],
+      "expected": "The page title printed in your terminal.",
+      "nextSteps": [
+        "Use the TypeScript SDK",
+        "Extract structured data",
+        "Try Browserbase hosting"
+      ],
+      "sourceUrl": "https://github.com/browserbase/stagehand/blob/97ff3e1189d3205bee10127fdde992f3313ef228/README.md"
+    },
+    "costs": [
+      {
+        "label": "Stagehand",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Model API",
+        "value": "AI steps use your model provider.",
+        "tone": "paid"
+      },
+      {
+        "label": "Browserbase",
+        "value": "Optional hosted browsers.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Local run fails",
+        "solution": "Make sure Chrome is installed.",
+        "sourceUrl": "https://github.com/browserbase/stagehand/blob/97ff3e1189d3205bee10127fdde992f3313ef228/README.md"
+      }
+    ],
+    "bestFor": [
+      "Browser automation with AI",
+      "Browser agent SDK"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Browser agent SDK"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "pnpm add @browserbasehq/stagehand"
+      }
+    ]
+  }
+}
