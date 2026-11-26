@@ -1,0 +1,199 @@
+{
+  "fullName": "volcengine/OpenViking",
+  "summary": "Open-source context database that stores an AI agent's knowledge, memory and skills as a browsable virtual filesystem.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/volcengine/OpenViking/blob/fa935330471b4aabf6a20317fb495e0eb1a65a15/README.md"
+    ],
+    "sourceCommitSha": "fa935330471b4aabf6a20317fb495e0eb1a65a15",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install and set up the server",
+        "command": "uv tool install openviking --upgrade && openviking-server init"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "OpenViking is a context database for AI agents. Instead of hiding memory inside embeddings, it organises everything an agent knows (knowledge, memory and skills) as a virtual filesystem under viking:// that both agents and people can browse.",
+      "problem": "Most agent memory is a black box: text goes in, embeddings come out, and nobody can see what was stored. OpenViking makes agent context visible and organised in one place.",
+      "whoFor": [
+        "Developers building AI agents with long-term memory",
+        "Teams sharing knowledge across agents",
+        "Builders of RAG systems who want inspectable storage"
+      ],
+      "whyChoose": "Choose it to unify agent memory, RAG knowledge and skills in one transparent store, self-hosted or as a hosted service.",
+      "requirements": [
+        "uv and Python 3.10+",
+        "A model provider with an embedding model and a chat model"
+      ]
+    },
+    "overview": [
+      "You can try OpenViking Studio in the browser with no install, or self-host the server. The setup wizard (openviking-server init) writes ~/.openviking/ov.conf and supports Volcengine, OpenAI, Codex OAuth, Kimi, GLM and local Ollama.",
+      "You can also let your coding agent deploy it by pointing it at the setup-for-agent guide in the docs; it asks for your model provider and keys first.",
+      "Hosted versions are run by Volcengine and BytePlus; the README says the first 50 files are free on the Volcengine service. The project is AGPL-3.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Virtual filesystem",
+        "body": "Context under viking:// paths."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Memory, knowledge, skills",
+        "body": "One store for all three."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Setup wizard",
+        "body": "openviking-server init."
+      },
+      {
+        "icon": "file-code",
+        "title": "Many providers",
+        "body": "OpenAI, Ollama, Kimi, GLM and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Web Studio",
+        "body": "Browse context in a browser."
+      }
+    ],
+    "strengths": [
+      "Inspectable agent memory",
+      "Self-host or hosted",
+      "Works with local Ollama"
+    ],
+    "limitations": [
+      "Needs an embedding model",
+      "AGPL-3.0 license"
+    ],
+    "useCases": [
+      {
+        "title": "Agent memory",
+        "body": "Give an agent long-term memory you can inspect."
+      },
+      {
+        "title": "Shared knowledge",
+        "body": "One knowledge base for several agents."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from OpenViking's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/volcengine/OpenViking/blob/fa935330471b4aabf6a20317fb495e0eb1a65a15/README.md",
+      "prerequisites": [
+        "uv",
+        "Python 3.10+"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "uv tool",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install and run the setup wizard",
+              "code": "uv tool install openviking --upgrade && openviking-server init",
+              "lang": "bash"
+            },
+            {
+              "title": "Pick your models",
+              "body": "The wizard configures the model provider and writes ~/.openviking/ov.conf."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Try OpenViking Studio",
+          "body": "Open studio.openviking.ai to explore it in the browser with no install."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Self-host an OpenViking server",
+      "useCase": "Install the server and configure its models.",
+      "setup": [
+        "uv and Python 3.10+",
+        "A provider key, or local Ollama"
+      ],
+      "steps": [
+        {
+          "title": "Install and initialise",
+          "code": "uv tool install openviking --upgrade && openviking-server init",
+          "lang": "bash"
+        },
+        {
+          "title": "Answer the wizard's questions",
+          "body": "Choose a provider, an embedding model and a chat model."
+        },
+        {
+          "title": "Connect your agent",
+          "body": "Follow the 'Use it with your agent' section of the docs."
+        }
+      ],
+      "expected": "A running OpenViking server your agent can store and read context from.",
+      "nextSteps": [
+        "Self-host Web Studio",
+        "Read the configuration guide",
+        "Try the hosted service"
+      ],
+      "sourceUrl": "https://github.com/volcengine/OpenViking/blob/fa935330471b4aabf6a20317fb495e0eb1a65a15/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under AGPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Your provider bills for embeddings and chat, unless you use local Ollama.",
+        "tone": "depends"
+      },
+      {
+        "label": "Hosted service",
+        "value": "Volcengine's first 50 files are free per the README.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Unsure which models to pick",
+        "solution": "See the configuration guide; the wizard supports Volcengine, OpenAI, Codex OAuth, Kimi, GLM and Ollama.",
+        "sourceUrl": "https://github.com/volcengine/OpenViking/blob/fa935330471b4aabf6a20317fb495e0eb1a65a15/README.md"
+      }
+    ],
+    "bestFor": [
+      "Agent memory",
+      "Context management",
+      "RAG storage"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Context database for agents"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "Install",
+        "value": "uv tool install openviking"
+      }
+    ]
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "fullName": "mindsdb/mindshub",
+  "summary": "Agent workspace for research, analysis and coding that lets you pick from many AI models and connect your own data sources.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/mindsdb/mindshub/blob/3f7d3c690295c52b64f512333c59465d20bce0b9/README.md"
+    ],
+    "sourceCommitSha": "3f7d3c690295c52b64f512333c59465d20bce0b9",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Use it",
+        "command": "Open the web app at console.mindshub.ai, or download the macOS or Windows desktop app"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "MindsHub, from MindsDB, is an agent workspace for knowledge work and software development. It runs open-source agent harnesses with your choice of models, connects your data sources, and turns agent output into documents, dashboards, apps and code.",
+      "problem": "Many agent tools lock you into one model provider. MindsHub lets you switch between frontier and open models in one place, with connected data and memory.",
+      "whoFor": [
+        "Knowledge workers doing research and analysis",
+        "Developers using AI agents for code",
+        "Teams that want to self-host an agent workspace"
+      ],
+      "whyChoose": "Choose it for model choice, a secure data vault, swappable open agent harnesses and flexible deployment from cloud to air-gapped.",
+      "requirements": [
+        "A browser for the web app, or macOS / Windows for the desktop app",
+        "Linux users build from source"
+      ]
+    },
+    "overview": [
+      "Get started with the web app (sign in, nothing to install), the macOS .pkg or Windows .exe desktop app, or build from source on Linux.",
+      "Features include connected data (BigQuery, Postgres, Gmail, Drive, HubSpot, Notion, Linear) with credentials kept per connection, a model router across Claude, GPT, Gemini, DeepSeek, Qwen and Kimi, open agents Anton and Hermes, artifacts you can publish, and memory, skills and scheduling.",
+      "It's free to start; Pro adds all frontier models and private artifacts. It can be deployed in cloud, VPC, on-prem, air-gapped or hybrid setups. The code is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Model router",
+        "body": "Frontier and open models."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Connected data",
+        "body": "Secure vault for your systems."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Open agents",
+        "body": "Anton and Hermes harnesses."
+      },
+      {
+        "icon": "file-code",
+        "title": "Artifacts",
+        "body": "Publish docs, dashboards and apps."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Memory and scheduling",
+        "body": "Skills and scheduled tasks."
+      }
+    ],
+    "strengths": [
+      "Model choice",
+      "Flexible deployment",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Pro plan needed for all frontier models",
+      "Linux has no ready desktop app"
+    ],
+    "useCases": [
+      {
+        "title": "Research",
+        "body": "Analyse data from connected sources."
+      },
+      {
+        "title": "Coding",
+        "body": "Use agents to build software."
+      },
+      {
+        "title": "Reports",
+        "body": "Publish dashboards as artifacts."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from MindsHub's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/mindsdb/mindshub/blob/3f7d3c690295c52b64f512333c59465d20bce0b9/README.md",
+      "prerequisites": [
+        "Browser, or macOS/Windows"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Web app",
+          "method": "web",
+          "steps": [
+            {
+              "title": "Sign in",
+              "body": "Open console.mindshub.ai; nothing to install."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Desktop app",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download",
+              "body": "Get the .pkg for macOS or .exe for Windows from the links in the README."
+            },
+            {
+              "title": "Install and sign in"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start a task",
+          "body": "Pick a model and ask the agent to research or build something."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your first agent task",
+      "useCase": "Use MindsHub's agent on a research question.",
+      "setup": [
+        "A MindsHub account"
+      ],
+      "steps": [
+        {
+          "title": "Open the web app",
+          "body": "Sign in at console.mindshub.ai."
+        },
+        {
+          "title": "Choose a model and agent",
+          "body": "Anton is the default harness."
+        },
+        {
+          "title": "Ask a question",
+          "body": "Optionally connect a data source first."
+        }
+      ],
+      "expected": "The agent answers and can turn its output into an artifact.",
+      "nextSteps": [
+        "Connect a data source",
+        "Schedule a task",
+        "Try a different model"
+      ],
+      "sourceUrl": "https://github.com/mindsdb/mindshub/blob/3f7d3c690295c52b64f512333c59465d20bce0b9/README.md"
+    },
+    "costs": [
+      {
+        "label": "Code",
+        "value": "Open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Hosted plans",
+        "value": "Free to start; Pro adds all frontier models and private artifacts.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "No Linux desktop app",
+        "solution": "Build from source following the README.",
+        "sourceUrl": "https://github.com/mindsdb/mindshub/blob/3f7d3c690295c52b64f512333c59465d20bce0b9/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI agent workspace",
+      "Multi-model work"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent workspace"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript, Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Maker",
+        "value": "MindsDB"
+      }
+    ]
+  }
+}

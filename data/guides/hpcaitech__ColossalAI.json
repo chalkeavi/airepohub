@@ -1,0 +1,214 @@
+{
+  "fullName": "hpcaitech/ColossalAI",
+  "summary": "Deep learning system for training and running large AI models cheaper and faster with parallelism across many GPUs.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/hpcaitech/ColossalAI/blob/da3df39e66ed7053cc9e7dc89f4f1b3990acbfe0/README.md"
+    ],
+    "sourceCommitSha": "da3df39e66ed7053cc9e7dc89f4f1b3990acbfe0",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install colossalai"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Colossal-AI is a system for making large AI models cheaper, faster and more accessible. It provides parallel training and inference tools for PyTorch so big models can run across many GPUs.",
+      "problem": "Large models need lots of GPU memory and engineering to train. Colossal-AI packages parallelism and memory optimisations so teams can train and fine-tune them with less effort and cost.",
+      "whoFor": [
+        "ML engineers training large models",
+        "Researchers scaling experiments on GPU clusters",
+        "Teams fine-tuning big models on Linux"
+      ],
+      "whyChoose": "Choose it for a well-known open-source toolkit for large-model training with PyPI and Docker installs and many examples.",
+      "requirements": [
+        "Linux",
+        "Python 3.10 to 3.12",
+        "PyTorch 2.2 to below 2.14",
+        "CUDA 11.0+",
+        "NVIDIA GPU with compute capability 7.0+ (V100/RTX 20 and newer)"
+      ]
+    },
+    "overview": [
+      "Install from PyPI with pip install colossalai. PyTorch extensions aren't built during install by default; CUDA kernels are built at runtime when needed, or set BUILD_EXT=1 to build them up front.",
+      "A weekly nightly build (colossalai-nightly) gives early access to unreleased features. A Docker image is published to Docker Hub on every release.",
+      "Only Linux is supported for now. The project is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Parallel training",
+        "body": "Scale across GPUs."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Memory optimisation",
+        "body": "Fit larger models."
+      },
+      {
+        "icon": "puzzle",
+        "title": "PyPI and Docker",
+        "body": "Easy installs."
+      },
+      {
+        "icon": "file-code",
+        "title": "Nightly builds",
+        "body": "Weekly early access."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Examples",
+        "body": "Many ready examples."
+      }
+    ],
+    "strengths": [
+      "Built for large models",
+      "Active examples",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Linux only",
+      "Needs NVIDIA GPUs",
+      "Strict PyTorch and Python version ranges"
+    ],
+    "useCases": [
+      {
+        "title": "Train large models",
+        "body": "Use many GPUs efficiently."
+      },
+      {
+        "title": "Fine-tuning",
+        "body": "Adapt big models with less memory."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Colossal-AI's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/hpcaitech/ColossalAI/blob/da3df39e66ed7053cc9e7dc89f4f1b3990acbfe0/README.md",
+      "prerequisites": [
+        "Linux",
+        "NVIDIA GPU",
+        "PyTorch"
+      ],
+      "supportedOs": [
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install colossalai",
+              "lang": "bash"
+            },
+            {
+              "title": "Optional: build extensions now",
+              "code": "BUILD_EXT=1 pip install --no-binary=colossalai --no-build-isolation colossalai",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Pull the image",
+              "code": "docker pull hpcaitech/colossalai",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run an example",
+          "body": "Open the examples folder in the repo and pick a training example that matches your hardware."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Install Colossal-AI and run an example",
+      "useCase": "Get Colossal-AI working on a Linux GPU machine.",
+      "setup": [
+        "Linux with an NVIDIA GPU",
+        "PyTorch 2.2+"
+      ],
+      "steps": [
+        {
+          "title": "Install",
+          "code": "pip install colossalai",
+          "lang": "bash"
+        },
+        {
+          "title": "Clone the repo for examples",
+          "code": "git clone https://github.com/hpcaitech/ColossalAI.git",
+          "lang": "bash"
+        },
+        {
+          "title": "Follow an example's README",
+          "body": "Each example in the examples folder explains how to launch it."
+        }
+      ],
+      "expected": "An example training run on your GPUs.",
+      "nextSteps": [
+        "Try the nightly build",
+        "Read the documentation"
+      ],
+      "sourceUrl": "https://github.com/hpcaitech/ColossalAI/blob/da3df39e66ed7053cc9e7dc89f4f1b3990acbfe0/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Your GPUs or cloud bill for training.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install fails on Windows or macOS",
+        "solution": "Only Linux is supported for now.",
+        "sourceUrl": "https://github.com/hpcaitech/ColossalAI/blob/da3df39e66ed7053cc9e7dc89f4f1b3990acbfe0/README.md"
+      },
+      {
+        "problem": "Slow first run",
+        "solution": "CUDA kernels build at runtime unless you install with BUILD_EXT=1.",
+        "sourceUrl": "https://github.com/hpcaitech/ColossalAI/blob/da3df39e66ed7053cc9e7dc89f4f1b3990acbfe0/README.md"
+      }
+    ],
+    "bestFor": [
+      "Large model training",
+      "Distributed deep learning"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Large-model training system"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "OS",
+        "value": "Linux only"
+      }
+    ]
+  }
+}

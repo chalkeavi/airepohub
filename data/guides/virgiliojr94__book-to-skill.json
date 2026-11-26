@@ -1,0 +1,202 @@
+{
+  "fullName": "virgiliojr94/book-to-skill",
+  "summary": "Agent skill that turns a technical book or folder of documents into a reusable skill your coding agent can study and look things up in.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/virgiliojr94/book-to-skill/blob/79b3fa66d249635453f8e9bc517fe033ac9d5a91/README.md"
+    ],
+    "sourceCommitSha": "79b3fa66d249635453f8e9bc517fe033ac9d5a91",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "npx skills add virgiliojr94/book-to-skill"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "book-to-skill converts a technical book, a document folder or a collection of sources into one agent skill. Your coding agent can then study, reference and use that material while you work, in tools like Claude Code, Codex, GitHub Copilot CLI and Amp.",
+      "problem": "Pasting a whole book into an agent's context is slow and expensive. The README says its generated skill answers a question with 24 to 51 times fewer tokens than dumping the book in.",
+      "whoFor": [
+        "Developers who learn from technical books",
+        "Teams turning internal docs into agent knowledge",
+        "Coding agent users across many tools"
+      ],
+      "whyChoose": "Choose it to give your agent a compact, searchable version of the books and docs you rely on, installable in many agent hosts.",
+      "requirements": [
+        "A coding agent that supports skills (Claude Code, Codex, Copilot CLI, Amp and others)",
+        "Node.js for npx, or Git for manual install"
+      ]
+    },
+    "overview": [
+      "Install with the cross-agent skills CLI (npx skills add) or clone it into your agent's skills folder, for example ~/.claude/skills/book-to-skill for Claude Code.",
+      "Run /book-to-skill with local files (PDF, EPUB, DOCX, Markdown and more) and an optional skill name, or /book-to-skill search to discover and read sources through MCP. The skill is created in ~/.agents/skills/<slug>/.",
+      "There are also analyse-only, generate-from-analysis and update workflows, and it can publish the generated skill to GitHub, private by default. The project is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Books to skills",
+        "body": "PDF, EPUB, DOCX, Markdown."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Token savings",
+        "body": "Answers without loading the whole book."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Search mode",
+        "body": "Discover sources via MCP."
+      },
+      {
+        "icon": "file-code",
+        "title": "Many hosts",
+        "body": "Claude Code, Codex, Copilot CLI, Amp and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Publish",
+        "body": "Share the skill on GitHub."
+      }
+    ],
+    "strengths": [
+      "Saves tokens",
+      "Works across agents",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Only use books and documents you have the right to use",
+      "Scanned PDFs may need extra extractors"
+    ],
+    "useCases": [
+      {
+        "title": "Study a book",
+        "body": "Ask your agent about it while coding."
+      },
+      {
+        "title": "Team docs",
+        "body": "Turn internal docs into a skill."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from book-to-skill's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/virgiliojr94/book-to-skill/blob/79b3fa66d249635453f8e9bc517fe033ac9d5a91/README.md",
+      "prerequisites": [
+        "Coding agent"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Skills CLI",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install for any host",
+              "code": "npx skills add virgiliojr94/book-to-skill",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Manual (Claude Code)",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone into your skills folder",
+              "body": "Copilot CLI uses ~/.copilot/skills/; Amp and cross-agent use ~/.agents/skills/.",
+              "code": "git clone https://github.com/virgiliojr94/book-to-skill.git ~/.claude/skills/book-to-skill",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Convert a book",
+          "code": "/book-to-skill your-book.pdf",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Turn a PDF into a skill",
+      "useCase": "Convert a technical book and ask your agent about it.",
+      "setup": [
+        "book-to-skill installed",
+        "A book PDF you own"
+      ],
+      "steps": [
+        {
+          "title": "Run the converter",
+          "code": "/book-to-skill your-book.pdf my-book",
+          "lang": "text"
+        },
+        {
+          "title": "Wait for the skill",
+          "body": "It is created in ~/.agents/skills/<slug>/."
+        },
+        {
+          "title": "Ask a question",
+          "body": "Ask your agent something the book covers."
+        }
+      ],
+      "expected": "Your agent answers using the new skill without loading the whole book.",
+      "nextSteps": [
+        "Try search mode via MCP",
+        "Update the skill with more files",
+        "Publish it to GitHub"
+      ],
+      "sourceUrl": "https://github.com/virgiliojr94/book-to-skill/blob/79b3fa66d249635453f8e9bc517fe033ac9d5a91/README.md"
+    },
+    "costs": [
+      {
+        "label": "Skill",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent",
+        "value": "Your coding agent's plan or API usage applies.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Scanned PDF stalls",
+        "solution": "See the install docs for optional extractors.",
+        "sourceUrl": "https://github.com/virgiliojr94/book-to-skill/blob/79b3fa66d249635453f8e9bc517fe033ac9d5a91/README.md"
+      }
+    ],
+    "bestFor": [
+      "Agent skills",
+      "Learning from books with AI"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent skill"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Command",
+        "value": "/book-to-skill"
+      }
+    ]
+  }
+}

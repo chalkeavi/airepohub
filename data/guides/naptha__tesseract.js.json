@@ -1,0 +1,187 @@
+{
+  "fullName": "naptha/tesseract.js",
+  "summary": "Pure JavaScript OCR library that reads text from images in 100+ languages, in the browser or on Node.js.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/naptha/tesseract.js/blob/a1ca80d9e31c34512d0ded75ff8821ddcf3f2f91/README.md"
+    ],
+    "sourceCommitSha": "a1ca80d9e31c34512d0ded75ff8821ddcf3f2f91",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "npm install tesseract.js"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Tesseract.js is a JavaScript library that gets words out of images in almost any language. It works in the browser with webpack, ESM or a CDN script tag, and on the server with Node.js.",
+      "problem": "Adding OCR to a web app usually means running a separate server. Tesseract.js runs text recognition directly in JavaScript.",
+      "whoFor": [
+        "Web developers adding OCR",
+        "Node.js developers processing images",
+        "Builders of document scanning tools"
+      ],
+      "whyChoose": "Choose it for the most widely used JavaScript OCR library, with simple async APIs and many community examples.",
+      "requirements": [
+        "Node.js with npm or yarn, or a browser"
+      ]
+    },
+    "overview": [
+      "Install with npm or yarn, or load it from a CDN with a script tag (an ESM build is also available).",
+      "Create a worker for a language, call recognize on an image URL or file, read the text from the result, and terminate the worker.",
+      "Community projects include Scribe OCR and examples for PDFs, Electron and TypeScript. Tesseract.js is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "100+ languages",
+        "body": "Almost any language."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Browser and Node",
+        "body": "Same library."
+      },
+      {
+        "icon": "puzzle",
+        "title": "CDN",
+        "body": "Plain script tag."
+      },
+      {
+        "icon": "file-code",
+        "title": "Workers",
+        "body": "Async recognition."
+      }
+    ],
+    "strengths": [
+      "No server needed",
+      "Simple API",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Slower than native OCR for large batches",
+      "Accuracy depends on image quality"
+    ],
+    "useCases": [
+      {
+        "title": "Scan receipts in the browser",
+        "body": "Read text from photos."
+      },
+      {
+        "title": "Batch OCR in Node",
+        "body": "Process image folders."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Tesseract.js's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/naptha/tesseract.js/blob/a1ca80d9e31c34512d0ded75ff8821ddcf3f2f91/README.md",
+      "prerequisites": [
+        "Node.js or browser"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npm",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install tesseract.js",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "CDN",
+          "method": "cdn",
+          "steps": [
+            {
+              "title": "Add the script tag",
+              "code": "<script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>",
+              "lang": "text"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Recognise text in a sample image",
+          "code": "import { createWorker } from 'tesseract.js';\n\n(async () => {\n  const worker = await createWorker('eng');\n  const ret = await worker.recognize('https://tesseract.projectnaptha.com/img/eng_bw.png');\n  console.log(ret.data.text);\n  await worker.terminate();\n})();",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Read text from an image with Node.js",
+      "useCase": "Run OCR on a sample image.",
+      "setup": [
+        "Node.js",
+        "npm install tesseract.js"
+      ],
+      "steps": [
+        {
+          "title": "Save the example as ocr.mjs",
+          "code": "import { createWorker } from 'tesseract.js';\n\nconst worker = await createWorker('eng');\nconst ret = await worker.recognize('https://tesseract.projectnaptha.com/img/eng_bw.png');\nconsole.log(ret.data.text);\nawait worker.terminate();",
+          "lang": "text"
+        },
+        {
+          "title": "Run it",
+          "code": "node ocr.mjs",
+          "lang": "bash"
+        }
+      ],
+      "expected": "The text from the image prints in your terminal.",
+      "nextSteps": [
+        "Try another language",
+        "Use it in the browser",
+        "See community examples"
+      ],
+      "sourceUrl": "https://github.com/naptha/tesseract.js/blob/a1ca80d9e31c34512d0ded75ff8821ddcf3f2f91/README.md"
+    },
+    "costs": [
+      {
+        "label": "Library",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Poor results",
+        "solution": "Use clearer, higher-contrast images.",
+        "sourceUrl": "https://github.com/naptha/tesseract.js/blob/a1ca80d9e31c34512d0ded75ff8821ddcf3f2f91/README.md"
+      }
+    ],
+    "bestFor": [
+      "JavaScript OCR",
+      "Browser OCR"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "OCR library"
+      },
+      {
+        "label": "Language",
+        "value": "JavaScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "npm install tesseract.js"
+      }
+    ]
+  }
+}

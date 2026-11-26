@@ -1,0 +1,213 @@
+{
+  "fullName": "google/langextract",
+  "summary": "Google's Python library that uses LLMs to pull structured data from text and links every result to its exact source location.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/google/langextract/blob/b3499195e5ee711d3bb7da5178ba40456046f5f3/README.md"
+    ],
+    "sourceCommitSha": "b3499195e5ee711d3bb7da5178ba40456046f5f3",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install langextract"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "LangExtract is a Python library for extracting structured information from unstructured text using LLMs. You describe what to extract and give a few examples; it returns consistent results, each mapped to its exact place in the source text, and can render an interactive HTML view.",
+      "problem": "Asking an LLM to extract data gives inconsistent, hard-to-verify results, especially on long documents. LangExtract enforces a schema from your examples and grounds every extraction in the source.",
+      "whoFor": [
+        "Developers extracting data from documents",
+        "Researchers processing reports or literature",
+        "Teams building review tools for extracted facts"
+      ],
+      "whyChoose": "Choose it for source grounding, reliable structured output, long-document handling and support for Gemini, OpenAI and local Ollama models.",
+      "requirements": [
+        "Python",
+        "An API key for cloud models such as Gemini or OpenAI (not needed for local Ollama models)"
+      ]
+    },
+    "overview": [
+      "Define a prompt and a few-shot example with lx.data.ExampleData and lx.data.Extraction, then call lx.extract with your text and a model_id such as gemini-3.5-flash, the recommended default.",
+      "Save results with lx.io.save_annotated_documents and create an interactive HTML review page with lx.visualize. Long documents are chunked and processed in parallel over multiple passes.",
+      "Set LANGEXTRACT_API_KEY (environment variable or .env file) for cloud models. A live demo runs on Hugging Face Spaces. The library is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Source grounding",
+        "body": "Every extraction has a location."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Structured output",
+        "body": "Schema from your examples."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Long documents",
+        "body": "Chunking and parallel passes."
+      },
+      {
+        "icon": "file-code",
+        "title": "Visualisation",
+        "body": "Interactive HTML review."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Many models",
+        "body": "Gemini, OpenAI, Ollama."
+      }
+    ],
+    "strengths": [
+      "Verifiable results",
+      "Few-shot, no fine-tuning",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Cloud models cost money",
+      "Inferred information should still be checked"
+    ],
+    "useCases": [
+      {
+        "title": "Document extraction",
+        "body": "Pull entities from reports."
+      },
+      {
+        "title": "Clinical or legal text",
+        "body": "Structure long documents with citations."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from LangExtract's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/google/langextract/blob/b3499195e5ee711d3bb7da5178ba40456046f5f3/README.md",
+      "prerequisites": [
+        "Python"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install langextract",
+              "lang": "bash"
+            },
+            {
+              "title": "Set your API key for cloud models",
+              "code": "export LANGEXTRACT_API_KEY=\"your-api-key-here\"",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Build and run",
+              "code": "docker build -t langextract .\ndocker run --rm -e LANGEXTRACT_API_KEY=\"your-api-key\" langextract python your_script.py",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "LANGEXTRACT_API_KEY",
+          "required": false,
+          "description": "Needed for cloud models like Gemini or OpenAI."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Try the live demo",
+          "body": "Run grounded extraction on Romeo and Juliet in your browser via the demo link in the README."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Extract characters and emotions from text",
+      "useCase": "Run a small grounded extraction with a few-shot example.",
+      "setup": [
+        "pip install langextract",
+        "LANGEXTRACT_API_KEY set"
+      ],
+      "steps": [
+        {
+          "title": "Define the task and an example",
+          "code": "import langextract as lx\n\nprompt = \"Extract characters, emotions, and relationships in order of appearance. Use exact text for extractions.\"\nexamples = [\n    lx.data.ExampleData(\n        text=\"ROMEO. But soft! What light through yonder window breaks? It is the east, and Juliet is the sun.\",\n        extractions=[\n            lx.data.Extraction(extraction_class=\"character\", extraction_text=\"ROMEO\", attributes={\"emotional_state\": \"wonder\"}),\n        ],\n    )\n]",
+          "lang": "text"
+        },
+        {
+          "title": "Run the extraction",
+          "code": "result = lx.extract(\n    text_or_documents=\"Lady Juliet gazed longingly at the stars, her heart aching for Romeo\",\n    prompt_description=prompt,\n    examples=examples,\n    model_id=\"gemini-3.5-flash\",\n)",
+          "lang": "text"
+        },
+        {
+          "title": "Save and visualise",
+          "code": "lx.io.save_annotated_documents([result], output_name=\"extraction_results.jsonl\", output_dir=\".\")\nhtml_content = lx.visualize(\"extraction_results.jsonl\")",
+          "lang": "text"
+        }
+      ],
+      "expected": "Structured extractions with their positions in the text, plus an HTML view.",
+      "nextSteps": [
+        "Use output_schema for enums",
+        "Try a local Ollama model",
+        "Process a long document"
+      ],
+      "sourceUrl": "https://github.com/google/langextract/blob/b3499195e5ee711d3bb7da5178ba40456046f5f3/README.md"
+    },
+    "costs": [
+      {
+        "label": "Library",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Cloud model usage is billed by the provider; local Ollama is free to run.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Prompt alignment warnings",
+        "solution": "Make each example's extraction_text verbatim from its text, in order of appearance.",
+        "sourceUrl": "https://github.com/google/langextract/blob/b3499195e5ee711d3bb7da5178ba40456046f5f3/README.md"
+      }
+    ],
+    "bestFor": [
+      "Information extraction",
+      "Structured data from text"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "LLM extraction library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Maker",
+        "value": "Google"
+      }
+    ]
+  }
+}

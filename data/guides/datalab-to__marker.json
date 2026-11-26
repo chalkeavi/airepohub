@@ -1,0 +1,219 @@
+{
+  "fullName": "datalab-to/marker",
+  "summary": "Converts PDFs and other documents to clean Markdown, JSON or HTML quickly, keeping tables, equations and images.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/datalab-to/marker/blob/b578dc88412984b7531bd4a5b4886eb2d2c58da1/README.md"
+    ],
+    "sourceCommitSha": "b578dc88412984b7531bd4a5b4886eb2d2c58da1",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install marker-pdf"
+      },
+      {
+        "comment": "Convert a PDF",
+        "command": "marker_single /path/to/file.pdf"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Marker converts documents to Markdown, JSON, chunks and HTML quickly and accurately. It handles PDF, image, PPTX, DOCX, XLSX, HTML and EPUB files in all languages, formats tables, forms, equations, links and code blocks, extracts images and removes headers and footers.",
+      "problem": "Getting clean text out of PDFs for AI pipelines or notes is hard. Marker produces structured output that LLMs and RAG systems can use.",
+      "whoFor": [
+        "Developers building RAG over documents",
+        "Researchers converting papers",
+        "Anyone turning PDFs into Markdown"
+      ],
+      "whyChoose": "Choose it for fast, accurate conversion with several speed and accuracy modes, a GUI, batch processing and an agent skill.",
+      "requirements": [
+        "Python 3.10+",
+        "PyTorch",
+        "A GPU helps for the balanced and vllm modes"
+      ]
+    },
+    "overview": [
+      "Install with pip install marker-pdf, or marker-pdf[full] for non-PDF formats. Convert one file with marker_single, a folder with marker, or open a browser GUI with marker_gui.",
+      "Modes: no_ocr uses the PDF's text layer, fast (default on CPU and Apple Silicon) uses ONNX OCR, balanced (default on GPU) routes hard pages to VLM OCR, and vllm runs full-page VLM OCR. Use --output_format to choose markdown, json, html or chunks.",
+      "The code is Apache 2.0. The model weights use a modified AI Pubs Open Rail-M license, free for research, personal use and startups under a revenue limit, so check it before commercial use."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Many formats",
+        "body": "PDF, images, Office files, EPUB."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Tables and math",
+        "body": "Equations to LaTeX."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Modes",
+        "body": "no_ocr, fast, balanced, vllm."
+      },
+      {
+        "icon": "file-code",
+        "title": "Batch",
+        "body": "Convert whole folders."
+      },
+      {
+        "icon": "git-compare",
+        "title": "GUI",
+        "body": "marker_gui in the browser."
+      },
+      {
+        "icon": "shield",
+        "title": "Agent skill",
+        "body": "--install_skill for coding agents."
+      }
+    ],
+    "strengths": [
+      "Fast and accurate",
+      "Flexible output",
+      "Apache 2.0 code"
+    ],
+    "limitations": [
+      "Model weights have their own license limits",
+      "Best accuracy modes want a GPU"
+    ],
+    "useCases": [
+      {
+        "title": "RAG ingestion",
+        "body": "Turn PDFs into chunks."
+      },
+      {
+        "title": "Paper conversion",
+        "body": "arXiv to Markdown."
+      },
+      {
+        "title": "Notes",
+        "body": "Books into Markdown."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Marker's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/datalab-to/marker/blob/b578dc88412984b7531bd4a5b4886eb2d2c58da1/README.md",
+      "prerequisites": [
+        "Python 3.10+",
+        "PyTorch"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install PyTorch",
+              "body": "Follow the PyTorch site for your system."
+            },
+            {
+              "title": "Install Marker",
+              "code": "pip install marker-pdf",
+              "lang": "bash"
+            },
+            {
+              "title": "Optional: other file types",
+              "code": "pip install marker-pdf[full]",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Convert one PDF",
+          "code": "marker_single /path/to/file.pdf",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Convert a PDF to Markdown",
+      "useCase": "Turn a PDF into Markdown, or use the GUI.",
+      "setup": [
+        "pip install marker-pdf"
+      ],
+      "steps": [
+        {
+          "title": "Convert a file",
+          "code": "marker_single /path/to/file.pdf --output_format markdown",
+          "lang": "bash"
+        },
+        {
+          "title": "Or use the GUI",
+          "code": "marker_gui --port 8000",
+          "lang": "bash"
+        },
+        {
+          "title": "Open the GUI",
+          "body": "Go to http://localhost:8000 in your browser."
+        }
+      ],
+      "expected": "A Markdown file with text, tables and extracted images.",
+      "nextSteps": [
+        "Batch-convert a folder with marker",
+        "Try --mode fast or vllm",
+        "Install the agent skill"
+      ],
+      "sourceUrl": "https://github.com/datalab-to/marker/blob/b578dc88412984b7531bd4a5b4886eb2d2c58da1/README.md"
+    },
+    "costs": [
+      {
+        "label": "Code",
+        "value": "Free under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Model weights",
+        "value": "Free for research, personal use and smaller startups; larger commercial use needs a license.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Bad text in a digital PDF",
+        "solution": "Use --force_ocr to OCR every page.",
+        "sourceUrl": "https://github.com/datalab-to/marker/blob/b578dc88412984b7531bd4a5b4886eb2d2c58da1/README.md"
+      },
+      {
+        "problem": "Non-PDF files fail",
+        "solution": "Install marker-pdf[full].",
+        "sourceUrl": "https://github.com/datalab-to/marker/blob/b578dc88412984b7531bd4a5b4886eb2d2c58da1/README.md"
+      }
+    ],
+    "bestFor": [
+      "PDF to Markdown",
+      "Document conversion",
+      "RAG ingestion"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Document converter"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0 (code)"
+      },
+      {
+        "label": "Install",
+        "value": "pip install marker-pdf"
+      }
+    ]
+  }
+}

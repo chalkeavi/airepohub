@@ -1,0 +1,206 @@
+{
+  "fullName": "sgl-project/sglang",
+  "summary": "High-performance serving framework for running large language, vision and diffusion models fast in production.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/sgl-project/sglang/blob/08515d2bc96518a04d1a7e3921f306d8e6ee44a9/README.md"
+    ],
+    "sourceCommitSha": "08515d2bc96518a04d1a7e3921f306d8e6ee44a9",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Pull the Docker image",
+        "command": "docker pull lmsysorg/sglang:latest"
+      },
+      {
+        "comment": "Or install with uv",
+        "command": "uv pip install --prerelease=allow sglang"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "SGLang is an open-source inference framework for large language, vision-language and diffusion models. It is optimised for agentic workloads, large-scale serving and reinforcement learning rollouts.",
+      "problem": "Serving big models quickly and cheaply needs specialised engineering. SGLang provides a fast serving engine used in production by AI labs, cloud platforms, enterprises and universities.",
+      "whoFor": [
+        "ML engineers serving models in production",
+        "Researchers running RL rollouts",
+        "Teams self-hosting open models on GPUs"
+      ],
+      "whyChoose": "Choose it for a widely used, fast inference engine with a Docker image, a cookbook of ready launch commands per model and hardware, and an active community.",
+      "requirements": [
+        "An NVIDIA or other supported GPU",
+        "Docker, or a Python environment with uv"
+      ]
+    },
+    "overview": [
+      "Pull the lmsysorg/sglang:latest Docker image, which includes SGLang and its dependencies, or install it into an activated Python environment with uv pip install --prerelease=allow sglang.",
+      "Then follow the Quickstart to run your first model and send a request, or use the Cookbook to pick your model and hardware and get a ready-to-run launch command.",
+      "For development, start from the lmsysorg/sglang:dev image and install your checkout in editable mode. SGLang is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Fast serving",
+        "body": "Optimised inference engine."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Multimodal",
+        "body": "Language, vision and diffusion models."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Agentic workloads",
+        "body": "Built for agent traffic."
+      },
+      {
+        "icon": "file-code",
+        "title": "RL rollouts",
+        "body": "Used for training loops."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Cookbook",
+        "body": "Launch commands per model and GPU."
+      }
+    ],
+    "strengths": [
+      "High performance",
+      "Production proven",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Needs capable GPUs",
+      "Pre-release installs via uv"
+    ],
+    "useCases": [
+      {
+        "title": "Model serving",
+        "body": "Host an open model API."
+      },
+      {
+        "title": "RL training",
+        "body": "Generate rollouts quickly."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from SGLang's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/sgl-project/sglang/blob/08515d2bc96518a04d1a7e3921f306d8e6ee44a9/README.md",
+      "prerequisites": [
+        "GPU",
+        "Docker or Python"
+      ],
+      "supportedOs": [
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Pull the image",
+              "code": "docker pull lmsysorg/sglang:latest",
+              "lang": "bash"
+            },
+            {
+              "title": "Launch a model",
+              "body": "Use the Cookbook to get a ready-to-run launch command for your model and hardware."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install in an activated Python environment",
+              "code": "uv pip install --prerelease=allow sglang",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Follow the Quickstart",
+          "body": "Run your first model and send it a request, as shown in the SGLang docs."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Serve your first model",
+      "useCase": "Get SGLang running and send a request.",
+      "setup": [
+        "A GPU machine with Docker"
+      ],
+      "steps": [
+        {
+          "title": "Pull the image",
+          "code": "docker pull lmsysorg/sglang:latest",
+          "lang": "bash"
+        },
+        {
+          "title": "Get a launch command",
+          "body": "Open the Cookbook, choose your model and GPU, and copy the command."
+        },
+        {
+          "title": "Send a request",
+          "body": "Follow the Quickstart to query the running server."
+        }
+      ],
+      "expected": "A running model server that answers your request.",
+      "nextSteps": [
+        "Tune performance",
+        "Try a vision model",
+        "Read the docs"
+      ],
+      "sourceUrl": "https://github.com/sgl-project/sglang/blob/08515d2bc96518a04d1a7e3921f306d8e6ee44a9/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Your GPUs or cloud bill.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Not sure which flags to use",
+        "solution": "The Cookbook gives a ready-to-run command for each model and hardware.",
+        "sourceUrl": "https://github.com/sgl-project/sglang/blob/08515d2bc96518a04d1a7e3921f306d8e6ee44a9/README.md"
+      }
+    ],
+    "bestFor": [
+      "LLM serving",
+      "Inference engines"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Inference/serving framework"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Docker image",
+        "value": "lmsysorg/sglang"
+      }
+    ]
+  }
+}

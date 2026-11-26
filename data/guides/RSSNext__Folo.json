@@ -1,0 +1,210 @@
+{
+  "fullName": "RSSNext/Folo",
+  "summary": "Open-source AI RSS reader that gathers blogs, news, podcasts and social feeds in one timeline, with AI summaries and translation.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/RSSNext/Folo/blob/292d15d94f9e7680899e1e2567c1c0d48a423f48/README.md"
+    ],
+    "sourceCommitSha": "292d15d94f9e7680899e1e2567c1c0d48a423f48",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Use it",
+        "command": "Open app.folo.is in your browser, or install Folo for iOS, Android, macOS, Windows or Linux"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Folo is an open-source AI RSS reader. It brings blogs, news sites, newsletters, podcasts, video channels and social feeds into one calm timeline, lets you ask AI about what you read, gives you a digest of your day, and offers summaries and translations.",
+      "problem": "Following many sources means many apps and too much to read. Folo combines them in one place and uses AI to help you get through it.",
+      "whoFor": [
+        "Heavy readers of blogs and news",
+        "People who follow many creators across platforms",
+        "Readers of content in other languages"
+      ],
+      "whyChoose": "Choose it for an open-source reader that syncs across web, mobile and desktop, with AI chat, timeline summaries and translation built in.",
+      "requirements": [
+        "A browser, or the app for your device"
+      ]
+    },
+    "overview": [
+      "Folo runs in the browser and on iOS, Android, macOS, Windows and Linux, and keeps subscriptions, read status and stars in sync.",
+      "AI features include asking about an article, a feed, a folder or everything you follow, choosing your model or bringing your own API key, connecting MCP services, timeline summaries, and side-by-side translation in English, Chinese, Japanese or French.",
+      "Community packages exist for Arch (AUR), Flatpak, Nix, Homebrew (brew install --cask folo) and Scoop. Folo is AGPL-3.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "One timeline",
+        "body": "Blogs, news, podcasts, video, social."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Ask AI",
+        "body": "About an article or everything you follow."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Timeline summary",
+        "body": "A digest of your day."
+      },
+      {
+        "icon": "file-code",
+        "title": "Translation",
+        "body": "Side by side in four languages."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Sync",
+        "body": "Across all devices."
+      }
+    ],
+    "strengths": [
+      "All sources in one place",
+      "Cross-platform",
+      "Open source"
+    ],
+    "limitations": [
+      "Under active development",
+      "Some AI use may need your own API key"
+    ],
+    "useCases": [
+      {
+        "title": "Daily reading",
+        "body": "Catch up with a digest."
+      },
+      {
+        "title": "Research",
+        "body": "Ask AI across your feeds."
+      },
+      {
+        "title": "Foreign news",
+        "body": "Read with translation."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Folo's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/RSSNext/Folo/blob/292d15d94f9e7680899e1e2567c1c0d48a423f48/README.md",
+      "prerequisites": [
+        "Browser or device app"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Web",
+          "method": "web",
+          "steps": [
+            {
+              "title": "Open the web app",
+              "body": "Go to app.folo.is and sign in."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Desktop and mobile",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Get it from the App Store, Google Play, the Microsoft Store or GitHub Releases."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Homebrew (macOS)",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install the community cask",
+              "code": "brew install --cask folo",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Follow a few sources",
+          "body": "Add a blog, a newsletter and a podcast to see them in one timeline."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Get an AI digest of your feeds",
+      "useCase": "Follow sources and read a summary of your day.",
+      "setup": [
+        "Folo account"
+      ],
+      "steps": [
+        {
+          "title": "Subscribe to some feeds"
+        },
+        {
+          "title": "Open the timeline summary",
+          "body": "Read the AI digest of what's new."
+        },
+        {
+          "title": "Ask a question",
+          "body": "Ask Folo AI about a feed or folder."
+        }
+      ],
+      "expected": "A digest of new items and answers grounded in what you follow.",
+      "nextSteps": [
+        "Turn on automatic summaries",
+        "Try translation",
+        "Connect an MCP service"
+      ],
+      "sourceUrl": "https://github.com/RSSNext/Folo/blob/292d15d94f9e7680899e1e2567c1c0d48a423f48/README.md"
+    },
+    "costs": [
+      {
+        "label": "App",
+        "value": "Free and open source under AGPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "AI",
+        "value": "You can bring your own API key; provider costs then apply.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Linux package",
+        "solution": "Use the AppImage from releases or a community package (AUR, Flatpak, Nix).",
+        "sourceUrl": "https://github.com/RSSNext/Folo/blob/292d15d94f9e7680899e1e2567c1c0d48a423f48/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI RSS reader",
+      "News reading"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI RSS reader"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "Platforms",
+        "value": "Web, iOS, Android, desktop"
+      }
+    ]
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "fullName": "linshenkx/prompt-optimizer",
+  "summary": "Tool that rewrites and tests your AI prompts to get better answers, as a web app, desktop app, Chrome extension or Docker image.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/linshenkx/prompt-optimizer/blob/0c099232d77aaf6fa9c4b4afceed94dbae9c78fc/README.md"
+    ],
+    "sourceCommitSha": "0c099232d77aaf6fa9c4b4afceed94dbae9c78fc",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Run with Docker",
+        "command": "docker run -d -p 8081:80 --restart unless-stopped --name prompt-optimizer linshen/prompt-optimizer"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Prompt Optimizer helps you write better AI prompts. It improves a prompt in one click or over several rounds, lets you test and compare results across models side by side, and evaluates whether a prompt really got better.",
+      "problem": "Writing good prompts is trial and error. Prompt Optimizer gives you a workspace to optimise, test, evaluate and save prompts with your own model keys.",
+      "whoFor": [
+        "Anyone who writes prompts often",
+        "Developers tuning system prompts",
+        "Teams building a library of tested prompts"
+      ],
+      "whyChoose": "Choose it for a free tool you can use online, on desktop, as a Chrome extension or self-hosted, with app data stored locally and requests sent straight to your provider.",
+      "requirements": [
+        "An API key for a text model (OpenAI, Gemini, DeepSeek, Grok and others) or a local model via the desktop app"
+      ]
+    },
+    "overview": [
+      "It supports system and user prompts, variable templates, multi-message context, arena comparisons between models, analysis and compare evaluations, image generation, favourites with version history, and MCP for apps like Claude Desktop.",
+      "Use the online version at prompt.always200.com (data stays in your browser), deploy your own on Vercel or Cloudflare, download the desktop app (.exe, .dmg or .AppImage) which can also reach local models like Ollama, install the Chrome extension, or run it with Docker.",
+      "For public deployments, set ACCESS_PASSWORD and don't preconfigure API keys, because VITE_* values are exposed in browser assets. The project is AGPL-3.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "One-click optimisation",
+        "body": "Multi-round improvements."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Arena comparisons",
+        "body": "Compare models side by side."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Evaluation",
+        "body": "Check if a prompt really improved."
+      },
+      {
+        "icon": "file-code",
+        "title": "Many models",
+        "body": "OpenAI, Gemini, DeepSeek, Grok and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "MCP",
+        "body": "Works with Claude Desktop."
+      }
+    ],
+    "strengths": [
+      "Many ways to run it",
+      "Local-first data",
+      "Works with many providers"
+    ],
+    "limitations": [
+      "You need your own model API keys",
+      "AGPL-3.0 license for self-hosted changes"
+    ],
+    "useCases": [
+      {
+        "title": "Better prompts",
+        "body": "Improve a prompt before using it."
+      },
+      {
+        "title": "Model comparison",
+        "body": "See which model handles a task best."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Prompt Optimizer's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/linshenkx/prompt-optimizer/blob/0c099232d77aaf6fa9c4b4afceed94dbae9c78fc/README.md",
+      "prerequisites": [
+        "A model API key"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Run the container",
+              "body": "Add -e ACCESS_PASSWORD=... to protect the interface.",
+              "code": "docker run -d -p 8081:80 --restart unless-stopped --name prompt-optimizer linshen/prompt-optimizer",
+              "lang": "bash"
+            },
+            {
+              "title": "Open it",
+              "body": "Go to http://localhost:8081."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Desktop app",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download from GitHub Releases",
+              "body": "Use the .exe for Windows, .dmg for macOS or .AppImage for Linux."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Chrome extension",
+          "method": "extension",
+          "steps": [
+            {
+              "title": "Install from the Chrome Web Store",
+              "body": "Search for Prompt Optimizer; the store version may lag behind."
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "ACCESS_PASSWORD",
+          "required": false,
+          "description": "Password to protect a self-hosted web interface."
+        },
+        {
+          "name": "VITE_OPENAI_API_KEY",
+          "required": false,
+          "description": "Optional model key for private deployments only; it is visible in browser assets."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Connect one text model",
+          "body": "Open Model Manager, add a working text model, then optimise your first prompt."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Optimise your first prompt",
+      "useCase": "Improve a prompt and compare the results.",
+      "setup": [
+        "The online version or a local install",
+        "A model API key"
+      ],
+      "steps": [
+        {
+          "title": "Add a model in Model Manager"
+        },
+        {
+          "title": "Paste a prompt and optimise it",
+          "body": "Pick system or user prompt mode, then run the optimisation."
+        },
+        {
+          "title": "Test and compare",
+          "body": "Run the original and the optimised prompt and compare the answers."
+        }
+      ],
+      "expected": "An improved prompt and a side-by-side comparison of results.",
+      "nextSteps": [
+        "Try arena comparisons",
+        "Save a favourite with version history",
+        "Use it via MCP"
+      ],
+      "sourceUrl": "https://github.com/linshenkx/prompt-optimizer/blob/0c099232d77aaf6fa9c4b4afceed94dbae9c78fc/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under AGPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Your provider bills for API usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Provider blocks browser requests",
+        "solution": "Use the desktop app, which can reach providers that restrict browser requests and local models.",
+        "sourceUrl": "https://github.com/linshenkx/prompt-optimizer/blob/0c099232d77aaf6fa9c4b4afceed94dbae9c78fc/README.md"
+      }
+    ],
+    "bestFor": [
+      "Prompt engineering",
+      "Model comparison",
+      "Prompt libraries"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Prompt optimisation tool"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "Docker port",
+        "value": "8081"
+      }
+    ]
+  }
+}

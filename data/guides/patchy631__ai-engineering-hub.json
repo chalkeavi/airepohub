@@ -1,0 +1,187 @@
+{
+  "fullName": "patchy631/ai-engineering-hub",
+  "summary": "Hands-on collection of 90+ AI engineering projects and tutorials on LLMs, RAG and agents, from beginner to advanced.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/patchy631/ai-engineering-hub/blob/042aeb5067384981eeba6a07fa882f436bb1660d/README.md"
+    ],
+    "sourceCommitSha": "042aeb5067384981eeba6a07fa882f436bb1660d",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Get the projects",
+        "command": "git clone https://github.com/patchy631/ai-engineering-hub.git"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "AI Engineering Hub is a learning resource with more than 93 projects across skill levels. It covers LLMs, RAG, agents and more, with real-world agent applications you can implement, adapt and scale.",
+      "problem": "AI engineering moves fast and tutorials are scattered. This repo collects working example projects ordered from beginner to advanced, plus a roadmap.",
+      "whoFor": [
+        "Beginners learning AI engineering",
+        "Developers who learn by building",
+        "Engineers looking for RAG and agent examples"
+      ],
+      "whyChoose": "Choose it for a large, MIT-licensed set of practical projects with a clear path: roadmap, beginner, intermediate and advanced.",
+      "requirements": [
+        "Python for most projects",
+        "API keys depending on the project"
+      ]
+    },
+    "overview": [
+      "Complete beginners start with the AI Engineering Roadmap. Beginner projects include OCR apps and simple RAG; intermediate ones cover agents and complex workflows; advanced ones include fine-tuning and production systems.",
+      "Each project lives in its own folder with its own setup, so follow the README inside the project you pick.",
+      "The repository is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "93+ projects",
+        "body": "Across all skill levels."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Roadmap",
+        "body": "A learning path for beginners."
+      },
+      {
+        "icon": "puzzle",
+        "title": "RAG and agents",
+        "body": "Real-world applications."
+      },
+      {
+        "icon": "file-code",
+        "title": "Fine-tuning",
+        "body": "Advanced projects."
+      }
+    ],
+    "strengths": [
+      "Large and practical",
+      "Clear progression",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "A collection, not one installable tool",
+      "Setup and costs vary per project"
+    ],
+    "useCases": [
+      {
+        "title": "Learn AI engineering",
+        "body": "Follow the roadmap."
+      },
+      {
+        "title": "Find a starter",
+        "body": "Copy a RAG or agent project."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from AI Engineering Hub's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/patchy631/ai-engineering-hub/blob/042aeb5067384981eeba6a07fa882f436bb1660d/README.md",
+      "prerequisites": [
+        "Git",
+        "Python"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Clone",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/patchy631/ai-engineering-hub.git\ncd ai-engineering-hub",
+              "lang": "bash"
+            },
+            {
+              "title": "Pick a project",
+              "body": "Open a project folder and follow its own README for setup."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open the roadmap",
+          "body": "Start with the ai-engineering-roadmap folder if you're new."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build your first beginner project",
+      "useCase": "Pick a beginner project and run it.",
+      "setup": [
+        "Git and Python"
+      ],
+      "steps": [
+        {
+          "title": "Clone the repo",
+          "code": "git clone https://github.com/patchy631/ai-engineering-hub.git",
+          "lang": "bash"
+        },
+        {
+          "title": "Choose a beginner project",
+          "body": "For example an OCR app or a simple RAG project."
+        },
+        {
+          "title": "Follow that project's README",
+          "body": "Install its requirements and add any API keys it asks for."
+        }
+      ],
+      "expected": "A working beginner AI project on your machine.",
+      "nextSteps": [
+        "Try an intermediate agent project",
+        "Explore fine-tuning projects"
+      ],
+      "sourceUrl": "https://github.com/patchy631/ai-engineering-hub/blob/042aeb5067384981eeba6a07fa882f436bb1660d/README.md"
+    },
+    "costs": [
+      {
+        "label": "Repository",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "APIs",
+        "value": "Some projects need paid model or service keys.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "A project won't run",
+        "solution": "Each project has its own requirements; follow the README in that folder.",
+        "sourceUrl": "https://github.com/patchy631/ai-engineering-hub/blob/042aeb5067384981eeba6a07fa882f436bb1660d/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning AI engineering",
+      "RAG examples",
+      "Agent examples"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Tutorials and projects"
+      },
+      {
+        "label": "Language",
+        "value": "Jupyter Notebook, Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Projects",
+        "value": "93+"
+      }
+    ]
+  }
+}
