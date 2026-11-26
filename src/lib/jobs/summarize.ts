@@ -142,6 +142,29 @@ export function runSummarize(ctx: JobContext, summarizer: Summarizer, limit = 50
 }
 
 /**
+ * Publish drafts that now have a summary. The import only publishes rows it inserts in the same
+ * run, so a repo imported before its summary was written stays a draft; this picks those up.
+ * Drafts keep the noindex they got at insert time until a guide is published.
+ */
+export function runPublishDrafts(ctx: JobContext, summarizer: Summarizer, limit = 5000): Promise<JobSummary> {
+  return runLogged(ctx, "publish-drafts", async (details) => {
+    const rows = await ctx.store.listDrafts(limit);
+    const summaries = await summarizer.summarize(
+      rows.map((r) => ({ key: r.id, fullName: r.full_name, description: r.description ?? "", topics: r.topics ?? [], language: r.primary_language })),
+      ctx.log,
+    );
+    const good = rows.filter((r) => summaries.get(r.id)).map((r) => ({ id: r.id, summary: summaries.get(r.id)! }));
+    if (!ctx.dryRun) await ctx.store.saveSummaries(good, ctx.now.toISOString());
+    Object.assign(details, {
+      drafts: rows.length,
+      published: good.length,
+      published_list: good.map((g) => rows.find((r) => r.id === g.id)!.full_name),
+    });
+    return { processed: good.length, failed: 0 };
+  });
+}
+
+/**
  * Summaries written ahead of time and committed to the repo (data/summaries.json, keyed by
  * owner/name, case-insensitive). Each line still goes through validateSummary.
  */

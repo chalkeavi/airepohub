@@ -114,6 +114,8 @@ export interface JobStore {
   saveSummaries(rows: { id: string; summary: string }[], publishAt?: string): Promise<void>;
   /** Published repos that still have no summary, most-starred first. */
   listUnsummarized(limit: number): Promise<{ id: string; full_name: string; description: string; topics: string[]; primary_language: string | null }[]>;
+  /** Draft repos (imported earlier but never published, e.g. no summary yet), most-starred first. */
+  listDrafts(limit: number): Promise<{ id: string; full_name: string; description: string; topics: string[]; primary_language: string | null }[]>;
   startRun(job: string): Promise<string | null>;
   finishRun(id: string | null, result: RunResult): Promise<void>;
 }
@@ -431,6 +433,18 @@ export class SupabaseJobStore implements JobStore {
         .order("stars", { ascending: false })
         .limit(limit),
       "unsummarized",
+    ) as { id: string; full_name: string; description: string; topics: string[]; primary_language: string | null }[];
+  }
+
+  async listDrafts(limit: number) {
+    return check(
+      await this.db
+        .from("repositories")
+        .select("id, full_name, description, topics, primary_language")
+        .eq("status", "draft")
+        .order("stars", { ascending: false })
+        .limit(limit),
+      "drafts",
     ) as { id: string; full_name: string; description: string; topics: string[]; primary_language: string | null }[];
   }
 
