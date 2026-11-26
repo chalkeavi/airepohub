@@ -1,0 +1,202 @@
+{
+  "fullName": "songquanpeng/one-api",
+  "summary": "Self-hosted gateway that gives you one OpenAI-style API for many model providers, with keys, quotas and load balancing.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/songquanpeng/one-api/blob/8df4a2670b98266bd287c698243fff327d9748cf/README.en.md"
+    ],
+    "sourceCommitSha": "8df4a2670b98266bd287c698243fff327d9748cf",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Run with Docker",
+        "command": "docker run --name one-api -d --restart always -p 3000:3000 -e TZ=Asia/Shanghai -v /home/ubuntu/data/one-api:/data justsong/one-api"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "One API is an LLM API management and distribution system. It lets you reach many large models (OpenAI, Azure, Anthropic Claude, Google Gemini, DeepSeek and more) through the standard OpenAI API format, and manages tokens, quotas, users and channels.",
+      "problem": "Each AI provider has its own API and keys. One API puts them behind one endpoint so apps only speak the OpenAI format, while you control who can use what.",
+      "whoFor": [
+        "Teams sharing model access internally",
+        "Developers who want one API for many providers",
+        "Self-hosters managing keys and quotas"
+      ],
+      "whyChoose": "Choose it for a widely used, MIT-licensed gateway with load balancing across channels, streaming, token and quota management, and a simple Docker deploy.",
+      "requirements": [
+        "Docker",
+        "Your own provider API keys",
+        "MySQL recommended for high concurrency (SQLite by default)"
+      ]
+    },
+    "overview": [
+      "Run the Docker image (SQLite by default; add SQL_DSN for MySQL). Data and logs go to the host folder you mount. Then open http://localhost:3000.",
+      "The initial login is root with password 123456, which you should change immediately.",
+      "Features include load balancing across channels, stream mode, multi-machine deployment, token expiry and usage limits, user and channel groups with different rates, quota details and announcements. The project is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "One API format",
+        "body": "OpenAI-style for all providers."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Load balancing",
+        "body": "Across channels."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Token management",
+        "body": "Expiry and usage limits."
+      },
+      {
+        "icon": "file-code",
+        "title": "Groups",
+        "body": "Different rates per group."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Multi-machine",
+        "body": "Scale out."
+      }
+    ],
+    "strengths": [
+      "Simple Docker deploy",
+      "Many providers",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Default admin password must be changed",
+      "Follow each provider's terms when sharing access"
+    ],
+    "useCases": [
+      {
+        "title": "Team gateway",
+        "body": "Give staff controlled model access."
+      },
+      {
+        "title": "App backend",
+        "body": "One endpoint for many models."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from One API's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/songquanpeng/one-api/blob/8df4a2670b98266bd287c698243fff327d9748cf/README.en.md",
+      "prerequisites": [
+        "Docker"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Run with SQLite",
+              "code": "docker run --name one-api -d --restart always -p 3000:3000 -e TZ=Asia/Shanghai -v /home/ubuntu/data/one-api:/data justsong/one-api",
+              "lang": "bash"
+            },
+            {
+              "title": "Log in",
+              "body": "Open http://localhost:3000/ and sign in as root / 123456, then change the password right away."
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "SQL_DSN",
+          "required": false,
+          "description": "MySQL connection string; strongly recommended for high concurrency."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Add a channel",
+          "body": "In the admin panel, add a provider channel with your API key, then create a token."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Call any model through one endpoint",
+      "useCase": "Add a provider and call it with the OpenAI format.",
+      "setup": [
+        "One API running"
+      ],
+      "steps": [
+        {
+          "title": "Add a channel",
+          "body": "Pick a provider and paste its key."
+        },
+        {
+          "title": "Create a token",
+          "body": "Set a quota and expiry."
+        },
+        {
+          "title": "Point your app at One API",
+          "body": "Use http://localhost:3000 as the OpenAI base URL with your new token."
+        }
+      ],
+      "expected": "Your app reaches the provider through One API.",
+      "nextSteps": [
+        "Add more channels for load balancing",
+        "Set up user groups",
+        "Switch to MySQL"
+      ],
+      "sourceUrl": "https://github.com/songquanpeng/one-api/blob/8df4a2670b98266bd287c698243fff327d9748cf/README.en.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Your providers bill for usage.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Container fails to start",
+        "solution": "Add --privileged=true, as the README suggests.",
+        "sourceUrl": "https://github.com/songquanpeng/one-api/blob/8df4a2670b98266bd287c698243fff327d9748cf/README.en.md"
+      },
+      {
+        "problem": "Can't pull the image",
+        "solution": "Use ghcr.io/songquanpeng/one-api instead.",
+        "sourceUrl": "https://github.com/songquanpeng/one-api/blob/8df4a2670b98266bd287c698243fff327d9748cf/README.en.md"
+      }
+    ],
+    "bestFor": [
+      "LLM API gateway",
+      "Key management"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "LLM API gateway"
+      },
+      {
+        "label": "Language",
+        "value": "Go, JavaScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Port",
+        "value": "3000"
+      }
+    ]
+  }
+}

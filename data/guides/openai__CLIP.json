@@ -1,0 +1,179 @@
+{
+  "fullName": "openai/CLIP",
+  "summary": "OpenAI's model that matches images with text descriptions, so you can classify images using plain-language labels.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/openai/CLIP/blob/d05afc436d78f1c48dc0dbf8e5980a9d471f35f6/README.md"
+    ],
+    "sourceCommitSha": "d05afc436d78f1c48dc0dbf8e5980a9d471f35f6",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install ftfy regex tqdm\npip install git+https://github.com/openai/CLIP.git"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "CLIP (Contrastive Language-Image Pre-Training) is a neural network trained on many image and text pairs. Given an image, it can predict the most relevant text snippet in natural language, without being trained directly for that task, similar to zero-shot abilities in GPT models.",
+      "problem": "Classic image classifiers only know fixed labels. CLIP lets you describe your own labels in words and score an image against them.",
+      "whoFor": [
+        "ML researchers",
+        "Developers building image search",
+        "Students learning multimodal models"
+      ],
+      "whyChoose": "Choose it for the original, widely used image-text model with a simple Python API and MIT license.",
+      "requirements": [
+        "PyTorch 1.7.1 or later and torchvision",
+        "Python"
+      ]
+    },
+    "overview": [
+      "Install PyTorch and torchvision, then the small dependencies (ftfy, regex, tqdm) and the repo as a Python package from GitHub. Use cpuonly instead of a CUDA toolkit on machines without a GPU.",
+      "Load a model such as ViT-B/32 with clip.load, preprocess an image, tokenize candidate texts, then compute image and text features and the label probabilities.",
+      "CLIP is MIT licensed; see the model card for limitations."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Zero-shot classification",
+        "body": "Labels in plain words."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Image and text features",
+        "body": "For search and similarity."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Several models",
+        "body": "For example ViT-B/32."
+      },
+      {
+        "icon": "file-code",
+        "title": "Simple API",
+        "body": "clip.load and clip.tokenize."
+      }
+    ],
+    "strengths": [
+      "Flexible labels",
+      "Well known",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Original install targets older PyTorch versions",
+      "Has known biases described in the model card"
+    ],
+    "useCases": [
+      {
+        "title": "Image tagging",
+        "body": "Score images against words."
+      },
+      {
+        "title": "Image search",
+        "body": "Find images by text."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from CLIP's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/openai/CLIP/blob/d05afc436d78f1c48dc0dbf8e5980a9d471f35f6/README.md",
+      "prerequisites": [
+        "PyTorch"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip from GitHub",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install PyTorch and torchvision",
+              "code": "conda install --yes -c pytorch pytorch=1.7.1 torchvision cudatoolkit=11.0",
+              "lang": "bash"
+            },
+            {
+              "title": "Install CLIP",
+              "code": "pip install ftfy regex tqdm\npip install git+https://github.com/openai/CLIP.git",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Score an image against labels",
+          "code": "import torch\nimport clip\nfrom PIL import Image\n\ndevice = \"cuda\" if torch.cuda.is_available() else \"cpu\"\nmodel, preprocess = clip.load(\"ViT-B/32\", device=device)\n\nimage = preprocess(Image.open(\"CLIP.png\")).unsqueeze(0).to(device)\ntext = clip.tokenize([\"a diagram\", \"a dog\", \"a cat\"]).to(device)\n\nwith torch.no_grad():\n    logits_per_image, logits_per_text = model(image, text)\n    probs = logits_per_image.softmax(dim=-1).cpu().numpy()\n\nprint(\"Label probs:\", probs)",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Classify an image with your own labels",
+      "useCase": "Use CLIP for zero-shot classification.",
+      "setup": [
+        "PyTorch and CLIP installed",
+        "An image file"
+      ],
+      "steps": [
+        {
+          "title": "Load the model",
+          "code": "import clip, torch\nmodel, preprocess = clip.load(\"ViT-B/32\", device=\"cpu\")",
+          "lang": "text"
+        },
+        {
+          "title": "Score your labels",
+          "body": "Run the example above with your own image and label list."
+        }
+      ],
+      "expected": "Probabilities for each label; the README's sample image scores highest for 'a diagram'.",
+      "nextSteps": [
+        "Encode images for search",
+        "Read the model card"
+      ],
+      "sourceUrl": "https://github.com/openai/CLIP/blob/d05afc436d78f1c48dc0dbf8e5980a9d471f35f6/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "No GPU",
+        "solution": "Replace cudatoolkit=11.0 with cpuonly.",
+        "sourceUrl": "https://github.com/openai/CLIP/blob/d05afc436d78f1c48dc0dbf8e5980a9d471f35f6/README.md"
+      }
+    ],
+    "bestFor": [
+      "Image-text matching",
+      "Zero-shot classification"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Image-text model"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Maker",
+        "value": "OpenAI"
+      }
+    ]
+  }
+}

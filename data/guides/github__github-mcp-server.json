@@ -1,0 +1,213 @@
+{
+  "fullName": "github/github-mcp-server",
+  "summary": "GitHub's official MCP server that lets AI assistants read code, manage issues and pull requests, and check Actions runs.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/github/github-mcp-server/blob/7edc2dd123a8923db389de8772170663cb2d8e17/README.md"
+    ],
+    "sourceCommitSha": "7edc2dd123a8923db389de8772170663cb2d8e17",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Remote server URL",
+        "command": "https://api.githubcopilot.com/mcp/"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "The GitHub MCP Server connects AI tools directly to GitHub. It lets agents, assistants and chatbots read repositories and code, manage issues and pull requests, analyse code and automate workflows through natural language.",
+      "problem": "AI assistants can't see or act on your GitHub work by default. This official server gives them structured, permissioned access.",
+      "whoFor": [
+        "Developers using AI coding assistants",
+        "Maintainers automating triage",
+        "Teams monitoring CI with AI"
+      ],
+      "whyChoose": "Choose it for GitHub's own MCP server, available as a hosted remote server with OAuth or as a local Docker image with a personal access token.",
+      "requirements": [
+        "An MCP host such as VS Code 1.101+, Claude Desktop, Cursor or Windsurf",
+        "For local use: Docker and a GitHub personal access token"
+      ]
+    },
+    "overview": [
+      "Use cases include repository management (browse code, search files, analyse commits), issue and PR automation, and CI/CD insights from GitHub Actions.",
+      "The remote server hosted by GitHub is the easiest route: add https://api.githubcopilot.com/mcp/ in your host, sign in with OAuth or send a PAT header. An insiders version offers early features.",
+      "For hosts without remote support, run the local server from ghcr.io/github/github-mcp-server with GITHUB_PERSONAL_ACCESS_TOKEN set; keep the token in an environment variable, not in committed files. MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Code access",
+        "body": "Browse and search repos."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Issues and PRs",
+        "body": "Create, update, review."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Actions insights",
+        "body": "Analyse build failures."
+      },
+      {
+        "icon": "file-code",
+        "title": "Remote or local",
+        "body": "Hosted or Docker."
+      },
+      {
+        "icon": "git-compare",
+        "title": "OAuth or PAT",
+        "body": "Flexible authentication."
+      }
+    ],
+    "strengths": [
+      "Official from GitHub",
+      "Easy remote setup",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Access is limited to what your token or OAuth allows",
+      "GitHub Enterprise Server needs the local server"
+    ],
+    "useCases": [
+      {
+        "title": "Triage issues",
+        "body": "Let AI label and summarise."
+      },
+      {
+        "title": "Review PRs",
+        "body": "Get AI help on changes."
+      },
+      {
+        "title": "Debug CI",
+        "body": "Ask why a build failed."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from GitHub MCP Server's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/7edc2dd123a8923db389de8772170663cb2d8e17/README.md",
+      "prerequisites": [
+        "MCP host"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Remote server (VS Code)",
+          "method": "config",
+          "steps": [
+            {
+              "title": "Add to your VS Code MCP config",
+              "code": "{\n  \"servers\": {\n    \"github\": {\n      \"type\": \"http\",\n      \"url\": \"https://api.githubcopilot.com/mcp/\"\n    }\n  }\n}",
+              "lang": "text"
+            },
+            {
+              "title": "Sign in",
+              "body": "Complete the OAuth flow on first use, then turn on Agent mode."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Local with Docker (Claude Code)",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Store your token in an environment variable",
+              "code": "export GITHUB_PAT=your_token_here",
+              "lang": "bash"
+            },
+            {
+              "title": "Add the server",
+              "code": "claude mcp add github -e GITHUB_PERSONAL_ACCESS_TOKEN=$GITHUB_PAT -- docker run -i --rm -e GITHUB_PERSONAL_ACCESS_TOKEN ghcr.io/github/github-mcp-server",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "GITHUB_PERSONAL_ACCESS_TOKEN",
+          "required": false,
+          "description": "Needed for the local server or PAT auth; keep it out of committed files."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Ask about a repository",
+          "body": "For example: list the open issues in my repo and summarise the top three."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Let your assistant triage issues",
+      "useCase": "Connect GitHub and ask for an issue summary.",
+      "setup": [
+        "An MCP host",
+        "GitHub account"
+      ],
+      "steps": [
+        {
+          "title": "Add the remote server",
+          "body": "Use the config above and sign in."
+        },
+        {
+          "title": "Ask for a summary",
+          "body": "Ask your assistant to list and summarise open issues."
+        }
+      ],
+      "expected": "A summary of your repository's issues from live GitHub data.",
+      "nextSteps": [
+        "Review a pull request",
+        "Analyse a failed Actions run"
+      ],
+      "sourceUrl": "https://github.com/github/github-mcp-server/blob/7edc2dd123a8923db389de8772170663cb2d8e17/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Docker pull errors",
+        "solution": "The image is public; see the README notes if pulls fail.",
+        "sourceUrl": "https://github.com/github/github-mcp-server/blob/7edc2dd123a8923db389de8772170663cb2d8e17/README.md"
+      },
+      {
+        "problem": "Token leaked",
+        "solution": "Store PATs in environment variables and add .env to .gitignore.",
+        "sourceUrl": "https://github.com/github/github-mcp-server/blob/7edc2dd123a8923db389de8772170663cb2d8e17/README.md"
+      }
+    ],
+    "bestFor": [
+      "GitHub automation",
+      "MCP servers"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "MCP server"
+      },
+      {
+        "label": "Language",
+        "value": "Go"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Maker",
+        "value": "GitHub"
+      }
+    ]
+  }
+}

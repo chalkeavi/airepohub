@@ -1,0 +1,235 @@
+{
+  "fullName": "langfuse/langfuse",
+  "summary": "Open-source platform for tracing, evaluating and improving LLM apps and agents, with prompt management and dashboards.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/langfuse/langfuse/blob/df64daee50d447d27e6aec7a7b9c253c0b4c5fe5/README.md"
+    ],
+    "sourceCommitSha": "df64daee50d447d27e6aec7a7b9c253c0b4c5fe5",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Self-host",
+        "command": "git clone --depth=1 https://github.com/langfuse/langfuse.git\ncd langfuse\ndocker compose up"
+      },
+      {
+        "comment": "Add to your app",
+        "command": "pip install langfuse openai"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Langfuse is an open-source AI engineering platform. It records traces of LLM calls and agent actions so you can debug them, and adds prompt management, evaluations, an AI gateway, and dashboards for latency, cost and quality.",
+      "problem": "LLM apps are hard to debug and improve because you can't see what happened inside a request. Langfuse shows each step and lets you measure changes.",
+      "whoFor": [
+        "Developers building LLM apps and agents",
+        "Teams running evaluations",
+        "Ops staff tracking AI cost and latency"
+      ],
+      "whyChoose": "Choose it for a popular, MIT-licensed observability platform you can self-host in minutes or use as a cloud service with a free tier.",
+      "requirements": [
+        "Docker for self-hosting, or a Langfuse Cloud account",
+        "Python or JS SDK in your app"
+      ]
+    },
+    "overview": [
+      "Core features: observability (traces), prompt management with versioning, skill management (beta), evaluations (LLM-as-a-judge, code evaluators, user feedback), an AI gateway (beta), metrics dashboards and a full API.",
+      "Use Langfuse Cloud (free tier, no card needed) or self-host with Docker Compose, Kubernetes (Helm, recommended for production) or Terraform templates for AWS, Azure and GCP.",
+      "To start tracing, create a project and API keys, install the SDK, set LANGFUSE_SECRET_KEY, LANGFUSE_PUBLIC_KEY and LANGFUSE_BASE_URL, and decorate functions with @observe(). The repo is MIT licensed except the ee folders."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Tracing",
+        "body": "See every LLM call and step."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Prompt management",
+        "body": "Version and deploy prompts."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Evaluations",
+        "body": "Judges, code checks, feedback."
+      },
+      {
+        "icon": "file-code",
+        "title": "AI gateway",
+        "body": "One endpoint for providers."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Dashboards",
+        "body": "Latency, cost, quality."
+      }
+    ],
+    "strengths": [
+      "Quick self-host",
+      "Broad integrations",
+      "MIT core"
+    ],
+    "limitations": [
+      "ee folders are not MIT",
+      "Production self-hosting needs Kubernetes"
+    ],
+    "useCases": [
+      {
+        "title": "Debug an agent",
+        "body": "Inspect each step."
+      },
+      {
+        "title": "Track costs",
+        "body": "Dashboards by model or user."
+      },
+      {
+        "title": "Test prompts",
+        "body": "Compare versions with evals."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Langfuse's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/langfuse/langfuse/blob/df64daee50d447d27e6aec7a7b9c253c0b4c5fe5/README.md",
+      "prerequisites": [
+        "Docker or a cloud account"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker Compose (self-host)",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone --depth=1 https://github.com/langfuse/langfuse.git\ncd langfuse",
+              "lang": "bash"
+            },
+            {
+              "title": "Start",
+              "code": "docker compose up",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Python SDK",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install langfuse openai",
+              "lang": "bash"
+            },
+            {
+              "title": "Set your keys",
+              "code": "LANGFUSE_SECRET_KEY=\"sk-lf-...\"\nLANGFUSE_PUBLIC_KEY=\"pk-lf-...\"\nLANGFUSE_BASE_URL=\"https://cloud.langfuse.com\"",
+              "lang": "text"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "LANGFUSE_SECRET_KEY",
+          "required": true,
+          "description": "Project secret key."
+        },
+        {
+          "name": "LANGFUSE_PUBLIC_KEY",
+          "required": true,
+          "description": "Project public key."
+        },
+        {
+          "name": "LANGFUSE_BASE_URL",
+          "required": true,
+          "description": "Your Langfuse URL or cloud region."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Trace your first call",
+          "code": "from langfuse import observe\nfrom langfuse.openai import openai\n\n@observe()\ndef story():\n    return openai.chat.completions.create(\n        model=\"gpt-4o\",\n        messages=[{\"role\": \"user\", \"content\": \"What is Langfuse?\"}],\n    ).choices[0].message.content\n\nstory()",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Trace an OpenAI call",
+      "useCase": "See an LLM call as a trace in Langfuse.",
+      "setup": [
+        "A Langfuse project and API keys",
+        "pip install langfuse openai"
+      ],
+      "steps": [
+        {
+          "title": "Set your keys in .env",
+          "body": "LANGFUSE_SECRET_KEY, LANGFUSE_PUBLIC_KEY and LANGFUSE_BASE_URL."
+        },
+        {
+          "title": "Decorate a function with @observe() and run it",
+          "body": "Use the example in the first step."
+        },
+        {
+          "title": "Open Langfuse",
+          "body": "View the trace in your project."
+        }
+      ],
+      "expected": "A trace showing the call, its input and output.",
+      "nextSteps": [
+        "Manage prompts",
+        "Add an evaluation",
+        "Build a dashboard"
+      ],
+      "sourceUrl": "https://github.com/langfuse/langfuse/blob/df64daee50d447d27e6aec7a7b9c253c0b4c5fe5/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "MIT licensed except ee folders; self-hosting is free.",
+        "tone": "free"
+      },
+      {
+        "label": "Cloud",
+        "value": "Free tier, paid plans above it.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "No traces appear",
+        "solution": "Check the keys and LANGFUSE_BASE_URL region.",
+        "sourceUrl": "https://github.com/langfuse/langfuse/blob/df64daee50d447d27e6aec7a7b9c253c0b4c5fe5/README.md"
+      }
+    ],
+    "bestFor": [
+      "LLM observability",
+      "Prompt management",
+      "Evaluations"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "LLM observability platform"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT (except ee)"
+      },
+      {
+        "label": "Self-host",
+        "value": "Docker, Helm, Terraform"
+      }
+    ]
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "fullName": "HKUDS/Vibe-Trading",
+  "summary": "AI trading research agent that turns plain-English finance questions into reports, backtests and paper portfolios.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/HKUDS/Vibe-Trading/blob/2134f408b1cd715c74fa8c5021f4402d50b00ea8/README.md"
+    ],
+    "sourceCommitSha": "2134f408b1cd715c74fa8c5021f4402d50b00ea8",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install vibe-trading-ai"
+      },
+      {
+        "comment": "Set up and start",
+        "command": "vibe-trading init\nvibe-trading"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Vibe-Trading is a personal trading agent from HKU. You ask finance questions in plain English and it produces research reports, runnable backtests and paper portfolios. It ships as a CLI, a web app, an API and an MCP server.",
+      "problem": "Testing a trading idea normally means writing backtest code and collecting data. Vibe-Trading lets you describe the strategy and see the results, trades and drawdowns.",
+      "whoFor": [
+        "Retail investors researching ideas",
+        "Quant learners exploring backtesting",
+        "Developers connecting trading research to AI agents"
+      ],
+      "whyChoose": "Choose it for natural-language backtests, an alpha benchmark zoo, trade journal analysis and an investment committee mode, all traceable to the source data.",
+      "requirements": [
+        "Python 3.11+",
+        "An API key for your chosen model provider (or a local model)",
+        "Docker for the web app"
+      ]
+    },
+    "overview": [
+      "Install the package, run vibe-trading init to pick a model provider, then open the interactive CLI. Ask for a backtest in plain English or run vibe-trading alpha bench to benchmark an alpha library.",
+      "The web app runs with Docker Compose at http://localhost:8899 after you set your provider and key in agent/.env. Examples include comparing stocks, reviewing your trade history with /journal and /shadow, and following bull and bear cases to a final report.",
+      "You can authorize a supported broker to execute live trades within a mandate you set; your funds stay with the broker. Backtests are research, not a promise of future returns. The project is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Plain-English backtests",
+        "body": "Describe a strategy, get results."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Alpha bench",
+        "body": "Benchmark alpha libraries."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Trade journal",
+        "body": "Analyse your exported trades."
+      },
+      {
+        "icon": "file-code",
+        "title": "Investment committee",
+        "body": "Bull and bear cases to a report."
+      },
+      {
+        "icon": "git-compare",
+        "title": "CLI, web, API, MCP",
+        "body": "Many ways to use it."
+      }
+    ],
+    "strengths": [
+      "Fast idea testing",
+      "Traceable results",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Backtests don't guarantee future results",
+      "Live trading puts real money at risk",
+      "Needs a model provider"
+    ],
+    "useCases": [
+      {
+        "title": "Test a strategy",
+        "body": "Moving-average crossover vs buy-and-hold."
+      },
+      {
+        "title": "Compare stocks",
+        "body": "Find where returns diverged."
+      },
+      {
+        "title": "Review your trades",
+        "body": "Compare with a rule-based alternative."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Vibe-Trading's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/HKUDS/Vibe-Trading/blob/2134f408b1cd715c74fa8c5021f4402d50b00ea8/README.md",
+      "prerequisites": [
+        "Python 3.11+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip (CLI)",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install vibe-trading-ai",
+              "lang": "bash"
+            },
+            {
+              "title": "Choose a model provider",
+              "code": "vibe-trading init",
+              "lang": "bash"
+            },
+            {
+              "title": "Open the interactive CLI",
+              "code": "vibe-trading",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker web app",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Clone and configure",
+              "code": "git clone https://github.com/HKUDS/Vibe-Trading.git\ncd Vibe-Trading\ncp agent/.env.example agent/.env",
+              "lang": "bash"
+            },
+            {
+              "title": "Set your provider and API key in agent/.env"
+            },
+            {
+              "title": "Start",
+              "code": "docker compose up --build",
+              "lang": "bash"
+            },
+            {
+              "title": "Open",
+              "body": "Go to http://localhost:8899."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run a backtest in plain English",
+          "code": "vibe-trading run -p \"Backtest a BTC-USDT 20/50 moving-average crossover for 2024. Compare it with buy-and-hold and report maximum drawdown.\"",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Backtest a moving-average strategy",
+      "useCase": "Test a simple strategy and compare it with buy-and-hold.",
+      "setup": [
+        "pip install vibe-trading-ai",
+        "vibe-trading init done"
+      ],
+      "steps": [
+        {
+          "title": "Run the backtest",
+          "code": "vibe-trading run -p \"Backtest a BTC-USDT 20/50 moving-average crossover for 2024. Compare it with buy-and-hold and report maximum drawdown.\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Review the run",
+          "body": "Open Run Detail to compare with buy-and-hold and inspect the trades behind a drawdown."
+        }
+      ],
+      "expected": "Backtest results with drawdown and a comparison to buy-and-hold.",
+      "nextSteps": [
+        "Compare two stocks",
+        "Analyse your trades with /journal",
+        "Try alpha bench"
+      ],
+      "sourceUrl": "https://github.com/HKUDS/Vibe-Trading/blob/2134f408b1cd715c74fa8c5021f4402d50b00ea8/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Your model provider bills for usage.",
+        "tone": "depends"
+      },
+      {
+        "label": "Trading",
+        "value": "Live trades through a broker risk real money.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Web app won't answer",
+        "solution": "Set your provider and API key in agent/.env before docker compose up.",
+        "sourceUrl": "https://github.com/HKUDS/Vibe-Trading/blob/2134f408b1cd715c74fa8c5021f4402d50b00ea8/README.md"
+      }
+    ],
+    "bestFor": [
+      "Backtesting",
+      "Trading research",
+      "Finance agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Trading research agent"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Web port",
+        "value": "8899"
+      }
+    ]
+  }
+}

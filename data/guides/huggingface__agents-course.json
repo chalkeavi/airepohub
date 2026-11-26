@@ -1,0 +1,185 @@
+{
+  "fullName": "huggingface/agents-course",
+  "summary": "Free Hugging Face course that teaches you to build AI agents, from the basics to a certified final project.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/huggingface/agents-course/blob/9b3d6b3887bc489510da0239d4c1bc1ee23fd40f/README.md"
+    ],
+    "sourceCommitSha": "9b3d6b3887bc489510da0239d4c1bc1ee23fd40f",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Start the course",
+        "command": "Read it free at hf.co/learn/agents-course"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "This repository holds the Hugging Face Agents Course. It is divided into four units that take you from the basics of agents to a final assignment with a benchmark, plus bonus units.",
+      "problem": "Learning to build agents means piecing together scattered tutorials. This free course gives a structured path with hands-on frameworks and a certificate project.",
+      "whoFor": [
+        "Python developers new to agents",
+        "ML learners wanting hands-on practice",
+        "Anyone curious how AI agents work"
+      ],
+      "whyChoose": "Choose it for a free, well-organised course from Hugging Face covering smolagents, LangGraph and LlamaIndex, with a final evaluated project.",
+      "requirements": [
+        "Basic Python",
+        "Basic knowledge of LLMs",
+        "A free Hugging Face account to sign up"
+      ]
+    },
+    "overview": [
+      "Units: 0 welcome and tools, 1 introduction to agents, 2 frameworks (smolagents, LlamaIndex, LangGraph), 3 a use case for agentic RAG, and 4 a final project to create, test and certify your agent.",
+      "Bonus units cover fine-tuning an LLM for function calling, observability and evaluation, and agents in games with Pokémon.",
+      "Sign-up is free. The course content is Apache 2.0 licensed and contributions such as typo fixes are welcome."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Four units",
+        "body": "Basics to final project."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Frameworks",
+        "body": "smolagents, LangGraph, LlamaIndex."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Agentic RAG",
+        "body": "A real use case."
+      },
+      {
+        "icon": "file-code",
+        "title": "Certification",
+        "body": "Benchmarked final project."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Bonus units",
+        "body": "Function calling, evaluation, games."
+      }
+    ],
+    "strengths": [
+      "Free",
+      "Structured",
+      "From Hugging Face"
+    ],
+    "limitations": [
+      "A course, not a library",
+      "Assumes basic Python and LLM knowledge"
+    ],
+    "useCases": [
+      {
+        "title": "Learn agents",
+        "body": "Follow the units in order."
+      },
+      {
+        "title": "Team training",
+        "body": "Shared curriculum."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Hugging Face Agents Course's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/huggingface/agents-course/blob/9b3d6b3887bc489510da0239d4c1bc1ee23fd40f/README.md",
+      "prerequisites": [
+        "Basic Python"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Online course",
+          "method": "web",
+          "steps": [
+            {
+              "title": "Sign up (free)",
+              "body": "Use the sign-up link in the README."
+            },
+            {
+              "title": "Open the course",
+              "body": "Go to hf.co/learn/agents-course and start with Unit 0."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start Unit 0",
+          "body": "Welcome, guidelines, necessary tools and course overview."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build your first agent with smolagents",
+      "useCase": "Work through Unit 2.1 of the course.",
+      "setup": [
+        "Basic Python",
+        "A Hugging Face account"
+      ],
+      "steps": [
+        {
+          "title": "Finish Units 0 and 1",
+          "body": "Learn what agents are and how they use tools."
+        },
+        {
+          "title": "Open Unit 2.1",
+          "body": "The smolagents framework unit."
+        },
+        {
+          "title": "Build the example agent",
+          "body": "Follow the unit's notebook."
+        }
+      ],
+      "expected": "A working agent built with smolagents.",
+      "nextSteps": [
+        "Try LangGraph in Unit 2.3",
+        "Do the final project in Unit 4"
+      ],
+      "sourceUrl": "https://github.com/huggingface/agents-course/blob/9b3d6b3887bc489510da0239d4c1bc1ee23fd40f/README.md"
+    },
+    "costs": [
+      {
+        "label": "Course",
+        "value": "Free.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Stuck on a unit",
+        "solution": "Ask in the course Discord linked in the README.",
+        "sourceUrl": "https://github.com/huggingface/agents-course/blob/9b3d6b3887bc489510da0239d4c1bc1ee23fd40f/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning AI agents",
+      "Free AI courses"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Course"
+      },
+      {
+        "label": "Language",
+        "value": "MDX"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Units",
+        "value": "4 plus bonuses"
+      }
+    ]
+  }
+}

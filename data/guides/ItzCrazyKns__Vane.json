@@ -1,0 +1,208 @@
+{
+  "fullName": "ItzCrazyKns/Vane",
+  "summary": "Privacy-focused AI answer engine you run on your own machine, searching the web with local or cloud models.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ItzCrazyKns/Vane/blob/348feca3e378fb4157b217724ed508dc707f853f/README.md"
+    ],
+    "sourceCommitSha": "348feca3e378fb4157b217724ed508dc707f853f",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Run with Docker",
+        "command": "docker run -d -p 3000:3000 -v vane-data:/home/vane/data --name vane itzcrazykns1337/vane:latest"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Vane is a privacy-focused AI answering engine that runs on your own hardware. It searches the internet through a bundled SearxNG engine and answers with local LLMs via Ollama or cloud providers like OpenAI, Anthropic Claude, Google Gemini and Groq.",
+      "problem": "AI search services see every question you ask. Vane gives you an AI answer engine you host yourself.",
+      "whoFor": [
+        "Privacy-minded users",
+        "Self-hosters",
+        "People who want AI search with local models"
+      ],
+      "whyChoose": "Choose it for a one-command Docker install with search built in, several search modes, source selection and helpful widgets.",
+      "requirements": [
+        "Docker (recommended)",
+        "Ollama or a cloud provider API key"
+      ]
+    },
+    "overview": [
+      "Run the Docker image, which includes Vane and SearxNG, then open http://localhost:3000 and enter your settings (API keys, models) in the setup screen.",
+      "Choose Speed, Balanced or Quality mode, and search the web, discussions or academic papers. Widgets show things like weather, calculations and stock prices.",
+      "You can also build from source with Docker or install without Docker. Vane is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Local or cloud models",
+        "body": "Ollama, OpenAI, Claude, Gemini, Groq."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Search modes",
+        "body": "Speed, Balanced, Quality."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Pick sources",
+        "body": "Web, discussions, papers."
+      },
+      {
+        "icon": "file-code",
+        "title": "Widgets",
+        "body": "Weather, maths, stocks."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Bundled SearxNG",
+        "body": "No extra setup."
+      }
+    ],
+    "strengths": [
+      "Private",
+      "Easy Docker install",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Answer quality depends on your model",
+      "Cloud models need API keys"
+    ],
+    "useCases": [
+      {
+        "title": "Private search",
+        "body": "Ask questions without a cloud service."
+      },
+      {
+        "title": "Research",
+        "body": "Use Quality mode for deep answers."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Vane's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ItzCrazyKns/Vane/blob/348feca3e378fb4157b217724ed508dc707f853f/README.md",
+      "prerequisites": [
+        "Docker"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Run the container",
+              "code": "docker run -d -p 3000:3000 -v vane-data:/home/vane/data --name vane itzcrazykns1337/vane:latest",
+              "lang": "bash"
+            },
+            {
+              "title": "Open and configure",
+              "body": "Go to http://localhost:3000 and add your API keys or Ollama in the setup screen."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Build from source",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/ItzCrazyKns/Vane.git\ncd Vane",
+              "lang": "bash"
+            },
+            {
+              "title": "Build and run",
+              "code": "docker build -t vane .\ndocker run -d -p 3000:3000 -v vane-data:/home/vane/data --name vane vane",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Ask your first question",
+          "body": "Pick Balanced mode and ask anything."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run a private AI search engine",
+      "useCase": "Start Vane and search with a local model.",
+      "setup": [
+        "Docker",
+        "Ollama with a model (optional)"
+      ],
+      "steps": [
+        {
+          "title": "Start Vane",
+          "code": "docker run -d -p 3000:3000 -v vane-data:/home/vane/data --name vane itzcrazykns1337/vane:latest",
+          "lang": "bash"
+        },
+        {
+          "title": "Configure a model",
+          "body": "In the setup screen, choose Ollama or add a cloud API key."
+        },
+        {
+          "title": "Search",
+          "body": "Ask a question and pick a mode."
+        }
+      ],
+      "expected": "Answers with cited web sources, from your own machine.",
+      "nextSteps": [
+        "Try Quality mode",
+        "Search academic papers"
+      ],
+      "sourceUrl": "https://github.com/ItzCrazyKns/Vane/blob/348feca3e378fb4157b217724ed508dc707f853f/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Ollama is free locally; cloud providers bill usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "No answers",
+        "solution": "Check the model settings in the setup screen.",
+        "sourceUrl": "https://github.com/ItzCrazyKns/Vane/blob/348feca3e378fb4157b217724ed508dc707f853f/README.md"
+      }
+    ],
+    "bestFor": [
+      "Private AI search",
+      "Self-hosted answer engine"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI answer engine"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Port",
+        "value": "3000"
+      }
+    ]
+  }
+}

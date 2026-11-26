@@ -1,0 +1,229 @@
+{
+  "fullName": "chatchat-space/Langchain-Chatchat",
+  "summary": "Open-source RAG and agent app for chatting with your own knowledge base, deployable fully offline with local models.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/chatchat-space/Langchain-Chatchat/blob/49165d6af4438aa7e8a1f71ce276db55f4405151/README.md"
+    ],
+    "sourceCommitSha": "49165d6af4438aa7e8a1f71ce276db55f4405151",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install langchain-chatchat -U"
+      },
+      {
+        "comment": "Initialise",
+        "command": "chatchat init"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Langchain-Chatchat (formerly Langchain-ChatGLM) is an open-source RAG and agent application built on LangChain and models such as ChatGLM, Qwen and Llama. It gives you knowledge-base Q&A that can be deployed offline and privately, with strong support for Chinese.",
+      "problem": "Many teams want document Q&A without sending data to the cloud. Chatchat runs with local model frameworks like Xinference, Ollama or LocalAI, and also supports the OpenAI API.",
+      "whoFor": [
+        "Teams building private knowledge-base Q&A",
+        "Developers working with Chinese documents",
+        "Self-hosters running local models"
+      ],
+      "whyChoose": "Choose it for a mature, Apache-2.0 RAG app with a pip install, yaml configuration and support for many local model frameworks.",
+      "requirements": [
+        "Python 3.8 to 3.11",
+        "A model framework such as Xinference, Ollama or LocalAI running your LLM and embedding models"
+      ]
+    },
+    "overview": [
+      "Since 0.3.0 it installs as a Python library, and it no longer loads models from local paths. Start a model framework (the README uses Xinference as the example) with your LLM and embedding models first, ideally in a separate virtual environment.",
+      "Run chatchat init to create data folders, copy the sample knowledge base and generate yaml config files. Set your models in model_settings.yaml, then build the knowledge base with chatchat kb -r and start everything with chatchat start -a.",
+      "Docker images exist and docker-compose is recommended for Docker deployments. The project is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Knowledge-base Q&A",
+        "body": "RAG over your documents."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Offline deployment",
+        "body": "Private, local models."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Many frameworks",
+        "body": "Xinference, Ollama, LocalAI, FastChat."
+      },
+      {
+        "icon": "file-code",
+        "title": "Agents",
+        "body": "Agent features in 0.3.x."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Yaml config",
+        "body": "Easy to edit."
+      }
+    ],
+    "strengths": [
+      "Private and offline",
+      "Strong Chinese support",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "You run a separate model framework",
+      "Main docs are in Chinese; the English README is older"
+    ],
+    "useCases": [
+      {
+        "title": "Company wiki Q&A",
+        "body": "Ask questions over internal docs."
+      },
+      {
+        "title": "Offline assistant",
+        "body": "No cloud needed."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Langchain-Chatchat's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/chatchat-space/Langchain-Chatchat/blob/49165d6af4438aa7e8a1f71ce276db55f4405151/README.md",
+      "prerequisites": [
+        "Python 3.8-3.11",
+        "Xinference, Ollama or LocalAI"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Use langchain-chatchat[xinference] if you connect to Xinference.",
+              "code": "pip install langchain-chatchat -U",
+              "lang": "bash"
+            },
+            {
+              "title": "Start your model framework",
+              "body": "Run Xinference, Ollama or LocalAI with an LLM and an embedding model, in a separate environment."
+            },
+            {
+              "title": "Initialise config and data",
+              "code": "chatchat init",
+              "lang": "bash"
+            },
+            {
+              "title": "Set your models",
+              "body": "Edit model_settings.yaml to point at your framework and models."
+            },
+            {
+              "title": "Build the knowledge base",
+              "code": "chatchat kb -r",
+              "lang": "bash"
+            },
+            {
+              "title": "Start",
+              "code": "chatchat start -a",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "CHATCHAT_ROOT",
+          "required": false,
+          "description": "Folder for config and data; defaults to the current directory."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Ask a question about the sample knowledge base",
+          "body": "After chatchat start -a opens the web UI, chat with the samples knowledge base."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Chat with your own documents",
+      "useCase": "Add files to a knowledge base and ask questions.",
+      "setup": [
+        "Chatchat installed and initialised",
+        "A model framework running"
+      ],
+      "steps": [
+        {
+          "title": "Rebuild the knowledge base after adding files",
+          "code": "chatchat kb -r",
+          "lang": "bash"
+        },
+        {
+          "title": "Start the app",
+          "code": "chatchat start -a",
+          "lang": "bash"
+        },
+        {
+          "title": "Ask questions",
+          "body": "Choose knowledge-base chat in the web UI."
+        }
+      ],
+      "expected": "Answers based on your documents.",
+      "nextSteps": [
+        "Try agent mode",
+        "Configure another model framework"
+      ],
+      "sourceUrl": "https://github.com/chatchat-space/Langchain-Chatchat/blob/49165d6af4438aa7e8a1f71ce276db55f4405151/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Local models are free to run; OpenAI API use is billed.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Knowledge base init fails",
+        "solution": "Make sure the model framework and embedding model are running and set in model_settings.yaml first.",
+        "sourceUrl": "https://github.com/chatchat-space/Langchain-Chatchat/blob/49165d6af4438aa7e8a1f71ce276db55f4405151/README.md"
+      },
+      {
+        "problem": "Dependency conflicts",
+        "solution": "Keep Chatchat and the model framework in different virtual environments.",
+        "sourceUrl": "https://github.com/chatchat-space/Langchain-Chatchat/blob/49165d6af4438aa7e8a1f71ce276db55f4405151/README.md"
+      }
+    ],
+    "bestFor": [
+      "Private RAG",
+      "Knowledge-base Q&A",
+      "Chinese document Q&A"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "RAG and agent app"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Formerly",
+        "value": "Langchain-ChatGLM"
+      }
+    ]
+  }
+}

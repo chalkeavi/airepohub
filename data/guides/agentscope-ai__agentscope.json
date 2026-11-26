@@ -1,0 +1,207 @@
+{
+  "fullName": "agentscope-ai/agentscope",
+  "summary": "Production-ready Python framework for building AI agents you can watch, understand and control, with tools, MCP and voice.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/agentscope-ai/agentscope/blob/865880409f8c3a13591a5ba79286d6dbb2921c1b/README.md"
+    ],
+    "sourceCommitSha": "865880409f8c3a13591a5ba79286d6dbb2921c1b",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "uv pip install agentscope"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "AgentScope is an agent framework in Python. Version 2.0 provides the essential building blocks (ReAct agents, a toolkit for Python tools and MCP servers, models, context management, an event system, permissions and middleware) and relies on models' own reasoning and tool use instead of strict prompts.",
+      "problem": "Building reliable agents means handling tools, context limits, permissions and observability. AgentScope packages these so you can build agents you can see and trust.",
+      "whoFor": [
+        "Python developers building agents",
+        "Teams running multi-agent workflows",
+        "Builders of realtime voice agents"
+      ],
+      "whyChoose": "Choose it for a well-supported framework with human-in-the-loop permissions, team pipelines, SOPs and realtime voice support across major providers.",
+      "requirements": [
+        "Python 3.11+",
+        "An API key for your model provider"
+      ]
+    },
+    "overview": [
+      "Building blocks include the ReAct agent (structured output and realtime interruption), a toolkit over Python tools and MCP servers, models for LLMs, embeddings and TTS across providers such as OpenAI and Anthropic, automatic context compaction, an event bus, a permission and human-in-the-loop system, and middleware hooks.",
+      "Recent additions include TeamPipeline (a leader agent delegating to members), SOPs for multi-step tasks, realtime voice agents and voice profile management.",
+      "Install from PyPI with uv pip install agentscope, or from source. AgentScope is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "ReAct agents",
+        "body": "Reasoning and acting loop."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Toolkit",
+        "body": "Python tools and MCP."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Permissions",
+        "body": "Fine-grained, human in the loop."
+      },
+      {
+        "icon": "file-code",
+        "title": "Context management",
+        "body": "Automatic compaction."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Team pipelines",
+        "body": "Leader and member agents."
+      },
+      {
+        "icon": "shield",
+        "title": "Realtime voice",
+        "body": "Voice agents over WebRTC."
+      }
+    ],
+    "strengths": [
+      "Production-ready",
+      "Observable agents",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Needs Python 3.11+",
+      "Model costs depend on provider"
+    ],
+    "useCases": [
+      {
+        "title": "Assistants",
+        "body": "Tool-using agents."
+      },
+      {
+        "title": "Multi-agent teams",
+        "body": "Delegate tasks."
+      },
+      {
+        "title": "Voice agents",
+        "body": "Realtime conversations."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from AgentScope's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/agentscope-ai/agentscope/blob/865880409f8c3a13591a5ba79286d6dbb2921c1b/README.md",
+      "prerequisites": [
+        "Python 3.11+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "PyPI",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "uv pip install agentscope",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "From source",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Clone and install",
+              "code": "git clone -b main https://github.com/agentscope-ai/agentscope.git\ncd agentscope\nuv pip install -e .",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Build a ReAct agent",
+          "body": "Follow the agent overview in the docs at docs.agentscope.io to create your first agent with a model and a tool."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Create your first tool-using agent",
+      "useCase": "Build a ReAct agent with one tool.",
+      "setup": [
+        "uv pip install agentscope",
+        "A model API key"
+      ],
+      "steps": [
+        {
+          "title": "Read the building blocks docs",
+          "body": "Start with the Agent and Toolkit pages at docs.agentscope.io."
+        },
+        {
+          "title": "Register a Python tool or MCP server"
+        },
+        {
+          "title": "Run the agent",
+          "body": "Ask it a task that needs the tool."
+        }
+      ],
+      "expected": "An agent that reasons, calls your tool and replies.",
+      "nextSteps": [
+        "Add permissions",
+        "Try TeamPipeline",
+        "Build a voice agent"
+      ],
+      "sourceUrl": "https://github.com/agentscope-ai/agentscope/blob/865880409f8c3a13591a5ba79286d6dbb2921c1b/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Your provider bills for usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install fails",
+        "solution": "AgentScope needs Python 3.11 or higher.",
+        "sourceUrl": "https://github.com/agentscope-ai/agentscope/blob/865880409f8c3a13591a5ba79286d6dbb2921c1b/README.md"
+      }
+    ],
+    "bestFor": [
+      "Agent frameworks",
+      "Multi-agent systems"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent framework"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Version",
+        "value": "2.0"
+      }
+    ]
+  }
+}

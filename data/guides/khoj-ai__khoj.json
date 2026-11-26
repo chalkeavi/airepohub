@@ -1,0 +1,190 @@
+{
+  "fullName": "khoj-ai/khoj",
+  "summary": "Self-hostable AI second brain that answers from the web and your documents, with custom agents and scheduled research.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/khoj-ai/khoj/blob/ae229ca894c0b80ad84664afcfdde523b5e87057/README.md"
+    ],
+    "sourceCommitSha": "ae229ca894c0b80ad84664afcfdde523b5e87057",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Try it",
+        "command": "Open the cloud app at app.khoj.dev, or self-host it by following docs.khoj.dev"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Khoj is a personal AI app that scales from an on-device assistant to enterprise AI. It chats with local or online LLMs, answers from the internet and your documents, lets you create custom agents, and can automate research with newsletters and notifications.",
+      "problem": "Your notes and files are scattered and general chatbots can't see them. Khoj searches and answers from your own documents as well as the web.",
+      "whoFor": [
+        "People with large personal notes (Obsidian, Emacs, Notion)",
+        "Researchers automating repetitive searches",
+        "Teams wanting a self-hosted AI assistant"
+      ],
+      "whyChoose": "Choose it for an open-source, self-hostable assistant you can reach from the browser, Obsidian, Emacs, desktop, phone or WhatsApp.",
+      "requirements": [
+        "A browser for the cloud app, or a machine to self-host"
+      ]
+    },
+    "overview": [
+      "Khoj chats with local or online models (Llama, Qwen, Gemma, Mistral, GPT, Claude, Gemini, DeepSeek) and answers from the internet and your docs, including images, PDFs, Markdown, org-mode, Word and Notion files.",
+      "You can create agents with custom knowledge, persona, model and tools, schedule automated research, use semantic search, generate images and talk out loud.",
+      "Use the cloud app at app.khoj.dev or self-host it; the README points to the setup docs for self-hosting. An enterprise option exists. Khoj is AGPL-3.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Any LLM",
+        "body": "Local or online models."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Your documents",
+        "body": "PDF, Markdown, Word, Notion and more."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Custom agents",
+        "body": "Knowledge, persona, tools."
+      },
+      {
+        "icon": "file-code",
+        "title": "Automations",
+        "body": "Scheduled research and newsletters."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Many clients",
+        "body": "Browser, Obsidian, Emacs, phone, WhatsApp."
+      }
+    ],
+    "strengths": [
+      "Self-hostable",
+      "Works with your notes",
+      "Open source"
+    ],
+    "limitations": [
+      "Self-host steps are in the docs, not the README",
+      "AGPL-3.0 license"
+    ],
+    "useCases": [
+      {
+        "title": "Second brain",
+        "body": "Ask questions across your notes."
+      },
+      {
+        "title": "Research automation",
+        "body": "Get a scheduled newsletter on a topic."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Khoj's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/khoj-ai/khoj/blob/ae229ca894c0b80ad84664afcfdde523b5e87057/README.md",
+      "prerequisites": [
+        "Browser, or a server to self-host"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Cloud app",
+          "method": "web",
+          "steps": [
+            {
+              "title": "Open app.khoj.dev and sign in"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Self-host",
+          "method": "docs",
+          "steps": [
+            {
+              "title": "Follow the setup guide",
+              "body": "The README links to docs.khoj.dev/get-started/setup for running Khoj on your own computer."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Ask a question",
+          "body": "Chat with Khoj, then upload a document and ask about it."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Ask questions about your documents",
+      "useCase": "Add files and get answers from them.",
+      "setup": [
+        "A Khoj account or self-hosted Khoj"
+      ],
+      "steps": [
+        {
+          "title": "Add your documents",
+          "body": "Upload PDFs or Markdown, or connect Notion."
+        },
+        {
+          "title": "Ask a question",
+          "body": "Khoj answers from your docs and the web."
+        }
+      ],
+      "expected": "Answers that draw on your own files.",
+      "nextSteps": [
+        "Create a custom agent",
+        "Set up an automation",
+        "Connect Obsidian or Emacs"
+      ],
+      "sourceUrl": "https://github.com/khoj-ai/khoj/blob/ae229ca894c0b80ad84664afcfdde523b5e87057/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under AGPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Cloud and enterprise",
+        "value": "See khoj.dev for plans.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Need setup help",
+        "solution": "See the self-hosting docs at docs.khoj.dev.",
+        "sourceUrl": "https://github.com/khoj-ai/khoj/blob/ae229ca894c0b80ad84664afcfdde523b5e87057/README.md"
+      }
+    ],
+    "bestFor": [
+      "Personal AI assistant",
+      "Notes Q&A"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Personal AI assistant"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "Clients",
+        "value": "Web, Obsidian, Emacs, mobile"
+      }
+    ]
+  }
+}

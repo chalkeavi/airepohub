@@ -1,0 +1,197 @@
+{
+  "fullName": "hankcs/HanLP",
+  "summary": "Natural language processing toolkit for Chinese and 130 languages: word segmentation, tagging, named entities and parsing.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/hankcs/HanLP/blob/959a6966f6e7e26d2e89c4112ca9bafbe32eb743/README.md"
+    ],
+    "sourceCommitSha": "959a6966f6e7e26d2e89c4112ca9bafbe32eb743",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install hanlp"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "HanLP is a multilingual NLP toolkit with strong Chinese support. It covers word segmentation, part-of-speech tagging, named entity recognition, dependency and constituency parsing, semantic dependency parsing, semantic role labelling and more, across 130 languages in HanLP 2.1.",
+      "problem": "Chinese text has no spaces between words, so basic NLP needs good segmentation and tagging. HanLP provides state-of-the-art models for these tasks.",
+      "whoFor": [
+        "NLP engineers working with Chinese",
+        "Researchers in linguistics",
+        "Developers building Chinese search or chat"
+      ],
+      "whyChoose": "Choose it for a mature, widely used Chinese NLP library with both a lightweight RESTful client and a full native API.",
+      "requirements": [
+        "Python 3.6 to 3.10 for the native API",
+        "An API key for the RESTful service"
+      ]
+    },
+    "overview": [
+      "There are two ways to use it. The RESTful API (pip install hanlp_restful) is only a few KB, needs no GPU and calls HanLP's servers with a key. The native API (pip install hanlp) runs PyTorch or TensorFlow models locally and suits large data.",
+      "With the native API you load a model and call it like a function, for example a multi-task model that does tokenisation, POS, NER, SRL, dependency and constituency parsing at once, or build a pipeline of single-task models for higher accuracy.",
+      "The README is mainly in Chinese, with online demos for each task. HanLP is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Segmentation",
+        "body": "Chinese word splitting."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Tagging and NER",
+        "body": "POS and named entities."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Parsing",
+        "body": "Dependency and constituency."
+      },
+      {
+        "icon": "file-code",
+        "title": "130 languages",
+        "body": "Multilingual models."
+      },
+      {
+        "icon": "git-compare",
+        "title": "RESTful client",
+        "body": "Tiny, no GPU."
+      }
+    ],
+    "strengths": [
+      "Strong Chinese accuracy",
+      "Two ways to use",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Native API supports Python 3.6-3.10",
+      "Docs are mostly in Chinese"
+    ],
+    "useCases": [
+      {
+        "title": "Chinese search",
+        "body": "Segment and index text."
+      },
+      {
+        "title": "Information extraction",
+        "body": "Find names and places."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from HanLP's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/hankcs/HanLP/blob/959a6966f6e7e26d2e89c4112ca9bafbe32eb743/README.md",
+      "prerequisites": [
+        "Python 3.6-3.10"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Native API",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install hanlp",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "RESTful client",
+          "method": "pip-2",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Lightweight; needs an API key for HanLP's servers.",
+              "code": "pip install hanlp_restful",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run the multi-task model",
+          "code": "import hanlp\n\nHanLP = hanlp.load(hanlp.pretrained.mtl.CLOSE_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_SMALL_ZH)\nHanLP(['2021年HanLPv2.1为生产环境带来次世代最先进的多语种NLP技术。'])",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Analyse Chinese sentences",
+      "useCase": "Segment, tag and parse sentences with one model.",
+      "setup": [
+        "pip install hanlp"
+      ],
+      "steps": [
+        {
+          "title": "Load the model",
+          "code": "import hanlp\n\nHanLP = hanlp.load(hanlp.pretrained.mtl.CLOSE_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_SMALL_ZH)",
+          "lang": "text"
+        },
+        {
+          "title": "Analyse sentences",
+          "code": "HanLP(['2021年HanLPv2.1为生产环境带来次世代最先进的多语种NLP技术。', '阿婆主来到北京立方庭参观自然语义科技公司。'])",
+          "lang": "text"
+        }
+      ],
+      "expected": "Tokens, tags, entities and parse trees for each sentence.",
+      "nextSteps": [
+        "Build a single-task pipeline",
+        "Try the RESTful API"
+      ],
+      "sourceUrl": "https://github.com/hankcs/HanLP/blob/959a6966f6e7e26d2e89c4112ca9bafbe32eb743/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "RESTful service",
+        "value": "Uses HanLP's servers with a key; see their site.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install fails on newer Python",
+        "solution": "The native API is tested on Python 3.6 to 3.10.",
+        "sourceUrl": "https://github.com/hankcs/HanLP/blob/959a6966f6e7e26d2e89c4112ca9bafbe32eb743/README.md"
+      }
+    ],
+    "bestFor": [
+      "Chinese NLP",
+      "Multilingual NLP"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "NLP toolkit"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Languages",
+        "value": "130"
+      }
+    ]
+  }
+}

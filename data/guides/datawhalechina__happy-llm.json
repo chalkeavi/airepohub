@@ -1,0 +1,187 @@
+{
+  "fullName": "datawhalechina/happy-llm",
+  "summary": "Free tutorial that teaches how large language models work from scratch, including building and training your own small LLaMA-style model.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/datawhalechina/happy-llm/blob/1e0b3a1e6f8936b8ba4bbd0673e8e2227d196c96/README_en.md"
+    ],
+    "sourceCommitSha": "1e0b3a1e6f8936b8ba4bbd0673e8e2227d196c96",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Read it",
+        "command": "Read online, or clone the repo: git clone https://github.com/datawhalechina/happy-llm.git"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Happy-LLM is a systematic LLM learning tutorial from Datawhale. It starts with NLP basics and works through Transformers, pre-trained models and large models, then has you implement a complete LLaMA2-style model and train it from pre-training to fine-tuning.",
+      "problem": "Many people use LLMs without understanding how they work. Happy-LLM explains the core principles and has you build one yourself.",
+      "whoFor": [
+        "Students learning how LLMs work",
+        "Developers wanting to train a small model",
+        "Readers who know Python and some ML"
+      ],
+      "whyChoose": "Choose it for a free, structured book-style course with hands-on code, covering everything up to RAG, agents and agentic RL.",
+      "requirements": [
+        "Python and basic machine learning knowledge",
+        "A GPU helps for the training chapters"
+      ]
+    },
+    "overview": [
+      "Chapters cover NLP concepts, the Transformer architecture, pre-trained language models, large language models, building a large model from scratch (LLaMA2, tokenizer, small LLM pre-training), training practice (pre-training, SFT, LoRA/QLoRA), applications (evaluation, RAG, agents) and agentic RL (GRPO, Search-R1, ReTool).",
+      "Read it online or in the repo's docs folder; the chapter files are written in Chinese, with an English README. There is also an extra chapter of community blog posts.",
+      "All content is free. It is licensed CC BY-NC-SA 4.0, so non-commercial use with attribution."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Transformer from scratch",
+        "body": "Hands-on building."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Build a LLaMA2 model",
+        "body": "Implement and train."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Fine-tuning",
+        "body": "SFT and LoRA/QLoRA."
+      },
+      {
+        "icon": "file-code",
+        "title": "RAG and agents",
+        "body": "Practical applications."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Agentic RL",
+        "body": "GRPO and more."
+      }
+    ],
+    "strengths": [
+      "Free",
+      "Hands-on",
+      "Deep explanations"
+    ],
+    "limitations": [
+      "Chapters are mainly in Chinese",
+      "Non-commercial license",
+      "Chapter 6 still in progress"
+    ],
+    "useCases": [
+      {
+        "title": "Self-study",
+        "body": "Understand LLMs end to end."
+      },
+      {
+        "title": "Course material",
+        "body": "Non-commercial teaching."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Happy-LLM's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/datawhalechina/happy-llm/blob/1e0b3a1e6f8936b8ba4bbd0673e8e2227d196c96/README_en.md",
+      "prerequisites": [
+        "Python"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Read online or clone",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Read online",
+              "body": "Use the online reading link at the top of the README."
+            },
+            {
+              "title": "Or clone the repo",
+              "code": "git clone https://github.com/datawhalechina/happy-llm.git",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start with Chapter 1",
+          "body": "NLP basic concepts, in docs/chapter1."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build your own small LLM",
+      "useCase": "Work through Chapter 5.",
+      "setup": [
+        "Python",
+        "The repo cloned"
+      ],
+      "steps": [
+        {
+          "title": "Read Chapters 2 to 4",
+          "body": "Transformers, pre-trained models and LLMs."
+        },
+        {
+          "title": "Open Chapter 5",
+          "body": "Implement LLaMA2, train a tokenizer and pre-train a small LLM."
+        }
+      ],
+      "expected": "A small language model you built and trained yourself.",
+      "nextSteps": [
+        "Fine-tune it in Chapter 6",
+        "Add RAG and agents in Chapter 7"
+      ],
+      "sourceUrl": "https://github.com/datawhalechina/happy-llm/blob/1e0b3a1e6f8936b8ba4bbd0673e8e2227d196c96/README_en.md"
+    },
+    "costs": [
+      {
+        "label": "Tutorial",
+        "value": "Free; CC BY-NC-SA 4.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Training chapters need GPU time.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Can't read Chinese chapters",
+        "solution": "Use a translation tool; the README is in English.",
+        "sourceUrl": "https://github.com/datawhalechina/happy-llm/blob/1e0b3a1e6f8936b8ba4bbd0673e8e2227d196c96/README_en.md"
+      }
+    ],
+    "bestFor": [
+      "Learning LLMs",
+      "Build an LLM from scratch"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Tutorial"
+      },
+      {
+        "label": "Language",
+        "value": "Jupyter Notebook, Python"
+      },
+      {
+        "label": "License",
+        "value": "CC BY-NC-SA 4.0"
+      },
+      {
+        "label": "Maker",
+        "value": "Datawhale"
+      }
+    ]
+  }
+}

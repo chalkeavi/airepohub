@@ -1,0 +1,227 @@
+{
+  "fullName": "DayuanJiang/next-ai-draw-io",
+  "summary": "Draw and edit draw.io diagrams by describing them to an AI, as a web app, desktop app or MCP server for coding agents.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/DayuanJiang/next-ai-draw-io/blob/9534a668e3bd53f9c08aa5b8d2d77f409ccd09d4/README.md"
+    ],
+    "sourceCommitSha": "9534a668e3bd53f9c08aa5b8d2d77f409ccd09d4",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Add to Claude Code",
+        "command": "claude mcp add --scope user drawio -- npx @next-ai-drawio/mcp-server@latest"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Next AI Draw.io lets you describe a diagram in a sentence and have AI draw it on a real draw.io canvas. You can edit it by hand like any draw.io file, or select shapes and tell the AI what to change. It's available as a web app, a desktop app and an MCP server for agents like Claude Code, Cursor and VS Code.",
+      "problem": "Drawing architecture diagrams, ER diagrams or flowcharts by hand is slow. This tool turns a description into an editable diagram.",
+      "whoFor": [
+        "Engineers drawing architecture diagrams",
+        "Students and teachers making flowcharts",
+        "Coding agent users who want diagrams from code"
+      ],
+      "whyChoose": "Choose it for real draw.io output you can keep editing, 25 model providers with your own key stored locally, and an MCP server.",
+      "requirements": [
+        "A browser for the web app, or Node.js for the MCP server or local run",
+        "Your own API key for a model provider"
+      ]
+    },
+    "overview": [
+      "Use the live demo, download the desktop app from Releases, or run the MCP server in Claude Desktop, Cursor, VS Code and others with npx @next-ai-drawio/mcp-server@latest.",
+      "It supports 25 model providers, including an OpenAI-compatible preset; the API key you enter in the browser stays on your machine.",
+      "To run locally, clone the repo, npm install, copy env.example to .env.local with your provider and key, then npm run dev and open http://localhost:6002. One-click deploys exist for EdgeOne Pages, Vercel, Cloudflare and Docker. Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Describe to draw",
+        "body": "A sentence becomes a diagram."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Real draw.io",
+        "body": "Edit by hand afterwards."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Edit by selection",
+        "body": "Tell AI what to change."
+      },
+      {
+        "icon": "file-code",
+        "title": "25 providers",
+        "body": "Bring your own key."
+      },
+      {
+        "icon": "git-compare",
+        "title": "MCP server",
+        "body": "Claude Code, Cursor, VS Code."
+      }
+    ],
+    "strengths": [
+      "Editable output",
+      "Many ways to run",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Needs your own model API key",
+      "Complex diagrams may need manual fixes"
+    ],
+    "useCases": [
+      {
+        "title": "Cloud architecture",
+        "body": "AWS or Kubernetes diagrams."
+      },
+      {
+        "title": "Database design",
+        "body": "ER diagrams."
+      },
+      {
+        "title": "Processes",
+        "body": "BPMN flows."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Next AI Draw.io's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/DayuanJiang/next-ai-draw-io/blob/9534a668e3bd53f9c08aa5b8d2d77f409ccd09d4/README.md",
+      "prerequisites": [
+        "Browser or Node.js"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Claude Code (MCP)",
+          "method": "cli",
+          "steps": [
+            {
+              "title": "Add the MCP server",
+              "code": "claude mcp add --scope user drawio -- npx @next-ai-drawio/mcp-server@latest",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Desktop app",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download",
+              "body": "Get the Windows, macOS or Linux installer from the Releases page."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Run locally",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Clone and install",
+              "code": "git clone https://github.com/DayuanJiang/next-ai-draw-io\ncd next-ai-draw-io\nnpm install",
+              "lang": "bash"
+            },
+            {
+              "title": "Add your provider and key",
+              "code": "cp env.example .env.local",
+              "lang": "bash"
+            },
+            {
+              "title": "Start",
+              "code": "npm run dev",
+              "lang": "bash"
+            },
+            {
+              "title": "Open",
+              "body": "Go to http://localhost:6002."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Ask for a diagram",
+          "body": "For example: a flowchart of user authentication with login, MFA and session management."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Draw an architecture diagram from a prompt",
+      "useCase": "Create an editable cloud diagram.",
+      "setup": [
+        "The web or desktop app",
+        "A model API key"
+      ],
+      "steps": [
+        {
+          "title": "Add your API key",
+          "body": "Choose a provider in settings."
+        },
+        {
+          "title": "Describe the diagram",
+          "body": "For example a highly available web app on AWS across two Availability Zones."
+        },
+        {
+          "title": "Refine it",
+          "body": "Select shapes and ask for changes, or edit by hand."
+        }
+      ],
+      "expected": "A draw.io diagram you can edit and export.",
+      "nextSteps": [
+        "Use the MCP server in your coding agent",
+        "Try ER or BPMN diagrams"
+      ],
+      "sourceUrl": "https://github.com/DayuanJiang/next-ai-draw-io/blob/9534a668e3bd53f9c08aa5b8d2d77f409ccd09d4/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Your provider bills for usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Nothing is drawn",
+        "solution": "Check your provider and API key in settings or .env.local.",
+        "sourceUrl": "https://github.com/DayuanJiang/next-ai-draw-io/blob/9534a668e3bd53f9c08aa5b8d2d77f409ccd09d4/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI diagrams",
+      "draw.io automation"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI diagram tool"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Local port",
+        "value": "6002"
+      }
+    ]
+  }
+}
