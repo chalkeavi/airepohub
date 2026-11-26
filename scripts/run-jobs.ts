@@ -9,7 +9,7 @@
 import { GithubClient } from "../src/lib/jobs/github.ts";
 import { runImport, runPublishQueue } from "../src/lib/jobs/importer.ts";
 import { runDiscover, runRank, runSnapshot, type JobSummary } from "../src/lib/jobs/jobs.ts";
-import { ClaudeBatchSummarizer, FileSummarizer, runSummarize, type Summarizer } from "../src/lib/jobs/summarize.ts";
+import { ClaudeBatchSummarizer, FileSummarizer, runPublishDrafts, runSummarize, type Summarizer } from "../src/lib/jobs/summarize.ts";
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { runPublishGuides, type GuideFile } from "../src/lib/jobs/guides.ts";
 import { SupabaseJobStore } from "../src/lib/jobs/store.ts";
@@ -65,6 +65,12 @@ const plan: Record<string, (() => Promise<JobSummary>)[]> = {
         noindex: !flags.includes("--index"),
         summarizer: summarizer(),
       }),
+    // Repos imported in an earlier run without a summary stay drafts; publish those that now have one.
+    ...(text("summaries") === "file" ? [() => runPublishDrafts(ctx, summarizer("file")!)] : []),
+    ...(dryRun ? [] : [() => runRank(ctx)]),
+  ],
+  "publish-drafts": [
+    () => runPublishDrafts(ctx, summarizer("file")!),
     ...(dryRun ? [] : [() => runRank(ctx)]),
   ],
   // Snapshot first so rankings use today's stars; discovery last (it only queues for review).

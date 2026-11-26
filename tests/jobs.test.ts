@@ -6,7 +6,7 @@ import { buildRankings, runDiscover, runRank, runSnapshot } from "@/lib/jobs/job
 import { scoreRelevance } from "@/lib/jobs/relevance";
 import type { JobStore, NewRepoRow, Period, QueueRow, RankingRow, RunResult, TrackedRepo } from "@/lib/jobs/store";
 import { categorize, importEligible, runImport, starBands, uniqueSlug } from "@/lib/jobs/importer";
-import { FileSummarizer, validateSummary } from "@/lib/jobs/summarize";
+import { FileSummarizer, runPublishDrafts, validateSummary } from "@/lib/jobs/summarize";
 import type { StatPoint } from "@/lib/jobs/growth";
 
 const NOW = new Date("2026-12-10T05:17:00Z");
@@ -69,6 +69,8 @@ class MemStore implements JobStore {
     }
   }
   async listUnsummarized() { return []; }
+  drafts: { id: string; full_name: string; description: string; topics: string[]; primary_language: string | null }[] = [];
+  async listDrafts() { return this.drafts; }
   guides = new Map<string, unknown>();
   async repoIdsByFullName(names: string[]) { return new Map(names.map((n) => [n.toLowerCase(), `id-${n.toLowerCase()}`])); }
   async saveGuide(id: string, content: unknown) { this.guides.set(id, content); }
@@ -347,6 +349,18 @@ describe("summaries", () => {
     expect(store.publishedAt.get("new10")).toBe(NOW.toISOString());
     expect(s.processed).toBe(1);
     expect(s.details.left_as_draft).toBe(0);
+  });
+
+  it("publishes earlier drafts that now have a summary and leaves the rest as drafts", async () => {
+    const store = new MemStore();
+    const row = (id: string, full_name: string) => ({ id, full_name, description: "An LLM agent framework for building AI apps", topics: ["llm"], primary_language: "Python" });
+    store.drafts = [row("d1", "o/r20"), row("d2", "o/r21")];
+    const summarizer = new FileSummarizer({ "o/r20": "Framework for building AI agent apps with large language models in Python." });
+    const s = await runPublishDrafts({ store, github: fakeGithub({}), now: NOW }, summarizer);
+    expect([...store.summaries.keys()]).toEqual(["d1"]);
+    expect(store.publishedAt.get("d1")).toBe(NOW.toISOString());
+    expect(store.publishedAt.has("d2")).toBe(false);
+    expect(s.details.published_list).toEqual(["o/r20"]);
   });
 });
 
