@@ -1,0 +1,227 @@
+{
+  "fullName": "HumanSignal/label-studio",
+  "summary": "Open-source data labeling tool for text, images, audio, video and time series, used to prepare training data and review model output.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/HumanSignal/label-studio/blob/3f71cbfd9fed1140fedd287d014c5333793db3af/README.md"
+    ],
+    "sourceCommitSha": "3f71cbfd9fed1140fedd287d014c5333793db3af",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "pip",
+        "command": "pip install label-studio"
+      },
+      {
+        "comment": "Docker",
+        "command": "docker run -it -p 8080:8080 -v $(pwd)/mydata:/label-studio/data heartexlabs/label-studio:latest"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Label Studio is an open-source data labeling tool. You set up projects with configurable labeling interfaces, import data from files or cloud storage, and label audio, text, images, HTML, video and time series, then export to model formats. It supports multiple users and projects, ready-made templates, a REST API and connections to ML models for pre-labeling.",
+      "problem": "Training or fine-tuning models needs labeled data, and building a labeling UI for each data type is a lot of work. Label Studio gives you one flexible tool for all of them.",
+      "whoFor": [
+        "ML engineers preparing training data",
+        "Data teams reviewing model predictions",
+        "Researchers building datasets"
+      ],
+      "whyChoose": "Choose it for broad data-type support, customizable interfaces, ML-assisted labeling and easy deployment with pip or Docker.",
+      "requirements": [
+        "Python 3.10+ for pip, or Docker"
+      ]
+    },
+    "overview": [
+      "Install with pip and run label-studio, or run the official Docker image with a local folder mounted for data. Either way it opens at localhost:8080. Docker Compose adds Nginx and PostgreSQL for production.",
+      "Create a project, pick a labeling template or write your own config, import data from files, S3 or Google Cloud Storage, and start labeling.",
+      "Connect an ML backend through the Label Studio ML SDK to pre-label data, retrain as you go or focus on hard examples. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Many data types",
+        "body": "Images, audio, text, HTML, video, time series."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Templates",
+        "body": "Common labeling setups ready to use."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Custom interfaces",
+        "body": "Configuration language for your own."
+      },
+      {
+        "icon": "file-code",
+        "title": "Multi-user",
+        "body": "Annotations tied to accounts."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Cloud import",
+        "body": "S3, GCS, JSON, CSV and archives."
+      },
+      {
+        "icon": "shield",
+        "title": "ML integration",
+        "body": "Pre-labeling and active learning."
+      }
+    ],
+    "strengths": [
+      "Very flexible",
+      "Quick to start",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "SQLite default isn't for heavy production use",
+      "ML backend needs separate setup"
+    ],
+    "useCases": [
+      {
+        "title": "Image annotation",
+        "body": "Boxes and segmentation for vision models."
+      },
+      {
+        "title": "Text classification",
+        "body": "Label sentiment or intent."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Label Studio's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/HumanSignal/label-studio/blob/3f71cbfd9fed1140fedd287d014c5333793db3af/README.md",
+      "prerequisites": [
+        "Python 3.10+ or Docker"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Requires Python 3.10 or newer.",
+              "code": "pip install label-studio",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the server",
+              "body": "Opens at http://localhost:8080.",
+              "code": "label-studio",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Pull the image",
+              "code": "docker pull heartexlabs/label-studio:latest",
+              "lang": "bash"
+            },
+            {
+              "title": "Run it",
+              "body": "Data and the SQLite database are saved in ./mydata.",
+              "code": "docker run -it -p 8080:8080 -v $(pwd)/mydata:/label-studio/data heartexlabs/label-studio:latest",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Sign up locally",
+          "body": "Create an account in your instance."
+        },
+        {
+          "title": "Create a project",
+          "body": "Choose a template and import some data."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Label your first dataset",
+      "useCase": "Set up a project and annotate a few items.",
+      "setup": [
+        "Label Studio running at localhost:8080"
+      ],
+      "steps": [
+        {
+          "title": "Create a project",
+          "body": "Give it a name."
+        },
+        {
+          "title": "Pick a template",
+          "body": "For example image classification or text sentiment."
+        },
+        {
+          "title": "Import data",
+          "body": "Upload files or a CSV."
+        },
+        {
+          "title": "Label and export",
+          "body": "Annotate items, then export in your model's format."
+        }
+      ],
+      "expected": "A labeled dataset exported for training.",
+      "nextSteps": [
+        "Connect an ML backend",
+        "Use Docker Compose with PostgreSQL",
+        "Invite teammates"
+      ],
+      "sourceUrl": "https://github.com/HumanSignal/label-studio/blob/3f71cbfd9fed1140fedd287d014c5333793db3af/README.md"
+    },
+    "costs": [
+      {
+        "label": "Label Studio",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install problems on Windows",
+        "solution": "See the Windows dependency notes in the README.",
+        "sourceUrl": "https://github.com/HumanSignal/label-studio/blob/3f71cbfd9fed1140fedd287d014c5333793db3af/README.md"
+      },
+      {
+        "problem": "Need more performance",
+        "solution": "Use the Docker Compose stack with PostgreSQL.",
+        "sourceUrl": "https://github.com/HumanSignal/label-studio/blob/3f71cbfd9fed1140fedd287d014c5333793db3af/README.md"
+      }
+    ],
+    "bestFor": [
+      "Data labeling",
+      "Training data preparation"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Data labeling app"
+      },
+      {
+        "label": "Runs on",
+        "value": "Python 3.10+ or Docker"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "pip install label-studio"
+      }
+    ]
+  }
+}

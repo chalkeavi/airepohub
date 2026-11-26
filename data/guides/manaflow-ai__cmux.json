@@ -1,0 +1,211 @@
+{
+  "fullName": "manaflow-ai/cmux",
+  "summary": "Native macOS terminal built on Ghostty for running many AI coding agents at once, with vertical tabs, attention alerts and a built-in browser.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/manaflow-ai/cmux/blob/f3d16c2fffeeeb67df20683e5961e5c455038ae0/README.md"
+    ],
+    "sourceCommitSha": "f3d16c2fffeeeb67df20683e5961e5c455038ae0",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Homebrew",
+        "command": "brew tap manaflow-ai/cmux && brew install --cask cmux"
+      },
+      {
+        "comment": "Or",
+        "command": "Download the DMG from the latest release"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "cmux is a macOS terminal app for people running several Claude Code or Codex sessions in parallel. A sidebar of vertical tabs shows each workspace's git branch, linked PR, folder, listening ports and latest notification, and panes light up with a blue ring when an agent needs you. It also has a scriptable in-app browser, SSH workspaces and one-command Claude Code teammate mode.",
+      "problem": "With many agents running in split panes, it's hard to know which one is waiting for you and why. cmux surfaces that in the sidebar and a notification panel.",
+      "whoFor": [
+        "Developers running many coding agents in parallel",
+        "Claude Code and Codex users on macOS",
+        "Ghostty users"
+      ],
+      "whyChoose": "Choose it for a fast native Swift/AppKit app (not Electron) that reads your Ghostty config and is scriptable through a CLI and socket API.",
+      "requirements": [
+        "macOS"
+      ]
+    },
+    "overview": [
+      "Install the DMG and drag cmux to Applications (it auto-updates), or use the Homebrew cask. The cask also installs shell completions for zsh, bash and fish.",
+      "Workspaces, splits and the browser are all controllable from the cmux CLI and socket API. cmux ssh creates a workspace for a remote machine, and cmux claude-teams runs Claude Code teammates as native splits.",
+      "The app is GPL-3.0-or-later; the cmux server software uses the Business Source License, as described in LICENSE."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Notification rings",
+        "body": "See which agent needs you."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Vertical tabs",
+        "body": "Branch, PR, ports, latest alert."
+      },
+      {
+        "icon": "puzzle",
+        "title": "In-app browser",
+        "body": "Scriptable, agent-friendly."
+      },
+      {
+        "icon": "file-code",
+        "title": "SSH workspaces",
+        "body": "cmux ssh user@remote."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Claude Code teams",
+        "body": "cmux claude-teams."
+      },
+      {
+        "icon": "shield",
+        "title": "Ghostty compatible",
+        "body": "Uses your Ghostty config."
+      }
+    ],
+    "strengths": [
+      "Native and fast",
+      "Built for agent workflows",
+      "Free and open source app"
+    ],
+    "limitations": [
+      "macOS only",
+      "Server components use a different license"
+    ],
+    "useCases": [
+      {
+        "title": "Parallel agents",
+        "body": "Track many sessions at once."
+      },
+      {
+        "title": "Remote dev",
+        "body": "Workspaces over SSH."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from cmux's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/manaflow-ai/cmux/blob/f3d16c2fffeeeb67df20683e5961e5c455038ae0/README.md",
+      "prerequisites": [
+        "A Mac"
+      ],
+      "supportedOs": [
+        "macOS"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "DMG (recommended)",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download",
+              "body": "Get cmux-macos.dmg from the latest GitHub release."
+            },
+            {
+              "title": "Install",
+              "body": "Open the .dmg and drag cmux to Applications. It auto-updates."
+            }
+          ]
+        },
+        {
+          "os": "macos",
+          "label": "Homebrew",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew tap manaflow-ai/cmux\nbrew install --cask cmux",
+              "lang": "bash"
+            },
+            {
+              "title": "First launch",
+              "body": "If macOS asks to confirm opening the app, click Open."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open a workspace",
+          "body": "Start a coding agent in a pane."
+        },
+        {
+          "title": "Watch the sidebar",
+          "body": "Tabs show branch, PR and notifications."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run Claude Code teammates in cmux",
+      "useCase": "Use the built-in teams command.",
+      "setup": [
+        "cmux installed",
+        "Claude Code installed"
+      ],
+      "steps": [
+        {
+          "title": "Open cmux in your project"
+        },
+        {
+          "title": "Start teams",
+          "code": "cmux claude-teams",
+          "lang": "bash"
+        },
+        {
+          "title": "Follow alerts",
+          "body": "Panes ring blue when a teammate needs input."
+        }
+      ],
+      "expected": "Claude Code teammates running as native splits with sidebar info and notifications.",
+      "nextSteps": [
+        "Split a browser pane",
+        "Try cmux ssh",
+        "Define commands in cmux.json"
+      ],
+      "sourceUrl": "https://github.com/manaflow-ai/cmux/blob/f3d16c2fffeeeb67df20683e5961e5c455038ae0/README.md"
+    },
+    "costs": [
+      {
+        "label": "cmux app",
+        "value": "Free and open source under GPL-3.0-or-later.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Shell completions don't load",
+        "solution": "Make sure Homebrew's completion folders are set up in your shell, or add the eval line for your shell.",
+        "sourceUrl": "https://github.com/manaflow-ai/cmux/blob/f3d16c2fffeeeb67df20683e5961e5c455038ae0/README.md"
+      }
+    ],
+    "bestFor": [
+      "Terminal for AI agents",
+      "Managing parallel coding agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "macOS terminal app"
+      },
+      {
+        "label": "Language",
+        "value": "Swift"
+      },
+      {
+        "label": "License",
+        "value": "GPL-3.0-or-later (app)"
+      },
+      {
+        "label": "Install",
+        "value": "brew install --cask cmux"
+      }
+    ]
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "fullName": "milind-soni/OpenMausBot",
+  "summary": "Desktop chat app for running your own team of AI bots, each a real Claude or Codex agent with its own model, apps and computer.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/milind-soni/OpenMausBot/blob/9f58fbc323deff80ab93ee9d74a4173f13f5c8d5/README.md"
+    ],
+    "sourceCommitSha": "9f58fbc323deff80ab93ee9d74a4173f13f5c8d5",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Download",
+        "command": "Get the macOS, Windows or Linux build from the latest release"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "OpenMausBot is an open-source, local-first chat app where every bot in the sidebar is a real agent, powered by Claude or Codex running locally. Each bot has its own personality, model, computer and connected apps. You talk to them like contacts, watch them work and approve important actions. Teams of bots can be installed from a portable Markdown file.",
+      "problem": "Running several AI agents for different jobs usually means juggling terminals. OpenMausBot puts them in one chat-style app with approvals and channels.",
+      "whoFor": [
+        "People who want a personal team of AI agents",
+        "Claude Code or Codex users",
+        "Small teams automating routines"
+      ],
+      "whyChoose": "Choose it to bring your own agent and existing logins, with bots that ask before they act, channels, routines and an MCP interface.",
+      "requirements": [
+        "macOS, Windows x64, Ubuntu 24.04 x64 or Fedora x64",
+        "An existing Claude, ChatGPT/Codex or Grok login"
+      ]
+    },
+    "overview": [
+      "Download the released build for your platform; the harness server is built in, so there's nothing else to set up. Builds for macOS are signed and notarized; the Windows installer needs no admin rights.",
+      "Pick a model per bot, connect apps, and organize bots into channels. Imported teams arrive with connections off and routines paused until you approve them.",
+      "Bots can be orchestrated over MCP or from scripts, and one computer's bots can be opened from another over Tailscale. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Bot team",
+        "body": "Each bot is a real agent."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Bring your own agent",
+        "body": "Claude, Codex or Grok."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Approvals",
+        "body": "Bots ask before they act."
+      },
+      {
+        "icon": "file-code",
+        "title": "Connected apps",
+        "body": "Per-bot connections."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Team import",
+        "body": "Install from one Markdown file."
+      },
+      {
+        "icon": "shield",
+        "title": "Schedules and webhooks",
+        "body": "Triggers for routines."
+      }
+    ],
+    "strengths": [
+      "Local-first",
+      "Uses logins you already have",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Depends on your agent plans",
+      "Lots of moving parts for beginners"
+    ],
+    "useCases": [
+      {
+        "title": "Personal chief of staff",
+        "body": "Bots that run routines."
+      },
+      {
+        "title": "Team workflows",
+        "body": "Channels for different projects."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from OpenMausBot's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/milind-soni/OpenMausBot/blob/9f58fbc323deff80ab93ee9d74a4173f13f5c8d5/README.md",
+      "prerequisites": [
+        "A supported desktop OS",
+        "An agent login"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Windows",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "macOS",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download",
+              "body": "Get OpenMausBot.dmg (Apple silicon) or OpenMausBot-intel.dmg from the latest release."
+            },
+            {
+              "title": "Install",
+              "body": "Drag it to Applications and open it."
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Windows",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Run the installer",
+              "body": "Download OpenMausBot-setup.exe and run it; no admin rights needed."
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Linux",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Install the package",
+              "body": "Use the .deb or AppImage on Ubuntu 24.04, or the .rpm on Fedora (sudo dnf install ./OpenMausBot-x86_64.rpm from your Downloads folder)."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Connect a brain",
+          "body": "Sign in with Claude, ChatGPT/Codex or add an xAI key for Grok."
+        },
+        {
+          "title": "Message a bot",
+          "body": "Talk to it like a contact."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Install a ready-made bot team",
+      "useCase": "Import a team from a Markdown playbook.",
+      "setup": [
+        "OpenMausBot installed",
+        "An agent connected"
+      ],
+      "steps": [
+        {
+          "title": "Find a team",
+          "body": "Browse teams on BotMRR and choose Add to OpenMausBot, or use Teams, Import with a file or GitHub URL."
+        },
+        {
+          "title": "Review",
+          "body": "Check the bots, channels and connector checklist on the review screen."
+        },
+        {
+          "title": "Turn things on",
+          "body": "Approve connections and unpause routines you want."
+        }
+      ],
+      "expected": "A set of bots and channels ready to work, with nothing enabled until you approve it.",
+      "nextSteps": [
+        "Give a bot its own apps",
+        "Set a schedule trigger",
+        "Orchestrate over MCP"
+      ],
+      "sourceUrl": "https://github.com/milind-soni/OpenMausBot/blob/9f58fbc323deff80ab93ee9d74a4173f13f5c8d5/README.md"
+    },
+    "costs": [
+      {
+        "label": "OpenMausBot",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Agents",
+        "value": "Uses your Claude, ChatGPT or Grok plans or API keys.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Linux desktop issues",
+        "solution": "See the Ubuntu Desktop guide in the docs folder.",
+        "sourceUrl": "https://github.com/milind-soni/OpenMausBot/blob/9f58fbc323deff80ab93ee9d74a4173f13f5c8d5/README.md"
+      }
+    ],
+    "bestFor": [
+      "Personal AI agent team",
+      "Desktop app for agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Desktop agent app"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Platforms",
+        "value": "macOS, Windows, Linux"
+      }
+    ]
+  }
+}

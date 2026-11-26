@@ -1,0 +1,234 @@
+{
+  "fullName": "gastownhall/beads",
+  "summary": "Issue tracker built for coding agents: a dependency-aware task graph stored in Dolt that gives agents lasting memory for long projects.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/gastownhall/beads/blob/78624109904655d7a4609f27d34eb0982cd8963f/README.md"
+    ],
+    "sourceCommitSha": "78624109904655d7a4609f27d34eb0982cd8963f",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Homebrew",
+        "command": "brew install beads"
+      },
+      {
+        "comment": "Set up a project",
+        "command": "bd init"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Beads (the bd command) is a distributed graph issue tracker for AI coding agents. It replaces loose markdown plans with tasks that have dependencies, priorities and owners, stored in a version-controlled Dolt database. Agents ask bd which tasks are ready, claim one, and close it when done, and project memories can be stored and re-injected later.",
+      "problem": "Coding agents lose track of long tasks and plans scattered across markdown files. Beads gives them a structured, persistent task list that survives sessions and merges cleanly across branches.",
+      "whoFor": [
+        "Developers using Claude Code, Codex, Cursor or Factory",
+        "Teams running several agents on one codebase",
+        "People tackling long multi-step projects with agents"
+      ],
+      "whyChoose": "Choose it for dependency-aware ready-task detection, hash-based IDs that avoid merge conflicts, JSON output for agents and built-in setup for popular agents.",
+      "requirements": [
+        "macOS, Linux, Windows or FreeBSD"
+      ]
+    },
+    "overview": [
+      "Install the bd CLI once system-wide (Homebrew, npm or the install script); don't clone the repo into your project. Then run bd init in your project.",
+      "bd init writes AGENTS.md guidance and installs Claude Code, Codex and Cursor integrations unless you skip them. bd setup claude or bd setup codex refreshes richer instructions.",
+      "Data lives in an embedded Dolt database by default; server mode supports several writers, and bd dolt push/pull syncs through your git remote. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Task graph",
+        "body": "Dependencies, blocks and parent-child links."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Ready detection",
+        "body": "bd ready lists unblocked tasks."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Atomic claims",
+        "body": "bd update --claim."
+      },
+      {
+        "icon": "file-code",
+        "title": "Memory",
+        "body": "bd remember and bd prime."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Dolt storage",
+        "body": "Versioned SQL with merge and sync."
+      },
+      {
+        "icon": "shield",
+        "title": "Compaction",
+        "body": "Summarizes old closed tasks."
+      }
+    ],
+    "strengths": [
+      "Made for agents",
+      "Conflict-free IDs",
+      "MIT license"
+    ],
+    "limitations": [
+      "New workflow for agents to learn",
+      "Dolt storage concepts to understand for sync"
+    ],
+    "useCases": [
+      {
+        "title": "Long refactors",
+        "body": "Break work into linked tasks."
+      },
+      {
+        "title": "Multi-agent work",
+        "body": "Agents claim tasks without collisions."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Beads (bd)'s README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/gastownhall/beads/blob/78624109904655d7a4609f27d34eb0982cd8963f/README.md",
+      "prerequisites": [
+        "A supported OS",
+        "Homebrew or npm (or the install script)"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Homebrew",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install beads",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "npm",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install -g @beads/bd",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install system-wide",
+              "code": "curl -fsSL https://raw.githubusercontent.com/gastownhall/beads/main/scripts/install.sh | bash",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Initialize your project",
+          "body": "Creates AGENTS.md guidance and agent integrations.",
+          "code": "cd your-project\nbd init",
+          "lang": "bash"
+        },
+        {
+          "title": "Set up your agent",
+          "body": "bd setup claude or bd setup codex."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Plan work as tasks your agent can follow",
+      "useCase": "Create linked tasks and let the agent pick them up.",
+      "setup": [
+        "bd installed",
+        "bd init run in your project"
+      ],
+      "steps": [
+        {
+          "title": "Create a task",
+          "code": "bd create \"Title\" -p 0",
+          "lang": "bash"
+        },
+        {
+          "title": "Link tasks",
+          "code": "bd dep add <child> <parent>",
+          "lang": "bash"
+        },
+        {
+          "title": "See what's ready",
+          "code": "bd ready",
+          "lang": "bash"
+        },
+        {
+          "title": "Let the agent claim one",
+          "code": "bd update <id> --claim",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A task graph your agent works through in order, with status saved between sessions.",
+      "nextSteps": [
+        "Store a memory with bd remember",
+        "Sync with bd dolt push",
+        "Try GitHub Issues sync"
+      ],
+      "sourceUrl": "https://github.com/gastownhall/beads/blob/78624109904655d7a4609f27d34eb0982cd8963f/README.md"
+    },
+    "costs": [
+      {
+        "label": "Beads",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Agent ignores Beads",
+        "solution": "Run bd prime or bd setup for your agent so it gets the workflow instructions.",
+        "sourceUrl": "https://github.com/gastownhall/beads/blob/78624109904655d7a4609f27d34eb0982cd8963f/README.md"
+      },
+      {
+        "problem": "Upgrading",
+        "solution": "Read the upgrade notes; replacing the binary isn't always enough.",
+        "sourceUrl": "https://github.com/gastownhall/beads/blob/78624109904655d7a4609f27d34eb0982cd8963f/README.md"
+      }
+    ],
+    "bestFor": [
+      "Task tracking for AI agents",
+      "Agent memory for long projects"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "CLI issue tracker"
+      },
+      {
+        "label": "Language",
+        "value": "Go"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "brew install beads"
+      }
+    ]
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "fullName": "deezer/spleeter",
+  "summary": "Deezer's music source separation tool with pretrained models that split songs into vocals, drums, bass, piano and other stems.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/deezer/spleeter/blob/6f2c8a2e283914faa544631430f65b793f1b1218/README.md"
+    ],
+    "sourceCommitSha": "6f2c8a2e283914faa544631430f65b793f1b1218",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install spleeter"
+      },
+      {
+        "comment": "Separate",
+        "command": "spleeter separate -p spleeter:2stems -o output audio_example.mp3"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Spleeter is Deezer's source separation library, written in Python on TensorFlow. Its pretrained models split music into 2 stems (vocals and accompaniment), 4 stems (vocals, drums, bass, other) or 5 stems (adding piano). You can use it from the command line or as a Python library, and you can train your own models if you have isolated-source data.",
+      "problem": "Getting a clean vocal or instrumental track from a finished song is hard without the original multitrack. Spleeter does it quickly with pretrained models.",
+      "whoFor": [
+        "Musicians and producers",
+        "DJs making stems",
+        "Audio researchers"
+      ],
+      "whyChoose": "Choose it for fast, well-known pretrained models that are used inside professional audio software, with a simple CLI.",
+      "requirements": [
+        "Python",
+        "ffmpeg and libsndfile"
+      ]
+    },
+    "overview": [
+      "Install ffmpeg and libsndfile, then pip install spleeter. Run spleeter separate with a model such as spleeter:2stems and an output folder.",
+      "You get one audio file per stem, for example vocals.wav and accompaniment.wav. A Google Colab notebook lets you try it without installing anything, and a Docker image is also available.",
+      "Version 2.1.0 changed some CLI options and dropped the separate GPU package, and Apple M1 machines have known TensorFlow issues. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "2 stems",
+        "body": "Vocals and accompaniment."
+      },
+      {
+        "icon": "scan-search",
+        "title": "4 stems",
+        "body": "Vocals, drums, bass, other."
+      },
+      {
+        "icon": "puzzle",
+        "title": "5 stems",
+        "body": "Adds piano."
+      },
+      {
+        "icon": "file-code",
+        "title": "CLI and library",
+        "body": "Use either way."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Train your own",
+        "body": "With isolated-source data."
+      },
+      {
+        "icon": "shield",
+        "title": "Colab and Docker",
+        "body": "Try or deploy easily."
+      }
+    ],
+    "strengths": [
+      "Fast",
+      "Pretrained models included",
+      "MIT license"
+    ],
+    "limitations": [
+      "TensorFlow issues on Apple M1",
+      "CLI options changed in 2.1.0"
+    ],
+    "useCases": [
+      {
+        "title": "Karaoke tracks",
+        "body": "Remove vocals."
+      },
+      {
+        "title": "Remix stems",
+        "body": "Isolate drums or bass."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Spleeter's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/deezer/spleeter/blob/6f2c8a2e283914faa544631430f65b793f1b1218/README.md",
+      "prerequisites": [
+        "Python and pip",
+        "ffmpeg and libsndfile"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install audio dependencies",
+              "body": "Install ffmpeg and libsndfile for your system. The README shows conda for this, but no longer recommends conda for Spleeter itself.",
+              "code": "conda install -c conda-forge ffmpeg libsndfile",
+              "lang": "bash"
+            },
+            {
+              "title": "Install Spleeter",
+              "code": "pip install spleeter",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Google Colab",
+          "method": "colab",
+          "steps": [
+            {
+              "title": "Open the notebook",
+              "body": "Use the spleeter.ipynb Colab link in the README to try it with no install."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Separate a song",
+          "body": "Run spleeter separate on an MP3 with the 2stems model."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Split a song into vocals and accompaniment",
+      "useCase": "The README's quick start.",
+      "setup": [
+        "Spleeter, ffmpeg and libsndfile installed"
+      ],
+      "steps": [
+        {
+          "title": "Get the example file",
+          "code": "wget https://github.com/deezer/spleeter/raw/master/audio_example.mp3",
+          "lang": "bash"
+        },
+        {
+          "title": "Separate it",
+          "code": "spleeter separate -p spleeter:2stems -o output audio_example.mp3",
+          "lang": "bash"
+        },
+        {
+          "title": "Listen",
+          "body": "Open output/audio_example."
+        }
+      ],
+      "expected": "vocals.wav and accompaniment.wav in output/audio_example.",
+      "nextSteps": [
+        "Try 4stems or 5stems",
+        "Use it from Python",
+        "Use the Docker image"
+      ],
+      "sourceUrl": "https://github.com/deezer/spleeter/blob/6f2c8a2e283914faa544631430f65b793f1b1218/README.md"
+    },
+    "costs": [
+      {
+        "label": "Spleeter",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Spleeter Pro",
+        "value": "Deezer's commercial version is paid.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Errors on Apple M1",
+        "solution": "Known TensorFlow issue; see the workaround linked in the README.",
+        "sourceUrl": "https://github.com/deezer/spleeter/blob/6f2c8a2e283914faa544631430f65b793f1b1218/README.md"
+      },
+      {
+        "problem": "Old commands don't work",
+        "solution": "2.1.0 renamed CLI options; check the CHANGELOG.",
+        "sourceUrl": "https://github.com/deezer/spleeter/blob/6f2c8a2e283914faa544631430f65b793f1b1218/README.md"
+      }
+    ],
+    "bestFor": [
+      "Music stem separation",
+      "Vocal removal"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Audio separation library"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "pip install spleeter"
+      }
+    ]
+  }
+}

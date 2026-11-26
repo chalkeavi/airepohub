@@ -1,0 +1,258 @@
+{
+  "fullName": "charmbracelet/crush",
+  "summary": "Terminal AI coding agent from Charm that works with many LLMs, keeps per-project sessions, and uses LSPs and MCP servers for extra context.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/charmbracelet/crush/blob/152e565f9f63c73d1d61157db1eb31afea46ba8e/README.md"
+    ],
+    "sourceCommitSha": "152e565f9f63c73d1d61157db1eb31afea46ba8e",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Homebrew",
+        "command": "brew install charmbracelet/tap/crush"
+      },
+      {
+        "comment": "npm",
+        "command": "npm install -g @charmland/crush"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Crush is an AI coding assistant for the terminal. It connects your code, tools and workflows to the LLM you choose, lets you switch models mid-session without losing context, keeps multiple sessions per project, uses language servers (LSPs) for code context, and can be extended with MCP servers over http, stdio or sse.",
+      "problem": "Gives you a polished terminal coding agent that isn't tied to one model provider and runs on almost any OS.",
+      "whoFor": [
+        "Developers who live in the terminal",
+        "People who want to choose or switch LLM providers",
+        "Users of local models"
+      ],
+      "whyChoose": "Choose it for multi-model support, LSP-aware context, MCP extensibility and first-class support on macOS, Linux, Windows, Android and BSDs.",
+      "requirements": [
+        "A terminal",
+        "A model provider: Charm Hyper, an API key for Anthropic, OpenAI, Gemini and others, or a local model"
+      ]
+    },
+    "overview": [
+      "Install with Homebrew, npm, Winget, Scoop, Arch, Nix or FreeBSD packages, then run crush in your project.",
+      "The quickest start is picking a Charm Hyper model in the model picker and signing in. Or press ctrl+l, choose another provider and paste your key, or set environment variables such as ANTHROPIC_API_KEY or OPENAI_API_KEY.",
+      "Configuration covers themes, LSPs, MCPs, hooks, skills, tool permissions and custom or local providers. It is licensed under FSL-1.1-MIT."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Multi-model",
+        "body": "Many LLMs, or add OpenAI/Anthropic-compatible APIs."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Switch mid-session",
+        "body": "Keep context when changing models."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Sessions",
+        "body": "Several per project."
+      },
+      {
+        "icon": "file-code",
+        "title": "LSP-enhanced",
+        "body": "Code intelligence for context."
+      },
+      {
+        "icon": "git-compare",
+        "title": "MCP",
+        "body": "http, stdio and sse servers."
+      },
+      {
+        "icon": "shield",
+        "title": "Runs everywhere",
+        "body": "macOS, Linux, Windows, Android, BSD."
+      }
+    ],
+    "strengths": [
+      "Provider freedom",
+      "Great terminal UI",
+      "Broad OS support"
+    ],
+    "limitations": [
+      "FSL license, not OSI open source until it converts to MIT",
+      "Model usage costs money unless local"
+    ],
+    "useCases": [
+      {
+        "title": "Code with your preferred model",
+        "body": "Switch providers freely."
+      },
+      {
+        "title": "Local-model coding",
+        "body": "Configure a local provider."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Crush's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/charmbracelet/crush/blob/152e565f9f63c73d1d61157db1eb31afea46ba8e/README.md",
+      "prerequisites": [
+        "A model provider or local model"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Homebrew",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install charmbracelet/tap/crush",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "npm",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install -g @charmland/crush",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Winget",
+          "method": "winget",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "winget install charmbracelet.crush",
+              "lang": "powershell"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Scoop",
+          "method": "scoop",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "scoop bucket add charm https://github.com/charmbracelet/scoop-bucket.git\nscoop install crush",
+              "lang": "powershell"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "required": false,
+          "description": "Use Anthropic models."
+        },
+        {
+          "name": "OPENAI_API_KEY",
+          "required": false,
+          "description": "Use OpenAI models."
+        },
+        {
+          "name": "GEMINI_API_KEY",
+          "required": false,
+          "description": "Use Google Gemini."
+        },
+        {
+          "name": "HYPER_API_KEY",
+          "required": false,
+          "description": "Use Charm Hyper."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Start Crush",
+          "body": "Run crush in your project folder."
+        },
+        {
+          "title": "Pick a model",
+          "body": "Choose a Hyper model, or press ctrl+l to pick another provider and paste a key."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Start your first coding session",
+      "useCase": "Get Crush connected to a model.",
+      "setup": [
+        "Crush installed",
+        "An API key or Hyper account"
+      ],
+      "steps": [
+        {
+          "title": "Open your project",
+          "code": "cd your-project\ncrush",
+          "lang": "bash"
+        },
+        {
+          "title": "Choose a provider",
+          "body": "Press ctrl+l, pick a provider and paste your API key."
+        },
+        {
+          "title": "Ask for a change",
+          "body": "Describe a small fix or feature."
+        }
+      ],
+      "expected": "Crush reads your code and proposes or makes the change.",
+      "nextSteps": [
+        "Add an MCP server",
+        "Configure an LSP",
+        "Try a local model"
+      ],
+      "sourceUrl": "https://github.com/charmbracelet/crush/blob/152e565f9f63c73d1d61157db1eb31afea46ba8e/README.md"
+    },
+    "costs": [
+      {
+        "label": "Crush",
+        "value": "Free to use under FSL-1.1-MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Hyper has subscription and prepaid plans; other providers bill per use; local models are free.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Something went wrong",
+        "solution": "Check crush logs, or run crush --debug.",
+        "sourceUrl": "https://github.com/charmbracelet/crush/blob/152e565f9f63c73d1d61157db1eb31afea46ba8e/README.md"
+      }
+    ],
+    "bestFor": [
+      "Terminal coding agent",
+      "Multi-model coding"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI coding agent (TUI)"
+      },
+      {
+        "label": "Language",
+        "value": "Go"
+      },
+      {
+        "label": "License",
+        "value": "FSL-1.1-MIT"
+      },
+      {
+        "label": "Install",
+        "value": "brew install charmbracelet/tap/crush"
+      }
+    ]
+  }
+}

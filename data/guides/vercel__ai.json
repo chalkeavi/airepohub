@@ -1,0 +1,215 @@
+{
+  "fullName": "vercel/ai",
+  "summary": "Vercel's TypeScript toolkit for building AI apps and agents with one API across OpenAI, Anthropic, Google and other model providers.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/vercel/ai/blob/80d778a6d509a1932dffb5063c9a8ba1a26caaba/packages/ai/README.md"
+    ],
+    "sourceCommitSha": "80d778a6d509a1932dffb5063c9a8ba1a26caaba",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "npm install ai"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "The AI SDK is a provider-agnostic TypeScript toolkit for AI-powered apps and agents. One API generates text, structured data and tool-using agents with any supported model, and the AI SDK UI hooks help build chat and generative interfaces in frameworks such as Next.js, React and Svelte.",
+      "problem": "Every model provider has its own SDK and streaming format. The AI SDK gives one interface so you can switch models without rewriting your app.",
+      "whoFor": [
+        "TypeScript and JavaScript developers",
+        "Teams building chat UIs in Next.js or React",
+        "Developers building agents with tools"
+      ],
+      "whyChoose": "Choose it for a unified provider API, strong UI integration and an agent class that loops over tool calls for you.",
+      "requirements": [
+        "Node.js 22+",
+        "npm or another package manager",
+        "A model provider: Vercel AI Gateway or a provider's own package"
+      ]
+    },
+    "overview": [
+      "Install with npm install ai. By default it routes through the Vercel AI Gateway, so you can pass a model string like anthropic/... or openai/.... Or install provider packages such as @ai-sdk/openai, @ai-sdk/anthropic or @ai-sdk/google to connect directly.",
+      "Use generateText for text, structured output helpers for typed data, and ToolLoopAgent for agents that call tools. UI hooks come from framework packages such as @ai-sdk/react.",
+      "Coding agents can add the AI SDK skill with npx skills add vercel/ai. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Unified provider API",
+        "body": "Many providers, one interface."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Text generation",
+        "body": "generateText and streaming."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Structured data",
+        "body": "Typed outputs."
+      },
+      {
+        "icon": "file-code",
+        "title": "Agents",
+        "body": "ToolLoopAgent with tools."
+      },
+      {
+        "icon": "git-compare",
+        "title": "UI hooks",
+        "body": "Chat and generative UI."
+      },
+      {
+        "icon": "shield",
+        "title": "Agent skill",
+        "body": "npx skills add vercel/ai."
+      }
+    ],
+    "strengths": [
+      "Swap models easily",
+      "Great with Next.js",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "TypeScript/JavaScript only",
+      "Gateway or provider usage costs money"
+    ],
+    "useCases": [
+      {
+        "title": "Chatbot in Next.js",
+        "body": "Use the UI hooks."
+      },
+      {
+        "title": "Agent with tools",
+        "body": "ToolLoopAgent."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from AI SDK's package README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/vercel/ai/blob/80d778a6d509a1932dffb5063c9a8ba1a26caaba/packages/ai/README.md",
+      "prerequisites": [
+        "Node.js 22+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npm",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install ai",
+              "lang": "bash"
+            },
+            {
+              "title": "Optional: direct provider packages",
+              "code": "npm install @ai-sdk/openai @ai-sdk/anthropic @ai-sdk/google",
+              "lang": "bash"
+            },
+            {
+              "title": "Optional: UI hooks for React",
+              "code": "npm install @ai-sdk/react",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Skill for coding agents",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Add the skill",
+              "code": "npx skills add vercel/ai",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Generate text",
+          "body": "Call generateText with a model and a prompt."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Generate text with any provider",
+      "useCase": "The README's first example.",
+      "setup": [
+        "npm install ai",
+        "A Vercel AI Gateway key or a provider package and key"
+      ],
+      "steps": [
+        {
+          "title": "Import",
+          "body": "import { generateText } from 'ai'."
+        },
+        {
+          "title": "Call a model",
+          "body": "await generateText({ model: 'provider/model-name', prompt: 'Hello!' })."
+        },
+        {
+          "title": "Swap providers",
+          "body": "Change the model string, or use a provider package such as anthropic(...)."
+        }
+      ],
+      "expected": "Generated text from the model you chose.",
+      "nextSteps": [
+        "Generate structured data",
+        "Build an agent with tools",
+        "Add a chat UI"
+      ],
+      "sourceUrl": "https://github.com/vercel/ai/blob/80d778a6d509a1932dffb5063c9a8ba1a26caaba/packages/ai/README.md"
+    },
+    "costs": [
+      {
+        "label": "AI SDK",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Billed by Vercel AI Gateway or your provider.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install fails",
+        "solution": "Check that Node.js is version 22 or newer.",
+        "sourceUrl": "https://github.com/vercel/ai/blob/80d778a6d509a1932dffb5063c9a8ba1a26caaba/packages/ai/README.md"
+      }
+    ],
+    "bestFor": [
+      "TypeScript AI apps",
+      "Multi-provider LLM toolkit"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI toolkit (SDK)"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "npm install ai"
+      }
+    ]
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "fullName": "mlflow/mlflow",
+  "summary": "Open-source platform to trace, evaluate and monitor LLM apps and agents, and to track, register and deploy machine learning models.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/mlflow/mlflow/blob/ee34cb4b99d4580a09e6a738e0766780ffd7d4b3/README.md"
+    ],
+    "sourceCommitSha": "ee34cb4b99d4580a09e6a738e0766780ffd7d4b3",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Start the server",
+        "command": "uvx mlflow server"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "MLflow is an open-source AI engineering platform for agents, LLMs and ML models. For LLM apps it offers tracing (observability), evaluation, prompt management and optimization, and an AI gateway. For classic ML it offers experiment tracking, model evaluation, a model registry and deployment to Docker, Kubernetes, Azure ML, SageMaker and more.",
+      "problem": "Shipping AI to production needs a way to see what your app did, measure quality and manage models over time. MLflow covers that lifecycle in one vendor-neutral tool.",
+      "whoFor": [
+        "Teams building LLM apps and agents",
+        "Data scientists tracking experiments",
+        "ML engineers deploying models"
+      ],
+      "whyChoose": "Choose it for a widely used, vendor-neutral platform that works locally or on managed services, with integrations for many agent frameworks and model providers.",
+      "requirements": [
+        "Python (uv/uvx for the quick start)",
+        "Your model provider's API key for LLM tracing"
+      ]
+    },
+    "overview": [
+      "Start a tracking server with uvx mlflow server, point your code at http://localhost:5000 and turn on autologging, for example mlflow.openai.autolog(). Then run your code and open the UI to see traces and metrics.",
+      "A setup wizard can configure tracing for you when run from a Git repo with Claude Code, Codex or OpenCode installed.",
+      "It supports Python, TypeScript/JavaScript and Java, plus OpenTelemetry, and can be hosted locally, on-premises or on managed services such as Databricks, SageMaker and Azure ML. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Tracing",
+        "body": "See every step of LLM and agent runs."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Evaluation",
+        "body": "Measure output quality."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Prompts",
+        "body": "Manage and optimize prompts."
+      },
+      {
+        "icon": "file-code",
+        "title": "AI Gateway",
+        "body": "Control model access and costs."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Experiment tracking",
+        "body": "Params, metrics and results."
+      },
+      {
+        "icon": "shield",
+        "title": "Model registry and deployment",
+        "body": "Manage and serve models."
+      }
+    ],
+    "strengths": [
+      "Covers LLMs and classic ML",
+      "Vendor-neutral",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Lots of features to learn",
+      "You run and maintain the server when self-hosting"
+    ],
+    "useCases": [
+      {
+        "title": "Debug an agent",
+        "body": "Trace each tool call."
+      },
+      {
+        "title": "Compare model runs",
+        "body": "Track experiments in the UI."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from MLflow's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/mlflow/mlflow/blob/ee34cb4b99d4580a09e6a738e0766780ffd7d4b3/README.md",
+      "prerequisites": [
+        "Python and uv"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Quick start",
+          "method": "uvx",
+          "steps": [
+            {
+              "title": "Start the MLflow server",
+              "code": "uvx mlflow server",
+              "lang": "bash"
+            },
+            {
+              "title": "Enable logging in your code",
+              "body": "In Python: import mlflow, then mlflow.set_tracking_uri(\"http://localhost:5000\") and mlflow.openai.autolog()."
+            },
+            {
+              "title": "Open the UI",
+              "body": "Go to http://localhost:5000."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Setup wizard",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Run from your project's Git repo",
+              "body": "Needs Claude Code, Codex or OpenCode installed.",
+              "code": "curl -LsSf https://mlflow.org/wizard/setup.sh | sh",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Trace one call",
+          "body": "Autolog an OpenAI call and view it in the UI."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Trace your first LLM call",
+      "useCase": "The README's three-step start.",
+      "setup": [
+        "uv installed",
+        "OpenAI API key set"
+      ],
+      "steps": [
+        {
+          "title": "Start the server",
+          "code": "uvx mlflow server",
+          "lang": "bash"
+        },
+        {
+          "title": "Turn on autologging",
+          "body": "mlflow.set_tracking_uri(\"http://localhost:5000\") and mlflow.openai.autolog()."
+        },
+        {
+          "title": "Run a call",
+          "body": "Call client.responses.create with a short input."
+        },
+        {
+          "title": "View it",
+          "body": "Open localhost:5000 to see the trace."
+        }
+      ],
+      "expected": "A trace of the call with inputs, outputs and metrics in the MLflow UI.",
+      "nextSteps": [
+        "Add an evaluation",
+        "Try prompt management",
+        "Track a training experiment"
+      ],
+      "sourceUrl": "https://github.com/mlflow/mlflow/blob/ee34cb4b99d4580a09e6a738e0766780ffd7d4b3/README.md"
+    },
+    "costs": [
+      {
+        "label": "MLflow",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Managed hosting",
+        "value": "Optional, from cloud providers.",
+        "tone": "paid"
+      },
+      {
+        "label": "Models",
+        "value": "Your provider bills for LLM usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "No traces appear",
+        "solution": "Check the tracking URI matches the running server.",
+        "sourceUrl": "https://github.com/mlflow/mlflow/blob/ee34cb4b99d4580a09e6a738e0766780ffd7d4b3/README.md"
+      }
+    ],
+    "bestFor": [
+      "LLM observability",
+      "ML experiment tracking"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI/ML platform"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "uvx mlflow server"
+      }
+    ]
+  }
+}

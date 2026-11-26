@@ -1,0 +1,237 @@
+{
+  "fullName": "every-app/open-seo",
+  "summary": "Open-source, pay-as-you-go alternative to Semrush and Ahrefs, with an MCP server and skills so AI agents can do keyword and rank research.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/every-app/open-seo/blob/6f68494e92a695db17f4b22da25e84b9bf1e582c/README.md"
+    ],
+    "sourceCommitSha": "6f68494e92a695db17f4b22da25e84b9bf1e582c",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Self-host with EveryApp",
+        "command": "everyapp install https://github.com/every-app/open-seo"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "OpenSEO is an open-source SEO tool for keyword research, rank tracking, competitor insights, backlinks, site audits and AI visibility. It exposes an MCP server so agents like Claude Code, OpenClaw, Hermes and ChatGPT can use your SEO data, and ships agent skills for common SEO tasks. Data comes from DataForSEO, which you pay for directly.",
+      "problem": "Semrush and Ahrefs are expensive subscriptions with more than most people need. OpenSEO gives focused workflows and you pay only for the data you use.",
+      "whoFor": [
+        "Founders and marketers doing their own SEO",
+        "People who want SEO data inside their AI agent",
+        "Developers who want to customize an SEO tool"
+      ],
+      "whyChoose": "Choose it for no subscription when self-hosting, MCP and agent skills, a simple UI and code you can fork.",
+      "requirements": [
+        "A DataForSEO API key (or a treg account)",
+        "EveryApp on Cloudflare, Docker, or your own Cloudflare account to self-host"
+      ]
+    },
+    "overview": [
+      "Try the hosted version at openseo.so; a hosted subscription is $10/month. The hosted service adds 28% to each DataForSEO request.",
+      "The recommended self-hosted route is EveryApp, which runs in your Cloudflare account. Install its CLI, set up a domain and install OpenSEO. Docker and standalone Cloudflare setups are documented in the repo.",
+      "Self-hosted accounts use email and password; the first visitor becomes admin. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Keyword research",
+        "body": "Find terms to target."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Rank tracking",
+        "body": "Watch positions over time."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Competitor insights",
+        "body": "See what others rank for."
+      },
+      {
+        "icon": "file-code",
+        "title": "Backlinks and site audits",
+        "body": "Links and technical checks."
+      },
+      {
+        "icon": "git-compare",
+        "title": "AI visibility",
+        "body": "How you appear in AI answers."
+      },
+      {
+        "icon": "shield",
+        "title": "MCP and skills",
+        "body": "Use from Claude Code, ChatGPT and more."
+      }
+    ],
+    "strengths": [
+      "Pay only for data used",
+      "Agent-ready",
+      "MIT license"
+    ],
+    "limitations": [
+      "Needs a DataForSEO account",
+      "Smaller feature set than big suites"
+    ],
+    "useCases": [
+      {
+        "title": "Agent-led keyword research",
+        "body": "Ask Claude Code for keyword ideas via MCP."
+      },
+      {
+        "title": "Weekly rank checks",
+        "body": "Track your main pages."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from OpenSEO's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/every-app/open-seo/blob/6f68494e92a695db17f4b22da25e84b9bf1e582c/README.md",
+      "prerequisites": [
+        "DataForSEO API key",
+        "Node.js for the EveryApp CLI"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "EveryApp (recommended)",
+          "method": "everyapp",
+          "steps": [
+            {
+              "title": "Install the EveryApp CLI",
+              "code": "npm install -g everyapp",
+              "lang": "bash"
+            },
+            {
+              "title": "Set up your domain",
+              "code": "everyapp setup --domain apps.yourcompany.com",
+              "lang": "bash"
+            },
+            {
+              "title": "Install OpenSEO",
+              "code": "everyapp install https://github.com/every-app/open-seo",
+              "lang": "bash"
+            },
+            {
+              "title": "Add your DataForSEO key",
+              "body": "See docs/DATAFORSEO_API_KEY.md."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker or Cloudflare",
+          "method": "docs",
+          "steps": [
+            {
+              "title": "Follow the guide",
+              "body": "See docs/SELF_HOSTING_DOCKER.md or docs/SELF_HOSTING_CLOUDFLARE.md in the repo."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Hosted",
+          "method": "cloud",
+          "steps": [
+            {
+              "title": "Sign up",
+              "body": "Use openseo.so if you don't want to self-host."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Create the admin account",
+          "body": "The first visitor to a self-hosted instance becomes admin."
+        },
+        {
+          "title": "Run keyword research",
+          "body": "Search a topic and review the results."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Do SEO research from your AI agent",
+      "useCase": "Connect OpenSEO to an agent over MCP.",
+      "setup": [
+        "OpenSEO running with a DataForSEO key"
+      ],
+      "steps": [
+        {
+          "title": "Set up the MCP server",
+          "body": "Follow openseo.so/docs/mcp for your agent."
+        },
+        {
+          "title": "Add the agent skills",
+          "body": "Follow openseo.so/docs/skills/setup."
+        },
+        {
+          "title": "Ask your agent",
+          "body": "Request keyword ideas or a competitor comparison."
+        }
+      ],
+      "expected": "Your agent returns SEO data pulled through OpenSEO.",
+      "nextSteps": [
+        "Set up rank tracking",
+        "Run a site audit",
+        "Check AI visibility"
+      ],
+      "sourceUrl": "https://github.com/every-app/open-seo/blob/6f68494e92a695db17f4b22da25e84b9bf1e582c/README.md"
+    },
+    "costs": [
+      {
+        "label": "Self-hosted OpenSEO",
+        "value": "Free under MIT; EveryApp runs on Cloudflare's $5/month plan.",
+        "tone": "free"
+      },
+      {
+        "label": "DataForSEO",
+        "value": "Pay per request directly to DataForSEO.",
+        "tone": "paid"
+      },
+      {
+        "label": "Hosted",
+        "value": "$10/month plus a 28% markup on data requests.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "No SEO data",
+        "solution": "Check your DataForSEO API key.",
+        "sourceUrl": "https://github.com/every-app/open-seo/blob/6f68494e92a695db17f4b22da25e84b9bf1e582c/README.md"
+      }
+    ],
+    "bestFor": [
+      "Open-source SEO tool",
+      "SEO data for AI agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "SEO web app"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "everyapp install"
+      }
+    ]
+  }
+}

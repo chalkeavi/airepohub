@@ -1,0 +1,188 @@
+{
+  "fullName": "dmlc/xgboost",
+  "summary": "Fast, widely used gradient boosting library for tabular data that runs on one machine or scales across Spark, Dask and Kubernetes.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/dmlc/xgboost/blob/eca74538c55137543821206f11d57bb89c1d8ec3/README.md"
+    ],
+    "sourceCommitSha": "eca74538c55137543821206f11d57bb89c1d8ec3",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install guide",
+        "command": "See the XGBoost documentation at xgboost.readthedocs.io"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "XGBoost (eXtreme Gradient Boosting) is an optimized, distributed gradient boosting library. It implements parallel tree boosting (also known as GBDT or GBM) to solve many data science problems quickly and accurately, and the same code runs on distributed environments such as Kubernetes, Hadoop, SGE, Dask, Spark and PySpark.",
+      "problem": "Many prediction problems on tables of data (churn, fraud, pricing, ranking) are best solved with boosted trees. XGBoost gives a fast, proven implementation that scales to billions of examples.",
+      "whoFor": [
+        "Data scientists working with tabular data",
+        "ML engineers building production models",
+        "Kaggle competitors"
+      ],
+      "whyChoose": "Choose it for speed, accuracy on structured data and the ability to scale the same code from a laptop to a cluster.",
+      "requirements": [
+        "See the official installation guide for your language and platform"
+      ]
+    },
+    "overview": [
+      "The README itself doesn't list install commands; it points to the official documentation at xgboost.readthedocs.io, which covers installation, tutorials and the API.",
+      "XGBoost focuses on efficiency, flexibility and portability. It originates from a research project at the University of Washington (Chen and Guestrin, KDD 2016).",
+      "Demos and resources are in the repo's demo folder. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Gradient boosting",
+        "body": "Parallel tree boosting (GBDT/GBM)."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Fast",
+        "body": "Optimized for efficiency."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Distributed",
+        "body": "Kubernetes, Hadoop, Spark, Dask, PySpark."
+      },
+      {
+        "icon": "file-code",
+        "title": "Scales",
+        "body": "Billions of examples."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Portable",
+        "body": "Runs in many environments."
+      },
+      {
+        "icon": "shield",
+        "title": "Well documented",
+        "body": "Full docs and demos."
+      }
+    ],
+    "strengths": [
+      "Proven accuracy on tabular data",
+      "Scales to clusters",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Not for images or text out of the box",
+      "Many tuning parameters to learn"
+    ],
+    "useCases": [
+      {
+        "title": "Fraud or churn prediction",
+        "body": "Classify rows of data."
+      },
+      {
+        "title": "Ranking and pricing",
+        "body": "Regression and ranking tasks."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from XGBoost's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/dmlc/xgboost/blob/eca74538c55137543821206f11d57bb89c1d8ec3/README.md",
+      "prerequisites": [
+        "A supported language environment (see docs)"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Official documentation",
+          "method": "docs",
+          "steps": [
+            {
+              "title": "Open the install guide",
+              "body": "Go to xgboost.readthedocs.io and follow the installation page for your language."
+            },
+            {
+              "title": "Try the demos",
+              "body": "See demo/README.md in the repository for examples."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Read Get Started",
+          "body": "Follow the documentation's getting-started tutorial."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Find your first XGBoost example",
+      "useCase": "Use the official docs and demos to train a first model.",
+      "setup": [
+        "XGBoost installed using the official guide"
+      ],
+      "steps": [
+        {
+          "title": "Open the docs",
+          "body": "Visit xgboost.readthedocs.io."
+        },
+        {
+          "title": "Pick a tutorial",
+          "body": "Choose one for your language."
+        },
+        {
+          "title": "Run a demo",
+          "body": "Use the examples listed in demo/README.md."
+        }
+      ],
+      "expected": "A trained boosted-tree model on sample data.",
+      "nextSteps": [
+        "Tune parameters",
+        "Try distributed training",
+        "Read the KDD paper"
+      ],
+      "sourceUrl": "https://github.com/dmlc/xgboost/blob/eca74538c55137543821206f11d57bb89c1d8ec3/README.md"
+    },
+    "costs": [
+      {
+        "label": "XGBoost",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install problems",
+        "solution": "Check the platform notes in the official installation guide.",
+        "sourceUrl": "https://github.com/dmlc/xgboost/blob/eca74538c55137543821206f11d57bb89c1d8ec3/README.md"
+      }
+    ],
+    "bestFor": [
+      "Gradient boosting",
+      "Tabular machine learning"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "ML library"
+      },
+      {
+        "label": "Language",
+        "value": "C++"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Docs",
+        "value": "xgboost.readthedocs.io"
+      }
+    ]
+  }
+}

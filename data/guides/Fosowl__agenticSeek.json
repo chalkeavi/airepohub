@@ -1,0 +1,228 @@
+{
+  "fullName": "Fosowl/agenticSeek",
+  "summary": "Private, local AI assistant that browses the web, writes and runs code, and plans multi-step tasks using models running on your own machine.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Fosowl/agenticSeek/blob/8f705be8ca625e9549389f188b1e37f700d3ed34/README.md"
+    ],
+    "sourceCommitSha": "8f705be8ca625e9549389f188b1e37f700d3ed34",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Start (macOS/Linux)",
+        "command": "./start_services.sh full"
+      },
+      {
+        "comment": "Web UI",
+        "command": "http://localhost:3000"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "AgenticSeek is a local alternative to cloud agents like Manus. It picks the right agent for each request: it can search and read the web and fill forms by itself, write, debug and run code in languages like Python, C, Go and Java, and break big tasks into steps across several agents. It's built to run with local reasoning models so your data stays on your device, and it can also use an API provider.",
+      "problem": "Cloud agents send your files and searches to someone else's servers. AgenticSeek keeps everything on your machine.",
+      "whoFor": [
+        "Privacy-minded users with a capable GPU",
+        "Tinkerers running local LLMs",
+        "People who want a self-hosted agent"
+      ],
+      "whyChoose": "Choose it for a fully local setup with web browsing, coding and planning agents and a web interface.",
+      "requirements": [
+        "Git",
+        "Python 3.10.x (strongly recommended)",
+        "Docker and Docker Compose",
+        "For local models: a GPU that can run a 14B model such as Magistral, Qwen or DeepSeek"
+      ]
+    },
+    "overview": [
+      "Clone the repo and rename .env.example to .env, then edit it. Start a local provider such as Ollama (set OLLAMA_HOST=0.0.0.0:11434 so Docker can reach it) and set provider_name and provider_model in config.ini; reasoning models are recommended.",
+      "Start all services in Docker with start_services full. The first start downloads images and can take up to 30 minutes; then open localhost:3000.",
+      "You can instead run with an API provider or on your own server. Voice input is in progress. It is GPL-3.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Local and private",
+        "body": "No cloud needed."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Web browsing",
+        "body": "Search, read, fill forms."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Coding agent",
+        "body": "Writes, debugs and runs code."
+      },
+      {
+        "icon": "file-code",
+        "title": "Agent routing",
+        "body": "Picks the best agent automatically."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Task planning",
+        "body": "Splits big jobs into steps."
+      },
+      {
+        "icon": "shield",
+        "title": "Web interface",
+        "body": "At localhost:3000."
+      }
+    ],
+    "strengths": [
+      "Data stays local",
+      "Several agent types",
+      "Open source"
+    ],
+    "limitations": [
+      "Needs a strong GPU for local models",
+      "Long first start",
+      "Python version sensitive"
+    ],
+    "useCases": [
+      {
+        "title": "Private research",
+        "body": "Browse and summarize the web locally."
+      },
+      {
+        "title": "Local coding help",
+        "body": "Write and run scripts."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from AgenticSeek's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Fosowl/agenticSeek/blob/8f705be8ca625e9549389f188b1e37f700d3ed34/README.md",
+      "prerequisites": [
+        "Docker",
+        "Python 3.10",
+        "Ollama or another local provider"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker with a local model",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Clone and set up",
+              "code": "git clone https://github.com/Fosowl/agenticSeek.git\ncd agenticSeek\nmv .env.example .env",
+              "lang": "bash"
+            },
+            {
+              "title": "Start Docker",
+              "body": "Launch Docker Desktop, or on Linux run sudo systemctl start docker. Check with docker info."
+            },
+            {
+              "title": "Start your local model",
+              "code": "export OLLAMA_HOST=0.0.0.0:11434\nollama serve",
+              "lang": "bash"
+            },
+            {
+              "title": "Set the provider",
+              "body": "In config.ini set provider_name (e.g. ollama) and provider_model."
+            },
+            {
+              "title": "Start services",
+              "body": "On Windows use start start_services.cmd full. First start can take up to 30 minutes.",
+              "code": "./start_services.sh full",
+              "lang": "bash"
+            },
+            {
+              "title": "Open the UI",
+              "body": "Go to http://localhost:3000."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Ask a browsing task",
+          "body": "For example, search for something and summarize the results."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your first local agent task",
+      "useCase": "Use the web interface with a local model.",
+      "setup": [
+        "Services started",
+        "A local model running"
+      ],
+      "steps": [
+        {
+          "title": "Open localhost:3000"
+        },
+        {
+          "title": "Give it a task",
+          "body": "Ask it to research a topic and save notes."
+        },
+        {
+          "title": "Watch the agents",
+          "body": "It picks browsing or coding agents as needed."
+        }
+      ],
+      "expected": "The agent completes the task using your local model.",
+      "nextSteps": [
+        "Try a coding task",
+        "Use an API provider",
+        "Run the LLM on your own server"
+      ],
+      "sourceUrl": "https://github.com/Fosowl/agenticSeek/blob/8f705be8ca625e9549389f188b1e37f700d3ed34/README.md"
+    },
+    "costs": [
+      {
+        "label": "AgenticSeek",
+        "value": "Free and open source under GPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Free with local models; API providers bill for usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Ollama connection failed from Docker",
+        "solution": "Set OLLAMA_HOST=0.0.0.0:11434 before ollama serve; see the README's troubleshooting section.",
+        "sourceUrl": "https://github.com/Fosowl/agenticSeek/blob/8f705be8ca625e9549389f188b1e37f700d3ed34/README.md"
+      },
+      {
+        "problem": "ChromeDriver errors",
+        "solution": "Follow the ChromeDriver section of the README.",
+        "sourceUrl": "https://github.com/Fosowl/agenticSeek/blob/8f705be8ca625e9549389f188b1e37f700d3ed34/README.md"
+      }
+    ],
+    "bestFor": [
+      "Local AI agent",
+      "Private Manus alternative"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Local AI agent"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "GPL-3.0"
+      },
+      {
+        "label": "Start",
+        "value": "./start_services.sh full"
+      }
+    ]
+  }
+}

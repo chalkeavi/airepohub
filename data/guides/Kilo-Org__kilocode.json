@@ -1,0 +1,241 @@
+{
+  "fullName": "Kilo-Org/kilocode",
+  "summary": "Open-source AI coding agent for VS Code, JetBrains and the terminal, with Code, Plan, Ask and Debug modes and access to 500+ models.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Kilo-Org/kilocode/blob/b12e612bd3ad9c4073ea57caaf0197fad7f98d63/README.md"
+    ],
+    "sourceCommitSha": "b12e612bd3ad9c4073ea57caaf0197fad7f98d63",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "CLI",
+        "command": "npm install -g @kilocode/cli"
+      },
+      {
+        "comment": "VS Code",
+        "command": "Install the Kilo Code extension from the Marketplace"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Kilo Code is an AI coding agent that works in VS Code, JetBrains IDEs and the command line. It generates code across files from natural language, offers inline autocomplete, checks its own work, controls the terminal and browser, and has a marketplace for agents, skills, MCP servers and plugins. Built-in agents include Code, Plan, Ask and Debug.",
+      "problem": "Gives you one coding agent across editor and terminal, with the freedom to switch models mid-task to balance speed, cost and reasoning.",
+      "whoFor": [
+        "VS Code and JetBrains users",
+        "Terminal-first developers",
+        "Teams running agents in CI"
+      ],
+      "whyChoose": "Choose it for an MIT-licensed agent with many models, specialized modes and an autonomous mode for CI/CD.",
+      "requirements": [
+        "VS Code, a JetBrains IDE, or a terminal",
+        "A Kilo account (for the extension's model access)"
+      ]
+    },
+    "overview": [
+      "In VS Code, install the Kilo Code extension and create an account for access to 500+ models. In JetBrains, install the Kilo Code plugin from the Marketplace. For the terminal, install the CLI and run kilo in a project.",
+      "Switch between Code, Plan, Ask and Debug agents, or build custom agents. The Kilo Marketplace adds skills, MCP servers and plugins.",
+      "kilo run --auto runs fully autonomously for CI pipelines and auto-approves prompts, so use it only in trusted environments. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Multi-file code generation",
+        "body": "From natural language."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Autocomplete",
+        "body": "Ghost-text suggestions."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Agent modes",
+        "body": "Code, Plan, Ask, Debug."
+      },
+      {
+        "icon": "file-code",
+        "title": "Terminal and browser control",
+        "body": "Runs commands, automates the web."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Marketplace",
+        "body": "Agents, skills, MCP, plugins."
+      },
+      {
+        "icon": "shield",
+        "title": "500+ models",
+        "body": "Switch mid-task."
+      }
+    ],
+    "strengths": [
+      "Editor and CLI",
+      "Many models",
+      "MIT license"
+    ],
+    "limitations": [
+      "--auto mode needs care",
+      "Model usage costs money"
+    ],
+    "useCases": [
+      {
+        "title": "Plan then build",
+        "body": "Use Plan mode, then Code."
+      },
+      {
+        "title": "Fix failing tests in CI",
+        "body": "kilo run --auto."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Kilo Code's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Kilo-Org/kilocode/blob/b12e612bd3ad9c4073ea57caaf0197fad7f98d63/README.md",
+      "prerequisites": [
+        "An editor or terminal"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "VS Code",
+          "method": "vscode",
+          "steps": [
+            {
+              "title": "Install the extension",
+              "body": "Get Kilo Code from the VS Code Marketplace."
+            },
+            {
+              "title": "Create an account",
+              "body": "Sign in to access models."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "JetBrains",
+          "method": "jetbrains",
+          "steps": [
+            {
+              "title": "Install the plugin",
+              "body": "Search Kilo Code in Settings, Plugins, or install from the JetBrains Marketplace."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "CLI (npm)",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install -g @kilocode/cli",
+              "lang": "bash"
+            },
+            {
+              "title": "Start",
+              "body": "Run kilo in any project folder.",
+              "code": "kilo",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "CLI (Homebrew)",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install Kilo-Org/tap/kilo",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open a project",
+          "body": "Start Kilo in your editor or run kilo."
+        },
+        {
+          "title": "Ask in Ask mode",
+          "body": "Ask a question about your codebase without changing files."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Fix failing tests automatically",
+      "useCase": "The README's CI example.",
+      "setup": [
+        "Kilo CLI installed",
+        "A trusted environment"
+      ],
+      "steps": [
+        {
+          "title": "Run autonomously",
+          "code": "kilo run --auto \"run tests and fix any failures\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Review the changes",
+          "body": "Check the diff before committing."
+        }
+      ],
+      "expected": "Kilo runs the tests and edits code to fix failures without prompting.",
+      "nextSteps": [
+        "Try Plan mode",
+        "Install a marketplace skill",
+        "Switch models mid-task"
+      ],
+      "sourceUrl": "https://github.com/Kilo-Org/kilocode/blob/b12e612bd3ad9c4073ea57caaf0197fad7f98d63/README.md"
+    },
+    "costs": [
+      {
+        "label": "Kilo Code",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Usage billed through your Kilo account or provider.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Worried about --auto",
+        "solution": "It approves actions automatically; only use it where that's safe.",
+        "sourceUrl": "https://github.com/Kilo-Org/kilocode/blob/b12e612bd3ad9c4073ea57caaf0197fad7f98d63/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI coding agent",
+      "VS Code and JetBrains AI"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI coding agent"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "npm install -g @kilocode/cli"
+      }
+    ]
+  }
+}

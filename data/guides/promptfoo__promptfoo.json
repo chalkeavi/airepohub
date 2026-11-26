@@ -1,0 +1,240 @@
+{
+  "fullName": "promptfoo/promptfoo",
+  "summary": "CLI and library for testing LLM apps: compare prompts and models with evals, and red-team agents for security vulnerabilities.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/promptfoo/promptfoo/blob/4a30804e923995e3a4249a8ba60e64cb24eed23d/README.md"
+    ],
+    "sourceCommitSha": "4a30804e923995e3a4249a8ba60e64cb24eed23d",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "npm install -g promptfoo"
+      },
+      {
+        "comment": "Start",
+        "command": "promptfoo init --example getting-started"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "promptfoo is a command-line tool and library for evaluating and red-teaming LLM-based apps. You define test cases and expected results, run them against prompts and models, and compare the outputs side by side in a viewer. Its red-teaming mode scans apps and agents for vulnerabilities.",
+      "problem": "Changing a prompt or model by trial and error is risky. promptfoo turns it into repeatable tests so you can ship reliable, secure agents.",
+      "whoFor": [
+        "Developers building LLM apps",
+        "Teams comparing models or prompts",
+        "Security teams testing AI apps"
+      ],
+      "whyChoose": "Choose it for quick local evals, a results viewer, red teaming and installs via npm, Homebrew, pip or npx.",
+      "requirements": [
+        "Node.js for npm/npx (or Homebrew or pip)",
+        "API keys for the providers you test"
+      ]
+    },
+    "overview": [
+      "Install with npm, Homebrew or pip, or run any command with npx promptfoo@latest. Create a starter project with promptfoo init --example getting-started.",
+      "Set your provider's API key, for example OPENAI_API_KEY, then run promptfoo eval and open the results with promptfoo view.",
+      "The docs cover evals (Getting Started) and vulnerability scanning (Red Teaming). It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Evals",
+        "body": "Test prompts and models."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Side-by-side viewer",
+        "body": "Compare outputs."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Red teaming",
+        "body": "Scan for vulnerabilities."
+      },
+      {
+        "icon": "file-code",
+        "title": "Many providers",
+        "body": "Bring your own keys."
+      },
+      {
+        "icon": "git-compare",
+        "title": "CLI and library",
+        "body": "Use in scripts or CI."
+      },
+      {
+        "icon": "shield",
+        "title": "Example projects",
+        "body": "Start from a template."
+      }
+    ],
+    "strengths": [
+      "Fast to start",
+      "Covers quality and security",
+      "MIT license"
+    ],
+    "limitations": [
+      "Provider calls cost money",
+      "Good tests take effort to write"
+    ],
+    "useCases": [
+      {
+        "title": "Pick a model",
+        "body": "Compare outputs on your test cases."
+      },
+      {
+        "title": "Security check",
+        "body": "Red-team an agent before launch."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from promptfoo's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/promptfoo/promptfoo/blob/4a30804e923995e3a4249a8ba60e64cb24eed23d/README.md",
+      "prerequisites": [
+        "Node.js",
+        "Provider API key"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npm",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install -g promptfoo",
+              "lang": "bash"
+            },
+            {
+              "title": "Create an example",
+              "code": "promptfoo init --example getting-started",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Homebrew",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "brew install promptfoo",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install promptfoo",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "OPENAI_API_KEY",
+          "required": false,
+          "description": "Needed for OpenAI providers; most providers need their own key."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Set your API key",
+          "code": "export OPENAI_API_KEY=sk-abc123",
+          "lang": "bash"
+        },
+        {
+          "title": "Run the example eval",
+          "body": "cd getting-started, then promptfoo eval."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your first eval",
+      "useCase": "The README's quick start.",
+      "setup": [
+        "promptfoo installed",
+        "OPENAI_API_KEY set"
+      ],
+      "steps": [
+        {
+          "title": "Create the example",
+          "code": "promptfoo init --example getting-started",
+          "lang": "bash"
+        },
+        {
+          "title": "Run it",
+          "code": "cd getting-started\npromptfoo eval",
+          "lang": "bash"
+        },
+        {
+          "title": "View results",
+          "code": "promptfoo view",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A results table comparing outputs for each test case.",
+      "nextSteps": [
+        "Add your own test cases",
+        "Compare two models",
+        "Try red teaming"
+      ],
+      "sourceUrl": "https://github.com/promptfoo/promptfoo/blob/4a30804e923995e3a4249a8ba60e64cb24eed23d/README.md"
+    },
+    "costs": [
+      {
+        "label": "promptfoo",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Model calls",
+        "value": "Billed by the providers you test.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Provider errors",
+        "solution": "Set the provider's API key as an environment variable.",
+        "sourceUrl": "https://github.com/promptfoo/promptfoo/blob/4a30804e923995e3a4249a8ba60e64cb24eed23d/README.md"
+      }
+    ],
+    "bestFor": [
+      "LLM evals",
+      "AI red teaming"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Eval and red-team CLI"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "npm install -g promptfoo"
+      }
+    ]
+  }
+}
