@@ -8,6 +8,8 @@ import type { JobStore, NewRepoRow, Period, QueueRow, RankingRow, RunResult, Tra
 import { categorize, importEligible, runImport, starBands, uniqueSlug } from "@/lib/jobs/importer";
 import { FileSummarizer, runPublishDrafts, validateSummary } from "@/lib/jobs/summarize";
 import type { StatPoint } from "@/lib/jobs/growth";
+import { groundingProblems, parseModelJson, runWriter, buildGuide, cleanReadme } from "@/lib/jobs/writer";
+import { llmFromEnv, OpenAiCompatibleLlm, type LlmClient } from "@/lib/jobs/llm";
 
 const NOW = new Date("2026-12-10T05:17:00Z");
 
@@ -60,6 +62,8 @@ class MemStore implements JobStore {
   async insertRepoCategories(rows: { repository_id: string; category_id: string; is_primary: boolean }[]) { this.repoCategories.push(...rows); }
   async setNoindex(ids: string[]) { this.noindex.push(...ids); }
   async markQueueApproved(ids: number[]) { this.approved.push(...ids); }
+  ignored: { github_id: number; notes: string }[] = [];
+  async ignoreInQueue(rows: { github_id: number; notes: string }[]) { this.ignored.push(...rows); }
   summaries = new Map<string, string>();
   publishedAt = new Map<string, string>();
   async saveSummaries(rows: { id: string; summary: string }[], at?: string) {
@@ -443,5 +447,160 @@ describe("full guides", () => {
       expect([f, checkGuide(g)]).toEqual([f, []]);
       expect(f).toBe(`${g.fullName.replace("/", "__")}.json`);
     }
+  });
+});
+
+
+describe("local writer", () => {
+  const SHA = "a".repeat(40);
+  const README = [
+    "# AgentKit",
+    "AgentKit is a Python framework for building LLM agents that call tools. It runs on Python 3.10 or newer.",
+    "",
+    "## Install",
+    "```bash",
+    "pip install agentkit",
+    "```",
+    "## Quick start",
+    "```bash",
+    "agentkit run hello",
+    "```",
+    "It prints a greeting from the agent. Set OPENAI_API_KEY to use OpenAI models.",
+    "See https://agentkit.dev/docs for more. ".repeat(10),
+  ].join("\n");
+  const page = (over: Record<string, unknown> = {}) => ({
+    summary: "Python framework for building LLM agents that can call tools.",
+    type: "Python library",
+    whatItDoes: "Lets you build AI agents in Python that call tools.",
+    problem: "Wiring a language model to tools by hand takes a lot of glue code.",
+    whoFor: ["Python developers", "People learning about AI agents"],
+    whyChoose: "It keeps agent code small and readable.",
+    requirements: ["Python 3.10 or newer"],
+    overview: ["AgentKit is a Python framework for building agents.", "You install it with pip and start an agent from the command line."],
+    features: [{ title: "Tools", body: "Agents can call tools." }, { title: "CLI", body: "Run agents from a terminal." }, { title: "OpenAI models", body: "Works with OpenAI when you set a key." }],
+    strengths: ["Small API"], limitations: [],
+    useCases: [{ title: "Learn agents", body: "Try a first agent in minutes." }],
+    prerequisites: ["Python 3.10+"], supportedOs: ["Windows", "macOS", "Linux"],
+    install: [{ os: "all", label: "Install with pip", method: "pip", steps: [{ title: "Install", code: "pip install agentkit" }] }],
+    environment: [{ name: "OPENAI_API_KEY", required: false, description: "Needed for OpenAI models." }],
+    firstRun: [{ title: "Run the hello agent", code: "agentkit run hello" }],
+    tutorial: { title: "Your first agent", useCase: "Say hello", setup: ["Install AgentKit"], steps: [{ title: "Run it", code: "agentkit run hello" }], expected: "A greeting from the agent.", nextSteps: ["Read the docs"] },
+    costs: [{ label: "Software", value: "Free and open source under MIT.", tone: "free" }],
+    troubleshooting: [], bestFor: ["Learning agents"], heroCommands: [{ comment: "Install", command: "pip install agentkit" }],
+    ...over,
+  });
+  const github = (repos: GithubRepo[], readme = README): GithubApi => ({
+    calls: 0,
+    async getRepoById() { return null; },
+    async searchRepos() { return []; },
+    async searchPage() { return { total: repos.length, items: repos }; },
+    async getHeadSha() { return SHA; },
+    async getReadme() { return { path: "README.md", text: readme }; },
+  });
+  const model = (...replies: unknown[]): LlmClient & { prompts: string[] } => {
+    const prompts: string[] = [];
+    return { label: "fake", prompts, async complete(_s, u) { prompts.push(u); const r = replies[Math.min(prompts.length - 1, replies.length - 1)]; return typeof r === "string" ? r : JSON.stringify(r); } };
+  };
+  const opts = (llm: LlmClient) => ({ llm, limit: 5, minStars: 500, pushedSince: "2026-06-01", sleep: async () => {}, searchDelayMs: 0 });
+
+  it("publishes a checked page and skips repos already in the system", async () => {
+    const store = new MemStore();
+    store.repos = [tracked(1)];
+    store.queue.set(2, { github_id: 2, full_name: "o/r2", github_url: "", payload: {}, relevance_score: 0.5, relevance_reasons: [], run_id: null });
+    const llm = model("```json\n" + JSON.stringify(page()) + "\n```");
+    const res = await runWriter({ store, github: github([gh(1), gh(2), gh(3)]), now: NOW }, opts(llm));
+    expect(res.status).toBe("succeeded");
+    expect(store.inserted.map((r) => r.github_id)).toEqual([3]); // 1 has a page, 2 was looked at before
+    expect(store.inserted[0].status).toBe("draft");
+    const guide = store.guides.get("new3") as { sourceCommitSha: string; install: { verification: string }; sourceUrls: string[] };
+    expect(guide.sourceCommitSha).toBe(SHA);
+    expect(guide.install.verification).toBe("official_docs");
+    expect(guide.sourceUrls[0]).toBe(`https://github.com/o/r3/blob/${SHA}/README.md`);
+    expect(store.publishedAt.get("new3")).toBe(NOW.toISOString());
+    expect(store.repoCategories.some((c) => c.repository_id === "new3")).toBe(true);
+    expect(res.details.model).toBe("fake");
+  });
+
+  it("asks again with the problems, then remembers a repo whose commands aren't in the README", async () => {
+    const store = new MemStore();
+    const bad = page({ install: [{ os: "all", label: "Install", method: "pip", steps: [{ title: "Install", code: "pip install agentkit[all]==9.9" }] }] });
+    const llm = model(bad);
+    const res = await runWriter({ store, github: github([gh(3)]), now: NOW }, opts(llm));
+    expect(llm.prompts).toHaveLength(2);
+    expect(llm.prompts[1]).toContain("command not in the README: pip install agentkit[all]==9.9");
+    expect(store.inserted).toHaveLength(0);
+    expect(store.ignored[0].github_id).toBe(3);
+    expect(store.ignored[0].notes).toContain("command not in the README");
+    expect(res.processed).toBe(0);
+  });
+
+  it("fixes a page on the second try", async () => {
+    const store = new MemStore();
+    const llm = model(page({ overview: ["The best agent framework, used by 10,000 teams."] }), page());
+    await runWriter({ store, github: github([gh(3)]), now: NOW }, opts(llm));
+    expect(llm.prompts[1]).toMatch(/numbers not in the README: 10,000/);
+    expect(llm.prompts[1]).toMatch(/marketing word "best"/);
+    expect(store.inserted.map((r) => r.github_id)).toEqual([3]);
+  });
+
+  it("remembers a repo the model declined, and leaves model errors for the next run", async () => {
+    const store = new MemStore();
+    const res = await runWriter({ store, github: github([gh(3)]), now: NOW }, opts(model({ skip: "only a list of papers" })));
+    expect(store.ignored[0].notes).toBe("writer: model skipped it: only a list of papers");
+    expect(res.processed).toBe(0);
+
+    const store2 = new MemStore();
+    const broken: LlmClient = { label: "down", async complete() { throw new Error("connect ECONNREFUSED"); } };
+    const res2 = await runWriter({ store: store2, github: github([gh(3), gh(4), gh(5), gh(6)]), now: NOW }, opts(broken));
+    expect(store2.ignored).toHaveLength(0);
+    expect(res2.status).toBe("partial");
+    expect(res2.details.stopped).toMatch(/3 model errors/);
+  });
+
+  it("dry run writes nothing to the database and hands the page back", async () => {
+    const store = new MemStore();
+    const previews: string[] = [];
+    const res = await runWriter({ store, github: github([gh(3)]), now: NOW, dryRun: true }, { ...opts(model(page())), onPreview: (g) => previews.push(g.fullName) });
+    expect(previews).toEqual(["o/r3"]);
+    expect(store.inserted).toHaveLength(0);
+    expect(store.runs).toHaveLength(0);
+    expect(res.processed).toBe(1);
+  });
+
+  it("checks links, OS values and commands line by line", () => {
+    const g = buildGuide(gh(3), SHA, "README.md", page({
+      overview: ["Docs live at https://agentkit.dev/docs and https://example.com/made-up."],
+      install: [{ os: "Ubuntu", label: "Install", method: "pip", steps: [{ title: "Install", code: "$ pip install agentkit\n# then\nagentkit run hello" }] }],
+    }), "2026-12-10");
+    const p = groundingProblems(g, README, "An LLM agent framework");
+    expect(p).toContain("links not in the README: https://example.com/made-up.");
+    expect(p.some((x) => x.startsWith("install os must be one of"))).toBe(true);
+    expect(p.some((x) => x.startsWith("command not in the README"))).toBe(false);
+  });
+
+  it("parses model JSON with chatter around it and cleans READMEs", () => {
+    expect(parseModelJson('Sure! Here it is:\n```json\n{"skip":"x"}\n```')).toEqual({ skip: "x" });
+    expect(parseModelJson("no json")).toBeNull();
+    expect(cleanReadme('[![b](https://x/b.svg)](https://x) <img src="a.png"> Hello\n\n\n\n<p>World</p>', 100)).toBe("Hello\n\nWorld");
+  });
+
+  it("reads a streamed OpenAI-compatible answer and picks the provider from the env", async () => {
+    const sse = ['data: {"choices":[{"delta":{"content":"{\\"a\\":"}}]}', 'data: {"choices":[{"delta":{"content":"1}"},"finish_reason":"stop"}]}', "data: [DONE]", ""].join("\n");
+    let seen: { url: string; auth: string | null; body: { model: string; stream: boolean } } | null = null;
+    const fakeFetch = (async (url: string, init: RequestInit) => {
+      seen = { url, auth: new Headers(init.headers).get("authorization"), body: JSON.parse(String(init.body)) };
+      return new Response(sse, { status: 200 });
+    }) as unknown as typeof fetch;
+    const llm = new OpenAiCompatibleLlm("qwen3:32b", "http://localhost:11434/v1/", undefined, 100, fakeFetch);
+    expect(await llm.complete("s", "u")).toBe('{"a":1}');
+    expect(seen!.url).toBe("http://localhost:11434/v1/chat/completions");
+    expect(seen!.auth).toBeNull();
+    expect(seen!.body).toMatchObject({ model: "qwen3:32b", stream: true });
+
+    expect(llmFromEnv({ LLM_MODEL: "qwen3", LLM_BASE_URL: "http://localhost:11434/v1" }).label).toBe("openai-compatible:qwen3@localhost:11434");
+    expect(llmFromEnv({ LLM_MODEL: "claude-opus-5-5", LLM_API_KEY: "k" }).label).toBe("anthropic:claude-opus-5-5");
+    expect(() => llmFromEnv({ LLM_MODEL: "claude-opus-5-5" })).toThrow(/LLM_API_KEY/);
+    expect(() => llmFromEnv({})).toThrow(/LLM_MODEL/);
+    expect(() => llmFromEnv({ LLM_MODEL: "x", LLM_PROVIDER: "gemini" })).toThrow(/Unknown LLM_PROVIDER/);
   });
 });

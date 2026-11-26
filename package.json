@@ -11,6 +11,7 @@
     "test": "vitest run",
     "seed:generate": "node --experimental-strip-types --no-warnings scripts/generate-seed.ts",
     "jobs": "node --experimental-strip-types --no-warnings scripts/run-jobs.ts",
+    "writer": "node --experimental-strip-types --no-warnings scripts/run-jobs.ts write",
     "cf:build": "node scripts/check-deploy-env.mjs && opennextjs-cloudflare build",
     "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "cf:deploy": "node scripts/check-deploy-env.mjs && opennextjs-cloudflare build && opennextjs-cloudflare deploy",

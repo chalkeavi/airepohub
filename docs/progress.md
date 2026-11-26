@@ -34,6 +34,11 @@
 - 2026-11-26: Homepage "Featured" section removed (owner: looked like promotion) and pages re-render after new data
   (PRs #16, #17). 200-repo expansion: 8 batches of new AI repos, each with a summary and a full guide from its README
   at a pinned SHA (PRs #18 and the batch 2–8 PR). Excluded by decision #34/#37 rules: see decision #37.
+- 2026-11-26: Local writer (`pnpm writer`, decision #38, `docs/local-writer.md`): any LLM (Claude API or
+  OpenAI-compatible/local) writes full pages for new repos and stores them in Supabase directly; skips repos
+  already in the system; rejects pages whose commands, numbers or links aren't in the README. Unit-tested with
+  fake GitHub and model; a dry run here reached real GitHub search and the DB, but the sandbox blocks GitHub's
+  per-repo API, so no real model run has been done yet. The site itself needed no change (it already reads the DB).
 
 ## Not done / known gaps
 - Weekly board and Trending appear ~7 days after the first real job run; monthly after ~30 days.

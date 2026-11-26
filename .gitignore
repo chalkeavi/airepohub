@@ -34,6 +34,7 @@ yarn-error.log*
 .env*
 !.env.example
 !.env.production
+!.env.jobs.example
 
 # vercel
 .vercel
@@ -47,3 +48,6 @@ next-env.d.ts
 .wrangler/
 .dev.vars*
 !.dev.vars.example
+
+# local writer dry-run output
+.writer-preview/

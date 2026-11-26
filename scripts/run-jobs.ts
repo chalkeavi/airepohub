@@ -6,13 +6,22 @@
 // --summaries=file reads data/summaries.json; claude needs ANTHROPIC_API_KEY (SUMMARY_MODEL to override).
 // Env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, GITHUB_TOKEN (Actions provides it).
 // --dry-run reads through the public publishable key and GitHub, and writes nothing.
+//   ... write [--limit=20] [--min-stars=500] [--pushed-days=180] [--drafts] [--dry-run] [--out=dir]
+//       Local writer (decision #38): any LLM writes full pages for repos not on the site yet and
+//       stores them in Supabase. Needs LLM_MODEL (+ LLM_PROVIDER, LLM_API_KEY, LLM_BASE_URL).
+//       See docs/local-writer.md. Settings can live in a .env.jobs file (never committed).
 import { GithubClient } from "../src/lib/jobs/github.ts";
 import { runImport, runPublishQueue } from "../src/lib/jobs/importer.ts";
 import { runDiscover, runRank, runSnapshot, type JobSummary } from "../src/lib/jobs/jobs.ts";
 import { ClaudeBatchSummarizer, FileSummarizer, runPublishDrafts, runSummarize, type Summarizer } from "../src/lib/jobs/summarize.ts";
-import { readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { llmFromEnv } from "../src/lib/jobs/llm.ts";
+import { runWriter } from "../src/lib/jobs/writer.ts";
 import { runPublishGuides, type GuideFile } from "../src/lib/jobs/guides.ts";
 import { SupabaseJobStore } from "../src/lib/jobs/store.ts";
+
+// Local runs keep their keys in .env.jobs (git-ignored). Variables already set in the shell win.
+if (existsSync(".env.jobs")) process.loadEnvFile(".env.jobs");
 
 const [job = "daily", ...flags] = process.argv.slice(2);
 const dryRun = flags.includes("--dry-run");
@@ -88,6 +97,24 @@ const plan: Record<string, (() => Promise<JobSummary>)[]> = {
           .filter((f) => f.endsWith(".json"))
           .map((f) => JSON.parse(readFileSync(`data/guides/${f}`, "utf8")) as GuideFile),
       ),
+  ],
+  write: [
+    () => {
+      const outDir = text("out") ?? ".writer-preview";
+      return runWriter(ctx, {
+        llm: llmFromEnv(process.env as Record<string, string | undefined>),
+        limit: flag("limit", Number(process.env.WRITER_LIMIT) || 20),
+        minStars: flag("min-stars", Number(process.env.WRITER_MIN_STARS) || 500),
+        pushedSince: new Date(ctx.now.getTime() - flag("pushed-days", 180) * 86_400_000).toISOString().slice(0, 10),
+        readmeChars: Number(process.env.WRITER_README_CHARS) || undefined,
+        drafts: flags.includes("--drafts"),
+        onPreview: (guide) => {
+          mkdirSync(outDir, { recursive: true });
+          writeFileSync(`${outDir}/${guide.fullName.replace("/", "__")}.json`, JSON.stringify(guide, null, 2) + "\n");
+        },
+      });
+    },
+    ...(dryRun ? [] : [() => runRank(ctx)]),
   ],
   summarize: [() => runSummarize(ctx, summarizer() ?? new ClaudeBatchSummarizer(process.env.SUMMARY_MODEL || "claude-opus-5-5"), flag("limit", 5000))],
   daily: [() => runSnapshot(ctx), () => runRank(ctx), () => runDiscover(ctx)],
