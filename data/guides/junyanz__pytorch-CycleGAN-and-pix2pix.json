@@ -1,0 +1,220 @@
+{
+  "fullName": "junyanz/pytorch-CycleGAN-and-pix2pix",
+  "summary": "The authors' PyTorch code for CycleGAN and pix2pix, classic models that turn one kind of image into another, like horses into zebras.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/2a7afba2895d52556dd5dfe07e8555ef657ced6f/README.md"
+    ],
+    "sourceCommitSha": "2a7afba2895d52556dd5dfe07e8555ef657ced6f",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Clone",
+        "command": "git clone https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "This repo contains PyTorch implementations of two well-known image-to-image translation models by their authors. pix2pix learns from paired examples, such as building labels and matching photos. CycleGAN learns from unpaired image sets, such as photos of horses and photos of zebras, and translates between them. It includes training and test scripts, dataset downloaders and pretrained models, and was updated in 2025 for Python 3.11 and PyTorch 2.4.",
+      "problem": "Reproducing image translation research from scratch is hard. This gives the reference code, datasets and pretrained models in one place.",
+      "whoFor": [
+        "Computer vision students and researchers",
+        "ML engineers learning GANs",
+        "Artists experimenting with style transfer"
+      ],
+      "whyChoose": "Use it to learn or reproduce CycleGAN and pix2pix with the original authors' code. The README also points to newer one-step successors (img2img-turbo, CUT).",
+      "requirements": [
+        "Linux or macOS",
+        "Python 3",
+        "CPU or NVIDIA GPU with CUDA and cuDNN"
+      ]
+    },
+    "overview": [
+      "Clone the repo, then create the Conda environment from environment.yml and activate pytorch-img2img. A Docker image is also provided.",
+      "Download a dataset with the included scripts, train with train.py and test with test.py.",
+      "Or download a pretrained model such as horse2zebra and generate results straight away. The license is BSD-style."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "CycleGAN",
+        "body": "Unpaired image translation."
+      },
+      {
+        "icon": "scan-search",
+        "title": "pix2pix",
+        "body": "Paired image translation."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Pretrained models",
+        "body": "Download scripts for both."
+      },
+      {
+        "icon": "file-code",
+        "title": "Dataset scripts",
+        "body": "maps, facades, horse2zebra and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Multi-GPU",
+        "body": "torchrun with DDP."
+      },
+      {
+        "icon": "shield",
+        "title": "Colab notebooks",
+        "body": "CycleGAN and pix2pix in the browser."
+      }
+    ],
+    "strengths": [
+      "Reference implementation by the authors",
+      "Pretrained models",
+      "Clear train and test scripts"
+    ],
+    "limitations": [
+      "Older GAN methods; the README points to faster newer ones",
+      "Training needs a GPU to be practical"
+    ],
+    "useCases": [
+      {
+        "title": "Style translation",
+        "body": "Turn photos into paintings or seasons."
+      },
+      {
+        "title": "Label to photo",
+        "body": "Generate images from maps or segmentations."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from CycleGAN and pix2pix's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/2a7afba2895d52556dd5dfe07e8555ef657ced6f/README.md",
+      "prerequisites": [
+        "Python 3 with Conda",
+        "NVIDIA GPU recommended"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Conda",
+          "method": "conda",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix\ncd pytorch-CycleGAN-and-pix2pix",
+              "lang": "bash"
+            },
+            {
+              "title": "Create the environment",
+              "code": "conda env create -f environment.yml",
+              "lang": "bash"
+            },
+            {
+              "title": "Activate it",
+              "code": "conda activate pytorch-img2img",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Google Colab",
+          "method": "colab",
+          "steps": [
+            {
+              "title": "Open the notebook",
+              "body": "Use the CycleGAN or pix2pix Colab notebook linked in the README."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Try a pretrained model",
+          "body": "Download horse2zebra and turn horse photos into zebras."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Turn horses into zebras with a pretrained CycleGAN",
+      "useCase": "The README's pretrained model example.",
+      "setup": [
+        "Repo cloned and environment active"
+      ],
+      "steps": [
+        {
+          "title": "Download the model",
+          "code": "bash ./scripts/download_cyclegan_model.sh horse2zebra",
+          "lang": "bash"
+        },
+        {
+          "title": "Download test images",
+          "code": "bash ./datasets/download_cyclegan_dataset.sh horse2zebra",
+          "lang": "bash"
+        },
+        {
+          "title": "Generate results",
+          "code": "python test.py --dataroot datasets/horse2zebra/testA --name horse2zebra_pretrained --model test --no_dropout",
+          "lang": "bash"
+        }
+      ],
+      "expected": "Translated images saved in ./results/.",
+      "nextSteps": [
+        "Train your own on the maps dataset",
+        "Try pix2pix facades_label2photo",
+        "Train on multiple GPUs with torchrun"
+      ],
+      "sourceUrl": "https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/2a7afba2895d52556dd5dfe07e8555ef657ced6f/README.md"
+    },
+    "costs": [
+      {
+        "label": "Code",
+        "value": "Free and open source under a BSD-style license.",
+        "tone": "free"
+      },
+      {
+        "label": "GPU",
+        "value": "Your own hardware or cloud.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Want one-direction results only",
+        "solution": "Use --model test, which loads a single image set; --model cycle_gan runs both directions.",
+        "sourceUrl": "https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/2a7afba2895d52556dd5dfe07e8555ef657ced6f/README.md"
+      },
+      {
+        "problem": "Results location",
+        "solution": "Outputs go to ./results/; change with --results_dir.",
+        "sourceUrl": "https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/2a7afba2895d52556dd5dfe07e8555ef657ced6f/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning image-to-image translation"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Model code and scripts"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "BSD-style"
+      },
+      {
+        "label": "Framework",
+        "value": "PyTorch"
+      }
+    ]
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "fullName": "trekhleb/homemade-machine-learning",
+  "summary": "Popular machine learning algorithms written from scratch in Python, with the math explained and interactive Jupyter demos.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/trekhleb/homemade-machine-learning/blob/963d77f17f66da1f8357cb71e3680fb212e4684d/README.md"
+    ],
+    "sourceCommitSha": "963d77f17f66da1f8357cb71e3680fb212e4684d",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Run in browser",
+        "command": "Open the notebooks in Binder"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Homemade Machine Learning implements classic machine learning algorithms in plain Python so you can see how they work, rather than calling a library one-liner. It covers linear and logistic regression, k-means clustering, anomaly detection with a Gaussian distribution and a multilayer perceptron neural network. Each algorithm has the math explained and a Jupyter demo where you can change the training data and settings and see the results and charts. Explanations mostly follow Andrew Ng's Coursera machine learning course.",
+      "problem": "Library calls hide how algorithms actually work. Writing them from scratch with explanations helps you understand the math.",
+      "whoFor": [
+        "Students learning machine learning",
+        "Developers who want to understand the math",
+        "Teachers looking for demos"
+      ],
+      "whyChoose": "Use it to learn core ML algorithms from the inside, with demos you can run in the browser.",
+      "requirements": [
+        "Python",
+        "Jupyter (only if running locally)"
+      ]
+    },
+    "overview": [
+      "Open any demo in the browser with NBViewer to read it, or in Binder to edit and run it, with nothing to install.",
+      "To run locally, install the dependencies with pip install -r requirements.txt and start jupyter notebook.",
+      "The code is for learning, not production. MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Regression",
+        "body": "Linear and logistic."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Clustering",
+        "body": "K-means."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Anomaly detection",
+        "body": "Gaussian distribution."
+      },
+      {
+        "icon": "file-code",
+        "title": "Neural network",
+        "body": "Multilayer perceptron."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Math explained",
+        "body": "For every algorithm."
+      },
+      {
+        "icon": "shield",
+        "title": "Interactive demos",
+        "body": "Change data and settings in Jupyter."
+      }
+    ],
+    "strengths": [
+      "Clear from-scratch code",
+      "Runs in the browser",
+      "MIT license"
+    ],
+    "limitations": [
+      "Not meant for production use",
+      "Covers a small set of classic algorithms"
+    ],
+    "useCases": [
+      {
+        "title": "Study ML",
+        "body": "Follow the math and code side by side."
+      },
+      {
+        "title": "Teaching",
+        "body": "Show live demos."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Homemade Machine Learning's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/trekhleb/homemade-machine-learning/blob/963d77f17f66da1f8357cb71e3680fb212e4684d/README.md",
+      "prerequisites": [
+        "A browser, or Python with Jupyter"
+      ],
+      "supportedOs": [
+        "Web (Binder)",
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "In the browser",
+          "method": "web",
+          "steps": [
+            {
+              "title": "Open a demo",
+              "body": "Use an algorithm's demo link in the README to view it in NBViewer, or the Binder badge to edit and run the notebooks."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Locally",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/trekhleb/homemade-machine-learning.git\ncd homemade-machine-learning",
+              "lang": "bash"
+            },
+            {
+              "title": "Install dependencies",
+              "body": "A venv is recommended to keep packages separate.",
+              "code": "pip install -r requirements.txt",
+              "lang": "bash"
+            },
+            {
+              "title": "Start Jupyter",
+              "body": "Then open http://localhost:8888.",
+              "code": "jupyter notebook",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Try the linear regression demo",
+          "body": "Open it in Binder and change the training data."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Explore linear regression",
+      "useCase": "The README's interactive demos.",
+      "setup": [
+        "A browser, or the project running locally"
+      ],
+      "steps": [
+        {
+          "title": "Read the explanation",
+          "body": "Open the Linear Regression section for the math."
+        },
+        {
+          "title": "Open the demo",
+          "body": "Launch its notebook in Binder or local Jupyter."
+        },
+        {
+          "title": "Experiment",
+          "body": "Change the data or settings and rerun to see new predictions and charts."
+        }
+      ],
+      "expected": "A trained model with charts that change as you edit the demo.",
+      "nextSteps": [
+        "Try logistic regression",
+        "Run k-means",
+        "Build the multilayer perceptron"
+      ],
+      "sourceUrl": "https://github.com/trekhleb/homemade-machine-learning/blob/963d77f17f66da1f8357cb71e3680fb212e4684d/README.md"
+    },
+    "costs": [
+      {
+        "label": "Homemade Machine Learning",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Can't edit in NBViewer",
+        "solution": "NBViewer is read-only; launch the notebook in Binder to change code.",
+        "sourceUrl": "https://github.com/trekhleb/homemade-machine-learning/blob/963d77f17f66da1f8357cb71e3680fb212e4684d/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning ML algorithms from scratch"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Learning notebooks"
+      },
+      {
+        "label": "Language",
+        "value": "Jupyter Notebook"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Algorithms",
+        "value": "Regression, k-means, anomaly detection, MLP"
+      }
+    ]
+  }
+}

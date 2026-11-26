@@ -1,0 +1,240 @@
+{
+  "fullName": "jundot/omlx",
+  "summary": "Local LLM server for Apple Silicon Macs with continuous batching and a RAM-plus-SSD cache, run from the menu bar.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/jundot/omlx/blob/0848207b9f80d06c775ef708f66a2d961bdae988/README.md"
+    ],
+    "sourceCommitSha": "0848207b9f80d06c775ef708f66a2d961bdae988",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "macOS app",
+        "command": "Download the .dmg from Releases"
+      },
+      {
+        "comment": "Homebrew",
+        "command": "brew install jundot/omlx/omlx"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "oMLX is an LLM inference server for Macs with Apple Silicon, built on MLX. It serves LLMs, vision-language models, embedding models and rerankers through OpenAI- and Anthropic-compatible APIs at localhost:8000. Its KV cache spans a hot RAM tier and a cold SSD tier, so past context can be reused across requests and even after a restart, which helps with long coding sessions in tools like Claude Code. It handles concurrent requests with continuous batching, can serve several models with per-model settings, and is managed from a menu bar app with an admin dashboard and built-in chat.",
+      "problem": "Running local LLMs for real coding work is slow when long contexts are recomputed each time. oMLX caches context on SSD and manages models from the menu bar.",
+      "whoFor": [
+        "Mac users running local LLMs",
+        "Developers pointing Claude Code or other tools at local models",
+        "People serving several models on one Mac"
+      ],
+      "whyChoose": "Pick it for a Mac-native local LLM server with persistent context caching and drop-in OpenAI and Anthropic APIs.",
+      "requirements": [
+        "macOS 15.0+ (Sequoia)",
+        "Apple Silicon (M1 to M5)",
+        "Python 3.11–3.13 for source installs",
+        "Full Xcode only if you build the native custom kernels yourself"
+      ]
+    },
+    "overview": [
+      "Download the .dmg from Releases and drag it to Applications; it auto-updates and includes precompiled kernels. Homebrew and source installs are also available.",
+      "Launch it and the Welcome screen walks you through choosing a model folder, starting the server and downloading a first model.",
+      "Connect any OpenAI-compatible client to http://localhost:8000/v1, or use the built-in chat at /admin/chat. Apache-2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Hot and cold KV cache",
+        "body": "RAM plus SSD, reused across requests."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Continuous batching",
+        "body": "Concurrent requests."
+      },
+      {
+        "icon": "puzzle",
+        "title": "OpenAI and Anthropic APIs",
+        "body": "Chat, messages, embeddings, rerank."
+      },
+      {
+        "icon": "file-code",
+        "title": "Multi-model serving",
+        "body": "With per-model settings."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Menu bar app",
+        "body": "Admin dashboard and chat."
+      },
+      {
+        "icon": "shield",
+        "title": "Model downloader",
+        "body": "Get models in-app."
+      }
+    ],
+    "strengths": [
+      "Built for Apple Silicon",
+      "Context survives restarts",
+      "Easy app install"
+    ],
+    "limitations": [
+      "Mac with Apple Silicon only",
+      "Some model families are much slower without the native custom kernels"
+    ],
+    "useCases": [
+      {
+        "title": "Local coding assistant",
+        "body": "Point Claude Code at a local model."
+      },
+      {
+        "title": "Private API",
+        "body": "Serve models to apps on your Mac."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from oMLX's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/jundot/omlx/blob/0848207b9f80d06c775ef708f66a2d961bdae988/README.md",
+      "prerequisites": [
+        "Apple Silicon Mac on macOS 15+"
+      ],
+      "supportedOs": [
+        "macOS"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "macOS app",
+          "method": "dmg",
+          "steps": [
+            {
+              "title": "Download",
+              "body": "Download the .dmg from the GitHub Releases page and drag oMLX to Applications."
+            },
+            {
+              "title": "Launch",
+              "body": "The Welcome screen guides you through the model directory, server start and first model download."
+            }
+          ]
+        },
+        {
+          "os": "macos",
+          "label": "Homebrew",
+          "method": "brew",
+          "steps": [
+            {
+              "title": "Add the tap",
+              "code": "brew tap jundot/omlx https://github.com/jundot/omlx",
+              "lang": "bash"
+            },
+            {
+              "title": "Install",
+              "body": "Add --with-custom-kernel for native kernels if you have full Xcode.",
+              "code": "brew install jundot/omlx/omlx",
+              "lang": "bash"
+            },
+            {
+              "title": "Start as a background service",
+              "code": "omlx start",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "macos",
+          "label": "From source",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/jundot/omlx.git\ncd omlx",
+              "lang": "bash"
+            },
+            {
+              "title": "Install",
+              "body": "make install builds the native kernels and needs full Xcode with the Metal toolchain; use make install-no-kernels otherwise.",
+              "code": "make install",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Download a model in the app",
+          "body": "Follow the Welcome screen, then chat in the built-in chat."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Serve a local model to your tools",
+      "useCase": "The README's CLI quickstart.",
+      "setup": [
+        "oMLX installed",
+        "Models in a folder such as ~/models"
+      ],
+      "steps": [
+        {
+          "title": "Start the server",
+          "code": "omlx serve --model-dir ~/models",
+          "lang": "bash"
+        },
+        {
+          "title": "Connect a client",
+          "body": "Point any OpenAI-compatible client at http://localhost:8000/v1."
+        },
+        {
+          "title": "Try the chat",
+          "body": "Open http://localhost:8000/admin/chat."
+        }
+      ],
+      "expected": "Local models answering through an OpenAI-compatible API.",
+      "nextSteps": [
+        "Pin everyday models in memory",
+        "Use it with Claude Code via the Anthropic API",
+        "Run as a Homebrew service"
+      ],
+      "sourceUrl": "https://github.com/jundot/omlx/blob/0848207b9f80d06c775ef708f66a2d961bdae988/README.md"
+    },
+    "costs": [
+      {
+        "label": "oMLX",
+        "value": "Free and open source under Apache-2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "xcrun: unable to find utility metal",
+        "solution": "Building kernels needs full Xcode with the Metal toolchain; use the DMG or make install-no-kernels instead.",
+        "sourceUrl": "https://github.com/jundot/omlx/blob/0848207b9f80d06c775ef708f66a2d961bdae988/README.md"
+      },
+      {
+        "problem": "Some models are very slow",
+        "solution": "GLM-5.2, MiniMax M3 and Qwen3.5 need the native custom kernels; check with native_kernel_status().",
+        "sourceUrl": "https://github.com/jundot/omlx/blob/0848207b9f80d06c775ef708f66a2d961bdae988/README.md"
+      }
+    ],
+    "bestFor": [
+      "Local LLM serving on Apple Silicon"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Local LLM server"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "API",
+        "value": "OpenAI and Anthropic compatible"
+      }
+    ]
+  }
+}

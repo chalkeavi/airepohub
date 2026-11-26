@@ -1,0 +1,236 @@
+{
+  "fullName": "nextai-translator/nextai-translator",
+  "summary": "Browser extension and desktop app that uses an LLM to translate, polish or summarize selected text in 55 languages.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/nextai-translator/nextai-translator/blob/39c2c9c6124b5c7ed8137aa7e9ece67ddc16197c/README.md"
+    ],
+    "sourceCommitSha": "39c2c9c6124b5c7ed8137aa7e9ece67ddc16197c",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Download",
+        "command": "Get the Windows or macOS build from the latest release"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "NextAI Translator (formerly OpenAI Translator) is a translation tool powered by large language models. Select text in your browser or on your desktop to translate it, polish its wording, or summarize it, across 55 languages. It streams results, reads text aloud, translates screenshots and keeps a vocabulary book. It works with OpenAI, Azure OpenAI Service, MiniMax and other LLM providers using your own API key.",
+      "problem": "Switching to a separate translation site breaks your flow. This brings LLM-quality translation and rewriting to any text you select.",
+      "whoFor": [
+        "People reading or writing in other languages",
+        "Language learners",
+        "Anyone who wants quick text polishing"
+      ],
+      "whyChoose": "Pick it for one tool across browsers and desktop that translates, polishes and summarizes with the LLM provider you choose.",
+      "requirements": [
+        "An API key from a supported LLM provider such as OpenAI or Azure OpenAI"
+      ]
+    },
+    "overview": [
+      "Get an API key from a supported provider, such as OpenAI or Azure OpenAI Service.",
+      "Install the browser extension from your browser's store, or download the desktop app from the latest GitHub release.",
+      "Enter your API key in the settings and select text to translate. It is licensed AGPL-3.0."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Three modes",
+        "body": "Translate, polish, summarize."
+      },
+      {
+        "icon": "scan-search",
+        "title": "55 languages",
+        "body": "Translate between any of them."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Streaming",
+        "body": "Results appear as they are written."
+      },
+      {
+        "icon": "file-code",
+        "title": "Text-to-speech",
+        "body": "Hear the text read aloud."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Screenshot translation",
+        "body": "Translate text in images."
+      },
+      {
+        "icon": "shield",
+        "title": "Vocabulary book",
+        "body": "Save words and generate memory aids."
+      }
+    ],
+    "strengths": [
+      "Browser and desktop",
+      "Choice of LLM providers",
+      "Free app"
+    ],
+    "limitations": [
+      "Needs your own paid API key",
+      "macOS may block the unsigned app at first"
+    ],
+    "useCases": [
+      {
+        "title": "Read foreign pages",
+        "body": "Translate selected text."
+      },
+      {
+        "title": "Improve writing",
+        "body": "Polish a paragraph."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from NextAI Translator's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/nextai-translator/nextai-translator/blob/39c2c9c6124b5c7ed8137aa7e9ece67ddc16197c/README.md",
+      "prerequisites": [
+        "An LLM provider API key"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Browser extension",
+          "method": "extension",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Install NextAI Translator from your browser's extension store (Chrome, Firefox and others are linked in the README)."
+            },
+            {
+              "title": "Add your key",
+              "body": "Click the extension icon and enter your API key in the settings that open."
+            },
+            {
+              "title": "Use it",
+              "body": "Refresh the page, then select text to translate."
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Windows app",
+          "method": "exe",
+          "steps": [
+            {
+              "title": "Download",
+              "body": "Download the .exe installer from the latest GitHub release."
+            },
+            {
+              "title": "Install",
+              "body": "Double-click it. If Windows warns it is unsafe, choose More Info, then Run Anyway."
+            }
+          ]
+        },
+        {
+          "os": "macos",
+          "label": "macOS app",
+          "method": "dmg",
+          "steps": [
+            {
+              "title": "Download",
+              "body": "Download the .dmg for your chip from the latest release; use the aarch64 version on Apple Silicon."
+            },
+            {
+              "title": "Install",
+              "body": "Double-click the file to install it."
+            },
+            {
+              "title": "If macOS blocks it",
+              "code": "sudo xattr -d com.apple.quarantine /Applications/NextAI\\ Translator.app",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Translate a selection",
+          "body": "Select a sentence on a web page and open the translator."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Set up the browser extension",
+      "useCase": "The README's browser extension steps.",
+      "setup": [
+        "An API key from OpenAI or another supported provider"
+      ],
+      "steps": [
+        {
+          "title": "Install the extension",
+          "body": "From your browser's extension store."
+        },
+        {
+          "title": "Enter your API key",
+          "body": "Click the NextAI Translator icon and paste the key into the settings."
+        },
+        {
+          "title": "Translate, polish or summarize",
+          "body": "Refresh a page, select text, and pick a mode."
+        }
+      ],
+      "expected": "Streaming translations of the text you select.",
+      "nextSteps": [
+        "Try polishing mode",
+        "Install the desktop app",
+        "Use screenshot translation"
+      ],
+      "sourceUrl": "https://github.com/nextai-translator/nextai-translator/blob/39c2c9c6124b5c7ed8137aa7e9ece67ddc16197c/README.md"
+    },
+    "costs": [
+      {
+        "label": "NextAI Translator",
+        "value": "Free and open source under AGPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "LLM provider",
+        "value": "You pay your provider for API usage.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "macOS says the developer cannot be verified",
+        "solution": "Open Settings, Privacy and Security, and click Open Anyway, or remove the quarantine flag with the xattr command.",
+        "sourceUrl": "https://github.com/nextai-translator/nextai-translator/blob/39c2c9c6124b5c7ed8137aa7e9ece67ddc16197c/README.md"
+      },
+      {
+        "problem": "Permission prompt every launch",
+        "solution": "Remove and re-add NextAI Translator under Privacy and Security in macOS settings.",
+        "sourceUrl": "https://github.com/nextai-translator/nextai-translator/blob/39c2c9c6124b5c7ed8137aa7e9ece67ddc16197c/README.md"
+      }
+    ],
+    "bestFor": [
+      "LLM translation of selected text"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Browser extension and desktop app"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "Languages",
+        "value": "55"
+      }
+    ]
+  }
+}

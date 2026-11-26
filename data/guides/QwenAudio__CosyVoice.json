@@ -1,0 +1,243 @@
+{
+  "fullName": "QwenAudio/CosyVoice",
+  "summary": "Multilingual LLM-based text-to-speech that can match a voice from a short sample, with streaming output and instruction control.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/QwenAudio/CosyVoice/blob/074ca6dc9e80a2f424f1f74b48bdd7d3fea531cc/README.md"
+    ],
+    "sourceCommitSha": "074ca6dc9e80a2f424f1f74b48bdd7d3fea531cc",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Clone",
+        "command": "git clone --recursive https://github.com/FunAudioLLM/CosyVoice.git"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "CosyVoice is a family of text-to-speech models built on large language models, with code for inference, training and deployment. The latest, Fun-CosyVoice 3.0, targets zero-shot multilingual speech in 9 languages (Chinese, English, Japanese, Korean, German, Spanish, French, Italian, Russian) plus 18+ Chinese dialects and accents. It supports streaming both text in and audio out with latency as low as 150 ms per the README, pronunciation fixes with Pinyin or phonemes, and instructions for language, dialect, emotion, speed and volume.",
+      "problem": "Natural, controllable speech in many languages usually needs expensive services. CosyVoice provides open models you can run and deploy yourself.",
+      "whoFor": [
+        "Developers adding speech to apps",
+        "Teams deploying their own TTS service",
+        "Speech researchers"
+      ],
+      "whyChoose": "Pick it for multilingual, low-latency TTS with dialect support and deployment options like vLLM, Docker and TensorRT-LLM.",
+      "requirements": [
+        "Conda with Python 3.10",
+        "NVIDIA GPU recommended",
+        "sox (install if you hit compatibility issues)"
+      ]
+    },
+    "overview": [
+      "Clone with submodules, create a Python 3.10 Conda environment and install requirements.txt.",
+      "Download pretrained models such as Fun-CosyVoice3-0.5B from ModelScope or Hugging Face into pretrained_models/.",
+      "Run python example.py to try each model, or start the web demo. Apache-2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "9 languages",
+        "body": "Plus 18+ Chinese dialects and accents."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Zero-shot voices",
+        "body": "Speak in a voice from a sample."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Bi-streaming",
+        "body": "Text-in and audio-out streaming, about 150 ms latency."
+      },
+      {
+        "icon": "file-code",
+        "title": "Instruct control",
+        "body": "Emotion, speed, volume, dialect."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Pronunciation inpainting",
+        "body": "Pinyin and CMU phonemes."
+      },
+      {
+        "icon": "shield",
+        "title": "Deployment",
+        "body": "vLLM, Docker gRPC/FastAPI, TensorRT-LLM."
+      }
+    ],
+    "strengths": [
+      "Strong multilingual coverage",
+      "Low-latency streaming",
+      "Production deployment paths"
+    ],
+    "limitations": [
+      "Setup has many steps and large model downloads",
+      "vLLM needs specific versions",
+      "Some optional parts are Linux x86-64 only"
+    ],
+    "useCases": [
+      {
+        "title": "Voice assistants",
+        "body": "Low-latency streaming speech."
+      },
+      {
+        "title": "Dubbing and narration",
+        "body": "Multilingual audio."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from CosyVoice's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/QwenAudio/CosyVoice/blob/074ca6dc9e80a2f424f1f74b48bdd7d3fea531cc/README.md",
+      "prerequisites": [
+        "Conda",
+        "Python 3.10",
+        "NVIDIA GPU recommended"
+      ],
+      "supportedOs": [
+        "Linux",
+        "Windows",
+        "macOS"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Conda (from source)",
+          "method": "conda",
+          "steps": [
+            {
+              "title": "Clone with submodules",
+              "body": "If submodules fail to download, run git submodule update --init --recursive inside the folder until it succeeds.",
+              "code": "git clone --recursive https://github.com/FunAudioLLM/CosyVoice.git\ncd CosyVoice",
+              "lang": "bash"
+            },
+            {
+              "title": "Create the environment",
+              "code": "conda create -n cosyvoice -y python=3.10\nconda activate cosyvoice",
+              "lang": "bash"
+            },
+            {
+              "title": "Install dependencies",
+              "body": "The README's command adds an Aliyun mirror; plain pip install -r requirements.txt works outside China.",
+              "code": "pip install -r requirements.txt",
+              "lang": "bash"
+            },
+            {
+              "title": "Download a model",
+              "body": "In Python: from huggingface_hub import snapshot_download; snapshot_download('FunAudioLLM/Fun-CosyVoice3-0.5B-2512', local_dir='pretrained_models/Fun-CosyVoice3-0.5B'). ModelScope works too."
+            },
+            {
+              "title": "Run the examples",
+              "code": "python example.py",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Docker service",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Build the image",
+              "code": "cd runtime/python\ndocker build -t cosyvoice:v1.0 .",
+              "lang": "bash"
+            },
+            {
+              "title": "Run a server",
+              "body": "The README shows docker run commands for gRPC or FastAPI servers on port 50000 with the NVIDIA runtime."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run example.py",
+          "body": "Generate speech with each downloaded model."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Try CosyVoice in the web demo",
+      "useCase": "The README's web demo command.",
+      "setup": [
+        "Environment installed",
+        "CosyVoice-300M downloaded to pretrained_models/"
+      ],
+      "steps": [
+        {
+          "title": "Start the demo",
+          "code": "python3 webui.py --port 50000 --model_dir pretrained_models/CosyVoice-300M",
+          "lang": "bash"
+        },
+        {
+          "title": "Open it",
+          "body": "Visit port 50000 in your browser."
+        },
+        {
+          "title": "Switch models",
+          "body": "Use CosyVoice-300M-SFT or CosyVoice-300M-Instruct for those inference modes."
+        }
+      ],
+      "expected": "Speech generated from your text in the browser.",
+      "nextSteps": [
+        "Use Fun-CosyVoice3-0.5B for best quality",
+        "Speed up with vLLM",
+        "Deploy with Docker"
+      ],
+      "sourceUrl": "https://github.com/QwenAudio/CosyVoice/blob/074ca6dc9e80a2f424f1f74b48bdd7d3fea531cc/README.md"
+    },
+    "costs": [
+      {
+        "label": "CosyVoice",
+        "value": "Free and open source under Apache-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "GPU",
+        "value": "Your own hardware.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "sox errors",
+        "solution": "Install sox and libsox-dev (Ubuntu) or sox and sox-devel (CentOS).",
+        "sourceUrl": "https://github.com/QwenAudio/CosyVoice/blob/074ca6dc9e80a2f424f1f74b48bdd7d3fea531cc/README.md"
+      },
+      {
+        "problem": "vLLM fails",
+        "solution": "Use vLLM 0.9.0 or 0.11.x+ in a separate cloned environment; other versions are unsupported or untested.",
+        "sourceUrl": "https://github.com/QwenAudio/CosyVoice/blob/074ca6dc9e80a2f424f1f74b48bdd7d3fea531cc/README.md"
+      },
+      {
+        "problem": "Submodule clone fails",
+        "solution": "Run git submodule update --init --recursive until it succeeds.",
+        "sourceUrl": "https://github.com/QwenAudio/CosyVoice/blob/074ca6dc9e80a2f424f1f74b48bdd7d3fea531cc/README.md"
+      }
+    ],
+    "bestFor": [
+      "Multilingual streaming TTS"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Text-to-speech models"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Languages",
+        "value": "9 plus Chinese dialects"
+      }
+    ]
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "fullName": "PaddlePaddle/Paddle",
+  "summary": "Baidu's open-source deep learning framework for training and deploying models, including large models, across many chip types.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/PaddlePaddle/Paddle/blob/2306fdddbbc86c51975ba579adacdc04e8c434ab/README.md"
+    ],
+    "sourceCommitSha": "2306fdddbbc86c51975ba579adacdc04e8c434ab",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "Follow the Quick Install guide at paddlepaddle.org.cn"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "PaddlePaddle is a deep learning framework that originated at Baidu and has been open source since 2016. It covers the core framework plus model libraries, development kits and tools. The 3.x generation unifies dynamic and static graphs with automatic parallel training, uses one framework for both training and inference of large models, adds high-order differentiation for scientific computing, includes a neural network compiler, and adapts to many hardware chip types through standard interfaces.",
+      "problem": "Training and deploying big models across different hardware usually takes separate tools. PaddlePaddle aims to cover the whole flow in one framework.",
+      "whoFor": [
+        "ML engineers, especially in China's ecosystem",
+        "Teams training large models across many chips",
+        "Researchers in scientific computing"
+      ],
+      "whyChoose": "Pick it if you use Baidu's model ecosystem or need broad support for domestic and varied AI chips.",
+      "requirements": [
+        "See the official Quick Install guide for supported Python, OS and hardware"
+      ]
+    },
+    "overview": [
+      "The README sends installation to the official Quick Install page, which gives the right command for your OS, Python and hardware.",
+      "Latest release noted in the README is 3.3; nightly builds are also available.",
+      "Guides, practice tutorials and an API reference are on paddlepaddle.org.cn in English and Chinese. Apache-2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Unified dynamic/static graphs",
+        "body": "With automatic parallelism."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Train and infer large models",
+        "body": "One framework for both."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Scientific computing",
+        "body": "High-order autodiff, complex numbers, FFT."
+      },
+      {
+        "icon": "file-code",
+        "title": "Neural network compiler",
+        "body": "Balances flexibility and speed."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Multi-chip support",
+        "body": "Pluggable hardware adaptation."
+      }
+    ],
+    "strengths": [
+      "Industrial-scale framework",
+      "Broad hardware support",
+      "English and Chinese docs"
+    ],
+    "limitations": [
+      "Install steps live on the website, not in the README",
+      "Smaller English-language community than PyTorch"
+    ],
+    "useCases": [
+      {
+        "title": "Large model training",
+        "body": "Distributed training with auto parallelism."
+      },
+      {
+        "title": "Industrial deployment",
+        "body": "Same framework for inference."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from PaddlePaddle's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/PaddlePaddle/Paddle/blob/2306fdddbbc86c51975ba579adacdc04e8c434ab/README.md",
+      "prerequisites": [
+        "Python"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Official Quick Install",
+          "method": "docs",
+          "steps": [
+            {
+              "title": "Open Quick Install",
+              "body": "Go to paddlepaddle.org.cn/install/quick and choose your OS, install method, compute platform and version."
+            },
+            {
+              "title": "Run the command it gives",
+              "body": "Copy the generated install command for a stable or nightly release."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Read the Guides",
+          "body": "Start with the deep learning basics guide in the official docs."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Get started with PaddlePaddle",
+      "useCase": "Use the official docs the README links to.",
+      "setup": [
+        "PaddlePaddle installed with the Quick Install guide"
+      ],
+      "steps": [
+        {
+          "title": "Open the Guides",
+          "body": "Visit the English guides on paddlepaddle.org.cn."
+        },
+        {
+          "title": "Learn the basics",
+          "body": "Follow how to implement deep learning basics with PaddlePaddle."
+        },
+        {
+          "title": "Check the API reference",
+          "body": "Look up layers and functions as you build."
+        }
+      ],
+      "expected": "A first model built with PaddlePaddle following the official guide.",
+      "nextSteps": [
+        "Try the practice tutorials",
+        "Explore distributed training"
+      ],
+      "sourceUrl": "https://github.com/PaddlePaddle/Paddle/blob/2306fdddbbc86c51975ba579adacdc04e8c434ab/README.md"
+    },
+    "costs": [
+      {
+        "label": "PaddlePaddle",
+        "value": "Free and open source under Apache-2.0.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install problems",
+        "solution": "Use the exact command from Quick Install for your hardware, and check GitHub Issues for install issues.",
+        "sourceUrl": "https://github.com/PaddlePaddle/Paddle/blob/2306fdddbbc86c51975ba579adacdc04e8c434ab/README.md"
+      }
+    ],
+    "bestFor": [
+      "Deep learning on Baidu's ecosystem and varied chips"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Deep learning framework"
+      },
+      {
+        "label": "Language",
+        "value": "C++"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Latest release (per README)",
+        "value": "3.3"
+      }
+    ]
+  }
+}

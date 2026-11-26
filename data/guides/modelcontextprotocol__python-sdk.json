@@ -1,0 +1,208 @@
+{
+  "fullName": "modelcontextprotocol/python-sdk",
+  "summary": "The official Python SDK for the Model Context Protocol: build MCP servers that give AI apps tools and data, or clients that use them.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/modelcontextprotocol/python-sdk/blob/77001c96f9507be0f4d009b83210a384a5e08bda/README.md"
+    ],
+    "sourceCommitSha": "77001c96f9507be0f4d009b83210a384a5e08bda",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "uv add \"mcp[cli]\""
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "The MCP Python SDK is the official Python implementation of the Model Context Protocol, a standard way for LLM applications to connect to tools and data. You can build MCP servers that expose tools, resources and prompts to any MCP host, and MCP clients that connect to any server. Type-hinted Python functions become tools without writing JSON schemas or protocol code, and it supports the stdio, Streamable HTTP and SSE transports.",
+      "problem": "Connecting AI apps to your own tools usually means custom glue code for each app. MCP gives one standard, and this SDK makes a Python server a few lines long.",
+      "whoFor": [
+        "Python developers giving AI assistants new tools",
+        "Teams exposing internal data to LLM apps",
+        "Developers building MCP clients"
+      ],
+      "whyChoose": "Use the official SDK to write MCP servers and clients in Python with very little boilerplate.",
+      "requirements": [
+        "Python 3.11+"
+      ]
+    },
+    "overview": [
+      "Install with uv add \"mcp[cli]\" or pip install \"mcp[cli]\"; the cli extra adds the mcp command (mcp dev, mcp run, mcp install).",
+      "Write a server with MCPServer and decorate functions with @mcp.tool() or @mcp.resource().",
+      "Test it in the MCP Inspector with uv run mcp dev server.py. It is MIT licensed, and full docs live at py.sdk.modelcontextprotocol.io."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Servers",
+        "body": "Expose tools, resources and prompts."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Clients",
+        "body": "Connect to any MCP server."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Type hints as schema",
+        "body": "No hand-written JSON Schema."
+      },
+      {
+        "icon": "file-code",
+        "title": "All transports",
+        "body": "stdio, Streamable HTTP, SSE."
+      },
+      {
+        "icon": "git-compare",
+        "title": "mcp CLI",
+        "body": "dev, run and install commands."
+      },
+      {
+        "icon": "shield",
+        "title": "Inspector support",
+        "body": "Try tools interactively."
+      }
+    ],
+    "strengths": [
+      "Official SDK",
+      "Minimal code for a working server",
+      "MIT license"
+    ],
+    "limitations": [
+      "Requires Python 3.11+",
+      "v2 has a migration guide if you're on older code"
+    ],
+    "useCases": [
+      {
+        "title": "Custom tools for assistants",
+        "body": "Let an AI app call your Python functions."
+      },
+      {
+        "title": "Data access",
+        "body": "Serve resources from your systems."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from MCP Python SDK's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/modelcontextprotocol/python-sdk/blob/77001c96f9507be0f4d009b83210a384a5e08bda/README.md",
+      "prerequisites": [
+        "Python 3.11+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "uv",
+          "method": "uv",
+          "steps": [
+            {
+              "title": "Add to your project",
+              "code": "uv add \"mcp[cli]\"",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Install plain mcp instead if you don't need the command-line tool.",
+              "code": "pip install \"mcp[cli]\"",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Write a tiny server",
+          "body": "Create a server with one add tool and open it in the MCP Inspector."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Build a server in 15 lines",
+      "useCase": "The README's server and client examples.",
+      "setup": [
+        "mcp[cli] installed"
+      ],
+      "steps": [
+        {
+          "title": "Create server.py",
+          "body": "from mcp.server import MCPServer; mcp = MCPServer(\"Demo\"); add a function add(a: int, b: int) decorated with @mcp.tool()."
+        },
+        {
+          "title": "Open it in the Inspector",
+          "code": "uv run mcp dev server.py",
+          "lang": "bash"
+        },
+        {
+          "title": "Call the tool",
+          "body": "Call add with a=1 and b=2 to get 3."
+        },
+        {
+          "title": "Serve over HTTP (optional)",
+          "code": "uv run mcp run server.py --transport streamable-http",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A working MCP server whose tool returns results in the Inspector.",
+      "nextSteps": [
+        "Connect with the Client class",
+        "Add a resource",
+        "Read the Get started guide"
+      ],
+      "sourceUrl": "https://github.com/modelcontextprotocol/python-sdk/blob/77001c96f9507be0f4d009b83210a384a5e08bda/README.md"
+    },
+    "costs": [
+      {
+        "label": "MCP Python SDK",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "mcp command not found",
+        "solution": "Install the cli extra: mcp[cli].",
+        "sourceUrl": "https://github.com/modelcontextprotocol/python-sdk/blob/77001c96f9507be0f4d009b83210a384a5e08bda/README.md"
+      },
+      {
+        "problem": "Install fails",
+        "solution": "Check you are on Python 3.11 or newer.",
+        "sourceUrl": "https://github.com/modelcontextprotocol/python-sdk/blob/77001c96f9507be0f4d009b83210a384a5e08bda/README.md"
+      }
+    ],
+    "bestFor": [
+      "Building MCP servers in Python"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "SDK"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "pip install \"mcp[cli]\""
+      }
+    ]
+  }
+}

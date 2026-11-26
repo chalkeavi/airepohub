@@ -1,0 +1,224 @@
+{
+  "fullName": "lexmount/moli",
+  "summary": "Lightweight headless browser for AI agents, written in Rust, that fetches pages as Markdown and only renders pixels when asked.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/lexmount/moli/blob/f8dab9e91c51505e5dcfdf64a4c29b1d834d6c9d/README.md"
+    ],
+    "sourceCommitSha": "f8dab9e91c51505e5dcfdf64a4c29b1d834d6c9d",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install (macOS/Linux)",
+        "command": "curl --proto '=https' --tlsv1.2 -fsSL https://github.com/lexmount/moli/releases/latest/download/moli-installer.sh | sh"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Moli is an open-source headless browser built for AI agents. It runs real JavaScript, DOM, CSS, networking and storage, but skips layout and painting unless a task needs them, which keeps it fast and light. Agents can use it to fetch pages as Markdown or a compact semantic tree, take screenshots or PDFs on demand, and automate browsing through CDP, WebDriver Classic or WebDriver BiDi, so tools like Playwright can connect to it directly.",
+      "problem": "Full browsers spend lots of CPU and memory rendering pages that an agent only needs to read. Moli works structure-first and renders only on demand.",
+      "whoFor": [
+        "Developers building web-browsing AI agents",
+        "Teams running large web fetch or crawl jobs",
+        "Playwright users wanting a lighter browser"
+      ],
+      "whyChoose": "Choose it when your agent mostly reads and interacts with pages and you want lower resource use than a full Chromium.",
+      "requirements": [
+        "Linux, macOS or Windows"
+      ]
+    },
+    "overview": [
+      "Install the prebuilt binary with the shell installer on Linux or macOS, or the PowerShell installer on Windows.",
+      "Run moli fetch to turn a page into Markdown or a semantic tree; add --layout for screenshots or PDFs.",
+      "Run moli serve to start an automation endpoint that speaks CDP and WebDriver. Licensed MIT or Apache-2.0."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Page extraction",
+        "body": "Markdown or compact semantic tree."
+      },
+      {
+        "icon": "scan-search",
+        "title": "On-demand rendering",
+        "body": "Layout and paint only when needed."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Screenshots and PDF",
+        "body": "With --layout."
+      },
+      {
+        "icon": "file-code",
+        "title": "Standard protocols",
+        "body": "CDP, WebDriver Classic, WebDriver BiDi."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Playwright compatible",
+        "body": "Connect over CDP."
+      },
+      {
+        "icon": "shield",
+        "title": "Cost controls",
+        "body": "Media and persistence are opt-in."
+      }
+    ],
+    "strengths": [
+      "Low resource use",
+      "Standard automation protocols",
+      "Cross-platform"
+    ],
+    "limitations": [
+      "Visual features must be switched on explicitly",
+      "Optional images, fonts and media are not fetched by default"
+    ],
+    "useCases": [
+      {
+        "title": "Agent web reading",
+        "body": "Fetch pages as Markdown for an LLM."
+      },
+      {
+        "title": "Browser automation",
+        "body": "Run Playwright scripts against Moli."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Moli's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/lexmount/moli/blob/f8dab9e91c51505e5dcfdf64a4c29b1d834d6c9d/README.md",
+      "prerequisites": [
+        "None beyond a supported OS"
+      ],
+      "supportedOs": [
+        "Linux",
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Installer script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "curl --proto '=https' --tlsv1.2 -fsSL \\\n  https://github.com/lexmount/moli/releases/latest/download/moli-installer.sh | sh",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Windows PowerShell",
+          "method": "powershell",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "powershell -ExecutionPolicy ByPass -c \"irm https://github.com/lexmount/moli/releases/latest/download/moli-installer.ps1 | iex\"",
+              "lang": "powershell"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Let your agent install it",
+          "method": "skills",
+          "steps": [
+            {
+              "title": "Give your agent the prompt",
+              "body": "Ask your AI agent to install the skills under github.com/lexmount/moli/tree/main/skills and follow them to install the latest prebuilt Moli binary, as the README's quick start shows."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Fetch a page as Markdown",
+          "body": "Run moli fetch on example.com."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Read and automate a page with Moli",
+      "useCase": "The README's CLI and Playwright examples.",
+      "setup": [
+        "Moli installed"
+      ],
+      "steps": [
+        {
+          "title": "Extract a page",
+          "code": "moli fetch --dump markdown --wait done https://example.com",
+          "lang": "bash"
+        },
+        {
+          "title": "Take a screenshot",
+          "code": "moli fetch --layout --dump screenshot https://example.com > page.png",
+          "lang": "bash"
+        },
+        {
+          "title": "Start the automation server",
+          "code": "moli serve",
+          "lang": "bash"
+        },
+        {
+          "title": "Connect Playwright",
+          "body": "chromium.connectOverCDP(\"http://127.0.0.1:9222\") then use the page as usual."
+        }
+      ],
+      "expected": "Page content as Markdown, a screenshot, and a Playwright script driving Moli.",
+      "nextSteps": [
+        "Try the semantic tree output",
+        "Enable --layout for coordinate input",
+        "Explore the WebMCP playground"
+      ],
+      "sourceUrl": "https://github.com/lexmount/moli/blob/f8dab9e91c51505e5dcfdf64a4c29b1d834d6c9d/README.md"
+    },
+    "costs": [
+      {
+        "label": "Moli",
+        "value": "Free and open source under MIT or Apache-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Lexmount Browser",
+        "value": "Optional managed cloud runtime; Moli works fully without it.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Screenshots or coordinates don't work",
+        "solution": "Start with --layout; real layout is off by default.",
+        "sourceUrl": "https://github.com/lexmount/moli/blob/f8dab9e91c51505e5dcfdf64a4c29b1d834d6c9d/README.md"
+      },
+      {
+        "problem": "Images or fonts missing",
+        "solution": "Add --resource or a specific flag such as --image or --font.",
+        "sourceUrl": "https://github.com/lexmount/moli/blob/f8dab9e91c51505e5dcfdf64a4c29b1d834d6c9d/README.md"
+      }
+    ],
+    "bestFor": [
+      "Lightweight browsing for AI agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Headless browser"
+      },
+      {
+        "label": "Language",
+        "value": "Rust"
+      },
+      {
+        "label": "License",
+        "value": "MIT or Apache-2.0"
+      },
+      {
+        "label": "Protocols",
+        "value": "CDP, WebDriver Classic, WebDriver BiDi"
+      }
+    ]
+  }
+}

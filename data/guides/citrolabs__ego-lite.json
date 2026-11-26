@@ -1,0 +1,215 @@
+{
+  "fullName": "citrolabs/ego-lite",
+  "summary": "A browser where AI agents like Claude Code or Codex do web tasks in their own isolated spaces while you keep browsing.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/citrolabs/ego-lite/blob/56589ea8b98fd3b17a5d2316bfd8ff7b803d3293/README.md"
+    ],
+    "sourceCommitSha": "56589ea8b98fd3b17a5d2316bfd8ff7b803d3293",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Add the skill",
+        "command": "npx skills add citrolabs/ego-lite"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "ego lite is a browser built for working alongside AI agents. Each agent runs its browser tasks in its own Space, an isolated workspace inside the same browser, so it never takes over your tabs. Agents connect through the ego-browser skill, which works with Claude Code, Codex, Cursor or a custom agent CLI and exposes page snapshots and actions like fill and click as JavaScript tools. On first launch it can import your Chrome data so agents can use your existing logins. This repository holds the skill and docs under MIT; the browser app is a separate free download.",
+      "problem": "Browser automation tools usually drive a separate browser, lose your logins, or fight you for control. ego lite gives agents their own space in a browser you also use.",
+      "whoFor": [
+        "People using Claude Code, Codex or Cursor for web tasks",
+        "Developers running parallel scraping or research jobs",
+        "Users who want agents to use their own logins"
+      ],
+      "whyChoose": "Pick it when you want agents to work in a real browser with your sessions, in parallel, without interrupting your own browsing.",
+      "requirements": [
+        "macOS or Windows (Linux is on the roadmap)",
+        "An agent CLI such as Claude Code, Codex or Cursor"
+      ]
+    },
+    "overview": [
+      "Download the ego lite app, or add the ego-browser skill with npx skills add citrolabs/ego-lite and let your agent walk you through installing the app.",
+      "On first launch, choose whether to migrate your Chrome data, which lets agents use your logins, cookies and extensions.",
+      "In your agent CLI, type /ego-browser and describe a task in plain language."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Spaces",
+        "body": "An isolated workspace per agent."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Parallel tasks",
+        "body": "Several agents at once."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Any agent CLI",
+        "body": "Claude Code, Codex, Cursor or custom."
+      },
+      {
+        "icon": "file-code",
+        "title": "Page snapshots",
+        "body": "Pages turned into structured text."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Code-based tools",
+        "body": "Agents call JavaScript functions directly."
+      },
+      {
+        "icon": "shield",
+        "title": "Local data",
+        "body": "Browsing data stays on your device."
+      }
+    ],
+    "strengths": [
+      "Agents don't take over your browser",
+      "Uses your existing logins",
+      "Free"
+    ],
+    "limitations": [
+      "No Linux yet",
+      "The browser app itself is a separate download, not the MIT code in this repo",
+      "Sharing your logins with agents carries risk; review what they do"
+    ],
+    "useCases": [
+      {
+        "title": "Lead research",
+        "body": "Agents gather info across sites in parallel."
+      },
+      {
+        "title": "Logged-in tasks",
+        "body": "Act on sites where you are signed in."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from ego lite's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/citrolabs/ego-lite/blob/56589ea8b98fd3b17a5d2316bfd8ff7b803d3293/README.md",
+      "prerequisites": [
+        "macOS or Windows",
+        "An agent CLI"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Skill with npx",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Add the skill",
+              "code": "npx skills add citrolabs/ego-lite",
+              "lang": "bash"
+            },
+            {
+              "title": "Run a browser task",
+              "body": "The first time your agent runs a browser task, it guides you through installing the ego lite app."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Download the app",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download and install",
+              "body": "Download ego lite from its website (lite.ego.app) and open it to install. It adds the ego-browser skill to your agents' skills folders."
+            },
+            {
+              "title": "First launch",
+              "body": "Choose whether to migrate your Chrome data."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Give your agent a web task",
+          "body": "Type /ego-browser in your agent CLI followed by what you want done."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your first agent browser task",
+      "useCase": "The README's quick start.",
+      "setup": [
+        "ego lite installed",
+        "An agent CLI such as Claude Code"
+      ],
+      "steps": [
+        {
+          "title": "Start the skill",
+          "body": "In your agent CLI, type /ego-browser followed by a space."
+        },
+        {
+          "title": "Describe the task",
+          "body": "Write what you want in plain language, such as reading a page and summarizing it."
+        },
+        {
+          "title": "Watch it work",
+          "body": "The agent opens the page in its own Space, reads a snapshot, acts, and reports back while your tabs stay untouched."
+        }
+      ],
+      "expected": "The agent completes the task in its own Space and reports the result.",
+      "nextSteps": [
+        "Run several tasks in parallel Spaces",
+        "Read the docs at lite.ego.app/document"
+      ],
+      "sourceUrl": "https://github.com/citrolabs/ego-lite/blob/56589ea8b98fd3b17a5d2316bfd8ff7b803d3293/README.md"
+    },
+    "costs": [
+      {
+        "label": "ego lite",
+        "value": "Free; this repo is MIT licensed.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent",
+        "value": "Your agent CLI's own subscription or API costs.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Agent can't sign in to sites",
+        "solution": "Migrate your Chrome data on first launch, or sign in inside ego lite.",
+        "sourceUrl": "https://github.com/citrolabs/ego-lite/blob/56589ea8b98fd3b17a5d2316bfd8ff7b803d3293/README.md"
+      },
+      {
+        "problem": "Linux",
+        "solution": "Not supported yet; it is on the roadmap.",
+        "sourceUrl": "https://github.com/citrolabs/ego-lite/blob/56589ea8b98fd3b17a5d2316bfd8ff7b803d3293/README.md"
+      }
+    ],
+    "bestFor": [
+      "Running agent web tasks alongside your own browsing"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent browser and skill"
+      },
+      {
+        "label": "Language",
+        "value": "JavaScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT (repo contents)"
+      },
+      {
+        "label": "Platforms",
+        "value": "macOS, Windows"
+      }
+    ]
+  }
+}

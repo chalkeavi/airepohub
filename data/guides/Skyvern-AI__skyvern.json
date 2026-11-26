@@ -1,0 +1,251 @@
+{
+  "fullName": "Skyvern-AI/skyvern",
+  "summary": "Automates browser workflows with LLMs and computer vision, so tasks keep working on new sites and after layout changes.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Skyvern-AI/skyvern/blob/0f3743498f252c4cd848339b8fdfa8fc72a76fe3/README.md"
+    ],
+    "sourceCommitSha": "0f3743498f252c4cd848339b8fdfa8fc72a76fe3",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install \"skyvern[server]\""
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Skyvern automates tasks in a web browser using large language models and computer vision instead of fixed CSS or XPath selectors. A group of agents looks at the page, plans and carries out actions, so one workflow can work on websites it has never seen and keep working when layouts change. It offers a Playwright-compatible Python SDK that adds AI commands such as act, extract, validate and natural-language clicks, plus a local server and web UI. A managed Skyvern Cloud version is also available.",
+      "problem": "Traditional browser scripts break whenever a site's layout changes and need custom code per site. Skyvern reasons about the page visually instead.",
+      "whoFor": [
+        "Developers automating form filling and web tasks",
+        "Ops teams running repetitive browser workflows",
+        "Playwright users wanting AI fallbacks"
+      ],
+      "whyChoose": "Choose it when you need browser automation that adapts to unfamiliar or changing sites, self-hosted or in the cloud.",
+      "requirements": [
+        "Python 3.11, 3.12 or 3.13 (pip path)",
+        "On Windows: Rust and VS Code C++ build tools with the Windows SDK",
+        "An LLM provider API key",
+        "Or Docker Desktop for the full containerized setup"
+      ]
+    },
+    "overview": [
+      "Install with pip install \"skyvern[server]\" and run skyvern quickstart; it uses a local SQLite database by default.",
+      "The pip package has no web UI; for the UI, use Docker Compose, which runs Postgres, the API and the UI together at localhost:8080.",
+      "Use the Python SDK to mix normal Playwright calls with AI actions. AGPL-3.0 licensed; Skyvern Cloud is the hosted option."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Vision plus LLM",
+        "body": "Acts on pages without selectors."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Resilient",
+        "body": "Survives layout changes."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Playwright-compatible SDK",
+        "body": "Add AI to existing scripts."
+      },
+      {
+        "icon": "file-code",
+        "title": "AI commands",
+        "body": "act, extract, validate, prompt."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Web UI",
+        "body": "Run tasks in the browser (Docker or source)."
+      },
+      {
+        "icon": "shield",
+        "title": "Use your own Chrome",
+        "body": "Connect via remote debugging."
+      }
+    ],
+    "strengths": [
+      "Works on unseen sites",
+      "Mix code and AI",
+      "Self-hostable"
+    ],
+    "limitations": [
+      "LLM calls add cost and latency",
+      "pip install has no web UI",
+      "AGPL license"
+    ],
+    "useCases": [
+      {
+        "title": "Form filling",
+        "body": "Submit forms across many sites."
+      },
+      {
+        "title": "Data extraction",
+        "body": "Pull structured data with a schema."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Skyvern's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Skyvern-AI/skyvern/blob/0f3743498f252c4cd848339b8fdfa8fc72a76fe3/README.md",
+      "prerequisites": [
+        "Python 3.11–3.13 or Docker Desktop",
+        "LLM API key"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "body": "Without [server] you get only the client SDK.",
+              "code": "pip install \"skyvern[server]\"",
+              "lang": "bash"
+            },
+            {
+              "title": "Run the quickstart",
+              "code": "skyvern quickstart",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker Compose (with UI)",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/skyvern-ai/skyvern.git && cd skyvern",
+              "lang": "bash"
+            },
+            {
+              "title": "Add your LLM key",
+              "body": "Edit .env and add your LLM API key.",
+              "code": "cp .env.example .env",
+              "lang": "bash"
+            },
+            {
+              "title": "Start everything",
+              "body": "Then open http://localhost:8080.",
+              "code": "docker compose up -d",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Skyvern Cloud",
+          "method": "cloud",
+          "steps": [
+            {
+              "title": "Create an account",
+              "body": "Sign up at app.skyvern.com to run Skyvern without managing infrastructure."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run a task in the UI",
+          "body": "Start the Docker setup and describe a task at localhost:8080."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Add AI actions to a Playwright script",
+      "useCase": "The README's Python SDK example.",
+      "setup": [
+        "skyvern installed",
+        "LLM key configured"
+      ],
+      "steps": [
+        {
+          "title": "Start locally",
+          "body": "from skyvern import Skyvern; skyvern = Skyvern.local()."
+        },
+        {
+          "title": "Get a page",
+          "body": "browser = await skyvern.launch_cloud_browser(); page = await browser.get_working_page(); await page.goto(\"https://example.com\")."
+        },
+        {
+          "title": "Use AI actions",
+          "body": "Mix normal calls like page.click(\"#login-button\") with page.click(prompt=\"Add first item to cart\") or page.agent.run_task(...)."
+        }
+      ],
+      "expected": "A script that clicks and completes tasks described in plain language.",
+      "nextSteps": [
+        "Extract data with a JSON schema",
+        "Connect your own Chrome",
+        "Try Skyvern Cloud"
+      ],
+      "sourceUrl": "https://github.com/Skyvern-AI/skyvern/blob/0f3743498f252c4cd848339b8fdfa8fc72a76fe3/README.md"
+    },
+    "costs": [
+      {
+        "label": "Skyvern",
+        "value": "Free and open source under AGPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "LLM provider",
+        "value": "You pay for model usage.",
+        "tone": "paid"
+      },
+      {
+        "label": "Skyvern Cloud",
+        "value": "Managed hosting.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "table organizations already exists",
+        "solution": "A bug in 1.0.31: delete ~/.skyvern/data.db, upgrade with pip install --upgrade skyvern, and rerun skyvern quickstart.",
+        "sourceUrl": "https://github.com/Skyvern-AI/skyvern/blob/0f3743498f252c4cd848339b8fdfa8fc72a76fe3/README.md"
+      },
+      {
+        "problem": "ResolutionImpossible during install",
+        "solution": "Upgrade to 1.0.32+ or install with uv pip install skyvern.",
+        "sourceUrl": "https://github.com/Skyvern-AI/skyvern/blob/0f3743498f252c4cd848339b8fdfa8fc72a76fe3/README.md"
+      },
+      {
+        "problem": "No web UI after pip install",
+        "solution": "The pip package has no UI; use Docker Compose or a source checkout.",
+        "sourceUrl": "https://github.com/Skyvern-AI/skyvern/blob/0f3743498f252c4cd848339b8fdfa8fc72a76fe3/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI browser automation that adapts to changes"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Browser automation"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "Install",
+        "value": "pip install \"skyvern[server]\""
+      }
+    ]
+  }
+}

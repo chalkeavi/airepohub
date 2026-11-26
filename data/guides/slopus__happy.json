@@ -1,0 +1,220 @@
+{
+  "fullName": "slopus/happy",
+  "summary": "Open-source apps to run Claude Code, Codex and other coding agents and keep working from your phone, with end-to-end encryption.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/slopus/happy/blob/70d0528d3a725f28a326e21d65099fbd7f93f4ef/README.md"
+    ],
+    "sourceCommitSha": "70d0528d3a725f28a326e21d65099fbd7f93f4ef",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "CLI",
+        "command": "npm install -g happy"
+      },
+      {
+        "comment": "Apps",
+        "command": "iOS, Android and desktop from happy.engineering"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Happy lets you run AI coding agents such as Claude Code, Codex, Grok and Gemini (through Antigravity) and follow or steer the same sessions from your phone. You sign in with the subscriptions you already have, so it adds no extra bill. This repository holds the iOS, Android and web apps, the original Happy CLI and the relay server for encrypted sync; the desktop app lives in a separate repo.",
+      "problem": "Coding agents run in a terminal at your desk. Happy lets you check on them and give instructions from your phone, and share a session with someone else.",
+      "whoFor": [
+        "Developers using Claude Code or Codex",
+        "People who want to steer agents away from their desk",
+        "Pairs who want to watch one agent together"
+      ],
+      "whyChoose": "Choose it to take your existing agent sessions mobile, with encryption and without paying for another service.",
+      "requirements": [
+        "Node.js with npm for the CLI",
+        "Claude Code or Codex set up with your own account"
+      ]
+    },
+    "overview": [
+      "Install the original CLI with npm install -g happy.",
+      "Start a session with happy claude or happy codex, then continue from the iOS or Android app.",
+      "For multi-model sessions and teams, the README recommends the desktop app. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Many models",
+        "body": "Claude, Codex, Grok, Gemini, OpenCode and ACP agents."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Reuse subscriptions",
+        "body": "Sign in with plans you already pay for."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Mobile apps",
+        "body": "iOS, Android and web."
+      },
+      {
+        "icon": "file-code",
+        "title": "End-to-end encryption",
+        "body": "Between your devices."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Multiplayer",
+        "body": "Invite someone into a session."
+      },
+      {
+        "icon": "shield",
+        "title": "Self-hosted",
+        "body": "Runs on your own hardware."
+      }
+    ],
+    "strengths": [
+      "Phone access to agent sessions",
+      "Encrypted sync",
+      "MIT license"
+    ],
+    "limitations": [
+      "You need your own agent subscriptions",
+      "Desktop app is a separate repo"
+    ],
+    "useCases": [
+      {
+        "title": "Check agents on the go",
+        "body": "Approve or steer from your phone."
+      },
+      {
+        "title": "Pair programming",
+        "body": "Two people steer one agent."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Happy's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/slopus/happy/blob/70d0528d3a725f28a326e21d65099fbd7f93f4ef/README.md",
+      "prerequisites": [
+        "Node.js and npm",
+        "Claude Code or Codex installed"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux",
+        "iOS",
+        "Android"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Happy CLI",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install -g happy",
+              "lang": "bash"
+            },
+            {
+              "title": "Start Claude Code",
+              "code": "happy claude",
+              "lang": "bash"
+            },
+            {
+              "title": "Or start Codex",
+              "code": "happy codex",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Mobile and desktop apps",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Get the apps",
+              "body": "Download from happy.engineering, the App Store or Google Play."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run Claude Code through Happy",
+          "body": "Start happy claude and open the same session on your phone."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Continue a coding session from your phone",
+      "useCase": "The README's original CLI flow.",
+      "setup": [
+        "Claude Code or Codex set up",
+        "Happy app on your phone"
+      ],
+      "steps": [
+        {
+          "title": "Install the CLI",
+          "code": "npm install -g happy",
+          "lang": "bash"
+        },
+        {
+          "title": "Start a session",
+          "code": "happy claude",
+          "lang": "bash"
+        },
+        {
+          "title": "Open the app",
+          "body": "Follow the same session on your phone and send instructions."
+        }
+      ],
+      "expected": "Your agent session visible and controllable from your phone.",
+      "nextSteps": [
+        "Try the desktop app for multi-model sessions",
+        "Invite a colleague into a session"
+      ],
+      "sourceUrl": "https://github.com/slopus/happy/blob/70d0528d3a725f28a326e21d65099fbd7f93f4ef/README.md"
+    },
+    "costs": [
+      {
+        "label": "Happy",
+        "value": "Free and open source under MIT.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent subscriptions",
+        "value": "Uses your existing Claude, Codex or Grok plans.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Need several models in one session",
+        "solution": "The README recommends moving to the desktop app and Happy Harness.",
+        "sourceUrl": "https://github.com/slopus/happy/blob/70d0528d3a725f28a326e21d65099fbd7f93f4ef/README.md"
+      }
+    ],
+    "bestFor": [
+      "Using coding agents from your phone"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Mobile app and CLI"
+      },
+      {
+        "label": "Language",
+        "value": "Swift"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "npm install -g happy"
+      }
+    ]
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "fullName": "marimo-team/marimo",
+  "summary": "A reactive Python notebook stored as plain .py files that you can run as a script, share as a web app, and pair with AI agents.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/marimo-team/marimo/blob/ca559601cf74e4cc5662c96f53103db599dc2cb7/README.md"
+    ],
+    "sourceCommitSha": "ca559601cf74e4cc5662c96f53103db599dc2cb7",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install marimo"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "marimo is a Python notebook where running a cell automatically re-runs the cells that depend on it, so there is no hidden state. Notebooks are saved as ordinary .py files that work with git, can run as scripts, and can be deployed as interactive web apps or slides. It has interactive UI elements like sliders and tables bound to Python without callbacks, SQL cells for querying dataframes and databases, built-in AI completion, and ways to pair with AI agents such as Claude Code.",
+      "problem": "Classic notebooks get into confusing hidden states and are hard to version or reuse. marimo keeps notebooks reproducible, git-friendly and runnable as code.",
+      "whoFor": [
+        "Data scientists and analysts",
+        "Researchers who want reproducible notebooks",
+        "Developers building small data apps"
+      ],
+      "whyChoose": "Pick it as a modern Jupyter alternative that is reactive, stored as Python, and doubles as an app or script.",
+      "requirements": [
+        "Python"
+      ]
+    },
+    "overview": [
+      "Install with pip install marimo (or conda install -c conda-forge marimo) and run marimo tutorial intro.",
+      "Create or edit notebooks with marimo edit; install marimo[recommended] for SQL cells, AI completion and more.",
+      "Run a notebook as an app with marimo run, as a script with python, or convert Jupyter notebooks with marimo convert. Apache-2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Reactive",
+        "body": "Dependent cells re-run automatically."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Stored as .py",
+        "body": "Git-friendly and importable."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Interactive UI",
+        "body": "Sliders, tables and plots, no callbacks."
+      },
+      {
+        "icon": "file-code",
+        "title": "SQL cells",
+        "body": "Query dataframes and databases."
+      },
+      {
+        "icon": "git-compare",
+        "title": "AI-native",
+        "body": "Built-in AI features and agent pairing."
+      },
+      {
+        "icon": "shield",
+        "title": "Deploy",
+        "body": "Web apps, slides, WASM in the browser."
+      }
+    ],
+    "strengths": [
+      "No hidden state",
+      "Works as notebook, script and app",
+      "Converts Jupyter notebooks"
+    ],
+    "limitations": [
+      "Reactive model takes some adjusting for Jupyter users",
+      "Some features need the recommended extras"
+    ],
+    "useCases": [
+      {
+        "title": "Data exploration",
+        "body": "Interactive analysis with SQL and plots."
+      },
+      {
+        "title": "Internal tools",
+        "body": "Share a notebook as a web app."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from marimo's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/marimo-team/marimo/blob/ca559601cf74e4cc5662c96f53103db599dc2cb7/README.md",
+      "prerequisites": [
+        "Python"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install marimo",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the intro tutorial",
+              "code": "marimo tutorial intro",
+              "lang": "bash"
+            },
+            {
+              "title": "Optional extras",
+              "body": "Adds SQL cells, AI completion and more.",
+              "code": "pip install \"marimo[recommended]\"",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "conda",
+          "method": "conda",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "conda install -c conda-forge marimo",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Do the intro tutorial",
+          "body": "Run marimo tutorial intro to learn the basics."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Make a notebook and share it as an app",
+      "useCase": "The README's quickstart commands.",
+      "setup": [
+        "marimo installed"
+      ],
+      "steps": [
+        {
+          "title": "Create a notebook",
+          "code": "marimo edit",
+          "lang": "bash"
+        },
+        {
+          "title": "Run it as an app",
+          "body": "Code is hidden and can't be edited by viewers.",
+          "code": "marimo run your_notebook.py",
+          "lang": "bash"
+        },
+        {
+          "title": "Run it as a script",
+          "code": "python your_notebook.py",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A reactive notebook that also runs as a web app and a script.",
+      "nextSteps": [
+        "Convert a Jupyter notebook with marimo convert",
+        "List tutorials with marimo tutorial --help",
+        "Try molab for cloud notebooks"
+      ],
+      "sourceUrl": "https://github.com/marimo-team/marimo/blob/ca559601cf74e4cc5662c96f53103db599dc2cb7/README.md"
+    },
+    "costs": [
+      {
+        "label": "marimo",
+        "value": "Free and open source under Apache-2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "molab",
+        "value": "Cloud notebook service for sharing links.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "SQL or AI features missing",
+        "solution": "Install marimo[recommended].",
+        "sourceUrl": "https://github.com/marimo-team/marimo/blob/ca559601cf74e4cc5662c96f53103db599dc2cb7/README.md"
+      },
+      {
+        "problem": "Moving from Jupyter",
+        "solution": "Convert with marimo convert your_notebook.ipynb > your_notebook.py.",
+        "sourceUrl": "https://github.com/marimo-team/marimo/blob/ca559601cf74e4cc5662c96f53103db599dc2cb7/README.md"
+      }
+    ],
+    "bestFor": [
+      "Reproducible reactive Python notebooks"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Notebook"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache-2.0"
+      },
+      {
+        "label": "Install",
+        "value": "pip install marimo"
+      }
+    ]
+  }
+}
