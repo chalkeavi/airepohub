@@ -1,0 +1,230 @@
+{
+  "fullName": "coreyhaines31/marketingskills",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/coreyhaines31/marketingskills/blob/8fd2fcade2fd6629026e9dfe6d133b55b36968b9/README.md"
+    ],
+    "sourceCommitSha": "8fd2fcade2fd6629026e9dfe6d133b55b36968b9",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install all skills",
+        "command": "npx skills add coreyhaines31/marketingskills"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Marketing Skills is a library of skills for AI coding agents like Claude Code, Codex and Cursor. Each skill is a Markdown file that teaches the agent a marketing task, such as SEO audits, conversion optimisation, copywriting, A/B testing, ads or churn prevention.",
+      "problem": "General AI agents give generic marketing advice. These skills give them proven frameworks and checklists for specific jobs, and all of them start from a shared product-marketing skill so the advice fits your product and audience.",
+      "whoFor": [
+        "Technical marketers",
+        "Founders doing their own growth work",
+        "Developers building landing pages and funnels",
+        "Teams using Claude Code or Codex for marketing tasks"
+      ],
+      "whyChoose": "Choose it for a large, organised, MIT-licensed set of marketing skills that cross-reference each other and install with one command.",
+      "requirements": [
+        "An AI coding agent such as Claude Code, Codex or Cursor",
+        "Node.js for npx"
+      ]
+    },
+    "overview": [
+      "Skills are grouped into areas: SEO and content, CRO, content and copy, paid ads and measurement, growth and retention, sales and go-to-market, and strategy. The product-marketing skill is the foundation that every other skill reads first.",
+      "Install everything or only the skills you want with the npx skills CLI, which detects your agents and installs into .claude/skills for Claude Code or .agents/skills for others. Claude Code users can also add it as a plugin marketplace.",
+      "A separate guided setup in tools/SETUP.md connects your marketing accounts with scoped credentials. The library is free and MIT licensed; verified partner tools are disclosed and listed alongside neutral options."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Many marketing skills",
+        "body": "SEO, CRO, copy, ads, analytics and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Shared context",
+        "body": "product-marketing skill read first."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Cross-referenced",
+        "body": "Skills point to related skills."
+      },
+      {
+        "icon": "file-code",
+        "title": "One-command install",
+        "body": "npx skills add."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Claude Code plugin",
+        "body": "Install via the plugin marketplace."
+      },
+      {
+        "icon": "shield",
+        "title": "Account connections",
+        "body": "Guided, scoped tool setup."
+      }
+    ],
+    "strengths": [
+      "Broad coverage of marketing work",
+      "Works with many agents",
+      "Pick only the skills you need",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Agent quality still depends on the model",
+      "/plugin only works in interactive Claude Code sessions",
+      "Partner tools are listed in the library"
+    ],
+    "useCases": [
+      {
+        "title": "SEO audit",
+        "body": "Ask your agent to audit a page with seo-audit."
+      },
+      {
+        "title": "Improve sign-ups",
+        "body": "Use the cro and signup skills on a funnel."
+      },
+      {
+        "title": "Write ad copy",
+        "body": "Use ad-creative and copywriting."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Marketing Skills's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/coreyhaines31/marketingskills/blob/8fd2fcade2fd6629026e9dfe6d133b55b36968b9/README.md",
+      "prerequisites": [
+        "An AI coding agent",
+        "Node.js"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npx skills CLI",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install all skills",
+              "body": "The CLI asks which agents to install into.",
+              "code": "npx skills add coreyhaines31/marketingskills",
+              "lang": "bash"
+            },
+            {
+              "title": "Or install only some",
+              "code": "npx skills add coreyhaines31/marketingskills --skill cro copywriting",
+              "lang": "bash"
+            },
+            {
+              "title": "From inside a Claude Code session, target Claude Code explicitly",
+              "code": "npx skills add coreyhaines31/marketingskills -a claude-code",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Claude Code plugin",
+          "method": "plugin",
+          "steps": [
+            {
+              "title": "Add the marketplace and install",
+              "code": "claude plugin marketplace add coreyhaines31/marketingskills\nclaude plugin install marketing-skills@marketingskills",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "List the available skills",
+          "code": "npx skills add coreyhaines31/marketingskills --list",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run an SEO audit with your agent",
+      "useCase": "Install the skills and ask your agent for an SEO audit.",
+      "setup": [
+        "Claude Code or another agent",
+        "Node.js"
+      ],
+      "steps": [
+        {
+          "title": "Install the skills",
+          "code": "npx skills add coreyhaines31/marketingskills",
+          "lang": "bash"
+        },
+        {
+          "title": "Describe your product",
+          "body": "Let the product-marketing skill capture your product, audience and positioning first."
+        },
+        {
+          "title": "Ask for the audit",
+          "body": "For example: audit the SEO of our pricing page. The agent applies the seo-audit skill."
+        }
+      ],
+      "expected": "The agent produces an SEO audit that uses your product context and points to related skills like schema and ai-seo.",
+      "nextSteps": [
+        "Try the cro skill on your sign-up flow",
+        "Connect accounts via tools/SETUP.md",
+        "Install only the skills you use"
+      ],
+      "sourceUrl": "https://github.com/coreyhaines31/marketingskills/blob/8fd2fcade2fd6629026e9dfe6d133b55b36968b9/README.md"
+    },
+    "costs": [
+      {
+        "label": "Skills",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent",
+        "value": "Your AI agent's subscription or API usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Skills only installed to .agents/skills",
+        "solution": "When run inside an agent session the CLI is non-interactive; add -a claude-code.",
+        "sourceUrl": "https://github.com/coreyhaines31/marketingskills/blob/8fd2fcade2fd6629026e9dfe6d133b55b36968b9/README.md"
+      },
+      {
+        "problem": "/plugin not available",
+        "solution": "It only works in an interactive Claude Code CLI session; use the claude plugin commands instead.",
+        "sourceUrl": "https://github.com/coreyhaines31/marketingskills/blob/8fd2fcade2fd6629026e9dfe6d133b55b36968b9/README.md"
+      }
+    ],
+    "bestFor": [
+      "Marketing with AI agents",
+      "SEO and CRO",
+      "Copywriting"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent skills library"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Works with",
+        "value": "Claude Code, Codex, Cursor and more"
+      },
+      {
+        "label": "Install",
+        "value": "npx skills"
+      }
+    ]
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "fullName": "run-llama/llama_index",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/run-llama/llama_index/blob/40d4f79eb9d8f68430692d0cc156483ca2d7f4f6/README.md"
+    ],
+    "sourceCommitSha": "40d4f79eb9d8f68430692d0cc156483ca2d7f4f6",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install the starter package",
+        "command": "pip install llama-index"
+      },
+      {
+        "comment": "Or core plus chosen integrations",
+        "command": "pip install llama-index-core\npip install llama-index-llms-openai"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "LlamaIndex is an open-source Python framework for connecting language models to your own data. It loads documents such as PDFs, APIs and SQL databases, indexes them, and lets you ask questions over them, which is the basis of RAG apps and data agents.",
+      "problem": "Language models only know their training data. LlamaIndex gives you data connectors, indexes and query engines so an LLM can answer from your private documents without you building that plumbing yourself.",
+      "whoFor": [
+        "Python developers building RAG or document Q&A apps",
+        "Teams connecting LLMs to internal data",
+        "Beginners who want a five-line start",
+        "Advanced users customising retrievers and reranking"
+      ],
+      "whyChoose": "Choose it for a mature data framework with more than 300 integration packages for LLMs, embeddings and vector stores, from a high-level API down to fully customisable modules.",
+      "requirements": [
+        "Python",
+        "An LLM: OpenAI by default, or a local model through Ollama"
+      ]
+    },
+    "overview": [
+      "There are two ways to install it. llama-index is a starter package with the core and a selection of integrations. llama-index-core is the core alone, to which you add only the integration packages you need, such as llama-index-llms-ollama or llama-index-embeddings-huggingface.",
+      "Imports that include core (llama_index.core) come from the core package; others come from integrations. A typical flow loads files with SimpleDirectoryReader, builds a VectorStoreIndex and queries it.",
+      "The README notes that the company's main focus is now LlamaParse, its commercial document-parsing platform, while the open-source framework stays available. It also says the README is updated less often than the documentation. The framework is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Data connectors",
+        "body": "Load PDFs, docs, APIs, SQL and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Indexes",
+        "body": "Vector and graph indexes over your data."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Query engines",
+        "body": "Retrieval plus LLM answers in a few lines."
+      },
+      {
+        "icon": "file-code",
+        "title": "300+ integrations",
+        "body": "LLMs, embeddings and vector stores."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Local models",
+        "body": "Works with Ollama and Hugging Face embeddings."
+      },
+      {
+        "icon": "shield",
+        "title": "Customisable",
+        "body": "Swap retrievers, rerankers and query engines."
+      }
+    ],
+    "strengths": [
+      "Five-line start for beginners",
+      "Huge integration ecosystem",
+      "Low-level APIs for advanced use",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "The company's focus has shifted to LlamaParse",
+      "README lags the documentation",
+      "Needs an LLM API key or a local model"
+    ],
+    "useCases": [
+      {
+        "title": "Chat with your documents",
+        "body": "Index a folder of files and ask questions."
+      },
+      {
+        "title": "Internal knowledge search",
+        "body": "Connect company data to an LLM."
+      },
+      {
+        "title": "Local RAG",
+        "body": "Use Ollama and Hugging Face embeddings offline."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from LlamaIndex's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/run-llama/llama_index/blob/40d4f79eb9d8f68430692d0cc156483ca2d7f4f6/README.md",
+      "prerequisites": [
+        "Python",
+        "OpenAI API key, or Ollama for local models"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Starter package",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install LlamaIndex with common integrations",
+              "code": "pip install llama-index",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Core plus integrations",
+          "method": "pip-core",
+          "steps": [
+            {
+              "title": "Install the core",
+              "code": "pip install llama-index-core",
+              "lang": "bash"
+            },
+            {
+              "title": "Add the integrations you need",
+              "body": "For example OpenAI, Ollama and Hugging Face embeddings.",
+              "code": "pip install llama-index-llms-openai\npip install llama-index-llms-ollama\npip install llama-index-embeddings-huggingface",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "OPENAI_API_KEY",
+          "required": false,
+          "description": "Needed for the default OpenAI models; not needed with Ollama and local embeddings."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Index a folder and build a vector index",
+          "code": "from llama_index.core import VectorStoreIndex, SimpleDirectoryReader\n\ndocuments = SimpleDirectoryReader(\"YOUR_DATA_DIRECTORY\").load_data()\nindex = VectorStoreIndex.from_documents(documents)",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Ask questions about your own files",
+      "useCase": "Index a folder of documents with OpenAI and query it.",
+      "setup": [
+        "pip install llama-index",
+        "OPENAI_API_KEY set"
+      ],
+      "steps": [
+        {
+          "title": "Load your documents",
+          "code": "from llama_index.core import VectorStoreIndex, SimpleDirectoryReader\n\ndocuments = SimpleDirectoryReader(\"YOUR_DATA_DIRECTORY\").load_data()",
+          "lang": "text"
+        },
+        {
+          "title": "Build the index",
+          "code": "index = VectorStoreIndex.from_documents(documents)",
+          "lang": "text"
+        },
+        {
+          "title": "Query it",
+          "code": "query_engine = index.as_query_engine()\nresponse = query_engine.query(\"YOUR_QUESTION\")\nprint(response)",
+          "lang": "text"
+        }
+      ],
+      "expected": "The answer prints, based on the content of your documents.",
+      "nextSteps": [
+        "Persist the index to disk",
+        "Switch to Ollama for a local model",
+        "Browse the integrations page"
+      ],
+      "sourceUrl": "https://github.com/run-llama/llama_index/blob/40d4f79eb9d8f68430692d0cc156483ca2d7f4f6/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Model usage",
+        "value": "LLM and embedding calls are billed by your provider unless you run local models.",
+        "tone": "depends"
+      },
+      {
+        "label": "LlamaParse",
+        "value": "Optional commercial document-parsing platform.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Import errors for an integration",
+        "solution": "Install that integration's package, e.g. llama-index-llms-ollama.",
+        "sourceUrl": "https://github.com/run-llama/llama_index/blob/40d4f79eb9d8f68430692d0cc156483ca2d7f4f6/README.md"
+      },
+      {
+        "problem": "OpenAI key errors",
+        "solution": "Set OPENAI_API_KEY or configure another LLM.",
+        "sourceUrl": "https://github.com/run-llama/llama_index/blob/40d4f79eb9d8f68430692d0cc156483ca2d7f4f6/README.md"
+      },
+      {
+        "problem": "Examples in the README don't match",
+        "solution": "The README lags; check the documentation.",
+        "sourceUrl": "https://github.com/run-llama/llama_index/blob/40d4f79eb9d8f68430692d0cc156483ca2d7f4f6/README.md"
+      }
+    ],
+    "bestFor": [
+      "RAG apps",
+      "Document Q&A",
+      "Connecting LLMs to private data"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Data framework for LLM apps"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Integrations",
+        "value": "300+ packages"
+      }
+    ]
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "fullName": "code-yeongyu/oh-my-openagent",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/code-yeongyu/oh-my-openagent/blob/99d0a64aae2a3c6f89012afc3a5bc632809df5ce/README.md"
+    ],
+    "sourceCommitSha": "99d0a64aae2a3c6f89012afc3a5bc632809df5ce",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install OmO (macOS, Linux)",
+        "command": "curl -fsSL https://get.omo.dev/install.sh | bash\nomo"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "OmO (oh-my-openagent) is a command-line AI agent for real work. You open a project, run omo and describe the job, and it researches, plans, writes code and checks the result, mixing different AI models for different parts of the task.",
+      "problem": "Coding agents often need hand-holding: you re-explain context, pick models and take the wheel back when they drift. OmO adds a planning mode called ultrawork, multi-agent runs, and a memory that reminds the agent of your past work.",
+      "whoFor": [
+        "Developers who use terminal coding agents",
+        "Users with Claude, ChatGPT, Kimi or GLM subscriptions",
+        "People moving from the OpenCode edition",
+        "Power users who want multi-model agent runs"
+      ],
+      "whyChoose": "Choose it if you want an opinionated agent that plans and verifies its own work, mixes frontier and cheap models, and keeps memory as Markdown in git.",
+      "requirements": [
+        "macOS, Linux or Windows",
+        "A model subscription or API key"
+      ]
+    },
+    "overview": [
+      "Install the native omo binary with the install script, or with bun add -g omo-ai or npm i -g omo-ai (the npm package is omo-ai; the package called omo is unrelated). Then open your project, run omo and describe the job. OmO runs on senpi, the team's fork of the pi agent.",
+      "Adding ultrawork (or ulw) to a prompt makes the agent read the codebase, plan and verify each step. mass ulw splits a job into a graph of agents running on different models. A small model, Kibitzer, reads memory stored as Markdown files in git and nudges the main agent before it repeats a mistake.",
+      "Use /login for Claude, ChatGPT, Kimi and GLM subscriptions. Settings live in ~/.omo/omo.jsonc, with optional per-project .omo/omo.jsonc. OmO uses a Sustainable Use License, which is not an OSI open-source license."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "ultrawork mode",
+        "body": "Plans, proves each step and checks the result."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Multi-agent runs",
+        "body": "mass ulw turns a job into a graph of agents."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Memory",
+        "body": "Markdown memory in git plus a watcher model."
+      },
+      {
+        "icon": "file-code",
+        "title": "Mix models",
+        "body": "Frontier and cheap models with tuned prompts."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Skills",
+        "body": "Loads only the knowledge a task needs."
+      },
+      {
+        "icon": "shield",
+        "title": "Subscriptions",
+        "body": "Sign in with Claude, ChatGPT, Kimi or GLM."
+      }
+    ],
+    "strengths": [
+      "One command to start",
+      "Verifies its own work",
+      "Uses several models together",
+      "Migration path from the OpenCode edition"
+    ],
+    "limitations": [
+      "Sustainable Use License, not OSI open source",
+      "Opinionated defaults",
+      "Computer use is experimental"
+    ],
+    "useCases": [
+      {
+        "title": "Build features",
+        "body": "Describe a job and let it plan, code and verify."
+      },
+      {
+        "title": "Large migrations",
+        "body": "Split a big change across many agents."
+      },
+      {
+        "title": "Research",
+        "body": "Run deep research across many sources."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from OmO's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/code-yeongyu/oh-my-openagent/blob/99d0a64aae2a3c6f89012afc3a5bc632809df5ce/README.md",
+      "prerequisites": [
+        "A model subscription or API key"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "macos",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install the binary",
+              "body": "It goes into ~/.local/bin and is checked against the release checksums.",
+              "code": "curl -fsSL https://get.omo.dev/install.sh | bash",
+              "lang": "bash"
+            },
+            {
+              "title": "Start it in your project",
+              "code": "omo",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "linux",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install the binary",
+              "body": "It goes into ~/.local/bin and is checked against the release checksums.",
+              "code": "curl -fsSL https://get.omo.dev/install.sh | bash",
+              "lang": "bash"
+            },
+            {
+              "title": "Start it in your project",
+              "code": "omo",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "PowerShell",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Install the binary",
+              "code": "irm https://get.omo.dev/install.ps1 | iex",
+              "lang": "powershell"
+            },
+            {
+              "title": "Start it in your project",
+              "code": "omo",
+              "lang": "powershell"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "npm or bun",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install the omo-ai package",
+              "body": "Not the unrelated npm package called omo.",
+              "code": "npm i -g omo-ai",
+              "lang": "bash"
+            },
+            {
+              "title": "Start it in your project",
+              "code": "omo",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open your project and start OmO",
+          "code": "cd your-project\nomo",
+          "lang": "bash"
+        },
+        {
+          "title": "Sign in to a model subscription inside the session",
+          "code": "/login",
+          "lang": "text"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run your first ultrawork task",
+      "useCase": "Ask OmO to do a harder task with planning and verification.",
+      "setup": [
+        "OmO installed",
+        "Signed in with /login"
+      ],
+      "steps": [
+        {
+          "title": "Start OmO in your project",
+          "code": "omo",
+          "lang": "bash"
+        },
+        {
+          "title": "Describe the job and add ulw",
+          "body": "For example: add input validation to the signup form ulw. The agent reads the code, plans, and checks each step."
+        },
+        {
+          "title": "Resume later",
+          "code": "/resume",
+          "lang": "text"
+        }
+      ],
+      "expected": "OmO plans the change, edits the code, verifies the result and stops when the job is done.",
+      "nextSteps": [
+        "Try mass ulw for a larger job",
+        "Adjust ~/.omo/omo.jsonc",
+        "Coming from OpenCode? Run omo setup"
+      ],
+      "sourceUrl": "https://github.com/code-yeongyu/oh-my-openagent/blob/99d0a64aae2a3c6f89012afc3a5bc632809df5ce/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free to use under the Sustainable Use License.",
+        "tone": "free"
+      },
+      {
+        "label": "Model usage",
+        "value": "Uses your own model subscriptions or API keys.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Coming from the OpenCode edition or LazyCodex",
+        "solution": "Run omo setup once to carry over keys, MCP servers and skills, then omo doctor.",
+        "sourceUrl": "https://github.com/code-yeongyu/oh-my-openagent/blob/99d0a64aae2a3c6f89012afc3a5bc632809df5ce/README.md"
+      },
+      {
+        "problem": "Want to update",
+        "solution": "Run the install line again, or omo update for a package-manager install.",
+        "sourceUrl": "https://github.com/code-yeongyu/oh-my-openagent/blob/99d0a64aae2a3c6f89012afc3a5bc632809df5ce/README.md"
+      },
+      {
+        "problem": "Installed the wrong npm package",
+        "solution": "Remove omo and install omo-ai.",
+        "sourceUrl": "https://github.com/code-yeongyu/oh-my-openagent/blob/99d0a64aae2a3c6f89012afc3a5bc632809df5ce/README.md"
+      }
+    ],
+    "bestFor": [
+      "Terminal AI agent",
+      "Multi-model coding",
+      "Long-running tasks"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI agent (CLI)"
+      },
+      {
+        "label": "License",
+        "value": "Sustainable Use License"
+      },
+      {
+        "label": "Install",
+        "value": "Script, npm or bun"
+      },
+      {
+        "label": "Config",
+        "value": "~/.omo/omo.jsonc"
+      }
+    ]
+  }
+}

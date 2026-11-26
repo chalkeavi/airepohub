@@ -1,0 +1,270 @@
+{
+  "fullName": "mudler/LocalAI",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/mudler/LocalAI/blob/0a40b3b4d297b0f94819713af9164c9f4384d698/README.md"
+    ],
+    "sourceCommitSha": "0a40b3b4d297b0f94819713af9164c9f4384d698",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install (Linux, Apple Silicon Mac)",
+        "command": "curl -sSL https://localai.io/install.sh | sh\nlocal-ai"
+      },
+      {
+        "comment": "Or run with Docker",
+        "command": "docker run -ti --name local-ai -p 8080:8080 localai/localai:latest"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "LocalAI runs open AI models on your own hardware behind an API that speaks the OpenAI and Anthropic formats. It covers chat, images, speech, video, embeddings and more, with a web interface for chats, agents and team projects.",
+      "problem": "Cloud AI APIs send your data to third parties and charge per call. LocalAI lets apps built for the OpenAI or Anthropic APIs use models running on your own laptop or server instead, with your files staying on your machines.",
+      "whoFor": [
+        "Developers who want a self-hosted OpenAI-compatible API",
+        "Teams keeping data on their own servers",
+        "Hobbyists running open models locally",
+        "Admins serving models to a group of users"
+      ],
+      "whyChoose": "Choose it for one self-hosted API across text, vision, speech, images and video, with more than 80 backends and support for NVIDIA, AMD, Intel, Apple Silicon, Vulkan or CPU only.",
+      "requirements": [
+        "Linux or macOS on Apple Silicon for the script; Docker anywhere",
+        "A GPU is optional; CPU only works",
+        "Disk space for models (the small Gemma example is 4.3 GB)"
+      ]
+    },
+    "overview": [
+      "Install with the script, which downloads the release binary and checks its checksum, or run the Docker image. Start the server with local-ai and open http://localhost:8080 to install models from the web UI, or start a model directly with local-ai run followed by a model name.",
+      "Models can come from the built-in gallery, Hugging Face, the Ollama registry or any OCI registry. LocalAI detects your GPU and downloads the matching backend; separate Docker images exist for NVIDIA CUDA 12 and 13, AMD ROCm, Intel oneAPI, Vulkan and NVIDIA Jetson.",
+      "On top of the API it offers chats with saved agents, MCP tools, projects, add-ons like Office and Sandbox, API key auth and user quotas, and a desktop app for macOS and Linux. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "OpenAI and Anthropic APIs",
+        "body": "Drop-in API for existing apps."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Every model type",
+        "body": "Text, vision, speech, images, video, embeddings."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Many model sources",
+        "body": "Gallery, Hugging Face, Ollama and OCI."
+      },
+      {
+        "icon": "file-code",
+        "title": "Any hardware",
+        "body": "NVIDIA, AMD, Intel, Apple Silicon, Vulkan, CPU."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Web UI and agents",
+        "body": "Chats, saved agents, MCP and projects."
+      },
+      {
+        "icon": "shield",
+        "title": "Team features",
+        "body": "API keys, quotas, roles and distributed mode."
+      }
+    ],
+    "strengths": [
+      "Runs fully on your own machines",
+      "Broad model and hardware support",
+      "Familiar API formats",
+      "MIT licensed"
+    ],
+    "limitations": [
+      "Models need lots of disk and memory",
+      "Install script covers Linux and Apple Silicon only",
+      "Windows desktop app is experimental"
+    ],
+    "useCases": [
+      {
+        "title": "Private ChatGPT-style API",
+        "body": "Point OpenAI-compatible apps at your own server."
+      },
+      {
+        "title": "Local speech and images",
+        "body": "Transcription, TTS and image generation offline."
+      },
+      {
+        "title": "Team AI server",
+        "body": "Shared chats and models with user quotas."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from LocalAI's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/mudler/LocalAI/blob/0a40b3b4d297b0f94819713af9164c9f4384d698/README.md",
+      "prerequisites": [
+        "Linux or Apple Silicon Mac, or Docker"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "linux",
+          "label": "Install script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Download and install the binary",
+              "code": "curl -sSL https://localai.io/install.sh | sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the server",
+              "body": "Then open http://localhost:8080 and install a model.",
+              "code": "local-ai",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "macos",
+          "label": "Install script (Apple Silicon)",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Download and install the binary",
+              "code": "curl -sSL https://localai.io/install.sh | sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the server",
+              "body": "Then open http://localhost:8080 and install a model.",
+              "code": "local-ai",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Run the CPU image",
+              "code": "docker run -ti --name local-ai -p 8080:8080 localai/localai:latest",
+              "lang": "bash"
+            },
+            {
+              "title": "Or an NVIDIA GPU image (CUDA 12)",
+              "code": "docker run -ti --name local-ai -p 8080:8080 --gpus all localai/localai:latest-gpu-nvidia-cuda-12",
+              "lang": "bash"
+            },
+            {
+              "title": "Restart the container later",
+              "code": "docker start -i local-ai",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run a small model",
+          "body": "A small Google Gemma 4 model for CPUs, about 4.3 GB to download.",
+          "code": "local-ai run gemma-4-e2b-it-qat-q4_0",
+          "lang": "bash"
+        },
+        {
+          "title": "Chat with it from the terminal",
+          "code": "local-ai chat --model gemma-4-e2b-it-qat-q4_0",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run a local model and chat with it",
+      "useCase": "Install LocalAI, download a small model and talk to it.",
+      "setup": [
+        "LocalAI installed",
+        "About 5 GB free disk"
+      ],
+      "steps": [
+        {
+          "title": "Start a model",
+          "code": "local-ai run gemma-4-e2b-it-qat-q4_0",
+          "lang": "bash"
+        },
+        {
+          "title": "In another terminal, open the chat agent",
+          "body": "It asks you to approve anything that changes state.",
+          "code": "local-ai chat --model gemma-4-e2b-it-qat-q4_0",
+          "lang": "bash"
+        },
+        {
+          "title": "Or use the web UI",
+          "body": "Open http://localhost:8080 in your browser."
+        }
+      ],
+      "expected": "The model downloads, the server starts, and you can chat in the terminal or the web interface.",
+      "nextSteps": [
+        "Load a model from Hugging Face or the Ollama registry",
+        "Point an OpenAI-compatible app at http://localhost:8080",
+        "Try a GPU image"
+      ],
+      "sourceUrl": "https://github.com/mudler/LocalAI/blob/0a40b3b4d297b0f94819713af9164c9f4384d698/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Hardware",
+        "value": "Runs on your own machine; larger models need more memory or a GPU.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Script doesn't support my system",
+        "solution": "The script covers Linux and Apple Silicon Macs; use Docker elsewhere.",
+        "sourceUrl": "https://github.com/mudler/LocalAI/blob/0a40b3b4d297b0f94819713af9164c9f4384d698/README.md"
+      },
+      {
+        "problem": "Container name already in use",
+        "solution": "Restart it with docker start -i local-ai.",
+        "sourceUrl": "https://github.com/mudler/LocalAI/blob/0a40b3b4d297b0f94819713af9164c9f4384d698/README.md"
+      },
+      {
+        "problem": "GPU not used",
+        "solution": "Use the GPU image for your vendor, e.g. latest-gpu-nvidia-cuda-12 with --gpus all.",
+        "sourceUrl": "https://github.com/mudler/LocalAI/blob/0a40b3b4d297b0f94819713af9164c9f4384d698/README.md"
+      }
+    ],
+    "bestFor": [
+      "Self-hosted AI API",
+      "Running open models locally",
+      "Private team AI server"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Self-hosted AI API server"
+      },
+      {
+        "label": "Language",
+        "value": "Go"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "API formats",
+        "value": "OpenAI, Anthropic"
+      }
+    ]
+  }
+}

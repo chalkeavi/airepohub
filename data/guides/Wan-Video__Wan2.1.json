@@ -1,0 +1,226 @@
+{
+  "fullName": "Wan-Video/Wan2.1",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Wan-Video/Wan2.1/blob/9737cba9c1c3c4d04b33fcad41c111989865d315/README.md"
+    ],
+    "sourceCommitSha": "9737cba9c1c3c4d04b33fcad41c111989865d315",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "git clone https://github.com/Wan-Video/Wan2.1.git\ncd Wan2.1\npip install -r requirements.txt"
+      },
+      {
+        "comment": "Download the small model",
+        "command": "pip install \"huggingface_hub[cli]\"\nhuggingface-cli download Wan-AI/Wan2.1-T2V-1.3B --local-dir ./Wan2.1-T2V-1.3B"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Wan2.1 is an open suite of video generation models from the Wan team. It creates videos from text or images, edits videos, makes images and can add audio, and it is the first video model in its README to generate readable Chinese and English text in videos.",
+      "problem": "Most strong video models need data-centre GPUs or are closed. Wan2.1's 1.3B text-to-video model needs about 8 GB of GPU memory, so you can generate 480p clips on a consumer graphics card.",
+      "whoFor": [
+        "Creators with a consumer NVIDIA GPU",
+        "Researchers building on open video models",
+        "ComfyUI and Diffusers users",
+        "Developers adding video generation to apps"
+      ],
+      "whyChoose": "Choose it for open weights that run on consumer GPUs (1.3B) up to high-quality 14B models, with integrations in ComfyUI and Diffusers and a large ecosystem of community projects.",
+      "requirements": [
+        "NVIDIA GPU (about 8.19 GB VRAM for the 1.3B model)",
+        "PyTorch 2.4.0 or newer",
+        "Disk space for model weights"
+      ]
+    },
+    "overview": [
+      "Models include text-to-video at 1.3B and 14B, image-to-video at 14B in 480P and 720P versions, first-last-frame-to-video (FLF2V) and VACE for all-in-one creation and editing. Weights are on Hugging Face and ModelScope.",
+      "Clone the repository, install requirements, download a model and run generate.py with a task, size, checkpoint folder and prompt. The README says the 1.3B model makes a 5-second 480P video on an RTX 4090 in about 4 minutes without extra optimisation; --offload_model True and --t5_cpu reduce memory use.",
+      "Wan2.1 is also integrated into ComfyUI and Diffusers. The 1.3B model can do 720P but is less stable there, and FLF2V works best with Chinese prompts. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Text-to-video",
+        "body": "1.3B and 14B models."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Image-to-video",
+        "body": "480P and 720P 14B models."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Consumer GPUs",
+        "body": "1.3B needs about 8.19 GB VRAM."
+      },
+      {
+        "icon": "file-code",
+        "title": "Visual text",
+        "body": "Chinese and English text in videos."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Wan-VAE",
+        "body": "Encodes 1080P video of any length."
+      },
+      {
+        "icon": "shield",
+        "title": "Integrations",
+        "body": "ComfyUI and Diffusers."
+      }
+    ],
+    "strengths": [
+      "Runs on consumer GPUs",
+      "Strong open models",
+      "Large community ecosystem",
+      "Apache 2.0 licensed"
+    ],
+    "limitations": [
+      "14B models need much more GPU memory",
+      "1.3B at 720P is less stable",
+      "FLF2V prefers Chinese prompts"
+    ],
+    "useCases": [
+      {
+        "title": "Short clips from text",
+        "body": "Generate 480P videos on a home GPU."
+      },
+      {
+        "title": "Animate a photo",
+        "body": "Image-to-video with the I2V model."
+      },
+      {
+        "title": "Video editing",
+        "body": "Use VACE for creation and editing."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Wan2.1's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Wan-Video/Wan2.1/blob/9737cba9c1c3c4d04b33fcad41c111989865d315/README.md",
+      "prerequisites": [
+        "NVIDIA GPU",
+        "Python",
+        "PyTorch 2.4+"
+      ],
+      "supportedOs": [
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "From source",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Clone the repository",
+              "code": "git clone https://github.com/Wan-Video/Wan2.1.git\ncd Wan2.1",
+              "lang": "bash"
+            },
+            {
+              "title": "Install dependencies",
+              "body": "Make sure torch is 2.4.0 or newer.",
+              "code": "pip install -r requirements.txt",
+              "lang": "bash"
+            },
+            {
+              "title": "Download a model",
+              "body": "T2V-1.3B is the consumer-GPU option.",
+              "code": "pip install \"huggingface_hub[cli]\"\nhuggingface-cli download Wan-AI/Wan2.1-T2V-1.3B --local-dir ./Wan2.1-T2V-1.3B",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Generate a 480P video on a single consumer GPU",
+          "code": "python generate.py --task t2v-1.3B --size 832*480 --ckpt_dir ./Wan2.1-T2V-1.3B --offload_model True --t5_cpu --sample_shift 8 --sample_guide_scale 6 --prompt \"Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stage.\"",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Make a 5-second video on a home GPU",
+      "useCase": "Download the 1.3B model and generate a 480P clip.",
+      "setup": [
+        "Wan2.1 installed",
+        "T2V-1.3B downloaded",
+        "NVIDIA GPU with about 8 GB VRAM"
+      ],
+      "steps": [
+        {
+          "title": "Run generation with memory-saving options",
+          "code": "python generate.py --task t2v-1.3B --size 832*480 --ckpt_dir ./Wan2.1-T2V-1.3B --offload_model True --t5_cpu --sample_shift 8 --sample_guide_scale 6 --prompt \"Two anthropomorphic cats in comfy boxing gear and bright gloves fight intensely on a spotlighted stage.\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Try your own prompt",
+          "body": "Change the --prompt text and run again."
+        }
+      ],
+      "expected": "A 5-second 480P video is saved; on an RTX 4090 this takes about 4 minutes according to the README.",
+      "nextSteps": [
+        "Try the 14B model at 720P",
+        "Use Wan2.1 in ComfyUI",
+        "Animate an image with I2V"
+      ],
+      "sourceUrl": "https://github.com/Wan-Video/Wan2.1/blob/9737cba9c1c3c4d04b33fcad41c111989865d315/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Hardware",
+        "value": "Runs on your own NVIDIA GPU; 14B models need far more memory.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Out of memory",
+        "solution": "Add --offload_model True and --t5_cpu.",
+        "sourceUrl": "https://github.com/Wan-Video/Wan2.1/blob/9737cba9c1c3c4d04b33fcad41c111989865d315/README.md"
+      },
+      {
+        "problem": "Unstable 720P results with 1.3B",
+        "solution": "Use 480P for the 1.3B model.",
+        "sourceUrl": "https://github.com/Wan-Video/Wan2.1/blob/9737cba9c1c3c4d04b33fcad41c111989865d315/README.md"
+      },
+      {
+        "problem": "Poor first-last-frame results",
+        "solution": "FLF2V was trained mostly on Chinese text; try a Chinese prompt.",
+        "sourceUrl": "https://github.com/Wan-Video/Wan2.1/blob/9737cba9c1c3c4d04b33fcad41c111989865d315/README.md"
+      }
+    ],
+    "bestFor": [
+      "Video generation on consumer GPUs",
+      "Open video models",
+      "ComfyUI workflows"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Video generation models"
+      },
+      {
+        "label": "Language",
+        "value": "Python (PyTorch)"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Smallest model",
+        "value": "1.3B (about 8 GB VRAM)"
+      }
+    ]
+  }
+}

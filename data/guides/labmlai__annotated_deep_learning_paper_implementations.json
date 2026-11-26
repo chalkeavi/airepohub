@@ -1,0 +1,200 @@
+{
+  "fullName": "labmlai/annotated_deep_learning_paper_implementations",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/labmlai/annotated_deep_learning_paper_implementations/blob/db59a04a8a2c6af922f1656f8c0fd113dd9a51b8/readme.md"
+    ],
+    "sourceCommitSha": "db59a04a8a2c6af922f1656f8c0fd113dd9a51b8",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install the package",
+        "command": "pip install labml-nn"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "This is a collection of simple PyTorch implementations of well-known deep learning papers, from transformers and LoRA to diffusion models and GANs. Each one is heavily commented, and the nn.labml.ai website shows the code and explanations side by side.",
+      "problem": "Research papers are dense and official code is often hard to follow. These short, annotated implementations let you read an algorithm line by line next to a plain explanation.",
+      "whoFor": [
+        "Students learning deep learning",
+        "Engineers who want to understand a paper's core idea",
+        "Researchers looking for clean reference code",
+        "Teachers preparing course material"
+      ],
+      "whyChoose": "Choose it for readable, annotated reference code covering dozens of papers, actively maintained with new implementations added often.",
+      "requirements": [
+        "Python",
+        "PyTorch"
+      ]
+    },
+    "overview": [
+      "Topics include transformers (multi-head attention, rotary embeddings, ALiBi, Transformer XL, ViT and many variants), LoRA, GPT-NeoX, diffusion models (DDPM, DDIM, latent diffusion, Stable Diffusion), GANs (DCGAN, CycleGAN, WGAN, StyleGAN 2), LSTMs, ResNet and more.",
+      "The easiest way to read them is the website nn.labml.ai, which renders each file as side-by-side notes. To run or reuse the code, install the labml-nn package with pip.",
+      "The README also points to an Annotated Implementation Skill that coding agents can use to implement any paper with annotations in the same style."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Annotated code",
+        "body": "Explanations next to every part of the code."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Transformers",
+        "body": "Many attention and transformer variants."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Diffusion models",
+        "body": "DDPM, DDIM and Stable Diffusion."
+      },
+      {
+        "icon": "file-code",
+        "title": "GANs",
+        "body": "From the original GAN to StyleGAN 2."
+      },
+      {
+        "icon": "git-compare",
+        "title": "LoRA and GPT-NeoX",
+        "body": "Fine-tuning and large-model examples."
+      },
+      {
+        "icon": "shield",
+        "title": "Website",
+        "body": "Side-by-side notes at nn.labml.ai."
+      }
+    ],
+    "strengths": [
+      "Very readable",
+      "Broad coverage of key papers",
+      "Actively maintained",
+      "pip installable"
+    ],
+    "limitations": [
+      "Educational code, not production libraries",
+      "Some examples need large GPUs (e.g. GPT-NeoX on 48GB)"
+    ],
+    "useCases": [
+      {
+        "title": "Study a paper",
+        "body": "Read the annotated implementation alongside it."
+      },
+      {
+        "title": "Teach a class",
+        "body": "Use the side-by-side notes as material."
+      },
+      {
+        "title": "Prototype",
+        "body": "Start from a clean reference implementation."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from labml.ai annotated implementations's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/labmlai/annotated_deep_learning_paper_implementations/blob/db59a04a8a2c6af922f1656f8c0fd113dd9a51b8/readme.md",
+      "prerequisites": [
+        "Python",
+        "PyTorch"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install the package",
+              "code": "pip install labml-nn",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Browse the annotated notes",
+          "body": "Open nn.labml.ai and pick a paper, such as multi-headed attention."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Learn how multi-head attention works",
+      "useCase": "Read an annotated implementation side by side with its explanation.",
+      "setup": [
+        "A web browser",
+        "Optional: pip install labml-nn"
+      ],
+      "steps": [
+        {
+          "title": "Open the multi-headed attention page",
+          "body": "Go to nn.labml.ai/transformers/mha.html."
+        },
+        {
+          "title": "Read code and notes together",
+          "body": "Each block of code has its explanation beside it."
+        },
+        {
+          "title": "Install the package to experiment",
+          "code": "pip install labml-nn",
+          "lang": "bash"
+        }
+      ],
+      "expected": "You can follow how queries, keys and values are computed and combined, step by step.",
+      "nextSteps": [
+        "Read the rotary embeddings implementation",
+        "Try the diffusion models section",
+        "Look at LoRA"
+      ],
+      "sourceUrl": "https://github.com/labmlai/annotated_deep_learning_paper_implementations/blob/db59a04a8a2c6af922f1656f8c0fd113dd9a51b8/readme.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Small examples run anywhere; large models need big GPUs.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Large model examples run out of memory",
+        "solution": "Examples like GPT-NeoX generation are written for 48GB GPUs.",
+        "sourceUrl": "https://github.com/labmlai/annotated_deep_learning_paper_implementations/blob/db59a04a8a2c6af922f1656f8c0fd113dd9a51b8/readme.md"
+      }
+    ],
+    "bestFor": [
+      "Learning deep learning",
+      "Reading papers",
+      "Reference implementations"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Annotated paper implementations"
+      },
+      {
+        "label": "Language",
+        "value": "Python (PyTorch)"
+      },
+      {
+        "label": "Install",
+        "value": "pip install labml-nn"
+      },
+      {
+        "label": "Website",
+        "value": "nn.labml.ai"
+      }
+    ]
+  }
+}

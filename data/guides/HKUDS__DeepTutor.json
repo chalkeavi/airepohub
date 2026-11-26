@@ -1,0 +1,304 @@
+{
+  "fullName": "HKUDS/DeepTutor",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/HKUDS/DeepTutor/blob/c9f441ed5696b0f3faa616aeb288b59870e7ddd0/README.md"
+    ],
+    "sourceCommitSha": "c9f441ed5696b0f3faa616aeb288b59870e7ddd0",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Try it with Docker",
+        "command": "docker run --rm --name deeptutor -p 127.0.0.1:3782:3782 -v deeptutor-data:/app/data ghcr.io/hkuds/deeptutor:latest"
+      },
+      {
+        "comment": "Or install from PyPI",
+        "command": "python -m pip install -U \"deeptutor[full]\"\ndeeptutor init\ndeeptutor start"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "DeepTutor is a personal AI tutoring workspace from HKU's Data Intelligence Lab. It brings chat, quizzes, research, reading, practice and learning paths together in one app, grounded in your own documents, and remembers what you have learned.",
+      "problem": "Studying with a plain chatbot loses track of your materials and progress. DeepTutor keeps your books, documents and notes in libraries it cites from, tracks mastery, and adapts tutoring over time with memory you can inspect.",
+      "whoFor": [
+        "Students and lifelong learners",
+        "Researchers working through papers and books",
+        "Teachers building study material",
+        "Self-hosters who want a private learning app"
+      ],
+      "whyChoose": "Choose it for an all-in-one, open-source learning workspace with many study modes, source-linked answers and transparent memory, installable as a desktop app, Docker container or Python package.",
+      "requirements": [
+        "Docker, or Python 3.11 to 3.14 with Node.js 20.9+ for the full web app",
+        "An LLM provider (set during deeptutor init)"
+      ]
+    },
+    "overview": [
+      "DeepTutor has many learning modes sharing one context: Chat, Quiz, Research, Visualize, Solve, Mastery Path and Reading. Home, Learning and Resources tie together Books, Practice, a Task Board, a Calendar and a learning notebook.",
+      "You build knowledge libraries with LlamaIndex, PageIndex, GraphRAG or LightRAG and learn next to documents, video and audio with citations. Memory works in levels (traces, facts, synthesis) and can be inspected in a Memory Graph. It can also consult agents such as Claude Code, Codex and Grok CLI.",
+      "Install options: a preview desktop app for macOS and Windows, a Docker image, a PyPI package (deeptutor[full] for the web app and CLI, plain deeptutor for core chat and the SDK), or a source checkout. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Many learning modes",
+        "body": "Chat, quiz, research, reading, mastery paths."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Grounded answers",
+        "body": "Libraries with source-linked citations."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Inspectable memory",
+        "body": "See and edit what it remembers."
+      },
+      {
+        "icon": "file-code",
+        "title": "Agent partners",
+        "body": "Consult Claude Code, Codex and others."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Extensible",
+        "body": "Skills, MCP services and plugins."
+      },
+      {
+        "icon": "shield",
+        "title": "Several installs",
+        "body": "Desktop, Docker, PyPI or source."
+      }
+    ],
+    "strengths": [
+      "Feature-rich learning workspace",
+      "Cites your own materials",
+      "Transparent memory",
+      "Apache 2.0 licensed"
+    ],
+    "limitations": [
+      "Desktop app is a preview; Windows builds are unsigned",
+      "Full web app needs Python and Node.js",
+      "Fast release pace means frequent upgrades"
+    ],
+    "useCases": [
+      {
+        "title": "Study a textbook",
+        "body": "Upload it and learn with cited answers and quizzes."
+      },
+      {
+        "title": "Research a topic",
+        "body": "Use Research mode over your library."
+      },
+      {
+        "title": "Daily practice",
+        "body": "Follow a Mastery Path and track progress."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from DeepTutor's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/HKUDS/DeepTutor/blob/c9f441ed5696b0f3faa616aeb288b59870e7ddd0/README.md",
+      "prerequisites": [
+        "Docker, or Python 3.11 to 3.14 and Node.js 20.9+"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Docker",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "Run the container",
+              "body": "The named volume keeps your settings and data.",
+              "code": "docker run --rm --name deeptutor \\\n  -p 127.0.0.1:3782:3782 \\\n  -v deeptutor-data:/app/data \\\n  ghcr.io/hkuds/deeptutor:latest",
+              "lang": "bash"
+            },
+            {
+              "title": "Open the app",
+              "body": "Go to http://127.0.0.1:3782."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "PyPI (web app and CLI)",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Make a folder for it",
+              "code": "mkdir -p my-deeptutor && cd my-deeptutor",
+              "lang": "bash"
+            },
+            {
+              "title": "Install",
+              "code": "python -m pip install -U \"deeptutor[full]\"",
+              "lang": "bash"
+            },
+            {
+              "title": "Configure ports and your LLM provider",
+              "code": "deeptutor init",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the backend and frontend",
+              "body": "Open the URL it prints, by default http://127.0.0.1:3782. Ctrl+C stops it.",
+              "code": "deeptutor start",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "CLI only",
+          "method": "pip-cli",
+          "steps": [
+            {
+              "title": "Install the core package",
+              "code": "mkdir -p my-deeptutor && cd my-deeptutor\npython -m pip install -U deeptutor",
+              "lang": "bash"
+            },
+            {
+              "title": "Set up and chat",
+              "code": "deeptutor init --cli\ndeeptutor chat",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "macos",
+          "label": "Desktop app (preview)",
+          "method": "desktop",
+          "steps": [
+            {
+              "title": "Download the macOS build",
+              "body": "Get macos-arm64 (Apple Silicon) or macos-x64 (Intel) from the latest GitHub Release."
+            },
+            {
+              "title": "Install",
+              "body": "Open the DMG and drag Open DeepTutor into Applications."
+            }
+          ]
+        },
+        {
+          "os": "windows",
+          "label": "Desktop app (preview)",
+          "method": "desktop",
+          "steps": [
+            {
+              "title": "Download the windows-x64 build",
+              "body": "From the latest GitHub Release."
+            },
+            {
+              "title": "Install",
+              "body": "Run the Setup .exe, or extract the portable ZIP and launch Open DeepTutor.exe. Preview builds are unsigned and may show a SmartScreen warning."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start DeepTutor and open the web app",
+          "code": "deeptutor start",
+          "lang": "bash"
+        },
+        {
+          "title": "Or chat from the terminal",
+          "code": "deeptutor chat",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Set up DeepTutor and ask your first question",
+      "useCase": "Install the full app, connect a model and start learning.",
+      "setup": [
+        "Python 3.11 to 3.14",
+        "Node.js 20.9+",
+        "An LLM provider key"
+      ],
+      "steps": [
+        {
+          "title": "Install",
+          "code": "mkdir -p my-deeptutor && cd my-deeptutor\npython -m pip install -U \"deeptutor[full]\"",
+          "lang": "bash"
+        },
+        {
+          "title": "Run setup",
+          "body": "Choose ports and your LLM provider; embeddings and search are optional.",
+          "code": "deeptutor init",
+          "lang": "bash"
+        },
+        {
+          "title": "Start and open http://127.0.0.1:3782",
+          "code": "deeptutor start",
+          "lang": "bash"
+        }
+      ],
+      "expected": "The learning workspace opens in your browser and you can chat, add materials and start quizzes.",
+      "nextSteps": [
+        "Build a knowledge library from your documents",
+        "Try a Mastery Path",
+        "Explore the Memory Graph"
+      ],
+      "sourceUrl": "https://github.com/HKUDS/DeepTutor/blob/c9f441ed5696b0f3faa616aeb288b59870e7ddd0/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Model usage",
+        "value": "Your LLM provider bills for usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Upgrading from 1.6.15 or earlier",
+        "solution": "Stop DeepTutor, back up the runtime home and uninstall the legacy deeptutor-cli package before installing.",
+        "sourceUrl": "https://github.com/HKUDS/DeepTutor/blob/c9f441ed5696b0f3faa616aeb288b59870e7ddd0/README.md"
+      },
+      {
+        "problem": "SmartScreen warning on Windows",
+        "solution": "Preview builds are unsigned; see the desktop guide.",
+        "sourceUrl": "https://github.com/HKUDS/DeepTutor/blob/c9f441ed5696b0f3faa616aeb288b59870e7ddd0/README.md"
+      },
+      {
+        "problem": "Only core chat available",
+        "solution": "Plain deeptutor installs core only; install deeptutor[full] for the web app.",
+        "sourceUrl": "https://github.com/HKUDS/DeepTutor/blob/c9f441ed5696b0f3faa616aeb288b59870e7ddd0/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI tutoring",
+      "Studying with your own materials",
+      "Self-hosted learning app"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI learning workspace"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Made by",
+        "value": "HKU Data Intelligence Lab"
+      }
+    ]
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "fullName": "K-Dense-AI/scientific-agent-skills",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/K-Dense-AI/scientific-agent-skills/blob/c21d13b3cc2894680229ba9959a53281acb9200e/README.md"
+    ],
+    "sourceCommitSha": "c21d13b3cc2894680229ba9959a53281acb9200e",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install with npx",
+        "command": "npx skills add K-Dense-AI/scientific-agent-skills"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Scientific Agent Skills is a collection of 177 research skills for AI agents from K-Dense. They teach agents like Claude Code, Codex and Cursor how to use scientific libraries, databases and workflows across biology, chemistry, medicine, physics, engineering and data analysis.",
+      "problem": "General-purpose agents can call any Python package, but they often don't know the right tools or steps for specialised science. These skills give them curated guidance for tasks like single-cell RNA-seq, molecular docking or astronomical data analysis.",
+      "whoFor": [
+        "Scientists using AI coding agents",
+        "Bioinformaticians and computational chemists",
+        "Data scientists in research labs",
+        "Developers building research agents"
+      ],
+      "whyChoose": "Choose it for broad, curated coverage of scientific domains, following the open Agent Skills standard so it works with many agent hosts. It was formerly called Claude Scientific Skills.",
+      "requirements": [
+        "An Agent Skills host such as Claude Code, Codex, Cursor or Gemini CLI",
+        "Node.js for npx, or GitHub CLI 2.90+"
+      ]
+    },
+    "overview": [
+      "Domains include bioinformatics and genomics, cheminformatics and drug discovery, proteomics, clinical research, medical imaging, neuroscience, machine learning, materials science, physics and astronomy, engineering, geospatial science, lab automation, scientific communication and research methodology.",
+      "Install with npx skills, a standards-based installer for supported hosts, or with gh skill from the GitHub CLI, which can install one skill or target a specific agent. The collection is also an Agent Plugins package.",
+      "Health-related skills are framed for research only, not patient diagnosis or treatment decisions. The project is described in an arXiv paper and is MIT licensed. K-Dense also offers K-Dense BYOK, a free desktop co-scientist built on these skills."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "177 skills",
+        "body": "Across many scientific fields."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Agent Skills standard",
+        "body": "Works with many agent hosts."
+      },
+      {
+        "icon": "puzzle",
+        "title": "npx or gh install",
+        "body": "Install all or one skill."
+      },
+      {
+        "icon": "file-code",
+        "title": "Curated workflows",
+        "body": "Libraries, databases and tools."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Research focus",
+        "body": "Clear limits on clinical use."
+      },
+      {
+        "icon": "shield",
+        "title": "Agent Plugins package",
+        "body": "Portable plugin format."
+      }
+    ],
+    "strengths": [
+      "Very broad domain coverage",
+      "Works across agents",
+      "MIT licensed",
+      "Backed by a paper"
+    ],
+    "limitations": [
+      "Research use only for clinical and health skills",
+      "Results depend on your agent and model",
+      "Some skills need specialised Python packages"
+    ],
+    "useCases": [
+      {
+        "title": "Single-cell analysis",
+        "body": "Have your agent run a scanpy workflow."
+      },
+      {
+        "title": "Drug discovery",
+        "body": "Virtual screening and ADMET analysis."
+      },
+      {
+        "title": "Scientific writing",
+        "body": "Literature synthesis and figures."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Scientific Agent Skills's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/c21d13b3cc2894680229ba9959a53281acb9200e/README.md",
+      "prerequisites": [
+        "An Agent Skills host",
+        "Node.js or GitHub CLI"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npx",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install the collection",
+              "code": "npx skills add K-Dense-AI/scientific-agent-skills",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "GitHub CLI",
+          "method": "gh",
+          "steps": [
+            {
+              "title": "Browse and install interactively",
+              "body": "Needs GitHub CLI v2.90.0 or newer.",
+              "code": "gh skill install K-Dense-AI/scientific-agent-skills",
+              "lang": "bash"
+            },
+            {
+              "title": "Or install one skill for a specific agent",
+              "code": "gh skill install K-Dense-AI/scientific-agent-skills scanpy --agent claude-code",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Install one skill to try",
+          "code": "gh skill install K-Dense-AI/scientific-agent-skills scanpy",
+          "lang": "bash"
+        },
+        {
+          "title": "Ask your agent a matching task",
+          "body": "For example, ask it to run a basic single-cell RNA-seq analysis on your data."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run a single-cell analysis with your agent",
+      "useCase": "Install the scanpy skill and ask your agent to analyse a dataset.",
+      "setup": [
+        "Claude Code or another host",
+        "GitHub CLI 2.90+"
+      ],
+      "steps": [
+        {
+          "title": "Install the skill for Claude Code",
+          "code": "gh skill install K-Dense-AI/scientific-agent-skills scanpy --agent claude-code",
+          "lang": "bash"
+        },
+        {
+          "title": "Describe your task",
+          "body": "Point your agent at your data and ask for quality control, clustering and marker genes."
+        }
+      ],
+      "expected": "The agent follows the skill's guided workflow using scanpy and reports its steps and results.",
+      "nextSteps": [
+        "Install the full collection",
+        "Explore other domains",
+        "Watch the Getting Started video"
+      ],
+      "sourceUrl": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/c21d13b3cc2894680229ba9959a53281acb9200e/README.md"
+    },
+    "costs": [
+      {
+        "label": "Skills",
+        "value": "Free under the MIT license.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent",
+        "value": "Your AI agent's subscription or API usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "gh skill not found",
+        "solution": "Update GitHub CLI to v2.90.0 or newer.",
+        "sourceUrl": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/c21d13b3cc2894680229ba9959a53281acb9200e/README.md"
+      },
+      {
+        "problem": "Skills installed for the wrong agent",
+        "solution": "Use gh skill install with --agent and your host name.",
+        "sourceUrl": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/c21d13b3cc2894680229ba9959a53281acb9200e/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI for science",
+      "Bioinformatics",
+      "Research agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent skills library"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Skills",
+        "value": "177"
+      },
+      {
+        "label": "Works with",
+        "value": "Claude Code, Codex, Cursor, Gemini CLI"
+      }
+    ]
+  }
+}

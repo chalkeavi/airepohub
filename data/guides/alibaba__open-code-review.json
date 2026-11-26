@@ -1,0 +1,247 @@
+{
+  "fullName": "alibaba/open-code-review",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/alibaba/open-code-review/blob/d4f568f71d3a9d5c5ec972791b1509e40cd31ad1/README.md"
+    ],
+    "sourceCommitSha": "d4f568f71d3a9d5c5ec972791b1509e40cd31ad1",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install the CLI",
+        "command": "npm install -g @alibaba-group/open-code-review"
+      },
+      {
+        "comment": "Configure a model and review",
+        "command": "ocr config provider\nocr config model\nocr review"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Open Code Review is an AI code review command-line tool from Alibaba. It reads your git diff, sends the changed files to an LLM agent that can search the codebase, and returns structured review comments pinned to exact lines.",
+      "problem": "General-purpose coding agents used for review often skip files on large changes, report issues at the wrong line, and vary in quality with small prompt changes. Open Code Review adds deterministic steps for file selection, bundling, rule matching and comment positioning around the agent.",
+      "whoFor": [
+        "Developers who want AI review before opening a PR",
+        "Teams adding automated review to CI",
+        "Claude Code, Codex or Cursor users who want a review skill",
+        "Engineering leads tracking review quality"
+      ],
+      "whyChoose": "Choose it for a review tool that came from Alibaba's internal reviewer, with line-level comments and a benchmark showing higher precision than a general agent at about a ninth of the tokens.",
+      "requirements": [
+        "Windows, macOS or Linux",
+        "Git 2.41 or newer",
+        "Node.js for npm",
+        "An LLM provider, unless you use delegation mode"
+      ]
+    },
+    "overview": [
+      "You can use it as a CLI (ocr) or as Agent Skills in Claude Code, Codex, Cursor, Kimi Code and similar agents. Native mode uses Open Code Review's own model configuration; delegation mode lets your current coding agent do the review with its existing model and login, following the tool's pipeline.",
+      "Configure a provider with ocr config provider and ocr config model, which test connectivity. Then run ocr review in a repository to review staged, unstaged and untracked changes, or pass --from and --to to review a branch or range.",
+      "The README's benchmark (AACR-Bench: 50 repositories, 200 real PRs, 10 languages) reports higher precision and F1 than Claude Code with the same model, though lower recall. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Line-level comments",
+        "body": "Structured comments at exact lines."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Codebase-aware agent",
+        "body": "Reads files and searches the repo."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Smart file bundling",
+        "body": "Related files reviewed together."
+      },
+      {
+        "icon": "file-code",
+        "title": "Rule matching",
+        "body": "Review rules matched per file."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Agent Skills",
+        "body": "Native and delegation modes."
+      },
+      {
+        "icon": "shield",
+        "title": "Flexible ranges",
+        "body": "Workspace, branch or commit range."
+      }
+    ],
+    "strengths": [
+      "Precise, low-noise reviews",
+      "Uses fewer tokens than a general agent",
+      "Works as CLI or agent skill",
+      "Apache 2.0 licensed"
+    ],
+    "limitations": [
+      "Lower recall than a general agent in its own benchmark",
+      "Native mode needs its own model provider",
+      "Requires Git 2.41+"
+    ],
+    "useCases": [
+      {
+        "title": "Pre-PR review",
+        "body": "Run ocr review on your workspace changes."
+      },
+      {
+        "title": "Branch review",
+        "body": "Review a feature branch against main."
+      },
+      {
+        "title": "Review in your agent",
+        "body": "Use the delegate skill with your existing subscription."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Open Code Review's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/alibaba/open-code-review/blob/d4f568f71d3a9d5c5ec972791b1509e40cd31ad1/README.md",
+      "prerequisites": [
+        "Git 2.41+",
+        "Node.js"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "CLI",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install -g @alibaba-group/open-code-review",
+              "lang": "bash"
+            },
+            {
+              "title": "Configure a model",
+              "body": "An interactive UI guides you through provider, API key and model, then tests the connection.",
+              "code": "ocr config provider\nocr config model",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Agent Skills",
+          "method": "skills",
+          "steps": [
+            {
+              "title": "Install the skills in the project you want to review",
+              "body": "Pick the skills and your agent in the installer.",
+              "code": "npx skills add alibaba/open-code-review",
+              "lang": "bash"
+            },
+            {
+              "title": "No separate API key?",
+              "body": "Use the open-code-review-delegate skill so your current agent does the review."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Review your current changes",
+          "code": "cd your-project\nocr review",
+          "lang": "bash"
+        },
+        {
+          "title": "Review the current branch against main",
+          "code": "ocr review --from main",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Review a feature branch before merging",
+      "useCase": "Run an AI review of everything your branch changed since main.",
+      "setup": [
+        "ocr installed",
+        "A model configured with ocr config"
+      ],
+      "steps": [
+        {
+          "title": "Go to your repository",
+          "code": "cd your-project",
+          "lang": "bash"
+        },
+        {
+          "title": "Review the branch range",
+          "code": "ocr review --from main --to feature-branch",
+          "lang": "bash"
+        },
+        {
+          "title": "Read the comments",
+          "body": "Each comment points to a file and line with a description of the issue."
+        }
+      ],
+      "expected": "A structured list of review comments with precise file and line locations.",
+      "nextSteps": [
+        "Install the agent skills",
+        "Try delegation mode",
+        "Add it to your CI"
+      ],
+      "sourceUrl": "https://github.com/alibaba/open-code-review/blob/d4f568f71d3a9d5c5ec972791b1509e40cd31ad1/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Model usage",
+        "value": "Your LLM provider bills for tokens in native mode; delegation mode uses your agent's own usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Review fails before starting",
+        "solution": "Configure a model with ocr config provider and ocr config model, or use delegation mode.",
+        "sourceUrl": "https://github.com/alibaba/open-code-review/blob/d4f568f71d3a9d5c5ec972791b1509e40cd31ad1/README.md"
+      },
+      {
+        "problem": "Git errors",
+        "solution": "Update Git to 2.41 or newer.",
+        "sourceUrl": "https://github.com/alibaba/open-code-review/blob/d4f568f71d3a9d5c5ec972791b1509e40cd31ad1/README.md"
+      },
+      {
+        "problem": "Claude Pro login not used",
+        "solution": "Native mode uses Open Code Review's own provider settings, not your Claude subscription.",
+        "sourceUrl": "https://github.com/alibaba/open-code-review/blob/d4f568f71d3a9d5c5ec972791b1509e40cd31ad1/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI code review",
+      "Pre-merge checks",
+      "Review in coding agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI code review CLI"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Made by",
+        "value": "Alibaba"
+      },
+      {
+        "label": "Needs",
+        "value": "Git 2.41+"
+      }
+    ]
+  }
+}

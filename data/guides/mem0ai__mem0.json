@@ -1,0 +1,265 @@
+{
+  "fullName": "mem0ai/mem0",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/mem0ai/mem0/blob/a330119bda245ad05bf1d5e6779fc588b5f19443/README.md"
+    ],
+    "sourceCommitSha": "a330119bda245ad05bf1d5e6779fc588b5f19443",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install the Python library",
+        "command": "pip install mem0ai"
+      },
+      {
+        "comment": "Or the JavaScript SDK",
+        "command": "npm install mem0ai"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Mem0 is a memory layer for AI assistants and agents. It stores facts from conversations, such as a user's preferences, and finds the relevant ones later so your assistant can give personal, consistent answers across sessions.",
+      "problem": "Language models forget everything between conversations, and stuffing whole chat histories into prompts is slow and expensive. Mem0 extracts the important facts once and retrieves only the ones that matter for each new message.",
+      "whoFor": [
+        "Developers building chatbots and AI assistants",
+        "Teams adding personalisation to support or agent apps",
+        "Builders using LangGraph or CrewAI who need memory",
+        "Anyone prototyping long-term memory for agents"
+      ],
+      "whyChoose": "Choose it for a ready-made memory API you can use as a Python or npm library, run as your own server with Docker, or use as a managed cloud service.",
+      "requirements": [
+        "Python (pip) or Node.js (npm)",
+        "An LLM and embedding model; OpenAI is the default",
+        "Docker for the self-hosted server"
+      ]
+    },
+    "overview": [
+      "Mem0 keeps memory at user, session and agent level. You call memory.add() with conversation messages and memory.search() with a query, and it returns the most relevant stored facts. By default it uses OpenAI's gpt-5-mini as the LLM and text-embedding-3-small for embeddings, and it supports many other providers.",
+      "There are three ways to use it: the open-source library for testing and prototypes, a self-hosted server started with Docker Compose that adds a dashboard and API keys, and the managed Mem0 Platform. An optional NLP extra adds BM25 keyword matching and entity extraction for hybrid search.",
+      "A mem0 CLI manages memories from the terminal, and agent skills teach coding assistants how to integrate Mem0. The project is Apache 2.0 licensed. Benchmark scores in the README are for the managed platform, which includes optimisations not in the open-source library."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Multi-level memory",
+        "body": "User, session and agent memory."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Hybrid search",
+        "body": "Semantic, keyword and entity matching."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Python and JS SDKs",
+        "body": "pip install mem0ai or npm install mem0ai."
+      },
+      {
+        "icon": "file-code",
+        "title": "Self-hosted server",
+        "body": "Docker Compose stack with dashboard and auth."
+      },
+      {
+        "icon": "git-compare",
+        "title": "CLI",
+        "body": "Add and search memories from the terminal."
+      },
+      {
+        "icon": "shield",
+        "title": "Integrations",
+        "body": "LangGraph, CrewAI and a browser extension."
+      }
+    ],
+    "strengths": [
+      "Simple add and search API",
+      "Library, self-hosted or cloud",
+      "Works with many LLM providers",
+      "Apache 2.0 licensed"
+    ],
+    "limitations": [
+      "Needs an LLM and embedding model, OpenAI by default",
+      "README benchmark numbers are for the managed platform",
+      "Self-hosted server needs Docker"
+    ],
+    "useCases": [
+      {
+        "title": "Personal assistant",
+        "body": "Remember each user's preferences across chats."
+      },
+      {
+        "title": "Customer support",
+        "body": "Recall past tickets and history."
+      },
+      {
+        "title": "Agent memory",
+        "body": "Give LangGraph or CrewAI agents long-term memory."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Mem0's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/mem0ai/mem0/blob/a330119bda245ad05bf1d5e6779fc588b5f19443/README.md",
+      "prerequisites": [
+        "Python or Node.js",
+        "An OpenAI API key, or another configured provider"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Python library",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install Mem0",
+              "code": "pip install mem0ai",
+              "lang": "bash"
+            },
+            {
+              "title": "Optional: add hybrid search support",
+              "code": "pip install mem0ai[nlp]\npython -m spacy download en_core_web_sm",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "JavaScript SDK",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install the SDK",
+              "code": "npm install mem0ai",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Self-hosted server",
+          "method": "docker",
+          "steps": [
+            {
+              "title": "From the repository's server folder, start the stack and create an admin",
+              "code": "cd server && make bootstrap",
+              "lang": "bash"
+            },
+            {
+              "title": "Or start it and finish setup in the browser wizard",
+              "body": "The wizard opens at http://localhost:3000.",
+              "code": "cd server && docker compose up -d",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "OPENAI_API_KEY",
+          "required": false,
+          "description": "Needed for the default OpenAI LLM and embedding model; not needed if you configure another provider."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Try the CLI",
+          "code": "npm install -g @mem0/cli\nmem0 init\nmem0 add \"Prefers dark mode and vim keybindings\" --user-id alice\nmem0 search \"What does Alice prefer?\" --user-id alice",
+          "lang": "bash"
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Give a chatbot long-term memory in Python",
+      "useCase": "Build a terminal chat that remembers what each user tells it.",
+      "setup": [
+        "pip install mem0ai openai",
+        "OPENAI_API_KEY set"
+      ],
+      "steps": [
+        {
+          "title": "Create the memory and a client",
+          "code": "from openai import OpenAI\nfrom mem0 import Memory\n\nopenai_client = OpenAI()\nmemory = Memory()",
+          "lang": "text"
+        },
+        {
+          "title": "Search memories before answering",
+          "code": "relevant = memory.search(query=message, filters={\"user_id\": user_id}, top_k=3)\nmemories_str = \"\\n\".join(f\"- {e['memory']}\" for e in relevant[\"results\"])",
+          "lang": "text"
+        },
+        {
+          "title": "Answer with the memories in the system prompt, then save the exchange",
+          "code": "messages.append({\"role\": \"assistant\", \"content\": assistant_response})\nmemory.add(messages, user_id=user_id)",
+          "lang": "text"
+        }
+      ],
+      "expected": "In later messages, the assistant's answers use facts the user mentioned earlier in the conversation.",
+      "nextSteps": [
+        "Install the nlp extra for hybrid search",
+        "Run the self-hosted server",
+        "Connect Mem0 to LangGraph or CrewAI"
+      ],
+      "sourceUrl": "https://github.com/mem0ai/mem0/blob/a330119bda245ad05bf1d5e6779fc588b5f19443/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Model usage",
+        "value": "LLM and embedding calls are billed by your provider (OpenAI by default).",
+        "tone": "depends"
+      },
+      {
+        "label": "Mem0 Platform",
+        "value": "Optional managed cloud service.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Self-hosted server asks for auth after upgrading",
+        "solution": "Set ADMIN_API_KEY, register an admin in the wizard, or use AUTH_DISABLED=true for local development only.",
+        "sourceUrl": "https://github.com/mem0ai/mem0/blob/a330119bda245ad05bf1d5e6779fc588b5f19443/README.md"
+      },
+      {
+        "problem": "Keyword or entity search not working",
+        "solution": "Install mem0ai[nlp] and download en_core_web_sm.",
+        "sourceUrl": "https://github.com/mem0ai/mem0/blob/a330119bda245ad05bf1d5e6779fc588b5f19443/README.md"
+      },
+      {
+        "problem": "Errors about the API key",
+        "solution": "Set OPENAI_API_KEY or configure another LLM provider.",
+        "sourceUrl": "https://github.com/mem0ai/mem0/blob/a330119bda245ad05bf1d5e6779fc588b5f19443/README.md"
+      }
+    ],
+    "bestFor": [
+      "AI assistant memory",
+      "Personalised chatbots",
+      "Agent long-term memory"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Memory layer for AI"
+      },
+      {
+        "label": "Language",
+        "value": "Python, TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Runs as",
+        "value": "Library, server or cloud"
+      }
+    ]
+  }
+}

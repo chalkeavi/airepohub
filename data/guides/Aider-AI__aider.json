@@ -1,0 +1,236 @@
+{
+  "fullName": "Aider-AI/aider",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/README.md"
+    ],
+    "sourceCommitSha": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install Aider",
+        "command": "python -m pip install aider-install\naider-install"
+      },
+      {
+        "comment": "Start in your project with Claude",
+        "command": "cd /to/your/project\naider --model sonnet --api-key anthropic=YOUR_KEY"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Aider is an AI pair programmer that runs in your terminal. You describe a change in plain English, and it edits the files in your git repository, then commits the change with a sensible message so you can review or undo it.",
+      "problem": "Copying code between a chat window and your editor is slow and loses context. Aider works directly on your local codebase, maps the whole project so the model understands it, and keeps every AI change in git.",
+      "whoFor": [
+        "Developers who live in the terminal",
+        "Programmers working on existing codebases",
+        "People who want AI edits tracked in git",
+        "Users who want to pick their own model, cloud or local"
+      ],
+      "whyChoose": "Choose it for a mature, free, open-source coding assistant that works with almost any LLM and commits every change to git automatically.",
+      "requirements": [
+        "Python",
+        "git",
+        "An API key for a model provider, or a local model"
+      ]
+    },
+    "overview": [
+      "Install with the aider-install helper, change into your project folder and start aider with a model and API key. The README shows examples for DeepSeek, Claude Sonnet and OpenAI o3-mini, and Aider can connect to almost any LLM, including local models.",
+      "Aider builds a map of your whole codebase so it works well on larger projects, supports dozens of programming languages, and commits each change with a descriptive message. You can also run it in watch mode and ask for changes by writing comments in your IDE.",
+      "Extras include adding images and web pages to the chat, voice-to-code, automatic linting and testing after each change, and a copy/paste mode for working through a web chat interface."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Edits your repo",
+        "body": "Changes local files from plain-English requests."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Codebase map",
+        "body": "Understands larger projects."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Git integration",
+        "body": "Commits every change so you can diff or undo."
+      },
+      {
+        "icon": "file-code",
+        "title": "Any LLM",
+        "body": "Cloud models or local models."
+      },
+      {
+        "icon": "git-compare",
+        "title": "IDE watch mode",
+        "body": "Ask for changes via code comments."
+      },
+      {
+        "icon": "shield",
+        "title": "Lint and test",
+        "body": "Runs linters and tests and fixes problems."
+      }
+    ],
+    "strengths": [
+      "Changes are always committed to git",
+      "Works with your choice of model",
+      "Supports 100+ languages",
+      "Free and open source"
+    ],
+    "limitations": [
+      "You pay your model provider for usage",
+      "Terminal-first, no built-in GUI",
+      "Works best with strong models"
+    ],
+    "useCases": [
+      {
+        "title": "Add a feature",
+        "body": "Describe it and let Aider edit and commit."
+      },
+      {
+        "title": "Fix failing tests",
+        "body": "Let Aider run tests and repair errors."
+      },
+      {
+        "title": "Start a new project",
+        "body": "Scaffold code from a description."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Aider's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/README.md",
+      "prerequisites": [
+        "Python",
+        "git",
+        "Model API key"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "aider-install",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install the installer and run it",
+              "code": "python -m pip install aider-install\naider-install",
+              "lang": "bash"
+            },
+            {
+              "title": "Go to your project",
+              "code": "cd /to/your/project",
+              "lang": "bash"
+            },
+            {
+              "title": "Start Aider with a model",
+              "body": "Pick one; replace YOUR_KEY with your API key.",
+              "code": "aider --model sonnet --api-key anthropic=YOUR_KEY\naider --model deepseek --api-key deepseek=YOUR_KEY\naider --model o3-mini --api-key openai=YOUR_KEY",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start Aider inside a git repository",
+          "code": "cd /to/your/project\naider --model sonnet --api-key anthropic=YOUR_KEY",
+          "lang": "bash"
+        },
+        {
+          "title": "Ask for a change",
+          "body": "Type a request in plain English at the prompt. Aider edits the files and commits the change."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Make your first AI-assisted change",
+      "useCase": "Ask Aider to change code in an existing project and review the commit.",
+      "setup": [
+        "Aider installed",
+        "A git repository",
+        "A model API key"
+      ],
+      "steps": [
+        {
+          "title": "Start Aider in the project",
+          "code": "cd /to/your/project\naider --model sonnet --api-key anthropic=YOUR_KEY",
+          "lang": "bash"
+        },
+        {
+          "title": "Describe the change",
+          "body": "For example, ask it to add input validation to a function."
+        },
+        {
+          "title": "Review the result",
+          "body": "Aider commits the change; use git to see or undo it.",
+          "code": "git log -1 -p",
+          "lang": "bash"
+        }
+      ],
+      "expected": "The files are edited and a new git commit with a descriptive message holds the change.",
+      "nextSteps": [
+        "Try watch mode from your IDE",
+        "Turn on lint and test commands",
+        "Connect a local model"
+      ],
+      "sourceUrl": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/README.md"
+    },
+    "costs": [
+      {
+        "label": "Software",
+        "value": "Free and open source.",
+        "tone": "free"
+      },
+      {
+        "label": "Model usage",
+        "value": "You pay your LLM provider for tokens, unless you use a local model.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "aider command not found",
+        "solution": "Run aider-install again and open a new terminal.",
+        "sourceUrl": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/README.md"
+      },
+      {
+        "problem": "Authentication errors",
+        "solution": "Check the --api-key provider name and key.",
+        "sourceUrl": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/README.md"
+      },
+      {
+        "problem": "Unwanted change",
+        "solution": "Aider commits every change, so undo it with git.",
+        "sourceUrl": "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/README.md"
+      }
+    ],
+    "bestFor": [
+      "Terminal AI coding",
+      "Working in existing codebases",
+      "Git-tracked AI edits"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "AI coding assistant (CLI)"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Runs in",
+        "value": "Terminal"
+      }
+    ]
+  }
+}
