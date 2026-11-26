@@ -1,0 +1,215 @@
+{
+  "fullName": "nanocoai/nanoclaw",
+  "summary": "Self-hosted AI assistant you message from WhatsApp, Telegram, Slack and more, with each agent sandboxed in its own Docker container.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/nanocoai/nanoclaw/blob/9774cb596a32039d9464d78174ec5ed9531a9898/README.md"
+    ],
+    "sourceCommitSha": "9774cb596a32039d9464d78174ec5ed9531a9898",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "git clone https://github.com/nanocoai/nanoclaw.git && cd nanoclaw && bash nanoclaw.sh"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "NanoClaw is a lightweight personal assistant that runs AI agents in isolated containers and connects them to messaging apps. You chat with it from WhatsApp, Telegram, Discord, Slack, Signal, iMessage, email and many other channels, and it can run scheduled tasks, search the web and work in folders you allow.",
+      "problem": "Always-on AI assistants that can touch your files and accounts are risky to run loosely. NanoClaw keeps each agent in its own container with only the mounts you allow, and keeps API keys in a credential gateway rather than in the agent.",
+      "whoFor": [
+        "People who want a personal assistant in their chat apps",
+        "Developers who want a small, readable codebase to customize",
+        "Claude Code users"
+      ],
+      "whyChoose": "Choose it for container isolation, many messaging channels and a codebase small enough to understand and change with your coding agent.",
+      "requirements": [
+        "macOS or Linux (Windows via WSL2)",
+        "About 4 GB of RAM",
+        "git",
+        "Docker Desktop or Docker Engine",
+        "A model credential (Claude by default, or Codex, Cursor or OpenCode)"
+      ]
+    },
+    "overview": [
+      "The nanoclaw.sh script takes a fresh machine to a named agent you can message. It installs or updates Node and pnpm, installs Docker if missing, sets up a credential gateway, gets an agent image and pairs your first channel.",
+      "Each agent group has its own instructions file, memory and containers. You can give each channel its own agent or share one agent across channels. Agents can run one-off or recurring scheduled tasks.",
+      "NanoClaw works without an account. The free account and portal are optional, and the README lists exactly what is sent when you use them. It is MIT licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Many channels",
+        "body": "WhatsApp, Telegram, Slack, Discord, Signal, iMessage, email and more."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Container isolation",
+        "body": "Agents sandboxed in Docker."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Credential gateway",
+        "body": "Agents never hold raw API keys."
+      },
+      {
+        "icon": "file-code",
+        "title": "Scheduled tasks",
+        "body": "One-off or recurring jobs."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Per-agent workspace",
+        "body": "Own instructions, memory and mounts."
+      },
+      {
+        "icon": "shield",
+        "title": "Agent templates",
+        "body": "Stamp ready-made agents."
+      }
+    ],
+    "strengths": [
+      "Strong isolation by default",
+      "Small, customizable codebase",
+      "MIT license"
+    ],
+    "limitations": [
+      "Needs Docker and a fair amount of setup",
+      "You pay for model usage"
+    ],
+    "useCases": [
+      {
+        "title": "Morning briefings",
+        "body": "Scheduled news summary sent to your chat."
+      },
+      {
+        "title": "Repo upkeep",
+        "body": "Weekly README drift check."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from NanoClaw's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/nanocoai/nanoclaw/blob/9774cb596a32039d9464d78174ec5ed9531a9898/README.md",
+      "prerequisites": [
+        "git",
+        "Docker",
+        "macOS, Linux or WSL2"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows (WSL2)"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Setup script",
+          "method": "script",
+          "steps": [
+            {
+              "title": "Clone the repo",
+              "code": "git clone https://github.com/nanocoai/nanoclaw.git\ncd nanoclaw",
+              "lang": "bash"
+            },
+            {
+              "title": "Run setup",
+              "body": "Run it directly in a terminal, not inside a coding agent session, because it needs interactive prompts.",
+              "code": "bash nanoclaw.sh",
+              "lang": "bash"
+            },
+            {
+              "title": "Pair a channel",
+              "body": "Follow the wizard to connect Slack, Telegram, WhatsApp or another app, or chat from the terminal."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Name your assistant",
+          "body": "Setup asks for a name (default Nano)."
+        },
+        {
+          "title": "Send a message",
+          "body": "Message it directly or @mention its bot in a group chat."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Schedule a weekly briefing",
+      "useCase": "Have the assistant message you a news summary every Monday.",
+      "setup": [
+        "NanoClaw set up with a chat channel"
+      ],
+      "steps": [
+        {
+          "title": "Ask for the task",
+          "body": "Send: every Monday at 8am, compile news on AI developments from Hacker News and TechCrunch and message me a briefing."
+        },
+        {
+          "title": "Check it",
+          "body": "Send: list my scheduled tasks."
+        },
+        {
+          "title": "Pause if needed",
+          "body": "Send: pause the Monday briefing task."
+        }
+      ],
+      "expected": "A recurring task that sends you a briefing each Monday.",
+      "nextSteps": [
+        "Add another channel",
+        "Customize with /customize",
+        "Try an agent template"
+      ],
+      "sourceUrl": "https://github.com/nanocoai/nanoclaw/blob/9774cb596a32039d9464d78174ec5ed9531a9898/README.md"
+    },
+    "costs": [
+      {
+        "label": "NanoClaw",
+        "value": "Free and open source under MIT. The optional account is free.",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Claude or your chosen runtime bills for usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "A setup step fails",
+        "solution": "Setup can hand the failure to Claude Code (or Codex/OpenCode) to diagnose, then retry from that step.",
+        "sourceUrl": "https://github.com/nanocoai/nanoclaw/blob/9774cb596a32039d9464d78174ec5ed9531a9898/README.md"
+      },
+      {
+        "problem": "Setup acts oddly in an agent session",
+        "solution": "Run nanoclaw.sh directly in your terminal.",
+        "sourceUrl": "https://github.com/nanocoai/nanoclaw/blob/9774cb596a32039d9464d78174ec5ed9531a9898/README.md"
+      }
+    ],
+    "bestFor": [
+      "Personal AI assistant in chat apps",
+      "Sandboxed agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Self-hosted assistant"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "MIT"
+      },
+      {
+        "label": "Install",
+        "value": "bash nanoclaw.sh"
+      }
+    ]
+  }
+}

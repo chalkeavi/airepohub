@@ -1,0 +1,222 @@
+{
+  "fullName": "rohitg00/agentmemory",
+  "summary": "Persistent memory for coding agents like Claude Code, Cursor, Codex and Gemini CLI, so decisions and fixes from past sessions can be recalled later.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/rohitg00/agentmemory/blob/5c9e2e698bda138dcb7de50ee4dd3260ee4fb8eb/README.md"
+    ],
+    "sourceCommitSha": "5c9e2e698bda138dcb7de50ee4dd3260ee4fb8eb",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Set up",
+        "command": "npx -y @agentmemory/agentmemory@latest"
+      },
+      {
+        "comment": "Add skills",
+        "command": "npx skills add rohitg00/agentmemory -y"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "agentmemory records your coding-agent sessions, makes decisions and fixes searchable and lets agents recall them later. It works with Claude Code, GitHub Copilot CLI, Cursor, Gemini CLI, Codex CLI, Hermes, OpenClaw, OpenCode and any MCP client, and keeps one memory store across all of them with a live viewer to browse and edit it.",
+      "problem": "Coding agents forget everything between sessions and between tools. agentmemory keeps project history, lessons and handoffs so the next session or agent can pick them up.",
+      "whoFor": [
+        "Developers using one or more coding agents",
+        "Teams switching between agent tools",
+        "People who want inspectable agent memory"
+      ],
+      "whyChoose": "Choose it for one shared memory across many agents, keyword search that works without an API key, and a viewer to inspect and forget memories.",
+      "requirements": [
+        "Node.js 20+ with npm and npx",
+        "curl, sh and tar on macOS/Linux",
+        "Windows: WSL2 or the native Windows setup"
+      ]
+    },
+    "overview": [
+      "Run the setup command, choose your agents and either a model provider or keyless mode. Setup writes the config, starts the memory server and offers a global install of the agentmemory command.",
+      "The API runs at localhost:3111 and the viewer at localhost:3113, both bound to loopback. Keyless mode uses keyword (BM25) search; adding an embedding provider enables semantic search.",
+      "Hooks and plugins capture session events with secret scrubbing. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Capture",
+        "body": "Hooks record session events, with secret scrubbing."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Recall",
+        "body": "Keyword search without an API key."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Semantic search",
+        "body": "Optional local or remote embeddings."
+      },
+      {
+        "icon": "file-code",
+        "title": "Cross-agent",
+        "body": "One store for many agents."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Live viewer",
+        "body": "Browse, edit, export, forget."
+      },
+      {
+        "icon": "shield",
+        "title": "MCP tools",
+        "body": "Use from any MCP client."
+      }
+    ],
+    "strengths": [
+      "Works with many agents",
+      "Keyless mode",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Semantic search needs an embedding provider",
+      "Another local service to run"
+    ],
+    "useCases": [
+      {
+        "title": "Remember fixes",
+        "body": "Recall how a bug was solved before."
+      },
+      {
+        "title": "Agent handoff",
+        "body": "Continue work in a different agent."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from agentmemory's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/rohitg00/agentmemory/blob/5c9e2e698bda138dcb7de50ee4dd3260ee4fb8eb/README.md",
+      "prerequisites": [
+        "Node.js 20+"
+      ],
+      "supportedOs": [
+        "macOS",
+        "Linux",
+        "Windows"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "npx setup",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Check Node",
+              "code": "node -v\nnpm -v\nnpx -v",
+              "lang": "bash"
+            },
+            {
+              "title": "Run setup",
+              "body": "Pick your agents and a provider or keyless mode.",
+              "code": "npx -y @agentmemory/agentmemory@latest",
+              "lang": "bash"
+            },
+            {
+              "title": "Test recall and add skills",
+              "code": "npx -y @agentmemory/agentmemory@latest demo\nnpx skills add rohitg00/agentmemory -y",
+              "lang": "bash"
+            },
+            {
+              "title": "Open the viewer",
+              "body": "Go to http://localhost:3113."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Run the demo",
+          "body": "It seeds sample sessions and tests recall."
+        },
+        {
+          "title": "Connect an agent",
+          "body": "Use agentmemory connect <agent> to add another tool."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Give Claude Code memory with the plugin",
+      "useCase": "The README's Claude Code path.",
+      "setup": [
+        "Node.js 20+",
+        "Claude Code installed"
+      ],
+      "steps": [
+        {
+          "title": "Start the memory server",
+          "body": "In a separate terminal run npx -y @agentmemory/agentmemory@latest."
+        },
+        {
+          "title": "Add the plugin",
+          "body": "In Claude Code run /plugin marketplace add rohitg00/agentmemory, then install the agentmemory plugin."
+        },
+        {
+          "title": "Check status",
+          "code": "agentmemory status",
+          "lang": "bash"
+        }
+      ],
+      "expected": "Claude Code sessions are captured and visible in the viewer at localhost:3113.",
+      "nextSteps": [
+        "Add an embedding provider",
+        "Connect a second agent",
+        "Run agentmemory doctor"
+      ],
+      "sourceUrl": "https://github.com/rohitg00/agentmemory/blob/5c9e2e698bda138dcb7de50ee4dd3260ee4fb8eb/README.md"
+    },
+    "costs": [
+      {
+        "label": "agentmemory",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Embeddings or LLM provider",
+        "value": "Optional; billed by the provider you pick, or use local models.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Something isn't working",
+        "solution": "Run agentmemory doctor for interactive diagnostics.",
+        "sourceUrl": "https://github.com/rohitg00/agentmemory/blob/5c9e2e698bda138dcb7de50ee4dd3260ee4fb8eb/README.md"
+      },
+      {
+        "problem": "Semantic demo query returns nothing",
+        "solution": "Expected in keyless mode until an embedding provider is set.",
+        "sourceUrl": "https://github.com/rohitg00/agentmemory/blob/5c9e2e698bda138dcb7de50ee4dd3260ee4fb8eb/README.md"
+      }
+    ],
+    "bestFor": [
+      "Memory for coding agents",
+      "Cross-agent context"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent memory server"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "npx -y @agentmemory/agentmemory@latest"
+      }
+    ]
+  }
+}

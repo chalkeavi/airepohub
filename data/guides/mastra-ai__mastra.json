@@ -1,0 +1,206 @@
+{
+  "fullName": "mastra-ai/mastra",
+  "summary": "TypeScript framework for building AI agents and workflows, with model routing to 40+ providers, memory, RAG, MCP, evals and observability.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/mastra-ai/mastra/blob/67c15714862bbc881bb5191a079abc39ec62c45e/README.md"
+    ],
+    "sourceCommitSha": "67c15714862bbc881bb5191a079abc39ec62c45e",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Create a project",
+        "command": "npm create mastra@latest"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Mastra is a TypeScript framework for building AI applications and agents. It covers agents that use tools, a graph-based workflow engine, human-in-the-loop pauses, memory and retrieval, MCP server authoring, evals and observability. It plugs into React, Next.js and Node apps or can be deployed as a standalone server.",
+      "problem": "Building production agents in TypeScript means gluing together model SDKs, tools, workflows, memory and monitoring. Mastra provides them in one framework.",
+      "whoFor": [
+        "TypeScript and JavaScript developers",
+        "Teams shipping agents in Next.js or Node apps",
+        "Builders of MCP servers"
+      ],
+      "whyChoose": "Choose it for a TypeScript-first stack that goes from prototype to production, with one interface to models from OpenAI, Anthropic, Gemini and more.",
+      "requirements": [
+        "Node.js and npm",
+        "An API key for a model provider (OpenAI, Anthropic, Google or xAI for the starter)"
+      ]
+    },
+    "overview": [
+      "Create a project with npm create mastra@latest and follow the prompts, or see the installation guide for a manual setup. The starter creates a default project, installs Mastra skills for coding assistants it detects and sets up Git.",
+      "Agents reason about goals, pick tools and iterate; workflows give explicit control with steps you chain together. Workflows and agents can pause for user approval and resume later.",
+      "Templates, a course and videos help beginners. The core is Apache 2.0; code in ee/ folders is under the Mastra Enterprise License."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Model routing",
+        "body": "40+ providers, one interface."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Agents",
+        "body": "LLMs with tools that iterate."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Workflows",
+        "body": "Graph-based multi-step processes."
+      },
+      {
+        "icon": "file-code",
+        "title": "Human-in-the-loop",
+        "body": "Suspend and resume for approval."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Memory and RAG",
+        "body": "History and retrieval."
+      },
+      {
+        "icon": "shield",
+        "title": "Evals and observability",
+        "body": "Measure and monitor agents."
+      }
+    ],
+    "strengths": [
+      "TypeScript-native",
+      "Fits React, Next.js and Node",
+      "Apache 2.0 core"
+    ],
+    "limitations": [
+      "Enterprise features need a license in production",
+      "TypeScript only"
+    ],
+    "useCases": [
+      {
+        "title": "Support agent in a Next.js app",
+        "body": "Agent with tools and memory."
+      },
+      {
+        "title": "Approval workflow",
+        "body": "Pause for a human, then continue."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Mastra's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/mastra-ai/mastra/blob/67c15714862bbc881bb5191a079abc39ec62c45e/README.md",
+      "prerequisites": [
+        "Node.js",
+        "Model API key"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "create-mastra",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Create a project",
+              "body": "Answer the prompts for project name and provider.",
+              "code": "npm create mastra@latest",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the dev server",
+              "body": "Enter the project folder and run the dev script.",
+              "code": "npm run dev",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Open the starter agent",
+          "body": "Look at the default agent the project created."
+        },
+        {
+          "title": "Try a template",
+          "body": "Browse the Mastra templates for ideas."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Create your first Mastra project",
+      "useCase": "Scaffold and run a starter app.",
+      "setup": [
+        "Node.js installed",
+        "A provider API key"
+      ],
+      "steps": [
+        {
+          "title": "Scaffold",
+          "code": "npm create mastra@latest",
+          "lang": "bash"
+        },
+        {
+          "title": "Choose a provider",
+          "body": "Pick openai, anthropic, google or xai and add its key."
+        },
+        {
+          "title": "Run it",
+          "code": "npm run dev",
+          "lang": "bash"
+        }
+      ],
+      "expected": "A local Mastra dev server with a starter agent you can chat with.",
+      "nextSteps": [
+        "Add a tool to the agent",
+        "Build a workflow",
+        "Add memory"
+      ],
+      "sourceUrl": "https://github.com/mastra-ai/mastra/blob/67c15714862bbc881bb5191a079abc39ec62c45e/README.md"
+    },
+    "costs": [
+      {
+        "label": "Framework",
+        "value": "Free and open source under Apache 2.0 (ee/ folders under the Enterprise License).",
+        "tone": "free"
+      },
+      {
+        "label": "Models",
+        "value": "Your provider bills for usage.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Unsupported provider in the starter",
+        "solution": "Choose openai, anthropic, google or xai.",
+        "sourceUrl": "https://github.com/mastra-ai/mastra/blob/67c15714862bbc881bb5191a079abc39ec62c45e/README.md"
+      }
+    ],
+    "bestFor": [
+      "TypeScript agent framework",
+      "AI workflows in Node"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent framework"
+      },
+      {
+        "label": "Language",
+        "value": "TypeScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0 + Enterprise (ee/)"
+      },
+      {
+        "label": "Install",
+        "value": "npm create mastra@latest"
+      }
+    ]
+  }
+}

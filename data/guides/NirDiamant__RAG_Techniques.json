@@ -1,0 +1,204 @@
+{
+  "fullName": "NirDiamant/RAG_Techniques",
+  "summary": "Collection of notebooks showing advanced retrieval-augmented generation (RAG) techniques, from basic RAG to query rewriting, reranking and evaluation.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/NirDiamant/RAG_Techniques/blob/2fd7bd0ffe5b8520cfd1a6ee75fcb86fc41bf8c6/README.md"
+    ],
+    "sourceCommitSha": "2fd7bd0ffe5b8520cfd1a6ee75fcb86fc41bf8c6",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Get the notebooks",
+        "command": "git clone https://github.com/NirDiamant/RAG_Techniques.git"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "RAG Techniques is a learning repository of retrieval-augmented generation methods. Each technique, such as basic RAG, RAG over CSV files, chunk-size tuning, proposition chunking, query transformations, HyDE, contextual chunk headers, memory-augmented retrieval and evaluation, has its own notebook with an explanation and implementation.",
+      "problem": "Basic RAG often returns the wrong passages. This collection shows many tested ways to improve retrieval and answers, in one place, with runnable code.",
+      "whoFor": [
+        "Developers building RAG systems",
+        "Researchers comparing retrieval methods",
+        "Learners moving past basic RAG"
+      ],
+      "whyChoose": "Choose it for a broad, organized tour of RAG techniques with a notebook for each one.",
+      "requirements": [
+        "Git",
+        "Python with Jupyter to run the notebooks",
+        "Whatever API keys a given notebook uses"
+      ]
+    },
+    "overview": [
+      "Techniques are grouped into categories: foundational, query enhancement, context enrichment, advanced retrieval, iterative and adaptive, evaluation, memory, explainability and advanced architectures.",
+      "Clone the repo, open the folder for the technique you want and follow its implementation guide.",
+      "It uses a custom non-commercial license, so check the LICENSE file before using the code in a commercial product."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Foundational RAG",
+        "body": "Basic, CSV and reliable RAG."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Chunking",
+        "body": "Chunk sizes and proposition chunking."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Query enhancement",
+        "body": "Transformations, HyDE, HyPE."
+      },
+      {
+        "icon": "file-code",
+        "title": "Context enrichment",
+        "body": "Chunk headers, segment extraction."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Evaluation",
+        "body": "Ways to measure RAG quality."
+      },
+      {
+        "icon": "shield",
+        "title": "Advanced architectures",
+        "body": "More complex RAG designs."
+      }
+    ],
+    "strengths": [
+      "Very broad coverage",
+      "One notebook per technique",
+      "Explanations alongside code"
+    ],
+    "limitations": [
+      "Custom non-commercial license",
+      "Notebooks, not a library"
+    ],
+    "useCases": [
+      {
+        "title": "Improve a RAG app",
+        "body": "Try a better chunking or query method."
+      },
+      {
+        "title": "Study RAG",
+        "body": "Work through techniques in order."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from RAG Techniques's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/NirDiamant/RAG_Techniques/blob/2fd7bd0ffe5b8520cfd1a6ee75fcb86fc41bf8c6/README.md",
+      "prerequisites": [
+        "Git",
+        "Python and Jupyter"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Clone the notebooks",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/NirDiamant/RAG_Techniques.git",
+              "lang": "bash"
+            },
+            {
+              "title": "Go to a technique",
+              "body": "Replace technique-name with the one you want.",
+              "code": "cd all_rag_techniques/technique-name",
+              "lang": "bash"
+            },
+            {
+              "title": "Follow its guide",
+              "body": "Each technique has its own implementation steps."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Start with basic RAG",
+          "body": "Open the simple_rag notebook in all_rag_techniques."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Run the basic RAG notebook",
+      "useCase": "Get the simplest technique working first.",
+      "setup": [
+        "Repo cloned",
+        "Jupyter installed"
+      ],
+      "steps": [
+        {
+          "title": "Open the notebook",
+          "body": "Open all_rag_techniques/simple_rag.ipynb."
+        },
+        {
+          "title": "Install what it needs",
+          "body": "Follow the setup cells at the top."
+        },
+        {
+          "title": "Run the cells",
+          "body": "Run each cell and read the explanation."
+        }
+      ],
+      "expected": "A working basic RAG pipeline you can compare other techniques against.",
+      "nextSteps": [
+        "Try proposition chunking",
+        "Try HyDE",
+        "Measure with the evaluation notebooks"
+      ],
+      "sourceUrl": "https://github.com/NirDiamant/RAG_Techniques/blob/2fd7bd0ffe5b8520cfd1a6ee75fcb86fc41bf8c6/README.md"
+    },
+    "costs": [
+      {
+        "label": "Notebooks",
+        "value": "Free to read and use under a custom non-commercial license.",
+        "tone": "free"
+      },
+      {
+        "label": "Model APIs",
+        "value": "Some notebooks call paid model APIs.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Notebook import errors",
+        "solution": "Install the packages listed in that notebook's setup cells.",
+        "sourceUrl": "https://github.com/NirDiamant/RAG_Techniques/blob/2fd7bd0ffe5b8520cfd1a6ee75fcb86fc41bf8c6/README.md"
+      }
+    ],
+    "bestFor": [
+      "Learning RAG",
+      "RAG technique reference"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Tutorial notebooks"
+      },
+      {
+        "label": "Language",
+        "value": "Python (Jupyter)"
+      },
+      {
+        "label": "License",
+        "value": "Custom non-commercial"
+      },
+      {
+        "label": "Get it",
+        "value": "git clone"
+      }
+    ]
+  }
+}

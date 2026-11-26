@@ -1,0 +1,242 @@
+{
+  "fullName": "ATH-MaaS/Pixelle-Video",
+  "summary": "Automatic short-video maker: type a topic and it writes the script, makes AI images or clips, adds voice-over and music, and renders the video.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/ATH-MaaS/Pixelle-Video/blob/848b054e4fae40dabc62ec58e960b573e83793ac/README_EN.md"
+    ],
+    "sourceCommitSha": "848b054e4fae40dabc62ec58e960b573e83793ac",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Run from source",
+        "command": "uv run streamlit run web/app.py"
+      },
+      {
+        "comment": "Windows",
+        "command": "Download the all-in-one package and run start.bat"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Pixelle-Video is an AI engine for short videos. From one topic it writes the narration, generates images or video clips for each sentence, synthesizes the voice, adds background music and assembles the final video, all from a web interface.",
+      "problem": "Making a short explainer or social video takes scripting, visuals, voice recording and editing. Pixelle-Video does all of it from a single topic, with no editing experience needed.",
+      "whoFor": [
+        "Creators making short social videos",
+        "Marketers who need quick explainers",
+        "ComfyUI users who want an automatic pipeline"
+      ],
+      "whyChoose": "Choose it for a full topic-to-video pipeline with a choice of models: GPT, Qwen, DeepSeek or Ollama for scripts, ComfyUI, RunningHub or direct APIs for visuals, and Edge-TTS or Index-TTS for voice.",
+      "requirements": [
+        "Windows: the all-in-one package",
+        "macOS/Linux: uv and ffmpeg",
+        "An LLM API key, plus an image/video source (ComfyUI, RunningHub or an API provider)"
+      ]
+    },
+    "overview": [
+      "Windows users can download an all-in-one package that includes Python, uv and ffmpeg, then double-click start.bat. On macOS and Linux, install uv and ffmpeg, clone the project and start the Streamlit web app with uv.",
+      "On first use, open System Configuration and set the LLM (preset models fill the base URL for you), then either a ComfyUI/RunningHub setup or direct API media providers such as OpenAI, DashScope, Seedream/Seedance or Kling.",
+      "The interface has three columns: content input, voice and visual settings, and generation. It supports portrait and landscape formats and several templates. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Topic to video",
+        "body": "Fully automatic generation."
+      },
+      {
+        "icon": "scan-search",
+        "title": "AI script",
+        "body": "Narration written for you."
+      },
+      {
+        "icon": "puzzle",
+        "title": "AI images and clips",
+        "body": "Per-sentence visuals, including video models."
+      },
+      {
+        "icon": "file-code",
+        "title": "Voice-over",
+        "body": "Edge-TTS, Index-TTS and more."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Background music",
+        "body": "Add BGM to videos."
+      },
+      {
+        "icon": "shield",
+        "title": "Templates and sizes",
+        "body": "Portrait, landscape and styles."
+      }
+    ],
+    "strengths": [
+      "End-to-end pipeline",
+      "Windows package with no setup",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Needs API keys or a local ComfyUI",
+      "Quality depends on the models you configure"
+    ],
+    "useCases": [
+      {
+        "title": "Social shorts",
+        "body": "Portrait videos from a topic."
+      },
+      {
+        "title": "Explainers",
+        "body": "Narrated landscape videos."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Pixelle-Video's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/ATH-MaaS/Pixelle-Video/blob/848b054e4fae40dabc62ec58e960b573e83793ac/README_EN.md",
+      "prerequisites": [
+        "LLM API key",
+        "Image/video generation source"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "windows",
+          "label": "Windows all-in-one package",
+          "method": "download",
+          "steps": [
+            {
+              "title": "Download and extract",
+              "body": "Get the latest Windows All-in-One Package from the Releases page."
+            },
+            {
+              "title": "Start",
+              "body": "Double-click start.bat; the browser opens http://localhost:8501."
+            },
+            {
+              "title": "Configure",
+              "body": "Set your LLM API and image generation service in System Configuration."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "From source (macOS / Linux)",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Install uv",
+              "body": "Follow the uv installation guide, then check with uv --version."
+            },
+            {
+              "title": "Install ffmpeg (macOS)",
+              "body": "On Ubuntu/Debian use sudo apt update && sudo apt install ffmpeg.",
+              "code": "brew install ffmpeg",
+              "lang": "bash"
+            },
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/AIDC-AI/Pixelle-Video.git\ncd Pixelle-Video",
+              "lang": "bash"
+            },
+            {
+              "title": "Start the web app",
+              "body": "Opens http://localhost:8501.",
+              "code": "uv run streamlit run web/app.py",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Configure models",
+          "body": "Expand System Configuration, pick an LLM preset and enter its key, then set up ComfyUI, RunningHub or an API media provider. Click Save Configuration."
+        },
+        {
+          "title": "Enter a topic",
+          "body": "Type a topic in the left column."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Make your first short video",
+      "useCase": "Topic in, finished video out.",
+      "setup": [
+        "Web app running at localhost:8501",
+        "LLM and image source configured"
+      ],
+      "steps": [
+        {
+          "title": "Enter a topic",
+          "body": "Use the content input column."
+        },
+        {
+          "title": "Choose voice and visuals",
+          "body": "Pick a TTS voice, a visual style and the video size."
+        },
+        {
+          "title": "Generate",
+          "body": "Click generate in the right column and wait for rendering."
+        }
+      ],
+      "expected": "A narrated video with AI visuals and background music.",
+      "nextSteps": [
+        "Try a video generation model",
+        "Switch to landscape",
+        "Try another template"
+      ],
+      "sourceUrl": "https://github.com/ATH-MaaS/Pixelle-Video/blob/848b054e4fae40dabc62ec58e960b573e83793ac/README_EN.md"
+    },
+    "costs": [
+      {
+        "label": "Pixelle-Video",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "LLM and media APIs",
+        "value": "Billed by the providers you configure; local ComfyUI or Ollama can avoid API costs.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "ffmpeg errors",
+        "solution": "Check ffmpeg -version works in your terminal.",
+        "sourceUrl": "https://github.com/ATH-MaaS/Pixelle-Video/blob/848b054e4fae40dabc62ec58e960b573e83793ac/README_EN.md"
+      },
+      {
+        "problem": "Images don't generate",
+        "solution": "Test the ComfyUI connection or check the provider key in System Configuration.",
+        "sourceUrl": "https://github.com/ATH-MaaS/Pixelle-Video/blob/848b054e4fae40dabc62ec58e960b573e83793ac/README_EN.md"
+      }
+    ],
+    "bestFor": [
+      "AI short video generator",
+      "Topic-to-video"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Video generation app"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Run",
+        "value": "uv run streamlit run web/app.py"
+      }
+    ]
+  }
+}

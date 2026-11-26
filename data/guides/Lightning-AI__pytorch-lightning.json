@@ -1,0 +1,203 @@
+{
+  "fullName": "Lightning-AI/pytorch-lightning",
+  "summary": "Python framework that takes the boilerplate out of PyTorch training, so the same model code runs on a laptop CPU or many GPUs.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/Lightning-AI/pytorch-lightning/blob/04f8831145d075a15da1db33ffa74514c24119ea/README.md"
+    ],
+    "sourceCommitSha": "04f8831145d075a15da1db33ffa74514c24119ea",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "pip install lightning"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "PyTorch Lightning is a library that organizes PyTorch code. You put your model, training step and optimizer in a LightningModule, and the Trainer handles the training loop, devices, precision, checkpoints and logging for you.",
+      "problem": "Raw PyTorch training loops repeat the same engineering code (device moves, distributed setup, mixed precision, checkpointing) in every project. Lightning handles it so you can focus on the model.",
+      "whoFor": [
+        "PyTorch users who train models",
+        "Researchers scaling experiments to several GPUs",
+        "Teams that want consistent training code"
+      ],
+      "whyChoose": "Choose it to keep full PyTorch flexibility while getting multi-GPU, mixed precision and checkpointing without rewriting your loop.",
+      "requirements": [
+        "Python",
+        "PyTorch"
+      ]
+    },
+    "overview": [
+      "Lightning has two parts: the Trainer, which runs training for a LightningModule, and Fabric, a lighter layer for people who want to keep writing their own loop.",
+      "Your model code stays plain PyTorch. Switching from CPU to GPUs, TPUs or several machines is a Trainer setting rather than a rewrite.",
+      "Install it from PyPI with pip install lightning. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Trainer",
+        "body": "Runs the loop, validation and testing."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Hardware switching",
+        "body": "CPU, GPU, TPU and multi-node from settings."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Mixed precision",
+        "body": "Lower-precision training with a flag."
+      },
+      {
+        "icon": "file-code",
+        "title": "Checkpointing",
+        "body": "Save and resume training."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Logging",
+        "body": "Plug in experiment loggers."
+      },
+      {
+        "icon": "shield",
+        "title": "Fabric",
+        "body": "Scale your own custom loop."
+      }
+    ],
+    "strengths": [
+      "Less boilerplate",
+      "Still plain PyTorch inside",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "You need to know PyTorch first",
+      "A new structure to learn"
+    ],
+    "useCases": [
+      {
+        "title": "Train an image or text model",
+        "body": "Organize the code in a LightningModule."
+      },
+      {
+        "title": "Scale to more GPUs",
+        "body": "Change Trainer settings, not code."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from PyTorch Lightning's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/Lightning-AI/pytorch-lightning/blob/04f8831145d075a15da1db33ffa74514c24119ea/README.md",
+      "prerequisites": [
+        "Python and pip",
+        "PyTorch installed"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "pip",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install Lightning",
+              "code": "pip install lightning",
+              "lang": "bash"
+            },
+            {
+              "title": "Optional extras",
+              "body": "Install the extra dependencies if you need them.",
+              "code": "pip install lightning['extra']",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Write a LightningModule",
+          "body": "Move your model, training_step and configure_optimizers into one class."
+        },
+        {
+          "title": "Run the Trainer",
+          "body": "Create a Trainer and call fit with your module and data."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Train your first model with the Trainer",
+      "useCase": "Turn a PyTorch model into a Lightning training run.",
+      "setup": [
+        "Lightning installed",
+        "A small PyTorch model and dataset"
+      ],
+      "steps": [
+        {
+          "title": "Create a LightningModule",
+          "body": "Define the model, a training_step that returns the loss, and configure_optimizers."
+        },
+        {
+          "title": "Build a DataLoader",
+          "body": "Use a normal PyTorch DataLoader."
+        },
+        {
+          "title": "Fit",
+          "body": "Create a Trainer and call trainer.fit(model, train_dataloader)."
+        }
+      ],
+      "expected": "Training runs with progress output and saves a checkpoint.",
+      "nextSteps": [
+        "Try multiple devices",
+        "Turn on mixed precision",
+        "Add a logger"
+      ],
+      "sourceUrl": "https://github.com/Lightning-AI/pytorch-lightning/blob/04f8831145d075a15da1db33ffa74514c24119ea/README.md"
+    },
+    "costs": [
+      {
+        "label": "Library",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Compute",
+        "value": "Your own hardware or cloud GPUs.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Install conflicts with PyTorch",
+        "solution": "Install a PyTorch build that matches your system first, then Lightning.",
+        "sourceUrl": "https://github.com/Lightning-AI/pytorch-lightning/blob/04f8831145d075a15da1db33ffa74514c24119ea/README.md"
+      }
+    ],
+    "bestFor": [
+      "PyTorch training framework",
+      "Scaling model training"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Training framework"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "pip install lightning"
+      }
+    ]
+  }
+}

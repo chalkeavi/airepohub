@@ -1,0 +1,272 @@
+{
+  "fullName": "assafelovic/gpt-researcher",
+  "summary": "Open deep-research agent that searches the web or your local files on a topic and writes a detailed report with citations.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/assafelovic/gpt-researcher/blob/9d39a2f86d55e264f69dfeff2365f27fad3c1144/README.md"
+    ],
+    "sourceCommitSha": "9d39a2f86d55e264f69dfeff2365f27fad3c1144",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install (package)",
+        "command": "pip install gpt-researcher"
+      },
+      {
+        "comment": "Run the app",
+        "command": "python -m uvicorn main:app --reload"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "GPT Researcher is an open-source research agent. Give it a question and it plans the research, gathers sources from the web or local documents, and writes a long, cited report. You can run it as a web app, use it as a Python package, connect MCP data sources, or install it as a Claude skill.",
+      "problem": "Researching a topic by hand means opening dozens of pages and stitching notes together. GPT Researcher automates the search and writes the report for you, with sources.",
+      "whoFor": [
+        "Analysts and students who write research reports",
+        "Developers adding research to their apps",
+        "Claude users who want deeper research"
+      ],
+      "whyChoose": "Choose it for cited reports, web plus local research, and lots of customization options.",
+      "requirements": [
+        "Python 3.12 or later",
+        "An OpenAI API key (or an OpenAI-compatible endpoint)",
+        "A Tavily API key for web search"
+      ]
+    },
+    "overview": [
+      "To run the app, clone the repo, set OPENAI_API_KEY and TAVILY_API_KEY, install requirements and start the server with uvicorn. Then open localhost:8000.",
+      "As a library, pip install gpt-researcher, create a GPTResearcher with your query, call conduct_research and then write_report.",
+      "You can point it at other providers or local models with OPENAI_BASE_URL, and add MCP data sources such as GitHub or databases. It is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Deep research",
+        "body": "Plans and runs multi-step research."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Cited reports",
+        "body": "Detailed reports with sources."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Web and local",
+        "body": "Research online or over your files."
+      },
+      {
+        "icon": "file-code",
+        "title": "Python package",
+        "body": "Use it in your own code."
+      },
+      {
+        "icon": "git-compare",
+        "title": "MCP client",
+        "body": "Pull from GitHub, databases and APIs."
+      },
+      {
+        "icon": "shield",
+        "title": "Claude skill",
+        "body": "npx skills add install."
+      }
+    ],
+    "strengths": [
+      "Citations included",
+      "Flexible providers",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "Needs paid API keys",
+      "Report quality depends on the sources found"
+    ],
+    "useCases": [
+      {
+        "title": "Market research",
+        "body": "A cited report on a company or trend."
+      },
+      {
+        "title": "Literature review",
+        "body": "Research over local documents."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from GPT Researcher's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/assafelovic/gpt-researcher/blob/9d39a2f86d55e264f69dfeff2365f27fad3c1144/README.md",
+      "prerequisites": [
+        "Python 3.12+",
+        "OpenAI and Tavily API keys"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Web app from source",
+          "method": "source",
+          "steps": [
+            {
+              "title": "Clone",
+              "code": "git clone https://github.com/assafelovic/gpt-researcher.git\ncd gpt-researcher",
+              "lang": "bash"
+            },
+            {
+              "title": "Set API keys",
+              "body": "Export them or put them in a .env file.",
+              "code": "export OPENAI_API_KEY={Your OpenAI API Key here}\nexport TAVILY_API_KEY={Your Tavily API Key here}",
+              "lang": "bash"
+            },
+            {
+              "title": "Install and start",
+              "code": "pip install -r requirements.txt\npython -m uvicorn main:app --reload",
+              "lang": "bash"
+            },
+            {
+              "title": "Open the app",
+              "body": "Visit http://localhost:8000."
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Python package",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install gpt-researcher",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Claude skill",
+          "method": "skill",
+          "steps": [
+            {
+              "title": "Add the skill",
+              "code": "npx skills add assafelovic/gpt-researcher",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [
+        {
+          "name": "OPENAI_API_KEY",
+          "required": true,
+          "description": "Key for the language model."
+        },
+        {
+          "name": "TAVILY_API_KEY",
+          "required": true,
+          "description": "Key for Tavily web search."
+        },
+        {
+          "name": "OPENAI_BASE_URL",
+          "required": false,
+          "description": "Custom OpenAI-compatible endpoint, such as a local model."
+        },
+        {
+          "name": "LANGCHAIN_API_KEY",
+          "required": false,
+          "description": "Optional LangChain tracing."
+        }
+      ],
+      "firstRun": [
+        {
+          "title": "Ask a question",
+          "body": "Open localhost:8000 and enter a research question."
+        },
+        {
+          "title": "Read the report",
+          "body": "Review the report and its cited sources."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Write a research report from Python",
+      "useCase": "The README's package example.",
+      "setup": [
+        "pip install gpt-researcher",
+        "OPENAI_API_KEY and TAVILY_API_KEY set"
+      ],
+      "steps": [
+        {
+          "title": "Create a researcher",
+          "body": "from gpt_researcher import GPTResearcher, then GPTResearcher(query=\"why is Nvidia stock going up?\")."
+        },
+        {
+          "title": "Run the research",
+          "body": "await researcher.conduct_research()."
+        },
+        {
+          "title": "Write the report",
+          "body": "report = await researcher.write_report()."
+        }
+      ],
+      "expected": "A detailed report text with citations.",
+      "nextSteps": [
+        "Research local documents",
+        "Add an MCP data source",
+        "Try a custom provider"
+      ],
+      "sourceUrl": "https://github.com/assafelovic/gpt-researcher/blob/9d39a2f86d55e264f69dfeff2365f27fad3c1144/README.md"
+    },
+    "costs": [
+      {
+        "label": "GPT Researcher",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "OpenAI API",
+        "value": "Billed per use by your provider.",
+        "tone": "paid"
+      },
+      {
+        "label": "Tavily search",
+        "value": "Check Tavily's pricing for your usage.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Errors about missing keys",
+        "solution": "Set OPENAI_API_KEY and TAVILY_API_KEY before starting.",
+        "sourceUrl": "https://github.com/assafelovic/gpt-researcher/blob/9d39a2f86d55e264f69dfeff2365f27fad3c1144/README.md"
+      },
+      {
+        "problem": "Python version errors",
+        "solution": "Use Python 3.12 or later.",
+        "sourceUrl": "https://github.com/assafelovic/gpt-researcher/blob/9d39a2f86d55e264f69dfeff2365f27fad3c1144/README.md"
+      }
+    ],
+    "bestFor": [
+      "Deep research agent",
+      "Cited AI reports"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Research agent"
+      },
+      {
+        "label": "Language",
+        "value": "Python"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "pip install gpt-researcher"
+      }
+    ]
+  }
+}

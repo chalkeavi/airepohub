@@ -1,0 +1,227 @@
+{
+  "fullName": "chroma-core/chroma",
+  "summary": "Open-source vector database for AI apps: store documents, and Chroma embeds and indexes them so you can search by meaning.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/chroma-core/chroma/blob/1a3ac2c7c623adbd03ed2508dc27b98cdf26016d/README.md"
+    ],
+    "sourceCommitSha": "1a3ac2c7c623adbd03ed2508dc27b98cdf26016d",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Python",
+        "command": "pip install chromadb"
+      },
+      {
+        "comment": "JavaScript",
+        "command": "npm install chromadb"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Chroma is open-source data infrastructure for AI, best known as a vector database. You add documents with metadata to a collection, Chroma handles tokenization, embedding and indexing, and you query for the most similar results with optional metadata and text filters. It runs in-memory for prototyping, with persistence, or in client-server mode.",
+      "problem": "RAG apps and semantic search need somewhere to store embeddings and look up similar text. Chroma does this with a four-function API.",
+      "whoFor": [
+        "Developers building RAG and semantic search",
+        "Python and JavaScript AI developers",
+        "Teams prototyping LLM apps"
+      ],
+      "whyChoose": "Choose it for a tiny API, automatic embedding, and a path from in-memory prototype to a server or the hosted Chroma Cloud.",
+      "requirements": [
+        "Python (pip) or Node.js (npm)"
+      ]
+    },
+    "overview": [
+      "Install the Python client with pip install chromadb, or the JavaScript client with npm install chromadb. For client-server mode run chroma run with a data path.",
+      "The core API is four functions: create a client, create a collection, add documents with ids and metadata, and query with text. You can also bring your own embeddings.",
+      "Chroma Cloud is the hosted option with serverless vector, hybrid and full-text search. The open-source project is Apache 2.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Simple API",
+        "body": "Client, collection, add, query."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Automatic embeddings",
+        "body": "Or bring your own."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Metadata filters",
+        "body": "Filter results by fields."
+      },
+      {
+        "icon": "file-code",
+        "title": "Document filters",
+        "body": "Contains-text filtering."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Client-server mode",
+        "body": "chroma run."
+      },
+      {
+        "icon": "shield",
+        "title": "Python and JS",
+        "body": "Clients for both."
+      }
+    ],
+    "strengths": [
+      "Very easy to start",
+      "Runs locally",
+      "Apache 2.0"
+    ],
+    "limitations": [
+      "In-memory mode isn't persistent unless configured",
+      "Hosted features are in Chroma Cloud"
+    ],
+    "useCases": [
+      {
+        "title": "RAG",
+        "body": "Retrieve relevant chunks for an LLM."
+      },
+      {
+        "title": "Semantic search",
+        "body": "Find similar documents."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Chroma's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/chroma-core/chroma/blob/1a3ac2c7c623adbd03ed2508dc27b98cdf26016d/README.md",
+      "prerequisites": [
+        "Python or Node.js"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "Python",
+          "method": "pip",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "pip install chromadb",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "JavaScript",
+          "method": "npm",
+          "steps": [
+            {
+              "title": "Install",
+              "code": "npm install chromadb",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "Server mode",
+          "method": "server",
+          "steps": [
+            {
+              "title": "Run the server",
+              "body": "After installing the Python package.",
+              "code": "chroma run --path /chroma_db_path",
+              "lang": "bash"
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Create a collection",
+          "body": "client.create_collection(\"all-my-documents\")."
+        },
+        {
+          "title": "Add and query",
+          "body": "Add two documents, then query with a sentence."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Search documents by meaning",
+      "useCase": "The README's four-function example.",
+      "setup": [
+        "pip install chromadb"
+      ],
+      "steps": [
+        {
+          "title": "Create a client",
+          "body": "client = chromadb.Client() runs in memory."
+        },
+        {
+          "title": "Create a collection",
+          "body": "collection = client.create_collection(\"all-my-documents\")."
+        },
+        {
+          "title": "Add documents",
+          "body": "collection.add(documents=[...], metadatas=[...], ids=[\"doc1\", \"doc2\"])."
+        },
+        {
+          "title": "Query",
+          "body": "collection.query(query_texts=[\"This is a query document\"], n_results=2)."
+        }
+      ],
+      "expected": "The two most similar documents with their ids and distances.",
+      "nextSteps": [
+        "Add persistence",
+        "Filter with where",
+        "Try client-server mode"
+      ],
+      "sourceUrl": "https://github.com/chroma-core/chroma/blob/1a3ac2c7c623adbd03ed2508dc27b98cdf26016d/README.md"
+    },
+    "costs": [
+      {
+        "label": "Chroma",
+        "value": "Free and open source under Apache 2.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Chroma Cloud",
+        "value": "Hosted service, paid by usage.",
+        "tone": "paid"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Data disappears after restart",
+        "solution": "chromadb.Client() is in-memory; use persistence or server mode.",
+        "sourceUrl": "https://github.com/chroma-core/chroma/blob/1a3ac2c7c623adbd03ed2508dc27b98cdf26016d/README.md"
+      }
+    ],
+    "bestFor": [
+      "Vector database",
+      "Embeddings store for RAG"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Vector database"
+      },
+      {
+        "label": "Clients",
+        "value": "Python, JavaScript"
+      },
+      {
+        "label": "License",
+        "value": "Apache 2.0"
+      },
+      {
+        "label": "Install",
+        "value": "pip install chromadb"
+      }
+    ]
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "fullName": "op7418/guizang-ppt-skill",
+  "summary": "Agent skill for Claude Code and Codex that builds single-file HTML slide decks in magazine or Swiss styles, with a full presenter mode.",
+  "content": {
+    "sourceUrls": [
+      "https://github.com/op7418/guizang-ppt-skill/blob/93d21bf4a73a851907a6eb00acbf30618236667a/README.en.md"
+    ],
+    "sourceCommitSha": "93d21bf4a73a851907a6eb00acbf30618236667a",
+    "lastReviewedAt": "2026-11-26",
+    "heroCommands": [
+      {
+        "comment": "Install",
+        "command": "npx skills add https://github.com/op7418/guizang-ppt-skill --skill guizang-ppt-skill"
+      }
+    ],
+    "sixtySeconds": {
+      "whatItDoes": "Guizang PPT Skill is a skill for Claude Code, Codex and similar agents. It generates swipeable single-file HTML slide decks, slide visuals and social media covers. It has two visual systems: an editorial magazine style for talks with a personal voice, and a grid-based Swiss style for facts, products and analysis.",
+      "problem": "Making a polished talk deck takes design time. This skill gets your agent to build one from your content, and adds speaker notes, timing and a presenter view.",
+      "whoFor": [
+        "Speakers giving keynotes and talks",
+        "Founders preparing demo days and launches",
+        "Claude Code and Codex users"
+      ],
+      "whyChoose": "Choose it for strong visual styles, a deck that's one HTML file with no build or server, and a built-in presenter mode with notes and rehearsal timing.",
+      "requirements": [
+        "Claude Code, Codex or another agent with file and shell access",
+        "A web browser to present"
+      ]
+    },
+    "overview": [
+      "Install with the skills CLI or by cloning into ~/.claude/skills. Then ask your agent for something like a magazine-style deck or a Swiss-style deck and the skill is used automatically.",
+      "Style A has 10 layouts and 5 themes; Style B has 22 locked layouts and 4 themes, and a brand color can become a matching theme. In Codex it can also generate images for slides.",
+      "Press P in a deck to open presenter mode with current and next slides, notes and timing. It suits talks and launches, not data-heavy tables or training decks. It is AGPL-3.0 licensed."
+    ],
+    "features": [
+      {
+        "icon": "layers",
+        "title": "Two visual systems",
+        "body": "Editorial magazine and Swiss."
+      },
+      {
+        "icon": "scan-search",
+        "title": "Single HTML file",
+        "body": "No build, no server."
+      },
+      {
+        "icon": "puzzle",
+        "title": "Presenter mode",
+        "body": "Notes, timing, next-slide preview."
+      },
+      {
+        "icon": "file-code",
+        "title": "Theme presets",
+        "body": "Including brand-color themes."
+      },
+      {
+        "icon": "git-compare",
+        "title": "Social covers",
+        "body": "21:9, 1:1 and 3:4 covers."
+      },
+      {
+        "icon": "shield",
+        "title": "Image flow",
+        "body": "Generate slide visuals in Codex."
+      }
+    ],
+    "strengths": [
+      "Distinctive designs",
+      "Easy to share and present",
+      "Works with several agents"
+    ],
+    "limitations": [
+      "Not for data-heavy or training decks",
+      "HTML, not editable PowerPoint",
+      "AGPL-3.0 license"
+    ],
+    "useCases": [
+      {
+        "title": "Conference talk",
+        "body": "Narrative deck in Style A."
+      },
+      {
+        "title": "Product analysis",
+        "body": "Structured deck in Style B."
+      }
+    ],
+    "install": {
+      "verification": "official_docs",
+      "verificationNote": "Commands come from Guizang PPT Skill's README. AIRepoHub hasn't run them yet.",
+      "sourceUrl": "https://github.com/op7418/guizang-ppt-skill/blob/93d21bf4a73a851907a6eb00acbf30618236667a/README.en.md",
+      "prerequisites": [
+        "A skills-capable agent"
+      ],
+      "supportedOs": [
+        "Windows",
+        "macOS",
+        "Linux"
+      ],
+      "guides": [
+        {
+          "os": "all",
+          "label": "skills CLI",
+          "method": "npx",
+          "steps": [
+            {
+              "title": "Install the skill",
+              "code": "npx skills add https://github.com/op7418/guizang-ppt-skill --skill guizang-ppt-skill",
+              "lang": "bash"
+            }
+          ]
+        },
+        {
+          "os": "all",
+          "label": "git clone",
+          "method": "git",
+          "steps": [
+            {
+              "title": "Clone into your skills folder",
+              "code": "git clone https://github.com/op7418/guizang-ppt-skill.git ~/.claude/skills/guizang-ppt-skill",
+              "lang": "bash"
+            },
+            {
+              "title": "Check",
+              "body": "The folder should contain SKILL.md, assets and references."
+            }
+          ]
+        }
+      ],
+      "environment": [],
+      "firstRun": [
+        {
+          "title": "Ask for a deck",
+          "body": "Say: Make me a magazine-style deck, and give it your content."
+        },
+        {
+          "title": "Open the HTML",
+          "body": "Use arrow keys or swipe to move through slides."
+        }
+      ],
+      "expectedOutput": null
+    },
+    "tutorial": {
+      "title": "Turn an article into a talk deck and rehearse it",
+      "useCase": "Build a deck, then practise with presenter mode.",
+      "setup": [
+        "Skill installed in your agent"
+      ],
+      "steps": [
+        {
+          "title": "Give it the article",
+          "body": "Ask for a Swiss-style or magazine-style deck from it."
+        },
+        {
+          "title": "Add notes",
+          "body": "Say: Add speaker notes to this deck and help me rehearse it in presenter mode."
+        },
+        {
+          "title": "Present",
+          "body": "Open the deck and press P for presenter view."
+        }
+      ],
+      "expected": "A single HTML deck with speaker notes and a presenter window.",
+      "nextSteps": [
+        "Make a 21:9 cover from the same article",
+        "Try a brand color theme",
+        "Use low-power mode with B"
+      ],
+      "sourceUrl": "https://github.com/op7418/guizang-ppt-skill/blob/93d21bf4a73a851907a6eb00acbf30618236667a/README.en.md"
+    },
+    "costs": [
+      {
+        "label": "Skill",
+        "value": "Free and open source under AGPL-3.0.",
+        "tone": "free"
+      },
+      {
+        "label": "Agent",
+        "value": "Your agent's model usage is billed by its provider.",
+        "tone": "depends"
+      }
+    ],
+    "troubleshooting": [
+      {
+        "problem": "Animations are slow",
+        "solution": "Press B for the low-power static mode.",
+        "sourceUrl": "https://github.com/op7418/guizang-ppt-skill/blob/93d21bf4a73a851907a6eb00acbf30618236667a/README.en.md"
+      },
+      {
+        "problem": "Plain chatbot can't build decks",
+        "solution": "Use an agent with filesystem and browser access.",
+        "sourceUrl": "https://github.com/op7418/guizang-ppt-skill/blob/93d21bf4a73a851907a6eb00acbf30618236667a/README.en.md"
+      }
+    ],
+    "bestFor": [
+      "HTML slide decks",
+      "Presentation skill for agents"
+    ],
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Agent skill"
+      },
+      {
+        "label": "Output",
+        "value": "Single-file HTML deck"
+      },
+      {
+        "label": "License",
+        "value": "AGPL-3.0"
+      },
+      {
+        "label": "Install",
+        "value": "npx skills add"
+      }
+    ]
+  }
+}
