@@ -81,7 +81,7 @@ export async function getCategoryCounts(): Promise<Record<string, number>> {
 /** Number of published repositories on the site. */
 export async function getPublishedCount(): Promise<number> {
   "use cache";
-  cacheLife("hours");
+  cacheLife("catalogCount");
   cacheTag("catalog");
   return supabaseConfigured() ? fetchPublishedCount() : published().length;
 }
@@ -193,7 +193,7 @@ export async function getDataAsOf(): Promise<string> {
 
 export async function getRecentlyAdded(limit = 6): Promise<Repository[]> {
   "use cache";
-  cacheLife("hours");
+  cacheLife("catalogCount");
   if (supabaseConfigured()) return (await fetchRepos({ order: "recent", limit })).repositories;
   return published()
     .sort((a, b) => (b.publishedAt ?? "").localeCompare(a.publishedAt ?? "") || (b.createdAtGithub ?? "").localeCompare(a.createdAtGithub ?? ""))
