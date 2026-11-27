@@ -550,7 +550,8 @@ function ProductSections({
             </Badge>
           </div>
           <p className="-mt-2 mb-6 text-sm text-muted-foreground">
-            {content.install.verificationNote}{" "}
+            {content.install.verificationNote} Steps are as of {formatDate(content.lastReviewedAt)}; projects change often, so if
+            a command doesn&apos;t work, check the project&apos;s latest README.{" "}
             <a href={content.install.sourceUrl} target="_blank" rel="noopener noreferrer" className="font-medium text-accent hover:underline">
               View source
             </a>

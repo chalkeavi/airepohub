@@ -39,6 +39,11 @@ export default function Page() {
           Install guides are marked with how they were checked. &quot;From official docs&quot; means the steps come from
           the project&apos;s documentation and <strong>we haven&apos;t run them ourselves</strong>.
         </li>
+        <li>
+          Each guide shows the date and the version of the project it was written from. Projects change after that,
+          so commands may need adjusting for newer versions, your operating system or your setup. When in doubt, the
+          project&apos;s latest README on GitHub is the authority.
+        </li>
         <li>Listing a project is not an endorsement. We don&apos;t accept payment to list, rank or feature projects.</li>
       </ul>
 
