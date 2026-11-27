@@ -39,7 +39,7 @@ after trying twice that many repos, or after 3 model errors in a row (server not
 | `LLM_MODEL` | yes | e.g. `claude-opus-5-5`, `claude-sonnet-5-5`, `gpt-5`, `qwen3:32b` |
 | `LLM_API_KEY` | cloud models | Your provider key. Leave empty for a local server |
 | `LLM_BASE_URL` | for `openai` | Ollama `http://localhost:11434/v1`, LM Studio `http://localhost:1234/v1`; default OpenAI |
-| `LLM_MAX_TOKENS` | no | Answer size limit (16000 Claude, 8192 others) |
+| `LLM_MAX_TOKENS` | no | Answer size limit (default 16000; thinking models count their reasoning against it) |
 | `WRITER_LIMIT` | no | Pages to publish per run (default 20) |
 | `WRITER_MIN_STARS` | no | Minimum stars (default 500) |
 | `WRITER_README_CHARS` | no | README characters sent to the model (default 30000, about 8k tokens) |
