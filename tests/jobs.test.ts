@@ -578,6 +578,22 @@ describe("local writer", () => {
     expect(p.some((x) => x.startsWith("command not in the README"))).toBe(false);
   });
 
+  it("keeps going with what it found when GitHub search stays rate limited", async () => {
+    const store = new MemStore();
+    store.listPendingQueue = async () => [{ github_id: 7, full_name: "o/r7", payload: { ...gh(7), owner: "o", github_url: "https://github.com/o/r7", stars: 1500, primary_language: "Python" } as unknown as Record<string, unknown> }];
+    const gith = { ...github([]), async searchPage(): Promise<never> { throw new RateLimitError("search"); } };
+    const res = await runWriter({ store, github: gith, now: NOW }, opts(model(page())));
+    expect(res.details.search_stopped).toMatch(/continuing/);
+    expect(store.inserted.map((r) => r.github_id)).toEqual([7]);
+  });
+
+  it("doesn't stop early on the per-minute search budget", async () => {
+    const fakeFetch = (async () =>
+      new Response(JSON.stringify({ total_count: 0, items: [] }), { status: 200, headers: { "x-ratelimit-remaining": "5", "x-ratelimit-resource": "search" } })) as unknown as typeof fetch;
+    await expect(new GithubClient("t", fakeFetch).searchPage("q", 1)).resolves.toEqual({ total: 0, items: [] });
+    expect(new GithubClient(undefined).searchesPerMinute).toBe(10);
+  });
+
   it("never picks excluded kinds of repos", () => {
     expect(editoriallyExcluded(gh(1, { full_name: "asgeirtj/system_prompts_leaks", name: "system_prompts_leaks", description: "Collection of system prompts" }))).toBe(true);
     expect(editoriallyExcluded(gh(2, { description: "Free GPT-4 access via reverse engineered API" }))).toBe(true);
