@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowRight, BookOpenCheck, Clock, Flame, Info, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { Suspense } from "react";
 import { AdSlot } from "@/components/ads/ad-slot";
 import { CategoryIcon } from "@/components/repo/category-icon";
 import { Leaderboard } from "@/components/repo/leaderboard";
@@ -18,6 +19,7 @@ import {
   getDataAsOf,
   getLeaderboards,
   getPublishedCount,
+  getPublishedCountLive,
   getRecentlyAdded,
   getSearchSuggestions,
   getTrendingRepositories,
@@ -93,7 +95,11 @@ export default async function HomePage() {
           <dl className="mx-auto mt-12 grid max-w-2xl grid-cols-3 divide-x divide-border rounded-xl border border-border bg-surface/70 py-4 text-center shadow-card backdrop-blur">
             <div>
               <dt className="text-xs text-muted-foreground">Repositories</dt>
-              <dd className="mt-0.5 font-mono text-xl font-semibold tabular-nums">{repoCount.toLocaleString("en-US")}</dd>
+              <dd className="mt-0.5 font-mono text-xl font-semibold tabular-nums">
+                <Suspense fallback={repoCount.toLocaleString("en-US")}>
+                  <LiveRepoCount fallback={repoCount} />
+                </Suspense>
+              </dd>
             </div>
             <div>
               <dt className="text-xs text-muted-foreground">Categories</dt>
@@ -233,4 +239,10 @@ export default async function HomePage() {
       </section>
     </>
   );
+}
+
+/** Live count streamed in after the cached page shell; keeps the cached number if the query fails. */
+async function LiveRepoCount({ fallback }: { fallback: number }) {
+  const n = await getPublishedCountLive().catch(() => fallback);
+  return n.toLocaleString("en-US");
 }
