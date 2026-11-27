@@ -39,6 +39,10 @@
   already in the system; rejects pages whose commands, numbers or links aren't in the README. Unit-tested with
   fake GitHub and model; a dry run here reached real GitHub search and the DB, but the sandbox blocks GitHub's
   per-repo API, so no real model run has been done yet. The site itself needed no change (it already reads the DB).
+- 2026-11-27: Owner's first writer runs (OpenRouter model) published herdr, cherry-studio and system_prompts_leaks.
+  Search-as-you-type only knew the embedded top-150 list, cached for hours, so new repos needed Enter; added
+  `/api/suggest` (whole catalog, cached per query) used when the embedded list has fewer than 6 matches. Writer now
+  pre-filters editorial exclusions (#34/#37: leaked prompts, free-model proxies, deepfakes...) and the prompt lists them.
 
 ## Not done / known gaps
 - Weekly board and Trending appear ~7 days after the first real job run; monthly after ~30 days.

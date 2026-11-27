@@ -25,6 +25,7 @@ Honesty rules (a page that breaks one is thrown away):
 - Only write a number (version, size, count) if that exact number is in the README. Only write a link if that exact link is in the README.
 - No marketing words: powerful, best, revolutionary, blazing, cutting-edge, seamless, state-of-the-art, world-class, game-changing.
 - Costs: say the software is free and open source only if the license allows it; mention paid API keys, hosted plans or hardware only if the README does. If unsure, say it depends.
+- Skip (see below) anything AIRepoHub doesn't list: leaked or jailbreak prompt collections, free access to paid models through proxies or reverse-engineered APIs, deepfake / face-swap / voice-cloning of real people, face recognition that guesses race or other personal attributes, social-media auto-posting or spam bots, adult content, discontinued or archived projects, and lists, books or courses rather than tools.
 - If the README is too thin, not in English enough, not really a usable tool, or you can't write an honest page, reply with {"skip": "<short reason>"}.
 
 Reply with ONE JSON object and nothing else (no markdown fences), with these fields:
@@ -55,6 +56,13 @@ Reply with ONE JSON object and nothing else (no markdown fences), with these fie
 }
 
 Field notes: 3 to 6 features; 2 to 4 useCases; limitations, environment and troubleshooting only from what the README states (else []); supportedOs only what the README supports (Windows, macOS, Linux, Web, Android, iOS, Docker); 0 to 2 heroCommands; install "os" is exactly one of all, windows, macos, linux.`;
+
+/** Editorial exclusions (decisions #34, #37), checked on name/description/topics before any model call. */
+export const EXCLUDED = /\b(leak(s|ed)?|jailbreak\w*|deep-?fakes?|face-?swap\w*|free[- ](gpt|chatgpt|claude|api)|gpt4free|reverse[- ]engineered api|nsfw)\b|prompts?_leaks/i;
+
+export function editoriallyExcluded(g: GithubRepo): boolean {
+  return EXCLUDED.test([g.full_name, g.description ?? "", ...(g.topics ?? [])].join(" "));
+}
 
 const ICONS = ["layers", "scan-search", "puzzle", "file-code", "git-compare", "shield"];
 const OS_TARGETS: OsTarget[] = ["all", "windows", "macos", "linux"];
@@ -276,7 +284,7 @@ async function findCandidates(ctx: JobContext, opts: WriterOptions, want: number
   const skip = (id: number) => known.repositories.has(id) || (known.queue.has(id) && !pendingIds.has(id));
   for (const q of pending) {
     const g = fromQueuePayload(Number(q.github_id), q.payload);
-    if (!skip(g.id) && importEligible(g, opts.minStars)) out.set(g.id, g);
+    if (!skip(g.id) && importEligible(g, opts.minStars) && !editoriallyExcluded(g)) out.set(g.id, g);
   }
   details.from_queue = out.size;
   const sleep = opts.sleep ?? wait;
@@ -299,7 +307,7 @@ async function findCandidates(ctx: JobContext, opts: WriterOptions, want: number
         }
         searches++;
         await sleep(opts.searchDelayMs ?? 2_100);
-        for (const g of res.items) if (!skip(g.id) && !out.has(g.id) && importEligible(g, opts.minStars)) out.set(g.id, g);
+        for (const g of res.items) if (!skip(g.id) && !out.has(g.id) && importEligible(g, opts.minStars) && !editoriallyExcluded(g)) out.set(g.id, g);
       }
     }
   }
