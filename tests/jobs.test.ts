@@ -594,6 +594,15 @@ describe("local writer", () => {
     expect(new GithubClient(undefined).searchesPerMinute).toBe(10);
   });
 
+  it("writes each repo as soon as it's found instead of searching for everything first", async () => {
+    const store = new MemStore();
+    let searchCalls = 0;
+    const gith = { ...github([]), async searchPage() { searchCalls++; return { total: 1, items: [gh(100 + searchCalls)] }; } };
+    const res = await runWriter({ store, github: gith, now: NOW }, { ...opts(model(page())), limit: 2 });
+    expect(res.processed).toBe(2);
+    expect(searchCalls).toBe(2); // stopped searching once 2 pages were published
+  });
+
   it("never picks excluded kinds of repos", () => {
     expect(editoriallyExcluded(gh(1, { full_name: "asgeirtj/system_prompts_leaks", name: "system_prompts_leaks", description: "Collection of system prompts" }))).toBe(true);
     expect(editoriallyExcluded(gh(2, { description: "Free GPT-4 access via reverse engineered API" }))).toBe(true);

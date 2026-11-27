@@ -274,54 +274,63 @@ export interface WriterOptions {
 
 const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-/** Newest discoveries first (the daily discover job's queue), then a GitHub topic search by stars. */
-async function findCandidates(ctx: JobContext, opts: WriterOptions, want: number, details: Record<string, unknown>) {
-  const known = await ctx.store.knownGithubIds();
+/**
+ * Newest discoveries first (the daily discover job's queue), then a GitHub topic search by stars.
+ * Yields repos one at a time as they are found, so pages are written while the search continues
+ * (owner suggestion 2026-11-27): early pages go live sooner and GitHub calls are spread out.
+ */
+async function* candidateStream(ctx: JobContext, opts: WriterOptions, details: Record<string, unknown>, known: { repositories: Set<number>; queue: Set<number> }) {
   const pending = await ctx.store.listPendingQueue(1000);
   const pendingIds = new Set(pending.map((q) => Number(q.github_id)));
-  const out = new Map<number, GithubRepo>();
+  const seen = new Set<number>();
   // In the system already = has a page (any status) or was looked at before (queue, not pending).
-  const skip = (id: number) => known.repositories.has(id) || (known.queue.has(id) && !pendingIds.has(id));
+  const wanted = (g: GithubRepo) =>
+    !seen.has(g.id) && !known.repositories.has(g.id) && !(known.queue.has(g.id) && !pendingIds.has(g.id)) && importEligible(g, opts.minStars) && !editoriallyExcluded(g);
+  let fromQueue = 0;
   for (const q of pending) {
     const g = fromQueuePayload(Number(q.github_id), q.payload);
-    if (!skip(g.id) && importEligible(g, opts.minStars) && !editoriallyExcluded(g)) out.set(g.id, g);
+    if (!wanted(g)) continue;
+    seen.add(g.id);
+    fromQueue++;
+    details.from_queue = fromQueue;
+    yield g;
   }
-  details.from_queue = out.size;
+  if (!ctx.github.searchPage) return;
   const sleep = opts.sleep ?? wait;
   let searches = 0;
-  if (ctx.github.searchPage) {
-    outer: for (const band of starBands(opts.minStars)) {
-      for (const topic of IMPORT_TOPICS) {
-        if (out.size >= want) break outer;
-        const query = `topic:${topic} ${band} pushed:>=${opts.pushedSince} fork:false archived:false`;
-        let res = null;
-        for (let attempt = 0; attempt < 3 && !res; attempt++) {
-          try {
-            res = await ctx.github.searchPage(query, 1, 100);
-          } catch (e) {
-            if (e instanceof RateLimitError) {
-              ctx.log?.("GitHub search speed limit reached, waiting 65s");
-              await sleep(65_000);
-            } else {
-              // Network blips ("fetch failed") shouldn't end a long run: wait and retry, then skip this query.
-              ctx.log?.(`GitHub search failed (${e instanceof Error ? e.message : String(e)}), retrying in 10s`);
-              await sleep(10_000);
-            }
+  details.searches = 0;
+  for (const band of starBands(opts.minStars)) {
+    for (const topic of IMPORT_TOPICS) {
+      const query = `topic:${topic} ${band} pushed:>=${opts.pushedSince} fork:false archived:false`;
+      let res = null;
+      for (let attempt = 0; attempt < 3 && !res; attempt++) {
+        try {
+          res = await ctx.github.searchPage(query, 1, 100);
+        } catch (e) {
+          if (e instanceof RateLimitError) {
+            ctx.log?.("GitHub search speed limit reached, waiting 65s");
+            await sleep(65_000);
+          } else {
+            // Network blips ("fetch failed") shouldn't end a long run: wait and retry, then stop searching.
+            ctx.log?.(`GitHub search failed (${e instanceof Error ? e.message : String(e)}), retrying in 10s`);
+            await sleep(10_000);
           }
         }
-        if (!res) {
-          details.search_stopped = "GitHub search kept failing or was rate limited; continuing with the repos found so far";
-          break outer;
-        }
-        searches++;
-        if (searches % 10 === 0) ctx.log?.(`searched ${searches} GitHub queries, ${out.size} new repos found so far (need ${want})`);
-        await sleep(opts.searchDelayMs ?? 2_100);
-        for (const g of res.items) if (!skip(g.id) && !out.has(g.id) && importEligible(g, opts.minStars) && !editoriallyExcluded(g)) out.set(g.id, g);
+      }
+      if (!res) {
+        details.search_stopped = "GitHub search kept failing or was rate limited; continuing with the repos found so far";
+        return;
+      }
+      details.searches = ++searches;
+      await sleep(opts.searchDelayMs ?? 2_100);
+      const fresh = res.items.filter(wanted);
+      if (fresh.length) ctx.log?.(`search ${searches} (${topic}, ${band}): ${fresh.length} new repos`);
+      for (const g of fresh) {
+        seen.add(g.id);
+        yield g;
       }
     }
   }
-  details.searches = searches;
-  return { candidates: [...out.values()].slice(0, want), queueIds: known.queue };
 }
 
 export function runWriter(ctx: JobContext, opts: WriterOptions): Promise<JobSummary> {
@@ -329,7 +338,8 @@ export function runWriter(ctx: JobContext, opts: WriterOptions): Promise<JobSumm
     const github = ctx.github;
     if (!github.getHeadSha || !github.getReadme) throw new Error("GitHub client can't read READMEs");
     const attempts = opts.attempts ?? 2;
-    const { candidates, queueIds } = await findCandidates(ctx, opts, opts.limit * 2, details);
+    const known = await ctx.store.knownGithubIds();
+    const queueIds = known.queue;
     const taken = await ctx.store.knownSlugs();
     const categoryIds = await ctx.store.categoryIds();
     const now = ctx.now.toISOString();
@@ -338,13 +348,15 @@ export function runWriter(ctx: JobContext, opts: WriterOptions): Promise<JobSumm
     const skipped: { full_name: string; reason: string }[] = [];
     const errors: { full_name: string; error: string }[] = [];
     let llmErrorsInARow = 0;
-    Object.assign(details, { model: opts.llm.label, candidates: candidates.length, published_list: published, skipped, errors });
+    const maxTries = opts.limit * 2; // stop after this many repos even if fewer passed the checks
+    Object.assign(details, { model: opts.llm.label, published_list: published, skipped, errors });
 
-    ctx.log?.(`${candidates.length} candidates; writing pages with ${opts.llm.label} (up to ${opts.limit})`);
+    ctx.log?.(`writing up to ${opts.limit} pages with ${opts.llm.label}`);
     let n = 0;
-    for (const g of candidates) {
+    for await (const g of candidateStream(ctx, opts, details, known)) {
+      if (published.length >= opts.limit || n >= maxTries) break;
       n++;
-      if (published.length >= opts.limit) break;
+      details.candidates = n;
       if (llmErrorsInARow >= 3) {
         details.stopped = "3 model errors in a row; is the model server running?";
         break;
@@ -359,7 +371,7 @@ export function runWriter(ctx: JobContext, opts: WriterOptions): Promise<JobSumm
           );
         }
       };
-      ctx.log?.(`[${n}/${candidates.length}] ${g.full_name}: reading README and writing the page…`);
+      ctx.log?.(`[${n}] ${g.full_name}: reading README and writing the page (${published.length}/${opts.limit} published so far)…`);
       let sha: string | null = null;
       let readme: { path: string; text: string } | null = null;
       try {
@@ -437,6 +449,7 @@ export function runWriter(ctx: JobContext, opts: WriterOptions): Promise<JobSumm
       }
       published.push({ full_name: g.full_name, slug, summary: guide.summary! });
       ctx.log?.(`${ctx.dryRun ? "wrote (dry run)" : opts.drafts ? "saved draft" : "published"} ${g.full_name} → /repo/${slug}`);
+      if (published.length >= opts.limit) break; // don't start another GitHub search
     }
     details.processed = published.length;
     details.status_written = ctx.dryRun ? "none (dry run)" : opts.drafts ? "draft" : "published";

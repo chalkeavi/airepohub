@@ -22,7 +22,9 @@ Decision #38.
 6. Re-ranks the boards. Every run is logged in `automation_runs` (job `write`) with the model used,
    what was published and what was skipped and why.
 
-Stops after `--limit` published pages, or after 3 model errors in a row (server not running).
+Search and writing are interleaved: each repo is written and published as soon as the search finds it, so
+pages go live from the first minute and GitHub calls are spread out. Stops after `--limit` published pages,
+after trying twice that many repos, or after 3 model errors in a row (server not running).
 
 ## Setup (once)
 1. `git clone`, then `pnpm install` (Node 22 or newer).
