@@ -14,9 +14,14 @@ export default function Page() {
     <ProsePage title="Terms of Use" intro={`Effective ${LEGAL.effectiveDate}. By using airepohub.dev you agree to these terms.`}>
       <h2>What AIRepoHub is</h2>
       <p>
-        AIRepoHub is a free directory of open-source AI projects hosted on GitHub. For each project we explain what it
-        does, who it&apos;s for, how to install it and what it may cost, in plain English. We are an independent site
-        and are not affiliated with GitHub or with the projects we list, unless a page says so.
+        <strong>
+          Every project on AIRepoHub is a publicly listed GitHub repository, and it belongs entirely to its original
+          owner.
+        </strong>{" "}
+        AIRepoHub doesn&apos;t own, host or sell any of them. It&apos;s simply a collection of these public projects,
+        explained in plain English to help people find and use them: what each one does, who it&apos;s for, how to
+        install it and what it may cost. We are an independent site, not affiliated with GitHub or with the projects
+        we list, and every page links to the original repository.
       </p>
 
       <h2>How our content is made</h2>
