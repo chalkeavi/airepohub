@@ -88,8 +88,8 @@ export async function getPublishedCount(): Promise<number> {
 }
 
 /**
- * Uncached count for the homepage stat (owner: show the real number on every visit). One
- * head-only count query per homepage view; the cached count above is the instant fallback.
+ * Uncached count for the homepage stat (owner: show the real number on every visit), served by
+ * /api/stats. One head-only count query per call; the page shows the cached count until it answers.
  */
 export async function getPublishedCountLive(): Promise<number> {
   await connection();

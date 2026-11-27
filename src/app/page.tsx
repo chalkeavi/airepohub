@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { ArrowRight, BookOpenCheck, Clock, Flame, Info, Sparkles } from "lucide-react";
 import Link from "next/link";
-import { Suspense } from "react";
 import { AdSlot } from "@/components/ads/ad-slot";
 import { CategoryIcon } from "@/components/repo/category-icon";
 import { Leaderboard } from "@/components/repo/leaderboard";
 import { RepoCard } from "@/components/repo/repo-card";
 import { toLeaderboardData } from "@/components/repo/to-leaderboard-data";
 import { SearchBox } from "@/components/site/search-box";
+import { LiveRepoCount } from "@/components/site/live-repo-count";
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -19,7 +19,6 @@ import {
   getDataAsOf,
   getLeaderboards,
   getPublishedCount,
-  getPublishedCountLive,
   getRecentlyAdded,
   getSearchSuggestions,
   getTrendingRepositories,
@@ -96,9 +95,7 @@ export default async function HomePage() {
             <div>
               <dt className="text-xs text-muted-foreground">Repositories</dt>
               <dd className="mt-0.5 font-mono text-xl font-semibold tabular-nums">
-                <Suspense fallback={repoCount.toLocaleString("en-US")}>
-                  <LiveRepoCount fallback={repoCount} />
-                </Suspense>
+                <LiveRepoCount initial={repoCount} />
               </dd>
             </div>
             <div>
@@ -239,10 +236,4 @@ export default async function HomePage() {
       </section>
     </>
   );
-}
-
-/** Live count streamed in after the cached page shell; keeps the cached number if the query fails. */
-async function LiveRepoCount({ fallback }: { fallback: number }) {
-  const n = await getPublishedCountLive().catch(() => fallback);
-  return n.toLocaleString("en-US");
 }
