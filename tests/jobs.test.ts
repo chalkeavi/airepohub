@@ -8,7 +8,7 @@ import type { JobStore, NewRepoRow, Period, QueueRow, RankingRow, RunResult, Tra
 import { categorize, importEligible, runImport, starBands, uniqueSlug } from "@/lib/jobs/importer";
 import { FileSummarizer, runPublishDrafts, validateSummary } from "@/lib/jobs/summarize";
 import type { StatPoint } from "@/lib/jobs/growth";
-import { editoriallyExcluded, groundingProblems, parseModelJson, runWriter, buildGuide, cleanReadme } from "@/lib/jobs/writer";
+import { completeWithRetry, isTransientLlmError, editoriallyExcluded, groundingProblems, parseModelJson, runWriter, buildGuide, cleanReadme } from "@/lib/jobs/writer";
 import { llmFromEnv, OpenAiCompatibleLlm, type LlmClient } from "@/lib/jobs/llm";
 
 const NOW = new Date("2026-12-10T05:17:00Z");
@@ -601,6 +601,18 @@ describe("local writer", () => {
     const res = await runWriter({ store, github: gith, now: NOW }, { ...opts(model(page())), limit: 2 });
     expect(res.processed).toBe(2);
     expect(searchCalls).toBe(2); // stopped searching once 2 pages were published
+  });
+
+  it("retries a model call when the connection drops, but not on other errors", async () => {
+    let calls = 0;
+    const flaky: LlmClient = { label: "flaky", async complete() { if (++calls < 3) throw new TypeError("terminated"); return "ok"; } };
+    expect(await completeWithRetry(flaky, "u", async () => {})).toBe("ok");
+    expect(calls).toBe(3);
+    expect(isTransientLlmError(new Error("LLM 502: bad gateway"))).toBe(true);
+    expect(isTransientLlmError(new Error("model ran out of tokens (raise LLM_MAX_TOKENS)"))).toBe(false);
+    expect(isTransientLlmError(new Error("LLM 401: invalid key"))).toBe(false);
+    const dead: LlmClient = { label: "dead", async complete() { throw new TypeError("terminated"); } };
+    await expect(completeWithRetry(dead, "u", async () => {})).rejects.toThrow("terminated");
   });
 
   it("never picks excluded kinds of repos", () => {
