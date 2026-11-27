@@ -1,5 +1,6 @@
 import "server-only";
 import { cacheLife, cacheTag } from "next/cache";
+import { connection } from "next/server";
 import { rankRepositories } from "@/lib/ranking";
 import type {
   Category,
@@ -83,6 +84,15 @@ export async function getPublishedCount(): Promise<number> {
   "use cache";
   cacheLife("catalogCount");
   cacheTag("catalog");
+  return supabaseConfigured() ? fetchPublishedCount() : published().length;
+}
+
+/**
+ * Uncached count for the homepage stat (owner: show the real number on every visit). One
+ * head-only count query per homepage view; the cached count above is the instant fallback.
+ */
+export async function getPublishedCountLive(): Promise<number> {
+  await connection();
   return supabaseConfigured() ? fetchPublishedCount() : published().length;
 }
 
