@@ -108,6 +108,7 @@ const plan: Record<string, (() => Promise<JobSummary>)[]> = {
         pushedSince: new Date(ctx.now.getTime() - flag("pushed-days", 180) * 86_400_000).toISOString().slice(0, 10),
         readmeChars: Number(process.env.WRITER_README_CHARS) || undefined,
         drafts: flags.includes("--drafts"),
+        searchDelayMs: Math.ceil(60_000 / ctx.github.searchesPerMinute) + 100,
         onPreview: (guide) => {
           mkdirSync(outDir, { recursive: true });
           writeFileSync(`${outDir}/${guide.fullName.replace("/", "__")}.json`, JSON.stringify(guide, null, 2) + "\n");

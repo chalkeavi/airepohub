@@ -294,16 +294,19 @@ async function findCandidates(ctx: JobContext, opts: WriterOptions, want: number
       for (const topic of IMPORT_TOPICS) {
         if (out.size >= want) break outer;
         const query = `topic:${topic} ${band} pushed:>=${opts.pushedSince} fork:false archived:false`;
-        let res;
-        for (let attempt = 0; ; attempt++) {
+        let res = null;
+        for (let attempt = 0; attempt < 3 && !res; attempt++) {
           try {
             res = await ctx.github.searchPage(query, 1, 100);
-            break;
           } catch (e) {
-            if (!(e instanceof RateLimitError) || attempt >= 2) throw e;
-            ctx.log?.("GitHub search rate limit, waiting 65s");
+            if (!(e instanceof RateLimitError)) throw e;
+            ctx.log?.("GitHub search speed limit reached, waiting 65s");
             await sleep(65_000);
           }
+        }
+        if (!res) {
+          details.search_stopped = "GitHub search limit; continuing with the repos found so far";
+          break outer;
         }
         searches++;
         await sleep(opts.searchDelayMs ?? 2_100);

@@ -60,6 +60,10 @@ export class GithubClient implements GithubApi {
   private fetchImpl: typeof fetch;
   private minRemaining: number;
   // No TypeScript parameter properties: these files run under Node's type stripping.
+  /** Searches allowed per minute: 30 with a token, 10 without. */
+  get searchesPerMinute() {
+    return this.token ? 30 : 10;
+  }
   constructor(token: string | undefined, fetchImpl: typeof fetch = fetch, minRemaining = 20) {
     this.token = token;
     this.fetchImpl = fetchImpl;
@@ -86,7 +90,11 @@ export class GithubClient implements GithubApi {
     if (res.status === 404 || res.status === 451) return { status: res.status, body: null };
     if (!res.ok) throw new Error(`GitHub ${path}: ${res.status} ${await res.text()}`);
     const body = (await res.json()) as T;
-    if (remaining < this.minRemaining) throw new RateLimitError(`GitHub rate limit nearly used (${remaining} left)`);
+    // The early stop protects the hourly core budget. Search has its own 30-a-minute budget that
+    // refills every minute, so callers pace searches instead (stopping at 20 left broke searching).
+    if (res.headers.get("x-ratelimit-resource") !== "search" && remaining < this.minRemaining) {
+      throw new RateLimitError(`GitHub rate limit nearly used (${remaining} left)`);
+    }
     return { status: res.status, body };
   }
 
