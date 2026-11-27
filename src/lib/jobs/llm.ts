@@ -59,7 +59,7 @@ export class OpenAiCompatibleLlm implements LlmClient {
   private apiKey: string | undefined;
   private maxTokens: number;
   private fetchImpl: typeof fetch;
-  constructor(model: string, baseUrl: string, apiKey?: string, maxTokens = 8192, fetchImpl: typeof fetch = fetch) {
+  constructor(model: string, baseUrl: string, apiKey?: string, maxTokens = 16000, fetchImpl: typeof fetch = fetch) {
     this.model = model;
     this.baseUrl = baseUrl.replace(/\/+$/, "");
     this.apiKey = apiKey;
