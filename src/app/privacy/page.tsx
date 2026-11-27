@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const mail = `mailto:${LEGAL.contactEmail}`;
+  const mail = `mailto:${LEGAL.privacyEmail}`;
   return (
     <ProsePage title="Privacy Policy" intro={`Effective ${LEGAL.effectiveDate}. The short version: you can use AIRepoHub without an account, and we don't track you.`}>
       <h2>Who we are</h2>
@@ -111,7 +111,7 @@ export default function Page() {
 
       <h2>Contact</h2>
       <p>
-        Questions or requests: <a href={mail} className="underline">{LEGAL.contactEmail}</a>
+        Questions or requests: <a href={mail} className="underline">{LEGAL.privacyEmail}</a>
       </p>
     </ProsePage>
   );
