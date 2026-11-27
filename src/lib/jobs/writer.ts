@@ -299,16 +299,22 @@ async function findCandidates(ctx: JobContext, opts: WriterOptions, want: number
           try {
             res = await ctx.github.searchPage(query, 1, 100);
           } catch (e) {
-            if (!(e instanceof RateLimitError)) throw e;
-            ctx.log?.("GitHub search speed limit reached, waiting 65s");
-            await sleep(65_000);
+            if (e instanceof RateLimitError) {
+              ctx.log?.("GitHub search speed limit reached, waiting 65s");
+              await sleep(65_000);
+            } else {
+              // Network blips ("fetch failed") shouldn't end a long run: wait and retry, then skip this query.
+              ctx.log?.(`GitHub search failed (${e instanceof Error ? e.message : String(e)}), retrying in 10s`);
+              await sleep(10_000);
+            }
           }
         }
         if (!res) {
-          details.search_stopped = "GitHub search limit; continuing with the repos found so far";
+          details.search_stopped = "GitHub search kept failing or was rate limited; continuing with the repos found so far";
           break outer;
         }
         searches++;
+        if (searches % 10 === 0) ctx.log?.(`searched ${searches} GitHub queries, ${out.size} new repos found so far (need ${want})`);
         await sleep(opts.searchDelayMs ?? 2_100);
         for (const g of res.items) if (!skip(g.id) && !out.has(g.id) && importEligible(g, opts.minStars) && !editoriallyExcluded(g)) out.set(g.id, g);
       }
@@ -334,7 +340,10 @@ export function runWriter(ctx: JobContext, opts: WriterOptions): Promise<JobSumm
     let llmErrorsInARow = 0;
     Object.assign(details, { model: opts.llm.label, candidates: candidates.length, published_list: published, skipped, errors });
 
+    ctx.log?.(`${candidates.length} candidates; writing pages with ${opts.llm.label} (up to ${opts.limit})`);
+    let n = 0;
     for (const g of candidates) {
+      n++;
       if (published.length >= opts.limit) break;
       if (llmErrorsInARow >= 3) {
         details.stopped = "3 model errors in a row; is the model server running?";
@@ -350,6 +359,7 @@ export function runWriter(ctx: JobContext, opts: WriterOptions): Promise<JobSumm
           );
         }
       };
+      ctx.log?.(`[${n}/${candidates.length}] ${g.full_name}: reading README and writing the page…`);
       let sha: string | null = null;
       let readme: { path: string; text: string } | null = null;
       try {
