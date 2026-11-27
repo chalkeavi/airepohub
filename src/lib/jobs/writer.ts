@@ -333,6 +333,27 @@ async function* candidateStream(ctx: JobContext, opts: WriterOptions, details: R
   }
 }
 
+/** Dropped connections, timeouts, rate limits and server errors: worth another try. */
+export function isTransientLlmError(e: unknown): boolean {
+  const m = e instanceof Error ? `${e.message} ${String((e as { cause?: unknown }).cause ?? "")}` : String(e);
+  return /terminated|fetch failed|socket|ECONNRESET|ETIMEDOUT|EPIPE|UND_ERR|other side closed|network|overloaded|rate.?limit|LLM (408|409|425|429|5\d\d)|\b(429|500|502|503|504|529)\b/i.test(m);
+}
+
+const RETRY_WAITS_MS = [5_000, 20_000, 60_000];
+
+/** One model call, retried up to 3 times on transient errors (e.g. OpenRouter closing the stream mid-answer). */
+export async function completeWithRetry(llm: LlmClient, user: string, sleep: (ms: number) => Promise<unknown>, log?: (m: string) => void): Promise<string> {
+  for (let i = 0; ; i++) {
+    try {
+      return await llm.complete(WRITER_SYSTEM, user);
+    } catch (e) {
+      if (i >= RETRY_WAITS_MS.length || !isTransientLlmError(e)) throw e;
+      log?.(`  model connection problem (${e instanceof Error ? e.message : String(e)}), retrying in ${RETRY_WAITS_MS[i] / 1000}s`);
+      await sleep(RETRY_WAITS_MS[i]);
+    }
+  }
+}
+
 export function runWriter(ctx: JobContext, opts: WriterOptions): Promise<JobSummary> {
   return runLogged(ctx, "write", async (details) => {
     const github = ctx.github;
@@ -359,6 +380,7 @@ export function runWriter(ctx: JobContext, opts: WriterOptions): Promise<JobSumm
       details.candidates = n;
       if (llmErrorsInARow >= 3) {
         details.stopped = "3 model errors in a row; is the model server running?";
+        ctx.log?.(`stopping: ${details.stopped}`);
         break;
       }
       const remember = async (reason: string) => {
@@ -401,7 +423,7 @@ export function runWriter(ctx: JobContext, opts: WriterOptions): Promise<JobSumm
           const ask = problems.length
             ? `${prompt}\n\nYour previous answer was rejected for these problems. Write the whole JSON again and fix every one:\n- ${problems.join("\n- ")}`
             : prompt;
-          const parsed = parseModelJson(await opts.llm.complete(WRITER_SYSTEM, ask));
+          const parsed = parseModelJson(await completeWithRetry(opts.llm, ask, opts.sleep ?? wait, ctx.log));
           llmErrorsInARow = 0;
           if (!parsed) {
             problems = ["the reply was not a JSON object"];
