@@ -8,7 +8,7 @@ import type { JobStore, NewRepoRow, Period, QueueRow, RankingRow, RunResult, Tra
 import { categorize, importEligible, runImport, starBands, uniqueSlug } from "@/lib/jobs/importer";
 import { FileSummarizer, runPublishDrafts, validateSummary } from "@/lib/jobs/summarize";
 import type { StatPoint } from "@/lib/jobs/growth";
-import { groundingProblems, parseModelJson, runWriter, buildGuide, cleanReadme } from "@/lib/jobs/writer";
+import { editoriallyExcluded, groundingProblems, parseModelJson, runWriter, buildGuide, cleanReadme } from "@/lib/jobs/writer";
 import { llmFromEnv, OpenAiCompatibleLlm, type LlmClient } from "@/lib/jobs/llm";
 
 const NOW = new Date("2026-12-10T05:17:00Z");
@@ -576,6 +576,13 @@ describe("local writer", () => {
     expect(p).toContain("links not in the README: https://example.com/made-up.");
     expect(p.some((x) => x.startsWith("install os must be one of"))).toBe(true);
     expect(p.some((x) => x.startsWith("command not in the README"))).toBe(false);
+  });
+
+  it("never picks excluded kinds of repos", () => {
+    expect(editoriallyExcluded(gh(1, { full_name: "asgeirtj/system_prompts_leaks", name: "system_prompts_leaks", description: "Collection of system prompts" }))).toBe(true);
+    expect(editoriallyExcluded(gh(2, { description: "Free GPT-4 access via reverse engineered API" }))).toBe(true);
+    expect(editoriallyExcluded(gh(3, { topics: ["deepfake"] }))).toBe(true);
+    expect(editoriallyExcluded(gh(4))).toBe(false);
   });
 
   it("parses model JSON with chatter around it and cleans READMEs", () => {

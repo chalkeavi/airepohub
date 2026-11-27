@@ -37,13 +37,39 @@ export function SearchBox({
   const [active, setActive] = useState(-1);
   const listId = useId();
 
-  const matches = useMemo(() => {
+  // Server results for the current query (whole catalog); the embedded list only has top repos.
+  const [remote, setRemote] = useState<{ q: string; items: Suggestion[] }>({ q: "", items: [] });
+
+  const local = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return [];
     return suggestions
       .filter((s) => s.name.toLowerCase().includes(q) || s.summary.toLowerCase().includes(q))
       .slice(0, 6);
   }, [query, suggestions]);
+
+  const matches = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const extra = remote.q === q ? remote.items : [];
+    const seen = new Set(local.map((m) => m.slug));
+    return [...local, ...extra.filter((m) => !seen.has(m.slug))].slice(0, 6);
+  }, [local, remote, query]);
+
+  useEffect(() => {
+    const q = query.trim().toLowerCase();
+    if (q.length < 2 || local.length >= 6) return;
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => {
+      fetch(`/api/suggest?q=${encodeURIComponent(q)}`, { signal: ctrl.signal })
+        .then((r) => (r.ok ? (r.json() as Promise<Suggestion[]>) : []))
+        .then((items) => setRemote({ q, items }))
+        .catch(() => {}); // offline or aborted: local suggestions still work
+    }, 180);
+    return () => {
+      clearTimeout(timer);
+      ctrl.abort();
+    };
+  }, [query, local.length]);
 
   useEffect(() => {
     if (!shortcut) return;

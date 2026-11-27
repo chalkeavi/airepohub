@@ -367,6 +367,31 @@ export async function getSearchSuggestions(limit = 150): Promise<{ slug: string;
   return repos.map((r) => ({ slug: r.slug, name: r.name, owner: r.owner, summary: r.summary ?? r.description ?? "" }));
 }
 
+/**
+ * Live suggestions for what the visitor is typing, across the whole catalog (the embedded list
+ * above only holds the most-starred repos). Name matches first, then summary/description/topic
+ * matches, by stars. Cached per query, so repeated keystrokes don't hit the database.
+ */
+export async function suggestRepositories(query: string, limit = 6): Promise<{ slug: string; name: string; owner: string; summary: string }[]> {
+  "use cache";
+  cacheLife("hours");
+  const q = query.trim().toLowerCase();
+  if (q.length < 2) return [];
+  const columns = "slug, name, owner, summary, description, stars";
+  let repos: Repository[];
+  if (supabaseConfigured()) {
+    const terms = q.split(/\s+/).map(safeTerm).filter(Boolean).slice(0, 4);
+    if (!terms.length) return [];
+    const byName = (await fetchRepos({ nameTerms: terms, limit, columns })).repositories;
+    const rest = byName.length < limit ? (await fetchRepos({ terms, limit, columns })).repositories : [];
+    const seen = new Set<string>();
+    repos = [...byName, ...rest].filter((r) => !seen.has(r.slug) && !!seen.add(r.slug));
+  } else {
+    repos = (await searchRepositories({ q }, limit)).results;
+  }
+  return repos.slice(0, limit).map((r) => ({ slug: r.slug, name: r.name, owner: r.owner, summary: r.summary ?? r.description ?? "" }));
+}
+
 /** The most common languages (alphabetical), for the search filter. */
 export async function getLanguages(limit = 14): Promise<string[]> {
   "use cache";
