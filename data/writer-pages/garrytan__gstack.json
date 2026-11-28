@@ -1,0 +1,72 @@
+{
+  "summary": "Set of Claude Code slash-command skills that act as a CEO, designer, engineering manager, reviewer, QA lead and release manager.",
+  "type": "Coding-agent skills",
+  "whatItDoes": "gstack turns Claude Code and other coding agents into a virtual engineering team. Each slash command plays a specialist role, from product review and architecture planning to code review, browser QA, security audits and shipping the pull request.",
+  "problem": "A solo builder working with a coding agent usually starts from a blank prompt and has no one to review the product, the design or the code. gstack gives the agent structured roles and a sprint process, with each step reading what the previous one wrote.",
+  "whoFor": ["Founders and CEOs, especially technical ones who still want to ship", "First-time Claude Code users who want structured roles instead of a blank prompt", "Tech leads and staff engineers who want review, QA and release automation on every PR"],
+  "whyChoose": "It is free, MIT-licensed and all Markdown, runs on Claude Code and other major coding agents, and is open about what it doesn't do: the README says it gave no gain in bug-fix rate in its own test.",
+  "requirements": ["Claude Code (or another supported coding agent)", "Git", "Bun v1.4.2+ (setup refuses Bun older than 1.3.3)", "Node.js on Windows", "Optional on macOS: the Aside browser for the browser skills"],
+  "overview": [
+    "gstack is an open source set of skills by Garry Tan, President & CEO of Y Combinator, who describes it as the software factory he uses every day. The skills run in the order a sprint runs: Think, Plan, Build, Review, Test, Ship, Reflect.",
+    "You start with /office-hours, which pushes back on your framing and writes a design doc the other skills read. /plan-ceo-review and /plan-eng-review rethink the product and lock the architecture, /review reads your diff for bugs tests tend to miss, /qa opens a real browser to reproduce and fix bugs, and /gstack-ship runs tests and review and opens the PR.",
+    "The README is candid about limits: in a November 2026 test on 100 everyday GitHub bugs and features, Claude Opus 5.5 fixed 58 with gstack installed and 61 of 99 without it. The project says to use it for the workflow, reviews, shipping steps and safety guards, not for a higher fix rate."
+  ],
+  "features": [
+    {"title": "Specialist roles", "body": "Slash commands for CEO, eng manager, designer, staff engineer, QA lead, security officer and release engineer reviews."},
+    {"title": "Connected sprint", "body": "Each skill reads what the one before it wrote, from design doc to test plan to PR."},
+    {"title": "Code review", "body": "/review looks for bugs like race conditions, N+1 queries and broken trust boundaries and fixes the obvious ones."},
+    {"title": "Browser QA", "body": "/qa opens a real browser, reproduces bugs, writes failing regressions and fixes the cause."},
+    {"title": "Shipping with evidence", "body": "/gstack-ship puts the tests it ran and the review results on the pull request."},
+    {"title": "Many agents", "body": "Installs for Claude Code by default, with experimental support for Codex CLI, OpenCode, Cursor, Gemini CLI and others."}
+  ],
+  "strengths": ["Free and MIT-licensed, with no premium tier", "Full support on macOS and Linux", "Team mode keeps every teammate on the same version automatically", "A doctor command reports install problems with the fix", "Telemetry is off by default"],
+  "limitations": ["The README's own test showed no gain in how many bugs the agent fixes", "Windows and Gemini models get minimal support", "Hosts other than Claude Code are experimental or instruction-only", "On Windows, Smart App Control can block gstack's unsigned compiled binaries", "Outside reviews are on by default and send code to Codex or Claude"],
+  "useCases": [
+    {"title": "Shape a new product idea", "body": "Run /office-hours to get your framing challenged and a design doc written."},
+    {"title": "Review a branch before merging", "body": "Run /review on any branch with changes to catch bugs tests miss."},
+    {"title": "Test a staging site", "body": "Run /qa on your staging URL to reproduce and fix bugs in a real browser."},
+    {"title": "Ship a PR end to end", "body": "Use /autoplan to review a plan and /gstack-ship to run tests, review and open the PR."}
+  ],
+  "prerequisites": ["Claude Code installed", "Git", "Bun v1.4.2+", "Node.js on Windows, plus Git Bash or WSL"],
+  "supportedOs": ["macOS", "Linux", "Windows"],
+  "install": [
+    {"os": "all", "label": "Install for Claude Code", "method": "source", "steps": [
+      {"title": "Clone and run setup", "body": "The README suggests pasting this into Claude Code as part of its install prompt, which also adds a gstack section to your CLAUDE.md.", "code": "git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup"},
+      {"title": "Optional: team mode", "body": "From inside your repo, this switches to team mode so teammates get gstack automatically, and commits the change.", "code": "(cd ~/.claude/skills/gstack && ./setup --team) && ~/.claude/skills/gstack/bin/gstack-team-init required && git add .claude/ CLAUDE.md && git commit -m \"require gstack for AI-assisted work\""}
+    ]},
+    {"os": "all", "label": "Install for other agents", "method": "source", "steps": [
+      {"title": "Clone gstack", "code": "git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/gstack"},
+      {"title": "Install for every agent setup finds", "body": "Or pick one agent, for example --host codex.", "code": "cd ~/gstack && ./setup --host auto"},
+      {"title": "Check what was installed", "body": "Shows one row per install: host, tier, scope, version and path.", "code": "./setup --status"}
+    ]}
+  ],
+  "environment": [
+    {"name": "GSTACK_CHROMIUM_NO_SANDBOX", "required": false, "description": "Set to 1 on Linux if Chromium installs but cannot launch because the host blocks unprivileged user namespaces."}
+  ],
+  "firstRun": [
+    {"title": "Start with office hours", "body": "In Claude Code, run /office-hours and describe what you're building. It asks about the pain, pushes back on your framing and writes a design doc."}
+  ],
+  "tutorial": {
+    "title": "Try the quick start in one sitting",
+    "useCase": "You want to see whether gstack fits how you work before using the whole sprint.",
+    "setup": ["Install gstack for Claude Code", "Open Claude Code in a project with a branch that has changes"],
+    "steps": [
+      {"title": "Describe your product", "body": "Run /office-hours and describe what you're building; it writes a design doc the other skills read."},
+      {"title": "Review your changes", "body": "Run /review on the branch. It reads the diff, fixes the obvious bugs and asks you about the rest."},
+      {"title": "Test it", "body": "Run /qa on your staging URL, or on a local API, CLI, job or webhook."}
+    ],
+    "expected": "A design doc, a reviewed branch and a QA pass with any reproduced bugs fixed.",
+    "nextSteps": ["Use /autoplan to review a whole plan", "Use /gstack-ship to run tests, review and open the PR"]
+  },
+  "costs": [
+    {"label": "Software", "value": "Free, MIT licensed and open source, with no premium tier.", "tone": "free"},
+    {"label": "AI usage", "value": "It runs inside your coding agent, so you pay that agent's model usage; outside reviews also use Codex or Claude.", "tone": "depends"}
+  ],
+  "troubleshooting": [
+    {"problem": "Not sure what's wrong with the install", "solution": "Run the doctor: ~/.claude/skills/gstack/bin/gstack-doctor. It prints each check with the command that fixes it."},
+    {"problem": "Claude says it can't see the skills", "solution": "Check they are installed with ls ~/.claude/skills and restart Claude Code."},
+    {"problem": "On Windows, Git Bash shows Permission denied for gstack binaries", "solution": "Windows Smart App Control blocks the unsigned binaries; setup names them and gstack-doctor reports them as blocked."}
+  ],
+  "bestFor": ["Claude Code power users", "Solo founders shipping with AI", "Code review and QA on every PR", "Structured AI sprints"],
+  "heroCommands": [{"comment": "Install for Claude Code", "command": "git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup"}]
+}
