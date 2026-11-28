@@ -615,6 +615,18 @@ describe("local writer", () => {
     await expect(completeWithRetry(dead, "u", async () => {})).rejects.toThrow("terminated");
   });
 
+  it("writes just the repos asked for with --repo, skipping ones already on the site", async () => {
+    const store = new MemStore();
+    store.repos = [tracked(1)];
+    let searched = false;
+    const byName: Record<string, GithubRepo> = { "o/r1": gh(1), "o/r9": gh(9, { stargazers_count: 12 }) };
+    const gith = { ...github([]), async searchPage(): Promise<never> { searched = true; throw new Error("no search"); }, async getRepoByName(n: string) { return byName[n] ?? null; } };
+    const res = await runWriter({ store, github: gith, now: NOW }, { ...opts(model(page())), repos: ["o/r1", "o/r9", "o/missing"] });
+    expect(searched).toBe(false);
+    expect(store.inserted.map((r) => r.github_id)).toEqual([9]); // low stars are fine when asked for
+    expect(res.details.asked).toEqual({ "o/r1": "already on the site", "o/r9": "tried (see published_list or skipped)", "o/missing": "not found on GitHub" });
+  });
+
   it("never picks excluded kinds of repos", () => {
     expect(editoriallyExcluded(gh(1, { full_name: "asgeirtj/system_prompts_leaks", name: "system_prompts_leaks", description: "Collection of system prompts" }))).toBe(true);
     expect(editoriallyExcluded(gh(2, { description: "Free GPT-4 access via reverse engineered API" }))).toBe(true);

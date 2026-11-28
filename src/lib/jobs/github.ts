@@ -48,6 +48,8 @@ export interface GithubApi {
    * (deleted, renamed to a reused name, hidden) should be looked up with getRepoById.
    */
   getReposBatch?(refs: RepoRef[]): Promise<Map<number, GithubRepo>>;
+  /** A repo by owner/name (follows renames). Optional: only the writer's --repo mode uses it. */
+  getRepoByName?(fullName: string): Promise<GithubRepo | null>;
   /** Current commit SHA of a branch. Optional: only the writer job uses it. */
   getHeadSha?(fullName: string, branch: string): Promise<string | null>;
   /** The repo's README at a commit (text and path). Null when there is none. */
@@ -115,6 +117,11 @@ export class GithubClient implements GithubApi {
       `/search/repositories?q=${q}&sort=stars&order=desc&per_page=${perPage}&page=${page}`,
     );
     return { total: res.body?.total_count ?? 0, items: res.body?.items ?? [] };
+  }
+
+  async getRepoByName(fullName: string): Promise<GithubRepo | null> {
+    if (!/^[\w.-]+\/[\w.-]+$/.test(fullName)) return null;
+    return (await this.get<GithubRepo>(`/repos/${fullName}`)).body;
   }
 
   async getHeadSha(fullName: string, branch: string): Promise<string | null> {
