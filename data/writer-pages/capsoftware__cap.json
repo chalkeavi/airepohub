@@ -1,0 +1,72 @@
+{
+  "summary": "Open source Loom alternative for recording your screen, editing the video and sharing it with a link.",
+  "type": "Desktop app",
+  "whatItDoes": "Cap records your screen, camera and microphone, then lets you share a link or export a finished video. It has a native desktop app for macOS, Windows and Linux, a web dashboard, and can be fully self-hosted.",
+  "problem": "Showing your work on video is often faster than another call, but hosted recorders keep your videos on their servers. Cap gives you the same quick share links while letting you choose where recordings are stored.",
+  "whoFor": ["Teams that use Loom and want an open source option", "Developers recording bug reports and walkthroughs", "Product people making demos and tutorials", "Companies that want to self-host their recordings"],
+  "whyChoose": "It is open source and lets you own your storage: use Cap Cloud, your own S3-compatible bucket, keep recordings local, or self-host the whole platform.",
+  "requirements": ["macOS, Windows or Linux for the desktop app", "Docker for self-hosting", "For development: Node.js 24 or newer, Bun 1.4.4, Rust via rustup and Docker"],
+  "overview": [
+    "Cap is the open source alternative to Loom. It offers screen recording, local editing, instant share links, comments, transcripts, analytics, team workspaces, custom domains and custom S3 storage.",
+    "Instant Mode uploads while you record and gives you a share link as soon as you stop. Studio Mode records locally and opens an editor with backgrounds, zooms, trimming, captions and export controls.",
+    "Cap AI can generate titles, summaries, clickable chapters, captions and transcripts, and you can import existing Loom videos into Cap."
+  ],
+  "features": [
+    {"title": "Instant Mode", "body": "Uploads while you record so the share link is ready the moment you stop."},
+    {"title": "Studio Mode", "body": "Record locally and edit with backgrounds, zooms, trimming and captions."},
+    {"title": "Own your storage", "body": "Use Cap Cloud, connect AWS S3, Cloudflare R2, Backblaze B2, MinIO or Wasabi, or keep recordings local."},
+    {"title": "Async feedback", "body": "Comments, reactions, transcripts, viewer analytics and team workspaces."},
+    {"title": "Cap AI", "body": "Generates titles, summaries, chapters, captions and transcripts."},
+    {"title": "Import from Loom", "body": "Bring existing Loom videos into your Cap library."}
+  ],
+  "strengths": ["Native desktop app on macOS, Windows and Linux", "Full self-hosting with Docker Compose", "Password-protected and private shares, custom domains", "Open source (AGPLv3, with some crates under MIT)"],
+  "limitations": ["Default secrets must be replaced before exposing a self-hosted deployment to the internet", "Without email configured, login links only appear in the service logs"],
+  "useCases": [
+    {"title": "Bug reports", "body": "Record the bug and send a link instead of writing long steps."},
+    {"title": "Product demos and tutorials", "body": "Record in Studio Mode and polish the video before sharing."},
+    {"title": "Async standups", "body": "Share a quick update and collect comments on the video."}
+  ],
+  "prerequisites": ["macOS, Windows or Linux", "Docker if you want to self-host"],
+  "supportedOs": ["Windows", "macOS", "Linux", "Web", "Docker"],
+  "install": [
+    {"os": "all", "label": "Download the app", "method": "binary", "steps": [
+      {"title": "Download Cap", "body": "Get Cap for macOS, Windows or Linux from https://cap.so/download"},
+      {"title": "Sign in", "body": "Sign in or create an account, then choose Instant Mode or Studio Mode."}
+    ]},
+    {"os": "all", "label": "Self-host with Docker Compose", "method": "docker", "steps": [
+      {"title": "Clone and start", "body": "Cap will be available at http://localhost:3000.", "code": "git clone https://github.com/CapSoftware/Cap.git\ncd Cap\ndocker compose up -d"},
+      {"title": "Find your login link", "body": "When email is not configured, login links appear in the service logs.", "code": "docker compose logs cap-web"},
+      {"title": "Before going public", "body": "Set public URLs such as CAP_URL and S3_PUBLIC_URL and replace the default secrets. See the self-hosting guide: https://cap.so/docs/self-hosting"},
+      {"title": "Point the desktop app at your server", "body": "In Cap Desktop, set your instance under Settings > Cap Server URL."}
+    ]}
+  ],
+  "environment": [
+    {"name": "CAP_URL", "required": false, "description": "Public URL of your self-hosted Cap, for production."},
+    {"name": "S3_PUBLIC_URL", "required": false, "description": "Public URL of your S3 storage, for production."}
+  ],
+  "firstRun": [
+    {"title": "Record your first Cap", "body": "Pick Instant Mode, record, and stop: you get a share link right away. Share the link, export the file, or keep it local."}
+  ],
+  "tutorial": {
+    "title": "Record and share a bug report",
+    "useCase": "You want to show a teammate a bug without scheduling a call.",
+    "setup": ["Install the Cap desktop app", "Sign in"],
+    "steps": [
+      {"title": "Choose Instant Mode", "body": "Instant Mode uploads while you record."},
+      {"title": "Record the bug", "body": "Capture your screen, camera and microphone while you reproduce the problem."},
+      {"title": "Stop and copy the link", "body": "The share link is ready as soon as you stop recording."},
+      {"title": "Read the feedback", "body": "Your teammate can comment and react on the video."}
+    ],
+    "expected": "A shareable link to the recording, with comments and a transcript attached to the video.",
+    "nextSteps": ["Try Studio Mode for a polished demo", "Connect your own S3-compatible bucket"]
+  },
+  "costs": [
+    {"label": "Software", "value": "Open source: most code is AGPLv3, some crates are MIT.", "tone": "free"},
+    {"label": "Cap Cloud", "value": "Hosted plans are listed on the Cap pricing page; self-hosting is an alternative.", "tone": "depends"}
+  ],
+  "troubleshooting": [
+    {"problem": "You can't log in to a self-hosted Cap", "solution": "If email isn't configured, read the login link from the logs with docker compose logs cap-web."}
+  ],
+  "bestFor": ["Loom alternative", "Bug reports and demos", "Self-hosted screen recording", "Async team updates"],
+  "heroCommands": [{"comment": "Self-host", "command": "docker compose up -d"}]
+}

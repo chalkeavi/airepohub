@@ -1,0 +1,66 @@
+{
+  "summary": "Open source, self-hostable project management software with agile boards, Gantt charts, issue tracking and time tracking.",
+  "type": "Web app",
+  "whatItDoes": "OpenProject is web-based project management software. Teams use it to manage projects, portfolios, tasks, bugs, agile boards, roadmaps, time and costs in one place, either self-hosted or in the cloud.",
+  "problem": "Organisations that need transparency and data sovereignty often can't put their project data in a hosted tool. OpenProject can be self-hosted so you keep control of your data and infrastructure.",
+  "whoFor": ["Teams looking for an open source alternative to Jira, MS Project, Monday, Asana or YouTrack", "Public institutions and regulated organisations that need to keep data in-house", "Project and portfolio managers", "Agile teams running Scrum or Kanban"],
+  "whyChoose": "It covers project, portfolio and product management in a single platform and can be self-hosted, so you keep full control over your data.",
+  "requirements": ["A server to self-host the Community edition, or a cloud account", "See the official installation guides for the exact system needs"],
+  "overview": [
+    "OpenProject is an open source project management platform for teams and organisations that want transparency, flexibility and data sovereignty. It brings projects, portfolios, products, tasks, bugs, agile workflows, roadmaps and team collaboration together.",
+    "You can start with a 14-days free trial in the cloud, download the free self-hosted Community edition, or sign up for the Enterprise edition with support and add-ons, in the cloud or on-premises.",
+    "It also includes wikis, forums, news, meeting agendas and minutes, and integrates with Nextcloud, XWiki, GitHub, GitLab and more."
+  ],
+  "features": [
+    {"title": "Project and portfolio management", "body": "Manage many projects and see them together as portfolios."},
+    {"title": "Agile boards", "body": "Run Kanban, Scrum or SAFe with agile boards."},
+    {"title": "Gantt charts", "body": "Plan and schedule projects on Gantt charts."},
+    {"title": "Time and cost tracking", "body": "Track time, report costs and manage budgets."},
+    {"title": "Bug tracking", "body": "Log and follow bugs alongside the rest of the work."},
+    {"title": "Meetings and wikis", "body": "Keep meeting agendas, minutes, wikis, forums and news in the same place."}
+  ],
+  "strengths": ["Can be self-hosted for full data control", "Free Community edition", "Wide feature set in one platform", "Integrations with Nextcloud, XWiki, GitHub and GitLab", "GPLv3 licence"],
+  "limitations": ["Comprehensive support and Enterprise add-ons need the paid Enterprise edition", "Running it in production is described in separate installation guides, not in the README"],
+  "useCases": [
+    {"title": "Replace Jira for a team", "body": "Track tasks and bugs on agile boards in a tool you host yourself."},
+    {"title": "Plan a large project", "body": "Schedule work on a Gantt chart and track time and budget against it."},
+    {"title": "Run project meetings", "body": "Write meeting agendas and minutes next to the work packages they discuss."}
+  ],
+  "prerequisites": ["A server for self-hosting, or use the cloud trial"],
+  "supportedOs": ["Web", "Linux", "Docker"],
+  "install": [
+    {"os": "all", "label": "Try it in the cloud", "method": "docs", "steps": [
+      {"title": "Start a free trial", "body": "Sign up for the 14-days free trial at https://start.openproject.com/"}
+    ]},
+    {"os": "all", "label": "Self-host the Community edition", "method": "docs", "steps": [
+      {"title": "Pick an installation method", "body": "Follow the official installation guides to run OpenProject for evaluation or production: https://www.openproject.org/download-and-installation/"},
+      {"title": "Read the documentation", "body": "The documentation explains setup and use: https://www.openproject.org/docs/"}
+    ]}
+  ],
+  "environment": [],
+  "firstRun": [
+    {"title": "Create your first project", "body": "Sign in to your instance, create a project and add work packages for its tasks."}
+  ],
+  "tutorial": {
+    "title": "Plan a project with a board and a Gantt chart",
+    "useCase": "You want to track a team's tasks and see the schedule.",
+    "setup": ["Start a cloud trial or install the Community edition", "Sign in as an administrator"],
+    "steps": [
+      {"title": "Create a project", "body": "Add a new project for your team."},
+      {"title": "Add work packages", "body": "Create the tasks and bugs the team needs to work on."},
+      {"title": "Use an agile board", "body": "Move work packages across a Kanban or Scrum board as they progress."},
+      {"title": "Check the Gantt chart", "body": "See the tasks on the project's Gantt chart to plan the schedule."}
+    ],
+    "expected": "A project with tasks you can follow on a board and on a timeline.",
+    "nextSteps": ["Turn on time tracking for the project", "Connect GitHub or GitLab"]
+  },
+  "costs": [
+    {"label": "Community edition", "value": "Free of charge and self-hosted, under the GPLv3 licence.", "tone": "free"},
+    {"label": "Enterprise edition", "value": "Paid, in the cloud or on-premises, with support and Enterprise add-ons.", "tone": "paid"}
+  ],
+  "troubleshooting": [
+    {"problem": "You found a bug", "solution": "Report it to the OpenProject Community as described in the docs: https://www.openproject.org/docs/development/report-a-bug/"}
+  ],
+  "bestFor": ["Jira alternative", "Self-hosted project management", "Gantt charts and agile boards", "Regulated organisations"],
+  "heroCommands": []
+}
