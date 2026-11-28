@@ -61,8 +61,8 @@ export default async function HomePage() {
         <div className="container-page relative grid gap-12 pb-16 pt-12 sm:pb-20 sm:pt-20 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-end lg:gap-16">
           <div className="min-w-0">
           <p className="eyebrow mb-6">Discover. Install. Build.</p>
-          <h1 className="max-w-[14ch] font-display text-[46px] font-medium leading-[0.98] tracking-[-0.03em] sm:text-[76px]">
-            The field guide to <em className="mark-highlight whitespace-nowrap font-normal text-accent">open-source AI</em>.
+          <h1 className="max-w-[15ch] font-display text-[46px] font-medium leading-[0.98] tracking-[-0.03em] sm:text-[76px]">
+            Discover the best <em className="mark-highlight whitespace-nowrap font-normal text-accent">open-source AI</em> tools.
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             Explore powerful GitHub repositories, understand what they do, and learn how to install and use them.
