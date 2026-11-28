@@ -1,0 +1,71 @@
+{
+  "summary": "Open source Notion alternative with docs, wikis, databases and AI that keeps you in control of your own data.",
+  "type": "Desktop and mobile app",
+  "whatItDoes": "AppFlowy is an AI collaborative workspace for notes, docs, team wikis, task databases and Kanban boards. It runs as a desktop app on macOS, Windows and Linux, as a mobile app, and can be self-hosted.",
+  "problem": "Tools like Notion keep your data on someone else's servers. AppFlowy offers a similar workspace while letting you keep full control of your data.",
+  "whoFor": ["People looking for an open source Notion alternative", "Teams that want a shared wiki and project databases", "Organisations that want to self-host their workspace", "Developers who want to build on a Flutter and Rust codebase"],
+  "whyChoose": "Its stated values are data privacy first, a reliable native experience and community-driven extensibility, with one codebase in Flutter and Rust across platforms.",
+  "requirements": ["A computer running macOS, Windows or Linux, or an iPhone, or an Android phone on Android 10 or above (ARMv7 is not supported)"],
+  "overview": [
+    "AppFlowy is an AI workspace for bringing projects, wikis and teams together. You write docs and notes, build databases for tasks and projects, plan work on Kanban boards, comment on database rows and ask AI questions about your team wiki.",
+    "It is built with Flutter and Rust and is available as a desktop app for macOS, Windows and Linux, on the App Store for iPhone and on the Play Store for Android. You can also self-host it or build it from source.",
+    "The team says plainly that it doesn't claim to outperform Notion on features and design yet; its focus is data control, a native experience and a community others can build on."
+  ],
+  "features": [
+    {"title": "Docs and notes", "body": "Write documents for notes and reports with blocks."},
+    {"title": "Databases", "body": "Track tasks and projects in databases, with row pages and comments."},
+    {"title": "Kanban boards", "body": "Plan to-dos on boards."},
+    {"title": "Team wikis with AI", "body": "Build a team wiki and ask AI about it, including AI summaries on mobile."},
+    {"title": "Desktop and mobile", "body": "Native apps for desktop, iPhone and Android."},
+    {"title": "Self-hosting", "body": "Run AppFlowy on your own servers using the official self-hosting guide."}
+  ],
+  "strengths": ["Open source under AGPLv3", "Native apps on desktop and mobile", "Self-hosting option for full data control", "Also on FlatHub, Snapcraft and Sourceforge"],
+  "limitations": ["The team says it does not claim to outperform Notion in features and design for now", "The Android app needs Android 10 or above and doesn't support ARMv7"],
+  "useCases": [
+    {"title": "Personal notes and tasks", "body": "Keep notes, docs and to-do boards in one desktop app."},
+    {"title": "Team wiki", "body": "Share a wiki with your team and ask AI questions about it."},
+    {"title": "Project tracking", "body": "Run projects in databases and Kanban boards with comments on each row."}
+  ],
+  "prerequisites": ["macOS, Windows or Linux for the desktop app"],
+  "supportedOs": ["Windows", "macOS", "Linux", "iOS", "Android"],
+  "install": [
+    {"os": "all", "label": "Download the desktop app", "method": "binary", "steps": [
+      {"title": "Download AppFlowy", "body": "Get the installer for macOS, Windows or Linux from the Releases page: https://github.com/AppFlowy-IO/AppFlowy/releases"},
+      {"title": "Or use another channel", "body": "AppFlowy is also on FlatHub, Snapcraft and Sourceforge."}
+    ]},
+    {"os": "all", "label": "Install on your phone", "method": "binary", "steps": [
+      {"title": "iPhone", "body": "Install AppFlowy from the App Store."},
+      {"title": "Android", "body": "Install from the Play Store (Android 10 or above; ARMv7 is not supported)."}
+    ]},
+    {"os": "all", "label": "Self-host or build from source", "method": "docs", "steps": [
+      {"title": "Self-host", "body": "Follow the step-by-step self-hosting guide: https://appflowy.com/docs/Step-by-step-Self-Hosting-Guide---From-Zero-to-Production"},
+      {"title": "Build from source", "body": "OS-specific build instructions are in the docs: https://docs.appflowy.io/docs/documentation/appflowy/from-source"}
+    ]}
+  ],
+  "environment": [],
+  "firstRun": [
+    {"title": "Open the app and create a page", "body": "Start a doc, a database or a board from the sidebar and begin adding your notes and tasks."}
+  ],
+  "tutorial": {
+    "title": "Set up a simple project board",
+    "useCase": "You want one place for a project's notes and tasks.",
+    "setup": ["Install the AppFlowy desktop app"],
+    "steps": [
+      {"title": "Create a doc for the project", "body": "Write the goals and notes for the project in a doc."},
+      {"title": "Add a database for tasks", "body": "Create a database and add a row for each task."},
+      {"title": "View it as a board", "body": "Use the Kanban board to move tasks between stages."},
+      {"title": "Comment on tasks", "body": "Open a row page to add details and comments."}
+    ],
+    "expected": "A project doc plus a task board you can update as work moves along.",
+    "nextSteps": ["Install the mobile app to keep working on the go", "Look at self-hosting if your team wants full control of its data"]
+  },
+  "costs": [
+    {"label": "Software", "value": "Free and open source under the AGPLv3 licence.", "tone": "free"},
+    {"label": "Hosting", "value": "Self-hosting runs on your own servers, so any server costs are yours.", "tone": "depends"}
+  ],
+  "troubleshooting": [
+    {"problem": "The Android app won't install", "solution": "AppFlowy needs Android 10 or above and doesn't support ARMv7 devices."}
+  ],
+  "bestFor": ["Notion alternative", "Team wikis", "Task databases and boards", "Self-hosted workspace"],
+  "heroCommands": []
+}

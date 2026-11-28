@@ -1,0 +1,67 @@
+{
+  "summary": "Open-source, self-hosted customer support desk with live chat, email and social inboxes, an alternative to Intercom and Zendesk.",
+  "type": "Web app",
+  "whatItDoes": "Chatwoot is a customer support platform that puts conversations from website live chat, email, Facebook, Instagram, WhatsApp, Telegram, SMS and more into one shared inbox. It also has a help center portal and an AI agent called Captain.",
+  "problem": "Support teams juggle many channels and often hand their customer data to a hosted tool. Chatwoot gathers every channel in one inbox and can be self-hosted so you keep control of the data.",
+  "whoFor": ["Support teams looking for an Intercom or Zendesk alternative", "Businesses that want to self-host their help desk", "Teams that answer customers on chat, email and social apps"],
+  "whyChoose": "It is open source and self-hosted, gives you full control over customer data, and covers inbox, help center, reports and automation in one product.",
+  "requirements": ["A server or a hosting platform such as Heroku or DigitalOcean", "Environment variables set as described in the Chatwoot docs"],
+  "overview": [
+    "Chatwoot is an open-source, self-hosted customer support platform. It centralises customer conversations into one inbox, whether they start in live chat on your website, email, Facebook, Instagram, Twitter, WhatsApp, Telegram, Line or SMS.",
+    "Captain, Chatwoot's AI agent, can answer common questions and automate responses so your team can focus on harder conversations. A built-in Help Center Portal lets you publish articles and FAQs.",
+    "Teams get private notes and @mentions, labels, canned responses, auto-assignment, business hours and automation, plus conversation, agent, inbox, team and CSAT reports."
+  ],
+  "features": [
+    {"title": "Omnichannel inbox", "body": "Live chat, email and social and messaging channels in one inbox."},
+    {"title": "Captain AI agent", "body": "Automates responses and handles common queries."},
+    {"title": "Help center portal", "body": "Publish help articles, FAQs and guides for customers."},
+    {"title": "Team collaboration", "body": "Private notes, @mentions, labels, canned responses and auto-assignment."},
+    {"title": "Integrations", "body": "Slack, Dialogflow, Shopify, Google Translate, Linear and dashboard apps."},
+    {"title": "Reports", "body": "Live view plus conversation, agent, inbox, label, team and CSAT reports."}
+  ],
+  "strengths": ["Self-hosted with full control of customer data", "One-click deploys to Heroku and DigitalOcean", "Wide channel support", "MIT licence"],
+  "limitations": ["Features may break if the relevant environment variables are not set", "The develop branch is the base branch; use master or a version tag for a stable version"],
+  "useCases": [
+    {"title": "Website live chat", "body": "Add a chat widget to your site and answer from a shared inbox."},
+    {"title": "One inbox for all channels", "body": "Handle email, WhatsApp and social messages in the same place."},
+    {"title": "Self-service help", "body": "Publish a help center so customers can find answers themselves."}
+  ],
+  "prerequisites": ["A Heroku or DigitalOcean account, or your own server", "Read the environment variables guide before deploying"],
+  "supportedOs": ["Web", "Docker"],
+  "install": [
+    {"os": "all", "label": "One-click deploy", "method": "docs", "steps": [
+      {"title": "Deploy to Heroku", "body": "Use the Deploy to Heroku button in the README: https://heroku.com/deploy?template=https://github.com/chatwoot/chatwoot/tree/master"},
+      {"title": "Set the environment variables", "body": "Follow the guide so every feature works: https://www.chatwoot.com/docs/environment-variables"},
+      {"title": "Or use DigitalOcean", "body": "Chatwoot supports 1-Click deployment to DigitalOcean as a kubernetes app from the DigitalOcean marketplace."}
+    ]},
+    {"os": "all", "label": "Other deployment options", "method": "docs", "steps": [
+      {"title": "Pick a method", "body": "See the deployment page for other supported options: https://chatwoot.com/deploy"}
+    ]}
+  ],
+  "environment": [],
+  "firstRun": [
+    {"title": "Create an inbox", "body": "Sign in to your instance and add your first channel, such as website live chat or email."}
+  ],
+  "tutorial": {
+    "title": "Answer website chats from a shared inbox",
+    "useCase": "You want visitors on your website to chat with your support team.",
+    "setup": ["Deploy Chatwoot with one of the deployment options", "Set the environment variables from the docs"],
+    "steps": [
+      {"title": "Add a website inbox", "body": "Create a live chat inbox for your website."},
+      {"title": "Put the widget on your site", "body": "Add the chat widget to your website as the setup shows."},
+      {"title": "Add your team", "body": "Invite agents and turn on auto-assignment."},
+      {"title": "Save canned responses", "body": "Write replies to frequent questions so the team can answer faster."}
+    ],
+    "expected": "Chats from your website arrive in the Chatwoot inbox and are assigned to your agents.",
+    "nextSteps": ["Connect email or WhatsApp to the same inbox", "Publish help articles in the Help Center Portal"]
+  },
+  "costs": [
+    {"label": "Software", "value": "Open source and released under the MIT License.", "tone": "free"},
+    {"label": "Hosting", "value": "You pay for the server or platform you deploy it on.", "tone": "depends"}
+  ],
+  "troubleshooting": [
+    {"problem": "Some features don't work after deploying", "solution": "Set the relevant environment variables from the environment variables guide; breakages can happen without them."}
+  ],
+  "bestFor": ["Intercom and Zendesk alternative", "Website live chat", "Omnichannel support inbox", "Self-hosted help desk"],
+  "heroCommands": []
+}

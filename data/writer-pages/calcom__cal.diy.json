@@ -1,0 +1,79 @@
+{
+  "summary": "Self-hosted, community edition of Cal.com for scheduling meetings, with all enterprise code removed and an MIT licence.",
+  "type": "Web app",
+  "whatItDoes": "Cal.diy is a scheduling platform you run on your own server: people book time with you through your booking pages, and it connects to calendars and video tools. It is a fork of Cal.com with the commercial and enterprise code taken out.",
+  "problem": "Hosted scheduling tools like Calendly keep your calendar data on their servers. Cal.diy lets individuals and self-hosters run their own scheduling without a licence key or a Cal.com account.",
+  "whoFor": ["Individuals who want a self-hosted Calendly alternative", "Self-hosters comfortable running a server and database", "Developers who want an MIT-licensed scheduling codebase"],
+  "whyChoose": "It is 100% MIT-licensed with no license key required and no proprietary Enterprise Edition features.",
+  "requirements": ["Node.js (Version: >=18.x)", "PostgreSQL (Version: >=13.x)", "Yarn (recommended)", "Or Docker and docker compose for the Docker setup"],
+  "overview": [
+    "Cal.diy is the community-driven, open-source scheduling platform: a fork of Cal.com with all enterprise and commercial code removed. Everything works without a Cal.com account or licence.",
+    "The README is clear that it is meant for personal, non-production use, and that self-hosting needs real knowledge of server administration, databases and securing sensitive data. For commercial use, the project points you to Cal.com.",
+    "Compared with Cal.com, Teams, Organizations, Insights, Workflows, SSO/SAML and other enterprise features are removed. Integrations such as Google Calendar, Microsoft Graph, Zoom, Daily and HubSpot can be set up with your own credentials."
+  ],
+  "features": [
+    {"title": "Booking pages", "body": "Share event types that others use to book time with you."},
+    {"title": "Calendar integrations", "body": "Connect Google Calendar and other calendar apps with your own API credentials."},
+    {"title": "Video and CRM apps", "body": "Set up Zoom, Daily, Webex, HubSpot, Pipedrive and more."},
+    {"title": "No licence key", "body": "Everything works out of the box without a Cal.com account."},
+    {"title": "Docker deployment", "body": "Run the full stack, including Postgres, with docker compose."}
+  ],
+  "strengths": ["MIT licence for the whole codebase", "Docker image and docker compose setup", "Setup wizard on first run", "Many integrations"],
+  "limitations": ["Recommended for personal, non-production use only", "No hosted version; you run it yourself", "Teams, Organizations, Insights, Workflows and SSO/SAML are removed", "Self-hosting needs server, database and security knowledge"],
+  "useCases": [
+    {"title": "Personal booking page", "body": "Let people book meetings with you on a server you control."},
+    {"title": "Calendly replacement for yourself", "body": "Connect your calendar so bookings avoid your busy times."},
+    {"title": "Build on the code", "body": "Use the MIT-licensed codebase as a base for your own scheduling app."}
+  ],
+  "prerequisites": ["docker and docker compose installed", "openssl to generate secret keys"],
+  "supportedOs": ["Docker", "Linux", "macOS", "Windows"],
+  "install": [
+    {"os": "all", "label": "Run with Docker Compose", "method": "docker", "steps": [
+      {"title": "Clone the repository", "code": "git clone --recursive https://github.com/calcom/cal.diy.git"},
+      {"title": "Go to the folder", "code": "cd cal.diy"},
+      {"title": "Create your settings file", "code": "cp .env.example .env"},
+      {"title": "Generate NEXTAUTH_SECRET", "body": "Put the output in NEXTAUTH_SECRET in .env. Using the default placeholder in production is a security risk.", "code": "openssl rand -base64 32"},
+      {"title": "Generate CALENDSO_ENCRYPTION_KEY", "body": "Put the output in CALENDSO_ENCRYPTION_KEY in .env.", "code": "openssl rand -base64 24"},
+      {"title": "Start Cal.diy", "body": "This runs a local Postgres database, the Cal.diy web app and Prisma Studio.", "code": "docker compose up -d"}
+    ]},
+    {"os": "all", "label": "Run from source", "method": "source", "steps": [
+      {"title": "Clone and enter the folder", "body": "On Windows, the README says to clone with core.symlinks=true in Git Bash with admin rights.", "code": "git clone https://github.com/calcom/cal.diy.git\ncd cal.diy"},
+      {"title": "Install packages", "code": "yarn"},
+      {"title": "Set up .env", "body": "Duplicate .env.example to .env and add NEXTAUTH_SECRET and CALENDSO_ENCRYPTION_KEY as above."},
+      {"title": "Quick start", "body": "Needs Docker. Starts a local Postgres with test users; the credentials are logged in the console.", "code": "yarn dx"}
+    ]}
+  ],
+  "environment": [
+    {"name": "DATABASE_URL", "required": true, "description": "Database URL with credentials."},
+    {"name": "NEXTAUTH_SECRET", "required": true, "description": "Cookie encryption key. Generate with openssl rand -base64 32."},
+    {"name": "CALENDSO_ENCRYPTION_KEY", "required": true, "description": "Authentication encryption key (32 bytes for AES256). Generate with openssl rand -base64 24."},
+    {"name": "NEXT_PUBLIC_WEBAPP_URL", "required": false, "description": "Base URL of the site."}
+  ],
+  "firstRun": [
+    {"title": "Finish the setup wizard", "body": "Open http://localhost:3000. The first time you run Cal.diy, a setup wizard asks you to define your first user."}
+  ],
+  "tutorial": {
+    "title": "Set up your own booking page",
+    "useCase": "You want people to book meetings with you on a scheduler you host.",
+    "setup": ["Run Cal.diy with Docker Compose", "Complete the setup wizard"],
+    "steps": [
+      {"title": "Skip the calendar step if you like", "body": "If the setup wizard's Connect your Calendar step blocks you, go straight to <NEXT_PUBLIC_WEBAPP_URL>/event-types. You can add calendars later under Settings > Integrations."},
+      {"title": "Create an event type", "body": "Add an event type for the kind of meeting people can book."},
+      {"title": "Connect a calendar", "body": "Add Google Calendar with your own Google API credentials, as the integrations section describes."},
+      {"title": "Share the link", "body": "Send your booking link to the people who need to book time with you."}
+    ],
+    "expected": "A booking page on your own server where people can pick a time with you.",
+    "nextSteps": ["Add video meeting apps like Zoom or Daily", "Read how to update Cal.diy with docker compose pull"]
+  },
+  "costs": [
+    {"label": "Software", "value": "Free and open source under the MIT License.", "tone": "free"},
+    {"label": "Hosting", "value": "There is no hosted version, so you pay for your own server and database.", "tone": "depends"}
+  ],
+  "troubleshooting": [
+    {"problem": "Error: No key set vapidDetails.publicKey", "solution": "Generate web push keys with npx web-push generate-vapid-keys and set NEXT_PUBLIC_VAPID_PUBLIC_KEY and VAPID_PRIVATE_KEY in .env."},
+    {"problem": "CLIENT_FETCH_ERROR", "solution": "Set NEXTAUTH_URL=http://localhost:3000/api/auth so the backend can loop back to itself."},
+    {"problem": "Requests are rejected behind a load balancer that handles SSL", "solution": "The README suggests NODE_TLS_REJECT_UNAUTHORIZED=0, but only if you trust the services directing traffic to your server."}
+  ],
+  "bestFor": ["Self-hosted Calendly alternative", "Personal scheduling", "MIT-licensed scheduling code"],
+  "heroCommands": [{"comment": "Start with Docker", "command": "docker compose up -d"}]
+}

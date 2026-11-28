@@ -1,0 +1,76 @@
+{
+  "summary": "Self-hostable story studio that turns a character and a short script into scene-by-scene AI video using your own provider keys.",
+  "type": "Web app",
+  "whatItDoes": "OpenHiggsfield Story Studio lets you pick a character or upload your own, write a short story, review the scenes and a cost estimate, and then generate the film with your own fal or Higgsfield credentials.",
+  "problem": "Hosted AI video studios keep your drafts and keys on their side. This project gives you a studio you run yourself, with your own provider accounts and your own data.",
+  "whoFor": ["Creators who want to make short AI story videos", "People who already pay for fal or Higgsfield and want their own studio", "Developers who want a self-hosted video generation front end"],
+  "whyChoose": "It is MIT-licensed and self-hostable, stores provider keys encrypted, and keeps drafts, uploads and renders private to each workspace.",
+  "requirements": ["Docker Compose (for the Docker setup)", "Node.js 24+ and FFmpeg on PATH (for local development)", "Your own fal or Higgsfield credentials", "An email service for sign-in links on a public deployment"],
+  "overview": [
+    "OpenHiggsfield Story Studio is an independent, self-hostable character-to-film studio. The README states clearly that it is not affiliated with, operated by, sponsored by or endorsed by Higgsfield.ai.",
+    "You choose from 50 characters or upload your own, write a one-minute story and review six scenes with narration directions and a generation estimate. When you're happy, you generate with your own provider credentials and watch each scene render, then get an assembled MP4.",
+    "Sign-in is by email magic link, accounts and workspaces are kept apart, and provider keys are encrypted at rest."
+  ],
+  "features": [
+    {"title": "Character browser", "body": "Pick a built-in character or upload your own image, and keep private drafts you can delete."},
+    {"title": "Scene scripts and estimates", "body": "Review scene scripts, narration directions and a generation estimate before anything is spent."},
+    {"title": "Bring your own provider", "body": "Connect fal or Higgsfield; credentials are stored encrypted."},
+    {"title": "Render progress and MP4", "body": "See progress per scene, preview each clip and get the scenes assembled into one MP4."},
+    {"title": "Private workspaces", "body": "Accounts and workspaces are isolated, with email magic-link sign-in."}
+  ],
+  "strengths": ["Self-hostable with Docker Compose", "MIT licence", "Provider keys are encrypted at rest", "Provider tests use mocked requests and do not purchase generations"],
+  "limitations": ["Public gallery publishing and private share links are not a complete production workflow yet", "Voice and character consistency depend on the model you choose", "Estimates are not final provider invoices", "Keys are encrypted at rest, not end-to-end encrypted", "Removing a draft does not remove completed films"],
+  "useCases": [
+    {"title": "Make a short character film", "body": "Write a one-minute story for a character and generate it scene by scene."},
+    {"title": "Run a private studio for a small team", "body": "Invite users by email and keep each workspace's drafts and renders separate."},
+    {"title": "Check costs before generating", "body": "Review the scene plan and estimate before paying your provider for generations."}
+  ],
+  "prerequisites": ["Docker Compose, or Node.js 24+ with FFmpeg for local development", "A fal or Higgsfield account and credentials", "For public use: HTTPS and real email delivery"],
+  "supportedOs": ["Docker", "Web"],
+  "install": [
+    {"os": "all", "label": "Run with Docker", "method": "docker", "steps": [
+      {"title": "Clone the repository", "code": "git clone https://github.com/thehiggsfieldai/OpenHiggsfield.git\ncd OpenHiggsfield"},
+      {"title": "Create your settings file", "code": "cp .env.example .env"},
+      {"title": "Generate an authentication secret", "body": "Put the result in BETTER_AUTH_SECRET. Also set PUBLIC_ORIGIN, RESEND_API_KEY and EMAIL_FROM, and either SIGNUP_EMAILS for invited users or ALLOW_SIGNUP=true for open registration.", "code": "node -e \"console.log(require('node:crypto').randomBytes(48).toString('hex'))\""},
+      {"title": "Start the studio", "body": "Then open http://localhost:3000 and connect your provider under Connections after signing in.", "code": "docker compose up --build -d"}
+    ]},
+    {"os": "all", "label": "Local development", "method": "source", "steps": [
+      {"title": "Install dependencies", "body": "Needs Node.js 24+ and FFmpeg on PATH (set FFMPEG_PATH if needed).", "code": "npm ci\nnpm ci --prefix apps/story-studio"},
+      {"title": "Start the server", "code": "npm run dev"},
+      {"title": "Start the studio in a second terminal", "body": "Open http://127.0.0.1:5193. The local email screen offers a test sign-in link that only works on localhost.", "code": "npm --prefix apps/story-studio run dev"}
+    ]}
+  ],
+  "environment": [
+    {"name": "BETTER_AUTH_SECRET", "required": true, "description": "Authentication secret; the README shows a node command to generate one."},
+    {"name": "PUBLIC_ORIGIN", "required": true, "description": "The public address of your studio."},
+    {"name": "RESEND_API_KEY", "required": true, "description": "Key for sending sign-in emails."},
+    {"name": "EMAIL_FROM", "required": true, "description": "The address sign-in emails come from."},
+    {"name": "SIGNUP_EMAILS", "required": false, "description": "Emails of invited users; or set ALLOW_SIGNUP=true for open registration."}
+  ],
+  "firstRun": [
+    {"title": "Sign in and connect a provider", "body": "Open the studio, sign in with the email link, then add your fal or Higgsfield credentials under Connections. Don't put provider credentials in frontend source."}
+  ],
+  "tutorial": {
+    "title": "Make your first one-minute story",
+    "useCase": "You want a short film starring one character, generated with your own provider account.",
+    "setup": ["Run the studio with Docker", "Sign in and connect your provider under Connections"],
+    "steps": [
+      {"title": "Pick a character", "body": "Choose one of the built-in characters or upload your own image."},
+      {"title": "Write the story", "body": "Write a one-minute story; the studio turns it into scenes with narration directions."},
+      {"title": "Review scenes and the estimate", "body": "Check each scene and the generation estimate before you spend anything."},
+      {"title": "Generate", "body": "Start generation and follow the progress for each scene."}
+    ],
+    "expected": "Clip previews for each scene and an assembled MP4 of the whole story.",
+    "nextSteps": ["Back up the data volume, including the credential-encryption key", "Set your own privacy terms before opening it to the public"]
+  },
+  "costs": [
+    {"label": "Software", "value": "Free and open source under the MIT licence.", "tone": "free"},
+    {"label": "Video generation", "value": "You pay your chosen provider (fal or Higgsfield) for each generation; the in-app estimate is not a final invoice.", "tone": "paid"}
+  ],
+  "troubleshooting": [
+    {"problem": "Video assembly fails in local development", "solution": "Make sure FFmpeg is on PATH, or set FFMPEG_PATH."},
+    {"problem": "Sign-in doesn't work on the hosted account flow", "solution": "Email sign-in must be configured: set RESEND_API_KEY and EMAIL_FROM."}
+  ],
+  "bestFor": ["Short AI story videos", "Self-hosted video generation", "Using your own fal or Higgsfield keys"],
+  "heroCommands": [{"comment": "Start with Docker", "command": "docker compose up --build -d"}]
+}
