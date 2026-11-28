@@ -46,6 +46,9 @@
 - 2026-11-28: Redesign (decision #41): forest-green "field guide" look replaces violet/Geist. New tokens, fonts
   (Fraunces, Schibsted Grotesk, JetBrains Mono), radii, flat surfaces, editorial hero, leaderboard and terminal styling,
   share-image colors. No data or layout features changed. Checked light/dark at 1440px and phone width, contrast.
+- 2026-11-28: Fixed Worker crash (Cloudflare 1101) on any request carrying a Cookie header: @opennextjs/aws 4.2.0
+  default-imports `cookie`, which resolved to 1.x (no default export). Pinned OpenNext's cookie to 0.7.2 in
+  pnpm-workspace.yaml; regression test tests/worker-cookie.test.ts. Exposed when Bot Fight Mode set `__cf_bm`.
 
 ## Not done / known gaps
 - Weekly board and Trending appear ~7 days after the first real job run; monthly after ~30 days.
