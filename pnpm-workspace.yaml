@@ -1,3 +1,9 @@
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
+
+overrides:
+  # @opennextjs/aws 4.2.0 does `import cookieParser from "cookie"` but resolves cookie@1.x, which has no
+  # default export, so every request carrying a Cookie header crashed the Worker (Cloudflare error 1101).
+  # cookie@0.7.x is plain CommonJS with the same parse(). Remove once OpenNext fixes the import.
+  "@opennextjs/aws>cookie": 0.7.2
