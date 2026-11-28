@@ -4,17 +4,17 @@ import { ImageResponse } from "next/og";
 // no external fetches, so it renders the same at build time and on the server.
 export const OG_SIZE = { width: 1200, height: 630 };
 
-const INK = "#17141f";
-const MUTED = "#6b6680";
-const ACCENT = "#6d3df0";
-const BG = "#fbfaff";
+const INK = "#18261e";
+const MUTED = "#56655b";
+const ACCENT = "#2f6b47";
+const BG = "#f6f5ee";
 
 export function ogCard({ eyebrow, title, subtitle, chips = [] }: { eyebrow: string; title: string; subtitle?: string; chips?: string[] }) {
   return new ImageResponse(
     (
       <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: "100%", height: "100%", padding: 72, background: BG, color: INK }}>
         <div style={{ display: "flex", alignItems: "center", gap: 16, fontSize: 30, fontWeight: 700 }}>
-          <div style={{ display: "flex", width: 52, height: 52, borderRadius: 12, background: ACCENT }} />
+          <div style={{ display: "flex", width: 52, height: 52, borderRadius: 8, background: INK }} />
           <div style={{ display: "flex", letterSpacing: -0.5 }}>
             AIRepo<span style={{ color: ACCENT }}>Hub</span>
           </div>
@@ -26,7 +26,7 @@ export function ogCard({ eyebrow, title, subtitle, chips = [] }: { eyebrow: stri
         </div>
         <div style={{ display: "flex", gap: 14, fontSize: 24 }}>
           {chips.map((c) => (
-            <div key={c} style={{ display: "flex", padding: "8px 18px", borderRadius: 999, border: `2px solid #dcd8ea`, color: INK }}>
+            <div key={c} style={{ display: "flex", padding: "8px 18px", borderRadius: 4, border: `2px solid #d6d9c8`, color: INK }}>
               {c}
             </div>
           ))}

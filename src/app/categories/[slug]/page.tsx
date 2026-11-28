@@ -60,7 +60,7 @@ export default async function CategoryPage({ params }: PageProps<"/categories/[s
           <CategoryIcon name={category.icon} className="size-7" />
         </span>
         <div>
-          <h1 className="text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">{category.name}</h1>
+          <h1 className="font-display text-4xl font-medium tracking-[-0.02em] sm:text-5xl">{category.name}</h1>
           <p className="mt-1.5 max-w-xl text-muted-foreground">{category.description}</p>
         </div>
       </header>

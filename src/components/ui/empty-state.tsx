@@ -22,10 +22,10 @@ export function EmptyState({
         className,
       )}
     >
-      <span className="mb-4 grid size-11 place-items-center rounded-xl bg-accent-soft text-accent-soft-foreground">
+      <span className="mb-4 grid size-11 place-items-center rounded-lg bg-accent-soft text-accent-soft-foreground">
         <Icon className="size-5" aria-hidden />
       </span>
-      <h3 className="text-[15px] font-semibold">{title}</h3>
+      <h3 className="font-display text-lg font-medium">{title}</h3>
       <div className="mt-1.5 max-w-md text-sm leading-relaxed text-muted-foreground">{children}</div>
       {action && <div className="mt-5">{action}</div>}
     </div>
