@@ -1,0 +1,68 @@
+{
+  "summary": "Design skill for Claude Code, Codex and Cursor that builds web pages which avoid the generic look of AI output.",
+  "type": "Coding-agent skill",
+  "whatItDoes": "Hallmark is a design skill you add to a coding agent such as Claude Code, Codex, Cursor or OpenCode. When you ask the agent for a web page, Hallmark picks a visual theme, builds the page around what the visitor came to do, and checks the result in a real browser for the habits that make pages look machine-made.",
+  "problem": "Pages written by AI coding agents often share the same tired patterns, like a small label above every heading or a sign-up box at the end of every page. Hallmark gives the agent rules and checks so the page looks deliberately designed instead.",
+  "whoFor": ["Developers who build websites with AI coding agents", "Founders making a landing page or product site", "Designers who want an agent to follow firm design rules", "Anyone who wants to audit or redesign an existing page"],
+  "whyChoose": "It treats some rules as a hard floor that never ships broken, such as contrast, keyboard focus, reduced motion, a working phone layout and no invented facts, and it has a fresh reviewer look at the page at the end.",
+  "requirements": ["A coding agent: Claude Code, Codex CLI, Cursor or OpenCode", "Node 18 or later", "Optional: Chrome and puppeteer-core for the browser checks and screenshots"],
+  "overview": [
+    "Hallmark is a skill made by Together AI that changes how your coding agent designs web pages. Instead of the agent's default look, it deals three themes from a catalog of fifty, each one a complete material with its own type, colours, surfaces and components, and lays out the page from the job the page has to do: a booking page books, a shop sells, a newsletter subscribes.",
+    "Every build runs through checks in tiers. Floor checks must pass before anything ships, Reflex checks catch the defaults a model tends to fall into, and Finish checks cover craft details without blocking. A lint script renders the page at several widths and a separate reviewer then looks at it with fresh eyes.",
+    "You can also point Hallmark at a page you already have: the redesign command keeps your content and wiring while changing the layout and style, and the audit command only reports what it finds."
+  ],
+  "features": [
+    {"title": "Fifty themes", "body": "Each theme is a full material with a sample page, and the build lays out its own page in the chosen one."},
+    {"title": "Built from the page's job", "body": "The main action sits where that kind of page normally puts it, and the page ends on it."},
+    {"title": "Custom designs", "body": "Ask for custom and Hallmark designs from your prompt alone, under the same rules and checks."},
+    {"title": "Uses your real product", "body": "Point it at a URL, a dev server or an app and it captures the screenshots itself."},
+    {"title": "Openly licensed photos", "body": "It picks from 755 openly licensed photographs and credits each one it uses on the page."},
+    {"title": "Redesign and audit", "body": "Rebuild an existing page while keeping its content and links, or just get a report of the problems."}
+  ],
+  "strengths": ["Hard rules for contrast, focus, reduced motion and phone layouts", "Checks pages in a real browser at several screen widths", "Asks for your real photos, screenshots and numbers instead of inventing them", "Works with several coding agents", "MIT licence"],
+  "limitations": ["The browser checks need Chrome and puppeteer-core; without them only the static checks run", "Each page is self-contained HTML and CSS, so it may need work to fit into an existing app framework", "It runs inside a coding agent, so it uses that agent's model and any costs that come with it"],
+  "useCases": [
+    {"title": "Build a landing page", "body": "Describe your product and let the agent build a page in one of the themes."},
+    {"title": "Restyle an existing site", "body": "Run a redesign on your current pages and keep their content and wiring."},
+    {"title": "Review a page", "body": "Run an audit to get a list of the AI-looking habits on a page without changing it."}
+  ],
+  "prerequisites": ["Node 18 or later", "A supported coding agent installed", "Optional: Chrome plus puppeteer-core for the render checks"],
+  "supportedOs": ["Windows", "macOS", "Linux"],
+  "install": [
+    {"os": "all", "label": "Install with the skills CLI", "method": "npx", "steps": [
+      {"title": "Install for every project", "body": "The -g flag installs it globally. Leave it off to install into the current project only.", "code": "npx skills add nutlope/hallmark -g"},
+      {"title": "Or install for one agent only", "body": "Swap claude-code for codex, opencode, cursor or github-copilot.", "code": "npx skills add nutlope/hallmark -g --agent claude-code"},
+      {"title": "Optional: enable the browser checks", "body": "Needed for the rendered lint and screenshots. You also need Chrome installed.", "code": "npm i -g puppeteer-core"}
+    ]},
+    {"os": "all", "label": "Install as a Claude Code plugin", "method": "plugin", "steps": [
+      {"title": "Add the marketplace", "body": "Run this inside Claude Code.", "code": "/plugin marketplace add nutlope/hallmark"},
+      {"title": "Install the plugin", "body": "As a plugin it is invoked as /hallmark:hallmark.", "code": "/plugin install hallmark@hallmark"}
+    ]}
+  ],
+  "environment": [],
+  "firstRun": [
+    {"title": "Ask your agent for a page", "body": "In Claude Code, Cursor or OpenCode, start your request with /hallmark (in Codex use $hallmark), or simply describe a new build. If it doesn't kick in on its own, name it: use hallmark to build a page for my project."}
+  ],
+  "tutorial": {
+    "title": "Audit and redesign an existing page",
+    "useCase": "You already have a site and want to see which parts look AI-generated, then fix them.",
+    "setup": ["Install Hallmark with the skills CLI", "Open your coding agent in your project folder"],
+    "steps": [
+      {"title": "Audit the page first", "body": "This only reports problems and changes nothing.", "code": "/hallmark audit ./index.html"},
+      {"title": "Redesign it", "body": "Hallmark keeps the content and wiring and changes the layout and style. Say keep the layout for a restyle, or polish for only the small fixes.", "code": "/hallmark redesign ./src/app"},
+      {"title": "Lint any page yourself", "body": "From a clone of the repo, run the lint script on a file or folder.", "code": "node skills/hallmark/scripts/sloplint.mjs <file-or-dir> --render"}
+    ],
+    "expected": "A redesigned page with the same links, fields and headings, plus a side-by-side before and after.",
+    "nextSteps": ["Browse the themes on the Hallmark website", "Try a custom design from a prompt"]
+  },
+  "costs": [
+    {"label": "Software", "value": "Free and open source under the MIT licence.", "tone": "free"},
+    {"label": "AI usage", "value": "Runs inside your coding agent, so you pay whatever that agent's model usage costs you.", "tone": "depends"}
+  ],
+  "troubleshooting": [
+    {"problem": "The skill doesn't run on its own", "solution": "Name it in your request, for example: use hallmark to build a pricing page."},
+    {"problem": "The rendered checks or screenshots don't run", "solution": "Install puppeteer-core globally and make sure Chrome is installed; without them only the static checks run."}
+  ],
+  "bestFor": ["Landing pages built with AI agents", "Redesigning existing pages", "Design audits", "Claude Code, Codex and Cursor users"],
+  "heroCommands": [{"comment": "Install", "command": "npx skills add nutlope/hallmark -g"}]
+}

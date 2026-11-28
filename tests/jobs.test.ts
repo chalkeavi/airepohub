@@ -9,7 +9,7 @@ import { categorize, importEligible, runImport, starBands, uniqueSlug } from "@/
 import { FileSummarizer, runPublishDrafts, validateSummary } from "@/lib/jobs/summarize";
 import type { StatPoint } from "@/lib/jobs/growth";
 import { completeWithRetry, isTransientLlmError, editoriallyExcluded, groundingProblems, parseModelJson, runWriter, buildGuide, cleanReadme } from "@/lib/jobs/writer";
-import { llmFromEnv, OpenAiCompatibleLlm, type LlmClient } from "@/lib/jobs/llm";
+import { llmFromEnv, OpenAiCompatibleLlm, PrewrittenLlm, type LlmClient } from "@/lib/jobs/llm";
 
 const NOW = new Date("2026-12-10T05:17:00Z");
 
@@ -625,6 +625,14 @@ describe("local writer", () => {
     expect(searched).toBe(false);
     expect(store.inserted.map((r) => r.github_id)).toEqual([9]); // low stars are fine when asked for
     expect(res.details.asked).toEqual({ "o/r1": "already on the site", "o/r9": "tried (see published_list or skipped)", "o/missing": "not found on GitHub" });
+  });
+
+  it("reads prewritten pages for the Actions run, and errors (not skips) when one is missing", async () => {
+    const llm = new PrewrittenLlm("data/writer-pages");
+    const text = await llm.complete("s", "Repository: Nutlope/hallmark\nGitHub description: x");
+    expect(JSON.parse(text).summary).toMatch(/Design skill/);
+    await expect(llm.complete("s", "Repository: o/none")).rejects.toThrow(/no prewritten page/);
+    expect(llmFromEnv({ LLM_PROVIDER: "prewritten" }).label).toBe("prewritten:data/writer-pages");
   });
 
   it("never picks excluded kinds of repos", () => {

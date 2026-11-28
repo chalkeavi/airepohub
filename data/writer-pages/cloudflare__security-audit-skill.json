@@ -1,0 +1,63 @@
+{
+  "summary": "Coding-agent skill from Cloudflare that runs a multi-phase security audit of a codebase and writes verified, machine-readable findings.",
+  "type": "Coding-agent skill",
+  "whatItDoes": "It turns your coding agent into a security auditor. The agent maps the codebase, sends separate helper agents to hunt for vulnerabilities, has fresh agents try to disprove each candidate, and writes the results as structured findings plus readable reports.",
+  "problem": "Asking an AI agent to find security bugs often produces long lists of guesses. This skill adds structure and independent checking so that only findings with a complete source trace are marked as confirmed.",
+  "whoFor": ["Developers who want a security review of their own code", "Security engineers using AI agents for audits", "Teams preparing a project for release"],
+  "whyChoose": "It is the skill that seeded Cloudflare's vulnerability discovery harness, and every candidate is checked by a different agent from the one that found it.",
+  "requirements": ["A coding agent with a model that supports tool use and parallel sub-agents", "Node.js for the findings and coverage-ledger validators", "An OS-enforced sandbox if the audit should build or run the target's code"],
+  "overview": [
+    "security-audit is a skill from Cloudflare that you add to a coding agent. You start the agent in the codebase you want to check and ask it for a security audit; the skill then runs a structured workflow instead of a single free-form review.",
+    "The audit has six phases: reconnaissance of the architecture and inputs, coverage-led hunting by isolated agents, validation of each candidate by a fresh verifier, structured output to findings.json, independent verification of the final records, and reports derived from those verified records.",
+    "Each finding ends up as confirmed, needs_validation or rejected. Running the skill again on the same repo builds on earlier results and targets the gaps that are left."
+  ],
+  "features": [
+    {"title": "Six-phase workflow", "body": "From reconnaissance and hunting through validation, verification and reporting."},
+    {"title": "Adversarial validation", "body": "The agent that checks a finding is never the agent that found it."},
+    {"title": "Clear verdicts", "body": "Every record is confirmed, needs_validation or rejected, with the unresolved fact stated when it can't be confirmed."},
+    {"title": "Machine-readable output", "body": "Findings are written to findings.json and validated against a JSON schema."},
+    {"title": "Broad attack classes", "body": "Hunting guides cover web and auth protocols, client-side code, LLM apps, supply chain, cloud deployment and more."},
+    {"title": "Repeat runs add up", "body": "Later runs reuse earlier ledgers and findings to cover what was missed."}
+  ],
+  "strengths": ["Built from Cloudflare's own vulnerability discovery work", "Separates confirmed bugs from leads that still need checking", "Zero-dependency validators written for Node.js", "MIT licence"],
+  "limitations": ["Needs a coding agent whose model supports tool use and parallel sub-agents", "Without a proper sandbox it won't execute the target's code and keeps those leads as needs_validation", "The README notes that a single run found roughly half of what repeated runs found in total"],
+  "useCases": [
+    {"title": "Audit your own project", "body": "Run a full audit before a release and read the generated report."},
+    {"title": "Focused review", "body": "Ask about one folder or one kind of vulnerability and get guidance instead of a full report."},
+    {"title": "Track coverage over time", "body": "Run it again after changes so it revalidates changed code and fills earlier gaps."}
+  ],
+  "prerequisites": ["A coding agent that supports skills, tool use and sub-agents", "Node.js"],
+  "supportedOs": ["Windows", "macOS", "Linux"],
+  "install": [
+    {"os": "all", "label": "Install with the Skills CLI", "method": "npx", "steps": [
+      {"title": "Install into the current project", "code": "npx skills add https://github.com/cloudflare/security-audit-skill \\\n  --skill security-audit"},
+      {"title": "Or install for your user", "body": "Add --global for a user-level installation.", "code": "npx skills add https://github.com/cloudflare/security-audit-skill \\\n  --skill security-audit \\\n  --global"},
+      {"title": "See more options", "body": "For choosing an agent and non-interactive installs.", "code": "npx skills --help"}
+    ]}
+  ],
+  "environment": [],
+  "firstRun": [
+    {"title": "Ask your agent for an audit", "body": "Start your coding agent in the codebase you want to check and ask for it in plain words.", "code": "security audit this codebase"}
+  ],
+  "tutorial": {
+    "title": "Run your first security audit",
+    "useCase": "Check a project for vulnerabilities and get a report you can act on.",
+    "setup": ["Install the skill with the Skills CLI", "Open your coding agent in the project folder"],
+    "steps": [
+      {"title": "Start a full audit", "body": "A direct audit request uses full audit mode.", "code": "security audit this codebase"},
+      {"title": "Or focus on one folder", "code": "find security vulnerabilities in ./src"},
+      {"title": "Choose where the reports go", "body": "Without a directory, output goes to a folder under your home directory named after the repo.", "code": "do a security review, output to ~/audits/my-project"}
+    ],
+    "expected": "A findings.json file plus REPORT.md, FINDINGS-DETAIL.md and NEEDS-VALIDATION.md in the output folder.",
+    "nextSteps": ["Fix the confirmed findings first", "Run the audit again later to cover the gaps"]
+  },
+  "costs": [
+    {"label": "Software", "value": "Free and open source under the MIT licence.", "tone": "free"},
+    {"label": "AI usage", "value": "Runs on your coding agent's model with several sub-agents, so a full audit can use a lot of model usage on a paid plan or API.", "tone": "depends"}
+  ],
+  "troubleshooting": [
+    {"problem": "Leads stay as needs_validation", "solution": "The workflow only runs target code inside an OS-enforced sandbox with networking disabled; without one, it records the lead and the exact fact still to check."}
+  ],
+  "bestFor": ["Pre-release security reviews", "AI-assisted code audits", "Finding vulnerabilities with proof", "Teams using coding agents"],
+  "heroCommands": [{"comment": "Ask your agent", "command": "security audit this codebase"}]
+}

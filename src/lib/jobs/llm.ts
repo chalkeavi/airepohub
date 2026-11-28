@@ -3,6 +3,7 @@
 // (OpenAI, Ollama, LM Studio, llama.cpp server, vLLM, OpenRouter, Groq, Gemini's OpenAI endpoint).
 // Never used during a visitor request: only from scripts/run-jobs.ts.
 import Anthropic from "@anthropic-ai/sdk";
+import { existsSync, readFileSync } from "node:fs";
 
 export interface LlmClient {
   /** Human-readable "provider:model", stored in automation_runs details. */
@@ -111,8 +112,28 @@ export class OpenAiCompatibleLlm implements LlmClient {
   }
 }
 
+/**
+ * Pages written ahead of time (e.g. by Claude in a session) in data/writer-pages/<owner>__<name>.json,
+ * in the same JSON shape a model returns. Lets the GitHub Actions job publish them with no API key;
+ * every page still goes through the writer's checks against the live README.
+ */
+export class PrewrittenLlm implements LlmClient {
+  label = "prewritten:data/writer-pages";
+  private dir: string;
+  constructor(dir = "data/writer-pages") {
+    this.dir = dir;
+  }
+  async complete(_system: string, user: string): Promise<string> {
+    const name = /^Repository: (\S+)$/m.exec(user)?.[1];
+    const file = name ? `${this.dir}/${name.toLowerCase().replace("/", "__")}.json` : "";
+    if (!file || !existsSync(file)) throw new Error(`no prewritten page for ${name ?? "this repo"} in ${this.dir}`);
+    return readFileSync(file, "utf8");
+  }
+}
+
 /** Build the client from environment variables. Throws a plain-English error when one is missing. */
 export function llmFromEnv(env: LlmEnv): LlmClient {
+  if (env.LLM_PROVIDER?.trim().toLowerCase() === "prewritten") return new PrewrittenLlm();
   const model = env.LLM_MODEL?.trim();
   if (!model) throw new Error("Set LLM_MODEL (e.g. claude-opus-5-5, gpt-5, or qwen3:32b for Ollama).");
   const provider = (env.LLM_PROVIDER?.trim().toLowerCase() || (env.LLM_BASE_URL ? "openai" : "anthropic")).replace(/-compatible$/, "");

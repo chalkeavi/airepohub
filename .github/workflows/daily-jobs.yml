@@ -10,8 +10,12 @@ on:
       job:
         description: "Which job to run"
         type: choice
-        options: [daily, snapshot, rank, discover, publish-queue, publish-guides, publish-drafts]
+        options: [daily, snapshot, rank, discover, publish-queue, publish-guides, publish-drafts, write]
         default: daily
+      args:
+        description: "Extra flags, e.g. for write: --repo=owner/name,owner2/name2 (pages from data/writer-pages)"
+        type: string
+        required: false
 
 permissions:
   contents: read
@@ -42,4 +46,10 @@ jobs:
             echo "::error::Add the SUPABASE_SERVICE_ROLE_KEY repository secret (Settings → Secrets and variables → Actions)."
             exit 1
           fi
-      - run: pnpm jobs ${{ github.event.inputs.job || 'daily' }}
+      # Inputs go through env vars (never interpolated into the script). $JOB_ARGS is split into
+      # flags on purpose; nothing is evaluated.
+      - run: pnpm jobs "$JOB" $JOB_ARGS
+        env:
+          JOB: ${{ github.event.inputs.job || 'daily' }}
+          JOB_ARGS: ${{ github.event.inputs.args || '' }}
+          LLM_PROVIDER: prewritten
