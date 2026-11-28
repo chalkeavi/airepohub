@@ -22,7 +22,7 @@ export function RepoCard({
     <Link
       href={`/repo/${repo.slug}`}
       className={cn(
-        "group flex h-full flex-col rounded-xl border border-border bg-surface p-5 shadow-card transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-raised",
+        "group flex h-full flex-col rounded-xl border border-border bg-surface p-5 shadow-card transition-[border-color,box-shadow,transform] duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:border-accent hover:shadow-raised",
         className,
       )}
     >

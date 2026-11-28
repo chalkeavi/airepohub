@@ -12,7 +12,7 @@ export function RepoAvatar({
   size?: number;
   className?: string;
 }) {
-  const radius = size >= 64 ? "rounded-2xl" : "rounded-[10px]";
+  const radius = size >= 64 ? "rounded-xl" : "rounded-lg";
   if (!src) {
     return (
       <span

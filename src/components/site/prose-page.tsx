@@ -3,9 +3,9 @@ import type { ReactNode } from "react";
 export function ProsePage({ title, intro, children }: { title: string; intro?: string; children: ReactNode }) {
   return (
     <article className="container-page max-w-3xl pt-14">
-      <h1 className="text-4xl font-semibold tracking-[-0.035em]">{title}</h1>
+      <h1 className="font-display text-[44px] font-medium leading-[1.05] tracking-[-0.02em]">{title}</h1>
       {intro && <p className="mt-3 text-lg text-muted-foreground">{intro}</p>}
-      <div className="mt-8 space-y-5 text-[15px] leading-relaxed text-muted-foreground [&_h2]:mt-10 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:tracking-[-0.02em] [&_h2]:text-foreground [&_li]:ml-5 [&_li]:list-disc [&_strong]:text-foreground">
+      <div className="mt-8 space-y-5 text-[15px] leading-relaxed text-muted-foreground [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-medium [&_h2]:tracking-[-0.01em] [&_h2]:text-foreground [&_li]:ml-5 [&_li]:list-disc [&_strong]:text-foreground">
         {children}
       </div>
     </article>

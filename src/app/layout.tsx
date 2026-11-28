@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
+import "@fontsource-variable/fraunces/opsz.css";
+import "@fontsource-variable/fraunces/opsz-italic.css";
+import "@fontsource-variable/jetbrains-mono";
+import "@fontsource-variable/schibsted-grotesk";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { themeScript } from "@/lib/theme-script";
@@ -22,14 +24,14 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fbfaff" },
-    { media: "(prefers-color-scheme: dark)", color: "#121019" },
+    { media: "(prefers-color-scheme: light)", color: "#f6f5ee" },
+    { media: "(prefers-color-scheme: dark)", color: "#0d1512" },
   ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

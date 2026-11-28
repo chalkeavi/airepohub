@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function SearchPage({ searchParams }: PageProps<"/search">) {
   return (
     <div className="container-page pt-12">
-      <h1 className="text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">Search</h1>
+      <h1 className="font-display text-4xl font-medium tracking-[-0.02em] sm:text-5xl">Search</h1>
       <Suspense fallback={<ResultsSkeleton />}>
         <Results searchParams={searchParams} />
       </Suspense>

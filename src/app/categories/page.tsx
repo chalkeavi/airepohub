@@ -14,7 +14,7 @@ export default async function CategoriesPage() {
   return (
     <div className="container-page pt-12">
       <p className="eyebrow mb-2">Explore</p>
-      <h1 className="text-4xl font-semibold tracking-[-0.035em]">Categories</h1>
+      <h1 className="font-display text-[44px] font-medium leading-[1.05] tracking-[-0.02em]">Categories</h1>
       <p className="mt-2 max-w-xl text-muted-foreground">Find the right open-source AI tool for the job.</p>
       <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {categories.map((c) => (

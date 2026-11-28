@@ -1,7 +1,7 @@
 # Progress
 
 **Current milestone:** 6 — Cloudflare deploy (config PR open, not deployed). Milestone 5 (admin) not started.
-**Last updated:** 2026-11-26
+**Last updated:** 2026-11-28
 
 ## Done (implemented and checked)
 - Milestone 1 (PR #1): docs and memory, schema, homepage, product page, categories, search, about, legal
@@ -43,6 +43,9 @@
   Search-as-you-type only knew the embedded top-150 list, cached for hours, so new repos needed Enter; added
   `/api/suggest` (whole catalog, cached per query) used when the embedded list has fewer than 6 matches. Writer now
   pre-filters editorial exclusions (#34/#37: leaked prompts, free-model proxies, deepfakes...) and the prompt lists them.
+- 2026-11-28: Redesign (decision #41): forest-green "field guide" look replaces violet/Geist. New tokens, fonts
+  (Fraunces, Schibsted Grotesk, JetBrains Mono), radii, flat surfaces, editorial hero, leaderboard and terminal styling,
+  share-image colors. No data or layout features changed. Checked light/dark at 1440px and phone width, contrast.
 
 ## Not done / known gaps
 - Weekly board and Trending appear ~7 days after the first real job run; monthly after ~30 days.

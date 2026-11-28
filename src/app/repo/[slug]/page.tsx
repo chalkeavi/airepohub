@@ -176,7 +176,7 @@ export default async function RepositoryPage({ params }: PageProps<"/repo/[slug]
             <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
               <RepoAvatar src={repo.avatarUrl} name={repo.name} size={88} className="shadow-raised" />
               <div className="min-w-0">
-                <h1 className="text-4xl font-semibold leading-[1.05] tracking-[-0.035em] sm:text-5xl">{repo.name}</h1>
+                <h1 className="font-display text-[44px] font-medium leading-[1.02] tracking-[-0.025em] sm:text-[60px]">{repo.name}</h1>
                 <p className="mt-1 text-sm text-muted-foreground">
                   by{" "}
                   <a
@@ -205,7 +205,7 @@ export default async function RepositoryPage({ params }: PageProps<"/repo/[slug]
               <div className="flex items-center gap-1.5">
                 <Star className="size-4 text-warning" aria-hidden />
                 <dt className="sr-only">Stars</dt>
-                <dd className="font-semibold tabular-nums">{repo.stars.toLocaleString("en-US")}</dd>
+                <dd className="font-semibold">{repo.stars.toLocaleString("en-US")}</dd>
                 <span className="text-muted-foreground">stars</span>
               </div>
               <div className="flex items-center gap-1.5">
@@ -313,7 +313,7 @@ export default async function RepositoryPage({ params }: PageProps<"/repo/[slug]
           {/* Sidebar */}
           <aside className="space-y-5 lg:sticky lg:top-36 lg:self-start" aria-label="Repository details">
             <div className="rounded-2xl border border-border bg-surface p-5 shadow-card">
-              <h2 className="mb-3 text-lg font-semibold tracking-[-0.02em]">At a glance</h2>
+              <h2 className="eyebrow mb-3">At a glance</h2>
               <dl className="divide-y divide-border text-sm">
                 {(content?.facts ?? [
                   repo.kind && { label: "Type", value: KIND_LABEL[repo.kind] },
@@ -340,7 +340,7 @@ export default async function RepositoryPage({ params }: PageProps<"/repo/[slug]
 
             {content && (
               <div className="rounded-2xl border border-accent/20 bg-accent-soft/60 p-5">
-                <h2 className="mb-3 flex items-center gap-2 text-lg font-semibold tracking-[-0.02em]">
+                <h2 className="mb-3 flex items-center gap-2 font-display text-xl font-medium tracking-[-0.01em]">
                   <Target className="size-5 text-accent" aria-hidden /> Best for
                 </h2>
                 <ul className="space-y-2 text-sm">

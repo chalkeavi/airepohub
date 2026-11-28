@@ -53,9 +53,9 @@ export function Leaderboard({
   const hasGrowth = board?.rows.some((r) => r.starGrowth !== null) ?? false;
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-card">
+    <div className="overflow-hidden rounded-xl border border-border bg-surface">
       <div className="flex flex-col gap-3 border-b border-border p-3 sm:flex-row sm:items-center sm:justify-between">
-        <div role="tablist" aria-label="Ranking period" className="flex rounded-lg bg-surface-muted p-1">
+        <div role="tablist" aria-label="Ranking period" className="flex gap-1">
           {PERIODS.map((p) => (
             <button
               key={p.id}
@@ -64,10 +64,10 @@ export function Leaderboard({
               aria-selected={period === p.id}
               onClick={() => setPeriod(p.id)}
               className={cn(
-                "flex-1 rounded-md px-3 py-1.5 text-[13px] font-medium transition-colors sm:flex-none",
+                "flex-1 rounded-md border px-3 py-1.5 text-[13px] font-medium transition-colors sm:flex-none",
                 period === p.id
-                  ? "bg-surface text-foreground shadow-card"
-                  : "text-muted-foreground hover:text-foreground",
+                  ? "border-ink bg-ink text-ink-foreground"
+                  : "border-transparent text-muted-foreground hover:border-border hover:text-foreground",
               )}
             >
               {p.label}
@@ -100,7 +100,7 @@ export function Leaderboard({
         </div>
       ) : (
         <ol role="tabpanel" className="divide-y divide-border">
-          <li className="hidden grid-cols-[3rem_minmax(0,1fr)_9rem_6rem_7rem] gap-4 px-5 py-2.5 text-xs font-medium text-muted-foreground md:grid" aria-hidden>
+          <li className="hidden grid-cols-[3rem_minmax(0,1fr)_9rem_6rem_7rem] gap-4 px-5 py-2.5 font-mono text-[10.5px] font-medium uppercase tracking-[0.08em] text-muted-foreground md:grid" aria-hidden>
             <span>Rank</span>
             <span>Repository</span>
             <span>Category</span>
@@ -115,8 +115,8 @@ export function Leaderboard({
               >
                 <span
                   className={cn(
-                    "font-mono text-lg font-semibold tabular-nums md:text-xl",
-                    r.rank <= 3 ? "text-accent" : "text-muted-foreground",
+                    "font-display text-2xl font-medium italic tabular-nums md:text-[28px]",
+                    r.rank <= 3 ? "text-accent" : "text-muted-foreground/70",
                   )}
                 >
                   {String(r.rank).padStart(2, "0")}

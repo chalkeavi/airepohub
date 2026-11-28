@@ -3,38 +3,44 @@
 Tokens live in `src/app/globals.css` (`:root` light, `.dark` dark, mapped to Tailwind via
 `@theme inline`). Components never use raw colors.
 
-## Direction
-Calm, precise developer product (Linear / Vercel / good docs sites), with one confident violet
-accent taken from the wireframe. Lavender-tinted neutrals, hairline borders, very soft shadows,
-generous whitespace, dense information where it helps (leaderboard, at-a-glance). No gradient
-blobs, no robot/brain imagery. Motion: 150–200 ms color/transform transitions only, respects
-`prefers-reduced-motion`.
+## Direction (decision #41, 2026-11-28)
+A "field guide" to open-source AI: editorial, printed-matter feel instead of the generic SaaS look.
+Forest-green accent on warm paper neutrals; dark mode is green-black ("forest at night") with a
+moss accent. One pollen-yellow highlight, used sparingly (marker under the hero phrase, logo bar,
+terminal title dot, text selection). Flat surfaces with hairline borders; when something lifts on
+hover it gets a hard offset shadow (no soft blur). Topographic contour lines (`.bg-grid`) behind the
+hero and product header. No purple, no gradient blobs, no robot/brain imagery. Motion: 150–200 ms
+color/transform transitions only, respects `prefers-reduced-motion`.
 
 ## Typography
-- **Geist Sans** (UI, headings), **Geist Mono** (code, numbers in stats), via the `geist` package
-  (self-hosted, no Google Fonts request).
-- Scale: display 44–56px/1.05 tracking -0.035em (hero), h1 36–44px, h2 24–28px, h3 17–18px,
-  body 15–16px/1.6, small 13px, micro 12px uppercase tracking 0.06em for eyebrows.
-- Numbers use `tabular-nums`.
+- **Fraunces** (display serif, `font-display`): h1, section h2s, category names, rank numbers (italic).
+- **Schibsted Grotesk** (`font-sans`): UI and body text.
+- **JetBrains Mono** (`font-mono`): code, eyebrow kickers, table headers, small counts.
+- All self-hosted from `@fontsource-variable/*` imported in `layout.tsx` (no Google Fonts request).
+- Scale: hero 46–76px/0.98 tracking -0.03em, product h1 44–60px, section h2 28–36px, body 15–16px/1.6,
+  eyebrow 11px mono uppercase tracking 0.12em with a 24px leading rule in the accent color.
 
 ## Color tokens
 | Token | Use | Light | Dark |
 |---|---|---|---|
-| `background` | page | lavender-white | near-black violet |
-| `surface` | cards | white | raised dark |
-| `surface-muted` | wells, code rows, hover | 97% | 21% |
-| `border` | hairlines | 91% | 28% |
-| `foreground` / `muted-foreground` | text | 20% / 48% | 96% / 70% |
-| `accent` / `accent-foreground` | primary actions, links, active tab | violet 0.53 | violet 0.70 |
-| `accent-soft` | tinted chips, icon tiles | violet 96% | violet 25% |
-| `success`, `warning`, `danger` | status chips (activity, verification) | | |
-| `terminal` | always-dark code surfaces | | |
-Contrast: body and muted text meet WCAG AA on `background` and `surface` in both themes.
+| `background` | page | warm paper | green-black |
+| `surface` | cards | near-white paper | raised green-black |
+| `surface-muted` | wells, code rows, hover | sage-tinted 95% | 23.5% |
+| `border` / `border-strong` | hairlines | 88.5% / 79% | 29.5% / 38% |
+| `foreground` / `muted-foreground` | text | forest ink 23% / 46% | warm white 94.5% / 74% |
+| `ink` / `ink-foreground` | primary buttons, active tab, logo tile | deep forest | warm white |
+| `accent` / `accent-foreground` | links, accents, eyebrow | forest green 0.45 | moss 0.80 |
+| `accent-soft` | tinted chips, icon tiles | pale sage | dark moss |
+| `highlight` | marker, selection | pollen yellow | pollen yellow |
+| `success`, `warning`, `danger` | status chips (teal-green, ochre, brick) | | |
+| `terminal` | always-dark code surfaces | forest night | deeper |
+Contrast (checked 2026-11-28, WCAG): text and muted text ≥ 6:1 on background/surfaces in both themes;
+accent ≥ 6:1; status chips ≥ 4.5:1.
 
 ## Spacing and layout
 4px grid. Container `max-w-[1200px]`, gutters 16px (phone) / 24px / 32px (desktop).
-Section rhythm 64–96px on desktop, 48px on phone. Card padding 20–24px. Radius: 8px controls,
-12px cards, 16px hero tiles. Product page: content column + 360px sidebar on ≥ lg, stacked below.
+Section rhythm 64–96px on desktop, 48px on phone. Card padding 20–24px. Radius (Tailwind scale retuned in `@theme`): sm 3px, md 4px, lg 6px (controls), xl 8px (cards),
+2xl 10px. Badges are square-cornered tags, not pills. Product page: content column + 360px sidebar on ≥ lg, stacked below.
 
 ## Components
 | Component | File | Notes |
@@ -42,7 +48,7 @@ Section rhythm 64–96px on desktop, 48px on phone. Card padding 20–24px. Radi
 | Button | `ui/button.tsx` | variants: primary (dark/ink), accent, outline, ghost; sizes sm/md/lg |
 | Badge | `ui/badge.tsx` | neutral, accent, success, warning, danger, outline |
 | Kbd | `ui/kbd.tsx` | keyboard hint |
-| Logo | `site/logo.tsx` | original "level" mark: three ascending bars in a rounded tile |
+| Logo | `site/logo.tsx` | original "level" mark: three ascending bars (tallest in highlight) in an ink tile; serif wordmark with italic "Hub" |
 | Header / MobileNav / Footer | `site/*` | sticky header with blur, sheet nav < md |
 | SearchBox | `site/search-box.tsx` | suggestions from server-provided list; ⌘K / `/` focuses |
 | ThemeToggle | `site/theme-toggle.tsx` | class strategy, inline script prevents flash |

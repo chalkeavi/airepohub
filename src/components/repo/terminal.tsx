@@ -21,13 +21,11 @@ export function Terminal({
         className,
       )}
     >
-      <div className="relative flex items-center border-b border-terminal-border px-4 py-2.5">
-        <span className="flex gap-1.5" aria-hidden>
-          <span className="size-3 rounded-full bg-[#ff5f57]" />
-          <span className="size-3 rounded-full bg-[#febc2e]" />
-          <span className="size-3 rounded-full bg-[#28c840]" />
-        </span>
-        <figcaption className="absolute inset-x-0 text-center text-xs font-medium text-terminal-muted">{title}</figcaption>
+      <div className="flex items-center gap-3 border-b border-terminal-border py-2 pl-5 pr-3">
+        <figcaption className="flex min-w-0 items-center gap-2 font-mono text-[11px] uppercase tracking-[0.1em] text-terminal-muted">
+          <span aria-hidden className="size-1.5 shrink-0 bg-highlight" />
+          <span className="truncate">{title}</span>
+        </figcaption>
         <CopyButton
           value={commands.map((c) => c.command).join("\n")}
           label="Copy commands"
