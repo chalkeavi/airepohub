@@ -6,6 +6,7 @@
 // --summaries=file reads data/summaries.json; claude needs ANTHROPIC_API_KEY (SUMMARY_MODEL to override).
 // Env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, GITHUB_TOKEN (Actions provides it).
 // --dry-run reads through the public publishable key and GitHub, and writes nothing.
+//   ... write --repo=owner/name[,owner/name] (just these repos)
 //   ... write [--limit=20] [--min-stars=500] [--pushed-days=180] [--drafts] [--dry-run] [--out=dir]
 //       Local writer (decision #38): any LLM writes full pages for repos not on the site yet and
 //       stores them in Supabase. Needs LLM_MODEL (+ LLM_PROVIDER, LLM_API_KEY, LLM_BASE_URL).
@@ -103,6 +104,7 @@ const plan: Record<string, (() => Promise<JobSummary>)[]> = {
       const outDir = text("out") ?? ".writer-preview";
       return runWriter(ctx, {
         llm: llmFromEnv(process.env as Record<string, string | undefined>),
+        repos: flags.filter((f) => f.startsWith("--repo=")).flatMap((f) => f.slice(7).split(",")).map((r) => r.trim().replace(/^https:\/\/github\.com\//, "").replace(/\/$/, "")).filter(Boolean),
         limit: flag("limit", Number(process.env.WRITER_LIMIT) || 20),
         minStars: flag("min-stars", Number(process.env.WRITER_MIN_STARS) || 500),
         pushedSince: new Date(ctx.now.getTime() - flag("pushed-days", 180) * 86_400_000).toISOString().slice(0, 10),

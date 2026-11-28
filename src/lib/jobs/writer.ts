@@ -257,6 +257,8 @@ export interface WriterOptions {
   llm: LlmClient;
   /** Publish at most this many new pages per run. */
   limit: number;
+  /** Write exactly these repos (owner/name) instead of searching; the star minimum doesn't apply. */
+  repos?: string[];
   minStars: number;
   /** Only search repos pushed on or after this day (YYYY-MM-DD). */
   pushedSince: string;
@@ -280,6 +282,25 @@ const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
  * (owner suggestion 2026-11-27): early pages go live sooner and GitHub calls are spread out.
  */
 async function* candidateStream(ctx: JobContext, opts: WriterOptions, details: Record<string, unknown>, known: { repositories: Set<number>; queue: Set<number> }) {
+  if (opts.repos?.length) {
+    // Owner-picked repos: still skipped if already in the system, still no forks/archived/lists or excluded kinds.
+    const asked: Record<string, string> = {};
+    details.asked = asked;
+    for (const name of opts.repos) {
+      const g = ctx.github.getRepoByName ? await ctx.github.getRepoByName(name) : null;
+      if (!g) asked[name] = "not found on GitHub";
+      else if (known.repositories.has(g.id)) asked[name] = "already on the site";
+      else if (!importEligible(g, 0)) asked[name] = "not eligible (fork, archived, a list, or no GitHub description)";
+      else if (editoriallyExcluded(g)) asked[name] = "excluded kind of repo (decisions #34/#37)";
+      else {
+        asked[name] = "tried (see published_list or skipped)";
+        yield g;
+        continue;
+      }
+      ctx.log?.(`${name}: ${asked[name]}`);
+    }
+    return;
+  }
   const pending = await ctx.store.listPendingQueue(1000);
   const pendingIds = new Set(pending.map((q) => Number(q.github_id)));
   const seen = new Set<number>();
@@ -369,13 +390,14 @@ export function runWriter(ctx: JobContext, opts: WriterOptions): Promise<JobSumm
     const skipped: { full_name: string; reason: string }[] = [];
     const errors: { full_name: string; error: string }[] = [];
     let llmErrorsInARow = 0;
-    const maxTries = opts.limit * 2; // stop after this many repos even if fewer passed the checks
+    const limit = opts.repos?.length ? opts.repos.length : opts.limit;
+    const maxTries = limit * 2; // stop after this many repos even if fewer passed the checks
     Object.assign(details, { model: opts.llm.label, published_list: published, skipped, errors });
 
-    ctx.log?.(`writing up to ${opts.limit} pages with ${opts.llm.label}`);
+    ctx.log?.(`writing up to ${limit} pages with ${opts.llm.label}`);
     let n = 0;
     for await (const g of candidateStream(ctx, opts, details, known)) {
-      if (published.length >= opts.limit || n >= maxTries) break;
+      if (published.length >= limit || n >= maxTries) break;
       n++;
       details.candidates = n;
       if (llmErrorsInARow >= 3) {
@@ -393,7 +415,7 @@ export function runWriter(ctx: JobContext, opts: WriterOptions): Promise<JobSumm
           );
         }
       };
-      ctx.log?.(`[${n}] ${g.full_name}: reading README and writing the page (${published.length}/${opts.limit} published so far)…`);
+      ctx.log?.(`[${n}] ${g.full_name}: reading README and writing the page (${published.length}/${limit} published so far)…`);
       let sha: string | null = null;
       let readme: { path: string; text: string } | null = null;
       try {
@@ -471,7 +493,7 @@ export function runWriter(ctx: JobContext, opts: WriterOptions): Promise<JobSumm
       }
       published.push({ full_name: g.full_name, slug, summary: guide.summary! });
       ctx.log?.(`${ctx.dryRun ? "wrote (dry run)" : opts.drafts ? "saved draft" : "published"} ${g.full_name} → /repo/${slug}`);
-      if (published.length >= opts.limit) break; // don't start another GitHub search
+      if (published.length >= limit) break; // don't start another GitHub search
     }
     details.processed = published.length;
     details.status_written = ctx.dryRun ? "none (dry run)" : opts.drafts ? "draft" : "published";

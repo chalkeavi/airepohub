@@ -54,8 +54,9 @@ it with `OLLAMA_CONTEXT_LENGTH=32768 ollama serve`, or lower `WRITER_README_CHAR
 pnpm writer --dry-run --limit=3   # writes pages to .writer-preview/*.json, nothing to the database
 pnpm writer                       # publish up to WRITER_LIMIT new pages
 pnpm writer --limit=5 --drafts    # save as drafts (not visible) instead of publishing
+pnpm writer --repo=owner/name,owner2/name2   # just these repos (no search, no star minimum)
 ```
-Flags: `--limit=N`, `--min-stars=N`, `--pushed-days=N`, `--drafts`, `--dry-run`, `--out=dir`.
+Flags: `--repo=owner/name` (comma-separated or repeated; GitHub URLs work too), `--limit=N`, `--min-stars=N`, `--pushed-days=N`, `--drafts`, `--dry-run`, `--out=dir`.
 
 ## Run daily at a fixed time
 The computer has to be on at that time.
